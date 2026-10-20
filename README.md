@@ -6,6 +6,8 @@ ConCon 的灵巧手采集与控制模块：接收游戏手柄目标信号，驱�
 
 从空工作目录准备资产、渲染和复算标定，请按[独立复现指南](docs/reproduce.md)执行；全部公开来源和固定版本见[资源清单](references/external_resources.json)。
 
+本项目采用 [MIT 许可证](LICENSE)，Copyright (c) 2026 5o1。改编代码的来源、版权及外部资产的许可范围见[第三方声明](THIRD_PARTY_NOTICES.md)。
+
 ## 结构
 
 | 目录 | 职责 |

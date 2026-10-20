@@ -1,4 +1,5 @@
 // Adapted from xbox_gamepad_physics teleop/web/app.js: same packet + WebCodecs path.
+// Copyright (c) 2026 5o1. MIT; see THIRD_PARTY_NOTICES.md.
 const canvas=document.querySelector('#video'),ctx=canvas.getContext('2d',{alpha:false});
 const status=document.querySelector('#status'),stats={received:0,presented:0,errors:[],last:null};
 window.operatorStats=stats;

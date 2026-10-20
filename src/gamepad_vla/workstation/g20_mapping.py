@@ -2,7 +2,7 @@
 
 Ported without table or math changes from ``assist_teleop_local_policy``
 ``manus_mapping.py``, snapshot ``station_20261014`` at the compute node
-``workspace://external/``. Reuse was authorized on 2026-10-14.
+``workspace://external/``. See THIRD_PARTY_NOTICES.md for provenance and permissions.
 """
 
 from collections.abc import Mapping, Sequence

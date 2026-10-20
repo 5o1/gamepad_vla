@@ -7,6 +7,8 @@ name = "gamepad-vla"
 version = "0.1.0"
 description = "Dexterous-hand control that reproduces target gamepad signals on a physical controller"
 readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE", "THIRD_PARTY_NOTICES.md"]
 requires-python = ">=3.10"
 authors = [{ name = "5o1" }]
 dependencies = [

@@ -4,8 +4,8 @@ Adapted from the collection station's Isaac Lab project
 (``assist_teleop_local_policy/source/linkerhand_g20_isaaclab/.../assets.py``,
 snapshot at the compute node workspace://external/station_20261014).
 Converter settings reproduce that project's ``assets/usd/right/config.yaml`` so
-the left hand matches the deployed right-hand asset. Reuse authorized by the
-user on 2026-10-14.
+the left hand matches the deployed right-hand asset. See THIRD_PARTY_NOTICES.md
+for provenance and permissions.
 """
 
 import math
