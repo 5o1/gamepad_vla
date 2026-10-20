@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gamepad-vla"
+version = "0.1.0"
+description = "Dexterous-hand control that reproduces target gamepad signals on a physical controller"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "5o1" }]
+dependencies = [
+    "numpy>=1.24",
+]
+
+[project.optional-dependencies]
+vla = ["torch>=2.4"]
+assets = ["scipy>=1.10", "pillow>=10", "trimesh>=4", "opencv-python>=4.10"]
+dev = ["pytest>=8", "build>=1.2"]
+sim = [
+    "sapien==3.0.3",
+    "xbox-gamepad-physics[build,robotwin,teleop]==0.3.1",
+    "PyYAML>=6",
+    "pillow>=10",
+    "trimesh>=4",
+    "opencv-python>=4.10",
+    "transforms3d>=0.4",
+]
+web = ["aiohttp>=3.9", "opencv-python>=4.10", "PyYAML>=6", "pillow>=10"]
+data = ["pyarrow>=18"]
+
+[project.scripts]
+gamepad-vla-recover = "gamepad_vla.workstation.recorder:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"gamepad_vla.workstation" = ["operator_web/*.html", "operator_web/*.js"]
+
+[tool.pytest.ini_options]
+addopts = "-ra"
+testpaths = ["tests"]

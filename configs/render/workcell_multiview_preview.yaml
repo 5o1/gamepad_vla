@@ -1,0 +1,32 @@
+# Static views of a single scene; calibrated camera keeps its exact K and pose.
+experiment: workcell_review
+profile: full_controls
+scene:
+  timestep: 0.004166666666666667
+  ground: false
+  render: true
+  robotwin_root: null
+gamepad:
+  fixed_root: true
+  attach_visual: true
+  collision: sdf
+params:
+  steps: 0
+  spec_cameras: [camera_3]
+  cameras:
+    side:
+      width: 1280
+      height: 720
+      fovy_degrees: 48
+      near: 0.01
+      far: 20
+      position: [0.55, -1.65, 1.65]
+      target: [0.30, 0.62, 0.95]
+    opposite:
+      width: 1280
+      height: 720
+      fovy_degrees: 48
+      near: 0.01
+      far: 20
+      position: [2.35, 0.68, 1.70]
+      target: [0.25, 0.62, 1.00]

@@ -1,0 +1,63 @@
+{
+  "archived_at_utc": "2026-10-20T13:32:05.215476+00:00",
+  "status": "pending_measured_recapture",
+  "reason": "User confirmed board placement distances were not measured. No world-frame extrinsics have been solved.",
+  "printing_user_statement": "A3 PDF print",
+  "printed_scale_verified": false,
+  "calibration_tool_commit": "788696d54da4cb541b3baf6b645e591c7f4ecf20",
+  "observations": [
+    {
+      "index": 1,
+      "image": "images/position_1_20261020T132504_634113Z.png",
+      "metadata": "images/position_1_20261020T132504_634113Z.json",
+      "source": "build/camera_capture/20261020_132120/position_1_20261020T132504_634113Z.png",
+      "sha256": "6f895d74152fb338e9d8d04346248cfb7184606ce0178b46d323365480f9ef9d",
+      "placement_measured": false
+    },
+    {
+      "index": 2,
+      "image": "images/position_1_20261020T132514_650725Z.png",
+      "metadata": "images/position_1_20261020T132514_650725Z.json",
+      "source": "build/camera_capture/20261020_132120/position_1_20261020T132514_650725Z.png",
+      "sha256": "c2cba4afa270e93b192119fa3ef305598a3e0992abcc576e38b23c857b733927",
+      "placement_measured": false
+    },
+    {
+      "index": 3,
+      "image": "images/position_1_20261020T132529_757799Z.png",
+      "metadata": "images/position_1_20261020T132529_757799Z.json",
+      "source": "build/camera_capture/20261020_132120/position_1_20261020T132529_757799Z.png",
+      "sha256": "591b751bf31d18b356590c4d2e0505cc90f9418a5a3aa932f917c2931aa2955e",
+      "placement_measured": false
+    }
+  ],
+  "station_archive": "station-data://calibration/2026-10-20-ego/initial_unmeasured",
+  "detection": {
+    "executed_on": "计算节点",
+    "python": "workspace://envs/isaaclab-2.3.2/bin/python",
+    "opencv": "4.11.0",
+    "command": "PYTHONPATH=. python -m calib_board.detect IMAGE --intrinsics intrinsics.json --spec board_spec.json --output diagnostics/STEM.json --overlay diagnostics/STEM.jpg",
+    "tool_worktree_status": "",
+    "observations": [
+      {
+        "image": "position_1_20261020T132504_634113Z.png",
+        "corners": 20,
+        "reprojection_median_px": 0.32704925537109375,
+        "reprojection_p95_px": 0.6557157158851625
+      },
+      {
+        "image": "position_1_20261020T132514_650725Z.png",
+        "corners": 18,
+        "reprojection_median_px": 0.385631799697876,
+        "reprojection_p95_px": 0.7130790084600446
+      },
+      {
+        "image": "position_1_20261020T132529_757799Z.png",
+        "corners": 20,
+        "reprojection_median_px": 0.26758873462677,
+        "reprojection_p95_px": 0.6431938737630845
+      }
+    ],
+    "scope": "Per-image board-to-camera pose and corner diagnostics only; no table/world extrinsic calibration."
+  }
+}

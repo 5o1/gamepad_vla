@@ -1,0 +1,31 @@
+{
+  "width": 1280,
+  "height": 720,
+  "D": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "distortion_model": "plumb_bob",
+  "serial": "camera_3",
+  "K": [
+    [
+      906.560791015625,
+      0.0,
+      647.8956298828125
+    ],
+    [
+      0.0,
+      905.986328125,
+      362.2329406738281
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "source": "CameraInfo matched to the captured raw image; factory/driver intrinsics, not newly fitted."
+}

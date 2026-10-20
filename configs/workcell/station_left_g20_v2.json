@@ -1,0 +1,46 @@
+{
+  "name": "station-left-g20-v2",
+  "world_frame": "world",
+  "table": {
+    "pose": [0.405915, 0.6252, 0.759655, 1.0, 0.0, 0.0, 0.0],
+    "half_extents": [0.3125, 0.625, 0.0075]
+  },
+  "left_arm": {
+    "urdf": "workspace://assets/linkerhand_station_20261014/AR5_L25_workstation_urdf/urdf/AR5_L25_workstation.urdf",
+    "base_link": "AR5_5_07L_W4C4A2_base",
+    "tip_link": "AR5_5_07L_W4C4A2_tcp",
+    "base_pose": [0.0637, 0.715, 1.267, 0.4999981633974483, -0.49999999999662686, 0.49999999999662686, 0.5000018366025518],
+    "home_q": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+    "joint_names": [
+      "AR5_5_07L_W4C4A2_joint_1",
+      "AR5_5_07L_W4C4A2_joint_2",
+      "AR5_5_07L_W4C4A2_joint_3",
+      "AR5_5_07L_W4C4A2_joint_4",
+      "AR5_5_07L_W4C4A2_joint_5",
+      "AR5_5_07L_W4C4A2_joint_6",
+      "AR5_5_07L_W4C4A2_joint_7"
+    ]
+  },
+  "left_hand": {
+    "urdf": "workspace://assets/linkerhand_station_20261014/linkerhand_g20_l20_l25_urdf_mesh/g20_left/linkerhand_g20_left.urdf",
+    "root_link": "hand_base_link",
+    "mount": [0.0, 0.0, 0.03, 0.7071054825112364, 0.0, 0.0, 0.7071080798594737],
+    "mount_status": "unverified"
+  },
+  "gamepad": {
+    "release": "xbox_gamepad_physics==0.3.1",
+    "profile": "full_controls",
+    "collision": "sdf",
+    "root_pose": [0.4, 0.715, 0.798, 1.0, 0.0, 0.0, 0.0],
+    "fixed_root": true
+  },
+  "notes": [
+    "Supersedes station-left-g20-v1: only the table and the gamepad placeholder height changed.",
+    "table is the 15 mm top plate of workstation_table.STL in AR5_L25_workstation.urdf (design CAD, not measured): x 0.0934-0.7184, y 0.0002-1.2502, z 0.7522-0.7672 in world; the frame below the plate is omitted.",
+    "Unresolved discrepancy: by the URDF the left base mesh bottom (z 1.2105) is 0.443 m above the table top, while ~/Gzl/bottle-cap-opening/AI_HANDOFF.md records a user-measured 0.500 m.",
+    "left_arm.base_pose is the AR5 URDF design value; no base calibration exists on the station.",
+    "left_arm.home_q is an all-zero placeholder and is not a verified collision-free home pose.",
+    "left_hand.mount is the station L25 fixed-joint transform and is unverified for G20; the Rokae controller toolset is zero.",
+    "gamepad.root_pose is a placeholder: face up in front of the left base (y 0.715), collision bottom (-0.0299 m in controller_body) about 1 mm above the table top; x/y await left-arm IK against the reach placements."
+  ]
+}

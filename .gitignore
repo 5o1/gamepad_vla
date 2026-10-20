@@ -1,0 +1,32 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.venv/
+build/
+dist/
+*.egg-info/
+*.log
+# Weights, datasets, converted assets and run outputs stay on scalelab01.
+/runs/
+/checkpoints/
+/data/
+*.pt
+*.ckpt
+*.usd
+*.usda
+*.usdc
+*.stl
+*.STL
+*.obj
+# Local copies of robot assets.
+/assets/
+# Generated deployment metadata; created by the source archive tool.
+/.code-provenance.json
+.env
+.env.*
+!.env.example
+/.local/
+/configs/site.local.json
+*.pem
+*.key

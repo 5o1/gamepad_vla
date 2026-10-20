@@ -1,0 +1,38 @@
+experiment: workcell_review
+profile: full_controls
+scene:
+  timestep: 0.004166666666666667
+  ground: false
+  render: true
+  robotwin_root: null
+gamepad:
+  fixed_root: true
+  attach_visual: true
+  collision: sdf
+params:
+  steps: 120
+  cameras:
+    front:
+      width: 1280
+      height: 720
+      fovy_degrees: 40
+      near: 0.001
+      far: 10
+      position: [1.55, 0.62, 1.35]
+      target: [0.42, 0.66, 0.85]
+    player:
+      width: 1280
+      height: 720
+      fovy_degrees: 40
+      near: 0.001
+      far: 10
+      position: [-0.15, 0.62, 1.45]
+      target: [0.47, 0.64, 0.80]
+    top_oblique:
+      width: 1280
+      height: 720
+      fovy_degrees: 40
+      near: 0.001
+      far: 10
+      position: [0.95, 0.645, 1.40]
+      target: [0.47, 0.645, 0.80]

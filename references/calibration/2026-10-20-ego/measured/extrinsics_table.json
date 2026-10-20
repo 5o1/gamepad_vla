@@ -1,0 +1,343 @@
+{
+  "T_world_camera_optical": [
+    [
+      0.024048094466417556,
+      -0.9837453331743796,
+      0.1779517030268679,
+      0.22273757355070803
+    ],
+    [
+      -0.9995463982548801,
+      -0.026888234754534796,
+      -0.013565418072482946,
+      0.6815751421638744
+    ],
+    [
+      0.01812972388732017,
+      -0.1775447613685444,
+      -0.983945715383911,
+      0.6778455444798973
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "pose_xyz_qw_qx_qy_qz": [
+    0.22273757355070803,
+    0.6815751421638744,
+    0.6778455444798973,
+    0.05747639586815635,
+    -0.7132464589124967,
+    0.6951635394212929,
+    -0.06872849646290498
+  ],
+  "translation_unit": "m",
+  "camera_axes": "ROS optical: x right, y down, z forward",
+  "method": "all world/image corners, solvePnP ITERATIVE + solvePnPRefineLM; equal corner weights; no rejection",
+  "images": 3,
+  "corners_per_image": [
+    20,
+    20,
+    20
+  ],
+  "total_corners": 60,
+  "reprojection_median_px": 2.0561406935482323,
+  "reprojection_p95_px": 4.680554593244095,
+  "uncertainty": {
+    "method": "leave-one-image-out jackknife, refit all remaining world/image correspondences",
+    "n": 3,
+    "translation_std_m": [
+      0.013788480271352266,
+      0.02931815630264961,
+      0.011894770057112626
+    ],
+    "rotation_std_rad": [
+      0.02218845037262246,
+      0.03945146004322378,
+      0.005714529016047697
+    ],
+    "scope": "Leave-one-image-out repeatability only; excludes systematic placement, printing and intrinsic errors. Camera must remain fixed."
+  },
+  "calibration_mode": "multi_position",
+  "distinct_placements": 3,
+  "physical_accuracy_verified": false,
+  "board_id": "STATION-CALIB-001",
+  "spec_version": "1.1.1",
+  "K": [
+    [
+      906.560791015625,
+      0.0,
+      647.8956298828125
+    ],
+    [
+      0.0,
+      905.986328125,
+      362.2329406738281
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "D": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "image_size_wh": [
+    1280,
+    720
+  ],
+  "observations": [
+    {
+      "image": "workspace://runs/20261020-ego-calibration/measured/images/position_1_20261020T143235_150802Z.png",
+      "placement": "workspace://runs/20261020-ego-calibration/measured/placements/position_1.json",
+      "T_world_board": [
+        [
+          -0.003818323815086061,
+          0.9999927101750503,
+          0.0,
+          0.345207326648297
+        ],
+        [
+          0.9999927101750505,
+          0.003818323815086332,
+          0.0,
+          0.3122606940073771
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          0.005
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "corners": 20,
+      "reprojection_median_px": 0.22076937556266785
+    },
+    {
+      "image": "workspace://runs/20261020-ego-calibration/measured/images/position_2_20261020T143322_848514Z.png",
+      "placement": "workspace://runs/20261020-ego-calibration/measured/placements/position_2.json",
+      "T_world_board": [
+        [
+          0.0014351262951218756,
+          0.9999989702057286,
+          0.0,
+          0.3474846339639663
+        ],
+        [
+          0.9999989702057284,
+          -0.0014351262951218442,
+          0.0,
+          0.5589346042408635
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          0.005
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "corners": 20,
+      "reprojection_median_px": 0.1707409918308258
+    },
+    {
+      "image": "workspace://runs/20261020-ego-calibration/measured/images/position_3_20261020T143708_918156Z.png",
+      "placement": "workspace://runs/20261020-ego-calibration/measured/placements/position_3.json",
+      "T_world_board": [
+        [
+          0.006916826431188269,
+          0.9999760784699395,
+          0.0,
+          0.15972346102684296
+        ],
+        [
+          0.9999760784699403,
+          -0.0069168264311883715,
+          0.0,
+          0.4436432376794687
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          0.005
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "corners": 20,
+      "reprojection_median_px": 0.5736129283905029
+    }
+  ],
+  "world_frame": {
+    "origin": "table back-left corner on table surface",
+    "x": "back to front",
+    "y": "left to right",
+    "z": "up",
+    "unit": "m"
+  },
+  "board_surface_above_table_mm": 5.0,
+  "provenance": {
+    "computed_at_utc": "2026-10-20T14:49:34.982810+00:00",
+    "solver_repo_commit": "788696d54da4cb541b3baf6b645e591c7f4ecf20",
+    "solver_source_hashes": {
+      "common.py": "548a2eeb8a2daac92263fa5963d5ae2984593555a18eb68c847fe01310df0055",
+      "detect.py": "b689379e0eb0046a4794f85ebd50d15fbca8ca9992d06acbd6066e948761c22b",
+      "extrinsics.py": "06856c08a69ee1fb07a4908ca1abb22cfbe9d9ad4dd5e1f757b4904ef61c7061",
+      "calibrate_extrinsics.py": "26e63f6b957bfe52ad94663dd137e1ab0aa14aecae1c6aa6c5078e3c634b2b97"
+    },
+    "four_hole_adapter_sha256": "a272a788afbc32bb781305d5cda7ea4cbf2ad0c28ddfed6fc9e064e2d428f06a",
+    "opencv": "4.11.0",
+    "numpy": "1.26.0",
+    "intrinsics_source": "Matched camera_info at capture; existing factory/driver intrinsics, not refitted.",
+    "height_source": "User confirmed 5 mm backing thickness; paper/adhesive thickness not separately measured.",
+    "scale_source": "底板厚度5mm; 纸面上的100mm准确"
+  },
+  "per_view_joint_diagnostics": [
+    {
+      "label": "position_1",
+      "image": "images/position_1_20261020T143235_150802Z.png",
+      "corners": 20,
+      "joint_reprojection_median_px": 2.682009821928105,
+      "joint_reprojection_p95_px": 6.269275453247365,
+      "joint_reprojection_max_px": 6.526751866055397,
+      "independent_board_detection_median_px": 0.22076937556266785,
+      "individual_camera_pose": [
+        [
+          0.05328781902011874,
+          -0.9820611585559075,
+          0.18087644733327435,
+          0.21530650274835042
+        ],
+        [
+          -0.9983969337897771,
+          -0.04893619967638854,
+          0.028439601973361713,
+          0.646704905482623
+        ],
+        [
+          -0.019078022519371598,
+          -0.18210197477529008,
+          -0.9830945528481425,
+          0.6814489593679146
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "individual_vs_joint_translation_mm": 35.83488270291006,
+      "individual_vs_joint_rotation_deg": 2.7253073269226658
+    },
+    {
+      "label": "position_2",
+      "image": "images/position_2_20261020T143322_848514Z.png",
+      "corners": 20,
+      "joint_reprojection_median_px": 1.7722734238951448,
+      "joint_reprojection_p95_px": 3.0502029897220724,
+      "joint_reprojection_max_px": 3.4561162999560295,
+      "independent_board_detection_median_px": 0.1707409918308258,
+      "individual_camera_pose": [
+        [
+          0.03599711434994049,
+          -0.9860725076461417,
+          0.16237369683211486,
+          0.22981714056364844
+        ],
+        [
+          -0.9993131204741321,
+          -0.03408615615572436,
+          0.01454033035320513,
+          0.6596816235616726
+        ],
+        [
+          -0.008803124827586582,
+          -0.16278557559863158,
+          -0.9866221978905059,
+          0.6914616926025661
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "individual_vs_joint_translation_mm": 26.73660254359416,
+      "individual_vs_joint_rotation_deg": 1.893034147844044
+    },
+    {
+      "label": "position_3",
+      "image": "images/position_3_20261020T143708_918156Z.png",
+      "corners": 20,
+      "joint_reprojection_median_px": 2.020495794717912,
+      "joint_reprojection_p95_px": 3.3185028859064873,
+      "joint_reprojection_max_px": 4.1589337836883145,
+      "independent_board_detection_median_px": 0.5736129283905029,
+      "individual_camera_pose": [
+        [
+          0.03375994951804881,
+          -0.9805811992452553,
+          0.1931858625657519,
+          0.21212007971694008
+        ],
+        [
+          -0.9994256967643892,
+          -0.0325578335301931,
+          0.009394898766593671,
+          0.667533384917818
+        ],
+        [
+          -0.002922747945531681,
+          -0.19339208660789384,
+          -0.981117199106147,
+          0.6790825665368042
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "individual_vs_joint_translation_mm": 17.647445861556047,
+      "individual_vs_joint_rotation_deg": 1.6196564137968896
+    }
+  ],
+  "unused_repeated_frame_check": [
+    {
+      "image": "images/position_3_20261020T143708_682736Z.png",
+      "label": "position_3",
+      "corners": 20,
+      "median_px": 2.0498655647913733,
+      "p95_px": 3.3157695787732737,
+      "scope": "Repeated frame of an existing placement; not independent spatial/physical validation."
+    }
+  ],
+  "max_measured_hole_fit_residual_mm": 6.782379933177167
+}

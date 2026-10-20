@@ -1,0 +1,104 @@
+{
+  "format": "calibration-board-placement-plan",
+  "version": 1,
+  "units": "mm",
+  "coordinates": {
+    "origin": "table_back_left",
+    "x": "back_to_front",
+    "y": "left_to_right"
+  },
+  "reference_points": "H1-H4 mounting-hole centers, clockwise on the print",
+  "table": {
+    "width_mm": 1250,
+    "depth_mm": 625
+  },
+  "camera_hint": {
+    "edge": "back"
+  },
+  "placements": [
+    {
+      "id": "position-1",
+      "name": "位置 1",
+      "color": "#2563eb",
+      "visible": true,
+      "hole_measurements": [
+        {
+          "id": "H1",
+          "from_back_edge_mm": 335,
+          "from_left_edge_mm": 300
+        },
+        {
+          "id": "H2",
+          "from_back_edge_mm": 327,
+          "from_left_edge_mm": 698
+        },
+        {
+          "id": "H3",
+          "from_back_edge_mm": 615,
+          "from_left_edge_mm": 695
+        },
+        {
+          "id": "H4",
+          "from_back_edge_mm": 615,
+          "from_left_edge_mm": 298
+        }
+      ]
+    },
+    {
+      "id": "position-403c80d5-e91d-452c-869c-e885437f9577",
+      "name": "位置 2",
+      "color": "#c11f26",
+      "visible": true,
+      "hole_measurements": [
+        {
+          "id": "H1",
+          "from_back_edge_mm": 337,
+          "from_left_edge_mm": 545
+        },
+        {
+          "id": "H2",
+          "from_back_edge_mm": 338,
+          "from_left_edge_mm": 943
+        },
+        {
+          "id": "H3",
+          "from_back_edge_mm": 615,
+          "from_left_edge_mm": 942
+        },
+        {
+          "id": "H4",
+          "from_back_edge_mm": 615,
+          "from_left_edge_mm": 545
+        }
+      ]
+    },
+    {
+      "id": "position-967d2655-a4e7-49dc-b6ed-589dd797648f",
+      "name": "位置 3",
+      "color": "#1fc148",
+      "visible": true,
+      "hole_measurements": [
+        {
+          "id": "H1",
+          "from_back_edge_mm": 148,
+          "from_left_edge_mm": 432
+        },
+        {
+          "id": "H2",
+          "from_back_edge_mm": 150,
+          "from_left_edge_mm": 828
+        },
+        {
+          "id": "H3",
+          "from_back_edge_mm": 430,
+          "from_left_edge_mm": 828
+        },
+        {
+          "id": "H4",
+          "from_back_edge_mm": 430,
+          "from_left_edge_mm": 423
+        }
+      ]
+    }
+  ]
+}

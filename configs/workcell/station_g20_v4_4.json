@@ -1,0 +1,382 @@
+{
+  "name": "station-g20-v4.4",
+  "world_frame": "world",
+  "table": {
+    "pose": [
+      0.405915,
+      0.6252,
+      0.762,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "half_extents": [
+      0.3125,
+      0.625,
+      0.005
+    ]
+  },
+  "left_arm": {
+    "urdf": "workspace://assets/derived/ar5_08r_e6bcf44f/left_arm.urdf",
+    "base_link": "AR5_left_5_08R_W4C4A6_base",
+    "tip_link": "AR5_left_5_08R_W4C4A6_tcp",
+    "base_pose": [
+      0.036915,
+      0.7112,
+      1.262,
+      0.4999981633974483,
+      -0.49999999999662686,
+      0.49999999999662686,
+      0.5000018366025518
+    ],
+    "home_q": [
+      -1.43823,
+      1.33764,
+      0.51476,
+      1.36853,
+      1.71606,
+      0.15145,
+      0.43553
+    ],
+    "joint_names": [
+      "AR5_left_5_08R_W4C4A6_joint_1",
+      "AR5_left_5_08R_W4C4A6_joint_2",
+      "AR5_left_5_08R_W4C4A6_joint_3",
+      "AR5_left_5_08R_W4C4A6_joint_4",
+      "AR5_left_5_08R_W4C4A6_joint_5",
+      "AR5_left_5_08R_W4C4A6_joint_6",
+      "AR5_left_5_08R_W4C4A6_joint_7"
+    ]
+  },
+  "left_hand": {
+    "urdf": "workspace://assets/linkerhand_station_20261014/linkerhand_g20_l20_l25_urdf_mesh/g20_left/linkerhand_g20_left.urdf",
+    "root_link": "hand_base_link",
+    "mount": [
+      0.0,
+      0.0,
+      0.02,
+      0.7071054825112364,
+      0.0,
+      0.0,
+      0.7071080798594737
+    ],
+    "mount_status": "unverified"
+  },
+  "gamepad": {
+    "release": "xbox_gamepad_physics==0.3.1",
+    "profile": "full_controls",
+    "collision": "sdf",
+    "root_pose": [
+      0.473415,
+      0.6252,
+      0.7979,
+      0.7071067811865476,
+      0.0,
+      0.0,
+      -0.7071067811865476
+    ],
+    "fixed_root": true
+  },
+  "notes": [
+    "User adopted the rendered dual AR5_5_08R_W4C4A6 scene on 2026-10-21; upstream commit e6bcf44ff0203534e14500cb836f57e9f9492292.",
+    "Both arms use the R variant. Unique link and joint names; original mesh geometry and kinematics retained.",
+    "Upstream joint_1 rpy is zero; no additional station-candidate 90-degree rotation applied.",
+    "Base mounting poses, home joint angles and hand mounts inherited from v4.3, not independently verified for this model.",
+    "Static loading and three-view rendering verified. Existing 07-model home/IK/clearance certificates do not apply; dynamics and physical alignment remain unverified.",
+    "Archived camera extrinsics and retained driver intrinsics unchanged from v4.3."
+  ],
+  "right_arm": {
+    "urdf": "workspace://assets/derived/ar5_08r_e6bcf44f/right_arm.urdf",
+    "base_link": "AR5_right_5_08R_W4C4A6_base",
+    "tip_link": "AR5_right_5_08R_W4C4A6_tcp",
+    "base_pose": [
+      0.036915,
+      0.5292,
+      1.262,
+      0.4999981633974483,
+      0.49999999999662686,
+      0.49999999999662686,
+      -0.5000018366025518
+    ],
+    "home_q": [
+      -1,
+      1,
+      0,
+      2,
+      0,
+      0,
+      0
+    ],
+    "joint_names": [
+      "AR5_right_5_08R_W4C4A6_joint_1",
+      "AR5_right_5_08R_W4C4A6_joint_2",
+      "AR5_right_5_08R_W4C4A6_joint_3",
+      "AR5_right_5_08R_W4C4A6_joint_4",
+      "AR5_right_5_08R_W4C4A6_joint_5",
+      "AR5_right_5_08R_W4C4A6_joint_6",
+      "AR5_right_5_08R_W4C4A6_joint_7"
+    ]
+  },
+  "right_hand": {
+    "urdf": "workspace://assets/linkerhand_station_20261014/linkerhand_g20_l20_l25_urdf_mesh/g20_right/linkerhand_g20_right.urdf",
+    "root_link": "hand_base_link",
+    "mount": [
+      0,
+      0,
+      0.02,
+      0.7071054825112364,
+      0.0,
+      0.0,
+      -0.7071080798594737
+    ],
+    "mount_status": "unverified",
+    "home_q": [
+      0.7195294117647059,
+      0.7203529411764705,
+      0.4654509803921569,
+      0.25,
+      0.2575,
+      0.23,
+      0.7272156862745098,
+      0.19215686274509805,
+      0.17101960784313727,
+      0.17047058823529412,
+      0.6937254901960784,
+      0.1784313725490196,
+      0.15880392156862747,
+      0.17227450980392153,
+      0.7941960784313725,
+      0.19215686274509805,
+      0.17101960784313727,
+      0.23,
+      0.6793725490196079,
+      0.7137254901960784,
+      0.6352156862745099
+    ]
+  },
+  "fixtures": [
+    {
+      "name": "station_column",
+      "type": "box",
+      "pose": [
+        0.036915,
+        0.6202,
+        0.6946549999999999,
+        1,
+        0,
+        0,
+        0
+      ],
+      "half_extents": [
+        0.0565,
+        0.06,
+        0.5375
+      ],
+      "collision": true,
+      "status": "assumed",
+      "source": "C1/C2/C3 measured, C5 unmeasured113mm per task/v3 (original mesh body60mm,113mm is top disc depth); vertical extent design adjusted -5mm"
+    },
+    {
+      "name": "station_column_top_mount",
+      "type": "box",
+      "pose": [
+        0.036915,
+        0.6202,
+        1.262,
+        1,
+        0,
+        0,
+        0
+      ],
+      "half_extents": [
+        0.0565,
+        0.091,
+        0.0564275
+      ],
+      "collision": true,
+      "status": "design",
+      "source": "URDF mounting discs113mm depth, measured mount faces182mm; simplified enclosing box; may overapproximate contacts"
+    },
+    {
+      "name": "station_floor",
+      "type": "box",
+      "pose": [
+        0.4,
+        0.62,
+        -0.025,
+        1,
+        0,
+        0,
+        0
+      ],
+      "half_extents": [
+        3,
+        3,
+        0.025
+      ],
+      "collision": true,
+      "status": "design",
+      "source": "world z=0; finite plane proxy5cm slab"
+    },
+    {
+      "name": "station_table_frame_panel",
+      "type": "box",
+      "pose": [
+        0.405915,
+        0.6252,
+        0.747,
+        1,
+        0,
+        0,
+        0
+      ],
+      "half_extents": [
+        0.3125,
+        0.625,
+        0.01
+      ],
+      "collision": true,
+      "status": "assumed",
+      "source": "photo4 white board beneath measured green plate; thickness20mm initial assumption, not measured"
+    },
+    {
+      "name": "station_table_frame_leg00",
+      "type": "box",
+      "pose": [
+        0.113415,
+        0.0202,
+        0.3685,
+        1,
+        0,
+        0,
+        0
+      ],
+      "half_extents": [
+        0.02,
+        0.02,
+        0.3685
+      ],
+      "collision": true,
+      "status": "assumed",
+      "source": "photo0/4 frame footprint approximation; no leg measurement, omitted crossbars"
+    },
+    {
+      "name": "station_table_frame_leg01",
+      "type": "box",
+      "pose": [
+        0.113415,
+        1.2302,
+        0.3685,
+        1,
+        0,
+        0,
+        0
+      ],
+      "half_extents": [
+        0.02,
+        0.02,
+        0.3685
+      ],
+      "collision": true,
+      "status": "assumed",
+      "source": "photo0/4 frame footprint approximation; no leg measurement, omitted crossbars"
+    },
+    {
+      "name": "station_table_frame_leg10",
+      "type": "box",
+      "pose": [
+        0.698415,
+        0.0202,
+        0.3685,
+        1,
+        0,
+        0,
+        0
+      ],
+      "half_extents": [
+        0.02,
+        0.02,
+        0.3685
+      ],
+      "collision": true,
+      "status": "assumed",
+      "source": "photo0/4 frame footprint approximation; no leg measurement, omitted crossbars"
+    },
+    {
+      "name": "station_table_frame_leg11",
+      "type": "box",
+      "pose": [
+        0.698415,
+        1.2302,
+        0.3685,
+        1,
+        0,
+        0,
+        0
+      ],
+      "half_extents": [
+        0.02,
+        0.02,
+        0.3685
+      ],
+      "collision": true,
+      "status": "assumed",
+      "source": "photo0/4 frame footprint approximation; no leg measurement, omitted crossbars"
+    },
+    {
+      "name": "camera_3_body",
+      "type": "mesh",
+      "parent": "world",
+      "pose": [
+        0.31769932894388225,
+        0.6492315529228792,
+        1.4412037939300844,
+        0.06872849646290509,
+        0.6951635394212929,
+        0.7132464589124967,
+        0.05747639586815635
+      ],
+      "collision": false,
+      "status": "estimated",
+      "mesh": "workspace://external/online_20261015/realsense_d435_d455/realsense2_description/meshes/d435.dae",
+      "source": "v4.3 fitted ego optical pose, with the existing nominal optical-to-D435-shell transform preserved; visual only."
+    }
+  ],
+  "cameras": [
+    {
+      "name": "camera_3",
+      "serial": "camera_3",
+      "model": "D435 (recorded, physical model unverified)",
+      "parent": "world",
+      "pose_optical": [
+        0.316152573550708,
+        0.6817751421638744,
+        1.4448455444798973,
+        0.05747639586815635,
+        -0.7132464589124967,
+        0.6951635394212929,
+        -0.06872849646290498
+      ],
+      "intrinsics": {
+        "width": 1280,
+        "height": 720,
+        "fx": 906.561,
+        "fy": 905.986,
+        "cx": 647.896,
+        "cy": 362.233,
+        "distortion": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "model": "none"
+      },
+      "status": "estimated",
+      "source": "references/calibration/2026-10-20-ego/measured/extrinsics_project_world.json; three-position joint fit using four-hole least-squares board poses, accepted by user. Physical accuracy not independently verified. K retained from v4.2: rounding differences from captured camera_info are below 0.0004 px."
+    }
+  ],
+  "appearance": "../appearance/station_v2.json"
+}

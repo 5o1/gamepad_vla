@@ -1,0 +1,13 @@
+# Operator-only virtual camera, never a calibrated dataset camera.
+candidate: raster
+fps: 60
+width: 960
+height: 540
+camera:
+  position_gamepad: [-0.16, -0.15, 0.105]
+  target_gamepad: [-0.0203, -0.0018, 0.0184]
+  up_gamepad: [0, 0, 1]
+  fovy_degrees: 34
+pip:
+  enabled: true
+  width: 320

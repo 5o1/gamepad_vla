@@ -1,0 +1,826 @@
+{
+  "name": "station-v2",
+  "color_space": "linear_rgb",
+  "materials": [
+    {
+      "name": "table_green",
+      "match": {
+        "link_glob": [
+          "table"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.3083225789316995,
+        0.32480503838353003,
+        0.06921920023201164,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.75,
+      "status": "estimated",
+      "source": "photo 4, pixel ROI [263, 988, 494, 1130]; neutral WB photo 0 white_arm; metallic/roughness assumed initial values"
+    },
+    {
+      "name": "table_frame_white",
+      "match": {
+        "link_glob": [
+          "station_table_frame*"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.140289308014614,
+        0.14003056323005983,
+        0.1075293844568034,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.7,
+      "status": "estimated",
+      "source": "photo 4, pixel ROI [1200, 1400, 1300, 1430]; neutral WB photo 0 white_arm; metallic/roughness assumed initial values"
+    },
+    {
+      "name": "column_aluminium",
+      "match": {
+        "link_glob": [
+          "station_column*"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.55,
+        0.56,
+        0.57,
+        1
+      ],
+      "metallic": 0.85,
+      "roughness": 0.32,
+      "status": "estimated",
+      "source": "photo0 central grooved column and horizontal mount; photo2 side view confirms silver aluminium. Linear RGB/PBR estimated, not measured reflectance."
+    },
+    {
+      "name": "ar5_base_gray",
+      "match": {
+        "link_glob": [
+          "AR5_*_base"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.08898152563840141,
+        0.08898152563840141,
+        0.08898152563840141,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.5,
+      "status": "estimated",
+      "source": "RobotHMI_5.153.11.0314/model/AR5*/param.json RGB(.33,.33,.33), shininess30; assumed sRGB to linear; roughness not inferred from shininess"
+    },
+    {
+      "name": "ar5_warm_white",
+      "match": {
+        "link_glob": [
+          "AR5_*"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.8796223968878317,
+        0.8620299489500751,
+        0.8356412770434397,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.48,
+      "status": "estimated",
+      "source": "photo0/3/4 white shell; render-only black ring partitions in visual_split_v1, seam positions estimated"
+    },
+    {
+      "name": "g20_dark",
+      "match": {
+        "link_glob": [
+          "*distal",
+          "*hand_base_link"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.02956594820048581,
+        0.03047716193878364,
+        0.031004092384768773,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.8,
+      "status": "estimated",
+      "source": "photo0/4 black palm and finger pads, photo3 wrist ring; geometric visual partitions estimated"
+    },
+    {
+      "name": "g20_silver",
+      "match": {
+        "link_glob": [
+          "*proximal",
+          "*metacarpals*",
+          "*middle"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.42212775778376393,
+        0.4247650004927726,
+        0.4229388845904321,
+        1.0
+      ],
+      "metallic": 0.9,
+      "roughness": 0.35,
+      "status": "estimated",
+      "source": "photo 0, pixel ROI [378, 729, 422, 752]; neutral WB photo 0 white_arm; metallic/roughness assumed initial values; photo0/3/4 silver shell, no PBR vendor asset; URDF red/yellow ignored"
+    },
+    {
+      "name": "realsense_shell",
+      "match": {
+        "link_glob": [
+          "camera_*_body"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.8875915417964342,
+        0.9256467991693655,
+        1.0,
+        1.0
+      ],
+      "metallic": 0.65,
+      "roughness": 0.4,
+      "status": "estimated",
+      "source": "photo 0, pixel ROI [973, 237, 1036, 251]; neutral WB photo 0 white_arm; metallic/roughness assumed initial values; D435 mesh Apache2.0; integrated black sensor strip not independently textured"
+    },
+    {
+      "name": "floor",
+      "match": {
+        "link_glob": [
+          "station_floor"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.11701133335388177,
+        0.09904500488271399,
+        0.09056435703506317,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.9,
+      "status": "estimated",
+      "source": "photo 0, pixel ROI [40, 1130, 120, 1210]; neutral WB photo 0 white_arm; metallic/roughness assumed initial values"
+    }
+  ],
+  "visual_splits": [
+    {
+      "link": "AR5_5_07L_W4C4A2_link1",
+      "source_mesh": "workspace://assets/linkerhand_station_20261014/AR5_L25_workstation_urdf/urdf/meshes/ar5/AR5_left_meshes/AR5_5_07L_W4C4A2_link1.stl",
+      "parts": [
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/AR5_5_07L_W4C4A2_link1_black.stl",
+          "material": "g20_dark"
+        },
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/AR5_5_07L_W4C4A2_link1_shell.stl",
+          "material": "ar5_warm_white"
+        }
+      ]
+    },
+    {
+      "link": "AR5_5_07L_W4C4A2_link2",
+      "source_mesh": "workspace://assets/linkerhand_station_20261014/AR5_L25_workstation_urdf/urdf/meshes/ar5/AR5_left_meshes/AR5_5_07L_W4C4A2_link2.stl",
+      "parts": [
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/AR5_5_07L_W4C4A2_link2_black.stl",
+          "material": "g20_dark"
+        },
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/AR5_5_07L_W4C4A2_link2_shell.stl",
+          "material": "ar5_warm_white"
+        }
+      ]
+    },
+    {
+      "link": "AR5_5_07L_W4C4A2_link3",
+      "source_mesh": "workspace://assets/linkerhand_station_20261014/AR5_L25_workstation_urdf/urdf/meshes/ar5/AR5_left_meshes/AR5_5_07L_W4C4A2_link3.stl",
+      "parts": [
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/AR5_5_07L_W4C4A2_link3_black.stl",
+          "material": "g20_dark"
+        },
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/AR5_5_07L_W4C4A2_link3_shell.stl",
+          "material": "ar5_warm_white"
+        }
+      ]
+    },
+    {
+      "link": "AR5_5_07L_W4C4A2_link4",
+      "source_mesh": "workspace://assets/linkerhand_station_20261014/AR5_L25_workstation_urdf/urdf/meshes/ar5/AR5_left_meshes/AR5_5_07L_W4C4A2_link4.stl",
+      "parts": [
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/AR5_5_07L_W4C4A2_link4_black.stl",
+          "material": "g20_dark"
+        },
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/AR5_5_07L_W4C4A2_link4_shell.stl",
+          "material": "ar5_warm_white"
+        }
+      ]
+    },
+    {
+      "link": "AR5_5_07L_W4C4A2_link5",
+      "source_mesh": "workspace://assets/linkerhand_station_20261014/AR5_L25_workstation_urdf/urdf/meshes/ar5/AR5_left_meshes/AR5_5_07L_W4C4A2_link5.stl",
+      "parts": [
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/AR5_5_07L_W4C4A2_link5_black.stl",
+          "material": "g20_dark"
+        },
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/AR5_5_07L_W4C4A2_link5_shell.stl",
+          "material": "ar5_warm_white"
+        }
+      ]
+    },
+    {
+      "link": "AR5_5_07L_W4C4A2_link6",
+      "source_mesh": "workspace://assets/linkerhand_station_20261014/AR5_L25_workstation_urdf/urdf/meshes/ar5/AR5_left_meshes/AR5_5_07L_W4C4A2_link6.stl",
+      "parts": [
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/AR5_5_07L_W4C4A2_link6_black.stl",
+          "material": "g20_dark"
+        },
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/AR5_5_07L_W4C4A2_link6_shell.stl",
+          "material": "ar5_warm_white"
+        }
+      ]
+    },
+    {
+      "link": "AR5_5_07L_W4C4A2_link7",
+      "source_mesh": "workspace://assets/linkerhand_station_20261014/AR5_L25_workstation_urdf/urdf/meshes/ar5/AR5_left_meshes/AR5_5_07L_W4C4A2_link7.stl",
+      "parts": [
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/AR5_5_07L_W4C4A2_link7_black.stl",
+          "material": "g20_dark"
+        },
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/AR5_5_07L_W4C4A2_link7_shell.stl",
+          "material": "ar5_warm_white"
+        }
+      ]
+    },
+    {
+      "link": "hand_base_link",
+      "source_mesh": "workspace://assets/linkerhand_station_20261014/linkerhand_g20_l20_l25_urdf_mesh/g20_left/meshes/hand_base_link.STL",
+      "parts": [
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/hand_base_link_black.stl",
+          "material": "g20_dark"
+        },
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/hand_base_link_shell.stl",
+          "material": "g20_silver"
+        }
+      ]
+    },
+    {
+      "link": "thumb_metacarpals",
+      "source_mesh": "workspace://assets/linkerhand_station_20261014/linkerhand_g20_l20_l25_urdf_mesh/g20_left/meshes/thumb_metacarpals.STL",
+      "parts": [
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/thumb_metacarpals_black.stl",
+          "material": "g20_dark"
+        },
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/thumb_metacarpals_shell.stl",
+          "material": "g20_silver"
+        }
+      ]
+    },
+    {
+      "link": "thumb_proximal",
+      "source_mesh": "workspace://assets/linkerhand_station_20261014/linkerhand_g20_l20_l25_urdf_mesh/g20_left/meshes/thumb_proximal.STL",
+      "parts": [
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/thumb_proximal_black.stl",
+          "material": "g20_dark"
+        },
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/thumb_proximal_shell.stl",
+          "material": "g20_silver"
+        }
+      ]
+    },
+    {
+      "link": "thumb_distal",
+      "source_mesh": "workspace://assets/linkerhand_station_20261014/linkerhand_g20_l20_l25_urdf_mesh/g20_left/meshes/thumb_distal.STL",
+      "parts": [
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/thumb_distal_black.stl",
+          "material": "g20_dark"
+        },
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/thumb_distal_shell.stl",
+          "material": "g20_silver"
+        }
+      ]
+    },
+    {
+      "link": "index_proximal",
+      "source_mesh": "workspace://assets/linkerhand_station_20261014/linkerhand_g20_l20_l25_urdf_mesh/g20_left/meshes/index_proximal.STL",
+      "parts": [
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/index_proximal_black.stl",
+          "material": "g20_dark"
+        },
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/index_proximal_shell.stl",
+          "material": "g20_silver"
+        }
+      ]
+    },
+    {
+      "link": "index_middle",
+      "source_mesh": "workspace://assets/linkerhand_station_20261014/linkerhand_g20_l20_l25_urdf_mesh/g20_left/meshes/index_middle.STL",
+      "parts": [
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/index_middle_black.stl",
+          "material": "g20_dark"
+        },
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/index_middle_shell.stl",
+          "material": "g20_silver"
+        }
+      ]
+    },
+    {
+      "link": "index_distal",
+      "source_mesh": "workspace://assets/linkerhand_station_20261014/linkerhand_g20_l20_l25_urdf_mesh/g20_left/meshes/index_distal.STL",
+      "parts": [
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/index_distal_black.stl",
+          "material": "g20_dark"
+        },
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/index_distal_shell.stl",
+          "material": "g20_silver"
+        }
+      ]
+    },
+    {
+      "link": "middle_proximal",
+      "source_mesh": "workspace://assets/linkerhand_station_20261014/linkerhand_g20_l20_l25_urdf_mesh/g20_left/meshes/middle_proximal.STL",
+      "parts": [
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/middle_proximal_black.stl",
+          "material": "g20_dark"
+        },
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/middle_proximal_shell.stl",
+          "material": "g20_silver"
+        }
+      ]
+    },
+    {
+      "link": "middle_middle",
+      "source_mesh": "workspace://assets/linkerhand_station_20261014/linkerhand_g20_l20_l25_urdf_mesh/g20_left/meshes/middle_middle.STL",
+      "parts": [
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/middle_middle_black.stl",
+          "material": "g20_dark"
+        },
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/middle_middle_shell.stl",
+          "material": "g20_silver"
+        }
+      ]
+    },
+    {
+      "link": "middle_distal",
+      "source_mesh": "workspace://assets/linkerhand_station_20261014/linkerhand_g20_l20_l25_urdf_mesh/g20_left/meshes/middle_distal.STL",
+      "parts": [
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/middle_distal_black.stl",
+          "material": "g20_dark"
+        },
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/middle_distal_shell.stl",
+          "material": "g20_silver"
+        }
+      ]
+    },
+    {
+      "link": "ring_proximal",
+      "source_mesh": "workspace://assets/linkerhand_station_20261014/linkerhand_g20_l20_l25_urdf_mesh/g20_left/meshes/ring_proximal.STL",
+      "parts": [
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/ring_proximal_black.stl",
+          "material": "g20_dark"
+        },
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/ring_proximal_shell.stl",
+          "material": "g20_silver"
+        }
+      ]
+    },
+    {
+      "link": "ring_middle",
+      "source_mesh": "workspace://assets/linkerhand_station_20261014/linkerhand_g20_l20_l25_urdf_mesh/g20_left/meshes/ring_middle.STL",
+      "parts": [
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/ring_middle_black.stl",
+          "material": "g20_dark"
+        },
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/ring_middle_shell.stl",
+          "material": "g20_silver"
+        }
+      ]
+    },
+    {
+      "link": "ring_distal",
+      "source_mesh": "workspace://assets/linkerhand_station_20261014/linkerhand_g20_l20_l25_urdf_mesh/g20_left/meshes/ring_distal.STL",
+      "parts": [
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/ring_distal_black.stl",
+          "material": "g20_dark"
+        },
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/ring_distal_shell.stl",
+          "material": "g20_silver"
+        }
+      ]
+    },
+    {
+      "link": "pinky_proximal",
+      "source_mesh": "workspace://assets/linkerhand_station_20261014/linkerhand_g20_l20_l25_urdf_mesh/g20_left/meshes/pinky_proximal.STL",
+      "parts": [
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/pinky_proximal_black.stl",
+          "material": "g20_dark"
+        },
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/pinky_proximal_shell.stl",
+          "material": "g20_silver"
+        }
+      ]
+    },
+    {
+      "link": "pinky_middle",
+      "source_mesh": "workspace://assets/linkerhand_station_20261014/linkerhand_g20_l20_l25_urdf_mesh/g20_left/meshes/pinky_middle.STL",
+      "parts": [
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/pinky_middle_black.stl",
+          "material": "g20_dark"
+        },
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/pinky_middle_shell.stl",
+          "material": "g20_silver"
+        }
+      ]
+    },
+    {
+      "link": "pinky_distal",
+      "source_mesh": "workspace://assets/linkerhand_station_20261014/linkerhand_g20_l20_l25_urdf_mesh/g20_left/meshes/pinky_distal.STL",
+      "parts": [
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/pinky_distal_black.stl",
+          "material": "g20_dark"
+        },
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/pinky_distal_shell.stl",
+          "material": "g20_silver"
+        }
+      ]
+    },
+    {
+      "link": "AR5_5_07R_W4C4A2_link1",
+      "source_mesh": "workspace://assets/linkerhand_station_20261014/AR5_L25_workstation_urdf/urdf/meshes/ar5/AR5_right_meshes/AR5_5_07R_W4C4A2_link1.stl",
+      "parts": [
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/AR5_5_07R_W4C4A2_link1_black.stl",
+          "material": "g20_dark"
+        },
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/AR5_5_07R_W4C4A2_link1_shell.stl",
+          "material": "ar5_warm_white"
+        }
+      ]
+    },
+    {
+      "link": "AR5_5_07R_W4C4A2_link2",
+      "source_mesh": "workspace://assets/linkerhand_station_20261014/AR5_L25_workstation_urdf/urdf/meshes/ar5/AR5_right_meshes/AR5_5_07R_W4C4A2_link2.stl",
+      "parts": [
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/AR5_5_07R_W4C4A2_link2_black.stl",
+          "material": "g20_dark"
+        },
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/AR5_5_07R_W4C4A2_link2_shell.stl",
+          "material": "ar5_warm_white"
+        }
+      ]
+    },
+    {
+      "link": "AR5_5_07R_W4C4A2_link3",
+      "source_mesh": "workspace://assets/linkerhand_station_20261014/AR5_L25_workstation_urdf/urdf/meshes/ar5/AR5_right_meshes/AR5_5_07R_W4C4A2_link3.stl",
+      "parts": [
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/AR5_5_07R_W4C4A2_link3_black.stl",
+          "material": "g20_dark"
+        },
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/AR5_5_07R_W4C4A2_link3_shell.stl",
+          "material": "ar5_warm_white"
+        }
+      ]
+    },
+    {
+      "link": "AR5_5_07R_W4C4A2_link4",
+      "source_mesh": "workspace://assets/linkerhand_station_20261014/AR5_L25_workstation_urdf/urdf/meshes/ar5/AR5_right_meshes/AR5_5_07R_W4C4A2_link4.stl",
+      "parts": [
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/AR5_5_07R_W4C4A2_link4_black.stl",
+          "material": "g20_dark"
+        },
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/AR5_5_07R_W4C4A2_link4_shell.stl",
+          "material": "ar5_warm_white"
+        }
+      ]
+    },
+    {
+      "link": "AR5_5_07R_W4C4A2_link5",
+      "source_mesh": "workspace://assets/linkerhand_station_20261014/AR5_L25_workstation_urdf/urdf/meshes/ar5/AR5_right_meshes/AR5_5_07R_W4C4A2_link5.stl",
+      "parts": [
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/AR5_5_07R_W4C4A2_link5_black.stl",
+          "material": "g20_dark"
+        },
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/AR5_5_07R_W4C4A2_link5_shell.stl",
+          "material": "ar5_warm_white"
+        }
+      ]
+    },
+    {
+      "link": "AR5_5_07R_W4C4A2_link6",
+      "source_mesh": "workspace://assets/linkerhand_station_20261014/AR5_L25_workstation_urdf/urdf/meshes/ar5/AR5_right_meshes/AR5_5_07R_W4C4A2_link6.stl",
+      "parts": [
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/AR5_5_07R_W4C4A2_link6_black.stl",
+          "material": "g20_dark"
+        },
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/AR5_5_07R_W4C4A2_link6_shell.stl",
+          "material": "ar5_warm_white"
+        }
+      ]
+    },
+    {
+      "link": "AR5_5_07R_W4C4A2_link7",
+      "source_mesh": "workspace://assets/linkerhand_station_20261014/AR5_L25_workstation_urdf/urdf/meshes/ar5/AR5_right_meshes/AR5_5_07R_W4C4A2_link7.stl",
+      "parts": [
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/AR5_5_07R_W4C4A2_link7_black.stl",
+          "material": "g20_dark"
+        },
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/AR5_5_07R_W4C4A2_link7_shell.stl",
+          "material": "ar5_warm_white"
+        }
+      ]
+    },
+    {
+      "link": "right_hand_base_link",
+      "source_mesh": "workspace://assets/linkerhand_station_20261014/linkerhand_g20_l20_l25_urdf_mesh/g20_right/meshes/hand_base_link.STL",
+      "parts": [
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/right_hand_base_link_black.stl",
+          "material": "g20_dark"
+        },
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/right_hand_base_link_shell.stl",
+          "material": "g20_silver"
+        }
+      ]
+    },
+    {
+      "link": "right_thumb_metacarpals",
+      "source_mesh": "workspace://assets/linkerhand_station_20261014/linkerhand_g20_l20_l25_urdf_mesh/g20_right/meshes/thumb_metacarpals.STL",
+      "parts": [
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/right_thumb_metacarpals_black.stl",
+          "material": "g20_dark"
+        },
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/right_thumb_metacarpals_shell.stl",
+          "material": "g20_silver"
+        }
+      ]
+    },
+    {
+      "link": "right_thumb_proximal",
+      "source_mesh": "workspace://assets/linkerhand_station_20261014/linkerhand_g20_l20_l25_urdf_mesh/g20_right/meshes/thumb_proximal.STL",
+      "parts": [
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/right_thumb_proximal_black.stl",
+          "material": "g20_dark"
+        },
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/right_thumb_proximal_shell.stl",
+          "material": "g20_silver"
+        }
+      ]
+    },
+    {
+      "link": "right_thumb_distal",
+      "source_mesh": "workspace://assets/linkerhand_station_20261014/linkerhand_g20_l20_l25_urdf_mesh/g20_right/meshes/thumb_distal.STL",
+      "parts": [
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/right_thumb_distal_black.stl",
+          "material": "g20_dark"
+        },
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/right_thumb_distal_shell.stl",
+          "material": "g20_silver"
+        }
+      ]
+    },
+    {
+      "link": "right_index_proximal",
+      "source_mesh": "workspace://assets/linkerhand_station_20261014/linkerhand_g20_l20_l25_urdf_mesh/g20_right/meshes/index_proximal.STL",
+      "parts": [
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/right_index_proximal_black.stl",
+          "material": "g20_dark"
+        },
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/right_index_proximal_shell.stl",
+          "material": "g20_silver"
+        }
+      ]
+    },
+    {
+      "link": "right_index_middle",
+      "source_mesh": "workspace://assets/linkerhand_station_20261014/linkerhand_g20_l20_l25_urdf_mesh/g20_right/meshes/index_middle.STL",
+      "parts": [
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/right_index_middle_black.stl",
+          "material": "g20_dark"
+        },
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/right_index_middle_shell.stl",
+          "material": "g20_silver"
+        }
+      ]
+    },
+    {
+      "link": "right_index_distal",
+      "source_mesh": "workspace://assets/linkerhand_station_20261014/linkerhand_g20_l20_l25_urdf_mesh/g20_right/meshes/index_distal.STL",
+      "parts": [
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/right_index_distal_black.stl",
+          "material": "g20_dark"
+        },
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/right_index_distal_shell.stl",
+          "material": "g20_silver"
+        }
+      ]
+    },
+    {
+      "link": "right_middle_proximal",
+      "source_mesh": "workspace://assets/linkerhand_station_20261014/linkerhand_g20_l20_l25_urdf_mesh/g20_right/meshes/middle_proximal.STL",
+      "parts": [
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/right_middle_proximal_black.stl",
+          "material": "g20_dark"
+        },
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/right_middle_proximal_shell.stl",
+          "material": "g20_silver"
+        }
+      ]
+    },
+    {
+      "link": "right_middle_middle",
+      "source_mesh": "workspace://assets/linkerhand_station_20261014/linkerhand_g20_l20_l25_urdf_mesh/g20_right/meshes/middle_middle.STL",
+      "parts": [
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/right_middle_middle_black.stl",
+          "material": "g20_dark"
+        },
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/right_middle_middle_shell.stl",
+          "material": "g20_silver"
+        }
+      ]
+    },
+    {
+      "link": "right_middle_distal",
+      "source_mesh": "workspace://assets/linkerhand_station_20261014/linkerhand_g20_l20_l25_urdf_mesh/g20_right/meshes/middle_distal.STL",
+      "parts": [
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/right_middle_distal_black.stl",
+          "material": "g20_dark"
+        },
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/right_middle_distal_shell.stl",
+          "material": "g20_silver"
+        }
+      ]
+    },
+    {
+      "link": "right_ring_proximal",
+      "source_mesh": "workspace://assets/linkerhand_station_20261014/linkerhand_g20_l20_l25_urdf_mesh/g20_right/meshes/ring_proximal.STL",
+      "parts": [
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/right_ring_proximal_black.stl",
+          "material": "g20_dark"
+        },
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/right_ring_proximal_shell.stl",
+          "material": "g20_silver"
+        }
+      ]
+    },
+    {
+      "link": "right_ring_middle",
+      "source_mesh": "workspace://assets/linkerhand_station_20261014/linkerhand_g20_l20_l25_urdf_mesh/g20_right/meshes/ring_middle.STL",
+      "parts": [
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/right_ring_middle_black.stl",
+          "material": "g20_dark"
+        },
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/right_ring_middle_shell.stl",
+          "material": "g20_silver"
+        }
+      ]
+    },
+    {
+      "link": "right_ring_distal",
+      "source_mesh": "workspace://assets/linkerhand_station_20261014/linkerhand_g20_l20_l25_urdf_mesh/g20_right/meshes/ring_distal.STL",
+      "parts": [
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/right_ring_distal_black.stl",
+          "material": "g20_dark"
+        },
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/right_ring_distal_shell.stl",
+          "material": "g20_silver"
+        }
+      ]
+    },
+    {
+      "link": "right_pinky_proximal",
+      "source_mesh": "workspace://assets/linkerhand_station_20261014/linkerhand_g20_l20_l25_urdf_mesh/g20_right/meshes/pinky_proximal.STL",
+      "parts": [
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/right_pinky_proximal_black.stl",
+          "material": "g20_dark"
+        },
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/right_pinky_proximal_shell.stl",
+          "material": "g20_silver"
+        }
+      ]
+    },
+    {
+      "link": "right_pinky_middle",
+      "source_mesh": "workspace://assets/linkerhand_station_20261014/linkerhand_g20_l20_l25_urdf_mesh/g20_right/meshes/pinky_middle.STL",
+      "parts": [
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/right_pinky_middle_black.stl",
+          "material": "g20_dark"
+        },
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/right_pinky_middle_shell.stl",
+          "material": "g20_silver"
+        }
+      ]
+    },
+    {
+      "link": "right_pinky_distal",
+      "source_mesh": "workspace://assets/linkerhand_station_20261014/linkerhand_g20_l20_l25_urdf_mesh/g20_right/meshes/pinky_distal.STL",
+      "parts": [
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/right_pinky_distal_black.stl",
+          "material": "g20_dark"
+        },
+        {
+          "mesh": "workspace://assets/derived/visual_split_v1/right_pinky_distal_shell.stl",
+          "material": "g20_silver"
+        }
+      ]
+    }
+  ]
+}

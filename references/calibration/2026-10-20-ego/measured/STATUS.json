@@ -1,0 +1,20 @@
+{
+  "status": "fitted_estimate",
+  "joint_solver_completed": true,
+  "physical_accuracy_verified": false,
+  "reason": "Use the equal-weight rigid least-squares board placements as estimates under manual measurement noise, as requested by the user. The existing joint camera calibration already used these fitted placements.",
+  "selected_images": 3,
+  "archived_images": 4,
+  "total_corners": 60,
+  "joint_reprojection_median_px": 2.0561406935482323,
+  "joint_reprojection_p95_px": 4.680554593244095,
+  "maximum_hole_fit_residual_mm": 6.782379933177167,
+  "local_archive": "references/calibration/2026-10-20-ego/measured",
+  "linkerhand_archive": "station-data://calibration/2026-10-20-ego/measured",
+  "compute_archive": "workspace://runs/20261020-ego-calibration/measured",
+  "reviewed_at_utc": "2026-10-20T14:54:25.580534+00:00",
+  "user_decision": "这没办法，实际测量没那么准。你拿这个数据拟合一个最接近的标定板位姿吧",
+  "user_decision_recorded_at_utc": "2026-10-20T15:09:04.326984+00:00",
+  "fitted_plan": "board-placements.fitted.json",
+  "remeasurement_required_for_current_estimate": false
+}

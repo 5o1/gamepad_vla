@@ -1,0 +1,201 @@
+{
+  "T_world_board": [
+    [
+      0.0014351262951218756,
+      0.9999989702057286,
+      0.0,
+      0.3474846339639663
+    ],
+    [
+      0.9999989702057284,
+      -0.0014351262951218442,
+      0.0,
+      0.5589346042408635
+    ],
+    [
+      0.0,
+      0.0,
+      -1.0,
+      0.005
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "raw_hole_measurements": [
+    {
+      "id": "H1",
+      "from_back_edge_mm": 337,
+      "from_left_edge_mm": 545
+    },
+    {
+      "id": "H2",
+      "from_back_edge_mm": 338,
+      "from_left_edge_mm": 943
+    },
+    {
+      "id": "H3",
+      "from_back_edge_mm": 615,
+      "from_left_edge_mm": 942
+    },
+    {
+      "id": "H4",
+      "from_back_edge_mm": 615,
+      "from_left_edge_mm": 545
+    }
+  ],
+  "four_hole_fit": {
+    "method": "Four-hole equal-weight planar rigid least squares; fixed nominal scale; no point rejection",
+    "board_surface_above_table_mm": 5.0,
+    "rms_hole_residual_mm": 1.3242176462887,
+    "max_hole_residual_mm": 1.5514675118303822,
+    "holes": [
+      {
+        "id": "H1",
+        "measured_table_xy_mm": [
+          337.0,
+          545.0
+        ],
+        "fitted_table_xy_mm": [
+          337.4631173674822,
+          543.9489709507287
+        ],
+        "fitted_minus_measured_mm": [
+          0.463117367482198,
+          -1.0510290492712784
+        ]
+      },
+      {
+        "id": "H2",
+        "measured_table_xy_mm": [
+          338.0,
+          943.0
+        ],
+        "fitted_table_xy_mm": [
+          338.03716788553095,
+          943.94855903302
+        ],
+        "fitted_minus_measured_mm": [
+          0.0371678855309483,
+          0.9485590330200466
+        ]
+      },
+      {
+        "id": "H3",
+        "measured_table_xy_mm": [
+          615.0,
+          942.0
+        ],
+        "fitted_table_xy_mm": [
+          615.0368826325177,
+          943.5510290492714
+        ],
+        "fitted_minus_measured_mm": [
+          0.03688263251774515,
+          1.551029049271392
+        ]
+      },
+      {
+        "id": "H4",
+        "measured_table_xy_mm": [
+          615.0,
+          545.0
+        ],
+        "fitted_table_xy_mm": [
+          614.4628321144689,
+          543.55144096698
+        ],
+        "fitted_minus_measured_mm": [
+          -0.537167885531062,
+          -1.4485590330200466
+        ]
+      }
+    ],
+    "pairwise_distances": [
+      {
+        "holes": [
+          "H1",
+          "H2"
+        ],
+        "nominal_mm": 400.0,
+        "measured_mm": 398.0012562794243,
+        "difference_mm": -1.9987437205757033
+      },
+      {
+        "holes": [
+          "H2",
+          "H3"
+        ],
+        "nominal_mm": 277.0,
+        "measured_mm": 277.0018050482704,
+        "difference_mm": 0.0018050482703984017
+      },
+      {
+        "holes": [
+          "H3",
+          "H4"
+        ],
+        "nominal_mm": 400.0,
+        "measured_mm": 397.0,
+        "difference_mm": -3.0
+      },
+      {
+        "holes": [
+          "H4",
+          "H1"
+        ],
+        "nominal_mm": 277.0,
+        "measured_mm": 278.0,
+        "difference_mm": 1.0
+      },
+      {
+        "holes": [
+          "H1",
+          "H3"
+        ],
+        "nominal_mm": 486.5480449040978,
+        "measured_mm": 484.65761110293107,
+        "difference_mm": -1.8904338011667505
+      },
+      {
+        "holes": [
+          "H2",
+          "H4"
+        ],
+        "nominal_mm": 486.5480449040978,
+        "measured_mm": 484.90514536350304,
+        "difference_mm": -1.642899540594783
+      }
+    ],
+    "T_world_board": [
+      [
+        0.0014351262951218756,
+        0.9999989702057286,
+        0.0,
+        0.3474846339639663
+      ],
+      [
+        0.9999989702057284,
+        -0.0014351262951218442,
+        0.0,
+        0.5589346042408635
+      ],
+      [
+        0.0,
+        0.0,
+        -1.0,
+        0.005
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "label": "position_2"
+  }
+}

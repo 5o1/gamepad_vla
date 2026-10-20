@@ -1,0 +1,88 @@
+# 顶相机三位置联合标定（2026-10-20）
+
+**状态：采用四孔等权刚体最小二乘拟合位姿，作为手工测量噪声下的估计。现有相机外参已使用这些拟合位姿求解。**
+
+用户确认接受手工测量的不精确，直接使用最接近的刚性板位姿。实物精度仍未独立验证；已有残差用于描述拟合程度。
+
+## 输入与归档
+
+- 原始测量：[board-placements.json](board-placements.json)，原样来自用户下载目录；H1–H4 均为孔中心。
+- 使用 position_1、position_2 和较新的 position_3，共三个不同摆放位置。位置 3 的另一帧完整保留，用作同位置重复帧检查。
+- 原图及对应内参、时间戳在 [images/](images/)，均为 1280×720 PNG；同一相机 camera_3，三图 K/D 一致。
+- 用户确认：底板厚 5 mm，纸面 100 mm 标尺准确。计算取板面高度 5 mm；纸和胶层厚度没有单独测量。
+- 相机内参沿用该分辨率下捕获到的驱动 `camera_info`，本次没有重新拟合内参。
+
+## 方法
+
+现有标定板工具的孔位入口只接受两个孔，本次通过其已有的完整 `T_world_board` 入口适配四孔测量：
+
+1. 将四个测得的孔中心等权拟合到规格中的刚性平面矩形，使用固定尺度、面朝上的正交最小二乘；四点全部参与，不做仿射变形或剔点。
+2. 保留原始数值及每个孔的拟合残差，见 [placement_fit.json](placement_fit.json)；变换输入位于 [placements/](placements/)。
+3. 调用 `../station_calib_board` 的 `calibrate_extrinsics.calibrate`，将全部角点转到同一桌面坐标系，再做 `solvePnP ITERATIVE + solvePnPRefineLM` 联合拟合。
+
+实现：[solve_four_holes.py](solve_four_holes.py)。适配依据：[正交 Procrustes](https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.orthogonal_procrustes.html) 和 [OpenCV PnP](https://docs.opencv.org/4.x/d5/d1f/calib3d_solvePnP.html)。这里自行补充去中心化的平移拟合，并限制面朝上、固定尺度。四个已知旋转的合成检查与原两孔算法一致，最大矩阵元素差约 6.7e-16；此检查仅验证坐标计算。
+
+## 拟合后的板位姿
+
+[拟合后位置方案](board-placements.fitted.json) 可导入位置表单查看。四孔矩形严格保持 400×277 mm，面朝上，板面高度取 5 mm；优化平移和旋转，使四个孔中心到实测位置的距离平方和最小。
+
+| 位置 | 孔矩形中心 X（mm） | 中心 Y（mm） | 高度 Z（mm） | H1→H2 相对 +Y 朝 +X 的角度（°） |
+|---|---:|---:|---:|---:|
+| position_1 | 473.00 | 497.75 | 5.00 | -0.219 |
+| position_2 | 476.25 | 743.75 | 5.00 | 0.082 |
+| position_3 | 289.50 | 627.75 | 5.00 | 0.396 |
+
+完整变换仍在 `placements/position_1.json` 等文件内。表中中心是四孔矩形中心；变换的板原点沿用 ChArUco 规格中的棋盘原点。原始测量保存在 `board-placements.json`，拟合坐标是派生估计。此次采用已有拟合结果，没有重复求解或改变相机外参数值。
+
+## 结果与坐标系
+
+- [桌面坐标系外参](extrinsics_table.json)：原点为台面后左角，X 从后向前，Y 从左向右，Z 向上。`T_world_camera_optical` 把相机 optical 坐标映射到桌面坐标，平移单位 m。
+- [项目 world 外参](extrinsics_project_world.json)：用现有 v4.2 配置中的桌面后左角偏移 `(0.093415, 0.0002, 0.767) m` 转换而来。此偏移依赖现有场景几何，不能视为新测得的机器人外参。
+- 当前 v4.4 场景已引用此标定结果。
+
+相机在桌面坐标系的位置约为 **(222.7, 681.6, 677.8) mm**；朝向矩阵与四元数见 JSON。
+
+三图各 20 个角点，共 **60 个角点**。联合重投影中位数 **2.056 px**，P95 **4.681 px**。
+
+| 位置 | 四孔拟合 RMS（mm） | 最大孔位残差（mm） | 联合重投影中位数（px） | 联合 P95（px） |
+|---|---:|---:|---:|---:|
+| position_1 | 4.751 | 6.782 | 2.682 | 6.269 |
+| position_2 | 1.324 | 1.551 | 1.772 | 3.050 |
+| position_3 | 3.441 | 5.088 | 2.020 | 3.319 |
+
+留一图重算的 jackknife 平移标准差约为 **(13.8, 29.3, 11.9) mm**。这是重复性指标，不包含打印、摆放和内参系统误差，也不是实物精度保证。
+
+逐图叠图：绿色圈为检测角点，红十字为联合外参投影，黄线连接两者。
+
+- [位置 1](diagnostics/position_1_joint.jpg)
+- [位置 2](diagnostics/position_2_joint.jpg)
+- [位置 3](diagnostics/position_3_joint.jpg)
+
+## 测量噪声与可选后续复核
+
+位置 1 的输入给出 H2=(327,698) mm、H3=(615,695) mm，两点距离 **288.016 mm**；规格为 **277 mm**，相差 **11.016 mm**。这是输入几何的不一致，不是根据图像猜测。
+位置 3 的 H2–H4 对角线比规格长约 **5.819 mm**。原始测量没有被替换为拟合值。
+
+按用户决定，当前采用上述最佳拟合结果继续使用。若以后需要提高精度，可再执行下面的复核。
+
+待验证假设：孔位测量误差是联合重投影残差的重要来源。最小对照是保持相机和板位固定，重新测量四孔到两条桌边的垂直距离（优先核对位置 1 的 H2/H3 后沿距离），重新拍摄并用同一 K/D、板规格和算法求解。若孔位残差和联合重投影同时下降，则支持该假设；若孔位几何一致后图像残差仍高，再检查板面平整度、相机是否移动及内参。此复核尚未执行。
+
+保留的早一帧 position_3 没有参加联合拟合；其投影中位数约 2.050 px、P95 3.316 px。它只验证同位置的短时重复性。
+
+## 复现与副本
+
+计算在 计算节点 的独立目录 `workspace://runs/20261020-ego-calibration/measured/` 完成，使用现有 `envs/isaaclab-2.3.2` 的 Python，OpenCV 4.11.0、NumPy 1.26.0，CPU 计算。
+标定工具基线提交和源文件哈希见 [capture_context.json](capture_context.json) 与结果的 provenance。
+
+在已包含匹配 `calib_board/` 源码的节点运行目录中：
+
+```bash
+CUDA_VISIBLE_DEVICES='' PYTHONPATH=. python solve_four_holes.py
+```
+
+采集台副本：`~/gamepad_vla_data/calibration/2026-10-20-ego/measured/`。
+本地原图、测量、求解脚本与结果加入 Git 跟踪；`SHA256SUMS` 用于核对副本。
+
+## 可共享归档
+
+设备序列号使用逻辑名 `camera_3`；主机路径已改为相对路径或工作目录引用。原始图像字节、测量、内外参和拟合数值不变。历史源文件哈希指向私有原始档案，`SHA256SUMS` 对应当前脱敏副本。实际连接参数从本地站点配置读取。

@@ -1,0 +1,17 @@
+{
+  "intrinsics": "intrinsics.json",
+  "observations": [
+    {
+      "image": "images/position_1_20261020T143235_150802Z.png",
+      "placement": "placements/position_1.json"
+    },
+    {
+      "image": "images/position_2_20261020T143322_848514Z.png",
+      "placement": "placements/position_2.json"
+    },
+    {
+      "image": "images/position_3_20261020T143708_918156Z.png",
+      "placement": "placements/position_3.json"
+    }
+  ]
+}

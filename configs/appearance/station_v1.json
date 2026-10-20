@@ -1,0 +1,180 @@
+{
+  "name": "station-v1",
+  "color_space": "linear_rgb",
+  "materials": [
+    {
+      "name": "table_green",
+      "match": {
+        "link_glob": [
+          "table"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.3083225789316995,
+        0.32480503838353003,
+        0.06921920023201164,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.75,
+      "status": "estimated",
+      "source": "photo 4, pixel ROI [263, 988, 494, 1130]; neutral WB photo 0 white_arm; metallic/roughness assumed initial values"
+    },
+    {
+      "name": "table_frame_white",
+      "match": {
+        "link_glob": [
+          "station_table_frame*"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.140289308014614,
+        0.14003056323005983,
+        0.1075293844568034,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.7,
+      "status": "estimated",
+      "source": "photo 4, pixel ROI [1200, 1400, 1300, 1430]; neutral WB photo 0 white_arm; metallic/roughness assumed initial values"
+    },
+    {
+      "name": "column_aluminium",
+      "match": {
+        "link_glob": [
+          "station_column*"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.13225595622474198,
+        0.1372249612686507,
+        0.1075293844568034,
+        1.0
+      ],
+      "metallic": 0.8,
+      "roughness": 0.4,
+      "status": "estimated",
+      "source": "photo 0, pixel ROI [943, 609, 962, 686]; neutral WB photo 0 white_arm; metallic/roughness assumed initial values"
+    },
+    {
+      "name": "ar5_base_gray",
+      "match": {
+        "link_glob": [
+          "AR5_*_base"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.08898152563840141,
+        0.08898152563840141,
+        0.08898152563840141,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.5,
+      "status": "estimated",
+      "source": "RobotHMI_5.153.11.0314/model/AR5*/param.json RGB(.33,.33,.33), shininess30; assumed sRGB to linear; roughness not inferred from shininess"
+    },
+    {
+      "name": "ar5_warm_white",
+      "match": {
+        "link_glob": [
+          "AR5_*"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.8796223968878317,
+        0.8620299489500751,
+        0.8356412770434397,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.48,
+      "status": "estimated",
+      "source": "photo 0, pixel ROI [653, 400, 697, 433]; neutral WB photo 0 white_arm; metallic/roughness assumed initial values; HMI arm white; residual warm tint linear RGB x[1,.98,.95] assumed to initialize warm-white shell, not measured reflectance. Each mixed shell/black-ring STL uses white shell; rings cannot be separately colored."
+    },
+    {
+      "name": "g20_dark",
+      "match": {
+        "link_glob": [
+          "*distal",
+          "*hand_base_link"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.02956594820048581,
+        0.03047716193878364,
+        0.031004092384768773,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.8,
+      "status": "estimated",
+      "source": "photo 4, pixel ROI [428, 724, 450, 779]; neutral WB photo 0 white_arm; metallic/roughness assumed initial values; palm/distal mixed STL uses dark face, sacrifices silver trim"
+    },
+    {
+      "name": "g20_silver",
+      "match": {
+        "link_glob": [
+          "*proximal",
+          "*metacarpals*",
+          "*middle"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.42212775778376393,
+        0.4247650004927726,
+        0.4229388845904321,
+        1.0
+      ],
+      "metallic": 0.9,
+      "roughness": 0.35,
+      "status": "estimated",
+      "source": "photo 0, pixel ROI [378, 729, 422, 752]; neutral WB photo 0 white_arm; metallic/roughness assumed initial values; photo0/3/4 silver shell, no PBR vendor asset; URDF red/yellow ignored"
+    },
+    {
+      "name": "realsense_shell",
+      "match": {
+        "link_glob": [
+          "camera_*_body"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.8875915417964342,
+        0.9256467991693655,
+        1.0,
+        1.0
+      ],
+      "metallic": 0.65,
+      "roughness": 0.4,
+      "status": "estimated",
+      "source": "photo 0, pixel ROI [973, 237, 1036, 251]; neutral WB photo 0 white_arm; metallic/roughness assumed initial values; D435 mesh Apache2.0; integrated black sensor strip not independently textured"
+    },
+    {
+      "name": "floor",
+      "match": {
+        "link_glob": [
+          "station_floor"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.11701133335388177,
+        0.09904500488271399,
+        0.09056435703506317,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.9,
+      "status": "estimated",
+      "source": "photo 0, pixel ROI [40, 1130, 120, 1210]; neutral WB photo 0 white_arm; metallic/roughness assumed initial values"
+    }
+  ]
+}

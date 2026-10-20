@@ -1,0 +1,84 @@
+{
+  "archived_at_utc": "2026-10-20T14:47:04.367012+00:00",
+  "board_surface_above_table_mm": 5.0,
+  "height_source": "User confirmed 5 mm backing thickness; paper/adhesive thickness not separately measured.",
+  "print_scale_user_confirmed": true,
+  "print_scale_user_statement": "底板厚度5mm; 纸面上的100mm准确",
+  "placement_source": "board-placements.json",
+  "coordinate_frame": {
+    "origin": "table back-left corner on table surface",
+    "x": "back to front",
+    "y": "left to right",
+    "z": "up",
+    "unit": "m"
+  },
+  "selection_policy": "Latest photo per position label; earlier position_3 photo retained for repeatability check.",
+  "observations": [
+    {
+      "label": "position_1",
+      "placement_name": "位置 1",
+      "image": "images/position_1_20261020T143235_150802Z.png"
+    },
+    {
+      "label": "position_2",
+      "placement_name": "位置 2",
+      "image": "images/position_2_20261020T143322_848514Z.png"
+    },
+    {
+      "label": "position_3",
+      "placement_name": "位置 3",
+      "image": "images/position_3_20261020T143708_918156Z.png"
+    }
+  ],
+  "all_images": [
+    {
+      "label": "position_1",
+      "image": "images/position_1_20261020T143235_150802Z.png",
+      "sha256": "33b0be0acb17b8dd0ef9b376d1ab5006c02160f5ab6737fd7ee321bae23536e5",
+      "selected_for_joint_solve": true
+    },
+    {
+      "label": "position_2",
+      "image": "images/position_2_20261020T143322_848514Z.png",
+      "sha256": "c145e71b654ec3924bbe4d354d0ab01af2913ecc6d7c21fa1aa61d4cd6c5d4da",
+      "selected_for_joint_solve": true
+    },
+    {
+      "label": "position_3",
+      "image": "images/position_3_20261020T143708_682736Z.png",
+      "sha256": "ff903e5bd1322c728fdb5cf0e7efead6cdd780351ebed7a6d2fb0a9c8b393d54",
+      "selected_for_joint_solve": false
+    },
+    {
+      "label": "position_3",
+      "image": "images/position_3_20261020T143708_918156Z.png",
+      "sha256": "459f311dd520db60f5d7860a0079ca4bd088cc78e8c7636db4831e589efb4ddb",
+      "selected_for_joint_solve": true
+    }
+  ],
+  "solver_repo_commit": "788696d54da4cb541b3baf6b645e591c7f4ecf20",
+  "project_world_table": {
+    "pose": [
+      0.405915,
+      0.6252,
+      0.762,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "half_extents": [
+      0.3125,
+      0.625,
+      0.005
+    ]
+  },
+  "project_world_table_source": "configs/workcell/station_g20_v4_2.json",
+  "project_world_table_source_sha256": "c089e9f121ec1297c3377667858400cebd0feda7f02c4904b21286233a574856",
+  "solver_source_hashes": {
+    "common.py": "548a2eeb8a2daac92263fa5963d5ae2984593555a18eb68c847fe01310df0055",
+    "detect.py": "b689379e0eb0046a4794f85ebd50d15fbca8ca9992d06acbd6066e948761c22b",
+    "extrinsics.py": "06856c08a69ee1fb07a4908ca1abb22cfbe9d9ad4dd5e1f757b4904ef61c7061",
+    "calibrate_extrinsics.py": "26e63f6b957bfe52ad94663dd137e1ab0aa14aecae1c6aa6c5078e3c634b2b97"
+  }
+}

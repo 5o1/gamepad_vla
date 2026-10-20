@@ -1,0 +1,88 @@
+{
+  "name": "station-left-g20-v3",
+  "world_frame": "world",
+  "table": {
+    "pose": [
+      0.405915,
+      0.6252,
+      0.762,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "half_extents": [
+      0.3125,
+      0.625,
+      0.005
+    ]
+  },
+  "left_arm": {
+    "urdf": "workspace://assets/linkerhand_station_20261014/AR5_L25_workstation_urdf/urdf/AR5_L25_workstation.urdf",
+    "base_link": "AR5_5_07L_W4C4A2_base",
+    "tip_link": "AR5_5_07L_W4C4A2_tcp",
+    "base_pose": [
+      0.036915,
+      0.7112,
+      1.262,
+      0.4999981633974483,
+      -0.49999999999662686,
+      0.49999999999662686,
+      0.5000018366025518
+    ],
+    "home_q": [
+      -1.43823,
+      1.33764,
+      0.51476,
+      1.36853,
+      1.71606,
+      0.15145,
+      0.43553
+    ],
+    "joint_names": [
+      "AR5_5_07L_W4C4A2_joint_1",
+      "AR5_5_07L_W4C4A2_joint_2",
+      "AR5_5_07L_W4C4A2_joint_3",
+      "AR5_5_07L_W4C4A2_joint_4",
+      "AR5_5_07L_W4C4A2_joint_5",
+      "AR5_5_07L_W4C4A2_joint_6",
+      "AR5_5_07L_W4C4A2_joint_7"
+    ]
+  },
+  "left_hand": {
+    "urdf": "workspace://assets/linkerhand_station_20261014/linkerhand_g20_l20_l25_urdf_mesh/g20_left/linkerhand_g20_left.urdf",
+    "root_link": "hand_base_link",
+    "mount": [
+      0.0,
+      0.0,
+      0.02,
+      0.7071054825112364,
+      0.0,
+      0.0,
+      0.7071080798594737
+    ],
+    "mount_status": "unverified"
+  },
+  "gamepad": {
+    "release": "xbox_gamepad_physics==0.3.1",
+    "profile": "full_controls",
+    "collision": "sdf",
+    "root_pose": [
+      0.473415,
+      0.6252,
+      0.7979,
+      0.7071067811865476,
+      0.0,
+      0.0,
+      -0.7071067811865476
+    ],
+    "fixed_root": true
+  },
+  "notes": [
+    "Supersedes station-left-g20-v2. Values measured by the user on 2026-10-15 (references/station_measurements.md); world frame stays the station URDF world, anchored to the table plate.",
+    "table: plate 625 x 1250 mm (B2, B1 measured = design), top 767 mm above floor (A), 10 mm thick (B3); x/y edges from the URDF plate.",
+    "left_arm.base_pose: z = table top + 495 mm (D1, base axis); y = column centre (table left edge + 560 + 120/2 mm, C1/C2) + 182/2 mm (mount face to mount face, assumed symmetric); x = column centre with the column front flush with the plate back edge (C3) and the URDF column depth 113 mm (C5 not measured, +-5 mm). Orientation is the URDF design value.",
+    "left_hand.mount: 20 mm from the AR5 flange face (black ring top = URDF tcp, link7 mesh end) to the G20 bottom (hand_base_link origin), measured (E1); the +90 deg yaw is the L25 value, unverified for G20 (E2), so mount_status stays unverified.",
+    "left_arm.home_q and gamepad.root_pose come from scripts/place_gamepad_ik.py (runs/20261015-gamepad-placement-ik/placement_chosen_hc0.015.json): gamepad face up, centre 380 mm from the plate back edge, laterally centred (y = plate centre), yaw -90 deg about z so the bumpers point away from the robot like a player's grip; home_q places the palm at all-clear thumb-reach placement 1068 (alpha = 0, open fingers clear of the gamepad), open hand 48 mm and arm meshes 226 mm above the table top, min joint-limit margin 0.61 rad. Kinematic choice; contacts are checked in SAPIEN (docs/reports/2026-10-15-workstation-sapien-check)."
+  ]
+}

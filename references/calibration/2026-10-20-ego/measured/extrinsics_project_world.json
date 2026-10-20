@@ -1,0 +1,70 @@
+{
+  "T_project_world_camera_optical": [
+    [
+      0.024048094466417556,
+      -0.9837453331743796,
+      0.1779517030268679,
+      0.316152573550708
+    ],
+    [
+      -0.9995463982548801,
+      -0.026888234754534796,
+      -0.013565418072482946,
+      0.6817751421638744
+    ],
+    [
+      0.01812972388732017,
+      -0.1775447613685444,
+      -0.983945715383911,
+      1.4448455444798973
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "pose_xyz_qw_qx_qy_qz": [
+    0.316152573550708,
+    0.6817751421638744,
+    1.4448455444798973,
+    0.05747639586815635,
+    -0.7132464589124967,
+    0.6951635394212929,
+    -0.06872849646290498
+  ],
+  "T_project_world_table": [
+    [
+      1.0,
+      0.0,
+      0.0,
+      0.09341500000000003
+    ],
+    [
+      0.0,
+      1.0,
+      0.0,
+      0.00019999999999997797
+    ],
+    [
+      0.0,
+      0.0,
+      1.0,
+      0.767
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "translation_unit": "m",
+  "camera_axes": "ROS optical: x right, y down, z forward",
+  "source_table_result": "extrinsics_table.json",
+  "table_origin_source": "configs/workcell/station_g20_v4_2.json",
+  "table_origin_source_sha256": "c089e9f121ec1297c3377667858400cebd0feda7f02c4904b21286233a574856",
+  "scope": "Derived using the existing configured table frame; robot-to-table calibration not independently verified.",
+  "physical_accuracy_verified": false
+}

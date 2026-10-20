@@ -1,0 +1,220 @@
+{
+  "format": "calibration-board-placement-plan",
+  "version": 1,
+  "units": "mm",
+  "coordinates": {
+    "origin": "table_back_left",
+    "x": "back_to_front",
+    "y": "left_to_right"
+  },
+  "reference_points": "H1-H4 mounting-hole centers, clockwise on the print",
+  "table": {
+    "width_mm": 1250,
+    "depth_mm": 625
+  },
+  "camera_hint": {
+    "edge": "back"
+  },
+  "placements": [
+    {
+      "id": "position-1",
+      "name": "位置 1",
+      "color": "#2563eb",
+      "visible": true,
+      "hole_measurements": [
+        {
+          "id": "H1",
+          "from_back_edge_mm": 335.2646744037728,
+          "from_left_edge_mm": 297.22262011660047
+        },
+        {
+          "id": "H2",
+          "from_back_edge_mm": 333.73734487773834,
+          "from_left_edge_mm": 697.2197041866207
+        },
+        {
+          "id": "H3",
+          "from_back_edge_mm": 610.7353255962273,
+          "from_left_edge_mm": 698.2773798833996
+        },
+        {
+          "id": "H4",
+          "from_back_edge_mm": 612.2626551222618,
+          "from_left_edge_mm": 298.2802958133794
+        }
+      ]
+    },
+    {
+      "id": "position-403c80d5-e91d-452c-869c-e885437f9577",
+      "name": "位置 2",
+      "color": "#c11f26",
+      "visible": true,
+      "hole_measurements": [
+        {
+          "id": "H1",
+          "from_back_edge_mm": 337.4631173674822,
+          "from_left_edge_mm": 543.9489709507287
+        },
+        {
+          "id": "H2",
+          "from_back_edge_mm": 338.03716788553095,
+          "from_left_edge_mm": 943.94855903302
+        },
+        {
+          "id": "H3",
+          "from_back_edge_mm": 615.0368826325177,
+          "from_left_edge_mm": 943.5510290492714
+        },
+        {
+          "id": "H4",
+          "from_back_edge_mm": 614.4628321144689,
+          "from_left_edge_mm": 543.55144096698
+        }
+      ]
+    },
+    {
+      "id": "position-967d2655-a4e7-49dc-b6ed-589dd797648f",
+      "name": "位置 3",
+      "color": "#1fc148",
+      "visible": true,
+      "hole_measurements": [
+        {
+          "id": "H1",
+          "from_back_edge_mm": 149.61994784567574,
+          "from_left_edge_mm": 428.7127647667315
+        },
+        {
+          "id": "H2",
+          "from_back_edge_mm": 152.38667841815104,
+          "from_left_edge_mm": 828.7031961547076
+        },
+        {
+          "id": "H3",
+          "from_back_edge_mm": 429.3800521543243,
+          "from_left_edge_mm": 826.7872352332683
+        },
+        {
+          "id": "H4",
+          "from_back_edge_mm": 426.61332158184894,
+          "from_left_edge_mm": 426.7968038452923
+        }
+      ]
+    }
+  ],
+  "coordinate_source": "derived equal-weight rigid least-squares fit; not new independent measurements",
+  "raw_measurements_file": "board-placements.json",
+  "fit_method": "fixed 400 x 277 mm hole rectangle; planar translation and rotation; all four holes equally weighted",
+  "fitted_poses": [
+    {
+      "label": "position_1",
+      "hole_rectangle_center_table_xyz_mm": [
+        473.00000000000006,
+        497.75,
+        5.0
+      ],
+      "H1_to_H2_angle_from_positive_Y_toward_positive_X_deg": -0.2187743710279424,
+      "T_table_board": [
+        [
+          -0.003818323815086061,
+          0.9999927101750503,
+          0.0,
+          0.345207326648297
+        ],
+        [
+          0.9999927101750505,
+          0.003818323815086332,
+          0.0,
+          0.3122606940073771
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          0.005
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "hole_fit_rms_mm": 4.750917240588209,
+      "T_table_board_translation_unit": "m"
+    },
+    {
+      "label": "position_2",
+      "hole_rectangle_center_table_xyz_mm": [
+        476.24999999999994,
+        743.75,
+        5.0
+      ],
+      "H1_to_H2_angle_from_positive_Y_toward_positive_X_deg": 0.0822267080042626,
+      "T_table_board": [
+        [
+          0.0014351262951218756,
+          0.9999989702057286,
+          0.0,
+          0.3474846339639663
+        ],
+        [
+          0.9999989702057284,
+          -0.0014351262951218442,
+          0.0,
+          0.5589346042408635
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          0.005
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "hole_fit_rms_mm": 1.3242176462887,
+      "T_table_board_translation_unit": "m"
+    },
+    {
+      "label": "position_3",
+      "hole_rectangle_center_table_xyz_mm": [
+        289.5,
+        627.7499999999999,
+        5.0
+      ],
+      "H1_to_H2_angle_from_positive_Y_toward_positive_X_deg": 0.39630812223554757,
+      "T_table_board": [
+        [
+          0.006916826431188269,
+          0.9999760784699395,
+          0.0,
+          0.15972346102684296
+        ],
+        [
+          0.9999760784699403,
+          -0.0069168264311883715,
+          0.0,
+          0.4436432376794687
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0,
+          0.005
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "hole_fit_rms_mm": 3.440977661348407,
+      "T_table_board_translation_unit": "m"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "workspace": "~/.local/share/gamepad-vla",
+  "conda_executable": "conda",
+  "compute": {
+    "ssh_profile": "",
+    "remote_code": "",
+    "python": "",
+    "cuda_visible_devices": "",
+    "render_device": ""
+  },
+  "station": {
+    "ssh_profile": "",
+    "home": "",
+    "workspace": "",
+    "data_root": "",
+    "camera_root": "",
+    "estop_script": "",
+    "ros_setup": "/opt/ros/humble/setup.bash",
+    "python": "/usr/bin/python3",
+    "conda_setup": "",
+    "left_arm_ip": "",
+    "right_arm_ip": "",
+    "left_local_ip": "",
+    "right_local_ip": "",
+    "left_can": "can1",
+    "right_can": "can0",
+    "hand_joint": "G20"
+  },
+  "camera": {
+    "serials": {"camera_1": "", "camera_2": "", "camera_3": ""},
+    "width": 1280,
+    "height": 720,
+    "port": 18788,
+    "tunnel_port": 18787,
+    "remote_port": 18787,
+    "ros_domain_id": 73
+  },
+  "udp": {
+    "bind_host": "127.0.0.1",
+    "peer_host": "127.0.0.1",
+    "source_host": "",
+    "port": 50200,
+    "allow_sources": []
+  },
+  "operator": {
+    "bind_host": "127.0.0.1",
+    "port": 8780,
+    "browser_url": "http://127.0.0.1:8780/",
+    "debug_url": "http://127.0.0.1:19222"
+  }
+}

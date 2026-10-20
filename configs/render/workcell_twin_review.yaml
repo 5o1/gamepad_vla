@@ -1,0 +1,15 @@
+# Historical three-camera recording review.
+# Use workcell_ego_review.yaml for the current single-camera scene.
+experiment: workcell_twin_review
+profile: full_controls
+scene:
+  timestep: 0.004166666666666667
+  ground: false
+  render: true
+  robotwin_root: null
+gamepad:
+  fixed_root: true
+  attach_visual: true
+  collision: sdf
+params:
+  review_manifest: workspace://runs/20261015-camera-extrinsics/review_manifest.json

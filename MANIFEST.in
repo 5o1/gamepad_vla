@@ -1,0 +1,9 @@
+include README.md
+recursive-include src/gamepad_vla/workstation/operator_web *.html *.js
+recursive-include configs *.json *.yaml
+recursive-include scripts *.py *.sh *.mjs *.md
+recursive-include constraints *.txt
+recursive-include tests *.py
+recursive-include references/calibration *.json
+exclude configs/site.local.json
+prune .local

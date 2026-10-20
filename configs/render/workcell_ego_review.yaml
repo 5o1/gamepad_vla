@@ -1,0 +1,16 @@
+# Capture the workcell's real-camera definition, with its K and optical pose.
+experiment: workcell_review
+profile: full_controls
+scene:
+  timestep: 0.004166666666666667
+  ground: false
+  render: true
+  robotwin_root: null
+gamepad:
+  fixed_root: true
+  attach_visual: true
+  collision: sdf
+params:
+  steps: 120
+  cameras: {}
+  spec_cameras: [camera_3]

@@ -1,0 +1,295 @@
+{
+  "fixtures": [
+    {
+      "name": "station_column",
+      "type": "box",
+      "pose": [
+        0.036915,
+        0.6202,
+        0.6946549999999999,
+        1,
+        0,
+        0,
+        0
+      ],
+      "half_extents": [
+        0.0565,
+        0.06,
+        0.5375
+      ],
+      "collision": true,
+      "status": "assumed",
+      "source": "C1/C2/C3 measured, C5 unmeasured113mm per task/v3 (original mesh body60mm,113mm is top disc depth); vertical extent design adjusted -5mm"
+    },
+    {
+      "name": "station_column_top_mount",
+      "type": "box",
+      "pose": [
+        0.036915,
+        0.6202,
+        1.262,
+        1,
+        0,
+        0,
+        0
+      ],
+      "half_extents": [
+        0.0565,
+        0.091,
+        0.0564275
+      ],
+      "collision": true,
+      "status": "design",
+      "source": "URDF mounting discs113mm depth, measured mount faces182mm; simplified enclosing box; may overapproximate contacts"
+    },
+    {
+      "name": "station_floor",
+      "type": "box",
+      "pose": [
+        0.4,
+        0.62,
+        -0.025,
+        1,
+        0,
+        0,
+        0
+      ],
+      "half_extents": [
+        3,
+        3,
+        0.025
+      ],
+      "collision": true,
+      "status": "design",
+      "source": "world z=0; finite plane proxy5cm slab"
+    },
+    {
+      "name": "station_table_frame_panel",
+      "type": "box",
+      "pose": [
+        0.405915,
+        0.6252,
+        0.747,
+        1,
+        0,
+        0,
+        0
+      ],
+      "half_extents": [
+        0.3125,
+        0.625,
+        0.01
+      ],
+      "collision": true,
+      "status": "assumed",
+      "source": "photo4 white board beneath measured green plate; thickness20mm initial assumption, not measured"
+    },
+    {
+      "name": "station_table_frame_leg00",
+      "type": "box",
+      "pose": [
+        0.113415,
+        0.0202,
+        0.3685,
+        1,
+        0,
+        0,
+        0
+      ],
+      "half_extents": [
+        0.02,
+        0.02,
+        0.3685
+      ],
+      "collision": true,
+      "status": "assumed",
+      "source": "photo0/4 frame footprint approximation; no leg measurement, omitted crossbars"
+    },
+    {
+      "name": "station_table_frame_leg01",
+      "type": "box",
+      "pose": [
+        0.113415,
+        1.2302,
+        0.3685,
+        1,
+        0,
+        0,
+        0
+      ],
+      "half_extents": [
+        0.02,
+        0.02,
+        0.3685
+      ],
+      "collision": true,
+      "status": "assumed",
+      "source": "photo0/4 frame footprint approximation; no leg measurement, omitted crossbars"
+    },
+    {
+      "name": "station_table_frame_leg10",
+      "type": "box",
+      "pose": [
+        0.698415,
+        0.0202,
+        0.3685,
+        1,
+        0,
+        0,
+        0
+      ],
+      "half_extents": [
+        0.02,
+        0.02,
+        0.3685
+      ],
+      "collision": true,
+      "status": "assumed",
+      "source": "photo0/4 frame footprint approximation; no leg measurement, omitted crossbars"
+    },
+    {
+      "name": "station_table_frame_leg11",
+      "type": "box",
+      "pose": [
+        0.698415,
+        1.2302,
+        0.3685,
+        1,
+        0,
+        0,
+        0
+      ],
+      "half_extents": [
+        0.02,
+        0.02,
+        0.3685
+      ],
+      "collision": true,
+      "status": "assumed",
+      "source": "photo0/4 frame footprint approximation; no leg measurement, omitted crossbars"
+    },
+    {
+      "name": "camera_1_body",
+      "type": "mesh",
+      "parent": "left_hand:hand_base_link",
+      "pose": [
+        0.04415700451985662,
+        -0.003452396886051135,
+        -0.011553890896939516,
+        0.7150728646372294,
+        0.14731135209448587,
+        -0.18192666877449667,
+        0.658690254210745
+      ],
+      "collision": false,
+      "status": "estimated",
+      "mesh": "workspace://external/online_20261015/realsense_d435_d455/realsense2_description/meshes/d435.dae",
+      "source": "IntelRealSense realsense-ros D435 mesh (Apache-2.0), existing PROVENANCE. nominal optical-to-mesh design transform from _d435.urdf.xacro; pose from estimated S1. Visual only, wrists follow hand parent."
+    },
+    {
+      "name": "camera_2_body",
+      "type": "mesh",
+      "parent": "right_hand:hand_base_link",
+      "pose": [
+        0.06416346223699358,
+        0.002856079214284636,
+        0.0035860528370609004,
+        0.7116055437046173,
+        -0.04724407653937361,
+        -0.17338099960497386,
+        -0.679208787028538
+      ],
+      "collision": false,
+      "status": "estimated",
+      "mesh": "workspace://external/online_20261015/realsense_d435_d455/realsense2_description/meshes/d435.dae",
+      "source": "IntelRealSense realsense-ros D435 mesh (Apache-2.0), existing PROVENANCE. nominal optical-to-mesh design transform from _d435.urdf.xacro; pose from estimated S1. Visual only, wrists follow hand parent."
+    },
+    {
+      "name": "camera_3_body",
+      "type": "mesh",
+      "parent": "world",
+      "pose": [
+        0.1587867538439976,
+        0.5606008286889947,
+        0.924250943057252,
+        0.3024933992588183,
+        -0.6398893019569367,
+        -0.6272777241995393,
+        0.32490318768666504
+      ],
+      "collision": false,
+      "status": "estimated",
+      "mesh": "workspace://external/online_20261015/realsense_d435_d455/realsense2_description/meshes/d435.dae",
+      "source": "IntelRealSense realsense-ros D435 mesh (Apache-2.0), existing PROVENANCE. nominal optical-to-mesh design transform from _d435.urdf.xacro; pose from estimated S1. Visual only, wrists follow hand parent."
+    }
+  ],
+  "right_arm": {
+    "urdf": "workspace://assets/linkerhand_station_20261014/AR5_L25_workstation_urdf/urdf/AR5_L25_workstation.urdf",
+    "base_link": "AR5_5_07R_W4C4A2_base",
+    "tip_link": "AR5_5_07R_W4C4A2_tcp",
+    "base_pose": [
+      0.036915,
+      0.5292,
+      1.262,
+      0.4999981633974483,
+      0.49999999999662686,
+      0.49999999999662686,
+      -0.5000018366025518
+    ],
+    "home_q": [
+      -0.046065762639045715,
+      1.1694139242172241,
+      -0.23293067514896393,
+      0.6583375930786133,
+      1.1832926273345947,
+      0.03141113370656967,
+      -0.04432820901274681
+    ],
+    "joint_names": [
+      "AR5_5_07R_W4C4A2_joint_1",
+      "AR5_5_07R_W4C4A2_joint_2",
+      "AR5_5_07R_W4C4A2_joint_3",
+      "AR5_5_07R_W4C4A2_joint_4",
+      "AR5_5_07R_W4C4A2_joint_5",
+      "AR5_5_07R_W4C4A2_joint_6",
+      "AR5_5_07R_W4C4A2_joint_7"
+    ]
+  },
+  "right_hand": {
+    "urdf": "workspace://assets/linkerhand_station_20261014/linkerhand_g20_l20_l25_urdf_mesh/g20_right/linkerhand_g20_right.urdf",
+    "root_link": "hand_base_link",
+    "mount": [
+      0,
+      0,
+      0.02,
+      0.7071054825112364,
+      0.0,
+      0.0,
+      -0.7071080798594737
+    ],
+    "mount_status": "unverified",
+    "home_q": [
+      0.7195294117647059,
+      0.7203529411764705,
+      0.4654509803921569,
+      0.25,
+      0.2575,
+      0.23,
+      0.7272156862745098,
+      0.19215686274509805,
+      0.17101960784313727,
+      0.17047058823529412,
+      0.6937254901960784,
+      0.1784313725490196,
+      0.15880392156862747,
+      0.17227450980392153,
+      0.7941960784313725,
+      0.19215686274509805,
+      0.17101960784313727,
+      0.23,
+      0.6793725490196079,
+      0.7137254901960784,
+      0.6352156862745099
+    ]
+  }
+}

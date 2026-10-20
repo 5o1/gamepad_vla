@@ -1,0 +1,62 @@
+{
+  "serial": "camera_3",
+  "width": 1280,
+  "height": 720,
+  "K": [
+    906.560791015625,
+    0.0,
+    647.8956298828125,
+    0.0,
+    905.986328125,
+    362.2329406738281,
+    0.0,
+    0.0,
+    1.0
+  ],
+  "D": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "R": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+  ],
+  "P": [
+    906.560791015625,
+    0.0,
+    647.8956298828125,
+    0.0,
+    0.0,
+    905.986328125,
+    362.2329406738281,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0
+  ],
+  "distortion_model": "plumb_bob",
+  "frame_id": "camera_color_optical_frame",
+  "image_stamp": {
+    "sec": 1792507028,
+    "nanosec": 509263428
+  },
+  "image_encoding": "rgb8",
+  "age_s": 0.030760069843381643,
+  "captured_at_utc": "2026-10-20T14:37:08.574393+00:00",
+  "topic": "/calib_capture/camera/color/image_raw",
+  "processing": "PNG from image_raw; no crop, resize, or undistortion",
+  "label": "position_3",
+  "saved_locally_at_utc": "2026-10-20T14:37:09.031142+00:00",
+  "image_file": "position_3_20261020T143708_918156Z.png"
+}
