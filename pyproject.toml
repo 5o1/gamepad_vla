@@ -15,7 +15,7 @@ dependencies = [
 
 [project.optional-dependencies]
 vla = ["torch>=2.4"]
-assets = ["scipy>=1.10", "pillow>=10", "trimesh>=4", "opencv-python>=4.10"]
+assets = ["scipy>=1.10", "pillow>=10", "trimesh>=4", "opencv-python>=4.10", "networkx>=3"]
 dev = ["pytest>=8", "build>=1.2"]
 sim = [
     "sapien==3.0.3",
@@ -25,6 +25,7 @@ sim = [
     "trimesh>=4",
     "opencv-python>=4.10",
     "transforms3d>=0.4",
+    "networkx>=3",
 ]
 web = ["aiohttp>=3.9", "opencv-python>=4.10", "PyYAML>=6", "pillow>=10"]
 data = ["pyarrow>=18"]

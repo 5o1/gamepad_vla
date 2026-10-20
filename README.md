@@ -4,6 +4,8 @@ ConCon 的灵巧手采集与控制模块：接收游戏手柄目标信号，驱�
 
 当前场景为 [station_g20_v4_4.json](configs/workcell/station_g20_v4_4.json)：双 AR5-5_0.8R、双 G20 和一台已标定的顶置相机。当前控制与记录链路以左手为主，右侧用于场景展示。主型号与现场铭牌一致，安装零位和新模型的接触行为仍待验证。见[场景图](docs/reports/2026-10-21-08r-multiview/render/multiview.png)、[标定归档](references/calibration/2026-10-20-ego/measured/README.md)和[硬件记录](references/linkerhand_station.md)。
 
+从空工作目录准备资产、渲染和复算标定，请按[独立复现指南](docs/reproduce.md)执行；全部公开来源和固定版本见[资源清单](references/external_resources.json)。
+
 ## 结构
 
 | 目录 | 职责 |
@@ -35,7 +37,7 @@ python scripts/run_workstation.py --source scripted --backend null --duration 1
 
 可选依赖按用途安装：`sim` 为 SAPIEN，`web` 为操作者画面，`assets` 为资产处理，`data` 为 Parquet 转换。`vla` 暂缓开发，基础安装无需 Torch。ROS2 和 Isaac 使用各自的隔离环境。
 
-仿真环境在配置的计算节点上由 `scripts/setup_sapien_env.sh` 创建，使用 Python 3.10、SAPIEN 3.0.3、手柄资产 v0.3.1 和 [版本约束](constraints/sapien-py310.txt)。手柄 wheel、资源包及校验文件需预先放在工作目录的 `assets/xbox_gamepad_physics_v0.3.1/release/`。脚本不会覆盖已有环境；操作者视频另外需要支持 NVENC 的 FFmpeg。
+仿真环境在配置的计算节点上由 `scripts/setup_sapien_env.sh` 创建，使用 Python 3.10、SAPIEN 3.0.3、手柄资产 v0.3.1 和 [版本约束](constraints/sapien-py310.txt)。先运行 `PYTHONPATH=src python3 scripts/fetch_resources.py --group simulation` 获取并校验公开资源，再安装环境并执行 `scripts/prepare_resources.py`。脚本不会覆盖已有环境；操作者视频另外需要支持 NVENC 的 FFmpeg。
 
 在节点的仿真环境中：
 
@@ -45,7 +47,7 @@ python scripts/render_workcell.py configs/render/workcell_multiview_preview.yaml
   --output "$GAMEPAD_VLA_WORKSPACE/runs/multiview"
 ```
 
-计算任务只使用空闲或获授权的 GPU；通过站点配置的 `compute.cuda_visible_devices` 和 `compute.render_device` 指定同一物理 GPU，也可显式使用同名环境变量覆盖。场景默认读取 v4.4，可用 `--spec` 选择其他配置。
+计算任务只使用空闲或获授权的 GPU；通过站点配置的 `compute.cuda_visible_devices` 和 `compute.render_device` 指定同一物理 GPU，也可用 `CUDA_VISIBLE_DEVICES`、`GAMEPAD_VLA_RENDER_DEVICE` 覆盖。场景默认读取 v4.4，可用 `--spec` 选择其他配置。
 
 ## 工程维护
 

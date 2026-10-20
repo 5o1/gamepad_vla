@@ -1,0 +1,486 @@
+{
+  "schema_version": 1,
+  "scope": "Current v4.4 scene and archived three-position calibration",
+  "resources": [
+    {
+      "id": "g20",
+      "group": "simulation",
+      "kind": "files",
+      "repository": "https://github.com/linker-bot/linkerhand-urdf",
+      "revision": "075cc7d42cc1e756bdcbece0fc069a0779fc5237",
+      "license": "Apache-2.0; see downloaded LICENSE",
+      "destination": "external/linkerhand_urdf_075cc7d4",
+      "purpose": "Public L25 geometry matching the station G20 pair",
+      "files": [
+        {
+          "path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/linker-bot/linkerhand-urdf/075cc7d42cc1e756bdcbece0fc069a0779fc5237/LICENSE",
+          "sha256": "4249df1514f79659a7728b0afc7e514f12524e036a42b15723b5c72f999e7481",
+          "bytes": 11345
+        },
+        {
+          "path": "L25/left/linkerhand_l25_left.urdf",
+          "url": "https://raw.githubusercontent.com/linker-bot/linkerhand-urdf/075cc7d42cc1e756bdcbece0fc069a0779fc5237/L25/left/linkerhand_l25_left.urdf",
+          "sha256": "0f6a8d2254a79e14abb5ce684ff96540c42e323e51eb2c438eaa71543c3d924a",
+          "bytes": 28582
+        },
+        {
+          "path": "L25/right/linkerhand_l25_right.urdf",
+          "url": "https://raw.githubusercontent.com/linker-bot/linkerhand-urdf/075cc7d42cc1e756bdcbece0fc069a0779fc5237/L25/right/linkerhand_l25_right.urdf",
+          "sha256": "a1562d64fa79ce295656fbb36f70ee8b6b43b6bbb4d3aafcc845868fac4e7ab6",
+          "bytes": 28589
+        },
+        {
+          "path": "L25/left/meshes/index_distal.STL",
+          "url": "https://raw.githubusercontent.com/linker-bot/linkerhand-urdf/075cc7d42cc1e756bdcbece0fc069a0779fc5237/L25/left/meshes/index_distal.STL",
+          "sha256": "130639135efbb5cd2773c18b481fcea45afe3bfd5dc8279a28a18a6b518779db",
+          "bytes": 993184
+        },
+        {
+          "path": "L25/left/meshes/index_middle.STL",
+          "url": "https://raw.githubusercontent.com/linker-bot/linkerhand-urdf/075cc7d42cc1e756bdcbece0fc069a0779fc5237/L25/left/meshes/index_middle.STL",
+          "sha256": "b3e46d945996e52bf0758b80f7aa1c2b99bca503b4c5b3c350e6850f78b05152",
+          "bytes": 732584
+        },
+        {
+          "path": "L25/left/meshes/index_metacarpals.STL",
+          "url": "https://raw.githubusercontent.com/linker-bot/linkerhand-urdf/075cc7d42cc1e756bdcbece0fc069a0779fc5237/L25/left/meshes/index_metacarpals.STL",
+          "sha256": "60bc3fc552cbdc4a53fbde3e11a06fc8b0b52a0ee6ea8b730b481a6eb54cfe92",
+          "bytes": 153484
+        },
+        {
+          "path": "L25/left/meshes/hand_base_link.STL",
+          "url": "https://raw.githubusercontent.com/linker-bot/linkerhand-urdf/075cc7d42cc1e756bdcbece0fc069a0779fc5237/L25/left/meshes/hand_base_link.STL",
+          "sha256": "f5fa64265908b92a132e18fff27dc212ec21ba4872806386846374d5c91fc70a",
+          "bytes": 3504384
+        },
+        {
+          "path": "L25/left/meshes/index_proximal.STL",
+          "url": "https://raw.githubusercontent.com/linker-bot/linkerhand-urdf/075cc7d42cc1e756bdcbece0fc069a0779fc5237/L25/left/meshes/index_proximal.STL",
+          "sha256": "5a561d159861170e0bc91d6a4ecb634611bcc497bb2e60440d829e5ae0b9b7f7",
+          "bytes": 881084
+        },
+        {
+          "path": "L25/left/meshes/middle_metacarpals.STL",
+          "url": "https://raw.githubusercontent.com/linker-bot/linkerhand-urdf/075cc7d42cc1e756bdcbece0fc069a0779fc5237/L25/left/meshes/middle_metacarpals.STL",
+          "sha256": "592ce620ebba1e75ce109cf70654dc8dc2d9bb41315b6dfc902b3ed3c703f43a",
+          "bytes": 153484
+        },
+        {
+          "path": "L25/left/meshes/middle_distal.STL",
+          "url": "https://raw.githubusercontent.com/linker-bot/linkerhand-urdf/075cc7d42cc1e756bdcbece0fc069a0779fc5237/L25/left/meshes/middle_distal.STL",
+          "sha256": "a6143d000a38c7b60231b55b9e209161c7726a0410f5a7e5c48c0f41f067a006",
+          "bytes": 993184
+        },
+        {
+          "path": "L25/left/meshes/middle_middle.STL",
+          "url": "https://raw.githubusercontent.com/linker-bot/linkerhand-urdf/075cc7d42cc1e756bdcbece0fc069a0779fc5237/L25/left/meshes/middle_middle.STL",
+          "sha256": "09b1b9a5bf9017d86dc543a214d263acc32c2ed4c3a474116ccdb8ab163cce89",
+          "bytes": 732584
+        },
+        {
+          "path": "L25/left/meshes/middle_proximal.STL",
+          "url": "https://raw.githubusercontent.com/linker-bot/linkerhand-urdf/075cc7d42cc1e756bdcbece0fc069a0779fc5237/L25/left/meshes/middle_proximal.STL",
+          "sha256": "115d5c2027a656d6765339a477effc251a6fb9cd26dfc56474e6b63fac64aa43",
+          "bytes": 881084
+        },
+        {
+          "path": "L25/left/meshes/pinky_distal.STL",
+          "url": "https://raw.githubusercontent.com/linker-bot/linkerhand-urdf/075cc7d42cc1e756bdcbece0fc069a0779fc5237/L25/left/meshes/pinky_distal.STL",
+          "sha256": "2d31ac67d0c2573758f0da2de4c3b773494a262845cc63659f2816bfd1fda10a",
+          "bytes": 993184
+        },
+        {
+          "path": "L25/left/meshes/pinky_metacarpals.STL",
+          "url": "https://raw.githubusercontent.com/linker-bot/linkerhand-urdf/075cc7d42cc1e756bdcbece0fc069a0779fc5237/L25/left/meshes/pinky_metacarpals.STL",
+          "sha256": "95a7614a7495032fdec6d5bf39df04a5fec85fbe1032ea8ffad5e09e59fe287a",
+          "bytes": 153484
+        },
+        {
+          "path": "L25/left/meshes/pinky_middle.STL",
+          "url": "https://raw.githubusercontent.com/linker-bot/linkerhand-urdf/075cc7d42cc1e756bdcbece0fc069a0779fc5237/L25/left/meshes/pinky_middle.STL",
+          "sha256": "5a67a4840294f79a64b143e1cba9131811342df8c735f817708dd106699c6480",
+          "bytes": 732584
+        },
+        {
+          "path": "L25/left/meshes/ring_metacarpals.STL",
+          "url": "https://raw.githubusercontent.com/linker-bot/linkerhand-urdf/075cc7d42cc1e756bdcbece0fc069a0779fc5237/L25/left/meshes/ring_metacarpals.STL",
+          "sha256": "c90a028bf7a5da221a92d886a65cde79cf5641ff82eccd65bd6b982e17df912d",
+          "bytes": 153484
+        },
+        {
+          "path": "L25/left/meshes/ring_distal.STL",
+          "url": "https://raw.githubusercontent.com/linker-bot/linkerhand-urdf/075cc7d42cc1e756bdcbece0fc069a0779fc5237/L25/left/meshes/ring_distal.STL",
+          "sha256": "c82b0efd00e191a019927cf5590135f8b4d9b2c9228abfb68b12f3e0257c42aa",
+          "bytes": 993184
+        },
+        {
+          "path": "L25/left/meshes/ring_middle.STL",
+          "url": "https://raw.githubusercontent.com/linker-bot/linkerhand-urdf/075cc7d42cc1e756bdcbece0fc069a0779fc5237/L25/left/meshes/ring_middle.STL",
+          "sha256": "191ddee09524ed6f7ebd447cf30fb85f894969ba161fc8c0059b6e97f70319f1",
+          "bytes": 732584
+        },
+        {
+          "path": "L25/left/meshes/ring_proximal.STL",
+          "url": "https://raw.githubusercontent.com/linker-bot/linkerhand-urdf/075cc7d42cc1e756bdcbece0fc069a0779fc5237/L25/left/meshes/ring_proximal.STL",
+          "sha256": "6a49d3ee8360028022c2ba7435ffb35fb19ffaaa3c73ddba5da16b106d86857c",
+          "bytes": 881084
+        },
+        {
+          "path": "L25/left/meshes/pinky_proximal.STL",
+          "url": "https://raw.githubusercontent.com/linker-bot/linkerhand-urdf/075cc7d42cc1e756bdcbece0fc069a0779fc5237/L25/left/meshes/pinky_proximal.STL",
+          "sha256": "5fce82ec63ecba86c656edbba8b17c5b44d51aa78df0ddb9657a465f89872206",
+          "bytes": 881084
+        },
+        {
+          "path": "L25/left/meshes/thumb_distal.STL",
+          "url": "https://raw.githubusercontent.com/linker-bot/linkerhand-urdf/075cc7d42cc1e756bdcbece0fc069a0779fc5237/L25/left/meshes/thumb_distal.STL",
+          "sha256": "0812eea8d86179c70f00070e3142595e1b5cea231a5c606c78744041d7acd9ba",
+          "bytes": 1115884
+        },
+        {
+          "path": "L25/left/meshes/thumb_metacarpals.STL",
+          "url": "https://raw.githubusercontent.com/linker-bot/linkerhand-urdf/075cc7d42cc1e756bdcbece0fc069a0779fc5237/L25/left/meshes/thumb_metacarpals.STL",
+          "sha256": "7bcb58b906bcff02d8de04f0ac90dbe6bf318cdbda52988787808b50f491d8f7",
+          "bytes": 1074384
+        },
+        {
+          "path": "L25/left/meshes/thumb_metacarpals_base1.STL",
+          "url": "https://raw.githubusercontent.com/linker-bot/linkerhand-urdf/075cc7d42cc1e756bdcbece0fc069a0779fc5237/L25/left/meshes/thumb_metacarpals_base1.STL",
+          "sha256": "fa50f9021ae593bb37b95472a999215574ae56f63fdc5ff6edfd74b298826059",
+          "bytes": 778384
+        },
+        {
+          "path": "L25/left/meshes/thumb_metacarpals_base2.STL",
+          "url": "https://raw.githubusercontent.com/linker-bot/linkerhand-urdf/075cc7d42cc1e756bdcbece0fc069a0779fc5237/L25/left/meshes/thumb_metacarpals_base2.STL",
+          "sha256": "316ab10d2dae65040a78f85182635ea3b7b1f57859ef0b568ccee58d88d58129",
+          "bytes": 227384
+        },
+        {
+          "path": "L25/left/meshes/thumb_proximal.STL",
+          "url": "https://raw.githubusercontent.com/linker-bot/linkerhand-urdf/075cc7d42cc1e756bdcbece0fc069a0779fc5237/L25/left/meshes/thumb_proximal.STL",
+          "sha256": "e41ea39ce8cb6673fc33b3e33e0fe2af9e82158006fccf6355ee3e49bfc5db8b",
+          "bytes": 689584
+        },
+        {
+          "path": "L25/right/meshes/index_metacarpals.STL",
+          "url": "https://raw.githubusercontent.com/linker-bot/linkerhand-urdf/075cc7d42cc1e756bdcbece0fc069a0779fc5237/L25/right/meshes/index_metacarpals.STL",
+          "sha256": "106ad58d52420c3216ccb87865f55062d4b4b558078dda95210a085a9bbe277c",
+          "bytes": 151784
+        },
+        {
+          "path": "L25/right/meshes/index_distal.STL",
+          "url": "https://raw.githubusercontent.com/linker-bot/linkerhand-urdf/075cc7d42cc1e756bdcbece0fc069a0779fc5237/L25/right/meshes/index_distal.STL",
+          "sha256": "324aa4b852e0c469bfc0c0bb9b19e0ccffc7dcb401d6a678481340588465fa26",
+          "bytes": 984884
+        },
+        {
+          "path": "L25/right/meshes/index_middle.STL",
+          "url": "https://raw.githubusercontent.com/linker-bot/linkerhand-urdf/075cc7d42cc1e756bdcbece0fc069a0779fc5237/L25/right/meshes/index_middle.STL",
+          "sha256": "27f9ccd91c5bdb1f6a1c42aeee4ab79e7e0aaf1e124a36999c75715b70d0aee6",
+          "bytes": 805584
+        },
+        {
+          "path": "L25/right/meshes/index_proximal.STL",
+          "url": "https://raw.githubusercontent.com/linker-bot/linkerhand-urdf/075cc7d42cc1e756bdcbece0fc069a0779fc5237/L25/right/meshes/index_proximal.STL",
+          "sha256": "d4f85e69dd94d56bdc4646c945ca8a237c652fd5dffba86c7b9ce1d8067ae8e1",
+          "bytes": 883184
+        },
+        {
+          "path": "L25/right/meshes/middle_metacarpals.STL",
+          "url": "https://raw.githubusercontent.com/linker-bot/linkerhand-urdf/075cc7d42cc1e756bdcbece0fc069a0779fc5237/L25/right/meshes/middle_metacarpals.STL",
+          "sha256": "65bc65257a01e0ccd284dfdf3b2a66f2a865bf80faeb4da746cd1fd05114fe40",
+          "bytes": 151784
+        },
+        {
+          "path": "L25/right/meshes/middle_distal.STL",
+          "url": "https://raw.githubusercontent.com/linker-bot/linkerhand-urdf/075cc7d42cc1e756bdcbece0fc069a0779fc5237/L25/right/meshes/middle_distal.STL",
+          "sha256": "688be3d9dd7fda49a8f9dbba824fedef5cf427c94e2e9e1ea96834eafbf6945a",
+          "bytes": 984884
+        },
+        {
+          "path": "L25/right/meshes/middle_middle.STL",
+          "url": "https://raw.githubusercontent.com/linker-bot/linkerhand-urdf/075cc7d42cc1e756bdcbece0fc069a0779fc5237/L25/right/meshes/middle_middle.STL",
+          "sha256": "600b8e7486abc8a2707a5ecc66d4b5bea1dc0895c7173e911ba994f5cac30c10",
+          "bytes": 805584
+        },
+        {
+          "path": "L25/right/meshes/middle_proximal.STL",
+          "url": "https://raw.githubusercontent.com/linker-bot/linkerhand-urdf/075cc7d42cc1e756bdcbece0fc069a0779fc5237/L25/right/meshes/middle_proximal.STL",
+          "sha256": "edd3af02319cd4a3b4e07a6f5d33d501887d5ab78625489254f289785b6f57e1",
+          "bytes": 883184
+        },
+        {
+          "path": "L25/right/meshes/pinky_metacarpals.STL",
+          "url": "https://raw.githubusercontent.com/linker-bot/linkerhand-urdf/075cc7d42cc1e756bdcbece0fc069a0779fc5237/L25/right/meshes/pinky_metacarpals.STL",
+          "sha256": "b63d10a0e18af0169c75b85eb740c1f25123f6c4c5be0c5368afc65e8c73771f",
+          "bytes": 151784
+        },
+        {
+          "path": "L25/right/meshes/hand_base_link.STL",
+          "url": "https://raw.githubusercontent.com/linker-bot/linkerhand-urdf/075cc7d42cc1e756bdcbece0fc069a0779fc5237/L25/right/meshes/hand_base_link.STL",
+          "sha256": "79e36d4c7e9282c79601976d41144557d1928810202589e31bed335f3d308cd1",
+          "bytes": 3433184
+        },
+        {
+          "path": "L25/right/meshes/pinky_distal.STL",
+          "url": "https://raw.githubusercontent.com/linker-bot/linkerhand-urdf/075cc7d42cc1e756bdcbece0fc069a0779fc5237/L25/right/meshes/pinky_distal.STL",
+          "sha256": "3b22871d948ef80447f93866af3643ffa87cb22c1c172750fca9357f3aaa46de",
+          "bytes": 984884
+        },
+        {
+          "path": "L25/right/meshes/pinky_middle.STL",
+          "url": "https://raw.githubusercontent.com/linker-bot/linkerhand-urdf/075cc7d42cc1e756bdcbece0fc069a0779fc5237/L25/right/meshes/pinky_middle.STL",
+          "sha256": "c6696bfcd2dbef8f248f86a6f45a90d5ba7b40e11cdb13a86b96347240a7b751",
+          "bytes": 805584
+        },
+        {
+          "path": "L25/right/meshes/ring_metacarpals.STL",
+          "url": "https://raw.githubusercontent.com/linker-bot/linkerhand-urdf/075cc7d42cc1e756bdcbece0fc069a0779fc5237/L25/right/meshes/ring_metacarpals.STL",
+          "sha256": "11797279afee7f856e472755d3a96593baea659d2ec0014edb02006ae48b5d71",
+          "bytes": 151784
+        },
+        {
+          "path": "L25/right/meshes/ring_middle.STL",
+          "url": "https://raw.githubusercontent.com/linker-bot/linkerhand-urdf/075cc7d42cc1e756bdcbece0fc069a0779fc5237/L25/right/meshes/ring_middle.STL",
+          "sha256": "2b3a0815e8daf95e76c9f54f84c13709a3951aa44ec6bb863facf60ba32c3c16",
+          "bytes": 805584
+        },
+        {
+          "path": "L25/right/meshes/ring_proximal.STL",
+          "url": "https://raw.githubusercontent.com/linker-bot/linkerhand-urdf/075cc7d42cc1e756bdcbece0fc069a0779fc5237/L25/right/meshes/ring_proximal.STL",
+          "sha256": "168df91e5a5643a899556f96ca3f3b7fe8a3349436be42dfb5632c0d524f9a47",
+          "bytes": 883184
+        },
+        {
+          "path": "L25/right/meshes/pinky_proximal.STL",
+          "url": "https://raw.githubusercontent.com/linker-bot/linkerhand-urdf/075cc7d42cc1e756bdcbece0fc069a0779fc5237/L25/right/meshes/pinky_proximal.STL",
+          "sha256": "311ce029c4972530d3b234307f4ea6ca1789577c2786d56f969a5dfac2ef6a57",
+          "bytes": 883184
+        },
+        {
+          "path": "L25/right/meshes/thumb_distal.STL",
+          "url": "https://raw.githubusercontent.com/linker-bot/linkerhand-urdf/075cc7d42cc1e756bdcbece0fc069a0779fc5237/L25/right/meshes/thumb_distal.STL",
+          "sha256": "026dd2fac43c4461c5a90561ef29039f4a08802c0e47e5c422ecac2f34babe1e",
+          "bytes": 1108484
+        },
+        {
+          "path": "L25/right/meshes/ring_distal.STL",
+          "url": "https://raw.githubusercontent.com/linker-bot/linkerhand-urdf/075cc7d42cc1e756bdcbece0fc069a0779fc5237/L25/right/meshes/ring_distal.STL",
+          "sha256": "fca7bf31fa3f377110d31f7623e27f8c7845faedbdca7c09f98c94a28867bd69",
+          "bytes": 984884
+        },
+        {
+          "path": "L25/right/meshes/thumb_metacarpals_base2.STL",
+          "url": "https://raw.githubusercontent.com/linker-bot/linkerhand-urdf/075cc7d42cc1e756bdcbece0fc069a0779fc5237/L25/right/meshes/thumb_metacarpals_base2.STL",
+          "sha256": "a5679a28a612ab6aa62a4f7fa1c67be42f807bba7c2ca00ba062ca2e4ef0070d",
+          "bytes": 227884
+        },
+        {
+          "path": "L25/right/meshes/thumb_metacarpals_base1.STL",
+          "url": "https://raw.githubusercontent.com/linker-bot/linkerhand-urdf/075cc7d42cc1e756bdcbece0fc069a0779fc5237/L25/right/meshes/thumb_metacarpals_base1.STL",
+          "sha256": "8416e5f826f12c4597754fbe3052983635345a76e3d98a4cdbc38ed363a9da78",
+          "bytes": 852984
+        },
+        {
+          "path": "L25/right/meshes/thumb_metacarpals.STL",
+          "url": "https://raw.githubusercontent.com/linker-bot/linkerhand-urdf/075cc7d42cc1e756bdcbece0fc069a0779fc5237/L25/right/meshes/thumb_metacarpals.STL",
+          "sha256": "0a82998ece3c784bba7861b850d00ed483d93434f94f72c6298fea0917e328ca",
+          "bytes": 1158784
+        },
+        {
+          "path": "L25/right/meshes/thumb_proximal.STL",
+          "url": "https://raw.githubusercontent.com/linker-bot/linkerhand-urdf/075cc7d42cc1e756bdcbece0fc069a0779fc5237/L25/right/meshes/thumb_proximal.STL",
+          "sha256": "4cd7d6a283d2e5c3f6dfbd88aa1e18f9f481375d1e6b47f2c373a285184b123d",
+          "bytes": 716984
+        }
+      ],
+      "normalized_xml_sha256": {
+        "left": "3faa47f1e19b959754c4c1ffc955f55301a06f828ba0c0b9f60061115fd8ecf5",
+        "right": "f205373b0b6ec20557d768137a2f082d93473f196189c10ead9f80a232e0e4de"
+      }
+    },
+    {
+      "id": "ar5_08r",
+      "group": "simulation",
+      "kind": "files",
+      "repository": "https://github.com/linker-bot/linker-sim-assets",
+      "revision": "e6bcf44ff0203534e14500cb836f57e9f9492292",
+      "license": "No license file confirmed in pinned repository; fetch from upstream, meshes are not redistributed here",
+      "destination": "assets/ar5_08r_linker_sim_e6bcf44f",
+      "purpose": "Two copies of the same right-variant arm",
+      "files": [
+        {
+          "path": "arm.urdf",
+          "url": "https://raw.githubusercontent.com/linker-bot/linker-sim-assets/e6bcf44ff0203534e14500cb836f57e9f9492292/src/linker_robot_assets/assets/components/arms/ar5_08/variants/right/arm.urdf",
+          "sha256": "867b951997eb0eaf06d726503208c72120f0b8cf67370a967cc8c79c8aac6c47",
+          "bytes": 8542
+        },
+        {
+          "path": "arm.mjcf",
+          "url": "https://raw.githubusercontent.com/linker-bot/linker-sim-assets/e6bcf44ff0203534e14500cb836f57e9f9492292/src/linker_robot_assets/assets/components/arms/ar5_08/variants/right/arm.mjcf",
+          "sha256": "2cb14394baa330a5e70e1b72fd383f852a84bf9f2dbd9d147a13664050316955",
+          "bytes": 7276
+        },
+        {
+          "path": "source_meta.yaml",
+          "url": "https://raw.githubusercontent.com/linker-bot/linker-sim-assets/e6bcf44ff0203534e14500cb836f57e9f9492292/src/linker_robot_assets/assets/components/arms/ar5_08/meta.yaml",
+          "sha256": "903af9c808db073b5f3f9090d04a1be2eb67e1ae25f8a1a021cd7336fff266ba",
+          "bytes": 1550
+        },
+        {
+          "path": "meshes/AR5_5_08R_W4C4A6_base.STL",
+          "url": "https://media.githubusercontent.com/media/linker-bot/linker-sim-assets/e6bcf44ff0203534e14500cb836f57e9f9492292/src/linker_robot_assets/assets/components/arms/ar5_08/variants/right/meshes/AR5_5_08R_W4C4A6_base.STL",
+          "sha256": "4bbc32045fe84b14e460875dfd2741288e3cc7c33257f411d8e6cb7633660a5c",
+          "bytes": 1159484
+        },
+        {
+          "path": "meshes/AR5_5_08R_W4C4A6_link1.STL",
+          "url": "https://media.githubusercontent.com/media/linker-bot/linker-sim-assets/e6bcf44ff0203534e14500cb836f57e9f9492292/src/linker_robot_assets/assets/components/arms/ar5_08/variants/right/meshes/AR5_5_08R_W4C4A6_link1.STL",
+          "sha256": "87def8c59f505c3c54535aef2f1c7955e8b1166de335a3435b987bc0b94d70b6",
+          "bytes": 668284
+        },
+        {
+          "path": "meshes/AR5_5_08R_W4C4A6_link2.STL",
+          "url": "https://media.githubusercontent.com/media/linker-bot/linker-sim-assets/e6bcf44ff0203534e14500cb836f57e9f9492292/src/linker_robot_assets/assets/components/arms/ar5_08/variants/right/meshes/AR5_5_08R_W4C4A6_link2.STL",
+          "sha256": "4418b25a88f15494f081a3ccd87b14ad2094e32852cf22c4db8679f75dbe9a66",
+          "bytes": 2376784
+        },
+        {
+          "path": "meshes/AR5_5_08R_W4C4A6_link3.STL",
+          "url": "https://media.githubusercontent.com/media/linker-bot/linker-sim-assets/e6bcf44ff0203534e14500cb836f57e9f9492292/src/linker_robot_assets/assets/components/arms/ar5_08/variants/right/meshes/AR5_5_08R_W4C4A6_link3.STL",
+          "sha256": "63c99f8a08819e17986aed7d1a518d48b3f82abfa85f074959d07513e0883bc9",
+          "bytes": 1866484
+        },
+        {
+          "path": "meshes/AR5_5_08R_W4C4A6_link4.STL",
+          "url": "https://media.githubusercontent.com/media/linker-bot/linker-sim-assets/e6bcf44ff0203534e14500cb836f57e9f9492292/src/linker_robot_assets/assets/components/arms/ar5_08/variants/right/meshes/AR5_5_08R_W4C4A6_link4.STL",
+          "sha256": "1246afa1fe4e081e30e549c7aeafecc1aa7ef819f5ea5c867b9bc93859705db1",
+          "bytes": 1807784
+        },
+        {
+          "path": "meshes/AR5_5_08R_W4C4A6_link5.STL",
+          "url": "https://media.githubusercontent.com/media/linker-bot/linker-sim-assets/e6bcf44ff0203534e14500cb836f57e9f9492292/src/linker_robot_assets/assets/components/arms/ar5_08/variants/right/meshes/AR5_5_08R_W4C4A6_link5.STL",
+          "sha256": "abb885d5bb977d62443aa6a4501d5223debb42d5ec9fdec4e5aab88f2c604f70",
+          "bytes": 4293884
+        },
+        {
+          "path": "meshes/AR5_5_08R_W4C4A6_link6.STL",
+          "url": "https://media.githubusercontent.com/media/linker-bot/linker-sim-assets/e6bcf44ff0203534e14500cb836f57e9f9492292/src/linker_robot_assets/assets/components/arms/ar5_08/variants/right/meshes/AR5_5_08R_W4C4A6_link6.STL",
+          "sha256": "80a70e99f5a5c40a671af3d57d93503da2b6974fb2d1bae481f82fdd44f7249c",
+          "bytes": 714284
+        },
+        {
+          "path": "meshes/AR5_5_08R_W4C4A6_link7.STL",
+          "url": "https://media.githubusercontent.com/media/linker-bot/linker-sim-assets/e6bcf44ff0203534e14500cb836f57e9f9492292/src/linker_robot_assets/assets/components/arms/ar5_08/variants/right/meshes/AR5_5_08R_W4C4A6_link7.STL",
+          "sha256": "430c3461cd039ca4e83b5bc5dfdce6426473e6f1916f9f1c6db6416e6d77e01f",
+          "bytes": 2722834
+        }
+      ]
+    },
+    {
+      "id": "d435_shell",
+      "group": "simulation",
+      "kind": "files",
+      "repository": "https://github.com/realsenseai/realsense-ros",
+      "revision": "7a87097c499e3b0b69518d54a8e7a9ac1924e87c",
+      "license": "Apache-2.0; see downloaded LICENSE and NOTICE.md",
+      "destination": "external/online_20261015/realsense_d435_d455",
+      "purpose": "Visual camera body; not the ROS driver",
+      "files": [
+        {
+          "path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/realsenseai/realsense-ros/7a87097c499e3b0b69518d54a8e7a9ac1924e87c/LICENSE",
+          "sha256": "7092398b52290edddcb41c6e2297f4c6343eb315ea6c83edfdbeea2a73adfbdb",
+          "bytes": 10758
+        },
+        {
+          "path": "NOTICE.md",
+          "url": "https://raw.githubusercontent.com/realsenseai/realsense-ros/7a87097c499e3b0b69518d54a8e7a9ac1924e87c/NOTICE.md",
+          "sha256": "da7bc58b3a30decbf86926d6938cbd15e4252fd2b674a25223f84110b6af344a",
+          "bytes": 30548
+        },
+        {
+          "path": "realsense2_description/meshes/d435.dae",
+          "url": "https://raw.githubusercontent.com/realsenseai/realsense-ros/7a87097c499e3b0b69518d54a8e7a9ac1924e87c/realsense2_description/meshes/d435.dae",
+          "sha256": "42f3b66f47a1f8f425a2e4dc07c1d9c283183167d8441f520a15623d98f9bf78",
+          "bytes": 15782439
+        }
+      ]
+    },
+    {
+      "id": "gamepad",
+      "group": "simulation",
+      "kind": "files",
+      "repository": "https://github.com/5o1/xbox_gamepad_physics",
+      "revision": "v0.3.1",
+      "release": "https://github.com/5o1/xbox_gamepad_physics/releases/tag/v0.3.1",
+      "license": "See upstream release license; wheel and resources are fetched, not bundled",
+      "destination": "assets/xbox_gamepad_physics_v0.3.1/release",
+      "purpose": "Pinned simulator adapter and gamepad resources",
+      "files": [
+        {
+          "path": "SHA256SUMS",
+          "url": "https://github.com/5o1/xbox_gamepad_physics/releases/download/v0.3.1/SHA256SUMS",
+          "sha256": "259c5979ec6b37cea6ad48655ce4b4bce72599934631a742ac033b2b56725509",
+          "bytes": 217
+        },
+        {
+          "path": "xbox_gamepad_physics-0.3.1-py3-none-any.whl",
+          "url": "https://github.com/5o1/xbox_gamepad_physics/releases/download/v0.3.1/xbox_gamepad_physics-0.3.1-py3-none-any.whl",
+          "sha256": "20b33bd043cab10c260e4c8f2e21b28071fb1c51735fb8dcef54f9e4553754f9",
+          "bytes": 734019
+        },
+        {
+          "path": "xbox_gamepad_physics-resources-0.3.1.zip",
+          "url": "https://github.com/5o1/xbox_gamepad_physics/releases/download/v0.3.1/xbox_gamepad_physics-resources-0.3.1.zip",
+          "sha256": "74aeeaa6ea598ddc8aa7023faf4c25481fc35091a12e89d1fab3b42b88ebab36",
+          "bytes": 38232567
+        }
+      ]
+    },
+    {
+      "id": "calibration",
+      "group": "calibration",
+      "kind": "git",
+      "repository": "https://github.com/5o1/calib_board.git",
+      "revision": "788696d54da4cb541b3baf6b645e591c7f4ecf20",
+      "destination": "external/calib_board",
+      "purpose": "Joint ChArUco extrinsic solver",
+      "license": "See the pinned repository"
+    }
+  ],
+  "optional_repositories": [
+    {
+      "id": "resnake_gym",
+      "repository": "https://github.com/5o1/resnake_gym",
+      "revision": null,
+      "purpose": "Optional upstream signal-contract integration; not required for scene/calibration reproduction",
+      "availability": "Repository is public; the project-local integration revision is not available through anonymous GitHub API. Excluded from the current reproduction scope."
+    },
+    {
+      "id": "isaaclab",
+      "repository": "https://github.com/isaac-sim/IsaacLab",
+      "revision": "v2.3.2",
+      "purpose": "Optional Isaac backend with Isaac Sim 5.1.0"
+    },
+    {
+      "id": "openpi",
+      "repository": "https://github.com/Physical-Intelligence/openpi",
+      "revision": "215abfb217dbac7d5f1273282331b9b1866c0479",
+      "purpose": "Deferred VLA path; no pretrained-model reproduction claimed"
+    },
+    {
+      "id": "linkerhand_ros2",
+      "repository": "https://github.com/linker-bot/linkerhand-ros2-sdk",
+      "revision": "0035f236c98b644aba6d9e972359df3fa1af4342",
+      "purpose": "Hardware reference only; private station customizations and firmware are not supplied"
+    },
+    {
+      "id": "realsense_ros",
+      "repository": "https://github.com/realsenseai/realsense-ros",
+      "revision": "7a87097c499e3b0b69518d54a8e7a9ac1924e87c",
+      "purpose": "Source reference for RealSense ROS wrapper; camera capture uses an independently installed ROS Humble stack"
+    }
+  ]
+}

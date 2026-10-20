@@ -27,7 +27,11 @@
     "hand_joint": "G20"
   },
   "camera": {
-    "serials": {"camera_1": "", "camera_2": "", "camera_3": ""},
+    "serials": {
+      "camera_1": "",
+      "camera_2": "",
+      "camera_3": ""
+    },
     "width": 1280,
     "height": 720,
     "port": 18788,
@@ -47,5 +51,8 @@
     "port": 8780,
     "browser_url": "http://127.0.0.1:8780/",
     "debug_url": "http://127.0.0.1:19222"
+  },
+  "network": {
+    "proxy_url": ""
   }
 }

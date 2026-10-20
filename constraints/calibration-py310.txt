@@ -1,0 +1,4 @@
+# Solver runtime used for the archived joint extrinsics (not the board PDF generator).
+numpy==1.26.0
+opencv-python-headless==4.11.0.86
+PyYAML==6.0.3

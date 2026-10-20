@@ -9,8 +9,9 @@ from PIL import Image, ImageDraw, ImageFont
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("render_dir", type=Path)
+    parser.add_argument("--font", default="/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf")
     args = parser.parse_args()
-    font_path = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
+    font_path = args.font
     heading = ImageFont.truetype(font_path, 32)
     label = ImageFont.truetype(font_path, 25)
     note = ImageFont.truetype(font_path, 23)

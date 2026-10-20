@@ -5,7 +5,7 @@
 # Downloads go direct (no proxy) through the SJTU mirror; the gamepad wheel and
 # resource zip come from the pinned release copy in assets/.
 #
-# Usage: setup_sapien_env.sh
+# Usage: setup_sapien_env.sh [--python /path/to/python3.10]
 set -euo pipefail
 
 source "$(dirname "$0")/site_settings.sh"
@@ -15,10 +15,13 @@ ENV=$W/envs/sapien-3.0.3-py310
 RELEASE=$W/assets/xbox_gamepad_physics_v0.3.1/release
 RESOURCES=$W/assets/xbox_gamepad_physics_v0.3.1/resources
 CONDA=$GAMEPAD_VLA_CONDA
+BOOTSTRAP_PYTHON=
+if [[ ${1:-} == --python ]]; then BOOTSTRAP_PYTHON=${2:?missing Python path}; shift 2; fi
+[[ $# == 0 ]] || { echo 'usage: setup_sapien_env.sh [--python python3.10]' >&2; exit 2; }
 
 unset http_proxy https_proxy HTTP_PROXY HTTPS_PROXY all_proxy ALL_PROXY
 export PIP_CACHE_DIR=$W/cache/pip XDG_CACHE_HOME=$W/cache TMPDIR=$W/tmp
-export PIP_INDEX_URL=https://mirror.sjtu.edu.cn/pypi/web/simple
+export PIP_INDEX_URL=${PIP_INDEX_URL:-https://mirror.sjtu.edu.cn/pypi/web/simple}
 mkdir -p "$W/cache/pip" "$W/tmp"
 
 for path in "$ENV" "$RESOURCES"; do
@@ -29,11 +32,16 @@ for path in "$ENV" "$RESOURCES"; do
 done
 (cd "$RELEASE" && sha256sum -c SHA256SUMS)
 
-"$CONDA" create -y -p "$ENV" python=3.10
+if [[ -n $BOOTSTRAP_PYTHON ]]; then
+    "$BOOTSTRAP_PYTHON" -c 'import sys; assert sys.version_info[:2] == (3, 10), sys.version'
+    "$BOOTSTRAP_PYTHON" -m venv "$ENV"
+else
+    "$CONDA" create -y -p "$ENV" python=3.10
+fi
 PY=$ENV/bin/python
 "$PY" -m pip install -U pip
 "$PY" -m pip install -c "$REPO/constraints/sapien-py310.txt" \
-    --find-links "$RELEASE" -e "$REPO[sim,web,dev]"
+    "$RELEASE/xbox_gamepad_physics-0.3.1-py3-none-any.whl" -e "$REPO[sim,web,dev]"
 "$PY" -m xbox_gamepad_physics build-resources \
     --archive "$RELEASE/xbox_gamepad_physics-resources-0.3.1.zip" \
     --resources "$RESOURCES" --offline

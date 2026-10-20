@@ -18,7 +18,7 @@
 
 1. 将四个测得的孔中心等权拟合到规格中的刚性平面矩形，使用固定尺度、面朝上的正交最小二乘；四点全部参与，不做仿射变形或剔点。
 2. 保留原始数值及每个孔的拟合残差，见 [placement_fit.json](placement_fit.json)；变换输入位于 [placements/](placements/)。
-3. 调用 `../station_calib_board` 的 `calibrate_extrinsics.calibrate`，将全部角点转到同一桌面坐标系，再做 `solvePnP ITERATIVE + solvePnPRefineLM` 联合拟合。
+3. 调用 [calib_board 固定提交](https://github.com/5o1/calib_board/tree/788696d54da4cb541b3baf6b645e591c7f4ecf20) 的 `calibrate_extrinsics.calibrate`，将全部角点转到同一桌面坐标系，再做 `solvePnP ITERATIVE + solvePnPRefineLM` 联合拟合。
 
 实现：[solve_four_holes.py](solve_four_holes.py)。适配依据：[正交 Procrustes](https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.orthogonal_procrustes.html) 和 [OpenCV PnP](https://docs.opencv.org/4.x/d5/d1f/calib3d_solvePnP.html)。这里自行补充去中心化的平移拟合，并限制面朝上、固定尺度。四个已知旋转的合成检查与原两孔算法一致，最大矩阵元素差约 6.7e-16；此检查仅验证坐标计算。
 
@@ -74,11 +74,7 @@
 计算在 计算节点 的独立目录 `workspace://runs/20261020-ego-calibration/measured/` 完成，使用现有 `envs/isaaclab-2.3.2` 的 Python，OpenCV 4.11.0、NumPy 1.26.0，CPU 计算。
 标定工具基线提交和源文件哈希见 [capture_context.json](capture_context.json) 与结果的 provenance。
 
-在已包含匹配 `calib_board/` 源码的节点运行目录中：
-
-```bash
-CUDA_VISIBLE_DEVICES='' PYTHONPATH=. python solve_four_holes.py
-```
+从公开源码独立复算请按[复现指南](../../../../docs/reproduce.md#4-复算归档标定)执行。使用固定工具提交和单独的求解环境，将输入复制到新的输出目录后运行，不覆盖本归档。
 
 采集台副本：`~/gamepad_vla_data/calibration/2026-10-20-ego/measured/`。
 本地原图、测量、求解脚本与结果加入 Git 跟踪；`SHA256SUMS` 用于核对副本。
