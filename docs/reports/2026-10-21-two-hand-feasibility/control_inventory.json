@@ -1,0 +1,1079 @@
+{
+  "profile": "full_controls",
+  "signal_layout": "sdl3-gamepad-core-v1",
+  "signal_policy": {
+    "layout": "sdl3-gamepad-core-v1",
+    "axis_mappings": [
+      "left_x",
+      "left_y",
+      "right_x",
+      "right_y"
+    ],
+    "scalar_mappings": [
+      "left_trigger",
+      "right_trigger",
+      "south",
+      "east",
+      "west",
+      "north",
+      "back",
+      "guide",
+      "start",
+      "left_stick",
+      "right_stick",
+      "left_shoulder",
+      "right_shoulder"
+    ],
+    "split_mappings": {
+      "dpad_horizontal": [
+        "dpad_left",
+        "dpad_right"
+      ],
+      "dpad_vertical": [
+        "dpad_up",
+        "dpad_down"
+      ]
+    },
+    "physical_only": [
+      "pair_bind_connect"
+    ],
+    "button_output": "continuous [0,1] travel fraction; consuming task chooses a digital threshold",
+    "stick_neutral_epsilon": 0.02,
+    "device_neutral_epsilon": 0.0001,
+    "device_neutral_mode": "zero_inside_without_rescaling_outside",
+    "device_neutral_applies_to": [
+      "left and right trigger normalized travel",
+      "button normalized travel",
+      "D-pad normalized rocker magnitude"
+    ],
+    "derivation": "2026-10-12 owner-selected 0.02 radial stick deadzone for simulation/game input. With the unchanged owner-selected PhysX tilt-joint friction coefficient 0.1, spring return can stop at normalized residuals about 0.005–0.0101; 0.02 leaves margin. This is a simulation setting, not a measured hardware value. Inside the radial deadzone output is zero, outside it values are not rescaled. The 2026-10-09 shake-experiment friction provenance is retained in control_groups.sticks.tilt_joint_friction_basis; the remaining 1e-4 device epsilon is unchanged.",
+    "external_behavior_references": {
+      "microsoft_xinput": {
+        "url": "https://learn.microsoft.com/en-us/windows/win32/xinput/getting-started-with-xinput#dead-zone",
+        "observation": "Microsoft assigns dead-zone filtering to the application and calls post-dead-zone normalization optional."
+      },
+      "sdl3": {
+        "url": "https://wiki.libsdl.org/SDL3/SDL_GetGamepadAxis",
+        "observation": "SDL_GetGamepadAxis returns the current signed 16-bit axis state and documents zero as a valid centered value; it does not specify an automatic dead-zone transform."
+      },
+      "w3c_gamepad": {
+        "url": "https://w3c.github.io/gamepad/#remapping",
+        "observation": "The Gamepad specification linearly normalizes logical axis values to [-1,1]; it does not define a gameplay dead-zone remap."
+      }
+    },
+    "dpad_contact_closure": {
+      "threshold": 0.3,
+      "unit": "normalized fraction of full travel (dimensionless)",
+      "status": "Unmeasured; test value",
+      "hardware_measured": false,
+      "rule": "Independently suppress each split D-pad channel below threshold; preserve amplitude at/above threshold, including true diagonals.",
+      "reason": "30% separates small solver/contact cross-axis motion from intentional contact closure; selected for simulation testing, not inferred from measured Xbox switches.",
+      "uncertainty": "No physical switch closure-angle measurement; the fraction may vary by direction, hysteresis, manufacturing tolerance and wear. A shared threshold is provisional.",
+      "calibration": "Measure rocker angle/normalized travel while separately monitoring each electrical contact on repeated press/release cycles, including diagonals; estimate per-direction close/open thresholds and hysteresis, then replace this test value."
+    },
+    "stick_neutral_history": [
+      {
+        "value": 0.01,
+        "unit": "normalized radial magnitude",
+        "status": "previous owner-selected simulation setting",
+        "derivation": "The 0.01 radial stick deadzone is the owner-selected simulation/game-input threshold. Stick values inside it are zeroed and values outside are not rescaled. The remaining 1e-4 device epsilon only clears solver residue on triggers, buttons and D-pad; it is not a measured hardware deadzone."
+      }
+    ]
+  },
+  "bindings": {
+    "axes": [
+      {
+        "channel": "left_x",
+        "joint": "left_stick_x"
+      },
+      {
+        "channel": "left_y",
+        "joint": "left_stick_y"
+      },
+      {
+        "channel": "right_x",
+        "joint": "right_stick_x"
+      },
+      {
+        "channel": "right_y",
+        "joint": "right_stick_y"
+      }
+    ],
+    "scalars": [
+      {
+        "channel": "south",
+        "joint": "a_press",
+        "neutral_epsilon": 0.0001
+      },
+      {
+        "channel": "east",
+        "joint": "b_press",
+        "neutral_epsilon": 0.0001
+      },
+      {
+        "channel": "left_shoulder",
+        "joint": "left_shoulder_press",
+        "neutral_epsilon": 0.0001
+      },
+      {
+        "channel": "right_shoulder",
+        "joint": "right_shoulder_press",
+        "neutral_epsilon": 0.0001
+      },
+      {
+        "channel": "back",
+        "joint": "view_press",
+        "neutral_epsilon": 0.0001
+      },
+      {
+        "channel": "start",
+        "joint": "menu_press",
+        "neutral_epsilon": 0.0001
+      },
+      {
+        "channel": "left_stick",
+        "joint": "left_stick_click",
+        "neutral_epsilon": 0.0001
+      },
+      {
+        "channel": "right_stick",
+        "joint": "right_stick_click",
+        "neutral_epsilon": 0.0001
+      },
+      {
+        "channel": "left_trigger",
+        "joint": "left_trigger_hinge",
+        "neutral_epsilon": 0.0001
+      },
+      {
+        "channel": "right_trigger",
+        "joint": "right_trigger_hinge",
+        "neutral_epsilon": 0.0001
+      },
+      {
+        "channel": "west",
+        "joint": "x_press",
+        "neutral_epsilon": 0.0001
+      },
+      {
+        "channel": "guide",
+        "joint": "guide_press",
+        "neutral_epsilon": 0.0001
+      },
+      {
+        "channel": "north",
+        "joint": "y_press",
+        "neutral_epsilon": 0.0001
+      }
+    ],
+    "splits": [
+      {
+        "negative_channel": "dpad_left",
+        "positive_channel": "dpad_right",
+        "joint": "dpad_horizontal"
+      },
+      {
+        "negative_channel": "dpad_up",
+        "positive_channel": "dpad_down",
+        "joint": "dpad_vertical"
+      }
+    ],
+    "radial_groups": [
+      {
+        "channels": [
+          "left_x",
+          "left_y"
+        ],
+        "radius": 1.0,
+        "neutral_epsilon": 0.02
+      },
+      {
+        "channels": [
+          "right_x",
+          "right_y"
+        ],
+        "radius": 1.0,
+        "neutral_epsilon": 0.02
+      }
+    ],
+    "radial_source_groups": [
+      {
+        "joints": [
+          "dpad_horizontal",
+          "dpad_vertical"
+        ],
+        "radius": 1.0,
+        "neutral_epsilon": 0.0001
+      }
+    ],
+    "physical_events": [
+      {
+        "event": "pair_bind_connect",
+        "joint": "pair_press"
+      }
+    ]
+  },
+  "controls": [
+    {
+      "joint": {
+        "name": "a_press",
+        "type": "prismatic",
+        "parent": "controller_body",
+        "child": "a",
+        "origin": [
+          0.04002423056732907,
+          0.013126528260337849,
+          0.020456241257749547
+        ],
+        "axis": [
+          6.1918180872594985e-06,
+          6.503695254777861e-09,
+          -0.9999999999808307
+        ],
+        "lower": 0.0,
+        "upper": 0.0008967542780293029,
+        "unit": "m",
+        "parameter_ref": "a_travel"
+      },
+      "return_law": {
+        "initial_position": 0.0,
+        "rest_position": 0.0,
+        "stiffness": 1750.7583052184757,
+        "drive_damping": 1.8524271316918817,
+        "passive_damping": 0.09262135658459408,
+        "neutral_target": -1.3451314170439542e-05,
+        "effort_limit": 3.14,
+        "velocity_limit": 1.0,
+        "effective_mass_or_inertia": 0.001,
+        "damping_ratio": 0.7,
+        "dry_friction_effort": null,
+        "armature": null,
+        "saturation_scope": "drive",
+        "realization": "force_limited_drive_plus_passive_damper"
+      },
+      "probe_fraction": 0.3,
+      "probe_q": 0.00026902628340879086,
+      "static_return_load": 0.49455,
+      "load_unit": "N",
+      "threshold_status": "task 0.3 trial threshold; not measured switch closure"
+    },
+    {
+      "joint": {
+        "name": "b_press",
+        "type": "prismatic",
+        "parent": "controller_body",
+        "child": "b",
+        "origin": [
+          0.05077115711401879,
+          0.02296729600826077,
+          0.019034841040880816
+        ],
+        "axis": [
+          4.1595754919129415e-06,
+          -2.4540644379985876e-07,
+          -0.9999999999913187
+        ],
+        "lower": 0.0,
+        "upper": 0.0013767679701224785,
+        "unit": "m",
+        "parameter_ref": "b_travel"
+      },
+      "return_law": {
+        "initial_position": 0.0,
+        "rest_position": 0.0,
+        "stiffness": 1140.3519213628506,
+        "drive_damping": 1.4950216606695659,
+        "passive_damping": 0.0747510830334783,
+        "neutral_target": -2.0651519551837177e-05,
+        "effort_limit": 3.14,
+        "velocity_limit": 1.0,
+        "effective_mass_or_inertia": 0.001,
+        "damping_ratio": 0.7,
+        "dry_friction_effort": null,
+        "armature": null,
+        "saturation_scope": "drive",
+        "realization": "force_limited_drive_plus_passive_damper"
+      },
+      "probe_fraction": 0.3,
+      "probe_q": 0.00041303039103674356,
+      "static_return_load": 0.49455,
+      "load_unit": "N",
+      "threshold_status": "task 0.3 trial threshold; not measured switch closure"
+    },
+    {
+      "joint": {
+        "name": "left_shoulder_press",
+        "type": "prismatic",
+        "parent": "controller_body",
+        "child": "left_shoulder",
+        "origin": [
+          -0.03630171026814612,
+          0.04424259048216938,
+          0.008600218286878524
+        ],
+        "axis": [
+          -1.1277621912932724e-06,
+          -0.9999999999990331,
+          8.136039719607227e-07
+        ],
+        "lower": 0.0,
+        "upper": 0.0022283242790158146,
+        "unit": "m",
+        "parameter_ref": "left_shoulder_travel"
+      },
+      "return_law": {
+        "initial_position": 0.0,
+        "rest_position": 0.0,
+        "stiffness": 704.5653160918854,
+        "drive_damping": 2.0353977642270036,
+        "passive_damping": 0.10176988821135019,
+        "neutral_target": -3.3424864185237216e-05,
+        "effort_limit": 3.14,
+        "velocity_limit": 1.0,
+        "effective_mass_or_inertia": 0.003,
+        "damping_ratio": 0.7,
+        "dry_friction_effort": null,
+        "armature": null,
+        "saturation_scope": "drive",
+        "realization": "force_limited_drive_plus_passive_damper"
+      },
+      "probe_fraction": 0.3,
+      "probe_q": 0.0006684972837047444,
+      "static_return_load": 0.49455000000000005,
+      "load_unit": "N",
+      "threshold_status": "task 0.3 trial threshold; not measured switch closure"
+    },
+    {
+      "joint": {
+        "name": "right_shoulder_press",
+        "type": "prismatic",
+        "parent": "controller_body",
+        "child": "right_shoulder",
+        "origin": [
+          0.03630171026814612,
+          0.04424259048216938,
+          0.008600219122047155
+        ],
+        "axis": [
+          1.8706082217508553e-06,
+          -0.9999999999981528,
+          4.418766319515719e-07
+        ],
+        "lower": 0.0,
+        "upper": 0.002228327410900139,
+        "unit": "m",
+        "parameter_ref": "right_shoulder_travel"
+      },
+      "return_law": {
+        "initial_position": 0.0,
+        "rest_position": 0.0,
+        "stiffness": 704.5643258347723,
+        "drive_damping": 2.0353963338643557,
+        "passive_damping": 0.10176981669321779,
+        "neutral_target": -3.342491116350208e-05,
+        "effort_limit": 3.14,
+        "velocity_limit": 1.0,
+        "effective_mass_or_inertia": 0.003,
+        "damping_ratio": 0.7,
+        "dry_friction_effort": null,
+        "armature": null,
+        "saturation_scope": "drive",
+        "realization": "force_limited_drive_plus_passive_damper"
+      },
+      "probe_fraction": 0.3,
+      "probe_q": 0.0006684982232700417,
+      "static_return_load": 0.49455,
+      "load_unit": "N",
+      "threshold_status": "task 0.3 trial threshold; not measured switch closure"
+    },
+    {
+      "joint": {
+        "name": "pair_press",
+        "type": "prismatic",
+        "parent": "controller_body",
+        "child": "pair",
+        "origin": [
+          -0.013452665786213338,
+          0.048846280499539575,
+          0.01258336548459628
+        ],
+        "axis": [
+          -1.7461689767657506e-07,
+          0.9999999999997254,
+          7.200898203220628e-07
+        ],
+        "lower": 0.0,
+        "upper": 0.0010423330438958324,
+        "unit": "m",
+        "parameter_ref": "pair_travel"
+      },
+      "return_law": {
+        "initial_position": 0.0,
+        "rest_position": 0.0,
+        "stiffness": 1506.236427209441,
+        "drive_damping": 1.2149533730416373,
+        "passive_damping": 0.060747668652081865,
+        "neutral_target": -1.5634995658437485e-05,
+        "effort_limit": 3.14,
+        "velocity_limit": 1.0,
+        "effective_mass_or_inertia": 0.0005,
+        "damping_ratio": 0.7,
+        "dry_friction_effort": null,
+        "armature": null,
+        "saturation_scope": "drive",
+        "realization": "force_limited_drive_plus_passive_damper"
+      },
+      "probe_fraction": 0.3,
+      "probe_q": 0.0003126999131687497,
+      "static_return_load": 0.49455,
+      "load_unit": "N",
+      "threshold_status": "task 0.3 trial threshold; not measured switch closure"
+    },
+    {
+      "joint": {
+        "name": "dpad_horizontal",
+        "type": "revolute",
+        "parent": "controller_body",
+        "child": "dpad_horizontal_frame",
+        "origin": [
+          -0.020312119547937303,
+          -0.0018082593043680696,
+          0.011209441263671056
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "lower": -0.17453241348266602,
+        "upper": 0.17453241348266602,
+        "unit": "rad",
+        "parameter_ref": "dpad_rotation"
+      },
+      "return_law": {
+        "initial_position": 0.0,
+        "rest_position": 0.0,
+        "stiffness": 0.08995437383553924,
+        "drive_damping": 0.00041989352545336643,
+        "passive_damping": 2.0994676272668324e-05,
+        "neutral_target": 0.0,
+        "effort_limit": 0.0314,
+        "velocity_limit": 10.0,
+        "effective_mass_or_inertia": 1e-06,
+        "damping_ratio": 0.7,
+        "dry_friction_effort": null,
+        "armature": null,
+        "saturation_scope": "drive",
+        "realization": "force_limited_drive_plus_passive_damper"
+      },
+      "probe_fraction": 0.3,
+      "probe_q": 0.052359724044799806,
+      "static_return_load": 0.0047099861906515945,
+      "load_unit": "N m",
+      "threshold_status": "task 0.3 trial threshold; not measured switch closure"
+    },
+    {
+      "joint": {
+        "name": "dpad_vertical",
+        "type": "revolute",
+        "parent": "dpad_horizontal_frame",
+        "child": "dpad",
+        "origin": [
+          0,
+          0,
+          0
+        ],
+        "axis": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "lower": -0.17453241348266602,
+        "upper": 0.17453241348266602,
+        "unit": "rad",
+        "parameter_ref": "dpad_rotation"
+      },
+      "return_law": {
+        "initial_position": 0.0,
+        "rest_position": 0.0,
+        "stiffness": 0.08995437383553924,
+        "drive_damping": 0.00041989352545336643,
+        "passive_damping": 2.0994676272668324e-05,
+        "neutral_target": 0.0,
+        "effort_limit": 0.0314,
+        "velocity_limit": 10.0,
+        "effective_mass_or_inertia": 1e-06,
+        "damping_ratio": 0.7,
+        "dry_friction_effort": null,
+        "armature": null,
+        "saturation_scope": "drive",
+        "realization": "force_limited_drive_plus_passive_damper"
+      },
+      "probe_fraction": 0.3,
+      "probe_q": 0.052359724044799806,
+      "static_return_load": 0.0047099861906515945,
+      "load_unit": "N m",
+      "threshold_status": "task 0.3 trial threshold; not measured switch closure"
+    },
+    {
+      "joint": {
+        "name": "view_press",
+        "type": "prismatic",
+        "parent": "controller_body",
+        "child": "view",
+        "origin": [
+          -0.011342160416177301,
+          0.02382919671581563,
+          0.02053230674623673
+        ],
+        "axis": [
+          -3.3568921701465126e-07,
+          -1.6186520570073742e-07,
+          -0.9999999999999306
+        ],
+        "lower": 0.0,
+        "upper": 0.0012666219641293659,
+        "unit": "m",
+        "parameter_ref": "view_travel"
+      },
+      "return_law": {
+        "initial_position": 0.0,
+        "rest_position": 0.0,
+        "stiffness": 1239.5174286111217,
+        "drive_damping": 1.1021465782911541,
+        "passive_damping": 0.05510732891455771,
+        "neutral_target": -1.8999329461940486e-05,
+        "effort_limit": 3.14,
+        "velocity_limit": 1.0,
+        "effective_mass_or_inertia": 0.0005,
+        "damping_ratio": 0.7,
+        "dry_friction_effort": null,
+        "armature": null,
+        "saturation_scope": "drive",
+        "realization": "force_limited_drive_plus_passive_damper"
+      },
+      "probe_fraction": 0.3,
+      "probe_q": 0.0003799865892388097,
+      "static_return_load": 0.49454999999999993,
+      "load_unit": "N",
+      "threshold_status": "task 0.3 trial threshold; not measured switch closure"
+    },
+    {
+      "joint": {
+        "name": "menu_press",
+        "type": "prismatic",
+        "parent": "controller_body",
+        "child": "menu",
+        "origin": [
+          0.011254951272659434,
+          0.023817988752800435,
+          0.02053230841657399
+        ],
+        "axis": [
+          -3.365894047627231e-07,
+          -9.137828559804476e-07,
+          -0.9999999999995259
+        ],
+        "lower": 0.0,
+        "upper": 0.001266622590506351,
+        "unit": "m",
+        "parameter_ref": "menu_travel"
+      },
+      "return_law": {
+        "initial_position": 0.0,
+        "rest_position": 0.0,
+        "stiffness": 1239.5168156383263,
+        "drive_damping": 1.102146305771407,
+        "passive_damping": 0.05510731528857035,
+        "neutral_target": -1.8999338857595265e-05,
+        "effort_limit": 3.14,
+        "velocity_limit": 1.0,
+        "effective_mass_or_inertia": 0.0005,
+        "damping_ratio": 0.7,
+        "dry_friction_effort": null,
+        "armature": null,
+        "saturation_scope": "drive",
+        "realization": "force_limited_drive_plus_passive_damper"
+      },
+      "probe_fraction": 0.3,
+      "probe_q": 0.0003799867771519053,
+      "static_return_load": 0.49455,
+      "load_unit": "N",
+      "threshold_status": "task 0.3 trial threshold; not measured switch closure"
+    },
+    {
+      "joint": {
+        "name": "left_stick_x",
+        "type": "revolute",
+        "parent": "controller_body",
+        "child": "left_stick_x_frame",
+        "origin": [
+          -0.038035359991741326,
+          0.024133629044164898,
+          0.01212386322086352
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "lower": -0.4014257279586958,
+        "upper": 0.4014257279586958,
+        "unit": "rad",
+        "parameter_ref": "stick_tilt_limit"
+      },
+      "return_law": {
+        "initial_position": 0.0,
+        "rest_position": 0.0,
+        "stiffness": 0.03487569187752837,
+        "drive_damping": 0.00023384842283830882,
+        "passive_damping": 1.1692421141915441e-05,
+        "neutral_target": 0.0,
+        "effort_limit": 0.024,
+        "velocity_limit": 10.0,
+        "effective_mass_or_inertia": 8e-07,
+        "damping_ratio": 0.7,
+        "dry_friction_effort": null,
+        "armature": null,
+        "saturation_scope": "drive",
+        "realization": "force_limited_drive_plus_passive_damper"
+      },
+      "probe_fraction": 0.8,
+      "probe_q": 0.32114058236695664,
+      "static_return_load": 0.0112,
+      "load_unit": "N m",
+      "threshold_status": "analog 80% feasibility target"
+    },
+    {
+      "joint": {
+        "name": "left_stick_y",
+        "type": "revolute",
+        "parent": "left_stick_x_frame",
+        "child": "left_stick_y_frame",
+        "origin": [
+          0,
+          0,
+          0
+        ],
+        "axis": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "lower": -0.4014257279586958,
+        "upper": 0.4014257279586958,
+        "unit": "rad",
+        "parameter_ref": "stick_tilt_limit"
+      },
+      "return_law": {
+        "initial_position": 0.0,
+        "rest_position": 0.0,
+        "stiffness": 0.03487569187752837,
+        "drive_damping": 0.00023384842283830882,
+        "passive_damping": 1.1692421141915441e-05,
+        "neutral_target": 0.0,
+        "effort_limit": 0.024,
+        "velocity_limit": 10.0,
+        "effective_mass_or_inertia": 8e-07,
+        "damping_ratio": 0.7,
+        "dry_friction_effort": null,
+        "armature": null,
+        "saturation_scope": "drive",
+        "realization": "force_limited_drive_plus_passive_damper"
+      },
+      "probe_fraction": 0.8,
+      "probe_q": 0.32114058236695664,
+      "static_return_load": 0.0112,
+      "load_unit": "N m",
+      "threshold_status": "analog 80% feasibility target"
+    },
+    {
+      "joint": {
+        "name": "left_stick_click",
+        "type": "prismatic",
+        "parent": "left_stick_y_frame",
+        "child": "left_stick",
+        "origin": [
+          0,
+          0,
+          0
+        ],
+        "axis": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "lower": 0.0,
+        "upper": 0.0004,
+        "unit": "m",
+        "parameter_ref": "stick_click_travel"
+      },
+      "return_law": {
+        "initial_position": 0.0,
+        "rest_position": 0.0,
+        "stiffness": 18500.0,
+        "drive_damping": 12.043255373859676,
+        "passive_damping": 0.6021627686929838,
+        "neutral_target": -6e-06,
+        "effort_limit": 10.4,
+        "velocity_limit": 0.2,
+        "effective_mass_or_inertia": 0.004,
+        "damping_ratio": 0.7,
+        "dry_friction_effort": null,
+        "armature": null,
+        "saturation_scope": "drive",
+        "realization": "force_limited_drive_plus_passive_damper"
+      },
+      "probe_fraction": 0.3,
+      "probe_q": 0.00012,
+      "static_return_load": 2.331,
+      "load_unit": "N",
+      "threshold_status": "task 0.3 trial threshold; not measured switch closure"
+    },
+    {
+      "joint": {
+        "name": "right_stick_x",
+        "type": "revolute",
+        "parent": "controller_body",
+        "child": "right_stick_x_frame",
+        "origin": [
+          0.02055769754292734,
+          0.0004891360302522314,
+          0.011667980577973374
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "lower": -0.4014257279586958,
+        "upper": 0.4014257279586958,
+        "unit": "rad",
+        "parameter_ref": "stick_tilt_limit"
+      },
+      "return_law": {
+        "initial_position": 0.0,
+        "rest_position": 0.0,
+        "stiffness": 0.03487569187752837,
+        "drive_damping": 0.00023384842283830882,
+        "passive_damping": 1.1692421141915441e-05,
+        "neutral_target": 0.0,
+        "effort_limit": 0.024,
+        "velocity_limit": 10.0,
+        "effective_mass_or_inertia": 8e-07,
+        "damping_ratio": 0.7,
+        "dry_friction_effort": null,
+        "armature": null,
+        "saturation_scope": "drive",
+        "realization": "force_limited_drive_plus_passive_damper"
+      },
+      "probe_fraction": 0.8,
+      "probe_q": 0.32114058236695664,
+      "static_return_load": 0.0112,
+      "load_unit": "N m",
+      "threshold_status": "analog 80% feasibility target"
+    },
+    {
+      "joint": {
+        "name": "right_stick_y",
+        "type": "revolute",
+        "parent": "right_stick_x_frame",
+        "child": "right_stick_y_frame",
+        "origin": [
+          0,
+          0,
+          0
+        ],
+        "axis": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "lower": -0.4014257279586958,
+        "upper": 0.4014257279586958,
+        "unit": "rad",
+        "parameter_ref": "stick_tilt_limit"
+      },
+      "return_law": {
+        "initial_position": 0.0,
+        "rest_position": 0.0,
+        "stiffness": 0.03487569187752837,
+        "drive_damping": 0.00023384842283830882,
+        "passive_damping": 1.1692421141915441e-05,
+        "neutral_target": 0.0,
+        "effort_limit": 0.024,
+        "velocity_limit": 10.0,
+        "effective_mass_or_inertia": 8e-07,
+        "damping_ratio": 0.7,
+        "dry_friction_effort": null,
+        "armature": null,
+        "saturation_scope": "drive",
+        "realization": "force_limited_drive_plus_passive_damper"
+      },
+      "probe_fraction": 0.8,
+      "probe_q": 0.32114058236695664,
+      "static_return_load": 0.0112,
+      "load_unit": "N m",
+      "threshold_status": "analog 80% feasibility target"
+    },
+    {
+      "joint": {
+        "name": "right_stick_click",
+        "type": "prismatic",
+        "parent": "right_stick_y_frame",
+        "child": "right_stick",
+        "origin": [
+          0,
+          0,
+          0
+        ],
+        "axis": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "lower": 0.0,
+        "upper": 0.0004,
+        "unit": "m",
+        "parameter_ref": "stick_click_travel"
+      },
+      "return_law": {
+        "initial_position": 0.0,
+        "rest_position": 0.0,
+        "stiffness": 18500.0,
+        "drive_damping": 12.043255373859676,
+        "passive_damping": 0.6021627686929838,
+        "neutral_target": -6e-06,
+        "effort_limit": 10.4,
+        "velocity_limit": 0.2,
+        "effective_mass_or_inertia": 0.004,
+        "damping_ratio": 0.7,
+        "dry_friction_effort": null,
+        "armature": null,
+        "saturation_scope": "drive",
+        "realization": "force_limited_drive_plus_passive_damper"
+      },
+      "probe_fraction": 0.3,
+      "probe_q": 0.00012,
+      "static_return_load": 2.331,
+      "load_unit": "N",
+      "threshold_status": "task 0.3 trial threshold; not measured switch closure"
+    },
+    {
+      "joint": {
+        "name": "left_trigger_hinge",
+        "type": "revolute",
+        "parent": "controller_body",
+        "child": "left_trigger",
+        "origin": [
+          -0.045677991465952174,
+          0.036019095885088136,
+          0.002095871962884713
+        ],
+        "axis": [
+          -0.9999999999999929,
+          9.65386395709277e-08,
+          -6.981433956076549e-08
+        ],
+        "lower": 0.0,
+        "upper": 0.29531940817832947,
+        "unit": "rad",
+        "parameter_ref": "left_trigger_rotation"
+      },
+      "return_law": {
+        "initial_position": 0.0,
+        "rest_position": 0.0,
+        "stiffness": 0.047406298442620676,
+        "drive_damping": 0.0003048218249199629,
+        "passive_damping": 1.5241091245998145e-05,
+        "neutral_target": -0.004429791122674942,
+        "effort_limit": 0.024,
+        "velocity_limit": 10.0,
+        "effective_mass_or_inertia": 1e-06,
+        "damping_ratio": 0.7,
+        "dry_friction_effort": null,
+        "armature": null,
+        "saturation_scope": "drive",
+        "realization": "force_limited_drive_plus_passive_damper"
+      },
+      "probe_fraction": 0.8,
+      "probe_q": 0.23625552654266357,
+      "static_return_load": 0.01141,
+      "load_unit": "N m",
+      "threshold_status": "analog 80% feasibility target"
+    },
+    {
+      "joint": {
+        "name": "right_trigger_hinge",
+        "type": "revolute",
+        "parent": "controller_body",
+        "child": "right_trigger",
+        "origin": [
+          0.04567799814730121,
+          0.03601910256643717,
+          0.002095871962884713
+        ],
+        "axis": [
+          -0.9999999999993869,
+          -1.106527147132005e-06,
+          4.128884582358239e-08
+        ],
+        "lower": 0.0,
+        "upper": 0.29531940817832947,
+        "unit": "rad",
+        "parameter_ref": "right_trigger_rotation"
+      },
+      "return_law": {
+        "initial_position": 0.0,
+        "rest_position": 0.0,
+        "stiffness": 0.047406298442620676,
+        "drive_damping": 0.0003048218249199629,
+        "passive_damping": 1.5241091245998145e-05,
+        "neutral_target": -0.004429791122674942,
+        "effort_limit": 0.024,
+        "velocity_limit": 10.0,
+        "effective_mass_or_inertia": 1e-06,
+        "damping_ratio": 0.7,
+        "dry_friction_effort": null,
+        "armature": null,
+        "saturation_scope": "drive",
+        "realization": "force_limited_drive_plus_passive_damper"
+      },
+      "probe_fraction": 0.8,
+      "probe_q": 0.23625552654266357,
+      "static_return_load": 0.01141,
+      "load_unit": "N m",
+      "threshold_status": "analog 80% feasibility target"
+    },
+    {
+      "joint": {
+        "name": "x_press",
+        "type": "prismatic",
+        "parent": "controller_body",
+        "child": "x",
+        "origin": [
+          0.029322834073674843,
+          0.023827573147998826,
+          0.021240900559386124
+        ],
+        "axis": [
+          3.091441171355075e-06,
+          2.3874884179948e-06,
+          -0.9999999999923714
+        ],
+        "lower": 0.0,
+        "upper": 0.0007809609139585009,
+        "unit": "m",
+        "parameter_ref": "x_travel"
+      },
+      "return_law": {
+        "initial_position": 0.0,
+        "rest_position": 0.0,
+        "stiffness": 2010.3438878164234,
+        "drive_damping": 1.9850123475989232,
+        "passive_damping": 0.09925061737994617,
+        "neutral_target": -1.1714413709377513e-05,
+        "effort_limit": 3.14,
+        "velocity_limit": 1.0,
+        "effective_mass_or_inertia": 0.001,
+        "damping_ratio": 0.7,
+        "dry_friction_effort": null,
+        "armature": null,
+        "saturation_scope": "drive",
+        "realization": "force_limited_drive_plus_passive_damper"
+      },
+      "probe_fraction": 0.3,
+      "probe_q": 0.00023428827418755027,
+      "static_return_load": 0.49455,
+      "load_unit": "N",
+      "threshold_status": "task 0.3 trial threshold; not measured switch closure"
+    },
+    {
+      "joint": {
+        "name": "guide_press",
+        "type": "prismatic",
+        "parent": "controller_body",
+        "child": "guide",
+        "origin": [
+          -1.234472082340733e-08,
+          0.040710107793741256,
+          0.018321560261379613
+        ],
+        "axis": [
+          -1.6769063187666164e-08,
+          -1.336508198928297e-06,
+          -0.9999999999991068
+        ],
+        "lower": 0.0,
+        "upper": 0.0007251785396074228,
+        "unit": "m",
+        "parameter_ref": "guide_travel"
+      },
+      "return_law": {
+        "initial_position": 0.0,
+        "rest_position": 0.0,
+        "stiffness": 2164.9840890905616,
+        "drive_damping": 1.456600290851526,
+        "passive_damping": 0.0728300145425763,
+        "neutral_target": -1.0877678094111341e-05,
+        "effort_limit": 3.14,
+        "velocity_limit": 1.0,
+        "effective_mass_or_inertia": 0.0005,
+        "damping_ratio": 0.7,
+        "dry_friction_effort": null,
+        "armature": null,
+        "saturation_scope": "drive",
+        "realization": "force_limited_drive_plus_passive_damper"
+      },
+      "probe_fraction": 0.3,
+      "probe_q": 0.00021755356188222683,
+      "static_return_load": 0.49455,
+      "load_unit": "N",
+      "threshold_status": "task 0.3 trial threshold; not measured switch closure"
+    },
+    {
+      "joint": {
+        "name": "y_press",
+        "type": "prismatic",
+        "parent": "controller_body",
+        "child": "y",
+        "origin": [
+          0.0401275810149598,
+          0.033774827401758294,
+          0.020275846503997216
+        ],
+        "axis": [
+          3.504666386918108e-06,
+          2.7067419704574146e-06,
+          -0.9999999999901954
+        ],
+        "lower": 0.0,
+        "upper": 0.001228400054203025,
+        "unit": "m",
+        "parameter_ref": "y_travel"
+      },
+      "return_law": {
+        "initial_position": 0.0,
+        "rest_position": 0.0,
+        "stiffness": 1278.0852578345107,
+        "drive_damping": 1.5827340602121511,
+        "passive_damping": 0.07913670301060756,
+        "neutral_target": -1.8426000813045374e-05,
+        "effort_limit": 3.14,
+        "velocity_limit": 1.0,
+        "effective_mass_or_inertia": 0.001,
+        "damping_ratio": 0.7,
+        "dry_friction_effort": null,
+        "armature": null,
+        "saturation_scope": "drive",
+        "realization": "force_limited_drive_plus_passive_damper"
+      },
+      "probe_fraction": 0.3,
+      "probe_q": 0.0003685200162609075,
+      "static_return_load": 0.49455000000000005,
+      "load_unit": "N",
+      "threshold_status": "task 0.3 trial threshold; not measured switch closure"
+    }
+  ],
+  "scope": "Source parameter extraction and zero-speed spring-load calculation; no contact simulation or hardware measurement."
+}

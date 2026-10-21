@@ -1,0 +1,1018 @@
+{
+  "side": "left",
+  "phase": "K0 static necessary feasibility; no dynamics or force validation",
+  "parameters": {
+    "fk_samples_per_finger": 100000,
+    "palm_samples": 4096,
+    "shell_samples": 40000,
+    "grip_surface_samples": 2477,
+    "seed": 21,
+    "normal_cone_deg": 30,
+    "point_tolerance_m": 0.00025,
+    "grip_penetration_m": 0.001,
+    "active_penetration_numerical_m": 0.0001,
+    "arm_position_tolerance_m": 0.0005,
+    "arm_rotation_tolerance_rad": 0.005,
+    "arm_seeds": 6,
+    "arm_iterations": 100,
+    "arm_seed": 1021,
+    "rest_postures": 12,
+    "grip_patch": "signed x >25mm, y<5mm, z<-5mm, outward nz<-.3; shell only",
+    "grip_fixed": true,
+    "lookahead": 0
+  },
+  "goals": [
+    {
+      "name": "Dpad_up",
+      "finger": "thumb",
+      "part": "dpad",
+      "states": [
+        {
+          "point": [
+            -0.020312119547937303,
+            0.005570353190138802,
+            0.018010927321622242
+          ],
+          "normal": [
+            0.0,
+            0.05407865458470806,
+            0.9985366789048401
+          ],
+          "gamepad_q": {
+            "dpad_vertical": -0.05410504817962646
+          }
+        }
+      ]
+    },
+    {
+      "name": "Dpad_down",
+      "finger": "thumb",
+      "part": "dpad",
+      "states": [
+        {
+          "point": [
+            -0.020312119547937303,
+            -0.009186871798874941,
+            0.018010927321622242
+          ],
+          "normal": [
+            0.0,
+            -0.05407865458470806,
+            0.9985366789048401
+          ],
+          "gamepad_q": {
+            "dpad_vertical": 0.05410504817962646
+          }
+        }
+      ]
+    },
+    {
+      "name": "Dpad_left",
+      "finger": "thumb",
+      "part": "dpad",
+      "states": [
+        {
+          "point": [
+            -0.027690732042444176,
+            -0.0018082593043680696,
+            0.018010927321622242
+          ],
+          "normal": [
+            -0.05407865458470806,
+            -0.0,
+            0.9985366789048401
+          ],
+          "gamepad_q": {
+            "dpad_horizontal": -0.05410504817962646
+          }
+        }
+      ]
+    },
+    {
+      "name": "Dpad_right",
+      "finger": "thumb",
+      "part": "dpad",
+      "states": [
+        {
+          "point": [
+            -0.01293350705343043,
+            -0.0018082593043680696,
+            0.018010927321622242
+          ],
+          "normal": [
+            0.05407865458470806,
+            0.0,
+            0.9985366789048401
+          ],
+          "gamepad_q": {
+            "dpad_horizontal": 0.05410504817962646
+          }
+        }
+      ]
+    },
+    {
+      "name": "View",
+      "finger": "thumb",
+      "part": "view",
+      "states": [
+        {
+          "point": [
+            -0.011342168957226234,
+            0.023829191851862722,
+            0.02013966090258784
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "gamepad_q": {
+            "view_press": 0.0003926528088801034
+          }
+        }
+      ]
+    },
+    {
+      "name": "Xbox",
+      "finger": "thumb",
+      "part": "guide",
+      "states": [
+        {
+          "point": [
+            -2.084396829578475e-08,
+            0.038436306460581694,
+            0.018213545728320412
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "gamepad_q": {
+            "guide_press": 0.00022480534727830107
+          }
+        }
+      ]
+    },
+    {
+      "name": "LS",
+      "finger": "thumb",
+      "part": "left_stick",
+      "states": [
+        {
+          "point": [
+            -0.04066110586835615,
+            0.02413362392915162,
+            0.031877292765642766
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "gamepad_q": {
+            "left_stick_x": 0.32114058236695664,
+            "left_stick_y": 0.0
+          }
+        },
+        {
+          "point": [
+            -0.039805193267617625,
+            0.02611264415169667,
+            0.03187338070236085
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "gamepad_q": {
+            "left_stick_x": 0.22708068350587207,
+            "left_stick_y": 0.22708068350587204
+          }
+        },
+        {
+          "point": [
+            -0.03803539398626413,
+            0.02675934127497182,
+            0.03187728158200246
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "gamepad_q": {
+            "left_stick_x": 1.966418931360052e-17,
+            "left_stick_y": 0.32114058236695664
+          }
+        },
+        {
+          "point": [
+            -0.036265592174300566,
+            0.026112646122389786,
+            0.031873367987278405
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "gamepad_q": {
+            "left_stick_x": -0.22708068350587204,
+            "left_stick_y": 0.22708068350587207
+          }
+        },
+        {
+          "point": [
+            -0.03540967829360849,
+            0.024133625750072465,
+            0.03187727340776967
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "gamepad_q": {
+            "left_stick_x": -0.32114058236695664,
+            "left_stick_y": 3.932837862720104e-17
+          }
+        },
+        {
+          "point": [
+            -0.036265590175315277,
+            0.02215460488290222,
+            0.03187337276460888
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "gamepad_q": {
+            "left_stick_x": -0.2270806835058721,
+            "left_stick_y": -0.22708068350587204
+          }
+        },
+        {
+          "point": [
+            -0.0380353890303294,
+            0.02150791069727669,
+            0.0318772855977196
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "gamepad_q": {
+            "left_stick_x": -5.899256794080155e-17,
+            "left_stick_y": -0.32114058236695664
+          }
+        },
+        {
+          "point": [
+            -0.03980518895040997,
+            0.022154602130236494,
+            0.03187338379208546
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "gamepad_q": {
+            "left_stick_x": 0.227080683505872,
+            "left_stick_y": -0.2270806835058721
+          }
+        }
+      ]
+    },
+    {
+      "name": "L3",
+      "finger": "thumb",
+      "part": "left_stick",
+      "states": [
+        {
+          "point": [
+            -0.038035391595097855,
+            0.0241336246866817,
+            0.029826184830139945
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "gamepad_q": {
+            "left_stick_click": 0.000124
+          }
+        }
+      ]
+    },
+    {
+      "name": "LB",
+      "finger": "index",
+      "part": "left_shoulder",
+      "states": [
+        {
+          "point": [
+            -0.031325370604240524,
+            0.050717475155116785,
+            0.012347975321780518
+          ],
+          "normal": [
+            1.1277621912932724e-06,
+            0.9999999999990331,
+            -8.136039719607227e-07
+          ],
+          "gamepad_q": {
+            "left_shoulder_press": 0.0006907805264949026
+          }
+        }
+      ]
+    },
+    {
+      "name": "LT",
+      "finger": "middle",
+      "part": "left_trigger",
+      "states": [
+        {
+          "point": [
+            -0.04225306677171436,
+            0.046048363573819646,
+            -0.026168002603156888
+          ],
+          "normal": [
+            0.030406491998026596,
+            0.9240858350094182,
+            0.3809735092881397
+          ],
+          "gamepad_q": {
+            "left_trigger_hinge": 0.23625552654266357
+          }
+        },
+        {
+          "point": [
+            -0.04634431694383693,
+            0.04620934154270424,
+            -0.026231935907128016
+          ],
+          "normal": [
+            0.030406491998026596,
+            0.9240858350094182,
+            0.3809735092881397
+          ],
+          "gamepad_q": {
+            "left_trigger_hinge": 0.23625552654266357
+          }
+        },
+        {
+          "point": [
+            -0.042790325947531724,
+            0.046115250085212986,
+            -0.026287361849384773
+          ],
+          "normal": [
+            0.030406491998026596,
+            0.9240858350094182,
+            0.3809735092881397
+          ],
+          "gamepad_q": {
+            "left_trigger_hinge": 0.23625552654266357
+          }
+        }
+      ],
+      "alternatives": true
+    }
+  ],
+  "grip_kinematic": 2487,
+  "kinematic_per_control": {
+    "Dpad_up": 118,
+    "Dpad_down": 109,
+    "Dpad_left": 124,
+    "Dpad_right": 113,
+    "View": 76,
+    "Xbox": 59,
+    "LS": 514,
+    "L3": 99,
+    "LB": 0,
+    "LT": 97
+  },
+  "kinematic_full": 0,
+  "fixtures": [
+    {
+      "name": "a_flat",
+      "elevation_m": 0,
+      "tilt_deg": 0,
+      "extra_yaw_deg": 0,
+      "pose": [
+        0.501415,
+        0.6478666666666666,
+        0.7979,
+        0.7071067811865475,
+        0.0,
+        0.0,
+        -0.7071067811865478
+      ],
+      "sampled_palms": 4096,
+      "grip_kinematic": 2487,
+      "arm_ik": 1016,
+      "collision_free_grips": 0,
+      "full_hand_feasible": 0,
+      "per_control": {
+        "Dpad_up": 0,
+        "Dpad_down": 0,
+        "Dpad_left": 0,
+        "Dpad_right": 0,
+        "View": 0,
+        "Xbox": 0,
+        "LS": 0,
+        "L3": 0,
+        "LB": 0,
+        "LT": 0
+      },
+      "control_combinations": {},
+      "best_controls": [],
+      "rejections": {
+        "world|HL_index_metacarpals": 65,
+        "world|HL_ring_middle": 71,
+        "world|HL_middle_distal": 37,
+        "world|HL_index_distal": 90,
+        "world|HL_index_proximal": 206,
+        "world|HL_ring_distal": 87,
+        "world|HL_index_middle": 334,
+        "world|HL_thumb_metacarpals": 23,
+        "world|AL_AR5_left_5_08R_W4C4A6_link4": 10,
+        "world|AL_AR5_left_5_08R_W4C4A6_link5": 23,
+        "world|AL_AR5_left_5_08R_W4C4A6_link3": 30,
+        "world|HL_middle_middle": 9,
+        "world|HL_thumb_distal": 3,
+        "world|HL_thumb_metacarpals_base2": 6,
+        "world|AL_AR5_left_5_08R_W4C4A6_link6": 2,
+        "world|HL_thumb_metacarpals_base1": 1,
+        "world|HL_pinky_distal": 5,
+        "world|HL_pinky_middle": 9,
+        "world|HL_thumb_proximal": 3,
+        "world|HL_middle_metacarpals": 1,
+        "world|AL_AR5_left_5_08R_W4C4A6_link7": 1
+      }
+    },
+    {
+      "name": "b_raise40",
+      "elevation_m": 0.04,
+      "tilt_deg": 0,
+      "extra_yaw_deg": 0,
+      "pose": [
+        0.501415,
+        0.6478666666666666,
+        0.8379000000000001,
+        0.7071067811865475,
+        0.0,
+        0.0,
+        -0.7071067811865478
+      ],
+      "sampled_palms": 4096,
+      "grip_kinematic": 2487,
+      "arm_ik": 1029,
+      "collision_free_grips": 7,
+      "full_hand_feasible": 0,
+      "per_control": {
+        "Dpad_up": 0,
+        "Dpad_down": 0,
+        "Dpad_left": 0,
+        "Dpad_right": 0,
+        "View": 0,
+        "Xbox": 0,
+        "LS": 0,
+        "L3": 0,
+        "LB": 0,
+        "LT": 0
+      },
+      "control_combinations": {
+        "(grip only)": 7
+      },
+      "best_controls": [],
+      "rejections": {
+        "world|HL_index_middle": 130,
+        "HL_index_middle|xbox_controller_body": 70,
+        "HL_index_proximal|xbox_controller_body": 94,
+        "world|HL_index_metacarpals": 11,
+        "HL_thumb_proximal|xbox_controller_body": 11,
+        "HL_ring_proximal|xbox_controller_body": 82,
+        "HL_middle_proximal|xbox_controller_body": 36,
+        "HL_middle_distal|xbox_controller_body": 14,
+        "world|HL_middle_distal": 54,
+        "HL_hand_base_link|xbox_menu": 1,
+        "world|HL_index_distal": 182,
+        "HL_hand_base_link|xbox_left_stick": 12,
+        "HL_middle_middle|xbox_controller_body": 24,
+        "HL_index_distal|xbox_controller_body": 20,
+        "world|HL_index_proximal": 21,
+        "HL_middle_middle|xbox_right_stick": 1,
+        "world|AL_AR5_left_5_08R_W4C4A6_link4": 13,
+        "world|HL_thumb_distal": 10,
+        "HL_index_metacarpals|xbox_controller_body": 2,
+        "HL_ring_middle|xbox_controller_body": 51,
+        "HL_thumb_distal|xbox_dpad": 12,
+        "HL_thumb_distal|xbox_controller_body": 13,
+        "world|AL_AR5_left_5_08R_W4C4A6_link3": 27,
+        "world|HL_thumb_metacarpals": 13,
+        "HL_thumb_distal|xbox_view": 4,
+        "world|AL_AR5_left_5_08R_W4C4A6_link5": 13,
+        "HL_thumb_proximal|xbox_dpad": 1,
+        "HL_thumb_distal|xbox_left_stick": 41,
+        "HL_pinky_proximal|xbox_controller_body": 3,
+        "HL_thumb_proximal|xbox_left_stick": 4,
+        "world|HL_thumb_proximal": 2,
+        "HL_middle_middle|xbox_left_stick": 2,
+        "HL_index_proximal|xbox_left_stick": 10,
+        "HL_pinky_distal|xbox_controller_body": 2,
+        "HL_hand_base_link|xbox_a": 1,
+        "HL_hand_base_link|xbox_right_stick": 7,
+        "HL_index_middle|xbox_left_trigger": 1,
+        "HL_index_distal|xbox_right_stick": 1,
+        "HL_hand_base_link|xbox_dpad": 1,
+        "HL_middle_proximal|xbox_left_stick": 3,
+        "HL_pinky_middle|xbox_controller_body": 8,
+        "HL_hand_base_link|xbox_view": 2,
+        "HL_index_metacarpals|xbox_left_stick": 2,
+        "HL_index_middle|xbox_left_stick": 1,
+        "world|AL_AR5_left_5_08R_W4C4A6_link6": 1,
+        "HL_index_middle|xbox_left_shoulder": 1,
+        "HL_middle_distal|xbox_left_trigger": 1,
+        "HL_index_proximal|xbox_right_stick": 2,
+        "HL_ring_metacarpals|xbox_controller_body": 2,
+        "HL_index_metacarpals|xbox_right_stick": 1,
+        "HL_index_proximal|xbox_left_shoulder": 1
+      }
+    },
+    {
+      "name": "b_raise70",
+      "elevation_m": 0.07,
+      "tilt_deg": 0,
+      "extra_yaw_deg": 0,
+      "pose": [
+        0.501415,
+        0.6478666666666666,
+        0.8679000000000001,
+        0.7071067811865475,
+        0.0,
+        0.0,
+        -0.7071067811865478
+      ],
+      "sampled_palms": 4096,
+      "grip_kinematic": 2487,
+      "arm_ik": 1035,
+      "collision_free_grips": 7,
+      "full_hand_feasible": 0,
+      "per_control": {
+        "Dpad_up": 0,
+        "Dpad_down": 0,
+        "Dpad_left": 0,
+        "Dpad_right": 0,
+        "View": 0,
+        "Xbox": 0,
+        "LS": 0,
+        "L3": 0,
+        "LB": 0,
+        "LT": 0
+      },
+      "control_combinations": {
+        "(grip only)": 7
+      },
+      "best_controls": [],
+      "rejections": {
+        "world|HL_index_distal": 67,
+        "HL_index_middle|xbox_controller_body": 78,
+        "HL_index_proximal|xbox_controller_body": 100,
+        "world|HL_middle_distal": 23,
+        "world|HL_index_middle": 16,
+        "HL_thumb_proximal|xbox_controller_body": 16,
+        "HL_ring_proximal|xbox_controller_body": 123,
+        "HL_middle_proximal|xbox_controller_body": 61,
+        "HL_middle_distal|xbox_controller_body": 19,
+        "HL_thumb_proximal|xbox_left_stick": 11,
+        "HL_hand_base_link|xbox_menu": 3,
+        "HL_ring_middle|xbox_controller_body": 130,
+        "HL_thumb_distal|xbox_left_stick": 95,
+        "HL_hand_base_link|xbox_left_stick": 18,
+        "HL_middle_middle|xbox_controller_body": 27,
+        "HL_index_distal|xbox_controller_body": 22,
+        "HL_middle_middle|xbox_right_stick": 1,
+        "HL_index_metacarpals|xbox_controller_body": 2,
+        "world|AL_AR5_left_5_08R_W4C4A6_link4": 13,
+        "HL_thumb_distal|xbox_dpad": 17,
+        "HL_thumb_distal|xbox_controller_body": 32,
+        "world|AL_AR5_left_5_08R_W4C4A6_link3": 18,
+        "HL_thumb_distal|xbox_view": 6,
+        "HL_pinky_distal|xbox_controller_body": 3,
+        "HL_pinky_middle|xbox_controller_body": 13,
+        "HL_thumb_proximal|xbox_dpad": 1,
+        "HL_pinky_proximal|xbox_controller_body": 6,
+        "HL_index_middle|xbox_right_stick": 1,
+        "HL_hand_base_link|xbox_dpad": 19,
+        "HL_middle_middle|xbox_left_stick": 2,
+        "HL_index_proximal|xbox_left_stick": 9,
+        "world|HL_thumb_proximal": 4,
+        "HL_hand_base_link|xbox_left_shoulder": 7,
+        "HL_hand_base_link|xbox_a": 3,
+        "world|AL_AR5_left_5_08R_W4C4A6_link5": 13,
+        "HL_hand_base_link|xbox_right_stick": 11,
+        "HL_ring_metacarpals|xbox_controller_body": 4,
+        "HL_index_middle|xbox_left_trigger": 1,
+        "HL_index_distal|xbox_right_stick": 1,
+        "HL_middle_proximal|xbox_left_stick": 2,
+        "HL_index_metacarpals|xbox_left_stick": 4,
+        "world|HL_thumb_metacarpals": 4,
+        "HL_hand_base_link|xbox_view": 5,
+        "world|HL_thumb_distal": 3,
+        "HL_index_middle|xbox_left_stick": 2,
+        "HL_thumb_metacarpals|xbox_controller_body": 1,
+        "HL_middle_distal|xbox_left_stick": 1,
+        "world|AL_AR5_left_5_08R_W4C4A6_link6": 1,
+        "HL_index_middle|xbox_left_shoulder": 1,
+        "HL_thumb_metacarpals|xbox_right_stick": 1,
+        "HL_index_proximal|xbox_right_stick": 3,
+        "HL_index_metacarpals|xbox_right_stick": 1,
+        "HL_hand_base_link|xbox_b": 1,
+        "HL_index_proximal|xbox_left_shoulder": 1,
+        "world|HL_index_proximal": 1
+      }
+    },
+    {
+      "name": "c_tilt30_raise40",
+      "elevation_m": 0.04,
+      "tilt_deg": 30,
+      "extra_yaw_deg": 0,
+      "pose": [
+        0.501415,
+        0.6478666666666666,
+        0.8379000000000001,
+        0.6830127018922193,
+        0.18301270189221927,
+        -0.18301270189221933,
+        -0.6830127018922195
+      ],
+      "sampled_palms": 4096,
+      "grip_kinematic": 2487,
+      "arm_ik": 1169,
+      "collision_free_grips": 3,
+      "full_hand_feasible": 0,
+      "per_control": {
+        "Dpad_up": 0,
+        "Dpad_down": 0,
+        "Dpad_left": 0,
+        "Dpad_right": 0,
+        "View": 0,
+        "Xbox": 0,
+        "LS": 0,
+        "L3": 0,
+        "LB": 0,
+        "LT": 0
+      },
+      "control_combinations": {
+        "(grip only)": 3
+      },
+      "best_controls": [],
+      "rejections": {
+        "world|HL_index_distal": 153,
+        "world|HL_index_middle": 203,
+        "world|AL_AR5_left_5_08R_W4C4A6_link5": 34,
+        "HL_index_proximal|xbox_controller_body": 85,
+        "world|HL_ring_distal": 13,
+        "HL_hand_base_link|xbox_a": 6,
+        "world|AL_AR5_left_5_08R_W4C4A6_link7": 1,
+        "world|AL_AR5_left_5_08R_W4C4A6_link4": 14,
+        "world|HL_middle_distal": 70,
+        "world|HL_thumb_proximal": 19,
+        "HL_middle_distal|xbox_controller_body": 12,
+        "HL_thumb_proximal|xbox_left_stick": 3,
+        "HL_hand_base_link|xbox_menu": 2,
+        "HL_thumb_distal|xbox_dpad": 14,
+        "HL_ring_proximal|xbox_controller_body": 47,
+        "HL_ring_middle|xbox_controller_body": 23,
+        "world|AL_AR5_left_5_08R_W4C4A6_link3": 71,
+        "HL_middle_proximal|xbox_controller_body": 25,
+        "world|HL_index_metacarpals": 19,
+        "HL_hand_base_link|xbox_left_stick": 19,
+        "HL_middle_middle|xbox_controller_body": 16,
+        "world|HL_thumb_metacarpals": 48,
+        "HL_middle_middle|xbox_right_stick": 1,
+        "HL_index_metacarpals|xbox_controller_body": 6,
+        "HL_index_middle|xbox_controller_body": 43,
+        "world|HL_pinky_distal": 4,
+        "HL_thumb_proximal|xbox_controller_body": 10,
+        "world|HL_index_proximal": 62,
+        "HL_thumb_proximal|xbox_dpad": 1,
+        "HL_index_distal|xbox_controller_body": 7,
+        "HL_thumb_distal|xbox_left_stick": 40,
+        "HL_thumb_distal|xbox_controller_body": 16,
+        "world|HL_middle_middle": 3,
+        "world|HL_thumb_distal": 21,
+        "HL_index_proximal|xbox_left_stick": 11,
+        "HL_hand_base_link|xbox_left_shoulder": 10,
+        "HL_hand_base_link|xbox_guide": 1,
+        "HL_index_metacarpals|xbox_left_stick": 4,
+        "HL_hand_base_link|xbox_view": 1,
+        "world|AL_AR5_left_5_08R_W4C4A6_link6": 3,
+        "HL_hand_base_link|xbox_right_shoulder": 1,
+        "HL_index_middle|xbox_left_trigger": 1,
+        "HL_middle_proximal|xbox_left_stick": 1,
+        "HL_pinky_middle|xbox_controller_body": 2,
+        "HL_hand_base_link|xbox_b": 1,
+        "HL_hand_base_link|xbox_right_stick": 5,
+        "HL_pinky_proximal|xbox_controller_body": 1,
+        "HL_index_middle|xbox_left_shoulder": 1,
+        "HL_middle_distal|xbox_left_trigger": 1,
+        "HL_thumb_distal|xbox_view": 4,
+        "HL_ring_metacarpals|xbox_controller_body": 1,
+        "HL_index_proximal|xbox_left_trigger": 1,
+        "HL_pinky_distal|xbox_controller_body": 1,
+        "HL_index_metacarpals|xbox_right_stick": 1,
+        "HL_index_proximal|xbox_right_stick": 1,
+        "HL_index_proximal|xbox_left_shoulder": 1,
+        "HL_middle_distal|xbox_right_stick": 1
+      }
+    },
+    {
+      "name": "c_tilt45_raise70",
+      "elevation_m": 0.07,
+      "tilt_deg": 45,
+      "extra_yaw_deg": 0,
+      "pose": [
+        0.501415,
+        0.6478666666666666,
+        0.8679000000000001,
+        0.6532814824381882,
+        0.2705980500730985,
+        -0.27059805007309856,
+        -0.6532814824381885
+      ],
+      "sampled_palms": 4096,
+      "grip_kinematic": 2487,
+      "arm_ik": 1172,
+      "collision_free_grips": 5,
+      "full_hand_feasible": 0,
+      "per_control": {
+        "Dpad_up": 0,
+        "Dpad_down": 0,
+        "Dpad_left": 0,
+        "Dpad_right": 0,
+        "View": 0,
+        "Xbox": 0,
+        "LS": 0,
+        "L3": 0,
+        "LB": 0,
+        "LT": 0
+      },
+      "control_combinations": {
+        "(grip only)": 5
+      },
+      "best_controls": [],
+      "rejections": {
+        "HL_thumb_distal|xbox_left_stick": 77,
+        "world|HL_index_distal": 84,
+        "HL_index_proximal|xbox_controller_body": 92,
+        "HL_ring_proximal|xbox_controller_body": 106,
+        "HL_hand_base_link|xbox_a": 7,
+        "world|AL_AR5_left_5_08R_W4C4A6_link5": 26,
+        "HL_thumb_proximal|xbox_controller_body": 28,
+        "HL_ring_middle|xbox_controller_body": 84,
+        "world|AL_AR5_left_5_08R_W4C4A6_link3": 104,
+        "HL_middle_distal|xbox_controller_body": 11,
+        "HL_thumb_proximal|xbox_left_stick": 6,
+        "HL_thumb_distal|xbox_dpad": 16,
+        "world|HL_thumb_proximal": 24,
+        "world|AL_AR5_left_5_08R_W4C4A6_link6": 4,
+        "HL_hand_base_link|xbox_left_stick": 27,
+        "HL_middle_proximal|xbox_controller_body": 45,
+        "HL_middle_middle|xbox_controller_body": 15,
+        "world|HL_thumb_metacarpals": 53,
+        "HL_middle_middle|xbox_right_stick": 1,
+        "HL_hand_base_link|xbox_left_trigger": 1,
+        "HL_index_metacarpals|xbox_controller_body": 6,
+        "HL_index_middle|xbox_controller_body": 35,
+        "world|HL_middle_distal": 38,
+        "world|AL_AR5_left_5_08R_W4C4A6_link4": 32,
+        "world|HL_index_proximal": 14,
+        "world|HL_index_middle": 54,
+        "HL_pinky_distal|xbox_controller_body": 3,
+        "world|HL_thumb_distal": 31,
+        "HL_thumb_proximal|xbox_dpad": 1,
+        "HL_hand_base_link|xbox_left_shoulder": 37,
+        "HL_index_distal|xbox_controller_body": 6,
+        "HL_hand_base_link|xbox_dpad": 14,
+        "HL_index_proximal|xbox_left_stick": 7,
+        "world|AL_AR5_left_5_08R_W4C4A6_link7": 2,
+        "HL_thumb_distal|xbox_controller_body": 22,
+        "HL_hand_base_link|xbox_guide": 2,
+        "HL_index_metacarpals|xbox_left_stick": 5,
+        "HL_hand_base_link|xbox_right_stick": 8,
+        "HL_hand_base_link|xbox_view": 4,
+        "HL_hand_base_link|xbox_pair": 1,
+        "HL_hand_base_link|xbox_right_shoulder": 5,
+        "world|HL_index_metacarpals": 1,
+        "HL_index_middle|xbox_left_trigger": 1,
+        "HL_middle_proximal|xbox_left_stick": 1,
+        "HL_hand_base_link|xbox_menu": 3,
+        "HL_thumb_metacarpals|xbox_controller_body": 1,
+        "HL_hand_base_link|xbox_b": 3,
+        "HL_pinky_middle|xbox_controller_body": 5,
+        "HL_ring_metacarpals|xbox_controller_body": 3,
+        "HL_pinky_proximal|xbox_controller_body": 2,
+        "HL_index_proximal|xbox_left_trigger": 2,
+        "HL_index_metacarpals|xbox_right_stick": 1,
+        "HL_index_proximal|xbox_right_stick": 1,
+        "HL_thumb_distal|xbox_view": 3,
+        "HL_index_proximal|xbox_left_shoulder": 1,
+        "HL_middle_distal|xbox_right_stick": 1
+      }
+    },
+    {
+      "name": "d_yaw180_raise70",
+      "elevation_m": 0.07,
+      "tilt_deg": 30,
+      "extra_yaw_deg": 180,
+      "pose": [
+        0.501415,
+        0.6478666666666666,
+        0.8679000000000001,
+        0.6830127018922194,
+        -0.1830127018922193,
+        -0.18301270189221935,
+        0.6830127018922194
+      ],
+      "sampled_palms": 4096,
+      "grip_kinematic": 2487,
+      "arm_ik": 844,
+      "collision_free_grips": 4,
+      "full_hand_feasible": 0,
+      "per_control": {
+        "Dpad_up": 0,
+        "Dpad_down": 0,
+        "Dpad_left": 0,
+        "Dpad_right": 0,
+        "View": 0,
+        "Xbox": 0,
+        "LS": 0,
+        "L3": 0,
+        "LB": 0,
+        "LT": 0
+      },
+      "control_combinations": {
+        "(grip only)": 4
+      },
+      "best_controls": [],
+      "rejections": {
+        "HL_hand_base_link|xbox_a": 36,
+        "HL_thumb_proximal|xbox_controller_body": 21,
+        "HL_hand_base_link|xbox_left_shoulder": 37,
+        "HL_thumb_metacarpals|xbox_controller_body": 17,
+        "HL_middle_proximal|xbox_controller_body": 27,
+        "HL_thumb_proximal|xbox_left_stick": 12,
+        "world|HL_index_distal": 20,
+        "HL_hand_base_link|xbox_menu": 8,
+        "HL_thumb_distal|xbox_dpad": 20,
+        "world|HL_thumb_metacarpals": 10,
+        "HL_thumb_distal|xbox_left_stick": 67,
+        "HL_ring_middle|xbox_controller_body": 94,
+        "HL_hand_base_link|xbox_left_stick": 44,
+        "HL_ring_proximal|xbox_controller_body": 72,
+        "world|AL_AR5_left_5_08R_W4C4A6_link6": 1,
+        "HL_index_metacarpals|xbox_controller_body": 5,
+        "HL_index_proximal|xbox_controller_body": 50,
+        "HL_hand_base_link|xbox_right_stick": 24,
+        "HL_hand_base_link|xbox_b": 11,
+        "HL_index_proximal|xbox_left_stick": 6,
+        "HL_hand_base_link|xbox_dpad": 80,
+        "HL_thumb_distal|xbox_controller_body": 27,
+        "HL_thumb_distal|xbox_view": 5,
+        "world|AL_AR5_left_5_08R_W4C4A6_link3": 37,
+        "world|AL_AR5_left_5_08R_W4C4A6_link4": 9,
+        "HL_pinky_middle|xbox_controller_body": 9,
+        "world|AL_AR5_left_5_08R_W4C4A6_link5": 9,
+        "world|HL_thumb_distal": 11,
+        "world|HL_middle_distal": 9,
+        "HL_middle_middle|xbox_controller_body": 4,
+        "HL_index_middle|xbox_controller_body": 5,
+        "world|HL_index_middle": 3,
+        "HL_hand_base_link|xbox_view": 8,
+        "HL_hand_base_link|xbox_right_shoulder": 7,
+        "HL_hand_base_link|xbox_pair": 2,
+        "world|HL_thumb_proximal": 9,
+        "HL_ring_metacarpals|xbox_controller_body": 1,
+        "HL_thumb_metacarpals_base1|xbox_right_stick": 2,
+        "HL_middle_proximal|xbox_left_stick": 1,
+        "HL_index_metacarpals|xbox_left_stick": 4,
+        "HL_middle_distal|xbox_controller_body": 2,
+        "HL_index_middle|xbox_left_shoulder": 1,
+        "HL_thumb_metacarpals|xbox_right_stick": 5,
+        "HL_pinky_proximal|xbox_controller_body": 4,
+        "HL_pinky_distal|xbox_controller_body": 1,
+        "HL_index_metacarpals|xbox_right_stick": 1,
+        "HL_index_proximal|xbox_left_trigger": 1,
+        "HL_thumb_metacarpals_base2|xbox_controller_body": 1
+      }
+    }
+  ],
+  "elapsed_seconds": 425.04987397100194,
+  "inertia_corrections": {
+    "LA": [],
+    "LH": [
+      {
+        "link": "thumb_metacarpals_base2",
+        "before": [
+          [
+            2.10633266517815e-07,
+            -4.9133152227129e-08,
+            -1.35746007921721e-08
+          ],
+          [
+            -4.9133152227129e-08,
+            9.83742137915545e-08,
+            4.75450167610941e-08
+          ],
+          [
+            -1.35746007921721e-08,
+            4.75450167610941e-08,
+            1.80097560989649e-07
+          ]
+        ],
+        "after": [
+          [
+            2.1059538331014662e-07,
+            -4.9021583966175526e-08,
+            -1.3448481610710843e-08
+          ],
+          [
+            -4.9021583966175526e-08,
+            9.848766838264381e-08,
+            4.7478164378066786e-08
+          ],
+          [
+            -1.3448481610710843e-08,
+            4.747816437806679e-08,
+            1.80194583529087e-07
+          ]
+        ]
+      }
+    ],
+    "RA": [],
+    "RH": [
+      {
+        "link": "thumb_metacarpals_base2",
+        "before": [
+          [
+            1.69966138188785e-06,
+            3.5029507180292e-07,
+            -1.32342776895603e-07
+          ],
+          [
+            3.5029507180292e-07,
+            7.14783352238004e-07,
+            -3.69293599975358e-07
+          ],
+          [
+            -1.32342776895603e-07,
+            -3.69293599975358e-07,
+            1.38951684398117e-06
+          ]
+        ],
+        "after": [
+          [
+            1.6931301579811155e-06,
+            3.3805245249051973e-07,
+            -1.1746597015590476e-07
+          ],
+          [
+            3.3805245249051973e-07,
+            7.295498004233191e-07,
+            -3.625165598780443e-07
+          ],
+          [
+            -1.1746597015590474e-07,
+            -3.6251655987804426e-07,
+            1.4016251196993566e-06
+          ]
+        ]
+      }
+    ]
+  },
+  "limitations": [
+    "finite sampling does not prove impossibility",
+    "static contact geometry does not prove force or continuous path feasibility",
+    "own-hand self-collision and connected own hand/arm mounting seam excluded",
+    "single-side runs use opposite arm parked at spec.home_q; paired verification required",
+    "support fixture geometry is not yet modeled; central open-grip support is a design proposal",
+    "right mount symmetric assumed; E2 unknown"
+  ],
+  "native_contact_recheck": {
+    "required": true,
+    "checked_states": 16,
+    "rejected_states": 8,
+    "elapsed_seconds": 0.5252231070044218,
+    "method": "Replay saved identical arm/palm/grip/control configurations through final checker; require assigned distal to touch assigned target at its displaced surface. Fixed grip and baseline checked again. No resampling or threshold change."
+  }
+}

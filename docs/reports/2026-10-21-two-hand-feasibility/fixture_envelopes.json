@@ -1,0 +1,98 @@
+{
+  "shell_bbox_m": [
+    [
+      -0.07663578422596996,
+      -0.055539363419730356,
+      -0.029858977327355506
+    ],
+    [
+      0.07636422290060907,
+      0.04904946069507488,
+      0.02035881643785281
+    ]
+  ],
+  "support_point_m": [
+    -0.00024295781293409008,
+    -0.00044332219595386545,
+    -0.010740793395157041
+  ],
+  "support_outward_normal": [
+    -3.0313484209765002e-05,
+    0.04148144630521035,
+    -0.9991392739220697
+  ],
+  "support_sample_count": 458,
+  "fixture_support_heights": [
+    {
+      "fixture": "a_flat",
+      "root_height_above_table_m": 0.03090000000000004,
+      "sampled_support_contact_height_above_table_m": 0.02015920660484305
+    },
+    {
+      "fixture": "b_raise40",
+      "root_height_above_table_m": 0.07090000000000007,
+      "sampled_support_contact_height_above_table_m": 0.060159206604843085
+    },
+    {
+      "fixture": "b_raise70",
+      "root_height_above_table_m": 0.1009000000000001,
+      "sampled_support_contact_height_above_table_m": 0.09015920660484311
+    },
+    {
+      "fixture": "c_tilt30_raise40",
+      "root_height_above_table_m": 0.07090000000000007,
+      "sampled_support_contact_height_above_table_m": 0.06137653896501705
+    },
+    {
+      "fixture": "c_tilt45_raise70",
+      "root_height_above_table_m": 0.1009000000000001,
+      "sampled_support_contact_height_above_table_m": 0.09299163602395144
+    },
+    {
+      "fixture": "d_yaw180_raise70",
+      "root_height_above_table_m": 0.1009000000000001,
+      "sampled_support_contact_height_above_table_m": 0.09181986116097096
+    }
+  ],
+  "hand_envelopes": [
+    {
+      "side": "left",
+      "fixture": "b_raise40",
+      "palm_index": 3218,
+      "controls": [],
+      "bbox_m": [
+        [
+          -0.18152137421714407,
+          -0.020483304643156626,
+          -0.06468168808288366
+        ],
+        [
+          -0.03511680578132184,
+          0.09076512181144228,
+          0.18953678820720918
+        ]
+      ]
+    },
+    {
+      "side": "right",
+      "fixture": "b_raise40",
+      "palm_index": 531,
+      "controls": [
+        "Y"
+      ],
+      "bbox_m": [
+        [
+          0.010544157971734636,
+          -0.05774526870567107,
+          -0.05702307533480849
+        ],
+        [
+          0.1676399237239352,
+          0.08537971348927363,
+          0.19002619183058858
+        ]
+      ]
+    }
+  ],
+  "scope": "Sampled central rear-shell support point and exact mesh vertex envelopes of one accepted grip per side; no clamp mesh or load/stability validation; not a full-control motion envelope."
+}

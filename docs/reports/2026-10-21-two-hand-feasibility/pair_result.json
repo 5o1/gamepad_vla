@@ -1,0 +1,1035 @@
+{
+  "fixtures": [
+    {
+      "fixture": "a_flat",
+      "full_candidate_pairs": 0,
+      "grip_pairs_checked": 0,
+      "verified_grip_pairs": 0,
+      "verified_partial_controls": [],
+      "verified_pair_witness": null,
+      "diagnostic_pair_count": 42,
+      "diagnostic_best_spacing": {
+        "left_index": 3393,
+        "right_index": 1600,
+        "left_covered_kinematically": 7,
+        "right_covered_kinematically": 6,
+        "distances_m": {
+          "HL_HR": 0.058152294368157886,
+          "AL_AR": 0.18199958722891474,
+          "HL_AR": 0.18791388453262367,
+          "HR_AL": 0.19789461757530272
+        },
+        "geometry_counts": {
+          "HL": 22,
+          "HR": 22,
+          "AL": 9,
+          "AR": 9
+        },
+        "grip_contacts": {
+          "left": [
+            "pinky",
+            "ring"
+          ],
+          "right": [
+            "pinky",
+            "ring"
+          ]
+        },
+        "neutral_scene_clear": false,
+        "violations": [
+          {
+            "a": "world",
+            "b": "HL_index_middle",
+            "geom_a": "table",
+            "geom_b": "",
+            "distance_m": -0.021068690036852855
+          },
+          {
+            "a": "world",
+            "b": "HL_index_middle",
+            "geom_a": "table",
+            "geom_b": "",
+            "distance_m": -0.021057785257392547
+          },
+          {
+            "a": "world",
+            "b": "HL_index_middle",
+            "geom_a": "station_table_frame_panel",
+            "geom_b": "",
+            "distance_m": -0.011068690036852846
+          },
+          {
+            "a": "world",
+            "b": "HL_index_middle",
+            "geom_a": "station_table_frame_panel",
+            "geom_b": "",
+            "distance_m": -0.011057785257392538
+          },
+          {
+            "a": "world",
+            "b": "HL_index_distal",
+            "geom_a": "table",
+            "geom_b": "",
+            "distance_m": -0.003572003681249214
+          },
+          {
+            "a": "world",
+            "b": "HL_index_distal",
+            "geom_a": "table",
+            "geom_b": "",
+            "distance_m": -0.003559666046819121
+          },
+          {
+            "a": "world",
+            "b": "HL_index_distal",
+            "geom_a": "station_table_frame_panel",
+            "geom_b": "",
+            "distance_m": -0.02357200368124923
+          },
+          {
+            "a": "world",
+            "b": "HL_index_distal",
+            "geom_a": "station_table_frame_panel",
+            "geom_b": "",
+            "distance_m": -0.02355966604681914
+          }
+        ]
+      },
+      "diagnostic_scene_clear_count": 0,
+      "diagnostic_interpretation": "Diagnostic spacing only. These are partial-coverage candidates, not successful grasps or full-control pairs."
+    },
+    {
+      "fixture": "b_raise40",
+      "full_candidate_pairs": 0,
+      "grip_pairs_checked": 28,
+      "verified_grip_pairs": 28,
+      "verified_partial_controls": [
+        "right:Y"
+      ],
+      "verified_pair_witness": {
+        "left_index": 962,
+        "right_index": 531,
+        "controls": [
+          "right:Y"
+        ],
+        "distances_m": {
+          "HL_HR": 0.11213459105786659,
+          "AL_AR": 0.18199958722891474,
+          "HL_AR": 0.21623977726441718,
+          "HR_AL": 0.19733826460089138
+        },
+        "accepted_states": [
+          {
+            "side": "right",
+            "control": "Y",
+            "state": 0,
+            "hand_q": {
+              "ring_mcp_roll": -0.07026365493551265,
+              "ring_mcp_pitch": 0.7299819033876322,
+              "ring_pip": 0.04013044597469957,
+              "pinky_mcp_roll": -0.029103782952412262,
+              "pinky_mcp_pitch": 0.6984195248346329,
+              "pinky_pip": 0.050047089281975946,
+              "thumb_cmc_roll": 0.9619482341609801,
+              "thumb_cmc_yaw": 0.38208468074670826,
+              "thumb_cmc_pitch": 0.5304489883913719,
+              "thumb_mcp": 0.2897552111297906,
+              "index_mcp_roll": -0.23,
+              "index_mcp_pitch": 0.0,
+              "index_pip": 0.0,
+              "middle_mcp_roll": -0.23,
+              "middle_mcp_pitch": 0.0,
+              "middle_pip": 0.0
+            },
+            "gamepad_q": {
+              "y_press": 0.0003808040168029378
+            },
+            "min_contact_m": -0.00021081645588797967,
+            "point_error_m": 3.1031676915590914e-17,
+            "normal_cos": 0.996876044919102,
+            "active_contact_distance_m": -7.524414145838693e-05
+          }
+        ],
+        "left_arm_q": [
+          -1.9723029311249762,
+          1.4809175713215208,
+          1.3213755996927847,
+          1.8229110726664572,
+          2.803877485257002,
+          0.05148997266113826,
+          -0.02841868059864687
+        ],
+        "right_arm_q": [
+          1.7483774701623367,
+          1.4615542850036392,
+          -0.8102018517244232,
+          1.4094701101866483,
+          2.9494751086700717,
+          -0.36190401433800107,
+          -0.6585540738636416
+        ],
+        "left_palm_world": [
+          0.42330884625238624,
+          0.8113041424378258,
+          1.0154811155145198,
+          0.04892412112292459,
+          0.8065040863404298,
+          -0.5649478666033934,
+          0.16730659613061488
+        ],
+        "right_palm_world": [
+          0.4887172905427924,
+          0.5121352636033465,
+          1.0230885819983138,
+          0.03912691805421158,
+          0.6438852407807327,
+          0.7612354479066049,
+          0.06634360435450974
+        ],
+        "left_resting_q": {
+          "ring_mcp_roll": -0.10547714981228502,
+          "ring_mcp_pitch": 0.26009985968691757,
+          "ring_pip": 0.07390676754328804,
+          "pinky_mcp_roll": 0.10266008388169476,
+          "pinky_mcp_pitch": 0.21345589347921162,
+          "pinky_pip": 0.19501733952157552,
+          "thumb_cmc_roll": 0.0,
+          "thumb_cmc_yaw": 0.0,
+          "thumb_cmc_pitch": 0.0,
+          "thumb_mcp": 0.0,
+          "index_mcp_roll": -0.23,
+          "index_mcp_pitch": 0.0,
+          "index_pip": 0.0,
+          "middle_mcp_roll": -0.23,
+          "middle_mcp_pitch": 0.0,
+          "middle_pip": 0.0
+        },
+        "right_resting_q": {
+          "ring_mcp_roll": -0.07026365493551265,
+          "ring_mcp_pitch": 0.7299819033876322,
+          "ring_pip": 0.04013044597469957,
+          "pinky_mcp_roll": -0.029103782952412262,
+          "pinky_mcp_pitch": 0.6984195248346329,
+          "pinky_pip": 0.050047089281975946,
+          "thumb_cmc_roll": 0.8639831102623704,
+          "thumb_cmc_yaw": 1.0932796074300333,
+          "thumb_cmc_pitch": 0.26626362068320103,
+          "thumb_mcp": 0.606025170960911,
+          "index_mcp_roll": -0.23,
+          "index_mcp_pitch": 0.0,
+          "index_pip": 0.0,
+          "middle_mcp_roll": -0.23,
+          "middle_mcp_pitch": 0.0,
+          "middle_pip": 0.0
+        }
+      },
+      "diagnostic_pair_count": 35,
+      "diagnostic_best_spacing": {
+        "left_index": 3393,
+        "right_index": 1600,
+        "left_covered_kinematically": 7,
+        "right_covered_kinematically": 6,
+        "distances_m": {
+          "HL_HR": 0.058152294368157886,
+          "AL_AR": 0.18199958722891474,
+          "HL_AR": 0.1879138845326235,
+          "HR_AL": 0.19789461757530263
+        },
+        "geometry_counts": {
+          "HL": 22,
+          "HR": 22,
+          "AL": 9,
+          "AR": 9
+        },
+        "grip_contacts": {
+          "left": [
+            "pinky",
+            "ring"
+          ],
+          "right": [
+            "pinky",
+            "ring"
+          ]
+        },
+        "neutral_scene_clear": false,
+        "violations": [
+          {
+            "a": "world",
+            "b": "HL_index_distal",
+            "geom_a": "table",
+            "geom_b": "",
+            "distance_m": -0.002745204843502158
+          },
+          {
+            "a": "world",
+            "b": "HL_index_distal",
+            "geom_a": "table",
+            "geom_b": "",
+            "distance_m": -0.0027497345129462447
+          },
+          {
+            "a": "world",
+            "b": "HL_index_distal",
+            "geom_a": "table",
+            "geom_b": "",
+            "distance_m": -0.0027454949272444074
+          },
+          {
+            "a": "world",
+            "b": "HL_middle_distal",
+            "geom_a": "table",
+            "geom_b": "",
+            "distance_m": -0.014524546422137297
+          },
+          {
+            "a": "world",
+            "b": "HL_middle_distal",
+            "geom_a": "table",
+            "geom_b": "",
+            "distance_m": -0.014529076091581383
+          },
+          {
+            "a": "world",
+            "b": "HL_middle_distal",
+            "geom_a": "table",
+            "geom_b": "",
+            "distance_m": -0.014524836505879546
+          },
+          {
+            "a": "world",
+            "b": "HL_middle_distal",
+            "geom_a": "station_table_frame_panel",
+            "geom_b": "",
+            "distance_m": -0.004524546422137288
+          },
+          {
+            "a": "world",
+            "b": "HL_middle_distal",
+            "geom_a": "station_table_frame_panel",
+            "geom_b": "",
+            "distance_m": -0.004529076091581374
+          }
+        ]
+      },
+      "diagnostic_scene_clear_count": 0,
+      "diagnostic_interpretation": "Diagnostic spacing only. These are partial-coverage candidates, not successful grasps or full-control pairs."
+    },
+    {
+      "fixture": "b_raise70",
+      "full_candidate_pairs": 0,
+      "grip_pairs_checked": 21,
+      "verified_grip_pairs": 21,
+      "verified_partial_controls": [
+        "right:Y"
+      ],
+      "verified_pair_witness": {
+        "left_index": 962,
+        "right_index": 531,
+        "controls": [
+          "right:Y"
+        ],
+        "distances_m": {
+          "HL_HR": 0.1121345910578667,
+          "AL_AR": 0.18199958722891474,
+          "HL_AR": 0.21623977726441274,
+          "HR_AL": 0.19733826460096288
+        },
+        "accepted_states": [
+          {
+            "side": "right",
+            "control": "Y",
+            "state": 0,
+            "hand_q": {
+              "ring_mcp_roll": -0.07026365493551265,
+              "ring_mcp_pitch": 0.7299819033876322,
+              "ring_pip": 0.04013044597469957,
+              "pinky_mcp_roll": -0.029103782952412262,
+              "pinky_mcp_pitch": 0.6984195248346329,
+              "pinky_pip": 0.050047089281975946,
+              "thumb_cmc_roll": 0.9619482341609801,
+              "thumb_cmc_yaw": 0.38208468074670826,
+              "thumb_cmc_pitch": 0.5304489883913719,
+              "thumb_mcp": 0.2897552111297906,
+              "index_mcp_roll": -0.23,
+              "index_mcp_pitch": 0.0,
+              "index_pip": 0.0,
+              "middle_mcp_roll": -0.23,
+              "middle_mcp_pitch": 0.0,
+              "middle_pip": 0.0
+            },
+            "gamepad_q": {
+              "y_press": 0.0003808040168029378
+            },
+            "min_contact_m": -0.00021081645588818756,
+            "point_error_m": 3.1031676915590914e-17,
+            "normal_cos": 0.996876044919102,
+            "active_contact_distance_m": -7.524414145828458e-05
+          }
+        ],
+        "left_arm_q": [
+          -2.052218221199649,
+          1.4443436867703854,
+          1.286158997824941,
+          1.8654165403245295,
+          2.808035940499687,
+          0.025300421752219807,
+          0.029519981159087615
+        ],
+        "right_arm_q": [
+          1.6395315529865135,
+          1.3187564693887253,
+          -0.4731157458195302,
+          1.4477301846550448,
+          2.851863857949622,
+          -0.4435182759247113,
+          -0.9599
+        ],
+        "left_palm_world": [
+          0.42330884625238624,
+          0.8113041424378258,
+          1.0454811155145198,
+          0.04892412112292459,
+          0.8065040863404298,
+          -0.5649478666033934,
+          0.16730659613061488
+        ],
+        "right_palm_world": [
+          0.4887172905427924,
+          0.5121352636033465,
+          1.0530885819983138,
+          0.03912691805421158,
+          0.6438852407807327,
+          0.7612354479066049,
+          0.06634360435450974
+        ],
+        "left_resting_q": {
+          "ring_mcp_roll": -0.10547714981228502,
+          "ring_mcp_pitch": 0.26009985968691757,
+          "ring_pip": 0.07390676754328804,
+          "pinky_mcp_roll": 0.10266008388169476,
+          "pinky_mcp_pitch": 0.21345589347921162,
+          "pinky_pip": 0.19501733952157552,
+          "thumb_cmc_roll": 0.0,
+          "thumb_cmc_yaw": 0.0,
+          "thumb_cmc_pitch": 0.0,
+          "thumb_mcp": 0.0,
+          "index_mcp_roll": -0.23,
+          "index_mcp_pitch": 0.0,
+          "index_pip": 0.0,
+          "middle_mcp_roll": -0.23,
+          "middle_mcp_pitch": 0.0,
+          "middle_pip": 0.0
+        },
+        "right_resting_q": {
+          "ring_mcp_roll": -0.07026365493551265,
+          "ring_mcp_pitch": 0.7299819033876322,
+          "ring_pip": 0.04013044597469957,
+          "pinky_mcp_roll": -0.029103782952412262,
+          "pinky_mcp_pitch": 0.6984195248346329,
+          "pinky_pip": 0.050047089281975946,
+          "thumb_cmc_roll": 0.8639831102623704,
+          "thumb_cmc_yaw": 1.0932796074300333,
+          "thumb_cmc_pitch": 0.26626362068320103,
+          "thumb_mcp": 0.606025170960911,
+          "index_mcp_roll": -0.23,
+          "index_mcp_pitch": 0.0,
+          "index_pip": 0.0,
+          "middle_mcp_roll": -0.23,
+          "middle_mcp_pitch": 0.0,
+          "middle_pip": 0.0
+        }
+      },
+      "diagnostic_pair_count": 35,
+      "diagnostic_best_spacing": {
+        "left_index": 3393,
+        "right_index": 1600,
+        "left_covered_kinematically": 7,
+        "right_covered_kinematically": 6,
+        "distances_m": {
+          "HL_HR": 0.05815229436815797,
+          "AL_AR": 0.18199958722891474,
+          "HL_AR": 0.18791388453262367,
+          "HR_AL": 0.19789461757530244
+        },
+        "geometry_counts": {
+          "HL": 22,
+          "HR": 22,
+          "AL": 9,
+          "AR": 9
+        },
+        "grip_contacts": {
+          "left": [
+            "pinky",
+            "ring"
+          ],
+          "right": [
+            "pinky",
+            "ring"
+          ]
+        },
+        "neutral_scene_clear": false,
+        "violations": [
+          {
+            "a": "HL_thumb_distal",
+            "b": "xbox_dpad",
+            "geom_a": "",
+            "geom_b": "xbox_sdf_dpad_000",
+            "distance_m": -0.000389802512311681
+          },
+          {
+            "a": "HL_thumb_distal",
+            "b": "xbox_dpad",
+            "geom_a": "",
+            "geom_b": "xbox_sdf_dpad_000",
+            "distance_m": -0.0004180507869981475
+          },
+          {
+            "a": "HL_ring_middle",
+            "b": "xbox_controller_body",
+            "geom_a": "",
+            "geom_b": "xbox_sdf_shell_000",
+            "distance_m": -0.0023351658091765406
+          },
+          {
+            "a": "HL_ring_middle",
+            "b": "xbox_controller_body",
+            "geom_a": "",
+            "geom_b": "xbox_sdf_shell_000",
+            "distance_m": -0.0023347767037305467
+          },
+          {
+            "a": "HL_ring_middle",
+            "b": "xbox_controller_body",
+            "geom_a": "",
+            "geom_b": "xbox_sdf_shell_000",
+            "distance_m": -0.0022416473572059955
+          },
+          {
+            "a": "HL_pinky_middle",
+            "b": "xbox_controller_body",
+            "geom_a": "",
+            "geom_b": "xbox_sdf_shell_000",
+            "distance_m": -0.003566843039081372
+          },
+          {
+            "a": "HL_pinky_middle",
+            "b": "xbox_controller_body",
+            "geom_a": "",
+            "geom_b": "xbox_sdf_shell_000",
+            "distance_m": -0.0037498712409687724
+          },
+          {
+            "a": "HL_pinky_distal",
+            "b": "xbox_controller_body",
+            "geom_a": "",
+            "geom_b": "xbox_sdf_shell_000",
+            "distance_m": -0.0013497855364037747
+          }
+        ]
+      },
+      "diagnostic_scene_clear_count": 0,
+      "diagnostic_interpretation": "Diagnostic spacing only. These are partial-coverage candidates, not successful grasps or full-control pairs."
+    },
+    {
+      "fixture": "c_tilt30_raise40",
+      "full_candidate_pairs": 0,
+      "grip_pairs_checked": 6,
+      "verified_grip_pairs": 6,
+      "verified_partial_controls": [
+        "right:Y"
+      ],
+      "verified_pair_witness": {
+        "left_index": 1478,
+        "right_index": 531,
+        "controls": [
+          "right:Y"
+        ],
+        "distances_m": {
+          "HL_HR": 0.09562441703777617,
+          "AL_AR": 0.18199958722891474,
+          "HL_AR": 0.26777214826918144,
+          "HR_AL": 0.2778596518905407
+        },
+        "accepted_states": [
+          {
+            "side": "right",
+            "control": "Y",
+            "state": 0,
+            "hand_q": {
+              "ring_mcp_roll": -0.07026365493551265,
+              "ring_mcp_pitch": 0.7299819033876322,
+              "ring_pip": 0.04013044597469957,
+              "pinky_mcp_roll": -0.029103782952412262,
+              "pinky_mcp_pitch": 0.6984195248346329,
+              "pinky_pip": 0.050047089281975946,
+              "thumb_cmc_roll": 0.9619482341609801,
+              "thumb_cmc_yaw": 0.38208468074670826,
+              "thumb_cmc_pitch": 0.5304489883913719,
+              "thumb_mcp": 0.2897552111297906,
+              "index_mcp_roll": -0.23,
+              "index_mcp_pitch": 0.0,
+              "index_pip": 0.0,
+              "middle_mcp_roll": -0.23,
+              "middle_mcp_pitch": 0.0,
+              "middle_pip": 0.0
+            },
+            "gamepad_q": {
+              "y_press": 0.0003808040168029378
+            },
+            "min_contact_m": -0.00021081645588789943,
+            "point_error_m": 3.1031676915590914e-17,
+            "normal_cos": 0.996876044919102,
+            "active_contact_distance_m": -7.524414145823625e-05
+          }
+        ],
+        "left_arm_q": [
+          2.4455198102360685,
+          -0.7057471351380854,
+          -3.1067,
+          1.456717328065819,
+          -1.8352102278011475,
+          0.16436910625450124,
+          -0.3132779639704241
+        ],
+        "right_arm_q": [
+          -1.4801643681980063,
+          -1.4552502888541,
+          2.2871942723250536,
+          1.8868964643762858,
+          2.4614023834038634,
+          0.5007674310458448,
+          -0.9599
+        ],
+        "left_palm_world": [
+          0.385975012592521,
+          0.9038026254346523,
+          0.8625403356016276,
+          0.06646055393186197,
+          0.5737154361464184,
+          -0.59478097680968,
+          0.5591682955280263
+        ],
+        "right_palm_world": [
+          0.3978241700410275,
+          0.5121352636033465,
+          0.9919291617727535,
+          0.2348159323770362,
+          0.6047743949087712,
+          0.7251701874511207,
+          0.23073276402960058
+        ],
+        "left_resting_q": {
+          "ring_mcp_roll": -0.12727289924072216,
+          "ring_mcp_pitch": 0.30655334334472856,
+          "ring_pip": 0.17412724659585846,
+          "pinky_mcp_roll": 0.18676071269037897,
+          "pinky_mcp_pitch": 0.20308723916861088,
+          "pinky_pip": 0.4894801946096793,
+          "thumb_cmc_roll": 1.4,
+          "thumb_cmc_yaw": 1.57,
+          "thumb_cmc_pitch": 0.84,
+          "thumb_mcp": 1.26,
+          "index_mcp_roll": 0.23,
+          "index_mcp_pitch": 1.22,
+          "index_pip": 1.74,
+          "middle_mcp_roll": 0.23,
+          "middle_mcp_pitch": 1.22,
+          "middle_pip": 1.74
+        },
+        "right_resting_q": {
+          "ring_mcp_roll": -0.07026365493551265,
+          "ring_mcp_pitch": 0.7299819033876322,
+          "ring_pip": 0.04013044597469957,
+          "pinky_mcp_roll": -0.029103782952412262,
+          "pinky_mcp_pitch": 0.6984195248346329,
+          "pinky_pip": 0.050047089281975946,
+          "thumb_cmc_roll": 0.8639831102623704,
+          "thumb_cmc_yaw": 1.0932796074300333,
+          "thumb_cmc_pitch": 0.26626362068320103,
+          "thumb_mcp": 0.606025170960911,
+          "index_mcp_roll": -0.23,
+          "index_mcp_pitch": 0.0,
+          "index_pip": 0.0,
+          "middle_mcp_roll": -0.23,
+          "middle_mcp_pitch": 0.0,
+          "middle_pip": 0.0
+        }
+      },
+      "diagnostic_pair_count": 56,
+      "diagnostic_best_spacing": {
+        "left_index": 11,
+        "right_index": 1600,
+        "left_covered_kinematically": 6,
+        "right_covered_kinematically": 6,
+        "distances_m": {
+          "HL_HR": 0.05578655229852524,
+          "AL_AR": 0.18199958722891474,
+          "HL_AR": 0.2052301895721473,
+          "HR_AL": 0.21087012052105078
+        },
+        "geometry_counts": {
+          "HL": 22,
+          "HR": 22,
+          "AL": 9,
+          "AR": 9
+        },
+        "grip_contacts": {
+          "left": [
+            "pinky",
+            "ring"
+          ],
+          "right": [
+            "pinky",
+            "ring"
+          ]
+        },
+        "neutral_scene_clear": false,
+        "violations": [
+          {
+            "a": "world",
+            "b": "HL_index_distal",
+            "geom_a": "table",
+            "geom_b": "",
+            "distance_m": -0.011496377903201793
+          },
+          {
+            "a": "world",
+            "b": "HL_index_distal",
+            "geom_a": "table",
+            "geom_b": "",
+            "distance_m": -0.01149869023690897
+          },
+          {
+            "a": "world",
+            "b": "HL_index_distal",
+            "geom_a": "table",
+            "geom_b": "",
+            "distance_m": -0.011502328273047202
+          },
+          {
+            "a": "world",
+            "b": "HL_index_distal",
+            "geom_a": "station_table_frame_panel",
+            "geom_b": "",
+            "distance_m": -0.0014963779032017843
+          },
+          {
+            "a": "world",
+            "b": "HL_index_distal",
+            "geom_a": "station_table_frame_panel",
+            "geom_b": "",
+            "distance_m": -0.0014986902369089616
+          },
+          {
+            "a": "world",
+            "b": "HL_index_distal",
+            "geom_a": "station_table_frame_panel",
+            "geom_b": "",
+            "distance_m": -0.0015023282730471932
+          },
+          {
+            "a": "world",
+            "b": "HL_middle_middle",
+            "geom_a": "table",
+            "geom_b": "",
+            "distance_m": -0.008997438722618267
+          },
+          {
+            "a": "world",
+            "b": "HL_middle_middle",
+            "geom_a": "table",
+            "geom_b": "",
+            "distance_m": -0.008977470004230548
+          }
+        ]
+      },
+      "diagnostic_scene_clear_count": 0,
+      "diagnostic_interpretation": "Diagnostic spacing only. These are partial-coverage candidates, not successful grasps or full-control pairs."
+    },
+    {
+      "fixture": "c_tilt45_raise70",
+      "full_candidate_pairs": 0,
+      "grip_pairs_checked": 15,
+      "verified_grip_pairs": 15,
+      "verified_partial_controls": [],
+      "verified_pair_witness": {
+        "left_index": 3218,
+        "right_index": 442,
+        "controls": [],
+        "distances_m": {
+          "HL_HR": 0.11021805087359436,
+          "AL_AR": 0.18199958722891474,
+          "HL_AR": 0.17086739402841675,
+          "HR_AL": 0.2207852505805035
+        },
+        "accepted_states": [],
+        "left_arm_q": [
+          -1.9510740770586952,
+          2.078665793633991,
+          1.7615363313196595,
+          2.0527848417754146,
+          2.9500758464078745,
+          0.9170309895158782,
+          -0.36204789131028964
+        ],
+        "right_arm_q": [
+          1.5635304182012473,
+          1.460977983146691,
+          -0.9058646763750289,
+          1.8638085333858627,
+          2.443211224031373,
+          0.8680910171522169,
+          -0.9599
+        ],
+        "left_palm_world": [
+          0.4012422821662805,
+          0.7985329408932202,
+          1.0247341236348715,
+          0.2518263092479152,
+          -0.4554974082734755,
+          0.8002324165519505,
+          -0.2978820245099484
+        ],
+        "right_palm_world": [
+          0.39357292486784456,
+          0.4998537929606192,
+          0.9635478369523766,
+          0.25345932886481226,
+          0.6833008382413873,
+          0.6164831945624509,
+          0.29800470447979815
+        ],
+        "left_resting_q": {
+          "ring_mcp_roll": -0.15437229107781308,
+          "ring_mcp_pitch": 0.5090814359760595,
+          "ring_pip": 0.029662044324798135,
+          "pinky_mcp_roll": -0.009310530049766438,
+          "pinky_mcp_pitch": 0.4946906998218747,
+          "pinky_pip": 0.0995859690437779,
+          "thumb_cmc_roll": 0.8596214804940264,
+          "thumb_cmc_yaw": 0.6746155209006423,
+          "thumb_cmc_pitch": 0.7747269003555373,
+          "thumb_mcp": 0.28282485672868923,
+          "index_mcp_roll": -0.23,
+          "index_mcp_pitch": 0.0,
+          "index_pip": 0.0,
+          "middle_mcp_roll": -0.23,
+          "middle_mcp_pitch": 0.0,
+          "middle_pip": 0.0
+        },
+        "right_resting_q": {
+          "ring_mcp_roll": -0.18873021424405756,
+          "ring_mcp_pitch": 1.2087200139155578,
+          "ring_pip": 0.16501019053766006,
+          "pinky_mcp_roll": 0.09528381690810328,
+          "pinky_mcp_pitch": 0.8830854584790361,
+          "pinky_pip": 0.5706627711682983,
+          "thumb_cmc_roll": 0.0,
+          "thumb_cmc_yaw": 0.0,
+          "thumb_cmc_pitch": 0.0,
+          "thumb_mcp": 0.0,
+          "index_mcp_roll": -0.23,
+          "index_mcp_pitch": 0.0,
+          "index_pip": 0.0,
+          "middle_mcp_roll": -0.23,
+          "middle_mcp_pitch": 0.0,
+          "middle_pip": 0.0
+        }
+      },
+      "diagnostic_pair_count": 72,
+      "diagnostic_best_spacing": {
+        "left_index": 3393,
+        "right_index": 1600,
+        "left_covered_kinematically": 7,
+        "right_covered_kinematically": 6,
+        "distances_m": {
+          "HL_HR": 0.058152294368158476,
+          "AL_AR": 0.18199958722891474,
+          "HL_AR": 0.18791388453262378,
+          "HR_AL": 0.197894617575303
+        },
+        "geometry_counts": {
+          "HL": 22,
+          "HR": 22,
+          "AL": 9,
+          "AR": 9
+        },
+        "grip_contacts": {
+          "left": [
+            "pinky",
+            "ring"
+          ],
+          "right": [
+            "pinky",
+            "ring"
+          ]
+        },
+        "neutral_scene_clear": false,
+        "violations": [
+          {
+            "a": "HL_thumb_distal",
+            "b": "xbox_dpad",
+            "geom_a": "",
+            "geom_b": "xbox_sdf_dpad_000",
+            "distance_m": -0.0003898025123115463
+          },
+          {
+            "a": "HL_thumb_distal",
+            "b": "xbox_dpad",
+            "geom_a": "",
+            "geom_b": "xbox_sdf_dpad_000",
+            "distance_m": -0.0004180507869980161
+          },
+          {
+            "a": "HL_ring_middle",
+            "b": "xbox_controller_body",
+            "geom_a": "",
+            "geom_b": "xbox_sdf_shell_000",
+            "distance_m": -0.0023351658091767084
+          },
+          {
+            "a": "HL_ring_middle",
+            "b": "xbox_controller_body",
+            "geom_a": "",
+            "geom_b": "xbox_sdf_shell_000",
+            "distance_m": -0.0023347767037307145
+          },
+          {
+            "a": "HL_ring_middle",
+            "b": "xbox_controller_body",
+            "geom_a": "",
+            "geom_b": "xbox_sdf_shell_000",
+            "distance_m": -0.0022416473572062505
+          },
+          {
+            "a": "HL_pinky_middle",
+            "b": "xbox_controller_body",
+            "geom_a": "",
+            "geom_b": "xbox_sdf_shell_000",
+            "distance_m": -0.0035668430390815038
+          },
+          {
+            "a": "HL_pinky_middle",
+            "b": "xbox_controller_body",
+            "geom_a": "",
+            "geom_b": "xbox_sdf_shell_000",
+            "distance_m": -0.003749871240968902
+          },
+          {
+            "a": "HL_pinky_distal",
+            "b": "xbox_controller_body",
+            "geom_a": "",
+            "geom_b": "xbox_sdf_shell_000",
+            "distance_m": -0.0013497855364038636
+          }
+        ]
+      },
+      "diagnostic_scene_clear_count": 0,
+      "diagnostic_interpretation": "Diagnostic spacing only. These are partial-coverage candidates, not successful grasps or full-control pairs."
+    },
+    {
+      "fixture": "d_yaw180_raise70",
+      "full_candidate_pairs": 0,
+      "grip_pairs_checked": 0,
+      "verified_grip_pairs": 0,
+      "verified_partial_controls": [],
+      "verified_pair_witness": null,
+      "diagnostic_pair_count": 4,
+      "diagnostic_best_spacing": {
+        "left_index": 665,
+        "right_index": 359,
+        "left_covered_kinematically": 6,
+        "right_covered_kinematically": 6,
+        "distances_m": {
+          "HL_HR": -0.01570082585565489,
+          "AL_AR": 0.18199958722891474,
+          "HL_AR": 0.13395090676354462,
+          "HR_AL": 0.09991468264442516
+        },
+        "geometry_counts": {
+          "HL": 22,
+          "HR": 22,
+          "AL": 9,
+          "AR": 9
+        },
+        "grip_contacts": {
+          "left": [
+            "pinky",
+            "ring"
+          ],
+          "right": [
+            "pinky",
+            "ring"
+          ]
+        },
+        "neutral_scene_clear": false,
+        "violations": [
+          {
+            "a": "HL_hand_base_link",
+            "b": "HR_ring_distal",
+            "geom_a": "",
+            "geom_b": "",
+            "distance_m": -0.002451657806389196
+          },
+          {
+            "a": "HL_hand_base_link",
+            "b": "HR_ring_distal",
+            "geom_a": "",
+            "geom_b": "",
+            "distance_m": -0.002452690757354533
+          },
+          {
+            "a": "HL_hand_base_link",
+            "b": "HR_ring_distal",
+            "geom_a": "",
+            "geom_b": "",
+            "distance_m": -0.002458776885234723
+          },
+          {
+            "a": "HL_hand_base_link",
+            "b": "HR_pinky_distal",
+            "geom_a": "",
+            "geom_b": "",
+            "distance_m": -0.006269802722860025
+          },
+          {
+            "a": "HL_hand_base_link",
+            "b": "xbox_right_shoulder",
+            "geom_a": "",
+            "geom_b": "xbox_sdf_right_shoulder_000",
+            "distance_m": -0.0003333777039191914
+          },
+          {
+            "a": "HL_hand_base_link",
+            "b": "xbox_right_trigger",
+            "geom_a": "",
+            "geom_b": "xbox_sdf_right_trigger_000",
+            "distance_m": -0.001575718024816404
+          },
+          {
+            "a": "HL_hand_base_link",
+            "b": "xbox_right_trigger",
+            "geom_a": "",
+            "geom_b": "xbox_sdf_right_trigger_000",
+            "distance_m": -0.001860252949751578
+          },
+          {
+            "a": "HL_hand_base_link",
+            "b": "xbox_right_trigger",
+            "geom_a": "",
+            "geom_b": "xbox_sdf_right_trigger_000",
+            "distance_m": -0.0011486227984560896
+          }
+        ]
+      },
+      "diagnostic_scene_clear_count": 0,
+      "diagnostic_interpretation": "Diagnostic spacing only. These are partial-coverage candidates, not successful grasps or full-control pairs."
+    }
+  ],
+  "sampling": {
+    "top_kinematic_palms_per_side": 12,
+    "arm_seeds": 6,
+    "arm_iterations": 100
+  },
+  "scope": "Both arms and both hands placed together. All saved grip pairs checked, then partial-control witnesses rechecked against the other hand and arm. Full-control candidate set empty; separate diagnostics preserve failure."
+}

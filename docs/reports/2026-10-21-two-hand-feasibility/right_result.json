@@ -1,0 +1,1027 @@
+{
+  "side": "right",
+  "phase": "K0 static necessary feasibility; no dynamics or force validation",
+  "parameters": {
+    "fk_samples_per_finger": 100000,
+    "palm_samples": 4096,
+    "shell_samples": 40000,
+    "grip_surface_samples": 2461,
+    "seed": 22,
+    "normal_cone_deg": 30,
+    "point_tolerance_m": 0.00025,
+    "grip_penetration_m": 0.001,
+    "active_penetration_numerical_m": 0.0001,
+    "arm_position_tolerance_m": 0.0005,
+    "arm_rotation_tolerance_rad": 0.005,
+    "arm_seeds": 6,
+    "arm_iterations": 100,
+    "arm_seed": 1022,
+    "rest_postures": 12,
+    "grip_patch": "signed x >25mm, y<5mm, z<-5mm, outward nz<-.3; shell only",
+    "grip_fixed": true,
+    "lookahead": 0
+  },
+  "goals": [
+    {
+      "name": "A",
+      "finger": "thumb",
+      "part": "a",
+      "states": [
+        {
+          "point": [
+            0.0384261880278947,
+            0.014242084755015368,
+            0.02010712806887957
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "gamepad_q": {
+            "a_press": 0.00027799382618908387
+          }
+        }
+      ]
+    },
+    {
+      "name": "B",
+      "finger": "thumb",
+      "part": "b",
+      "states": [
+        {
+          "point": [
+            0.048147515528685035,
+            0.022517555434911508,
+            0.018955560504348077
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "gamepad_q": {
+            "b_press": 0.00042679807073796837
+          }
+        }
+      ]
+    },
+    {
+      "name": "X",
+      "finger": "thumb",
+      "part": "x",
+      "states": [
+        {
+          "point": [
+            0.02932290997612898,
+            0.023827599563358982,
+            0.020816825539499328
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "gamepad_q": {
+            "x_press": 0.0002420978833271353
+          }
+        }
+      ]
+    },
+    {
+      "name": "Y",
+      "finger": "thumb",
+      "part": "y",
+      "states": [
+        {
+          "point": [
+            0.038228509750844755,
+            0.033421622014611574,
+            0.0198829067890935
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "gamepad_q": {
+            "y_press": 0.0003808040168029378
+          }
+        }
+      ]
+    },
+    {
+      "name": "Menu",
+      "finger": "thumb",
+      "part": "menu",
+      "states": [
+        {
+          "point": [
+            0.01125494783352515,
+            0.023817983459196425,
+            0.020139669979031324
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "gamepad_q": {
+            "menu_press": 0.0003926530030569688
+          }
+        }
+      ]
+    },
+    {
+      "name": "RS",
+      "finger": "thumb",
+      "part": "right_stick",
+      "states": [
+        {
+          "point": [
+            0.018000581857214124,
+            0.0003995236275978119,
+            0.03139858800481731
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "gamepad_q": {
+            "right_stick_x": 0.32114058236695664,
+            "right_stick_y": 0.0
+          }
+        },
+        {
+          "point": [
+            0.01885379162866713,
+            0.00238084448690527,
+            0.031381567366157916
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "gamepad_q": {
+            "right_stick_x": 0.22708068350587207,
+            "right_stick_y": 0.22708068350587204
+          }
+        },
+        {
+          "point": [
+            0.020629985905298732,
+            0.003029818144568597,
+            0.031393121262235577
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "gamepad_q": {
+            "right_stick_x": 1.966418931360052e-17,
+            "right_stick_y": 0.32114058236695664
+          }
+        },
+        {
+          "point": [
+            0.022402472513257953,
+            0.0023808468927352592,
+            0.03141411868542409
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "gamepad_q": {
+            "right_stick_x": -0.22708068350587204,
+            "right_stick_y": 0.22708068350587207
+          }
+        },
+        {
+          "point": [
+            0.023252004725988262,
+            0.00039952772209242,
+            0.03144422750610216
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "gamepad_q": {
+            "right_stick_x": -0.32114058236695664,
+            "right_stick_y": 3.932837862720104e-17
+          }
+        },
+        {
+          "point": [
+            0.022393389280992788,
+            -0.0015771904898079002,
+            0.031453434714935065
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "gamepad_q": {
+            "right_stick_x": -0.2270806835058721,
+            "right_stick_y": -0.22708068350587204
+          }
+        },
+        {
+          "point": [
+            0.02062999030084382,
+            -0.002221604814104884,
+            0.031449694283135265
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "gamepad_q": {
+            "right_stick_x": -5.899256794080155e-17,
+            "right_stick_y": -0.32114058236695664
+          }
+        },
+        {
+          "point": [
+            0.018862877108336923,
+            -0.0015771938576546914,
+            0.03142088032117655
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "gamepad_q": {
+            "right_stick_x": 0.227080683505872,
+            "right_stick_y": -0.2270806835058721
+          }
+        }
+      ]
+    },
+    {
+      "name": "R3",
+      "finger": "thumb",
+      "part": "right_stick",
+      "states": [
+        {
+          "point": [
+            0.020629988750016103,
+            0.0003995257851793148,
+            0.029370309406777817
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "gamepad_q": {
+            "right_stick_click": 0.000124
+          }
+        }
+      ]
+    },
+    {
+      "name": "RB",
+      "finger": "index",
+      "part": "right_shoulder",
+      "states": [
+        {
+          "point": [
+            0.03132536037312565,
+            0.050717481434835496,
+            0.012347991349970904
+          ],
+          "normal": [
+            -1.8706082217508553e-06,
+            0.9999999999981528,
+            -4.418766319515719e-07
+          ],
+          "gamepad_q": {
+            "right_shoulder_press": 0.0006907814973790431
+          }
+        }
+      ]
+    },
+    {
+      "name": "RT",
+      "finger": "middle",
+      "part": "right_trigger",
+      "states": [
+        {
+          "point": [
+            0.043446494557114204,
+            0.04605093553179625,
+            -0.02607891392185913
+          ],
+          "normal": [
+            -0.030408173093475918,
+            0.9240863807365463,
+            0.38097205139793106
+          ],
+          "gamepad_q": {
+            "right_trigger_hinge": 0.23625552654266357
+          }
+        },
+        {
+          "point": [
+            0.04556422338187514,
+            0.046175653862657144,
+            -0.02621239942590535
+          ],
+          "normal": [
+            -0.030408173093475918,
+            0.9240863807365463,
+            0.38097205139793106
+          ],
+          "gamepad_q": {
+            "right_trigger_hinge": 0.23625552654266357
+          }
+        },
+        {
+          "point": [
+            0.042264174282166354,
+            0.04609779829924122,
+            -0.02628695397214953
+          ],
+          "normal": [
+            -0.030408173093475918,
+            0.9240863807365463,
+            0.38097205139793106
+          ],
+          "gamepad_q": {
+            "right_trigger_hinge": 0.23625552654266357
+          }
+        }
+      ],
+      "alternatives": true
+    }
+  ],
+  "grip_kinematic": 2463,
+  "kinematic_per_control": {
+    "A": 120,
+    "B": 118,
+    "X": 102,
+    "Y": 93,
+    "Menu": 91,
+    "RS": 596,
+    "R3": 119,
+    "RB": 3,
+    "RT": 123
+  },
+  "kinematic_full": 0,
+  "fixtures": [
+    {
+      "name": "a_flat",
+      "elevation_m": 0,
+      "tilt_deg": 0,
+      "extra_yaw_deg": 0,
+      "pose": [
+        0.501415,
+        0.6478666666666666,
+        0.7979,
+        0.7071067811865475,
+        0.0,
+        0.0,
+        -0.7071067811865478
+      ],
+      "sampled_palms": 4096,
+      "grip_kinematic": 2463,
+      "arm_ik": 914,
+      "collision_free_grips": 0,
+      "full_hand_feasible": 0,
+      "per_control": {
+        "A": 0,
+        "B": 0,
+        "X": 0,
+        "Y": 0,
+        "Menu": 0,
+        "RS": 0,
+        "R3": 0,
+        "RB": 0,
+        "RT": 0
+      },
+      "control_combinations": {},
+      "best_controls": [],
+      "rejections": {
+        "world|HR_index_middle": 270,
+        "world|HR_middle_distal": 42,
+        "world|HR_index_distal": 76,
+        "world|HR_index_metacarpals": 50,
+        "world|HR_index_proximal": 197,
+        "world|HR_ring_distal": 84,
+        "world|HR_ring_middle": 72,
+        "world|AR_AR5_right_5_08R_W4C4A6_link3": 23,
+        "world|AR_AR5_right_5_08R_W4C4A6_link5": 36,
+        "world|HR_pinky_distal": 4,
+        "world|HR_thumb_proximal": 7,
+        "world|AR_AR5_right_5_08R_W4C4A6_link7": 1,
+        "world|HR_thumb_metacarpals": 18,
+        "world|AR_AR5_right_5_08R_W4C4A6_link4": 13,
+        "world|HR_ring_proximal": 1,
+        "world|HR_thumb_distal": 3,
+        "world|AR_AR5_right_5_08R_W4C4A6_link6": 1,
+        "world|HR_pinky_middle": 4,
+        "world|HR_middle_middle": 8,
+        "world|HR_pinky_proximal": 2,
+        "world|HR_thumb_metacarpals_base1": 1,
+        "world|HR_thumb_metacarpals_base2": 1
+      }
+    },
+    {
+      "name": "b_raise40",
+      "elevation_m": 0.04,
+      "tilt_deg": 0,
+      "extra_yaw_deg": 0,
+      "pose": [
+        0.501415,
+        0.6478666666666666,
+        0.8379000000000001,
+        0.7071067811865475,
+        0.0,
+        0.0,
+        -0.7071067811865478
+      ],
+      "sampled_palms": 4096,
+      "grip_kinematic": 2463,
+      "arm_ik": 946,
+      "collision_free_grips": 4,
+      "full_hand_feasible": 0,
+      "per_control": {
+        "A": 0,
+        "B": 0,
+        "X": 0,
+        "Y": 1,
+        "Menu": 0,
+        "RS": 0,
+        "R3": 0,
+        "RB": 0,
+        "RT": 0
+      },
+      "control_combinations": {
+        "Y": 1,
+        "(grip only)": 3
+      },
+      "best_controls": [
+        "Y"
+      ],
+      "rejections": {
+        "HR_ring_proximal|xbox_controller_body": 120,
+        "HR_thumb_distal|xbox_controller_body": 23,
+        "HR_thumb_distal|xbox_right_stick": 56,
+        "world|HR_index_distal": 147,
+        "world|AR_AR5_right_5_08R_W4C4A6_link3": 26,
+        "HR_index_proximal|xbox_controller_body": 42,
+        "HR_thumb_proximal|xbox_controller_body": 9,
+        "world|AR_AR5_right_5_08R_W4C4A6_link5": 24,
+        "HR_pinky_distal|xbox_controller_body": 1,
+        "HR_middle_middle|xbox_controller_body": 16,
+        "world|HR_middle_distal": 42,
+        "HR_index_middle|xbox_right_trigger": 4,
+        "HR_middle_distal|xbox_controller_body": 16,
+        "world|HR_index_middle": 131,
+        "HR_middle_proximal|xbox_right_stick": 13,
+        "HR_ring_middle|xbox_controller_body": 51,
+        "HR_middle_distal|xbox_left_stick": 2,
+        "HR_index_proximal|xbox_left_stick": 1,
+        "HR_middle_proximal|xbox_controller_body": 34,
+        "AL_AR5_left_5_08R_W4C4A6_link7|AR_AR5_right_5_08R_W4C4A6_link6": 3,
+        "HR_hand_base_link|xbox_a": 2,
+        "HR_index_middle|xbox_controller_body": 27,
+        "HR_pinky_proximal|xbox_controller_body": 2,
+        "HR_pinky_middle|xbox_controller_body": 9,
+        "AL_AR5_left_5_08R_W4C4A6_link7|AR_AR5_right_5_08R_W4C4A6_link7": 12,
+        "AL_AR5_left_5_08R_W4C4A6_link5|AR_AR5_right_5_08R_W4C4A6_link6": 4,
+        "AL_AR5_left_5_08R_W4C4A6_link6|AR_AR5_right_5_08R_W4C4A6_link7": 7,
+        "world|HR_index_metacarpals": 5,
+        "HR_index_distal|xbox_left_stick": 1,
+        "HR_index_distal|xbox_controller_body": 9,
+        "world|HR_thumb_metacarpals": 8,
+        "AL_AR5_left_5_08R_W4C4A6_link7|HR_thumb_proximal": 9,
+        "HR_hand_base_link|xbox_right_stick": 12,
+        "world|HR_index_proximal": 20,
+        "HR_thumb_proximal|xbox_right_stick": 6,
+        "HR_index_middle|xbox_left_stick": 1,
+        "AL_AR5_left_5_08R_W4C4A6_link7|HR_thumb_metacarpals": 4,
+        "world|HR_thumb_distal": 1,
+        "HR_index_proximal|xbox_right_stick": 8,
+        "HR_hand_base_link|xbox_dpad": 1,
+        "world|HR_thumb_proximal": 2,
+        "world|AR_AR5_right_5_08R_W4C4A6_link4": 17,
+        "AL_AR5_left_5_08R_W4C4A6_link6|AR_AR5_right_5_08R_W4C4A6_link6": 1,
+        "HR_hand_base_link|xbox_right_shoulder": 1,
+        "AL_AR5_left_5_08R_W4C4A6_link5|AR_AR5_right_5_08R_W4C4A6_link7": 1,
+        "AL_AR5_left_5_08R_W4C4A6_link6|HR_thumb_distal": 1,
+        "HR_middle_proximal|xbox_a": 1,
+        "AL_AR5_left_5_08R_W4C4A6_link7|HR_thumb_distal": 2,
+        "HR_middle_middle|xbox_right_trigger": 1,
+        "HR_index_proximal|xbox_dpad": 1,
+        "HR_index_metacarpals|xbox_controller_body": 1,
+        "HR_index_metacarpals|xbox_right_stick": 2,
+        "HR_middle_middle|xbox_left_stick": 1,
+        "HR_hand_base_link|xbox_b": 1
+      }
+    },
+    {
+      "name": "b_raise70",
+      "elevation_m": 0.07,
+      "tilt_deg": 0,
+      "extra_yaw_deg": 0,
+      "pose": [
+        0.501415,
+        0.6478666666666666,
+        0.8679000000000001,
+        0.7071067811865475,
+        0.0,
+        0.0,
+        -0.7071067811865478
+      ],
+      "sampled_palms": 4096,
+      "grip_kinematic": 2463,
+      "arm_ik": 940,
+      "collision_free_grips": 3,
+      "full_hand_feasible": 0,
+      "per_control": {
+        "A": 0,
+        "B": 0,
+        "X": 0,
+        "Y": 1,
+        "Menu": 0,
+        "RS": 0,
+        "R3": 0,
+        "RB": 0,
+        "RT": 0
+      },
+      "control_combinations": {
+        "Y": 1,
+        "(grip only)": 2
+      },
+      "best_controls": [
+        "Y"
+      ],
+      "rejections": {
+        "HR_ring_proximal|xbox_controller_body": 172,
+        "HR_thumb_distal|xbox_controller_body": 43,
+        "HR_thumb_distal|xbox_right_stick": 90,
+        "HR_index_proximal|xbox_controller_body": 48,
+        "HR_thumb_distal|xbox_b": 10,
+        "HR_thumb_proximal|xbox_controller_body": 11,
+        "world|AR_AR5_right_5_08R_W4C4A6_link5": 16,
+        "HR_pinky_distal|xbox_controller_body": 4,
+        "HR_middle_middle|xbox_controller_body": 17,
+        "HR_ring_middle|xbox_controller_body": 125,
+        "AL_AR5_left_5_08R_W4C4A6_link5|AR_AR5_right_5_08R_W4C4A6_link7": 5,
+        "HR_thumb_proximal|xbox_right_stick": 12,
+        "HR_index_middle|xbox_right_trigger": 4,
+        "HR_middle_distal|xbox_controller_body": 18,
+        "world|AR_AR5_right_5_08R_W4C4A6_link3": 21,
+        "HR_middle_proximal|xbox_right_stick": 12,
+        "world|HR_index_distal": 63,
+        "HR_middle_distal|xbox_left_stick": 2,
+        "AL_AR5_left_5_08R_W4C4A6_link7|HR_hand_base_link": 12,
+        "world|AR_AR5_right_5_08R_W4C4A6_link4": 15,
+        "HR_index_proximal|xbox_left_stick": 1,
+        "HR_middle_proximal|xbox_controller_body": 43,
+        "world|HR_index_proximal": 1,
+        "HR_hand_base_link|xbox_right_stick": 26,
+        "HR_hand_base_link|xbox_a": 4,
+        "AL_AR5_left_5_08R_W4C4A6_link7|AR_AR5_right_5_08R_W4C4A6_link7": 17,
+        "HR_index_middle|xbox_controller_body": 27,
+        "HR_pinky_proximal|xbox_controller_body": 2,
+        "HR_pinky_middle|xbox_controller_body": 12,
+        "world|HR_index_middle": 22,
+        "world|HR_thumb_distal": 4,
+        "HR_index_distal|xbox_left_stick": 1,
+        "HR_index_distal|xbox_controller_body": 9,
+        "AL_AR5_left_5_08R_W4C4A6_link7|HR_thumb_metacarpals": 7,
+        "AL_AR5_left_5_08R_W4C4A6_link6|HR_thumb_proximal": 3,
+        "world|HR_middle_distal": 8,
+        "HR_index_middle|xbox_left_stick": 1,
+        "HR_thumb_distal|xbox_a": 1,
+        "HR_index_proximal|xbox_right_stick": 6,
+        "HR_hand_base_link|xbox_dpad": 2,
+        "world|HR_thumb_metacarpals": 3,
+        "AL_AR5_left_5_08R_W4C4A6_link7|HR_thumb_proximal": 2,
+        "AL_AR5_left_5_08R_W4C4A6_link5|HR_thumb_distal": 4,
+        "AL_AR5_left_5_08R_W4C4A6_link6|HR_thumb_metacarpals": 1,
+        "AL_AR5_left_5_08R_W4C4A6_link6|AR_AR5_right_5_08R_W4C4A6_link7": 4,
+        "AL_AR5_left_5_08R_W4C4A6_link6|HR_thumb_distal": 3,
+        "HR_hand_base_link|xbox_right_shoulder": 1,
+        "world|HR_thumb_proximal": 3,
+        "HR_middle_proximal|xbox_a": 1,
+        "AL_AR5_left_5_08R_W4C4A6_link5|AR_AR5_right_5_08R_W4C4A6_link6": 3,
+        "AL_AR5_left_5_08R_W4C4A6_link7|HR_thumb_distal": 1,
+        "HR_thumb_distal|xbox_y": 5,
+        "HR_middle_middle|xbox_right_trigger": 1,
+        "HR_index_proximal|xbox_dpad": 1,
+        "HR_index_metacarpals|xbox_controller_body": 2,
+        "HR_ring_metacarpals|xbox_controller_body": 1,
+        "HR_index_metacarpals|xbox_right_stick": 1,
+        "HR_thumb_distal|xbox_menu": 1,
+        "HR_middle_middle|xbox_left_stick": 1,
+        "HR_hand_base_link|xbox_b": 1
+      }
+    },
+    {
+      "name": "c_tilt30_raise40",
+      "elevation_m": 0.04,
+      "tilt_deg": 30,
+      "extra_yaw_deg": 0,
+      "pose": [
+        0.501415,
+        0.6478666666666666,
+        0.8379000000000001,
+        0.6830127018922193,
+        0.18301270189221927,
+        -0.18301270189221933,
+        -0.6830127018922195
+      ],
+      "sampled_palms": 4096,
+      "grip_kinematic": 2463,
+      "arm_ik": 1081,
+      "collision_free_grips": 2,
+      "full_hand_feasible": 0,
+      "per_control": {
+        "A": 0,
+        "B": 0,
+        "X": 0,
+        "Y": 1,
+        "Menu": 0,
+        "RS": 0,
+        "R3": 0,
+        "RB": 0,
+        "RT": 0
+      },
+      "control_combinations": {
+        "Y": 1,
+        "(grip only)": 1
+      },
+      "best_controls": [
+        "Y"
+      ],
+      "rejections": {
+        "HR_ring_proximal|xbox_controller_body": 58,
+        "world|AR_AR5_right_5_08R_W4C4A6_link4": 33,
+        "HR_thumb_distal|xbox_right_stick": 74,
+        "world|AR_AR5_right_5_08R_W4C4A6_link5": 46,
+        "HR_index_proximal|xbox_controller_body": 54,
+        "HR_thumb_distal|xbox_b": 6,
+        "HR_thumb_proximal|xbox_controller_body": 11,
+        "HR_pinky_distal|xbox_controller_body": 3,
+        "world|HR_thumb_metacarpals": 34,
+        "HR_middle_middle|xbox_left_stick": 1,
+        "world|HR_index_distal": 76,
+        "HR_middle_middle|xbox_controller_body": 14,
+        "HR_ring_middle|xbox_controller_body": 50,
+        "world|HR_thumb_distal": 20,
+        "world|HR_index_middle": 161,
+        "HR_thumb_proximal|xbox_right_stick": 9,
+        "HR_index_middle|xbox_right_trigger": 4,
+        "HR_index_middle|xbox_controller_body": 24,
+        "world|HR_pinky_proximal": 6,
+        "HR_hand_base_link|xbox_guide": 2,
+        "HR_thumb_distal|xbox_controller_body": 29,
+        "HR_middle_proximal|xbox_right_stick": 4,
+        "world|HR_middle_distal": 41,
+        "world|HR_index_proximal": 67,
+        "HR_middle_distal|xbox_left_stick": 1,
+        "world|AR_AR5_right_5_08R_W4C4A6_link3": 76,
+        "AL_AR5_left_5_08R_W4C4A6_link7|AR_AR5_right_5_08R_W4C4A6_link7": 9,
+        "HR_index_proximal|xbox_left_stick": 2,
+        "HR_middle_proximal|xbox_controller_body": 22,
+        "world|HR_index_metacarpals": 18,
+        "AL_AR5_left_5_08R_W4C4A6_link6|AR_AR5_right_5_08R_W4C4A6_link7": 5,
+        "HR_middle_distal|xbox_controller_body": 10,
+        "AL_AR5_left_5_08R_W4C4A6_link5|HR_thumb_distal": 1,
+        "world|HR_ring_distal": 12,
+        "AL_AR5_left_5_08R_W4C4A6_link7|AR_AR5_right_5_08R_W4C4A6_link6": 3,
+        "AL_AR5_left_5_08R_W4C4A6_link7|HR_thumb_proximal": 1,
+        "world|HR_thumb_proximal": 18,
+        "HR_hand_base_link|xbox_right_stick": 5,
+        "AL_AR5_left_5_08R_W4C4A6_link5|AR_AR5_right_5_08R_W4C4A6_link6": 3,
+        "world|HR_middle_middle": 2,
+        "HR_index_metacarpals|xbox_controller_body": 5,
+        "HR_hand_base_link|xbox_a": 3,
+        "AL_AR5_left_5_08R_W4C4A6_link5|AR_AR5_right_5_08R_W4C4A6_link5": 2,
+        "HR_hand_base_link|xbox_dpad": 1,
+        "HR_pinky_middle|xbox_controller_body": 9,
+        "world|HR_pinky_distal": 2,
+        "AL_AR5_left_5_08R_W4C4A6_link7|HR_thumb_distal": 4,
+        "HR_index_distal|xbox_controller_body": 2,
+        "HR_hand_base_link|xbox_right_shoulder": 3,
+        "HR_thumb_distal|xbox_y": 7,
+        "world|HR_pinky_metacarpals": 2,
+        "AL_AR5_left_5_08R_W4C4A6_link7|HR_thumb_metacarpals": 2,
+        "HR_hand_base_link|xbox_b": 4,
+        "HR_index_proximal|xbox_right_stick": 5,
+        "world|HR_thumb_metacarpals_base2": 1,
+        "world|AR_AR5_right_5_08R_W4C4A6_link6": 2,
+        "HR_index_proximal|xbox_dpad": 1,
+        "HR_middle_proximal|xbox_a": 1,
+        "HR_hand_base_link|xbox_x": 1,
+        "HR_index_middle|xbox_right_stick": 1,
+        "HR_thumb_distal|xbox_menu": 1,
+        "AL_AR5_left_5_08R_W4C4A6_link6|HR_thumb_distal": 1,
+        "HR_index_metacarpals|xbox_right_stick": 1,
+        "HR_ring_metacarpals|xbox_controller_body": 1,
+        "HR_ring_proximal|xbox_right_shoulder": 1,
+        "HR_hand_base_link|xbox_right_trigger": 1
+      }
+    },
+    {
+      "name": "c_tilt45_raise70",
+      "elevation_m": 0.07,
+      "tilt_deg": 45,
+      "extra_yaw_deg": 0,
+      "pose": [
+        0.501415,
+        0.6478666666666666,
+        0.8679000000000001,
+        0.6532814824381882,
+        0.2705980500730985,
+        -0.27059805007309856,
+        -0.6532814824381885
+      ],
+      "sampled_palms": 4096,
+      "grip_kinematic": 2463,
+      "arm_ik": 1106,
+      "collision_free_grips": 3,
+      "full_hand_feasible": 0,
+      "per_control": {
+        "A": 0,
+        "B": 0,
+        "X": 0,
+        "Y": 0,
+        "Menu": 0,
+        "RS": 0,
+        "R3": 0,
+        "RB": 0,
+        "RT": 0
+      },
+      "control_combinations": {
+        "(grip only)": 3
+      },
+      "best_controls": [],
+      "rejections": {
+        "HR_ring_proximal|xbox_controller_body": 78,
+        "HR_thumb_distal|xbox_controller_body": 43,
+        "HR_thumb_distal|xbox_right_stick": 87,
+        "HR_index_proximal|xbox_controller_body": 60,
+        "world|HR_index_distal": 80,
+        "world|AR_AR5_right_5_08R_W4C4A6_link3": 114,
+        "HR_thumb_distal|xbox_b": 15,
+        "HR_pinky_distal|xbox_controller_body": 5,
+        "world|HR_thumb_metacarpals": 38,
+        "HR_middle_middle|xbox_left_stick": 1,
+        "HR_ring_middle|xbox_controller_body": 76,
+        "world|HR_thumb_proximal": 20,
+        "HR_thumb_proximal|xbox_right_stick": 5,
+        "HR_index_middle|xbox_right_trigger": 4,
+        "world|HR_index_middle": 96,
+        "HR_index_middle|xbox_controller_body": 23,
+        "HR_hand_base_link|xbox_guide": 2,
+        "HR_middle_proximal|xbox_right_stick": 3,
+        "AL_AR5_left_5_08R_W4C4A6_link7|HR_hand_base_link": 10,
+        "world|AR_AR5_right_5_08R_W4C4A6_link4": 48,
+        "world|AR_AR5_right_5_08R_W4C4A6_link5": 40,
+        "world|HR_index_proximal": 18,
+        "HR_middle_distal|xbox_left_stick": 1,
+        "world|HR_thumb_distal": 32,
+        "HR_thumb_proximal|xbox_controller_body": 14,
+        "HR_hand_base_link|xbox_b": 11,
+        "HR_middle_proximal|xbox_controller_body": 26,
+        "HR_pinky_middle|xbox_controller_body": 14,
+        "HR_middle_distal|xbox_controller_body": 8,
+        "AL_AR5_left_5_08R_W4C4A6_link7|HR_thumb_metacarpals": 4,
+        "HR_middle_middle|xbox_controller_body": 12,
+        "AL_AR5_left_5_08R_W4C4A6_link7|AR_AR5_right_5_08R_W4C4A6_link7": 13,
+        "HR_hand_base_link|xbox_right_shoulder": 17,
+        "world|AR_AR5_right_5_08R_W4C4A6_link6": 4,
+        "HR_hand_base_link|xbox_right_stick": 8,
+        "HR_thumb_distal|xbox_menu": 4,
+        "world|HR_middle_distal": 6,
+        "AL_AR5_left_5_08R_W4C4A6_link5|AR_AR5_right_5_08R_W4C4A6_link6": 3,
+        "HR_hand_base_link|xbox_a": 9,
+        "AL_AR5_left_5_08R_W4C4A6_link5|AR_AR5_right_5_08R_W4C4A6_link7": 4,
+        "HR_thumb_metacarpals|xbox_controller_body": 1,
+        "HR_index_metacarpals|xbox_controller_body": 4,
+        "HR_thumb_distal|xbox_y": 11,
+        "AL_AR5_left_5_08R_W4C4A6_link5|HR_thumb_distal": 1,
+        "AL_AR5_left_5_08R_W4C4A6_link6|AR_AR5_right_5_08R_W4C4A6_link7": 4,
+        "world|HR_index_metacarpals": 3,
+        "HR_index_proximal|xbox_right_stick": 5,
+        "world|HR_pinky_metacarpals": 1,
+        "AL_AR5_left_5_08R_W4C4A6_link5|AR_AR5_right_5_08R_W4C4A6_link5": 1,
+        "HR_index_proximal|xbox_right_trigger": 1,
+        "HR_middle_middle|xbox_right_trigger": 1,
+        "HR_index_proximal|xbox_dpad": 1,
+        "HR_hand_base_link|xbox_x": 1,
+        "world|AR_AR5_right_5_08R_W4C4A6_link7": 1,
+        "HR_hand_base_link|xbox_right_trigger": 1,
+        "HR_thumb_distal|xbox_a": 1,
+        "HR_index_metacarpals|xbox_right_stick": 2,
+        "HR_thumb_distal|xbox_x": 1,
+        "HR_index_middle|xbox_right_stick": 1,
+        "HR_index_distal|xbox_controller_body": 1,
+        "HR_ring_metacarpals|xbox_controller_body": 1,
+        "HR_hand_base_link|xbox_y": 1,
+        "AL_AR5_left_5_08R_W4C4A6_link7|HR_thumb_distal": 1,
+        "HR_ring_proximal|xbox_right_shoulder": 1
+      }
+    },
+    {
+      "name": "d_yaw180_raise70",
+      "elevation_m": 0.07,
+      "tilt_deg": 30,
+      "extra_yaw_deg": 180,
+      "pose": [
+        0.501415,
+        0.6478666666666666,
+        0.8679000000000001,
+        0.6830127018922194,
+        -0.1830127018922193,
+        -0.18301270189221935,
+        0.6830127018922194
+      ],
+      "sampled_palms": 4096,
+      "grip_kinematic": 2463,
+      "arm_ik": 690,
+      "collision_free_grips": 0,
+      "full_hand_feasible": 0,
+      "per_control": {
+        "A": 0,
+        "B": 0,
+        "X": 0,
+        "Y": 0,
+        "Menu": 0,
+        "RS": 0,
+        "R3": 0,
+        "RB": 0,
+        "RT": 0
+      },
+      "control_combinations": {},
+      "best_controls": [],
+      "rejections": {
+        "AL_AR5_left_5_08R_W4C4A6_link5|AR_AR5_right_5_08R_W4C4A6_link6": 27,
+        "HR_hand_base_link|xbox_dpad": 51,
+        "world|AR_AR5_right_5_08R_W4C4A6_link3": 48,
+        "HR_hand_base_link|xbox_left_shoulder": 24,
+        "world|HR_thumb_metacarpals": 9,
+        "world|HR_index_distal": 14,
+        "HR_hand_base_link|xbox_right_stick": 52,
+        "HR_ring_proximal|xbox_controller_body": 20,
+        "AL_AR5_left_5_08R_W4C4A6_link7|AR_AR5_right_5_08R_W4C4A6_link7": 45,
+        "HR_ring_middle|xbox_controller_body": 32,
+        "AL_AR5_left_5_08R_W4C4A6_link5|HR_thumb_proximal": 3,
+        "AL_AR5_left_5_08R_W4C4A6_link7|HR_hand_base_link": 53,
+        "HR_hand_base_link|xbox_a": 14,
+        "HR_hand_base_link|xbox_right_shoulder": 19,
+        "world|AR_AR5_right_5_08R_W4C4A6_link5": 7,
+        "AL_AR5_left_5_08R_W4C4A6_link7|HR_thumb_metacarpals": 7,
+        "AL_AR5_left_5_08R_W4C4A6_link5|AR_AR5_right_5_08R_W4C4A6_link7": 59,
+        "world|AR_AR5_right_5_08R_W4C4A6_link4": 19,
+        "world|HR_thumb_proximal": 16,
+        "world|HR_thumb_distal": 22,
+        "HR_index_proximal|xbox_controller_body": 7,
+        "HR_thumb_proximal|xbox_controller_body": 3,
+        "AL_AR5_left_5_08R_W4C4A6_link5|HR_hand_base_link": 2,
+        "HR_thumb_metacarpals|xbox_controller_body": 14,
+        "AL_AR5_left_5_08R_W4C4A6_link5|HR_thumb_metacarpals": 5,
+        "AL_AR5_left_5_08R_W4C4A6_link6|HR_thumb_metacarpals": 3,
+        "HR_thumb_distal|xbox_right_stick": 13,
+        "AL_AR5_left_5_08R_W4C4A6_link6|AR_AR5_right_5_08R_W4C4A6_link7": 25,
+        "HR_hand_base_link|xbox_b": 9,
+        "HR_thumb_proximal|xbox_right_stick": 3,
+        "AL_AR5_left_5_08R_W4C4A6_link5|AR_AR5_right_5_08R_W4C4A6_link5": 14,
+        "HR_middle_proximal|xbox_controller_body": 4,
+        "HR_hand_base_link|xbox_left_stick": 10,
+        "AL_AR5_left_5_08R_W4C4A6_link6|HR_hand_base_link": 3,
+        "HR_hand_base_link|xbox_view": 2,
+        "AL_AR5_left_5_08R_W4C4A6_link7|HR_thumb_metacarpals_base1": 2,
+        "world|HR_middle_distal": 1,
+        "AL_AR5_left_5_08R_W4C4A6_link7|HR_thumb_metacarpals_base2": 5,
+        "HR_pinky_middle|xbox_controller_body": 3,
+        "world|HR_index_middle": 1,
+        "HR_thumb_metacarpals|xbox_right_shoulder": 1,
+        "HR_index_metacarpals|xbox_right_stick": 2,
+        "HR_thumb_metacarpals|xbox_left_stick": 1,
+        "HR_hand_base_link|xbox_menu": 2,
+        "HR_pinky_distal|xbox_controller_body": 1,
+        "HR_hand_base_link|xbox_left_trigger": 1,
+        "world|HR_index_proximal": 1,
+        "world|AR_AR5_right_5_08R_W4C4A6_link6": 3,
+        "HR_index_metacarpals|xbox_controller_body": 1,
+        "HR_thumb_distal|xbox_controller_body": 4,
+        "HR_thumb_distal|xbox_b": 1,
+        "HR_thumb_metacarpals_base1|xbox_controller_body": 1,
+        "HR_thumb_metacarpals_base2|xbox_controller_body": 1
+      }
+    }
+  ],
+  "elapsed_seconds": 380.47075116798806,
+  "inertia_corrections": {
+    "LA": [],
+    "LH": [
+      {
+        "link": "thumb_metacarpals_base2",
+        "before": [
+          [
+            2.10633266517815e-07,
+            -4.9133152227129e-08,
+            -1.35746007921721e-08
+          ],
+          [
+            -4.9133152227129e-08,
+            9.83742137915545e-08,
+            4.75450167610941e-08
+          ],
+          [
+            -1.35746007921721e-08,
+            4.75450167610941e-08,
+            1.80097560989649e-07
+          ]
+        ],
+        "after": [
+          [
+            2.1059538331014662e-07,
+            -4.9021583966175526e-08,
+            -1.3448481610710843e-08
+          ],
+          [
+            -4.9021583966175526e-08,
+            9.848766838264381e-08,
+            4.7478164378066786e-08
+          ],
+          [
+            -1.3448481610710843e-08,
+            4.747816437806679e-08,
+            1.80194583529087e-07
+          ]
+        ]
+      }
+    ],
+    "RA": [],
+    "RH": [
+      {
+        "link": "thumb_metacarpals_base2",
+        "before": [
+          [
+            1.69966138188785e-06,
+            3.5029507180292e-07,
+            -1.32342776895603e-07
+          ],
+          [
+            3.5029507180292e-07,
+            7.14783352238004e-07,
+            -3.69293599975358e-07
+          ],
+          [
+            -1.32342776895603e-07,
+            -3.69293599975358e-07,
+            1.38951684398117e-06
+          ]
+        ],
+        "after": [
+          [
+            1.6931301579811155e-06,
+            3.3805245249051973e-07,
+            -1.1746597015590476e-07
+          ],
+          [
+            3.3805245249051973e-07,
+            7.295498004233191e-07,
+            -3.625165598780443e-07
+          ],
+          [
+            -1.1746597015590474e-07,
+            -3.6251655987804426e-07,
+            1.4016251196993566e-06
+          ]
+        ]
+      }
+    ]
+  },
+  "limitations": [
+    "finite sampling does not prove impossibility",
+    "static contact geometry does not prove force or continuous path feasibility",
+    "own-hand self-collision and connected own hand/arm mounting seam excluded",
+    "single-side runs use opposite arm parked at spec.home_q; paired verification required",
+    "support fixture geometry is not yet modeled; central open-grip support is a design proposal",
+    "right mount symmetric assumed; E2 unknown"
+  ],
+  "native_contact_recheck": {
+    "required": true,
+    "checked_states": 6,
+    "rejected_states": 3,
+    "elapsed_seconds": 0.2260846680001123,
+    "method": "Replay saved identical arm/palm/grip/control configurations through final checker; require assigned distal to touch assigned target at its displaced surface. Fixed grip and baseline checked again. No resampling or threshold change."
+  }
+}

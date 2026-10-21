@@ -69,6 +69,8 @@ python scripts/render_workcell.py configs/render/workcell_multiview_preview.yaml
 
 当前固定手柄阶段覆盖上游 `dpad5`：G20 左拇指通过 MuJoCo 接触产生完整执行报告，支持 IK 和残差 PPO。[任务指南](docs/usage/fixed-gamepad.md)提供准备、训练和闭环命令，[实验结果](docs/reports/2026-10-21-fixed-gamepad/README.md)记录三训练种子及长窗口验证。该路径使用固定开发分支与隔离环境，SAPIEN 展示环境保持独立。
 
+双手全手柄的[阶段 0 可行性与设计报告](docs/reports/2026-10-21-two-hand-feasibility/README.md)按指定手指和持续背面握持检查固定掌位、臂 IK 与碰撞，提供独立复现脚本。奖励设计参考 [RoboPianist 官方实现](https://github.com/google-research/robopianist/blob/main/robopianist/suite/tasks/piano_with_shadow_hands.py)，仅借鉴正确按键、误触、指尖接近和能耗分项；有限静态搜索不证明动态操作或实物可行，本阶段没有实现训练。
+
 ## 扩展工具与依据
 
 - [操作者画面](docs/usage/operator-view.md)：`run_workstation.py --operator-view configs/render/operator_view.yaml --operator-run <新目录>`，配合 `--backend sapien` 和输入源参数。

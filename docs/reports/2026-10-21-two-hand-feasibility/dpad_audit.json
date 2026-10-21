@@ -1,0 +1,404 @@
+{
+  "ik_mean": 0.9474694867838953,
+  "ppo_seed_means": [
+    0.9408850668773633,
+    0.9474694867838953,
+    0.9474694867838953
+  ],
+  "ppo_mean": 0.9452746801483847,
+  "ppo_sample_std": 0.0038015166054937944,
+  "per_direction_comparisons": [
+    {
+      "training_seed": 0,
+      "target_seed": 300,
+      "per_direction_equal": {
+        "dpad_up": {
+          "tp": true,
+          "fp": true,
+          "fn": true,
+          "f1": true
+        },
+        "dpad_down": {
+          "tp": true,
+          "fp": false,
+          "fn": true,
+          "f1": false
+        },
+        "dpad_left": {
+          "tp": true,
+          "fp": true,
+          "fn": true,
+          "f1": true
+        },
+        "dpad_right": {
+          "tp": true,
+          "fp": false,
+          "fn": true,
+          "f1": false
+        }
+      },
+      "f1_equal": false,
+      "physical_force_equal": false
+    },
+    {
+      "training_seed": 0,
+      "target_seed": 301,
+      "per_direction_equal": {
+        "dpad_up": {
+          "tp": true,
+          "fp": true,
+          "fn": true,
+          "f1": true
+        },
+        "dpad_down": {
+          "tp": true,
+          "fp": false,
+          "fn": true,
+          "f1": false
+        },
+        "dpad_left": {
+          "tp": true,
+          "fp": true,
+          "fn": true,
+          "f1": true
+        },
+        "dpad_right": {
+          "tp": true,
+          "fp": false,
+          "fn": true,
+          "f1": false
+        }
+      },
+      "f1_equal": false,
+      "physical_force_equal": false
+    },
+    {
+      "training_seed": 0,
+      "target_seed": 302,
+      "per_direction_equal": {
+        "dpad_up": {
+          "tp": true,
+          "fp": true,
+          "fn": true,
+          "f1": true
+        },
+        "dpad_down": {
+          "tp": true,
+          "fp": false,
+          "fn": true,
+          "f1": false
+        },
+        "dpad_left": {
+          "tp": true,
+          "fp": true,
+          "fn": true,
+          "f1": true
+        },
+        "dpad_right": {
+          "tp": true,
+          "fp": false,
+          "fn": true,
+          "f1": false
+        }
+      },
+      "f1_equal": false,
+      "physical_force_equal": false
+    },
+    {
+      "training_seed": 1,
+      "target_seed": 300,
+      "per_direction_equal": {
+        "dpad_up": {
+          "tp": true,
+          "fp": true,
+          "fn": true,
+          "f1": true
+        },
+        "dpad_down": {
+          "tp": true,
+          "fp": true,
+          "fn": true,
+          "f1": true
+        },
+        "dpad_left": {
+          "tp": true,
+          "fp": true,
+          "fn": true,
+          "f1": true
+        },
+        "dpad_right": {
+          "tp": true,
+          "fp": true,
+          "fn": true,
+          "f1": true
+        }
+      },
+      "f1_equal": true,
+      "physical_force_equal": false
+    },
+    {
+      "training_seed": 1,
+      "target_seed": 301,
+      "per_direction_equal": {
+        "dpad_up": {
+          "tp": true,
+          "fp": true,
+          "fn": true,
+          "f1": true
+        },
+        "dpad_down": {
+          "tp": true,
+          "fp": true,
+          "fn": true,
+          "f1": true
+        },
+        "dpad_left": {
+          "tp": true,
+          "fp": true,
+          "fn": true,
+          "f1": true
+        },
+        "dpad_right": {
+          "tp": true,
+          "fp": true,
+          "fn": true,
+          "f1": true
+        }
+      },
+      "f1_equal": true,
+      "physical_force_equal": false
+    },
+    {
+      "training_seed": 1,
+      "target_seed": 302,
+      "per_direction_equal": {
+        "dpad_up": {
+          "tp": true,
+          "fp": true,
+          "fn": true,
+          "f1": true
+        },
+        "dpad_down": {
+          "tp": true,
+          "fp": true,
+          "fn": true,
+          "f1": true
+        },
+        "dpad_left": {
+          "tp": true,
+          "fp": true,
+          "fn": true,
+          "f1": true
+        },
+        "dpad_right": {
+          "tp": true,
+          "fp": true,
+          "fn": true,
+          "f1": true
+        }
+      },
+      "f1_equal": true,
+      "physical_force_equal": false
+    },
+    {
+      "training_seed": 2,
+      "target_seed": 300,
+      "per_direction_equal": {
+        "dpad_up": {
+          "tp": true,
+          "fp": true,
+          "fn": true,
+          "f1": true
+        },
+        "dpad_down": {
+          "tp": true,
+          "fp": true,
+          "fn": true,
+          "f1": true
+        },
+        "dpad_left": {
+          "tp": true,
+          "fp": true,
+          "fn": true,
+          "f1": true
+        },
+        "dpad_right": {
+          "tp": true,
+          "fp": true,
+          "fn": true,
+          "f1": true
+        }
+      },
+      "f1_equal": true,
+      "physical_force_equal": false
+    },
+    {
+      "training_seed": 2,
+      "target_seed": 301,
+      "per_direction_equal": {
+        "dpad_up": {
+          "tp": true,
+          "fp": true,
+          "fn": true,
+          "f1": true
+        },
+        "dpad_down": {
+          "tp": true,
+          "fp": true,
+          "fn": true,
+          "f1": true
+        },
+        "dpad_left": {
+          "tp": true,
+          "fp": true,
+          "fn": true,
+          "f1": true
+        },
+        "dpad_right": {
+          "tp": true,
+          "fp": true,
+          "fn": true,
+          "f1": true
+        }
+      },
+      "f1_equal": true,
+      "physical_force_equal": false
+    },
+    {
+      "training_seed": 2,
+      "target_seed": 302,
+      "per_direction_equal": {
+        "dpad_up": {
+          "tp": true,
+          "fp": true,
+          "fn": true,
+          "f1": true
+        },
+        "dpad_down": {
+          "tp": true,
+          "fp": true,
+          "fn": true,
+          "f1": true
+        },
+        "dpad_left": {
+          "tp": true,
+          "fp": true,
+          "fn": true,
+          "f1": true
+        },
+        "dpad_right": {
+          "tp": true,
+          "fp": true,
+          "fn": true,
+          "f1": true
+        }
+      },
+      "f1_equal": true,
+      "physical_force_equal": false
+    }
+  ],
+  "game_ticks": 2800,
+  "game_exact": 2800,
+  "interpretation": "Equal aggregate counts/F1 alone do not establish equal per-step digital outputs or physical trajectories.",
+  "paired_traces": [
+    {
+      "training_seed": 0,
+      "target_seed": 300,
+      "steps": 500,
+      "same_targets_and_times": true,
+      "binary_dpad_diff_steps": 5,
+      "raw32_diff_steps": 379,
+      "contact_force_diff_steps": 410,
+      "maximum_raw_dpad_difference": 0.3730568203485581,
+      "nonzero_residual_steps": 500
+    },
+    {
+      "training_seed": 0,
+      "target_seed": 301,
+      "steps": 500,
+      "same_targets_and_times": true,
+      "binary_dpad_diff_steps": 6,
+      "raw32_diff_steps": 351,
+      "contact_force_diff_steps": 387,
+      "maximum_raw_dpad_difference": 0.372929484057132,
+      "nonzero_residual_steps": 500
+    },
+    {
+      "training_seed": 0,
+      "target_seed": 302,
+      "steps": 500,
+      "same_targets_and_times": true,
+      "binary_dpad_diff_steps": 5,
+      "raw32_diff_steps": 355,
+      "contact_force_diff_steps": 386,
+      "maximum_raw_dpad_difference": 0.36702367250840756,
+      "nonzero_residual_steps": 500
+    },
+    {
+      "training_seed": 1,
+      "target_seed": 300,
+      "steps": 500,
+      "same_targets_and_times": true,
+      "binary_dpad_diff_steps": 0,
+      "raw32_diff_steps": 379,
+      "contact_force_diff_steps": 410,
+      "maximum_raw_dpad_difference": 0.08861850665777504,
+      "nonzero_residual_steps": 500
+    },
+    {
+      "training_seed": 1,
+      "target_seed": 301,
+      "steps": 500,
+      "same_targets_and_times": true,
+      "binary_dpad_diff_steps": 0,
+      "raw32_diff_steps": 351,
+      "contact_force_diff_steps": 387,
+      "maximum_raw_dpad_difference": 0.10392198030590794,
+      "nonzero_residual_steps": 500
+    },
+    {
+      "training_seed": 1,
+      "target_seed": 302,
+      "steps": 500,
+      "same_targets_and_times": true,
+      "binary_dpad_diff_steps": 0,
+      "raw32_diff_steps": 355,
+      "contact_force_diff_steps": 386,
+      "maximum_raw_dpad_difference": 0.12013134099822542,
+      "nonzero_residual_steps": 500
+    },
+    {
+      "training_seed": 2,
+      "target_seed": 300,
+      "steps": 500,
+      "same_targets_and_times": true,
+      "binary_dpad_diff_steps": 0,
+      "raw32_diff_steps": 379,
+      "contact_force_diff_steps": 410,
+      "maximum_raw_dpad_difference": 0.12794227127709212,
+      "nonzero_residual_steps": 500
+    },
+    {
+      "training_seed": 2,
+      "target_seed": 301,
+      "steps": 500,
+      "same_targets_and_times": true,
+      "binary_dpad_diff_steps": 0,
+      "raw32_diff_steps": 351,
+      "contact_force_diff_steps": 387,
+      "maximum_raw_dpad_difference": 0.12846230537980596,
+      "nonzero_residual_steps": 500
+    },
+    {
+      "training_seed": 2,
+      "target_seed": 302,
+      "steps": 500,
+      "same_targets_and_times": true,
+      "binary_dpad_diff_steps": 0,
+      "raw32_diff_steps": 355,
+      "contact_force_diff_steps": 386,
+      "maximum_raw_dpad_difference": 0.10072461972804558,
+      "nonzero_residual_steps": 500
+    }
+  ]
+}

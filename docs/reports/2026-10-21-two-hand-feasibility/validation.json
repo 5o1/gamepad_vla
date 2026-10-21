@@ -1,0 +1,104 @@
+{
+  "date": "2026-10-21",
+  "base_local_worktree_revision": "ac5001c34c20d381a6c37bfec4eeec0c860fe321",
+  "analysis_uncommitted": true,
+  "execution": {
+    "node_role": "configured_compute",
+    "isolated_code_copy": true,
+    "device": "cpu",
+    "cuda_visible_devices": "",
+    "hardware_connected": false,
+    "training_implemented": false,
+    "new_dependencies_installed": false
+  },
+  "runtime": {
+    "mujoco": "3.16.0+concon.sdf3689.2",
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "trimesh": "5.1.1",
+    "xbox-gamepad-physics": "0.4.0"
+  },
+  "final_source_sha256": {
+    "src/gamepad_vla/feasibility.py": "7544889663db7eeb0ea884897ea7af90d3d6d826f4826c842e16febd1cf186d3",
+    "scripts/check_two_hand_feasibility.py": "7d45a4d3856c09cb563284be6cf831c126096c00ea734d219488781ebed426e3",
+    "scripts/check_two_hand_pairs.py": "90a7a0bcee9306cf7e441d27992828b6d4cee72137037dd443b7ff38b552dd4c",
+    "scripts/audit_fixed_dpad_stage.py": "db56b8753146c66946f91bf43eab14dfcb554a92abff4b20a221d05dd21f554c",
+    "scripts/inspect_gamepad_controls.py": "90f431a95de5b4fe2cf2795e93d391d6506a6cddde0b71ff36e1852e0b8d3611",
+    "scripts/measure_two_hand_fixture.py": "ffa4a20d562856854474409e5e2b13dc262da0d40a8233936b7115458d494271"
+  },
+  "protected_files_sha256": {
+    "src/gamepad_vla/kinematics.py": "a1b4613c406a5f483ac9d6b29ab1b57509c1611fd4c4bd128a0ebf6a5dc4e7ae",
+    "src/gamepad_vla/tasks/fixed_gamepad.py": "2befadf3054f0b0f1ae6f3984aef0d7164c0c6b619658d411e8d0762ef93449e",
+    "configs/workcell/station_g20_v4_4.json": "262641b0caa3cbfcfc828434184cf35a21f965cb8c48b56a3ba868b2f67d36c6",
+    "configs/tasks/fixed_dpad_causal.json": "a10992f502200452841606d51bf76c4853def37dd114337bd5809dcb5f1a1f7c"
+  },
+  "protected_files_match_local_start": true,
+  "regression": {
+    "passed": 121,
+    "skipped": 1,
+    "seconds": 4.63,
+    "skip": "optional resnake_gym absent; no new full-game execution"
+  },
+  "analysis": {
+    "palms_per_side": 4096,
+    "fk_per_finger": 100000,
+    "fixtures": 6,
+    "full_left": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "full_right": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "left_native_contact_recheck": {
+      "required": true,
+      "checked_states": 16,
+      "rejected_states": 8,
+      "elapsed_seconds": 0.5252231070044218,
+      "method": "Replay saved identical arm/palm/grip/control configurations through final checker; require assigned distal to touch assigned target at its displaced surface. Fixed grip and baseline checked again. No resampling or threshold change."
+    },
+    "right_native_contact_recheck": {
+      "required": true,
+      "checked_states": 6,
+      "rejected_states": 3,
+      "elapsed_seconds": 0.2260846680001123,
+      "method": "Replay saved identical arm/palm/grip/control configurations through final checker; require assigned distal to touch assigned target at its displaced surface. Fixed grip and baseline checked again. No resampling or threshold change."
+    },
+    "grip_pairs_checked": 70,
+    "verified_grip_pairs": 70,
+    "paired_partial_controls": {
+      "a_flat": [],
+      "b_raise40": [
+        "right:Y"
+      ],
+      "b_raise70": [
+        "right:Y"
+      ],
+      "c_tilt30_raise40": [
+        "right:Y"
+      ],
+      "c_tilt45_raise70": [],
+      "d_yaw180_raise70": []
+    },
+    "diagnostic_pairs": 244,
+    "diagnostic_scene_clear": 0,
+    "static_only": true,
+    "global_impossibility_proven": false,
+    "dynamic_manipulation_success_proven": false
+  },
+  "checks": {
+    "python_compile": "passed",
+    "public_tree_findings": 0,
+    "diff_whitespace": "passed"
+  },
+  "evidence_limit": "Existing CPU regression checks preserve old behavior. Static sampled contact and paired diagnostics do not prove dynamic control, complete search, physical fixture stability, or hardware success."
+}
