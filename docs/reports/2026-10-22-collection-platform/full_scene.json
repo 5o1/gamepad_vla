@@ -1,0 +1,154 @@
+{
+  "mode": "report_only",
+  "scene": "full-v4.4",
+  "sapien": {
+    "backend": "sapien",
+    "rows": 1800,
+    "duration_s": 60.0,
+    "contact_rows": 1793,
+    "contact_fraction": 0.9961111111111111,
+    "tracking_all": {
+      "hand_rad": {
+        "n": 75600,
+        "median": 4.9964037596439415e-06,
+        "p95": 0.00346764191833197,
+        "maximum": 1.2908135443925857
+      },
+      "arm_rad": {
+        "n": 25200,
+        "median": 0.02155199646949768,
+        "p95": 0.749642764776945,
+        "maximum": 1.920822262763977
+      }
+    },
+    "tracking_contact": {
+      "hand_rad": {
+        "n": 75306,
+        "median": 4.97817993161398e-06,
+        "p95": 0.0034068658755106104,
+        "maximum": 1.2908135443925857
+      },
+      "arm_rad": {
+        "n": 25102,
+        "median": 0.02158176898956299,
+        "p95": 0.7495615459978581,
+        "maximum": 1.920822262763977
+      }
+    },
+    "tracking_free": {
+      "hand_rad": {
+        "n": 294,
+        "median": 1.654458980931972e-05,
+        "p95": 0.020108464665038874,
+        "maximum": 0.10289342080845543
+      },
+      "arm_rad": {
+        "n": 98,
+        "median": 0.011252768337726593,
+        "p95": 0.9390699259936809,
+        "maximum": 0.9726638942956924
+      }
+    }
+  },
+  "mujoco": {
+    "backend": "mujoco",
+    "rows": 1800,
+    "duration_s": 60.000000000104464,
+    "contact_rows": 1799,
+    "contact_fraction": 0.9994444444444445,
+    "tracking_all": {
+      "hand_rad": {
+        "n": 75600,
+        "median": 2.541527805988153e-07,
+        "p95": 0.009572541786218865,
+        "maximum": 0.7316717231534806
+      },
+      "arm_rad": {
+        "n": 25200,
+        "median": 0.0018549590505345104,
+        "p95": 1.2346207781547982,
+        "maximum": 2.0322440662731243
+      }
+    },
+    "tracking_contact": {
+      "hand_rad": {
+        "n": 75558,
+        "median": 2.534784086811863e-07,
+        "p95": 0.009522162751404,
+        "maximum": 0.7316717231534806
+      },
+      "arm_rad": {
+        "n": 25186,
+        "median": 0.0018520001832481696,
+        "p95": 1.234539740590964,
+        "maximum": 1.7828358833645628
+      }
+    },
+    "tracking_free": {
+      "hand_rad": {
+        "n": 42,
+        "median": 0.003913088217879418,
+        "p95": 0.13135809743399982,
+        "maximum": 0.25351615727275956
+      },
+      "arm_rad": {
+        "n": 14,
+        "median": 0.1786980115784773,
+        "p95": 1.9082805686073803,
+        "maximum": 2.0322440662731243
+      }
+    }
+  },
+  "matched_rows": 1800,
+  "matched_contact_rows": 1800,
+  "matched_until_sim_s": 60.0,
+  "contact_differences": {
+    "hand_q_rad": {
+      "n": 75600,
+      "median": 3.703001213051227e-06,
+      "p95": 0.0025652177406268167,
+      "maximum": 1.037297387119826
+    },
+    "arm_q_rad": {
+      "n": 25200,
+      "median": 0.015902159246322156,
+      "p95": 0.6497480028656631,
+      "maximum": 0.7947600463077055
+    },
+    "palm_pose_world_m": {
+      "n": 3600,
+      "median": 0.08160046314720819,
+      "p95": 0.3291713698328407,
+      "maximum": 0.35147321341486876
+    },
+    "fingertip_pose_world_m": {
+      "n": 18000,
+      "median": 0.10606872402834135,
+      "p95": 0.37834616696686046,
+      "maximum": 0.47120777769390854
+    }
+  },
+  "geometry_note": "August data and current v4.4 geometry do not match",
+  "scene_hash_equal": true,
+  "schema_and_commands_equal": true,
+  "wall_runs": {
+    "sapien": {
+      "ticks": 1800,
+      "sim_time_s": 60.0,
+      "wall_elapsed_s": 36.40094992399099,
+      "decode_errors": 0,
+      "source_cycles": 1
+    },
+    "mujoco": {
+      "ticks": 1800,
+      "sim_time_s": 60.000000000104464,
+      "wall_elapsed_s": 2012.469803540007,
+      "decode_errors": 0,
+      "source_cycles": 1
+    }
+  },
+  "native_cpu_workers": {
+    "sapien": 1,
+    "mujoco": 8
+  }
+}

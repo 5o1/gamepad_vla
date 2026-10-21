@@ -51,7 +51,7 @@ PY
 "$BOOTSTRAP_PYTHON" -m venv "${INHERIT[@]}" "$ENV"
 PY=$ENV/bin/python
 "$PY" -m pip install -c "$REPO/constraints/fixed-gamepad-py311.txt" \
-    "$WHEEL" "$SOURCE[build]" -e "$REPO[train,dev]"
+    "$WHEEL" "$SOURCE[build]" -e "$REPO[train,dev]" aiohttp==3.14.5
 "$PY" -m xbox_gamepad_physics.builders.build_resources --output "$RESOURCES" \
     --inputs "$SOURCE" --backend mujoco \
     --calibration "$SOURCE/src/xbox_gamepad_physics/build_data/calibration/mujoco_m2.json"

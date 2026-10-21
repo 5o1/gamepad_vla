@@ -12,6 +12,7 @@ class HandCommand:
     side: str
     joint_positions: dict[str, float]
     stamp: float
+    motor_positions: tuple[float, ...] | None = None
 
 
 @dataclass(frozen=True)
@@ -19,6 +20,7 @@ class ArmCommand:
     side: str
     positions: tuple[float, ...]
     stamp: float
+    raw_master_deg: tuple[float, ...] | None = None
 
 
 def _finite(value, label):
@@ -49,10 +51,11 @@ def hand_command_from_packet(packet):
     else:
         raise ValueError(f"unsupported hand command format {packet.format!r}")
     return HandCommand(packet.hand, dict(zip(g20_mapping.G20_JOINT_NAMES, values)),
-                       _finite(packet.stamp, "stamp"))
+                       _finite(packet.stamp, "stamp"),
+                       tuple(packet.position) if packet.format == "motor" else None)
 
 
-def arm_command_from_packet(packet):
+def arm_command_from_packet(packet, mapper=None):
     """Convert an arm packet to the internal seven-radian command."""
     if not isinstance(packet, ArmCommandPacket):
         raise TypeError("packet must be an ArmCommandPacket")
@@ -60,5 +63,9 @@ def arm_command_from_packet(packet):
         raise ValueError("arm side must be 'left' or 'right'")
     if len(packet.position) != 7:
         raise ValueError("arm command must have exactly 7 positions")
+    if packet.representation == "master-deg":
+        if mapper is None:
+            raise ValueError("master-deg requires an arm mapper with explicit startup pose")
+        return mapper.command(packet.side, packet.position, packet.stamp)
     return ArmCommand(packet.side, tuple(_finite(value, "arm position") for value in packet.position),
                       _finite(packet.stamp, "stamp"))

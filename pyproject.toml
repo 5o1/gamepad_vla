@@ -40,7 +40,7 @@ gamepad-vla-recover = "gamepad_vla.workstation.recorder:main"
 where = ["src"]
 
 [tool.setuptools.package-data]
-"gamepad_vla.workstation" = ["operator_web/*.html", "operator_web/*.js"]
+"gamepad_vla.workstation" = ["operator_web/*.html", "operator_web/*.js", "collection_web/*.html", "collection_web/overlay/*"]
 
 [tool.pytest.ini_options]
 addopts = "-ra"

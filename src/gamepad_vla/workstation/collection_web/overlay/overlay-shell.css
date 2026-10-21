@@ -1,0 +1,79 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background: transparent;
+    overflow: hidden;
+}
+
+#overlayRoot {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    shape-rendering: geometricPrecision;
+}
+
+.outer-border {
+    fill: none;
+    stroke: white;
+    stroke-width: calc((var(--overlay-border-inner-size) + (var(--overlay-border-outer-size) * 2)) * 1px);
+    stroke-linejoin: round;
+    stroke-linecap: round;
+}
+
+.single-border-stroke {
+    stroke-width: calc((var(--overlay-border-inner-size) + var(--overlay-border-outer-size)) * 1px);
+}
+
+.gamepad-button {
+    fill: var(--btn-released, rgba(44, 47, 51, 0.7));
+    stroke: black;
+    stroke-width: 0;
+}
+
+.gamepad-button-bordered {
+    stroke-width: calc(var(--overlay-border-inner-size) * 1px);
+    stroke-linejoin: round;
+    stroke-linecap: round;
+}
+
+.black-border-stroke {
+    fill: none;
+    stroke: black;
+    stroke-width: calc(var(--overlay-border-inner-size) * 1px);
+    stroke-linejoin: round;
+    stroke-linecap: round;
+}
+
+.gamepad-button-pressed-fill {
+    fill: var(--btn-pressed, #c00);
+    stroke: none;
+}
+
+.gamepad-button.is-pressed {
+    fill: var(--btn-pressed, #c00);
+}
+
+#overlayRoot [data-role="analog-area"] {
+    --btn-released: var(--btn-analog-area, rgb(0, 0, 0));
+    --btn-released-default-alpha: var(--btn-analog-area-default-alpha, 1);
+}
+
+#overlayRoot .role-analog-stick-ring-static {
+    fill: none;
+}
+
+#overlayRoot .dpad-press-only {
+    fill: none;
+}
+
+#overlayRoot .gamepad-button-pressed-fill.dpad-press-only {
+    fill: var(--btn-pressed, #c00);
+}
+
+#overlayRoot .dpad-press-only.is-pressed {
+    fill: var(--btn-pressed, #c00);
+    fill-opacity: 1;
+}

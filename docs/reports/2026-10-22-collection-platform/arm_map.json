@@ -1,0 +1,7 @@
+{
+  "cases": 268,
+  "scalar_comparisons": 1876,
+  "max_error_deg": 2.842170943040401e-14,
+  "source_sha256": "f9ca85ebbbe54f02480953c66d0d44a9504d279f465e1410355e306f944c8792",
+  "passed": true
+}

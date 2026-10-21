@@ -1,0 +1,68 @@
+{
+  "name": "gamepad-overlay",
+  "repository": "https://github.com/sevaht/gamepad-overlay",
+  "revision": "31236cd6a029828c8b01966ddc1a92c31e5cd852",
+  "license": "The Unlicense",
+  "vendored_scope": "Browser overlay core, SVG renderer, Xbox layout and input-state renderer",
+  "project_adapter": "canonical_adapter.mjs",
+  "local_modifications": [
+    "Preserve continuous button and D-pad values instead of applying digital thresholds.",
+    "Render every distinct upstream state without an epsilon change gate."
+  ],
+  "files": {
+    "overlay-core.js": "f26bd85d1a36dac77119a7b358d59384f2b66b6ee7053a4cfbab5a9eab810bf8",
+    "overlay-spec.js": "917dc03505124fa07f956fc5a675eba4d9af3d7dc0f3a25707f19b5feaa5552d",
+    "overlay-app.js": "83c0bdf1035b22d7e29a32215857616933ca982a660c00887a1685e06c64b340",
+    "gamepad-input-sources.js": "4974ac13f1d9924574b799805d36fd341b71eac3d4d74a0246e5c46f0a050fef",
+    "overlay-renderer-svg.js": "fea164d18bc7e20d4e52c374eb490af8e4a8b75e580b886e19adc21bc653f0df",
+    "overlay-shell.css": "2b930548d716e48c4fe7f2d055ef42c6662219d78e9db74071782b7d182a00ba",
+    "overlay-layout-xbox.js": "f4fa2624c610bdb7f5d0cf854f9a82eea0a7f67f254f0c3714e0d4546a8e5bb6",
+    "UPSTREAM_LICENSE": "6b0382b16279f26ff69014300541967a356a666eb0b91b422f6862f6b7dad17e"
+  },
+  "retrieved_at": "2026-10-09",
+  "local_patches": [
+    {
+      "id": "teleop-overlay-highlight-20261012",
+      "date": "2026-10-12",
+      "reason": "Ruling 8: repair the da23cf4 D-pad highlight regression and complete required Guide display without changing the 32-channel input chain.",
+      "files": {
+        "overlay-shell.css": {
+          "before_sha256": "2b930548d716e48c4fe7f2d055ef42c6662219d78e9db74071782b7d182a00ba",
+          "sha256": "33a8829706c373a382abacc8ed441e3c3b3bb8af3d6e853e1946190708f78cff",
+          "reason": "Let only the D-pad pressed-fill layer use the theme highlight; idle D-pad remains transparent."
+        },
+        "overlay-renderer-svg.js": {
+          "before_sha256": "fea164d18bc7e20d4e52c374eb490af8e4a8b75e580b886e19adc21bc653f0df",
+          "sha256": "b900b7ee9af0430c56f6edc029c6970e4627a9f189fefb8e15c6cd7559e0f236",
+          "reason": "Add the missing Guide SVG control in the existing View/Menu gap; reuse original theme and continuous fill."
+        },
+        "gamepad-input-sources.js": {
+          "before_sha256": "4974ac13f1d9924574b799805d36fd341b71eac3d4d74a0246e5c46f0a050fef",
+          "sha256": "dd96eeccffcda715f18de5191e364cae24b057ab74fbf6e26c6072b3e17eb048",
+          "reason": "Bind Guide to the canonical GUIDE state; retain da23cf4 setPressAmount and exact-change behavior."
+        }
+      }
+    },
+    {
+      "id": "stick-motion-highlight-20261012",
+      "date": "2026-10-12",
+      "reason": "Ruling 15: restore the approved be4f188 left/right motion coloring without changing the 32-state source or D-pad renderer.",
+      "files": {
+        "canonical_adapter.mjs": {
+          "before_sha256": "55c716bbf6cc848a4134877d31b4ef45927bde12f8cb20dbb8e1fc14b729c5dd",
+          "sha256": "110b7e245d89a873bca61cd3988a99ea366d920432bb120c69e5f81213536aaf",
+          "reason": "Ruling 15: restore be4f188 two-sided motion highlight classes from actual canonical axes, retaining da23cf4 continuous-state decoding."
+        },
+        "overlay-theme-research.css": {
+          "before_sha256": "cf08041f80a3c5a6b72a1ccd70d2b2036f2af3539cf3f122c5885f937339f203",
+          "sha256": "ad4823247ee786abff854358c2d14d02aac5d4d51f0a716b5d7cbed6095f61d4",
+          "reason": "Ruling 15: restore the original signal-active yellow fill/glow only."
+        }
+      }
+    }
+  ],
+  "project_adapter_files": {
+    "canonical_adapter.mjs": "55c716bbf6cc848a4134877d31b4ef45927bde12f8cb20dbb8e1fc14b729c5dd",
+    "overlay-theme-research.css": "cf08041f80a3c5a6b72a1ccd70d2b2036f2af3539cf3f122c5885f937339f203"
+  }
+}

@@ -22,10 +22,11 @@ def _key(command):
 class UdpSource:
     """Hold the newest valid command per kind and side until it becomes stale."""
 
-    def __init__(self, bind_host, port, *, stale_after_s, allow_source=None):
+    def __init__(self, bind_host, port, *, stale_after_s, allow_source=None, arm_mapper=None):
         if stale_after_s < 0:
             raise ValueError("stale_after_s must be non-negative")
         self.stale_after_s = float(stale_after_s)
+        self.arm_mapper = arm_mapper
         self.allow_source = None if allow_source is None else frozenset(
             str(ipaddress.IPv4Address(ip)) for ip in allow_source)
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -53,7 +54,7 @@ class UdpSource:
                 if isinstance(packet, HandCommandPacket):
                     command = hand_command_from_packet(packet)
                 elif isinstance(packet, ArmCommandPacket):
-                    command = arm_command_from_packet(packet)
+                    command = arm_command_from_packet(packet, self.arm_mapper)
                 else:
                     continue
             except (TypeError, ValueError):

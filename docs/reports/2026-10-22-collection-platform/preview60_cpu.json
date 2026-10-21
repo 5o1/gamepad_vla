@@ -1,0 +1,9 @@
+{
+  "scene": "free-space neutral home;CPU llvmpipe;physics/render targets60Hz;OMP/BLAS threads1",
+  "frames": 3320,
+  "span_s": 59.36494979899726,
+  "interval_fps": 55.90841079185182,
+  "render_encode_median_s": 0.009180618995742407,
+  "render_encode_p95_s": 0.010789307448430917,
+  "unique_sim_times": 3320
+}

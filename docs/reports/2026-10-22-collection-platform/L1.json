@@ -1,0 +1,91 @@
+{
+  "gate": "L1",
+  "schema_equal": true,
+  "rows": 1800,
+  "duration_s": 60.0,
+  "free_rows": 1800,
+  "contact_rows": 0,
+  "time_alignment_s": {
+    "n": 1800,
+    "median": 0.0004999999942789657,
+    "p95": 0.0005000000828321305,
+    "maximum": 0.0005000001043029556
+  },
+  "free": {
+    "hand_rad": {
+      "n": 75600,
+      "median": 7.403741493550164e-06,
+      "p95": 7.971969345608737e-05,
+      "maximum": 0.5680462958130719
+    },
+    "arm_rad": {
+      "n": 25200,
+      "median": 4.674941499052676e-05,
+      "p95": 0.00028525672791752666,
+      "maximum": 0.5097126054562744
+    },
+    "all_joint_rad": {
+      "n": 100800,
+      "median": 1.165102576194954e-05,
+      "p95": 0.00021437921122745144,
+      "maximum": 0.5680462958130719
+    },
+    "palm_m": {
+      "n": 3600,
+      "median": 0.00016491362684357787,
+      "p95": 0.0002589078074305768,
+      "maximum": 0.26715241840591836
+    },
+    "fingertip_m": {
+      "n": 18000,
+      "median": 0.00018816461467248803,
+      "p95": 0.0003579376069329397,
+      "maximum": 0.33952068320820006
+    },
+    "all_position_m": {
+      "n": 21600,
+      "median": 0.0001833364029770559,
+      "p95": 0.00034167612683287164,
+      "maximum": 0.33952068320820006
+    }
+  },
+  "contact": {
+    "hand_rad": {
+      "n": 0,
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "arm_rad": {
+      "n": 0,
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "all_joint_rad": {
+      "n": 0,
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "palm_m": {
+      "n": 0,
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "fingertip_m": {
+      "n": 0,
+      "median": null,
+      "p95": null,
+      "maximum": null
+    },
+    "all_position_m": {
+      "n": 0,
+      "median": null,
+      "p95": null,
+      "maximum": null
+    }
+  },
+  "passed": true
+}

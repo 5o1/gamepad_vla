@@ -1,0 +1,15 @@
+:root {
+    --btn-released: rgb(34, 42, 54);
+    --btn-pressed: rgb(255, 210, 38);
+    --btn-analog-area: rgb(12, 17, 24);
+    --btn-released-default-alpha: 0.88;
+    --btn-pressed-default-alpha: 1;
+    --btn-analog-area-default-alpha: 0.96;
+    --overlay-default-blur: 0;
+}
+
+#overlayRoot .signal-active,
+#overlayRoot .signal-active .gamepad-button {
+    fill: rgb(255, 210, 38) !important;
+    filter: drop-shadow(0 0 7px rgba(255, 210, 38, 0.78));
+}

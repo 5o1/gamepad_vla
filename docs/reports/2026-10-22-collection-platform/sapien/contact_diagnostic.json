@@ -1,0 +1,225 @@
+{
+  "duration_s": 0.1,
+  "input_frames": 3,
+  "old_contact_intervals": 3,
+  "nonpositive_separation_intervals": 3,
+  "nonzero_impulse_intervals": 3,
+  "backend_matches_geometric_rule": true,
+  "intervals": [
+    {
+      "sim_time_s": 0.033,
+      "any_contact_points": true,
+      "any_separation_nonpositive": true,
+      "any_nonzero_impulse": true,
+      "backend_detected": true
+    },
+    {
+      "sim_time_s": 0.066,
+      "any_contact_points": true,
+      "any_separation_nonpositive": true,
+      "any_nonzero_impulse": true,
+      "backend_detected": true
+    },
+    {
+      "sim_time_s": 0.1,
+      "any_contact_points": true,
+      "any_separation_nonpositive": true,
+      "any_nonzero_impulse": true,
+      "backend_detected": true
+    }
+  ],
+  "pairs": {
+    "AR5_left_5_08R_W4C4A6_link6 | table": {
+      "points": 18,
+      "separation_min_m": 0.014916612766683102,
+      "separation_max_m": 0.019427768886089325,
+      "nonpositive_points": 0,
+      "nonzero_impulse_points": 0,
+      "impulse_max_Ns": 0.0
+    },
+    "AR5_left_5_08R_W4C4A6_link7 | table": {
+      "points": 20,
+      "separation_min_m": 0.013338242657482624,
+      "separation_max_m": 0.01991349086165428,
+      "nonpositive_points": 0,
+      "nonzero_impulse_points": 0,
+      "impulse_max_Ns": 0.0
+    },
+    "dpad | thumb_distal": {
+      "points": 48,
+      "separation_min_m": 0.008411785587668419,
+      "separation_max_m": 0.009964202530682087,
+      "nonpositive_points": 0,
+      "nonzero_impulse_points": 0,
+      "impulse_max_Ns": 0.0
+    },
+    "hand_base_link | controller_body": {
+      "points": 599,
+      "separation_min_m": 0.00030758100911043584,
+      "separation_max_m": 0.010176822543144226,
+      "nonpositive_points": 0,
+      "nonzero_impulse_points": 13,
+      "impulse_max_Ns": 1.4126274585723877
+    },
+    "hand_base_link | station_table_frame_panel": {
+      "points": 28,
+      "separation_min_m": 0.010010208934545517,
+      "separation_max_m": 0.019759079441428185,
+      "nonpositive_points": 0,
+      "nonzero_impulse_points": 0,
+      "impulse_max_Ns": 0.0
+    },
+    "hand_base_link | table": {
+      "points": 42,
+      "separation_min_m": 1.0165385901927948e-05,
+      "separation_max_m": 0.01936504989862442,
+      "nonpositive_points": 0,
+      "nonzero_impulse_points": 5,
+      "impulse_max_Ns": 1.556725263595581
+    },
+    "left_stick | thumb_distal": {
+      "points": 758,
+      "separation_min_m": -0.0035784877836704254,
+      "separation_max_m": 0.010195131413638592,
+      "nonpositive_points": 218,
+      "nonzero_impulse_points": 111,
+      "impulse_max_Ns": 0.6402743458747864
+    },
+    "pinky_distal | station_table_frame_panel": {
+      "points": 81,
+      "separation_min_m": 0.00956219993531704,
+      "separation_max_m": 0.01700040139257908,
+      "nonpositive_points": 0,
+      "nonzero_impulse_points": 0,
+      "impulse_max_Ns": 0.0
+    },
+    "pinky_distal | table": {
+      "points": 89,
+      "separation_min_m": -0.00043785013258457184,
+      "separation_max_m": 0.017586883157491684,
+      "nonpositive_points": 22,
+      "nonzero_impulse_points": 30,
+      "impulse_max_Ns": 2.0164635181427
+    },
+    "pinky_metacarpals | controller_body": {
+      "points": 34,
+      "separation_min_m": 0.0057488395832479,
+      "separation_max_m": 0.010172924026846886,
+      "nonpositive_points": 0,
+      "nonzero_impulse_points": 0,
+      "impulse_max_Ns": 0.0
+    },
+    "pinky_metacarpals | table": {
+      "points": 15,
+      "separation_min_m": 0.015171715058386326,
+      "separation_max_m": 0.019849926233291626,
+      "nonpositive_points": 0,
+      "nonzero_impulse_points": 0,
+      "impulse_max_Ns": 0.0
+    },
+    "pinky_middle | station_table_frame_panel": {
+      "points": 15,
+      "separation_min_m": 0.014749102294445038,
+      "separation_max_m": 0.019995080307126045,
+      "nonpositive_points": 0,
+      "nonzero_impulse_points": 0,
+      "impulse_max_Ns": 0.0
+    },
+    "pinky_middle | table": {
+      "points": 61,
+      "separation_min_m": 0.004749045707285404,
+      "separation_max_m": 0.019680865108966827,
+      "nonpositive_points": 0,
+      "nonzero_impulse_points": 0,
+      "impulse_max_Ns": 0.0
+    },
+    "pinky_proximal | controller_body": {
+      "points": 32,
+      "separation_min_m": 0.0034654217306524515,
+      "separation_max_m": 0.010169590823352337,
+      "nonpositive_points": 0,
+      "nonzero_impulse_points": 0,
+      "impulse_max_Ns": 0.0
+    },
+    "pinky_proximal | table": {
+      "points": 29,
+      "separation_min_m": 0.011157616041600704,
+      "separation_max_m": 0.019576184451580048,
+      "nonpositive_points": 0,
+      "nonzero_impulse_points": 0,
+      "impulse_max_Ns": 0.0
+    },
+    "ring_distal | table": {
+      "points": 36,
+      "separation_min_m": 0.010133313946425915,
+      "separation_max_m": 0.019042108207941055,
+      "nonpositive_points": 0,
+      "nonzero_impulse_points": 0,
+      "impulse_max_Ns": 0.0
+    },
+    "ring_middle | table": {
+      "points": 17,
+      "separation_min_m": 0.012200712226331234,
+      "separation_max_m": 0.01986626163125038,
+      "nonpositive_points": 0,
+      "nonzero_impulse_points": 0,
+      "impulse_max_Ns": 0.0
+    },
+    "thumb_distal | controller_body": {
+      "points": 624,
+      "separation_min_m": -0.0002986307954415679,
+      "separation_max_m": 0.01019635982811451,
+      "nonpositive_points": 12,
+      "nonzero_impulse_points": 40,
+      "impulse_max_Ns": 1.8592556715011597
+    },
+    "thumb_distal | station_table_frame_panel": {
+      "points": 192,
+      "separation_min_m": 0.00939883105456829,
+      "separation_max_m": 0.018992824479937553,
+      "nonpositive_points": 0,
+      "nonzero_impulse_points": 0,
+      "impulse_max_Ns": 0.0
+    },
+    "thumb_distal | table": {
+      "points": 199,
+      "separation_min_m": -0.0006012134253978729,
+      "separation_max_m": 0.019646286964416504,
+      "nonpositive_points": 71,
+      "nonzero_impulse_points": 87,
+      "impulse_max_Ns": 2.0515639781951904
+    },
+    "thumb_metacarpals | station_table_frame_panel": {
+      "points": 70,
+      "separation_min_m": 0.015233693644404411,
+      "separation_max_m": 0.019991273060441017,
+      "nonpositive_points": 0,
+      "nonzero_impulse_points": 0,
+      "impulse_max_Ns": 0.0
+    },
+    "thumb_metacarpals | table": {
+      "points": 111,
+      "separation_min_m": 0.0052336351945996284,
+      "separation_max_m": 0.019667409360408783,
+      "nonpositive_points": 0,
+      "nonzero_impulse_points": 0,
+      "impulse_max_Ns": 0.0
+    },
+    "thumb_proximal | station_table_frame_panel": {
+      "points": 76,
+      "separation_min_m": 0.013570684939622879,
+      "separation_max_m": 0.019766731187701225,
+      "nonpositive_points": 0,
+      "nonzero_impulse_points": 0,
+      "impulse_max_Ns": 0.0
+    },
+    "thumb_proximal | table": {
+      "points": 114,
+      "separation_min_m": 0.0035706395283341408,
+      "separation_max_m": 0.01998075470328331,
+      "nonpositive_points": 0,
+      "nonzero_impulse_points": 0,
+      "impulse_max_Ns": 0.0
+    }
+  }
+}

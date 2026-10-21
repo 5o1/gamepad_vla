@@ -41,6 +41,7 @@ class ArmCommandPacket:
     side: str
     position: list[float]
     stamp: float
+    representation: str = "slave-target-rad"
     type: str = field(default="arm_command", init=False)
 
 
@@ -127,8 +128,13 @@ def _normalize(packet):
                                _numbers(packet.motor_positions, "motor_positions"))
     if isinstance(packet, (ArmCommandPacket, ArmStatePacket)):
         cls = type(packet)
-        return cls(_side(packet.side, "side"), _numbers(packet.position, "position", 7),
-                   _number(packet.stamp, "stamp"))
+        args = (_side(packet.side, "side"), _numbers(packet.position, "position", 7),
+                _number(packet.stamp, "stamp"))
+        if isinstance(packet, ArmCommandPacket):
+            if packet.representation not in {"slave-target-rad", "master-deg"}:
+                raise ValueError("invalid arm representation")
+            return cls(*args, packet.representation)
+        return cls(*args)
     raise TypeError(f"unsupported packet type {type(packet).__name__}")
 
 
@@ -159,9 +165,15 @@ def decode(data):
                                  payload["joint_positions"], payload["motor_positions"])
     elif packet_type in {"arm_command", "arm_state"}:
         keys = ("type", "side", "position", "stamp")
+        if packet_type == "arm_command" and "representation" in payload:
+            keys += ("representation",)
         _object(payload, keys, packet_type)
         cls = ArmCommandPacket if packet_type == "arm_command" else ArmStatePacket
-        packet = cls(payload["side"], payload["position"], payload["stamp"])
+        if packet_type == "arm_command":
+            packet = cls(payload["side"], payload["position"], payload["stamp"],
+                         payload.get("representation", "slave-target-rad"))
+        else:
+            packet = cls(payload["side"], payload["position"], payload["stamp"])
     else:
         raise ValueError(f"unknown packet type {packet_type!r}")
     return _normalize(packet)
@@ -171,5 +183,7 @@ def encode(packet):
     """Validate and encode one packet using the relay's compact JSON form."""
     packet = _normalize(packet)
     payload = asdict(packet)
+    if isinstance(packet, ArmCommandPacket) and packet.representation == "slave-target-rad":
+        payload.pop("representation")
     payload = {"type": payload.pop("type"), **payload}
     return json.dumps(payload, separators=(",", ":")).encode("utf-8")

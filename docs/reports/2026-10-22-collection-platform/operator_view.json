@@ -1,0 +1,60 @@
+{
+  "frames": 1672,
+  "span_s": 57.370654406011454,
+  "interval_fps": 29.126389045074376,
+  "render_encode_median_s": 0.010036367493739817,
+  "render_encode_p95_s": 0.011596562206977978,
+  "scene": "free-space neutral home; CPU llvmpipe; OMP/BLAS threads1",
+  "http": {
+    "overlay_equals_actual": true,
+    "mjpeg_header_and_jpeg": true,
+    "control_requests": [
+      {
+        "queued": true
+      },
+      {
+        "queued": true
+      },
+      {
+        "queued": true
+      },
+      {
+        "queued": true
+      },
+      {
+        "queued": true
+      },
+      {
+        "queued": true
+      }
+    ],
+    "episodes": [
+      {
+        "name": "episode-000000",
+        "rows": 30,
+        "status": "complete",
+        "notes": [
+          "HTTP lifecycle check"
+        ]
+      },
+      {
+        "name": "episode-000001",
+        "rows": 61,
+        "status": "complete",
+        "notes": [
+          "second episode"
+        ]
+      }
+    ]
+  },
+  "L2_peak_location": {
+    "sapien": {
+      "arm_peak_row": 0,
+      "arm_peak_sim_time_s": 0.033
+    },
+    "mujoco": {
+      "arm_peak_row": 0,
+      "arm_peak_sim_time_s": 0.03350000000000002
+    }
+  }
+}

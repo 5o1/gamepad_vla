@@ -1,0 +1,48 @@
+{
+  "sapien": {
+    "native_reader": "lerobot==0.4.0",
+    "codebase_version": "v3.0",
+    "rows": 1800,
+    "shapes": {
+      "observation.state": [
+        56
+      ],
+      "action": [
+        54
+      ],
+      "observation.gamepad_signal": [
+        32
+      ],
+      "observation.gamepad_mask": [
+        32
+      ],
+      "observation.world_poses": [
+        84
+      ]
+    },
+    "all_rows_read": true
+  },
+  "mujoco": {
+    "native_reader": "lerobot==0.4.0",
+    "codebase_version": "v3.0",
+    "rows": 1800,
+    "shapes": {
+      "observation.state": [
+        56
+      ],
+      "action": [
+        54
+      ],
+      "observation.gamepad_signal": [
+        32
+      ],
+      "observation.gamepad_mask": [
+        32
+      ],
+      "observation.world_poses": [
+        84
+      ]
+    },
+    "all_rows_read": true
+  }
+}

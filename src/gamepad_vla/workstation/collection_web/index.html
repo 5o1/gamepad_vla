@@ -1,0 +1,33 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8">
+<base href="/overlay/"><title>双手双臂参考轨迹采集</title>
+<link rel="stylesheet" href="overlay-shell.css"><link rel="stylesheet" href="overlay-theme-research.css">
+<style>
+body{margin:0;background:#172126;color:#edf3f5;font:16px system-ui}main{max-width:1280px;margin:auto;padding:12px}
+.view{position:relative}.view img{width:100%;display:block}#overlayRoot{position:absolute;right:1%;bottom:2%;width:34%;height:34%;pointer-events:none}
+button,input{font:inherit;padding:8px;margin:8px 6px 8px 0}pre{white-space:pre-wrap;overflow-wrap:anywhere}#status{padding:8px}
+</style><main><div id="status">等待仿真画面</div><div class="view"><img src="/video" alt="仿真画面"><svg id="overlayRoot" aria-label="物理接触产生的实际手柄信号"></svg></div>
+<button data-action="start">开始录制</button><button data-action="stop">停止录制</button>
+<input id="note" placeholder="操作者备注"><button data-action="note">添加备注</button>
+<label><input id="compare" type="checkbox">显示指令与实际值</label><pre id="comparison" hidden></pre>
+<script src="overlay-core.js"></script><script src="overlay-spec.js"></script>
+<script src="overlay-layout-xbox.js"></script><script src="overlay-renderer-svg.js"></script>
+<script src="gamepad-input-sources.js"></script><script src="overlay-app.js"></script>
+<script type="module">
+import {installCanonicalSource} from './canonical_adapter.mjs';
+const query=new URLSearchParams(location.search);query.set('theme','research');query.set('source','canonical');
+history.replaceState(null,'',`/?${query}`);
+const adapter=installCanonicalSource();
+await window.OverlayApp.init({svgId:'overlayRoot'});adapter.markReady();
+document.querySelector('#compare').onchange=e=>document.querySelector('#comparison').hidden=!e.target.checked;
+for(const button of document.querySelectorAll('button'))button.onclick=async()=>{
+ const event={action:button.dataset.action,text:document.querySelector('#note').value};
+ try{const r=await fetch('/control',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(event)});
+ if(!r.ok)throw Error(await r.text());}catch(e){document.querySelector('#status').textContent=String(e)}
+};
+async function update(){try{
+ const row=await(await fetch('/state')).json();if(row.overlay){await adapter.applyFrame(row.overlay);
+ document.querySelector('#status').textContent=`${row.recording?'录制中':'未录制'} · 仿真时间 ${row.sim_time_s.toFixed(3)} s`;
+ if(document.querySelector('#compare').checked)document.querySelector('#comparison').textContent=JSON.stringify({
+  commands:row.commands,actual_hand_rad:row.hand_q,actual_arm_rad:row.arm_q},null,2);
+ }}catch(e){document.querySelector('#status').textContent=String(e)}setTimeout(update,30)}update();
+</script></main></html>

@@ -9,8 +9,10 @@
 | `src/gamepad_vla/workstation/g20_mapping.py` | 采集台 `assist_teleop_local_policy` 的 `source/linkerhand_g20_isaaclab/linkerhand_g20_isaaclab/manus_mapping.py`，快照 `station_20261014`。保留映射表及换算公式，接入本项目统一关节顺序。 |
 | `src/gamepad_vla/sim/g20.py` | 同一工程的 `assets.py` 和 `assets/usd/right/config.yaml`，快照 `station_20261014`。适配 URDF 转换、左右手资产准备及 PhysX mimic 修复。 |
 | `src/gamepad_vla/workstation/operator_web/app.js` | [xbox_gamepad_physics v0.3.1](https://github.com/5o1/xbox_gamepad_physics/tree/v0.3.1) 的 `teleop/web/app.js`。沿用视频数据包及 WebCodecs 解码方式，适配操作者界面和遥测。上游采用 MIT，版权及全文见下。 |
+| `src/gamepad_vla/workstation/collection_web/overlay/` | 从用户的 xbox_gamepad_physics 只读检出复制的现成 overlay；保留 `upstream.json`、`UPSTREAM_LICENSE`（The Unlicense）及 `ASSET_PROJECT_LICENSE`（MIT）。原渲染器来源 sevaht/gamepad-overlay 修订 `31236cd6a029828c8b01966ddc1a92c31e5cd852`；未修改所复制渲染器的阈值或信号适配。 |
+| `src/gamepad_vla/workstation/arm_mapping.py` | 已有 `station_20261014` 的 `rokae_dual_impedance_teleop_node` 源码快照：移植 map_left/map_right、绝对限位和启动姿态限幅，未包含硬件或 ROS 发布逻辑。可用 `check_collection_arm_mapping.py` 对原纯函数交叉验证。 |
 
-上述两项工作站来源代码在本项目中的版本按 [MIT 许可证](LICENSE)分发，Copyright (c) 2026 5o1。此许可适用于本仓库中的版本，不改变原工作站工程其他文件的许可。
+上述工作站来源代码在本项目中的版本按 [MIT 许可证](LICENSE)分发，Copyright (c) 2026 5o1。此许可适用于本仓库中的版本，不改变原工作站工程其他文件的许可。
 
 `src/gamepad_vla/signals.py` 的通道名称和排列对应 `resnake_gym` 的 `xinput-normalized-v1` 及 `xbox_gamepad_physics` 的 `sdl3-gamepad-core-v1` 接口，用于协议兼容；来源模块在文件头注明。
 
