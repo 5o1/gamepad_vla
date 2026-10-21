@@ -10,7 +10,7 @@ import trimesh
 
 from gamepad_vla.workstation.appearance import load_appearance
 from gamepad_vla.workstation.spec import load_spec
-from gamepad_vla.workstation.sapien_backend import compose_robot_urdf
+from gamepad_vla.workstation.robot_description import compose_robot_urdf
 from gamepad_vla.site import workspace_root
 import xml.etree.ElementTree as ET
 

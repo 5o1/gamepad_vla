@@ -5,7 +5,8 @@ recursive-include scripts *.py *.sh *.mjs *.md
 recursive-include constraints *.txt
 recursive-include tests *.py
 recursive-include references/calibration *.json *.py *.png *.jpg *.md SHA256SUMS
-include references/external_resources.json references/robot_assets.md
-recursive-include docs *.md *.png
+recursive-include references/targets *.json *.jsonl *.md SHA256SUMS
+include references/external_resources.json references/robot_assets.md references/fixed_gamepad_resources.json
+recursive-include docs *.md *.png *.json
 exclude configs/site.local.json
 prune .local

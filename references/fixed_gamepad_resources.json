@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "task": "fixed-gamepad residual control",
+  "gamepad": {
+    "repository": "https://github.com/5o1/xbox_gamepad_physics",
+    "branch": "feat/mujoco-backend",
+    "revision": "84f43e62045720b375a4bed2e41e7372acee26a7",
+    "status": "development branch, not the v0.3.1 release",
+    "build_backend": "mujoco",
+    "calibration": "src/xbox_gamepad_physics/build_data/calibration/mujoco_m2.json",
+    "license": "MIT code; model CC-BY-4.0, retain upstream third-party notices"
+  },
+  "mujoco": {
+    "repository": "https://github.com/5o1/mujoco",
+    "revision": "ac1bfe32700667d98b0eea412900beef5d98cbc2",
+    "base_revision": "a892750516336d8358949f4518fcc4fbbd85beae",
+    "upstream_patch_revision": "89733a51f207c7fedafc855d22ffd4c38caa793a",
+    "distribution": "3.16.0+concon.sdf3689.2",
+    "build_url": "https://github.com/5o1/mujoco/actions/runs/39195476197",
+    "wheel": "mujoco-3.16.0+concon.sdf3689.2-cp311-cp311-linux_x86_64.whl",
+    "sha256": "ca623da60501970ac047b596e9bc2c9ed31b6186dbe7e2c7b0991e6a7d85b75d",
+    "license": "Apache-2.0",
+    "reason": "Upstream SDF sign correction, built with matching engine and bindings. Official 3.16.0 is not the tested dependency."
+  },
+  "method_reference": {
+    "repository": "https://github.com/APRProject/APRPianist",
+    "revision": "e31c01055a566c9764d76ded00de2710dc71b6be",
+    "paths": [
+      "robopianist/single_task/train_apr_ppo.py",
+      "robopianist/single_task/wrappers/residual.py",
+      "robopianist/single_task/apr/apr_module.py"
+    ],
+    "reuse": "Architecture reference only; no piano datasets or discriminator weights reused."
+  },
+  "robot_assets": "external_resources.json",
+  "game_target_replay": {
+    "directory": "targets/resnake_n2_seed520000",
+    "source_repository": "https://github.com/5o1/resnake_gym",
+    "source_revision": "0659a21ad9517777278d9c5a402672f480c02239",
+    "scope": "Archived full-20 reports are self-contained; original game checkpoint is not distributed."
+  }
+}

@@ -1,0 +1,2325 @@
+{
+  "digital_threshold": 0.3,
+  "baselines": {
+    "ik_initial": [
+      {
+        "seed": 100,
+        "digital_threshold": 0.3,
+        "steps": 500,
+        "target_positive_samples": 400,
+        "precision": 0.8625592417061612,
+        "recall": 0.455,
+        "f1": 0.5957446808510638,
+        "per_direction": {
+          "dpad_up": {
+            "tp": 75,
+            "fp": 12,
+            "fn": 27,
+            "f1": 0.7936507936507936
+          },
+          "dpad_down": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 109,
+            "f1": 0
+          },
+          "dpad_left": {
+            "tp": 1,
+            "fp": 16,
+            "fn": 78,
+            "f1": 0.020833333333333332
+          },
+          "dpad_right": {
+            "tp": 106,
+            "fp": 1,
+            "fn": 4,
+            "f1": 0.9769585253456221
+          }
+        },
+        "exact_state_accuracy": 0.506,
+        "neutral_accuracy": 1,
+        "non_dpad_false_press_rate": 0,
+        "max_contact_force_n": 209.50264408331145,
+        "min_contact_distance_m": -0.0005226984261749219,
+        "response": {
+          "press": {
+            "events_measured": 7,
+            "events_missed": 7,
+            "events_already_satisfied": 0,
+            "median_delay_s": 0.040000000000000036,
+            "p95_delay_s": 0.0600000000000005
+          },
+          "release": {
+            "events_measured": 6,
+            "events_missed": 0,
+            "events_already_satisfied": 8,
+            "median_delay_s": 0.019999999999999796,
+            "p95_delay_s": 0.03500000000000014
+          }
+        }
+      }
+    ],
+    "ik_placement": [
+      {
+        "seed": 100,
+        "digital_threshold": 0.3,
+        "steps": 500,
+        "target_positive_samples": 400,
+        "precision": 0.5915254237288136,
+        "recall": 0.8725,
+        "f1": 0.705050505050505,
+        "per_direction": {
+          "dpad_up": {
+            "tp": 97,
+            "fp": 100,
+            "fn": 5,
+            "f1": 0.6488294314381271
+          },
+          "dpad_down": {
+            "tp": 105,
+            "fp": 24,
+            "fn": 4,
+            "f1": 0.8823529411764706
+          },
+          "dpad_left": {
+            "tp": 48,
+            "fp": 48,
+            "fn": 31,
+            "f1": 0.5485714285714286
+          },
+          "dpad_right": {
+            "tp": 99,
+            "fp": 69,
+            "fn": 11,
+            "f1": 0.7122302158273381
+          }
+        },
+        "exact_state_accuracy": 0.554,
+        "neutral_accuracy": 0.35,
+        "non_dpad_false_press_rate": 0,
+        "max_contact_force_n": 1067.744403052336,
+        "min_contact_distance_m": -0.0018787933514861606,
+        "response": {
+          "press": {
+            "events_measured": 12,
+            "events_missed": 1,
+            "events_already_satisfied": 1,
+            "median_delay_s": 0.03000000000000025,
+            "p95_delay_s": 0.1289999999999999
+          },
+          "release": {
+            "events_measured": 11,
+            "events_missed": 1,
+            "events_already_satisfied": 2,
+            "median_delay_s": 0.05999999999999994,
+            "p95_delay_s": 0.5900000000000001
+          }
+        }
+      },
+      {
+        "seed": 101,
+        "digital_threshold": 0.3,
+        "steps": 500,
+        "target_positive_samples": 382,
+        "precision": 0.6276978417266187,
+        "recall": 0.9136125654450262,
+        "f1": 0.744136460554371,
+        "per_direction": {
+          "dpad_up": {
+            "tp": 63,
+            "fp": 71,
+            "fn": 15,
+            "f1": 0.5943396226415094
+          },
+          "dpad_down": {
+            "tp": 92,
+            "fp": 27,
+            "fn": 3,
+            "f1": 0.8598130841121495
+          },
+          "dpad_left": {
+            "tp": 93,
+            "fp": 72,
+            "fn": 2,
+            "f1": 0.7153846153846154
+          },
+          "dpad_right": {
+            "tp": 101,
+            "fp": 37,
+            "fn": 13,
+            "f1": 0.8015873015873016
+          }
+        },
+        "exact_state_accuracy": 0.596,
+        "neutral_accuracy": 0.3728813559322034,
+        "non_dpad_false_press_rate": 0,
+        "max_contact_force_n": 1006.964562871165,
+        "min_contact_distance_m": -0.0036553092976083414,
+        "response": {
+          "press": {
+            "events_measured": 13,
+            "events_missed": 0,
+            "events_already_satisfied": 0,
+            "median_delay_s": 0.040000000000000036,
+            "p95_delay_s": 0.13999999999999976
+          },
+          "release": {
+            "events_measured": 11,
+            "events_missed": 0,
+            "events_already_satisfied": 1,
+            "median_delay_s": 0.05999999999999961,
+            "p95_delay_s": 0.11000000000000076
+          }
+        }
+      },
+      {
+        "seed": 102,
+        "digital_threshold": 0.3,
+        "steps": 500,
+        "target_positive_samples": 431,
+        "precision": 0.6318327974276527,
+        "recall": 0.9118329466357309,
+        "f1": 0.7464387464387464,
+        "per_direction": {
+          "dpad_up": {
+            "tp": 104,
+            "fp": 61,
+            "fn": 0,
+            "f1": 0.7732342007434945
+          },
+          "dpad_down": {
+            "tp": 66,
+            "fp": 35,
+            "fn": 18,
+            "f1": 0.7135135135135136
+          },
+          "dpad_left": {
+            "tp": 144,
+            "fp": 60,
+            "fn": 0,
+            "f1": 0.8275862068965517
+          },
+          "dpad_right": {
+            "tp": 79,
+            "fp": 73,
+            "fn": 20,
+            "f1": 0.6294820717131474
+          }
+        },
+        "exact_state_accuracy": 0.56,
+        "neutral_accuracy": 0.2608695652173913,
+        "non_dpad_false_press_rate": 0.002,
+        "max_contact_force_n": 1114.3372325438127,
+        "min_contact_distance_m": -0.0012752628579875225,
+        "response": {
+          "press": {
+            "events_measured": 14,
+            "events_missed": 0,
+            "events_already_satisfied": 1,
+            "median_delay_s": 0.020000000000000018,
+            "p95_delay_s": 0.1400000000000003
+          },
+          "release": {
+            "events_measured": 13,
+            "events_missed": 0,
+            "events_already_satisfied": 1,
+            "median_delay_s": 0.039999999999999813,
+            "p95_delay_s": 0.18399999999999989
+          }
+        }
+      }
+    ],
+    "ik_torque03": [
+      {
+        "seed": 100,
+        "digital_threshold": 0.3,
+        "steps": 500,
+        "target_positive_samples": 400,
+        "precision": 0.6115702479338843,
+        "recall": 0.74,
+        "f1": 0.669683257918552,
+        "per_direction": {
+          "dpad_up": {
+            "tp": 64,
+            "fp": 32,
+            "fn": 38,
+            "f1": 0.6464646464646465
+          },
+          "dpad_down": {
+            "tp": 101,
+            "fp": 23,
+            "fn": 8,
+            "f1": 0.8669527896995708
+          },
+          "dpad_left": {
+            "tp": 47,
+            "fp": 75,
+            "fn": 32,
+            "f1": 0.46766169154228854
+          },
+          "dpad_right": {
+            "tp": 84,
+            "fp": 58,
+            "fn": 26,
+            "f1": 0.6666666666666666
+          }
+        },
+        "exact_state_accuracy": 0.6,
+        "neutral_accuracy": 0.99,
+        "non_dpad_false_press_rate": 0,
+        "max_contact_force_n": 24.996677743144186,
+        "min_contact_distance_m": -0.0007998950323493718,
+        "response": {
+          "press": {
+            "events_measured": 13,
+            "events_missed": 1,
+            "events_already_satisfied": 0,
+            "median_delay_s": 0.0600000000000005,
+            "p95_delay_s": 0.3480000000000005
+          },
+          "release": {
+            "events_measured": 12,
+            "events_missed": 0,
+            "events_already_satisfied": 2,
+            "median_delay_s": 0.0600000000000005,
+            "p95_delay_s": 0.36499999999999955
+          }
+        }
+      },
+      {
+        "seed": 101,
+        "ik_error_m": [
+          2.4547738368936003e-11,
+          8.04249954652672e-11,
+          5.086671292684797e-11,
+          1.8724552544009012e-10,
+          3.941492531140167e-12
+        ],
+        "digital_threshold": 0.3,
+        "steps": 500,
+        "target_positive_samples": 382,
+        "precision": 0.6300448430493274,
+        "recall": 0.7356020942408377,
+        "f1": 0.678743961352657,
+        "per_direction": {
+          "dpad_up": {
+            "tp": 34,
+            "fp": 23,
+            "fn": 44,
+            "f1": 0.5037037037037037
+          },
+          "dpad_down": {
+            "tp": 92,
+            "fp": 56,
+            "fn": 3,
+            "f1": 0.757201646090535
+          },
+          "dpad_left": {
+            "tp": 91,
+            "fp": 51,
+            "fn": 4,
+            "f1": 0.7679324894514767
+          },
+          "dpad_right": {
+            "tp": 64,
+            "fp": 35,
+            "fn": 50,
+            "f1": 0.6009389671361502
+          }
+        },
+        "exact_state_accuracy": 0.606,
+        "neutral_accuracy": 1,
+        "non_dpad_false_press_rate": 0,
+        "max_contact_force_n": 21.714073231898247,
+        "min_contact_distance_m": -0.00039718934398123206,
+        "response": {
+          "press": {
+            "events_measured": 13,
+            "events_missed": 0,
+            "events_already_satisfied": 0,
+            "median_delay_s": 0.0600000000000005,
+            "p95_delay_s": 0.4080000000000002
+          },
+          "release": {
+            "events_measured": 11,
+            "events_missed": 0,
+            "events_already_satisfied": 1,
+            "median_delay_s": 0.05999999999999961,
+            "p95_delay_s": 0.1399999999999999
+          }
+        }
+      },
+      {
+        "seed": 102,
+        "ik_error_m": [
+          2.4547738368936003e-11,
+          8.04249954652672e-11,
+          5.086671292684797e-11,
+          1.8724552544009012e-10,
+          3.941492531140167e-12
+        ],
+        "digital_threshold": 0.3,
+        "steps": 500,
+        "target_positive_samples": 431,
+        "precision": 0.6262626262626263,
+        "recall": 0.8631090487238979,
+        "f1": 0.7258536585365853,
+        "per_direction": {
+          "dpad_up": {
+            "tp": 100,
+            "fp": 74,
+            "fn": 4,
+            "f1": 0.7194244604316546
+          },
+          "dpad_down": {
+            "tp": 49,
+            "fp": 46,
+            "fn": 35,
+            "f1": 0.547486033519553
+          },
+          "dpad_left": {
+            "tp": 142,
+            "fp": 21,
+            "fn": 2,
+            "f1": 0.9250814332247557
+          },
+          "dpad_right": {
+            "tp": 81,
+            "fp": 81,
+            "fn": 18,
+            "f1": 0.6206896551724138
+          }
+        },
+        "exact_state_accuracy": 0.572,
+        "neutral_accuracy": 1,
+        "non_dpad_false_press_rate": 0,
+        "max_contact_force_n": 30.420921144064902,
+        "min_contact_distance_m": -0.0005921876920796849,
+        "response": {
+          "press": {
+            "events_measured": 14,
+            "events_missed": 1,
+            "events_already_satisfied": 0,
+            "median_delay_s": 0.060000000000000164,
+            "p95_delay_s": 0.12700000000000006
+          },
+          "release": {
+            "events_measured": 13,
+            "events_missed": 0,
+            "events_already_satisfied": 1,
+            "median_delay_s": 0.06000000000000005,
+            "p95_delay_s": 0.6079999999999981
+          }
+        }
+      }
+    ],
+    "ik_retraction": [
+      {
+        "seed": 100,
+        "ik_error_m": [
+          2.4547738368936003e-11,
+          8.04249954652672e-11,
+          5.086671292684797e-11,
+          1.8724552544009012e-10,
+          3.941492531140167e-12
+        ],
+        "digital_threshold": 0.3,
+        "steps": 500,
+        "target_positive_samples": 400,
+        "precision": 0.8239795918367347,
+        "recall": 0.8075,
+        "f1": 0.8156565656565656,
+        "per_direction": {
+          "dpad_up": {
+            "tp": 70,
+            "fp": 0,
+            "fn": 32,
+            "f1": 0.813953488372093
+          },
+          "dpad_down": {
+            "tp": 92,
+            "fp": 47,
+            "fn": 17,
+            "f1": 0.7419354838709677
+          },
+          "dpad_left": {
+            "tp": 68,
+            "fp": 4,
+            "fn": 11,
+            "f1": 0.9006622516556292
+          },
+          "dpad_right": {
+            "tp": 93,
+            "fp": 18,
+            "fn": 17,
+            "f1": 0.8416289592760181
+          }
+        },
+        "exact_state_accuracy": 0.738,
+        "neutral_accuracy": 1,
+        "non_dpad_false_press_rate": 0,
+        "max_contact_force_n": 11.206214928100605,
+        "min_contact_distance_m": -0.00021785689715062565,
+        "response": {
+          "press": {
+            "events_measured": 14,
+            "events_missed": 0,
+            "events_already_satisfied": 0,
+            "median_delay_s": 0.12000000000000005,
+            "p95_delay_s": 0.13999999999999999
+          },
+          "release": {
+            "events_measured": 13,
+            "events_missed": 0,
+            "events_already_satisfied": 1,
+            "median_delay_s": 0.020000000000000018,
+            "p95_delay_s": 0.020000000000000462
+          }
+        }
+      },
+      {
+        "seed": 101,
+        "ik_error_m": [
+          2.4547738368936003e-11,
+          8.04249954652672e-11,
+          5.086671292684797e-11,
+          1.8724552544009012e-10,
+          3.941492531140167e-12
+        ],
+        "digital_threshold": 0.3,
+        "steps": 500,
+        "target_positive_samples": 382,
+        "precision": 0.7780612244897959,
+        "recall": 0.7984293193717278,
+        "f1": 0.7881136950904393,
+        "per_direction": {
+          "dpad_up": {
+            "tp": 44,
+            "fp": 0,
+            "fn": 34,
+            "f1": 0.7213114754098361
+          },
+          "dpad_down": {
+            "tp": 82,
+            "fp": 62,
+            "fn": 13,
+            "f1": 0.6861924686192469
+          },
+          "dpad_left": {
+            "tp": 87,
+            "fp": 0,
+            "fn": 8,
+            "f1": 0.9560439560439561
+          },
+          "dpad_right": {
+            "tp": 92,
+            "fp": 25,
+            "fn": 22,
+            "f1": 0.7965367965367965
+          }
+        },
+        "exact_state_accuracy": 0.716,
+        "neutral_accuracy": 1,
+        "non_dpad_false_press_rate": 0,
+        "max_contact_force_n": 11.206216335817047,
+        "min_contact_distance_m": -0.00020253607042930856,
+        "response": {
+          "press": {
+            "events_measured": 13,
+            "events_missed": 0,
+            "events_already_satisfied": 0,
+            "median_delay_s": 0.12,
+            "p95_delay_s": 0.13999999999999976
+          },
+          "release": {
+            "events_measured": 11,
+            "events_missed": 0,
+            "events_already_satisfied": 1,
+            "median_delay_s": 0.020000000000000018,
+            "p95_delay_s": 0.020000000000000906
+          }
+        }
+      },
+      {
+        "seed": 102,
+        "ik_error_m": [
+          2.4547738368936003e-11,
+          8.04249954652672e-11,
+          5.086671292684797e-11,
+          1.8724552544009012e-10,
+          3.941492531140167e-12
+        ],
+        "digital_threshold": 0.3,
+        "steps": 500,
+        "target_positive_samples": 431,
+        "precision": 0.7921225382932167,
+        "recall": 0.839907192575406,
+        "f1": 0.8153153153153153,
+        "per_direction": {
+          "dpad_up": {
+            "tp": 90,
+            "fp": 0,
+            "fn": 14,
+            "f1": 0.9278350515463918
+          },
+          "dpad_down": {
+            "tp": 68,
+            "fp": 74,
+            "fn": 16,
+            "f1": 0.6017699115044248
+          },
+          "dpad_left": {
+            "tp": 126,
+            "fp": 8,
+            "fn": 18,
+            "f1": 0.9064748201438849
+          },
+          "dpad_right": {
+            "tp": 78,
+            "fp": 13,
+            "fn": 21,
+            "f1": 0.8210526315789474
+          }
+        },
+        "exact_state_accuracy": 0.672,
+        "neutral_accuracy": 1,
+        "non_dpad_false_press_rate": 0,
+        "max_contact_force_n": 11.10061831361817,
+        "min_contact_distance_m": -0.00020521281714411472,
+        "response": {
+          "press": {
+            "events_measured": 15,
+            "events_missed": 0,
+            "events_already_satisfied": 0,
+            "median_delay_s": 0.1200000000000001,
+            "p95_delay_s": 0.14000000000000026
+          },
+          "release": {
+            "events_measured": 14,
+            "events_missed": 0,
+            "events_already_satisfied": 0,
+            "median_delay_s": 0.019999999999999574,
+            "p95_delay_s": 0.020000000000000174
+          }
+        }
+      }
+    ]
+  },
+  "arm_conversion_max_abs_error": 9.896900385104404e-7,
+  "ik_error_m": [
+    2.4547738368936003e-11,
+    8.04249954652672e-11,
+    5.086671292684797e-11,
+    1.8724552544009012e-10,
+    3.941492531140167e-12
+  ],
+  "tests": {
+    "passed": 119,
+    "skipped": 1,
+    "skip_reason": "optional resnake_gym package not installed",
+    "pip_check": "passed"
+  },
+  "training": {
+    "planned_steps": 4096,
+    "completed_steps": 4096,
+    "seed": 0,
+    "residual_scale_rad": 0.15,
+    "evaluation_planned_seeds": [
+      100,
+      101,
+      102
+    ],
+    "evaluation_completed_seeds": [
+      100,
+      101,
+      102
+    ],
+    "evaluation": [
+      {
+        "seed": 100,
+        "ik_error_m": [
+          2.4547738368936003e-11,
+          8.04249954652672e-11,
+          5.086671292684797e-11,
+          1.8724552544009012e-10,
+          3.941492531140167e-12
+        ],
+        "digital_threshold": 0.3,
+        "steps": 500,
+        "target_positive_samples": 400,
+        "precision": 0.4258373205741627,
+        "recall": 0.445,
+        "f1": 0.4352078239608802,
+        "per_direction": {
+          "dpad_up": {
+            "tp": 46,
+            "fp": 0,
+            "fn": 56,
+            "f1": 0.6216216216216216
+          },
+          "dpad_down": {
+            "tp": 105,
+            "fp": 70,
+            "fn": 4,
+            "f1": 0.7394366197183099
+          },
+          "dpad_left": {
+            "tp": 20,
+            "fp": 88,
+            "fn": 59,
+            "f1": 0.21390374331550802
+          },
+          "dpad_right": {
+            "tp": 7,
+            "fp": 82,
+            "fn": 103,
+            "f1": 0.07035175879396985
+          }
+        },
+        "exact_state_accuracy": 0.36,
+        "neutral_accuracy": 0.98,
+        "non_dpad_false_press_rate": 0,
+        "max_contact_force_n": 44.782200723415045,
+        "min_contact_distance_m": -0.0014922261111250282,
+        "response": {
+          "press": {
+            "events_measured": 10,
+            "events_missed": 4,
+            "median_delay_s": 0.04000000000000001,
+            "p95_delay_s": 0.5219999999999996
+          },
+          "release": {
+            "events_measured": 14,
+            "events_missed": 0,
+            "median_delay_s": 0.020000000000000018,
+            "p95_delay_s": 0.5620000000000003
+          }
+        }
+      },
+      {
+        "seed": 101,
+        "ik_error_m": [
+          2.4547738368936003e-11,
+          8.04249954652672e-11,
+          5.086671292684797e-11,
+          1.8724552544009012e-10,
+          3.941492531140167e-12
+        ],
+        "digital_threshold": 0.3,
+        "steps": 500,
+        "target_positive_samples": 382,
+        "precision": 0.3480392156862745,
+        "recall": 0.3717277486910995,
+        "f1": 0.3594936708860759,
+        "per_direction": {
+          "dpad_up": {
+            "tp": 22,
+            "fp": 0,
+            "fn": 56,
+            "f1": 0.44
+          },
+          "dpad_down": {
+            "tp": 90,
+            "fp": 94,
+            "fn": 5,
+            "f1": 0.6451612903225806
+          },
+          "dpad_left": {
+            "tp": 26,
+            "fp": 67,
+            "fn": 69,
+            "f1": 0.2765957446808511
+          },
+          "dpad_right": {
+            "tp": 4,
+            "fp": 105,
+            "fn": 110,
+            "f1": 0.03587443946188341
+          }
+        },
+        "exact_state_accuracy": 0.362,
+        "neutral_accuracy": 1,
+        "non_dpad_false_press_rate": 0,
+        "max_contact_force_n": 129.47978039788794,
+        "min_contact_distance_m": -0.0016898201379502487,
+        "response": {
+          "press": {
+            "events_measured": 8,
+            "events_missed": 5,
+            "median_delay_s": 0.04000000000000048,
+            "p95_delay_s": 0.5530000000000005
+          },
+          "release": {
+            "events_measured": 12,
+            "events_missed": 0,
+            "median_delay_s": 0.020000000000000462,
+            "p95_delay_s": 0.534999999999999
+          }
+        }
+      },
+      {
+        "seed": 102,
+        "ik_error_m": [
+          2.4547738368936003e-11,
+          8.04249954652672e-11,
+          5.086671292684797e-11,
+          1.8724552544009012e-10,
+          3.941492531140167e-12
+        ],
+        "digital_threshold": 0.3,
+        "steps": 500,
+        "target_positive_samples": 431,
+        "precision": 0.403035413153457,
+        "recall": 0.5545243619489559,
+        "f1": 0.466796875,
+        "per_direction": {
+          "dpad_up": {
+            "tp": 44,
+            "fp": 61,
+            "fn": 60,
+            "f1": 0.42105263157894735
+          },
+          "dpad_down": {
+            "tp": 49,
+            "fp": 148,
+            "fn": 35,
+            "f1": 0.3487544483985765
+          },
+          "dpad_left": {
+            "tp": 138,
+            "fp": 123,
+            "fn": 6,
+            "f1": 0.6814814814814815
+          },
+          "dpad_right": {
+            "tp": 8,
+            "fp": 22,
+            "fn": 91,
+            "f1": 0.12403100775193798
+          }
+        },
+        "exact_state_accuracy": 0.348,
+        "neutral_accuracy": 0.9855072463768116,
+        "non_dpad_false_press_rate": 0,
+        "max_contact_force_n": 110.72434885999661,
+        "min_contact_distance_m": -0.0018789193773334825,
+        "response": {
+          "press": {
+            "events_measured": 12,
+            "events_missed": 3,
+            "median_delay_s": 0.040000000000000036,
+            "p95_delay_s": 0.4919999999999999
+          },
+          "release": {
+            "events_measured": 14,
+            "events_missed": 0,
+            "median_delay_s": 0.02000000000000024,
+            "p95_delay_s": 0.9539999999999995
+          }
+        }
+      }
+    ],
+    "status": "complete",
+    "adopted": false
+  },
+  "training_small_residual": {
+    "completed_steps": 4096,
+    "seed": 0,
+    "residual_scale_rad": 0.03,
+    "evaluation": [
+      {
+        "seed": 100,
+        "ik_error_m": [
+          2.4547738368936003e-11,
+          8.04249954652672e-11,
+          5.086671292684797e-11,
+          1.8724552544009012e-10,
+          3.941492531140167e-12
+        ],
+        "digital_threshold": 0.3,
+        "steps": 500,
+        "target_positive_samples": 400,
+        "precision": 0.5335968379446641,
+        "recall": 0.675,
+        "f1": 0.5960264900662252,
+        "per_direction": {
+          "dpad_up": {
+            "tp": 52,
+            "fp": 40,
+            "fn": 50,
+            "f1": 0.5360824742268041
+          },
+          "dpad_down": {
+            "tp": 82,
+            "fp": 59,
+            "fn": 27,
+            "f1": 0.656
+          },
+          "dpad_left": {
+            "tp": 40,
+            "fp": 39,
+            "fn": 39,
+            "f1": 0.5063291139240507
+          },
+          "dpad_right": {
+            "tp": 96,
+            "fp": 98,
+            "fn": 14,
+            "f1": 0.631578947368421
+          }
+        },
+        "exact_state_accuracy": 0.55,
+        "neutral_accuracy": 0.99,
+        "non_dpad_false_press_rate": 0,
+        "max_contact_force_n": 37.185296994384565,
+        "min_contact_distance_m": -0.0011157865388589975,
+        "response": {
+          "press": {
+            "events_measured": 11,
+            "events_missed": 3,
+            "events_already_satisfied": 0,
+            "median_delay_s": 0.0600000000000005,
+            "p95_delay_s": 0.3400000000000003
+          },
+          "release": {
+            "events_measured": 10,
+            "events_missed": 0,
+            "events_already_satisfied": 4,
+            "median_delay_s": 0.3200000000000003,
+            "p95_delay_s": 0.6400000000000003
+          }
+        }
+      },
+      {
+        "seed": 101,
+        "ik_error_m": [
+          2.4547738368936003e-11,
+          8.04249954652672e-11,
+          5.086671292684797e-11,
+          1.8724552544009012e-10,
+          3.941492531140167e-12
+        ],
+        "digital_threshold": 0.3,
+        "steps": 500,
+        "target_positive_samples": 382,
+        "precision": 0.5719769673704415,
+        "recall": 0.7801047120418848,
+        "f1": 0.6600221483942414,
+        "per_direction": {
+          "dpad_up": {
+            "tp": 14,
+            "fp": 48,
+            "fn": 64,
+            "f1": 0.2
+          },
+          "dpad_down": {
+            "tp": 93,
+            "fp": 93,
+            "fn": 2,
+            "f1": 0.6619217081850534
+          },
+          "dpad_left": {
+            "tp": 93,
+            "fp": 38,
+            "fn": 2,
+            "f1": 0.8230088495575221
+          },
+          "dpad_right": {
+            "tp": 98,
+            "fp": 44,
+            "fn": 16,
+            "f1": 0.765625
+          }
+        },
+        "exact_state_accuracy": 0.586,
+        "neutral_accuracy": 1,
+        "non_dpad_false_press_rate": 0,
+        "max_contact_force_n": 28.347660671873463,
+        "min_contact_distance_m": -0.0004027326689171663,
+        "response": {
+          "press": {
+            "events_measured": 8,
+            "events_missed": 2,
+            "events_already_satisfied": 3,
+            "median_delay_s": 0.07000000000000028,
+            "p95_delay_s": 0.11300000000000002
+          },
+          "release": {
+            "events_measured": 10,
+            "events_missed": 0,
+            "events_already_satisfied": 2,
+            "median_delay_s": 0.05999999999999983,
+            "p95_delay_s": 0.6289999999999994
+          }
+        }
+      },
+      {
+        "seed": 102,
+        "ik_error_m": [
+          2.4547738368936003e-11,
+          8.04249954652672e-11,
+          5.086671292684797e-11,
+          1.8724552544009012e-10,
+          3.941492531140167e-12
+        ],
+        "digital_threshold": 0.3,
+        "steps": 500,
+        "target_positive_samples": 431,
+        "precision": 0.5683333333333334,
+        "recall": 0.7911832946635731,
+        "f1": 0.6614936954413191,
+        "per_direction": {
+          "dpad_up": {
+            "tp": 100,
+            "fp": 72,
+            "fn": 4,
+            "f1": 0.7246376811594203
+          },
+          "dpad_down": {
+            "tp": 58,
+            "fp": 45,
+            "fn": 26,
+            "f1": 0.6203208556149733
+          },
+          "dpad_left": {
+            "tp": 97,
+            "fp": 4,
+            "fn": 47,
+            "f1": 0.7918367346938775
+          },
+          "dpad_right": {
+            "tp": 86,
+            "fp": 138,
+            "fn": 13,
+            "f1": 0.5325077399380805
+          }
+        },
+        "exact_state_accuracy": 0.458,
+        "neutral_accuracy": 1,
+        "non_dpad_false_press_rate": 0,
+        "max_contact_force_n": 35.9292805943957,
+        "min_contact_distance_m": -0.0004137503716650084,
+        "response": {
+          "press": {
+            "events_measured": 13,
+            "events_missed": 1,
+            "events_already_satisfied": 1,
+            "median_delay_s": 0.05999999999999983,
+            "p95_delay_s": 0.15600000000000017
+          },
+          "release": {
+            "events_measured": 12,
+            "events_missed": 1,
+            "events_already_satisfied": 1,
+            "median_delay_s": 0.060000000000000275,
+            "p95_delay_s": 0.7799999999999996
+          }
+        }
+      }
+    ],
+    "adopted": false
+  },
+  "training_trajectory": {
+    "planned_steps": 32768,
+    "seed": 0,
+    "num_envs": 4,
+    "residual_scale_rad": 0.03,
+    "retraction": true,
+    "status": "complete",
+    "evaluation": [
+      {
+        "seed": 100,
+        "ik_error_m": [
+          2.4547738368936003e-11,
+          8.04249954652672e-11,
+          5.086671292684797e-11,
+          1.8724552544009012e-10,
+          3.941492531140167e-12
+        ],
+        "digital_threshold": 0.3,
+        "steps": 500,
+        "target_positive_samples": 400,
+        "precision": 0.6382536382536382,
+        "recall": 0.7675,
+        "f1": 0.6969353007945517,
+        "per_direction": {
+          "dpad_up": {
+            "tp": 45,
+            "fp": 30,
+            "fn": 57,
+            "f1": 0.5084745762711864
+          },
+          "dpad_down": {
+            "tp": 95,
+            "fp": 37,
+            "fn": 14,
+            "f1": 0.7883817427385892
+          },
+          "dpad_left": {
+            "tp": 70,
+            "fp": 38,
+            "fn": 9,
+            "f1": 0.7486631016042781
+          },
+          "dpad_right": {
+            "tp": 97,
+            "fp": 69,
+            "fn": 13,
+            "f1": 0.7028985507246377
+          }
+        },
+        "exact_state_accuracy": 0.558,
+        "neutral_accuracy": 0.99,
+        "non_dpad_false_press_rate": 0,
+        "max_contact_force_n": 57.53781213634792,
+        "min_contact_distance_m": -0.000665894792673396,
+        "response": {
+          "press": {
+            "events_measured": 11,
+            "events_missed": 0,
+            "events_already_satisfied": 3,
+            "median_delay_s": 0.10000000000000053,
+            "p95_delay_s": 0.12000000000000002
+          },
+          "release": {
+            "events_measured": 12,
+            "events_missed": 0,
+            "events_already_satisfied": 2,
+            "median_delay_s": 0.020000000000000018,
+            "p95_delay_s": 0.020000000000000462
+          }
+        }
+      },
+      {
+        "seed": 101,
+        "ik_error_m": [
+          2.4547738368936003e-11,
+          8.04249954652672e-11,
+          5.086671292684797e-11,
+          1.8724552544009012e-10,
+          3.941492531140167e-12
+        ],
+        "digital_threshold": 0.3,
+        "steps": 500,
+        "target_positive_samples": 382,
+        "precision": 0.6452282157676349,
+        "recall": 0.8141361256544503,
+        "f1": 0.7199074074074074,
+        "per_direction": {
+          "dpad_up": {
+            "tp": 40,
+            "fp": 47,
+            "fn": 38,
+            "f1": 0.48484848484848486
+          },
+          "dpad_down": {
+            "tp": 84,
+            "fp": 22,
+            "fn": 11,
+            "f1": 0.835820895522388
+          },
+          "dpad_left": {
+            "tp": 89,
+            "fp": 12,
+            "fn": 6,
+            "f1": 0.9081632653061225
+          },
+          "dpad_right": {
+            "tp": 98,
+            "fp": 90,
+            "fn": 16,
+            "f1": 0.6490066225165563
+          }
+        },
+        "exact_state_accuracy": 0.574,
+        "neutral_accuracy": 1,
+        "non_dpad_false_press_rate": 0,
+        "max_contact_force_n": 67.4716645118599,
+        "min_contact_distance_m": -0.000680984781654081,
+        "response": {
+          "press": {
+            "events_measured": 10,
+            "events_missed": 0,
+            "events_already_satisfied": 3,
+            "median_delay_s": 0.09999999999999964,
+            "p95_delay_s": 0.10000000000000102
+          },
+          "release": {
+            "events_measured": 11,
+            "events_missed": 0,
+            "events_already_satisfied": 1,
+            "median_delay_s": 0.020000000000000018,
+            "p95_delay_s": 0.020000000000000462
+          }
+        }
+      },
+      {
+        "seed": 102,
+        "ik_error_m": [
+          2.4547738368936003e-11,
+          8.04249954652672e-11,
+          5.086671292684797e-11,
+          1.8724552544009012e-10,
+          3.941492531140167e-12
+        ],
+        "digital_threshold": 0.3,
+        "steps": 500,
+        "target_positive_samples": 431,
+        "precision": 0.5787545787545788,
+        "recall": 0.7331786542923434,
+        "f1": 0.646878198567042,
+        "per_direction": {
+          "dpad_up": {
+            "tp": 30,
+            "fp": 22,
+            "fn": 74,
+            "f1": 0.38461538461538464
+          },
+          "dpad_down": {
+            "tp": 71,
+            "fp": 88,
+            "fn": 13,
+            "f1": 0.5843621399176955
+          },
+          "dpad_left": {
+            "tp": 129,
+            "fp": 75,
+            "fn": 15,
+            "f1": 0.7413793103448276
+          },
+          "dpad_right": {
+            "tp": 86,
+            "fp": 45,
+            "fn": 13,
+            "f1": 0.7478260869565218
+          }
+        },
+        "exact_state_accuracy": 0.446,
+        "neutral_accuracy": 1,
+        "non_dpad_false_press_rate": 0,
+        "max_contact_force_n": 23.44500207590282,
+        "min_contact_distance_m": -0.0006210632045201272,
+        "response": {
+          "press": {
+            "events_measured": 11,
+            "events_missed": 0,
+            "events_already_satisfied": 4,
+            "median_delay_s": 0.09999999999999964,
+            "p95_delay_s": 0.1300000000000005
+          },
+          "release": {
+            "events_measured": 11,
+            "events_missed": 0,
+            "events_already_satisfied": 3,
+            "median_delay_s": 0.019999999999999574,
+            "p95_delay_s": 0.02000000000000024
+          }
+        }
+      }
+    ],
+    "completed_steps": 32768,
+    "adopted": false
+  },
+  "game_and_response_experiments": {
+    "closed_loop_ik_pd8": {
+      "seed": 520000,
+      "ticks_requested": 100,
+      "logic_fps": 10,
+      "game_checkpoint_sha256": "416ebc22a876ac633bfc0504344ab308671b2d18bf83f9cf1537315f269fac91",
+      "controller": "ik",
+      "timing": "logical-time coupled simulation; not wall-clock execution",
+      "future_targets": "only latest received command is held; no future game decisions",
+      "ticks_completed": 16,
+      "terminated": true,
+      "truncated": false,
+      "last_game_result": {
+        "score": 0,
+        "won": false,
+        "logic_steps": 16,
+        "termination_reason": "wall_collision"
+      },
+      "exact_report_matches": 0,
+      "control_metrics": {
+        "digital_threshold": 0.3,
+        "steps": 80,
+        "target_positive_samples": 80,
+        "precision": 0.038461538461538464,
+        "recall": 0.0375,
+        "f1": 0.0379746835443038,
+        "per_direction": {
+          "dpad_up": {
+            "tp": 3,
+            "fp": 0,
+            "fn": 77,
+            "f1": 0.07228915662650602
+          },
+          "dpad_down": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "f1": null
+          },
+          "dpad_left": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "f1": null
+          },
+          "dpad_right": {
+            "tp": 0,
+            "fp": 75,
+            "fn": 0,
+            "f1": 0
+          }
+        },
+        "exact_state_accuracy": 0,
+        "neutral_accuracy": null,
+        "non_dpad_false_press_rate": 0,
+        "max_contact_force_n": 4.671189851605233,
+        "min_contact_distance_m": -0.00010541144616832688,
+        "response": {
+          "press": {
+            "events_measured": 1,
+            "events_missed": 0,
+            "events_already_satisfied": 0,
+            "median_delay_s": 0.12,
+            "p95_delay_s": 0.12
+          },
+          "release": {
+            "events_measured": 0,
+            "events_missed": 0,
+            "events_already_satisfied": 0,
+            "median_delay_s": null,
+            "p95_delay_s": null
+          }
+        }
+      }
+    },
+    "closed_loop_ik_warmup_pd8": {
+      "seed": 520000,
+      "ticks_requested": 100,
+      "logic_fps": 10,
+      "game_checkpoint_sha256": "416ebc22a876ac633bfc0504344ab308671b2d18bf83f9cf1537315f269fac91",
+      "controller": "ik",
+      "timing": "logical-time coupled simulation; not wall-clock execution",
+      "future_targets": "only latest received command is held; no future game decisions",
+      "controller_reset": {
+        "ik_error_m": [
+          2.4547738368936003e-11,
+          8.04249954652672e-11,
+          5.086671292684797e-11,
+          1.8724552544009012e-10,
+          3.941492531140167e-12
+        ],
+        "warmup_seconds": 0.5,
+        "warmup_peak_contact_force_n": 0
+      },
+      "ticks_completed": 49,
+      "terminated": true,
+      "truncated": false,
+      "last_game_result": {
+        "score": 1,
+        "won": false,
+        "logic_steps": 49,
+        "termination_reason": "wall_collision"
+      },
+      "exact_report_matches": 33,
+      "control_metrics": {
+        "digital_threshold": 0.3,
+        "steps": 245,
+        "target_positive_samples": 200,
+        "precision": 0.7448979591836735,
+        "recall": 0.73,
+        "f1": 0.7373737373737373,
+        "per_direction": {
+          "dpad_up": {
+            "tp": 42,
+            "fp": 0,
+            "fn": 13,
+            "f1": 0.865979381443299
+          },
+          "dpad_down": {
+            "tp": 13,
+            "fp": 46,
+            "fn": 17,
+            "f1": 0.29213483146067415
+          },
+          "dpad_left": {
+            "tp": 71,
+            "fp": 4,
+            "fn": 14,
+            "f1": 0.8875
+          },
+          "dpad_right": {
+            "tp": 20,
+            "fp": 0,
+            "fn": 10,
+            "f1": 0.8
+          }
+        },
+        "exact_state_accuracy": 0.5755102040816327,
+        "neutral_accuracy": 1,
+        "non_dpad_false_press_rate": 0,
+        "max_contact_force_n": 12.17666261300254,
+        "min_contact_distance_m": -0.00021438840124443268,
+        "response": {
+          "press": {
+            "events_measured": 12,
+            "events_missed": 1,
+            "events_already_satisfied": 0,
+            "median_delay_s": 0.10999999999999988,
+            "p95_delay_s": 0.12900000000000006
+          },
+          "release": {
+            "events_measured": 12,
+            "events_missed": 0,
+            "events_already_satisfied": 0,
+            "median_delay_s": 0.020000000000000018,
+            "p95_delay_s": 0.02000000000000022
+          }
+        }
+      }
+    },
+    "closed_loop_ik_warmup_pd4": {
+      "seed": 520000,
+      "ticks_requested": 100,
+      "logic_fps": 10,
+      "game_checkpoint_sha256": "416ebc22a876ac633bfc0504344ab308671b2d18bf83f9cf1537315f269fac91",
+      "controller": "ik",
+      "timing": "logical-time coupled simulation; not wall-clock execution",
+      "future_targets": "only latest received command is held; no future game decisions",
+      "controller_reset": {
+        "ik_error_m": [
+          2.4547738368936003e-11,
+          8.04249954652672e-11,
+          5.086671292684797e-11,
+          1.8724552544009012e-10,
+          3.941492531140167e-12
+        ],
+        "warmup_seconds": 0.5,
+        "warmup_peak_contact_force_n": 0
+      },
+      "ticks_completed": 41,
+      "terminated": true,
+      "truncated": false,
+      "last_game_result": {
+        "score": 2,
+        "won": false,
+        "logic_steps": 41,
+        "termination_reason": "wall_collision"
+      },
+      "exact_report_matches": 33,
+      "control_metrics": {
+        "digital_threshold": 0.3,
+        "steps": 205,
+        "target_positive_samples": 140,
+        "precision": 0.774390243902439,
+        "recall": 0.9071428571428571,
+        "f1": 0.8355263157894737,
+        "per_direction": {
+          "dpad_up": {
+            "tp": 29,
+            "fp": 0,
+            "fn": 1,
+            "f1": 0.9830508474576272
+          },
+          "dpad_down": {
+            "tp": 20,
+            "fp": 37,
+            "fn": 5,
+            "f1": 0.4878048780487805
+          },
+          "dpad_left": {
+            "tp": 74,
+            "fp": 0,
+            "fn": 6,
+            "f1": 0.961038961038961
+          },
+          "dpad_right": {
+            "tp": 4,
+            "fp": 0,
+            "fn": 1,
+            "f1": 0.8888888888888888
+          }
+        },
+        "exact_state_accuracy": 0.7560975609756098,
+        "neutral_accuracy": 1,
+        "non_dpad_false_press_rate": 0,
+        "max_contact_force_n": 15.340320801912078,
+        "min_contact_distance_m": -0.00021188213739709887,
+        "response": {
+          "press": {
+            "events_measured": 8,
+            "events_missed": 0,
+            "events_already_satisfied": 1,
+            "median_delay_s": 0.040000000000000036,
+            "p95_delay_s": 0.06600000000000003
+          },
+          "release": {
+            "events_measured": 8,
+            "events_missed": 0,
+            "events_already_satisfied": 0,
+            "median_delay_s": 0.020000000000000018,
+            "p95_delay_s": 0.020000000000000018
+          }
+        }
+      }
+    },
+    "closed_loop_ik_warmup_pd2": {
+      "seed": 520000,
+      "ticks_requested": 100,
+      "logic_fps": 10,
+      "game_checkpoint_sha256": "416ebc22a876ac633bfc0504344ab308671b2d18bf83f9cf1537315f269fac91",
+      "controller": "ik",
+      "timing": "logical-time coupled simulation; not wall-clock execution",
+      "future_targets": "only latest received command is held; no future game decisions",
+      "controller_reset": {
+        "ik_error_m": [
+          2.4547738368936003e-11,
+          8.04249954652672e-11,
+          5.086671292684797e-11,
+          1.8724552544009012e-10,
+          3.941492531140167e-12
+        ],
+        "warmup_seconds": 0.5,
+        "warmup_peak_contact_force_n": 0
+      },
+      "ticks_completed": 34,
+      "terminated": true,
+      "truncated": false,
+      "last_game_result": {
+        "score": 1,
+        "won": false,
+        "logic_steps": 34,
+        "termination_reason": "wall_collision"
+      },
+      "exact_report_matches": 28,
+      "control_metrics": {
+        "digital_threshold": 0.3,
+        "steps": 170,
+        "target_positive_samples": 115,
+        "precision": 0.7832167832167832,
+        "recall": 0.9739130434782609,
+        "f1": 0.8682170542635659,
+        "per_direction": {
+          "dpad_up": {
+            "tp": 30,
+            "fp": 0,
+            "fn": 0,
+            "f1": 1
+          },
+          "dpad_down": {
+            "tp": 8,
+            "fp": 28,
+            "fn": 2,
+            "f1": 0.34782608695652173
+          },
+          "dpad_left": {
+            "tp": 74,
+            "fp": 3,
+            "fn": 1,
+            "f1": 0.9736842105263158
+          },
+          "dpad_right": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "f1": null
+          }
+        },
+        "exact_state_accuracy": 0.8,
+        "neutral_accuracy": 1,
+        "non_dpad_false_press_rate": 0,
+        "max_contact_force_n": 12.483812246779912,
+        "min_contact_distance_m": -0.0003047267464101975,
+        "response": {
+          "press": {
+            "events_measured": 6,
+            "events_missed": 0,
+            "events_already_satisfied": 1,
+            "median_delay_s": 0.020000000000000018,
+            "p95_delay_s": 0.03500000000000003
+          },
+          "release": {
+            "events_measured": 6,
+            "events_missed": 0,
+            "events_already_satisfied": 0,
+            "median_delay_s": 0.020000000000000018,
+            "p95_delay_s": 0.020000000000000018
+          }
+        }
+      }
+    },
+    "closed_loop_ppo16k_warmup_pd8": {
+      "seed": 520000,
+      "ticks_requested": 100,
+      "logic_fps": 10,
+      "game_checkpoint_sha256": "416ebc22a876ac633bfc0504344ab308671b2d18bf83f9cf1537315f269fac91",
+      "controller": "ppo",
+      "timing": "logical-time coupled simulation; not wall-clock execution",
+      "future_targets": "only latest received command is held; no future game decisions",
+      "controller_checkpoint_sha256": "5b229eee3416f1461e7ce948600519ddae02144e4cd881fb9413de0c18ccfbe5",
+      "controller_reset": {
+        "ik_error_m": [
+          2.4547738368936003e-11,
+          8.04249954652672e-11,
+          5.086671292684797e-11,
+          1.8724552544009012e-10,
+          3.941492531140167e-12
+        ],
+        "warmup_seconds": 0.5,
+        "warmup_peak_contact_force_n": 0
+      },
+      "ticks_completed": 38,
+      "terminated": true,
+      "truncated": false,
+      "last_game_result": {
+        "score": 1,
+        "won": false,
+        "logic_steps": 38,
+        "termination_reason": "wall_collision"
+      },
+      "exact_report_matches": 25,
+      "control_metrics": {
+        "digital_threshold": 0.3,
+        "steps": 190,
+        "target_positive_samples": 145,
+        "precision": 0.6975308641975309,
+        "recall": 0.7793103448275862,
+        "f1": 0.7361563517915309,
+        "per_direction": {
+          "dpad_up": {
+            "tp": 33,
+            "fp": 15,
+            "fn": 7,
+            "f1": 0.75
+          },
+          "dpad_down": {
+            "tp": 8,
+            "fp": 32,
+            "fn": 12,
+            "f1": 0.26666666666666666
+          },
+          "dpad_left": {
+            "tp": 67,
+            "fp": 0,
+            "fn": 8,
+            "f1": 0.9436619718309859
+          },
+          "dpad_right": {
+            "tp": 5,
+            "fp": 2,
+            "fn": 5,
+            "f1": 0.5882352941176471
+          }
+        },
+        "exact_state_accuracy": 0.5736842105263158,
+        "neutral_accuracy": 1,
+        "non_dpad_false_press_rate": 0,
+        "max_contact_force_n": 15.691531670471122,
+        "min_contact_distance_m": -0.0003198052873199391,
+        "response": {
+          "press": {
+            "events_measured": 9,
+            "events_missed": 1,
+            "events_already_satisfied": 0,
+            "median_delay_s": 0.06000000000000005,
+            "p95_delay_s": 0.11999999999999995
+          },
+          "release": {
+            "events_measured": 9,
+            "events_missed": 0,
+            "events_already_satisfied": 0,
+            "median_delay_s": 0.020000000000000018,
+            "p95_delay_s": 0.020000000000000018
+          }
+        }
+      }
+    },
+    "ik_game_n2_pd8": [
+      {
+        "seed": 0,
+        "ik_error_m": [
+          2.4547738368936003e-11,
+          8.04249954652672e-11,
+          5.086671292684797e-11,
+          1.8724552544009012e-10,
+          3.941492531140167e-12
+        ],
+        "digital_threshold": 0.3,
+        "steps": 500,
+        "target_positive_samples": 390,
+        "precision": 0.7375690607734806,
+        "recall": 0.6846153846153846,
+        "f1": 0.7101063829787234,
+        "per_direction": {
+          "dpad_up": {
+            "tp": 91,
+            "fp": 0,
+            "fn": 49,
+            "f1": 0.7878787878787878
+          },
+          "dpad_down": {
+            "tp": 35,
+            "fp": 66,
+            "fn": 20,
+            "f1": 0.44871794871794873
+          },
+          "dpad_left": {
+            "tp": 64,
+            "fp": 4,
+            "fn": 21,
+            "f1": 0.8366013071895425
+          },
+          "dpad_right": {
+            "tp": 77,
+            "fp": 25,
+            "fn": 33,
+            "f1": 0.7264150943396226
+          }
+        },
+        "exact_state_accuracy": 0.608,
+        "neutral_accuracy": 1,
+        "non_dpad_false_press_rate": 0,
+        "max_contact_force_n": 11.206214926005481,
+        "min_contact_distance_m": -0.00020311993124993467,
+        "response": {
+          "press": {
+            "events_measured": 21,
+            "events_missed": 3,
+            "events_already_satisfied": 2,
+            "median_delay_s": 0.08000000000000007,
+            "p95_delay_s": 0.120000000000001
+          },
+          "release": {
+            "events_measured": 20,
+            "events_missed": 0,
+            "events_already_satisfied": 5,
+            "median_delay_s": 0.019999999999999796,
+            "p95_delay_s": 0.02000000000000135
+          }
+        }
+      }
+    ],
+    "ik_retraction_pd2": [
+      {
+        "seed": 100,
+        "ik_error_m": [
+          2.4547738368936003e-11,
+          8.04249954652672e-11,
+          5.086671292684797e-11,
+          1.8724552544009012e-10,
+          3.941492531140167e-12
+        ],
+        "digital_threshold": 0.3,
+        "steps": 500,
+        "target_positive_samples": 400,
+        "precision": 0.8775981524249422,
+        "recall": 0.95,
+        "f1": 0.9123649459783914,
+        "per_direction": {
+          "dpad_up": {
+            "tp": 97,
+            "fp": 0,
+            "fn": 5,
+            "f1": 0.9748743718592965
+          },
+          "dpad_down": {
+            "tp": 103,
+            "fp": 23,
+            "fn": 6,
+            "f1": 0.8765957446808511
+          },
+          "dpad_left": {
+            "tp": 76,
+            "fp": 2,
+            "fn": 3,
+            "f1": 0.9681528662420382
+          },
+          "dpad_right": {
+            "tp": 104,
+            "fp": 28,
+            "fn": 6,
+            "f1": 0.859504132231405
+          }
+        },
+        "exact_state_accuracy": 0.854,
+        "neutral_accuracy": 1,
+        "non_dpad_false_press_rate": 0,
+        "max_contact_force_n": 39.59957549507095,
+        "min_contact_distance_m": -0.0010064751308626173,
+        "response": {
+          "press": {
+            "events_measured": 14,
+            "events_missed": 0,
+            "events_already_satisfied": 0,
+            "median_delay_s": 0.059999999999999776,
+            "p95_delay_s": 0.0600000000000005
+          },
+          "release": {
+            "events_measured": 14,
+            "events_missed": 0,
+            "events_already_satisfied": 0,
+            "median_delay_s": 0.020000000000000018,
+            "p95_delay_s": 0.020000000000000462
+          }
+        }
+      }
+    ],
+    "ik_game_n2_pd2": [
+      {
+        "seed": 0,
+        "ik_error_m": [
+          2.4547738368936003e-11,
+          8.04249954652672e-11,
+          5.086671292684797e-11,
+          1.8724552544009012e-10,
+          3.941492531140167e-12
+        ],
+        "digital_threshold": 0.3,
+        "steps": 500,
+        "target_positive_samples": 390,
+        "precision": 0.7833698030634574,
+        "recall": 0.9179487179487179,
+        "f1": 0.8453364817001181,
+        "per_direction": {
+          "dpad_up": {
+            "tp": 131,
+            "fp": 0,
+            "fn": 9,
+            "f1": 0.966789667896679
+          },
+          "dpad_down": {
+            "tp": 49,
+            "fp": 57,
+            "fn": 6,
+            "f1": 0.6086956521739131
+          },
+          "dpad_left": {
+            "tp": 80,
+            "fp": 3,
+            "fn": 5,
+            "f1": 0.9523809523809523
+          },
+          "dpad_right": {
+            "tp": 98,
+            "fp": 39,
+            "fn": 12,
+            "f1": 0.7935222672064778
+          }
+        },
+        "exact_state_accuracy": 0.738,
+        "neutral_accuracy": 1,
+        "non_dpad_false_press_rate": 0,
+        "max_contact_force_n": 39.59957549507095,
+        "min_contact_distance_m": -0.0010064751308626173,
+        "response": {
+          "press": {
+            "events_measured": 26,
+            "events_missed": 0,
+            "events_already_satisfied": 0,
+            "median_delay_s": 0.04000000000000048,
+            "p95_delay_s": 0.0600000000000005
+          },
+          "release": {
+            "events_measured": 25,
+            "events_missed": 0,
+            "events_already_satisfied": 0,
+            "median_delay_s": 0.019999999999999574,
+            "p95_delay_s": 0.02000000000000135
+          }
+        }
+      }
+    ],
+    "ppo_trajectory_16k_eval100": [
+      {
+        "seed": 100,
+        "ik_error_m": [
+          2.4547738368936003e-11,
+          8.04249954652672e-11,
+          5.086671292684797e-11,
+          1.8724552544009012e-10,
+          3.941492531140167e-12
+        ],
+        "digital_threshold": 0.3,
+        "steps": 500,
+        "target_positive_samples": 400,
+        "precision": 0.8151658767772512,
+        "recall": 0.86,
+        "f1": 0.8369829683698297,
+        "per_direction": {
+          "dpad_up": {
+            "tp": 87,
+            "fp": 15,
+            "fn": 15,
+            "f1": 0.8529411764705882
+          },
+          "dpad_down": {
+            "tp": 92,
+            "fp": 31,
+            "fn": 17,
+            "f1": 0.7931034482758621
+          },
+          "dpad_left": {
+            "tp": 70,
+            "fp": 1,
+            "fn": 9,
+            "f1": 0.9333333333333333
+          },
+          "dpad_right": {
+            "tp": 95,
+            "fp": 31,
+            "fn": 15,
+            "f1": 0.8050847457627118
+          }
+        },
+        "exact_state_accuracy": 0.732,
+        "neutral_accuracy": 1,
+        "non_dpad_false_press_rate": 0,
+        "max_contact_force_n": 31.790104075681967,
+        "min_contact_distance_m": -0.0003596775612595486,
+        "response": {
+          "press": {
+            "events_measured": 12,
+            "events_missed": 0,
+            "events_already_satisfied": 2,
+            "median_delay_s": 0.10000000000000053,
+            "p95_delay_s": 0.12000000000000051
+          },
+          "release": {
+            "events_measured": 14,
+            "events_missed": 0,
+            "events_already_satisfied": 0,
+            "median_delay_s": 0.020000000000000018,
+            "p95_delay_s": 0.020000000000000462
+          }
+        }
+      }
+    ],
+    "steady_diagnosis": [
+      {
+        "label": 1,
+        "mean_dpad": [
+          0.9879877295428371,
+          0,
+          0,
+          0
+        ],
+        "mean_abs_tracking_error_rad": [
+          0.00048028000288020457,
+          0.000007542306163558221,
+          0.0002987518483730983,
+          0.00014297440868307642
+        ],
+        "max_abs_mimic_error_rad": 0.0028328834072344766,
+        "mean_tip_error_mm": 0.13846581722611806,
+        "contact_pairs": [
+          [
+            "robot_thumb_distal",
+            "xbox_dpad"
+          ]
+        ],
+        "peak_contact_force_n": 3.6357121057269257
+      },
+      {
+        "label": 2,
+        "mean_dpad": [
+          0,
+          0.9930530415902242,
+          0,
+          0
+        ],
+        "mean_abs_tracking_error_rad": [
+          0.00042776258704480875,
+          0.000051294075568336094,
+          0.00026199638744478504,
+          0.00024119212776591904
+        ],
+        "max_abs_mimic_error_rad": 0.003598892965592293,
+        "mean_tip_error_mm": 0.1708757780977701,
+        "contact_pairs": [
+          [
+            "robot_thumb_distal",
+            "xbox_dpad"
+          ]
+        ],
+        "peak_contact_force_n": 4.252480298070711
+      },
+      {
+        "label": 3,
+        "mean_dpad": [
+          0,
+          0,
+          0.9935121519790654,
+          0
+        ],
+        "mean_abs_tracking_error_rad": [
+          0.0003892640697316763,
+          0.00011812407679807735,
+          0.00024498256788771155,
+          0.0002908580830147034
+        ],
+        "max_abs_mimic_error_rad": 0.0043640023536419825,
+        "mean_tip_error_mm": 0.18665682283236368,
+        "contact_pairs": [
+          [
+            "robot_thumb_distal",
+            "xbox_dpad"
+          ]
+        ],
+        "peak_contact_force_n": 11.206218949699386
+      },
+      {
+        "label": 4,
+        "mean_dpad": [
+          0,
+          0,
+          0,
+          0.9983222093973672
+        ],
+        "mean_abs_tracking_error_rad": [
+          0.0007143424811361099,
+          0.00014058516342919548,
+          0.00043509461523270123,
+          0.000013160371365061874
+        ],
+        "max_abs_mimic_error_rad": 0.002208076132906578,
+        "mean_tip_error_mm": 0.11029995741785474,
+        "contact_pairs": [
+          [
+            "robot_thumb_distal",
+            "xbox_dpad"
+          ]
+        ],
+        "peak_contact_force_n": 4.589892441284842
+      }
+    ]
+  },
+  "causal_training": {
+    "planned_steps": 32768,
+    "seed": 0,
+    "num_envs": 4,
+    "lookahead_steps": 0,
+    "target_hold_seconds": [
+      0.1,
+      0.6
+    ],
+    "warmup_seconds": 0.5,
+    "hand_drive_damping": 4,
+    "status": "running",
+    "evaluation": null
+  },
+  "causal_baseline": [
+    {
+      "seed": 200,
+      "ik_error_m": [
+        2.4547738368936003e-11,
+        8.04249954652672e-11,
+        5.086671292684797e-11,
+        1.8724552544009012e-10,
+        3.941492531140167e-12
+      ],
+      "warmup_seconds": 0.5,
+      "warmup_peak_contact_force_n": 0,
+      "initial_gamepad_signal": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "digital_threshold": 0.3,
+      "steps": 500,
+      "target_positive_samples": 366,
+      "precision": 0.7814070351758794,
+      "recall": 0.8497267759562842,
+      "f1": 0.8141361256544503,
+      "per_direction": {
+        "dpad_up": {
+          "tp": 78,
+          "fp": 0,
+          "fn": 14,
+          "f1": 0.9176470588235294
+        },
+        "dpad_down": {
+          "tp": 79,
+          "fp": 87,
+          "fn": 16,
+          "f1": 0.6053639846743295
+        },
+        "dpad_left": {
+          "tp": 93,
+          "fp": 0,
+          "fn": 10,
+          "f1": 0.9489795918367347
+        },
+        "dpad_right": {
+          "tp": 61,
+          "fp": 0,
+          "fn": 15,
+          "f1": 0.8905109489051095
+        }
+      },
+      "exact_state_accuracy": 0.716,
+      "neutral_accuracy": 1,
+      "non_dpad_false_press_rate": 0,
+      "max_contact_force_n": 15.332616715163734,
+      "min_contact_distance_m": -0.00020989466702885592,
+      "response": {
+        "press": {
+          "events_measured": 22,
+          "events_missed": 0,
+          "events_already_satisfied": 1,
+          "median_delay_s": 0.08000000000000007,
+          "p95_delay_s": 0.08000000000000007
+        },
+        "release": {
+          "events_measured": 22,
+          "events_missed": 0,
+          "events_already_satisfied": 0,
+          "median_delay_s": 0.020000000000000018,
+          "p95_delay_s": 0.020000000000000462
+        }
+      }
+    },
+    {
+      "seed": 201,
+      "ik_error_m": [
+        2.4547738368936003e-11,
+        8.04249954652672e-11,
+        5.086671292684797e-11,
+        1.8724552544009012e-10,
+        3.941492531140167e-12
+      ],
+      "warmup_seconds": 0.5,
+      "warmup_peak_contact_force_n": 0,
+      "initial_gamepad_signal": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "digital_threshold": 0.3,
+      "steps": 500,
+      "target_positive_samples": 398,
+      "precision": 0.7938388625592417,
+      "recall": 0.8417085427135679,
+      "f1": 0.8170731707317073,
+      "per_direction": {
+        "dpad_up": {
+          "tp": 114,
+          "fp": 0,
+          "fn": 16,
+          "f1": 0.9344262295081968
+        },
+        "dpad_down": {
+          "tp": 61,
+          "fp": 87,
+          "fn": 16,
+          "f1": 0.5422222222222223
+        },
+        "dpad_left": {
+          "tp": 79,
+          "fp": 0,
+          "fn": 16,
+          "f1": 0.9080459770114943
+        },
+        "dpad_right": {
+          "tp": 81,
+          "fp": 0,
+          "fn": 15,
+          "f1": 0.9152542372881356
+        }
+      },
+      "exact_state_accuracy": 0.7,
+      "neutral_accuracy": 1,
+      "non_dpad_false_press_rate": 0,
+      "max_contact_force_n": 15.340251517143505,
+      "min_contact_distance_m": -0.0002248648223649921,
+      "response": {
+        "press": {
+          "events_measured": 24,
+          "events_missed": 0,
+          "events_already_satisfied": 1,
+          "median_delay_s": 0.08000000000000007,
+          "p95_delay_s": 0.08000000000000007
+        },
+        "release": {
+          "events_measured": 24,
+          "events_missed": 0,
+          "events_already_satisfied": 0,
+          "median_delay_s": 0.020000000000000018,
+          "p95_delay_s": 0.020000000000000462
+        }
+      }
+    },
+    {
+      "seed": 202,
+      "ik_error_m": [
+        2.4547738368936003e-11,
+        8.04249954652672e-11,
+        5.086671292684797e-11,
+        1.8724552544009012e-10,
+        3.941492531140167e-12
+      ],
+      "warmup_seconds": 0.5,
+      "warmup_peak_contact_force_n": 0,
+      "initial_gamepad_signal": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "digital_threshold": 0.3,
+      "steps": 500,
+      "target_positive_samples": 405,
+      "precision": 0.8293838862559242,
+      "recall": 0.8641975308641975,
+      "f1": 0.8464328899637243,
+      "per_direction": {
+        "dpad_up": {
+          "tp": 110,
+          "fp": 0,
+          "fn": 16,
+          "f1": 0.9322033898305084
+        },
+        "dpad_down": {
+          "tp": 66,
+          "fp": 72,
+          "fn": 18,
+          "f1": 0.5945945945945946
+        },
+        "dpad_left": {
+          "tp": 104,
+          "fp": 0,
+          "fn": 9,
+          "f1": 0.9585253456221198
+        },
+        "dpad_right": {
+          "tp": 70,
+          "fp": 0,
+          "fn": 12,
+          "f1": 0.9210526315789473
+        }
+      },
+      "exact_state_accuracy": 0.746,
+      "neutral_accuracy": 1,
+      "non_dpad_false_press_rate": 0,
+      "max_contact_force_n": 15.333931780247905,
+      "min_contact_distance_m": -0.00022486855800829685,
+      "response": {
+        "press": {
+          "events_measured": 21,
+          "events_missed": 0,
+          "events_already_satisfied": 2,
+          "median_delay_s": 0.08000000000000002,
+          "p95_delay_s": 0.08000000000000007
+        },
+        "release": {
+          "events_measured": 22,
+          "events_missed": 0,
+          "events_already_satisfied": 0,
+          "median_delay_s": 0.019999999999999685,
+          "p95_delay_s": 0.020000000000000462
+        }
+      }
+    }
+  ],
+  "causal_reward_ablation": {
+    "protocol": "fixed-dpad-causal-v2",
+    "requested_steps": 8192,
+    "seed": 0,
+    "num_envs": 4,
+    "status": "running",
+    "signal_reward": {
+      "type": "key_match_no_wrong",
+      "bound": 0.05,
+      "margin": 0.5,
+      "value_at_margin": 0.1
+    },
+    "evaluation": null
+  }
+}

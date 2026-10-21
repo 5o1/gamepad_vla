@@ -1,0 +1,8 @@
+# MuJoCo must be supplied as the source-built Linux x86_64 wheel in the task manifest.
+mujoco==3.16.0+concon.sdf3689.2
+numpy==2.2.6
+gymnasium==1.4.0
+stable-baselines3==2.9.0
+torch==2.10.0
+trimesh==5.1.1
+manifold3d==3.5.4

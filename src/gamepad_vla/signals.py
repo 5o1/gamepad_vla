@@ -89,3 +89,26 @@ def dpad_targets(reports):
     if reports.shape[-1:] != (len(XINPUT_NAMES),):
         raise ValueError("reports must have a trailing dimension of 20")
     return reports[..., [XINPUT_NAMES.index(name) for name in DPAD_NAMES]] > 0.5
+
+
+def sdl3_to_xinput(values, *, sdl_y_down_positive, digital_threshold=None):
+    """Map physical canonical32 values to complete upstream 20-value reports.
+
+    With ``digital_threshold`` the fourteen held buttons become 0/1, matching
+    the consuming game's button interface; six axes remain continuous. This is
+    a state conversion, never a substitution of requested target reports.
+    """
+    if not isinstance(sdl_y_down_positive, bool):
+        raise TypeError('sdl_y_down_positive must be stated explicitly as a bool')
+    values = np.asarray(values,dtype=np.float32)
+    if values.shape[-1:] != (len(SDL3_NAMES),) or not np.isfinite(values).all():
+        raise ValueError('values must be finite with a trailing dimension of 32')
+    reports = np.zeros(values.shape[:-1]+(len(XINPUT_NAMES),),dtype=np.float32)
+    for index,name in enumerate(XINPUT_NAMES):
+        value = values[...,SDL3_NAMES.index(XINPUT_TO_SDL3[name])]
+        reports[...,index] = -value if name in _STICK_Y and sdl_y_down_positive else value
+    if digital_threshold is not None:
+        if not 0 <= digital_threshold <= 1:
+            raise ValueError('digital threshold must be in [0,1]')
+        reports[...,:14] = reports[...,:14] > digital_threshold
+    return reports

@@ -17,6 +17,7 @@ dependencies = [
 
 [project.optional-dependencies]
 vla = ["torch>=2.4"]
+train = ["gymnasium==1.4.0", "stable-baselines3==2.9.0", "scipy>=1.10"]
 assets = ["scipy>=1.10", "pillow>=10", "trimesh>=4", "opencv-python>=4.10", "networkx>=3"]
 dev = ["pytest>=8", "build>=1.2"]
 sim = [

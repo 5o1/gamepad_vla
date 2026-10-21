@@ -13,6 +13,7 @@ ConCon 的灵巧手采集与控制模块：接收游戏手柄目标信号，驱�
 | 目录 | 职责 |
 |---|---|
 | `src/gamepad_vla/` | 信号映射、运动学与可复用逻辑 |
+| `src/gamepad_vla/tasks/` | 接触任务、残差控制环境与评测 |
 | `src/gamepad_vla/workstation/` | 输入源、命令、后端、采集循环、记录和操作者画面 |
 | `configs/` | 场景、材质及渲染参数 |
 | `scripts/` | 运行、资产准备和维护入口；历史实验脚本保留在私有档案中 |
@@ -63,6 +64,10 @@ python scripts/render_workcell.py configs/render/workcell_multiview_preview.yaml
 私有盘点、现场照片、Agent 交接和原始运行日志放在忽略的 `.local/` 或外部私有存储。提交前运行 `python scripts/check_public_tree.py`；只有经过审核的报告和标定数据进入仓库。
 
 实机命令需要单独的硬件执行授权。训练、采集和渲染使用各自输出目录；不要修改共享环境或兄弟仓库。
+
+## 固定手柄控制
+
+[任务指南](docs/usage/fixed-gamepad.md)说明 MuJoCo 接触环境、IK 对照、残差 PPO 和评测方法。该实验使用单独固定版本的上游开发分支与隔离环境；原有 SAPIEN 展示环境保持独立。
 
 ## 扩展工具与依据
 

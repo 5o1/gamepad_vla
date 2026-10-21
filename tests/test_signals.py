@@ -56,3 +56,20 @@ def test_names_match_xbox_gamepad_physics():
     from xbox_gamepad_physics import state
     assert state.TENSOR_LAYOUT_ID == signals.SDL3_LAYOUT_ID
     assert state.CHANNEL_NAMES == signals.SDL3_NAMES
+
+
+def test_physical_state_return_preserves_full_report_and_thresholds_only_buttons():
+    from gamepad_vla.signals import sdl3_to_xinput, SDL3_NAMES, XINPUT_NAMES
+    physical=np.zeros((2,32),dtype=np.float32)
+    physical[0,SDL3_NAMES.index('dpad_up')]=.31
+    physical[0,SDL3_NAMES.index('dpad_left')]=.30
+    physical[0,SDL3_NAMES.index('south')]=.8
+    physical[1,SDL3_NAMES.index('left_y')]=-.4
+    physical[1,SDL3_NAMES.index('right_trigger')]=.27
+    report=sdl3_to_xinput(physical,sdl_y_down_positive=True,digital_threshold=.3)
+    assert report.shape==(2,20)
+    assert report[0,XINPUT_NAMES.index('dpad_up')]==1
+    assert report[0,XINPUT_NAMES.index('dpad_left')]==0
+    assert report[0,XINPUT_NAMES.index('a')]==1
+    assert report[1,XINPUT_NAMES.index('ly')]==pytest.approx(.4)
+    assert report[1,XINPUT_NAMES.index('rt')]==pytest.approx(.27)
