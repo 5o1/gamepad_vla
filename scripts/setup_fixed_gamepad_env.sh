@@ -3,6 +3,10 @@
 set -euo pipefail
 REPO=$(cd "$(dirname "$0")/.." && pwd)
 source "$REPO/scripts/site_settings.sh"
+unset http_proxy https_proxy HTTP_PROXY HTTPS_PROXY all_proxy ALL_PROXY
+export PIP_CACHE_DIR="$GAMEPAD_VLA_WORKSPACE/cache/pip" XDG_CACHE_HOME="$GAMEPAD_VLA_WORKSPACE/cache" TMPDIR="$GAMEPAD_VLA_WORKSPACE/tmp"
+export PIP_INDEX_URL=${PIP_INDEX_URL:-https://mirror.sjtu.edu.cn/pypi/web/simple}
+mkdir -p "$PIP_CACHE_DIR" "$TMPDIR"
 BOOTSTRAP_PYTHON=
 SOURCE=
 WHEEL=

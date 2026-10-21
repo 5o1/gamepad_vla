@@ -22,7 +22,7 @@ bash scripts/setup_fixed_gamepad_env.sh --python python3.11 \
   --mujoco-wheel /path/to/patched/mujoco.whl
 ```
 
-该脚本创建独立环境，保留依赖版本和源修订；不会覆盖已有环境。若显式添加 `--inherit-site-packages`，基础 Python 的依赖只读共享，新安装仍进入独立环境；默认完整隔离。路径通过站点工作目录解析，资产与运行输出不加入 Git。
+该脚本创建独立环境，保留依赖版本和源修订；不会覆盖已有环境。临时文件与包缓存写入配置的工作目录，下载先直连，默认使用交大 PyPI 镜像，`PIP_INDEX_URL` 可覆盖。若显式添加 `--inherit-site-packages`，基础 Python 的依赖只读共享，新安装仍进入独立环境；默认完整隔离。路径通过站点工作目录解析，资产与运行输出不加入 Git。
 
 ## 运行
 
