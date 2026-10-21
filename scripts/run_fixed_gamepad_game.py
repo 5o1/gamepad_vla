@@ -10,6 +10,12 @@ import time
 from gamepad_vla.provenance import code_provenance
 
 
+def board_state(game):
+    state=game.unwrapped.state
+    return dict(width=state.width,height=state.height,snake=state.snake,
+                food=state.food,score=state.score,direction=state.direction)
+
+
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--game-checkpoint',type=Path,required=True)
@@ -18,6 +24,7 @@ def main():
     parser.add_argument('--config',type=Path,default=Path('configs/tasks/fixed_dpad_causal.json'))
     parser.add_argument('--output',type=Path,required=True)
     parser.add_argument('--ticks',type=int,default=100)
+    parser.add_argument('--record-state',action='store_true')
     parser.add_argument('--seed',type=int,default=520000)
     args=parser.parse_args()
     import numpy as np
@@ -36,6 +43,8 @@ def main():
              '--config',str(args.config.resolve()),'--output',str(args.output/'controller'),
              '--ticks',str(args.ticks),'--logic-fps',str(config.logic_fps),
              '--sdl-y-down-positive','no']
+    if args.record_state:
+        command+=['--record-state']
     if args.controller_checkpoint:
         command+=['--checkpoint',str(args.controller_checkpoint.resolve())]
     hidden=None
@@ -48,6 +57,8 @@ def main():
                   future_targets='only latest received command is held; no future game decisions')
     if args.controller_checkpoint:
         metadata['controller_checkpoint_sha256']=hashlib.sha256(args.controller_checkpoint.read_bytes()).hexdigest()
+    if args.record_state:
+        metadata['initial_game_state']=board_state(game)
     worker=None
     try:
         with (args.output/'worker.log').open('w') as log, (args.output/'game_trace.jsonl').open('w') as trace, (args.output/'control_trace.jsonl').open('w') as controls:
@@ -73,6 +84,8 @@ def main():
                     observation,_,terminated,truncated,info=game.step(actual[None])
                     row=dict(tick=tick,requested=requested[0].tolist(),executed=actual.tolist(),
                              game={k:info[k] for k in ('score','won','logic_steps','termination_reason') if k in info})
+                    if args.record_state:
+                        row['game_state']=board_state(game)
                     trace.write(json.dumps(row)+'\n');trace.flush()
                     for control in physical['control_rows']:
                         controls.write(json.dumps(control)+'\n')

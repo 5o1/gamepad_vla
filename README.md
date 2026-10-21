@@ -67,7 +67,7 @@ python scripts/render_workcell.py configs/render/workcell_multiview_preview.yaml
 
 ## 固定手柄控制
 
-[任务指南](docs/usage/fixed-gamepad.md)说明 MuJoCo 接触环境、IK 对照、残差 PPO 和评测方法。该实验使用单独固定版本的上游开发分支与隔离环境；原有 SAPIEN 展示环境保持独立。
+当前固定手柄阶段覆盖上游 `dpad5`：G20 左拇指通过 MuJoCo 接触产生完整执行报告，支持 IK 和残差 PPO。[任务指南](docs/usage/fixed-gamepad.md)提供准备、训练和闭环命令，[实验结果](docs/reports/2026-10-21-fixed-gamepad/README.md)记录三训练种子及长窗口验证。该路径使用固定开发分支与隔离环境，SAPIEN 展示环境保持独立。
 
 ## 扩展工具与依据
 

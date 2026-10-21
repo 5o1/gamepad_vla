@@ -89,6 +89,19 @@ def fixed_robot_urdf(workcell, path):
     return path
 
 
+def resolve_asset_files(xml_text, resource_root):
+    """Keep composed XML reloadable after child-spec attachment loses its base path."""
+    directory = Path(resource_root)
+    if not (directory/'manifest.json').is_file():
+        directory = directory/'mujoco/full_controls'
+    root = ET.fromstring(xml_text)
+    for asset in root.findall('asset/*[@file]'):
+        filename = Path(asset.get('file'))
+        if not filename.is_absolute():
+            asset.set('file',str((directory/filename).resolve()))
+    return ET.tostring(root,encoding='unicode')
+
+
 class FixedGamepadPhysics:
     def __init__(self, config, *, work_dir=None):
         import mujoco as mj
@@ -169,7 +182,10 @@ class FixedGamepadPhysics:
         self.robot_bodies = {i for i in range(self.model.nbody) if self.model.body(i).name.startswith('robot_')}
         self.reset()
         self.ik = ThumbIK(config, workcell, self.hand_pose())
-        (self.work_dir / 'scene.xml').write_text(parent.to_xml())
+        (self.work_dir / 'ik.json').write_text(json.dumps(dict(
+            commands=self.ik.commands.tolist(),point_errors_m=self.ik.errors,
+            hover_to_press_distance_rad=np.linalg.norm(self.ik.commands[1:]-self.ik.commands[0],axis=1).tolist()),indent=2)+'\n')
+        (self.work_dir / 'scene.xml').write_text(resolve_asset_files(parent.to_xml(),config['resource_root']))
 
     def reset(self):
         from xbox_gamepad_physics.backends.common.handle import ResetRequest
@@ -257,5 +273,28 @@ class ThumbIK:
             self.commands.append(best.x)
             self.errors.append(float(np.linalg.norm(residual(best.x)[:3])))
         self.commands = np.array(self.commands)
+        if config.get('consistent_ik', False):
+            from scipy.optimize import minimize
+            # A shared reference chooses the same local posture family for
+            # hover and press. Position and the existing normal cone remain
+            # constraints, rather than being traded for shorter joint motion.
+            anchor = self.commands[1:].mean(axis=0)
+            def point_at(q):
+                frame = chain.forward(q)[0]
+                return frame[:3,:3] @ point + frame[:3,3]
+            def cone(q):
+                return -(chain.forward(q)[0,:3,:3] @ normal) @ n - np.cos(np.deg2rad(30))
+            refined = []
+            for target,initial in zip(self.goal_points,self.commands):
+                fit = minimize(lambda q: float(np.sum(((q-anchor)/(upper-lower))**2)), initial,
+                    bounds=list(zip(lower,upper)), method='SLSQP',
+                    constraints=[{'type':'eq','fun':lambda q,target=target:point_at(q)-target},
+                                 {'type':'ineq','fun':cone}], options={'ftol':1e-12,'maxiter':200})
+                if not fit.success:
+                    raise ValueError(f'consistent thumb posture failed: {fit.message}')
+                refined.append(fit.x)
+            self.commands = np.array(refined)
+            self.errors = [float(np.linalg.norm(point_at(q)-target))
+                           for q,target in zip(self.commands,self.goal_points)]
         self.goal_points_world = self.goal_points @ hand_world[:3,:3].T + hand_world[:3,3]
         self.normal_world = hand_world[:3,:3] @ n

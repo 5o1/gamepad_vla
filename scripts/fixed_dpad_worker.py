@@ -20,6 +20,7 @@ def main():
     parser.add_argument('--logic-fps',type=float,required=True)
     parser.add_argument('--ticks',type=int,required=True)
     parser.add_argument('--checkpoint',type=Path)
+    parser.add_argument('--record-state',action='store_true')
     parser.add_argument('--sdl-y-down-positive',choices=['yes','no'],required=True)
     args=parser.parse_args()
     args.output.mkdir(parents=True,exist_ok=False)
@@ -47,7 +48,11 @@ def main():
             for _ in range(count):
                 action=np.zeros(4) if model is None else model.predict(observation,deterministic=True)[0]
                 observation,reward,_,_,info=env.step(action)
-                rows.append(dict(info,reward=reward,residual=np.asarray(action).tolist()))
+                row=dict(info,reward=reward,residual=np.asarray(action).tolist())
+                if args.record_state:
+                    row.update(qpos=env.physics.data.qpos.tolist(),qvel=env.physics.data.qvel.tolist(),
+                               physics_time_s=float(env.physics.data.time))
+                rows.append(row)
             actual=sdl3_to_xinput(rows[-1]['gamepad_signal'],
                 sdl_y_down_positive=args.sdl_y_down_positive=='yes',digital_threshold=config['digital_threshold'])
             print(json.dumps(dict(type='result',report=actual.tolist(),control_rows=rows)),flush=True)

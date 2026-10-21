@@ -49,12 +49,13 @@ def main():
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--timeline', type=Path)
     parser.add_argument('--seed',type=int,default=0)
-    parser.add_argument('--eval-seeds',type=int,nargs='+',default=[100,101,102])
+    parser.add_argument('--eval-seeds',type=int,nargs='+',default=[300,301,302])
     parser.add_argument('--steps',type=int,default=100000)
     parser.add_argument('--checkpoint',type=Path)
     parser.add_argument('--device',default='cpu')
     parser.add_argument('--torch-threads',type=int,default=1)
     parser.add_argument('--num-envs',type=int,default=1)
+    parser.add_argument('--initial-log-std',type=float,default=-3.,help='Gaussian exploration for a fresh residual policy (default: -3)')
     args = parser.parse_args()
     if args.num_envs < 1:
         parser.error("--num-envs must be positive")
@@ -64,8 +65,9 @@ def main():
     env = FixedDpadEnv(config,sequence=sequence,work_dir=args.output/'model')
     run = dict(mode=args.mode, seed=args.seed, config=config, num_envs=args.num_envs,
                requested_steps=args.steps,device=args.device,torch_threads=args.torch_threads,
+               initial_log_std=args.initial_log_std if args.checkpoint is None else None,
                provenance=code_provenance(Path(__file__).resolve().parents[1]),
-               environment={n:importlib.metadata.version(n) for n in ['mujoco','numpy','gymnasium','stable-baselines3','torch']},
+               environment={n:importlib.metadata.version(n) for n in ['mujoco','numpy','scipy','gymnasium','stable-baselines3','torch']},
                scope='Simulation contact control; estimated hand drives and asset contact parameters, no hardware validation.')
     (args.output/'run.json').write_text(json.dumps(run,indent=2)+'\n')
     try:
@@ -113,7 +115,9 @@ def main():
                 model = (PPO.load(args.checkpoint,env=monitored,device=args.device) if args.checkpoint else
                          PPO('MlpPolicy',monitored,n_steps=512,batch_size=256,n_epochs=10,
                              learning_rate=3e-4,seed=args.seed,device=args.device,verbose=1,
-                             policy_kwargs={'net_arch':dict(pi=[256,256],vf=[256,256])}))
+                             policy_kwargs={'net_arch':dict(pi=[256,256],vf=[256,256]),'log_std_init':args.initial_log_std}))
+                run['policy_log_std_at_start']=model.policy.log_std.detach().cpu().tolist()
+                (args.output/'run.json').write_text(json.dumps(run,indent=2)+'\n')
                 try:
                     model.learn(total_timesteps=args.steps,callback=CheckpointCallback(
                         save_freq=max(1,2048//args.num_envs),save_path=str(args.output/'checkpoints')),reset_num_timesteps=not bool(args.checkpoint))

@@ -1,7 +1,8 @@
 """Gymnasium residual task: a fixed G20 thumb physically follows D-pad targets.
 
-Reference: APRPianist e31c010, IK base + bounded PPO residual, structured state
-and ten future targets. No human motion prior is enabled without gamepad data.
+Reference: APRPianist e31c010, IK base + bounded PPO residual and structured
+state. Online goals are causal; known-sequence lookahead is a separate control.
+No human motion prior is enabled without gamepad data.
 """
 import numpy as np
 import gymnasium as gym
@@ -44,14 +45,22 @@ def compute_signal_reward(values, target, available, threshold, specification):
         positive = float(np.mean(np.clip(measured[on],0,1))) if np.any(on) else 1.
         negative = float(1-np.max(measured[~on])) if np.any(~on) else 1.
         return positive*negative
-    if specification['type'] != 'key_match_no_wrong':
+    if specification['type'] not in {'key_match_no_wrong','digital_hold_no_wrong'}:
         raise ValueError('unknown signal reward type')
     desired = np.zeros(32)
     desired[DPAD_INDICES] = target
     undesired = np.asarray(available,dtype=bool).copy()
     undesired[DPAD_INDICES] &= ~on
     wrong = bool(np.any(np.abs(values[undesired]) > threshold))
-    error = float(np.linalg.norm((values-desired)[available]))
+    difference = values-desired
+    if specification['type'] == 'digital_hold_no_wrong':
+        margin = specification['on_margin']
+        indices = DPAD_INDICES[on]
+        # A requested digital hold is satisfied above closure plus a margin;
+        # extra mechanical travel adds no task reward. Wrong controls retain
+        # their actual state and digital penalty.
+        difference[indices] = np.maximum(0.,threshold+margin-values[indices])/margin
+    error = float(np.linalg.norm(difference[available]))
     scaled = max(0.,error-specification['bound'])/specification['margin']
     tolerance = specification['value_at_margin'] ** (scaled*scaled)
     return float(tolerance-wrong)

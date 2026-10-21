@@ -149,3 +149,31 @@ def test_reference_key_reward_prefers_release_to_conflicting_digital_press():
     assert compute_signal_reward(conflicting,target,mask,.3,product)>compute_signal_reward(neutral,target,mask,.3,product)
     non_task=correct.copy();non_task[6]=1.
     assert compute_signal_reward(non_task,target,mask,.3,reference)<0.
+
+
+def test_digital_hold_reward_does_not_incentivize_bottoming_out():
+    from gamepad_vla.tasks.dpad_env import compute_signal_reward
+    target=np.array([1.,0,0,0]);mask=np.ones(32,dtype=bool)
+    partial=np.zeros(32);partial[DPAD_INDICES[0]]=.5
+    full=partial.copy();full[DPAD_INDICES[0]]=1.
+    missing=partial.copy();missing[DPAD_INDICES[0]]=.29
+    wrong=partial.copy();wrong[DPAD_INDICES[2]]=.31
+    spec=dict(type='digital_hold_no_wrong',bound=.05,margin=.5,value_at_margin=.1,on_margin=.1)
+    partial_reward=compute_signal_reward(partial,target,mask,.3,spec)
+    assert partial_reward==compute_signal_reward(full,target,mask,.3,spec)==1.
+    assert compute_signal_reward(missing,target,mask,.3,spec)<partial_reward
+    assert compute_signal_reward(wrong,target,mask,.3,spec)<0.
+
+
+def test_composed_scene_keeps_child_asset_paths_reloadable(tmp_path):
+    import xml.etree.ElementTree as ET
+    from gamepad_vla.tasks.fixed_gamepad import resolve_asset_files
+    resources=tmp_path/'resources'
+    artifact=resources/'mujoco/full_controls';artifact.mkdir(parents=True)
+    (artifact/'manifest.json').write_text('{}')
+    original='<mujoco><asset><mesh name="pad" file="meshes/pad.obj"/><texture name="paint" file="textures/rgb.png"/><mesh name="arm" file="/already/absolute/arm.stl"/></asset></mujoco>'
+    for base in (resources,artifact):
+        xml=ET.fromstring(resolve_asset_files(original,base))
+        assert xml.find('asset/mesh[@name="pad"]').get('file')==str(artifact/'meshes/pad.obj')
+        assert xml.find('asset/texture').get('file')==str(artifact/'textures/rgb.png')
+        assert xml.find('asset/mesh[@name="arm"]').get('file')=='/already/absolute/arm.stl'
