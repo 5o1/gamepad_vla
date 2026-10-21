@@ -1,0 +1,9 @@
+{
+  "domain": "87",
+  "topics": [
+    "/gamepad_vla_test/left_hand_command",
+    "/gamepad_vla_test/left_arm_command",
+    "/gamepad_vla_test/right_hand_command",
+    "/gamepad_vla_test/right_arm_command"
+  ]
+}

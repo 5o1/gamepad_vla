@@ -1,0 +1,20 @@
+{
+  "head": "ac5001c34c20d381a6c37bfec4eeec0c860fe321",
+  "tested_worktree": {
+    "tracked_diff_sha256": "6347fb9b7bd3ab08e4af39ff57d45d89a9c30032fb7e9e536b75e4e729ae9b14",
+    "files_manifest_sha256": "14df0a1482eba4a9f70a165906474317f318afbc754f8648d41eacbc7d3ea695",
+    "files_manifest": "~/gamepad_vla/deployment/resume/test-files.sha256"
+  },
+  "final_tracked_diff_sha256": "01cc87a7646499131c7c99b01ec11b2a11ac84bf6d005552331efaa3e17291d2",
+  "note": "Tested runtime is unchanged; final additions are documentation and report artifacts. Untracked content is covered by file manifest, not tracked diff.",
+  "handoff": {
+    "manifest_sha256": "56fbb2477f6eee5d1adf1d176913829820be1d892e01bc91aac44cdc8268e5c6",
+    "manifest": "resume-files.sha256",
+    "manifest_count": 292,
+    "manifest_excludes": [
+      "docs/reports/2026-10-22-station-install/resume-files.sha256",
+      "docs/reports/2026-10-22-station-install/resume-snapshot.json"
+    ],
+    "exclusion_note": "Only the manifest and its snapshot metadata are excluded to avoid self-reference; both are included in the deployment archive."
+  }
+}

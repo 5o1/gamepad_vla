@@ -1,0 +1,45 @@
+{
+  "initial_gpu_memory_mib": 356,
+  "initial_gpu_util_percent": 4,
+  "pretest_gpu_memory_mib": 360,
+  "post_gpu_memory_mib": 360,
+  "post_gpu_util_percent": 7,
+  "driver": "580.173.02",
+  "gpu": "RTX 4090",
+  "baseline_gpu_processes": [
+    "Xorg",
+    "gnome-shell",
+    "snapd-desktop-integration",
+    "Firefox",
+    "RobotAssist"
+  ],
+  "final_gpu_processes": [
+    "Xorg",
+    "gnome-shell",
+    "snapd-desktop-integration",
+    "Firefox",
+    "RobotAssist"
+  ],
+  "our_gpu_processes": 0,
+  "pgrep_rc": 1,
+  "pgrep_matches": "",
+  "domain87_processes": [],
+  "preflight_utc": "2026-10-21T20:44:07Z",
+  "cleanup_utc": "2026-10-21T20:46:46Z",
+  "vulkan_nvidia_icd_present": true,
+  "system_python": "Python 3.10.12",
+  "conda_exists": true,
+  "initial_disk_available": "521 GiB (df -h)",
+  "network_http_status": {
+    "PyPI": 200,
+    "SJTU": 200,
+    "GitHub": 200
+  },
+  "installation_root_initially_absent": true,
+  "data_root_preexisting": true,
+  "hardware_nodes_observed": 0,
+  "estop_exists": true,
+  "gpu_gate_reason": "Existing graphics applications belong to other work; strict no-other-process rule applied",
+  "m1_b_status": "not executed",
+  "m1_d_status": "not executed"
+}

@@ -1,0 +1,13 @@
+{
+  "passed": 124,
+  "skipped": 3,
+  "failures": 0,
+  "errors": 0,
+  "reported_tests": 127,
+  "pytest_seconds": 0.55,
+  "skip_reasons": [
+    "gymnasium not installed (test_fixed_dpad module)",
+    "torch not installed (test_vla_adapter module)",
+    "resnake_gym not installed (test_names_match_resnake_gym)"
+  ]
+}

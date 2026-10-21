@@ -1,0 +1,16 @@
+[
+  {
+    "poll_hz": 60,
+    "published": 800,
+    "received": 120,
+    "receive_age_p50_ms": 96.64595127105713,
+    "receive_age_p95_ms": 427.54848003387445
+  },
+  {
+    "poll_hz": 1000,
+    "published": 800,
+    "received": 800,
+    "receive_age_p50_ms": 1.984238624572754,
+    "receive_age_p95_ms": 3.9043545722961426
+  }
+]

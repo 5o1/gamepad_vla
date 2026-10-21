@@ -1,0 +1,57 @@
+{
+  "publication_rates": {
+    "left_arm": {
+      "count": 6000,
+      "first_last_span_s": 59.990025065,
+      "rate_hz": 99.99995821805379,
+      "strictly_monotonic": true
+    },
+    "left_hand": {
+      "count": 6000,
+      "first_last_span_s": 59.990058118,
+      "rate_hz": 99.99990312061394,
+      "strictly_monotonic": true
+    },
+    "right_arm": {
+      "count": 6000,
+      "first_last_span_s": 59.990016837,
+      "rate_hz": 99.99997193366349,
+      "strictly_monotonic": true
+    },
+    "right_hand": {
+      "count": 6000,
+      "first_last_span_s": 59.990019268,
+      "rate_hz": 99.99996788132387,
+      "strictly_monotonic": true
+    }
+  },
+  "journal_command_stamps_nondecreasing": {
+    "left_arm": true,
+    "left_hand": true,
+    "right_arm": true,
+    "right_hand": true
+  },
+  "changed_hand_rows": 28,
+  "all_changes_explained_by_round_clamp": true,
+  "max_changed_motor_abs_difference": 0.49468231201171875,
+  "samples": [
+    {
+      "key": "right_hand",
+      "published_index": 1998,
+      "max_abs_difference": 0.3281288146972656,
+      "exactly_round_clamp": true
+    },
+    {
+      "key": "right_hand",
+      "published_index": 2003,
+      "max_abs_difference": 0.3303985595703125,
+      "exactly_round_clamp": true
+    },
+    {
+      "key": "right_hand",
+      "published_index": 2008,
+      "max_abs_difference": 0.3109130859375,
+      "exactly_round_clamp": true
+    }
+  ]
+}

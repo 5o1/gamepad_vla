@@ -1,0 +1,69 @@
+{
+  "export": {
+    "rows": 19500,
+    "features": {
+      "observation.state": [
+        56
+      ],
+      "action": [
+        54
+      ],
+      "observation.gamepad_signal": [
+        32
+      ],
+      "observation.gamepad_mask": [
+        32
+      ],
+      "observation.world_poses": [
+        84
+      ],
+      "observation.sim_time_s": [
+        1
+      ],
+      "observation.wall_time_ns": [
+        1
+      ],
+      "timestamp": [
+        1
+      ],
+      "frame_index": [
+        1
+      ],
+      "episode_index": [
+        1
+      ],
+      "index": [
+        1
+      ],
+      "task_index": [
+        1
+      ]
+    },
+    "codebase_version": "v3.0"
+  },
+  "native_readback": {
+    "native_reader": "lerobot==0.4.0",
+    "codebase_version": "v3.0",
+    "rows": 19500,
+    "shapes": {
+      "observation.state": [
+        56
+      ],
+      "action": [
+        54
+      ],
+      "observation.gamepad_signal": [
+        32
+      ],
+      "observation.gamepad_mask": [
+        32
+      ],
+      "observation.world_poses": [
+        84
+      ]
+    },
+    "all_rows_read": true
+  },
+  "episode_transfer_byte_identical": true,
+  "parquet_roundtrip_all_features": true
+}

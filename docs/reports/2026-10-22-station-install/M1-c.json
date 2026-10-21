@@ -1,0 +1,58 @@
+{
+  "channels": {
+    "left_hand": {
+      "published": 6000,
+      "first_applied": 1210,
+      "recorded_unique": 1210,
+      "missing_from_episode": 4790,
+      "value_mismatches": 0,
+      "applied_value_mismatches": 0,
+      "unknown_stamps": 0,
+      "reorders": 0,
+      "p50_ms": 99.8552305,
+      "p95_ms": 99.95016075000001
+    },
+    "left_arm": {
+      "published": 6000,
+      "first_applied": 1210,
+      "recorded_unique": 1210,
+      "missing_from_episode": 4790,
+      "value_mismatches": 0,
+      "applied_value_mismatches": 0,
+      "unknown_stamps": 0,
+      "reorders": 0,
+      "p50_ms": 99.614784,
+      "p95_ms": 99.73151179999999
+    },
+    "right_hand": {
+      "published": 6000,
+      "first_applied": 1210,
+      "recorded_unique": 1210,
+      "missing_from_episode": 4790,
+      "value_mismatches": 28,
+      "applied_value_mismatches": 28,
+      "unknown_stamps": 0,
+      "reorders": 0,
+      "p50_ms": 99.66369599999999,
+      "p95_ms": 99.80686295000001
+    },
+    "right_arm": {
+      "published": 6000,
+      "first_applied": 1210,
+      "recorded_unique": 1210,
+      "missing_from_episode": 4790,
+      "value_mismatches": 0,
+      "applied_value_mismatches": 0,
+      "unknown_stamps": 0,
+      "reorders": 0,
+      "p50_ms": 99.539142,
+      "p95_ms": 99.67764525
+    }
+  },
+  "published_total": 24000,
+  "recorded_unique_total": 4840,
+  "publish_to_apply_p50_ms": 99.654202,
+  "publish_to_apply_p95_ms": 99.91553264999999,
+  "latency_denominator": "first applications with matching publication; missing commands excluded and reported explicitly",
+  "pass_gate": false
+}

@@ -1,0 +1,60 @@
+{
+  "channels": {
+    "left_hand": {
+      "published": 6000,
+      "recorded": 6000,
+      "bitwise_exact_and_ordered": true,
+      "timestamps_monotonic": true,
+      "publish_hz": 100.00730679156264,
+      "applied_unique": 3599,
+      "apply_p50_ms": 3.587914,
+      "apply_p95_ms": 6.9537239
+    },
+    "left_arm": {
+      "published": 6000,
+      "recorded": 6000,
+      "bitwise_exact_and_ordered": true,
+      "timestamps_monotonic": true,
+      "publish_hz": 100.00747413751539,
+      "applied_unique": 3599,
+      "apply_p50_ms": 3.530193,
+      "apply_p95_ms": 6.9329454
+    },
+    "right_hand": {
+      "published": 6000,
+      "recorded": 6000,
+      "bitwise_exact_and_ordered": true,
+      "timestamps_monotonic": true,
+      "publish_hz": 100.00865950459773,
+      "applied_unique": 3599,
+      "apply_p50_ms": 3.498196,
+      "apply_p95_ms": 9.9291724
+    },
+    "right_arm": {
+      "published": 6000,
+      "recorded": 6000,
+      "bitwise_exact_and_ordered": true,
+      "timestamps_monotonic": true,
+      "publish_hz": 100.00924486526478,
+      "applied_unique": 3599,
+      "apply_p50_ms": 3.467543,
+      "apply_p95_ms": 10.128356
+    }
+  },
+  "published_total": 24000,
+  "recorded_total": 24000,
+  "decode_errors": 0,
+  "control_hz": 60,
+  "rows": 3661,
+  "sim_duration_s": 61.016,
+  "wall_duration_s": 62.397505964152515,
+  "receive_p50_ms": 0.3461765,
+  "receive_p95_ms": 0.7119682500000001,
+  "publish_to_apply_p50_ms": 3.543498,
+  "publish_to_apply_p95_ms": 6.9579895,
+  "latency_denominator": 14396,
+  "latency_semantics": "first applications of latest selected targets; every received message remains in command journal, superseded targets are not applied",
+  "schema_version": 3,
+  "overlay_equal": true,
+  "pass_gate": true
+}

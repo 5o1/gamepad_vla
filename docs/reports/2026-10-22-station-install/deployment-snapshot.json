@@ -1,0 +1,18 @@
+{
+  "head": "ac5001c34c20d381a6c37bfec4eeec0c860fe321",
+  "tracked_diff_sha256": "6347fb9b7bd3ab08e4af39ff57d45d89a9c30032fb7e9e536b75e4e729ae9b14",
+  "manifest_sha256": "b994624cea3622305307303dc63c8cb5fc0f319ba73ff8a2cf4eafa9b3d0c07c",
+  "file_count": 268,
+  "bytes": 17181903,
+  "manifest": "files.sha256",
+  "untracked_files": "included in content manifest; tracked diff alone does not cover them",
+  "exclusions": [
+    "all gitignored files",
+    ".local/",
+    ".venv/",
+    ".git/",
+    "assets/",
+    "files larger than 8 MiB"
+  ],
+  "oversize_excluded": []
+}

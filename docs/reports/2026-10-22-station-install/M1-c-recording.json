@@ -1,0 +1,9 @@
+{
+  "rows": 6300,
+  "sim_duration_s": 62.999,
+  "wall_s": 63.68172663683072,
+  "decode_errors": 0,
+  "received_packets": 4840,
+  "overlay_actual_equal": true,
+  "observation_wall_time_monotonic": true
+}

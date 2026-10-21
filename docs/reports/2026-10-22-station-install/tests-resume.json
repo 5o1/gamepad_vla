@@ -1,0 +1,28 @@
+{
+  "compute": {
+    "passed": 127,
+    "skipped": 3,
+    "failed": 0,
+    "seconds": 5.7,
+    "real_rclpy_executed": true,
+    "rclpy_version": "3.3.21"
+  },
+  "station": {
+    "passed": 126,
+    "skipped": 4,
+    "failed": 0,
+    "seconds": 0.55,
+    "real_rclpy_pytest_opt_in": false,
+    "separate_60s_real_ros_acceptance": true
+  },
+  "local_targeted": {
+    "passed": 19,
+    "failed": 0
+  },
+  "skip_reasons": [
+    "gymnasium absent",
+    "torch absent",
+    "resnake_gym absent"
+  ],
+  "station_additional_skip": "opt-in real ROS pytest not enabled; separate 60s acceptance executed"
+}

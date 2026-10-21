@@ -1,0 +1,22 @@
+{
+  "src/gamepad_vla/workstation/collection_sapien.py": {
+    "before": "ce06a222cde152d0f8ca50fe7eaf2c2b22a65915e530669efc405339f20d661d",
+    "after": "ce06a222cde152d0f8ca50fe7eaf2c2b22a65915e530669efc405339f20d661d"
+  },
+  "src/gamepad_vla/workstation/collection_mujoco.py": {
+    "before": "532dacf2979c14a7b1140b3dadb3ec054dd49c67cf32826afacdb409e7150112",
+    "after": "532dacf2979c14a7b1140b3dadb3ec054dd49c67cf32826afacdb409e7150112"
+  },
+  "src/gamepad_vla/workstation/contact.py": {
+    "before": "f72a52a47f6f654cc6afb0f52203750243ee0d6186d4ac88b846db0a2706c1a2",
+    "after": "f72a52a47f6f654cc6afb0f52203750243ee0d6186d4ac88b846db0a2706c1a2"
+  },
+  "src/gamepad_vla/tasks/fixed_gamepad.py": {
+    "before": "2befadf3054f0b0f1ae6f3984aef0d7164c0c6b619658d411e8d0762ef93449e",
+    "after": "2befadf3054f0b0f1ae6f3984aef0d7164c0c6b619658d411e8d0762ef93449e"
+  },
+  "configs/workcell/station_g20_v4_4.json": {
+    "before": "262641b0caa3cbfcfc828434184cf35a21f965cb8c48b56a3ba868b2f67d36c6",
+    "after": "262641b0caa3cbfcfc828434184cf35a21f965cb8c48b56a3ba868b2f67d36c6"
+  }
+}
