@@ -61,13 +61,15 @@ python scripts/run_fixed_dpad.py ik \
 `run_fixed_gamepad_game.py` 在游戏环境运行，显式传入本项目 MuJoCo 环境的 Python。它启动独立模拟工作进程，将游戏策略的完整目标报告交给手部控制器，并把实际接触状态转换成完整 20 维执行报告后送回游戏。没有用请求报告替代物理反馈，也不向控制器提供未来游戏决策。
 
 ```bash
+PYTHONPATH="$PWD/src:/path/to/compatible/resnake-checkout/src${PYTHONPATH:+:$PYTHONPATH}" \
 /path/to/game/python scripts/run_fixed_gamepad_game.py \
   --game-checkpoint /path/to/game-policy.pt \
   --controller-python "$GAMEPAD_VLA_WORKSPACE/envs/fixed-gamepad-mujoco-py311/bin/python" \
-  --ticks 100 --seed 520000 --output "$GAMEPAD_VLA_WORKSPACE/runs/dpad-game-loop"
+  --controller-checkpoint "$GAMEPAD_VLA_WORKSPACE/runs/dpad-ppo-seed0/policy.zip" \
+  --ticks 1000 --seed 520021 --output "$GAMEPAD_VLA_WORKSPACE/runs/dpad-game-loop"
 ```
 
-父进程需可导入兼容的 `resnake_gym`，子进程需可导入固定修订的手柄适配器和本项目；保留各自依赖环境。`--controller-checkpoint` 可使用残差策略，省略则运行 IK。输出分别记录请求与执行报告、游戏结果和每个物理控制步。该入口是逻辑时间耦合仿真，既不证明实时吞吐，也不调用采集台硬件。
+父进程通过进程级 `PYTHONPATH` 读取本项目与兼容的 `resnake_gym` 源码，子进程使用专用环境里已安装的固定手柄适配器和本项目；保留各自依赖环境，不向共享游戏环境安装下游依赖。`--controller-checkpoint` 可使用残差策略，省略则运行 IK。输出分别记录请求与执行报告、游戏结果和每个物理控制步。该入口是逻辑时间耦合仿真，既不证明实时吞吐，也不调用采集台硬件。
 
 ## 建模与验证边界
 

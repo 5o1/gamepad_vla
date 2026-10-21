@@ -2668,6 +2668,33 @@
     "skip_reason": "optional resnake_gym package absent from the isolated test environment",
     "pip_check": "passed",
     "wheel_and_sdist": "checked",
-    "source_built_wheel_preflight": "Python3.11, clean pinned Git source, reviewed wheel and equivalent payload archive checked"
+    "source_built_wheel_preflight": "Python3.11, clean pinned Git source, reviewed wheel and equivalent payload archive checked",
+    "installed_deployment": {
+      "code": {
+        "git_commit": "b2abcf1f22e568dda2dbda8426037ce015e3bc70",
+        "dirty": false,
+        "source_sha256": "af0a0dbb284e3b163b30b2fdb45cb4045847a08eff9c87c62565178066f80442",
+        "deployment_modified": false
+      },
+      "private_site_preserved": true,
+      "installed_versions": {
+        "gamepad-vla": "0.1.0",
+        "xbox-gamepad-physics": "0.4.0",
+        "mujoco": "3.16.0+concon.sdf3689.2",
+        "scipy": "1.15.3",
+        "torch": "2.10.0"
+      },
+      "evaluation_identical": true,
+      "evaluation_cases": 3,
+      "game_seed": 520040,
+      "game_ticks": 100,
+      "exact_game_reports": 100,
+      "game_result": {
+        "score": 6,
+        "won": false,
+        "logic_steps": 100,
+        "termination_reason": null
+      }
+    }
   }
 }
