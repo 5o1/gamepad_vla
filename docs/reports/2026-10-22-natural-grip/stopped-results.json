@@ -1,0 +1,359 @@
+{
+  "status": "stopped_by_user",
+  "final_conclusion": false,
+  "counts_are_finite_search_only": true,
+  "single_hand": {
+    "left": {
+      "optimizer_proposals": 128,
+      "native_checked": 128,
+      "native_pure_grips": 14,
+      "control_tested_grips": 14,
+      "maximum_control_coverage": 0,
+      "source": "native-left/native.json"
+    },
+    "right": {
+      "optimizer_proposals": 128,
+      "native_checked": 128,
+      "native_pure_grips": 11,
+      "control_tested_grips": 11,
+      "maximum_control_coverage": 0,
+      "source": "native-right/native.json"
+    }
+  },
+  "first_joint": {
+    "starts": 64,
+    "native_checked": 64,
+    "native_accepted": 0,
+    "source": "joint/result.json"
+  },
+  "joint_roll": {
+    "requested_starts": 128,
+    "completed_proposals": 60,
+    "point_and_natural_both": 51,
+    "native_stage_completed": false,
+    "native_accepted_count": null,
+    "source": "joint-roll/checkpoints",
+    "state": "interrupted by user; uncompleted proposals and native checks not counted"
+  },
+  "common_probe": {
+    "attempts": 4,
+    "native_pure_common_placements": 1,
+    "source": "common-pose-probe/result.json",
+    "successes": [
+      {
+        "pad4": [
+          0.5327922699692595,
+          0.8101981871764535,
+          0.12505550391195133,
+          0.2442568321428329
+        ],
+        "sides": {
+          "right": {
+            "x": [
+              0.5327922699692595,
+              0.8101981871764535,
+              0.12505550391195133,
+              0.2442568321428329,
+              0.4763942565316391,
+              1.3803901911406433,
+              0.6108513162132485,
+              1.6186880969215542,
+              3.1066866543135343,
+              0.4587046126298129,
+              -0.4399508158562761,
+              0.22326143151561184,
+              0.2521729837982107,
+              0.1333143799697546,
+              0.2007746686291477,
+              0.06359174238255938,
+              0.09438567984886001,
+              0.22873576941807372,
+              -0.06576894507332265,
+              0.2681113005993538,
+              0.10200054042677725,
+              -0.034654201580719836,
+              0.4842883573130765,
+              0.5949642189152367,
+              -0.22986923804565282,
+              0.676873096163768,
+              0.00017070099525360956
+            ],
+            "check": {
+              "passed": true,
+              "reasons": [],
+              "grips": [
+                "pinky",
+                "ring"
+              ],
+              "violations": [],
+              "table_clearance_m": {
+                "H": 0.06971911554382448,
+                "A": 0.13703556806948192
+              },
+              "camera": {
+                "passed": true,
+                "reasons": [],
+                "margin_px": 54.89925278848119,
+                "group_margins_px": {
+                  "gamepad_mesh": 54.89925278848119,
+                  "right_fingertips": 162.30901112318213,
+                  "right_palm_root": 336.9608734122929
+                },
+                "centroid_distances_m": {
+                  "gamepad": 0.5719020565357046,
+                  "right": 0.545451106933227
+                }
+              },
+              "natural": {
+                "upper_tilt_deg": 29.749835151464765,
+                "forearm_pitch_deg": 7.706200997289852,
+                "forearm_heading_deg": 0.9617189709438337,
+                "elbow_angle_deg": 91.23048627221198,
+                "wrist_deviation_deg": 34.27564558997248,
+                "deviation": 0.649989010097651,
+                "natural": true,
+                "upper_forward": true,
+                "shoulder_axis_gap_m": 4.163336342344337e-17
+              },
+              "grip_point_error_m": [
+                0.0001462726678641121,
+                0.00020109215395372563
+              ],
+              "support_distance_lower_bound_m": 0.0005793768571826149,
+              "active_contact": null,
+              "gamepad_pose": [
+                0.5327922699692595,
+                0.8101981871764535,
+                0.9318150247756919,
+                0.7018399598764511,
+                0.0861433150083147,
+                -0.08614331500831468,
+                -0.701839959876451
+              ],
+              "palm_world": [
+                0.3937570848272505,
+                0.6157348289192944,
+                0.9648943823873699,
+                0.49377008209300893,
+                -0.8421076298757645,
+                0.0072664254510345,
+                -0.2167787923115413
+              ],
+              "arm_q": [
+                0.4763942565316391,
+                1.3803901911406433,
+                0.6108513162132485,
+                1.6186880969215542,
+                3.1066866543135343,
+                0.4587046126298129,
+                -0.4399508158562761
+              ],
+              "hand_q": {
+                "thumb_cmc_roll": 0.22326143151561184,
+                "thumb_cmc_yaw": 0.2521729837982107,
+                "thumb_cmc_pitch": 0.1333143799697546,
+                "thumb_mcp": 0.2007746686291477,
+                "index_mcp_roll": 0.06359174238255938,
+                "index_mcp_pitch": 0.09438567984886001,
+                "index_pip": 0.22873576941807372,
+                "middle_mcp_roll": -0.06576894507332265,
+                "middle_mcp_pitch": 0.2681113005993538,
+                "middle_pip": 0.10200054042677725,
+                "ring_mcp_roll": -0.034654201580719836,
+                "ring_mcp_pitch": 0.4842883573130765,
+                "ring_pip": 0.5949642189152367,
+                "pinky_mcp_roll": -0.22986923804565282,
+                "pinky_mcp_pitch": 0.676873096163768,
+                "pinky_pip": 0.00017070099525360956
+              }
+            }
+          },
+          "left": {
+            "x": [
+              0.5327922699692595,
+              0.8101981871764535,
+              0.12505550391195133,
+              0.2442568321428329,
+              3.102031868506868,
+              -0.9863962147467805,
+              2.2286587025259146,
+              2.0879897426638028,
+              -1.9216335681267216,
+              0.921850835028682,
+              0.8796818151023811,
+              0.6871080059041915,
+              0.7705425494783004,
+              0.41226480354245054,
+              0.6183972053136303,
+              -0.06855715361771463,
+              0.4281745056226305,
+              0.6106751145765545,
+              0.034655478771121934,
+              0.7019123567408017,
+              1.001088115351635,
+              0.15414371512408673,
+              1.2168600398344114,
+              0.28170722421906674,
+              0.21475195624090695,
+              1.156561829435939,
+              0.20692377188031888
+            ],
+            "check": {
+              "passed": true,
+              "reasons": [],
+              "grips": [
+                "pinky",
+                "ring"
+              ],
+              "violations": [],
+              "table_clearance_m": {
+                "H": 0.06293150153604077,
+                "A": 0.14590706714523305
+              },
+              "camera": {
+                "passed": true,
+                "reasons": [],
+                "margin_px": 54.89925278848119,
+                "group_margins_px": {
+                  "gamepad_mesh": 54.89925278848119,
+                  "left_fingertips": 157.4181643638183,
+                  "left_palm_root": 237.83817968493003
+                },
+                "centroid_distances_m": {
+                  "gamepad": 0.5719020565357046,
+                  "left": 0.5989920816884143
+                }
+              },
+              "natural": {
+                "upper_tilt_deg": 32.58007108902588,
+                "forearm_pitch_deg": 6.496219859748756,
+                "forearm_heading_deg": 17.965089197511265,
+                "elbow_angle_deg": 64.34148265263734,
+                "wrist_deviation_deg": 65.23913744957596,
+                "deviation": 0.8386714059350585,
+                "natural": true,
+                "upper_forward": true,
+                "shoulder_axis_gap_m": 0.0
+              },
+              "grip_point_error_m": [
+                0.0001485457610022341,
+                0.0001480641275466248
+              ],
+              "support_distance_lower_bound_m": 0.002,
+              "active_contact": null,
+              "gamepad_pose": [
+                0.5327922699692595,
+                0.8101981871764535,
+                0.9318150247756919,
+                0.7018399598764511,
+                0.0861433150083147,
+                -0.08614331500831468,
+                -0.701839959876451
+              ],
+              "palm_world": [
+                0.3354116848484869,
+                0.8743592909705266,
+                0.9440152315436646,
+                0.00866937124357927,
+                -0.9013382602985046,
+                -0.06152783228402945,
+                -0.42863563591789094
+              ],
+              "arm_q": [
+                3.102031868506868,
+                -0.9863962147467805,
+                2.2286587025259146,
+                2.0879897426638028,
+                -1.9216335681267216,
+                0.921850835028682,
+                0.8796818151023811
+              ],
+              "hand_q": {
+                "thumb_cmc_roll": 0.6871080059041915,
+                "thumb_cmc_yaw": 0.7705425494783004,
+                "thumb_cmc_pitch": 0.41226480354245054,
+                "thumb_mcp": 0.6183972053136303,
+                "index_mcp_roll": -0.06855715361771463,
+                "index_mcp_pitch": 0.4281745056226305,
+                "index_pip": 0.6106751145765545,
+                "middle_mcp_roll": 0.034655478771121934,
+                "middle_mcp_pitch": 0.7019123567408017,
+                "middle_pip": 1.001088115351635,
+                "ring_mcp_roll": 0.15414371512408673,
+                "ring_mcp_pitch": 1.2168600398344114,
+                "ring_pip": 0.28170722421906674,
+                "pinky_mcp_roll": 0.21475195624090695,
+                "pinky_mcp_pitch": 1.156561829435939,
+                "pinky_pip": 0.20692377188031888
+              }
+            }
+          }
+        },
+        "pair_index": 1,
+        "fixed_side": "right"
+      }
+    ]
+  },
+  "recovery_controls": {
+    "completed_result_present": false,
+    "state": "interrupted by user; no completed control-coverage result"
+  },
+  "expanded_batch": {
+    "started": false,
+    "remote_script_present": false,
+    "reason": "user stop arrived before upload/launch"
+  },
+  "resources": {
+    "wall_seconds_at_stop": 6484.832837820053,
+    "wall_limit_seconds": 43200,
+    "concurrent_core_limit": 64,
+    "cpu_seconds_last_live_conservative": 24104.13652290344,
+    "completed_job_cpu_seconds": 13330.23,
+    "legacy_aborted_cpu_upper_bound_seconds": 3513.2465229034424,
+    "budget_semantics": "64 concurrent CPU cores, 12 wall hours from original start; reviewer adjudication 1",
+    "completed_jobs": {
+      "native-right/time.txt": 619.19,
+      "rolled-seeds/time.txt": 83.86,
+      "joint/time.txt": 6170.83,
+      "right/time.txt": 1889.0,
+      "right/attempt-1/time.txt": 112.55999999999999,
+      "joint-roll/time.txt": 211.64,
+      "contact-fit/time.txt": 2.71,
+      "common-pose-probe/time.txt": 583.18,
+      "native-left/time.txt": 594.43,
+      "recovery-controls/time.txt": 182.24,
+      "left/time.txt": 2601.54,
+      "left/attempt-1/time.txt": 108.69,
+      "symmetry/attempt1-time.txt": 14.719999999999999,
+      "symmetry/time.txt": 9.76,
+      "reach-diagnostic/time.txt": 144.71,
+      "reach-diagnostic/source-time.txt": 0.75,
+      "reach-diagnostic/augment-time.txt": 0.42
+    }
+  },
+  "cleanup": {
+    "terminated_pids": [
+      2696897,
+      2696661,
+      2687731,
+      2687730,
+      2687729,
+      2687728,
+      2687727,
+      2687726,
+      2687725,
+      2687724,
+      2687211
+    ],
+    "wrappers_reaped": [
+      2687210,
+      2696896
+    ],
+    "forced_pids": [],
+    "pgrep_exit_code": 1,
+    "matching_processes": [],
+    "checked_unix": 1792677480.6186035,
+    "default_scene_changed": false,
+    "committed": false
+  }
+}

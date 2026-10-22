@@ -1,0 +1,185 @@
+{
+  "grasp": {
+    "left": {
+      "clear": true,
+      "grips": [
+        "pinky",
+        "ring"
+      ],
+      "violations": [],
+      "table_clearance_m": {
+        "H": 0.04430099153853595,
+        "A": 0.24608280839742636
+      }
+    },
+    "right": {
+      "clear": true,
+      "grips": [
+        "pinky",
+        "ring"
+      ],
+      "violations": [],
+      "table_clearance_m": {
+        "H": 0.042595954264888825,
+        "A": 0.29013063826491525
+      }
+    }
+  },
+  "open_home": {
+    "left": {
+      "fixture_collisions": [
+        {
+          "a": "world",
+          "b": "HL_middle_distal",
+          "geom_a": "table",
+          "geom_b": "HL_k1_geom_13",
+          "distance_m": -0.002615429271614955
+        },
+        {
+          "a": "world",
+          "b": "HL_middle_distal",
+          "geom_a": "table",
+          "geom_b": "HL_k1_geom_13",
+          "distance_m": -0.0026150582862584093
+        },
+        {
+          "a": "world",
+          "b": "HL_middle_distal",
+          "geom_a": "table",
+          "geom_b": "HL_k1_geom_13",
+          "distance_m": -0.002609319224835205
+        },
+        {
+          "a": "world",
+          "b": "HL_ring_distal",
+          "geom_a": "table",
+          "geom_b": "HL_k1_geom_17",
+          "distance_m": -0.005136666456336814
+        },
+        {
+          "a": "world",
+          "b": "HL_ring_distal",
+          "geom_a": "table",
+          "geom_b": "HL_k1_geom_17",
+          "distance_m": -0.005136295470980379
+        },
+        {
+          "a": "world",
+          "b": "HL_ring_distal",
+          "geom_a": "table",
+          "geom_b": "HL_k1_geom_17",
+          "distance_m": -0.005130556409557174
+        },
+        {
+          "a": "world",
+          "b": "HL_pinky_distal",
+          "geom_a": "table",
+          "geom_b": "HL_k1_geom_21",
+          "distance_m": -0.007657490081252605
+        },
+        {
+          "a": "world",
+          "b": "HL_pinky_distal",
+          "geom_a": "table",
+          "geom_b": "HL_k1_geom_21",
+          "distance_m": -0.00765711909589617
+        },
+        {
+          "a": "world",
+          "b": "HL_pinky_distal",
+          "geom_a": "table",
+          "geom_b": "HL_k1_geom_21",
+          "distance_m": -0.0076513800344729654
+        }
+      ],
+      "table_clearance_m": {
+        "H": -0.007657490081252605,
+        "A": 0.24608280839742636
+      },
+      "arm_q": [
+        1.7035956580907916,
+        -1.1478387083149293,
+        -2.786102738247252,
+        1.621958233582487,
+        -2.4746451538511893,
+        -0.35217836648980044,
+        0.9599
+      ]
+    },
+    "right": {
+      "fixture_collisions": [],
+      "table_clearance_m": {
+        "H": 0.027265293957499548,
+        "A": 0.29013063826491525
+      },
+      "arm_q": [
+        1.6204052953491694,
+        1.2055702298051167,
+        -0.474376021912882,
+        1.5734172859383286,
+        2.7845655806508276,
+        -0.4084690444368981,
+        -0.9599
+      ]
+    }
+  },
+  "configured_home": {},
+  "operations": [
+    {
+      "side": "right",
+      "control": "Y",
+      "state": 0,
+      "camera": {
+        "passed": true,
+        "reasons": [],
+        "margin_px": 193.3458391314659,
+        "group_margins_px": {
+          "gamepad_mesh": 193.3458391314659,
+          "left_fingertips": 207.21998388925635,
+          "left_palm_root": 232.36083668836793,
+          "right_fingertips": 207.4929667547309,
+          "right_palm_root": 204.6983504216348
+        },
+        "centroid_distances_m": {
+          "gamepad": 0.616596626728353,
+          "left": 0.5655955188226274,
+          "right": 0.5671942075872398
+        }
+      },
+      "table_clearance_m": {
+        "left": {
+          "H": 0.04430099153853595,
+          "A": 0.24608280839742636
+        },
+        "right": {
+          "H": 0.042595954264888825,
+          "A": 0.29013063826491525
+        }
+      }
+    }
+  ],
+  "camera": {
+    "passed": true,
+    "reasons": [],
+    "margin_px": 193.3458391314659,
+    "group_margins_px": {
+      "gamepad_mesh": 193.3458391314659,
+      "left_fingertips": 207.21998388925635,
+      "left_palm_root": 232.36083668836793,
+      "right_fingertips": 207.4929667547309,
+      "right_palm_root": 204.6983504216348
+    },
+    "centroid_distances_m": {
+      "gamepad": 0.6165947202921667,
+      "left": 0.5655955188226274,
+      "right": 0.566440159898634
+    }
+  },
+  "pair_clearances_m": {
+    "HL_HR": 0.09669160795123685,
+    "AL_AR": 0.18199958722891474,
+    "HL_AR": 0.20319529633045105,
+    "HR_AL": 0.17069391067087702
+  },
+  "grasp_arm_pose_is_open_home": false
+}

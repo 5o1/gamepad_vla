@@ -1,0 +1,52 @@
+{
+  "support_contact_local_m": [
+    -0.00024295781293409008,
+    -0.00044332219595386545,
+    -0.010740793395157041
+  ],
+  "support_contact_world_m": [
+    0.48204968187422786,
+    0.6139116734944122,
+    0.8461181839321985
+  ],
+  "column_pose_world": [
+    0.48249300407018175,
+    0.6136687156814782,
+    0.8065590919660992,
+    0.7071067811865476,
+    0.0,
+    0.0,
+    -0.7071067811865476
+  ],
+  "column_height_m": 0.0791181839321985,
+  "column_cross_section_local_m": [
+    0.02,
+    0.024
+  ],
+  "selected_robot_lowest_world_z_m": 0.8095959542648888,
+  "thin_section_bottom_world_z_m": 0.7995959542648888,
+  "thin_section_height_m": 0.04652222966730968,
+  "potential_widened_section_height_m": 0.032595954264888816,
+  "footprint_method": "original triangle projections, neutral + accepted control endpoints; 1mm raster; 20mm margin + 2mm conservative raster guard; only column-connected table component",
+  "raster_world_xy_min_m": [
+    0.09341500000000003,
+    0.00019999999999997797
+  ],
+  "raster_step_m": 0.001,
+  "connected_allowed_area_m2": 0.5895859999999999,
+  "centred_axis_aligned_base_rectangle_world_m": [
+    [
+      0.47141500000000003,
+      0.6012
+    ],
+    [
+      0.49341500000000005,
+      0.6252
+    ]
+  ],
+  "centred_base_rectangle_size_m": [
+    0.02200000000000002,
+    0.02400000000000002
+  ],
+  "structural_status": "design only; no load, tipping, print strength, clamp, cables or fastener certificate"
+}

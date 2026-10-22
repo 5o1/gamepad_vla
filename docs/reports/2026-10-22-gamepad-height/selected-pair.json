@@ -1,0 +1,642 @@
+{
+  "placement": {
+    "name": "h060_x+60_y-60",
+    "height_mm": 60,
+    "offset_mm": [
+      60,
+      -60
+    ],
+    "pose": [
+      0.48249300407018175,
+      0.6136687156814782,
+      0.8568589773273555,
+      0.7071067811865476,
+      0.0,
+      0.0,
+      -0.7071067811865476
+    ],
+    "optical_axis_plane_intersection_m": [
+      0.42249300407018175,
+      0.6736687156814782,
+      0.8568589773273555
+    ],
+    "full_control_pairs": 0,
+    "max_controls": 1,
+    "grip_pairs": 21,
+    "single": {
+      "left": {
+        "relative_grip_palms": 10,
+        "arm_ik_palms": 7,
+        "mesh_clearance_30mm_palms": 7,
+        "camera_grip_palms": 7,
+        "per_control": {
+          "Dpad_up": 0,
+          "Dpad_down": 0,
+          "Dpad_left": 0,
+          "Dpad_right": 0,
+          "LS": 0,
+          "L3": 0,
+          "LB": 0,
+          "LT": 0
+        },
+        "full_hand_palms": 0,
+        "rejected_palms": {
+          "arm_ik": 3
+        }
+      },
+      "right": {
+        "relative_grip_palms": 5,
+        "arm_ik_palms": 4,
+        "mesh_clearance_30mm_palms": 3,
+        "camera_grip_palms": 3,
+        "per_control": {
+          "A": 0,
+          "B": 0,
+          "X": 0,
+          "Y": 1,
+          "RS": 0,
+          "R3": 0,
+          "RB": 0,
+          "RT": 0
+        },
+        "full_hand_palms": 0,
+        "rejected_palms": {
+          "table_clearance_30mm": 1,
+          "arm_ik": 1
+        }
+      }
+    },
+    "checked_rest_pairs": 300,
+    "checked_ik_pairs": 299,
+    "pair_rejections": {
+      "hand_hand_collision": 1
+    },
+    "gamepad_centroid_world_m": [
+      0.4948976146332803,
+      0.6140484658601327,
+      0.8586268509043572
+    ],
+    "gamepad_centroid_pixel": [
+      739.1664153985173,
+      258.27935053571053
+    ],
+    "centre_error_px": 138.33528098053034,
+    "natural_pass": false,
+    "natural_deviation": 4.7903243609494615,
+    "wrist_deviation_deg": 58.076625619824206,
+    "min_camera_margin_px": 193.3458391314659,
+    "best_controls": [
+      "right:Y"
+    ],
+    "natural": {
+      "left": {
+        "upper_tilt_deg": 82.34544595986978,
+        "forearm_pitch_deg": -23.22121356974667,
+        "forearm_heading_deg": 0.5663634251079263,
+        "elbow_angle_deg": 91.04312124310948,
+        "wrist_deviation_deg": 56.54583629753687,
+        "deviation": 4.156363063991319,
+        "natural": false,
+        "upper_forward": true,
+        "shoulder_axis_gap_m": 1.3877787807814457e-17
+      },
+      "right": {
+        "upper_tilt_deg": 91.85486541424193,
+        "forearm_pitch_deg": -26.012602187056892,
+        "forearm_heading_deg": 3.089410886211878,
+        "elbow_angle_deg": 93.82431267668527,
+        "wrist_deviation_deg": 58.076625619824206,
+        "deviation": 4.7903243609494615,
+        "natural": false,
+        "upper_forward": true,
+        "shoulder_axis_gap_m": 6.938893903907228e-18
+      }
+    }
+  },
+  "left": {
+    "palm_index": 670,
+    "baseline_index": 3,
+    "palm_world": [
+      0.4606628638996019,
+      0.7627526648905524,
+      1.0028707621828155,
+      0.07792560772994805,
+      -0.6134053747473031,
+      0.7758207730361752,
+      -0.12555307250955922
+    ],
+    "palm_in_pad": [
+      -0.14908394920907414,
+      -0.021830140170579843,
+      0.14601178485546001,
+      0.14388115462424472,
+      -0.9823312296993623,
+      0.11484502949917552,
+      -0.03367770331638652
+    ],
+    "arm_q": [
+      1.7035956580907916,
+      -1.1478387083149293,
+      -2.786102738247252,
+      1.621958233582487,
+      -2.4746451538511893,
+      -0.35217836648980044,
+      0.9599
+    ],
+    "arm_start": 1,
+    "arm_position_error_m": 9.6728606207512e-10,
+    "arm_rotation_error_rad": 1.0772790730790059e-08,
+    "natural": {
+      "upper_tilt_deg": 82.34544595986978,
+      "forearm_pitch_deg": -23.22121356974667,
+      "forearm_heading_deg": 0.5663634251079263,
+      "elbow_angle_deg": 91.04312124310948,
+      "wrist_deviation_deg": 56.54583629753687,
+      "deviation": 4.156363063991319,
+      "natural": false,
+      "upper_forward": true,
+      "shoulder_axis_gap_m": 1.3877787807814457e-17
+    },
+    "resting_hand_q": {
+      "ring_mcp_roll": -0.0724676758241837,
+      "ring_mcp_pitch": 1.1177521451140602,
+      "ring_pip": 0.17482135538405605,
+      "pinky_mcp_roll": 0.06347099265707482,
+      "pinky_mcp_pitch": 0.8855209289674532,
+      "pinky_pip": 0.6930636938690388,
+      "thumb_cmc_roll": 1.4,
+      "thumb_cmc_yaw": 1.57,
+      "thumb_cmc_pitch": 0.84,
+      "thumb_mcp": 1.26,
+      "index_mcp_roll": 0.23,
+      "index_mcp_pitch": 1.22,
+      "index_pip": 1.74,
+      "middle_mcp_roll": 0.23,
+      "middle_mcp_pitch": 1.22,
+      "middle_pip": 1.74
+    },
+    "controls": [],
+    "states": [],
+    "camera": {
+      "passed": true,
+      "reasons": [],
+      "margin_px": 193.3458391314659,
+      "group_margins_px": {
+        "gamepad_mesh": 193.3458391314659,
+        "left_fingertips": 207.21998388925635,
+        "left_palm_root": 232.36083668836793
+      },
+      "centroid_distances_m": {
+        "gamepad": 0.6165947202921667,
+        "left": 0.5655955188226274
+      }
+    },
+    "min_camera_margin_px": 193.3458391314659,
+    "table_clearance_m": {
+      "H": 0.04430099153853595,
+      "A": 0.24608280839742636
+    },
+    "control_rejections": {
+      "Dpad_up:point_ik": 1,
+      "Dpad_down:point_ik": 1,
+      "Dpad_left:point_ik": 1,
+      "Dpad_right:point_ik": 1,
+      "LS:hand_pad_or_other_collision": 8,
+      "L3:point_ik": 1,
+      "LB:point_ik": 1,
+      "LT:point_ik": 3
+    },
+    "arm_alternatives": [
+      {
+        "arm_q": [
+          1.7035956580907916,
+          -1.1478387083149293,
+          -2.786102738247252,
+          1.621958233582487,
+          -2.4746451538511893,
+          -0.35217836648980044,
+          0.9599
+        ],
+        "arm_start": 1,
+        "arm_position_error_m": 9.6728606207512e-10,
+        "arm_rotation_error_rad": 1.0772790730790059e-08,
+        "table_clearance_m": {
+          "H": 0.04430099153853595,
+          "A": 0.24608280839742636
+        },
+        "natural": {
+          "upper_tilt_deg": 82.34544595986978,
+          "forearm_pitch_deg": -23.22121356974667,
+          "forearm_heading_deg": 0.5663634251079263,
+          "elbow_angle_deg": 91.04312124310948,
+          "wrist_deviation_deg": 56.54583629753687,
+          "deviation": 4.156363063991319,
+          "natural": false,
+          "upper_forward": true,
+          "shoulder_axis_gap_m": 1.3877787807814457e-17
+        }
+      },
+      {
+        "arm_q": [
+          1.2119139779491035,
+          -2.0944,
+          -1.3608522239634806,
+          1.6219582335944014,
+          2.8547760975553227,
+          -0.06809920852324762,
+          -0.33013121643335264
+        ],
+        "arm_start": 5,
+        "arm_position_error_m": 1.7168014930264238e-10,
+        "arm_rotation_error_rad": 5.194837703436673e-10,
+        "table_clearance_m": {
+          "H": 0.04430099153853595,
+          "A": 0.24608280842640873
+        },
+        "natural": {
+          "upper_tilt_deg": 106.03511856365395,
+          "forearm_pitch_deg": -62.02271161109424,
+          "forearm_heading_deg": 53.80057886752407,
+          "elbow_angle_deg": 91.0431212424268,
+          "wrist_deviation_deg": 19.21928998814598,
+          "deviation": 5.7356745709102634,
+          "natural": false,
+          "upper_forward": true,
+          "shoulder_axis_gap_m": 3.469446951953614e-17
+        }
+      },
+      {
+        "arm_q": [
+          1.2098843289781287,
+          -1.7415400156235072,
+          -1.7698665668332052,
+          1.621958233594129,
+          -3.1067,
+          -0.014596752323597782,
+          0.0865466872397535
+        ],
+        "arm_start": 4,
+        "arm_position_error_m": 1.0050099882883064e-10,
+        "arm_rotation_error_rad": 1.2687346298964518e-08,
+        "table_clearance_m": {
+          "H": 0.04430099153853595,
+          "A": 0.2460828084039265
+        },
+        "natural": {
+          "upper_tilt_deg": 108.56922187109657,
+          "forearm_pitch_deg": -68.99485565807855,
+          "forearm_heading_deg": 22.627847118442567,
+          "elbow_angle_deg": 91.04312124244242,
+          "wrist_deviation_deg": 5.7281968454616035,
+          "deviation": 5.904614791406439,
+          "natural": false,
+          "upper_forward": true,
+          "shoulder_axis_gap_m": 3.469446951953614e-17
+        }
+      },
+      {
+        "arm_q": [
+          1.191709299841268,
+          -1.9035438863118976,
+          -1.588423048202654,
+          1.6219582335946272,
+          3.026107857648118,
+          -0.02241572936168537,
+          -0.10681444558324027
+        ],
+        "arm_start": 3,
+        "arm_position_error_m": 3.469446951953614e-17,
+        "arm_rotation_error_rad": 1.7985517950512365e-16,
+        "table_clearance_m": {
+          "H": 0.04430099153853595,
+          "A": 0.24608280840622354
+        },
+        "natural": {
+          "upper_tilt_deg": 108.67297234676674,
+          "forearm_pitch_deg": -69.32483002009964,
+          "forearm_heading_deg": 43.07615642403442,
+          "elbow_angle_deg": 91.04312124241389,
+          "wrist_deviation_deg": 6.7974336687244215,
+          "deviation": 5.9115314897844495,
+          "natural": false,
+          "upper_forward": true,
+          "shoulder_axis_gap_m": 3.469446951953614e-17
+        }
+      },
+      {
+        "arm_q": [
+          -1.9461339338654655,
+          1.8378645240199991,
+          1.47943415056189,
+          1.6219582335946268,
+          3.08653354717182,
+          -0.015763172027757483,
+          -0.02901308427575623
+        ],
+        "arm_start": 0,
+        "arm_position_error_m": 3.469446951953614e-17,
+        "arm_rotation_error_rad": 1.0567903162617908e-16,
+        "table_clearance_m": {
+          "H": 0.04430099153853595,
+          "A": 0.24608280840622376
+        },
+        "natural": {
+          "upper_tilt_deg": 108.89556730924733,
+          "forearm_pitch_deg": -70.04966356450544,
+          "forearm_heading_deg": 35.15967414798913,
+          "elbow_angle_deg": 91.0431212424139,
+          "wrist_deviation_deg": 3.4293471776811275,
+          "deviation": 5.926371153949821,
+          "natural": false,
+          "upper_forward": true,
+          "shoulder_axis_gap_m": 3.469446951953614e-17
+        }
+      }
+    ]
+  },
+  "right": {
+    "palm_index": 531,
+    "baseline_index": 7,
+    "palm_world": [
+      0.46979529461297415,
+      0.47793731261815803,
+      1.042047559325669,
+      0.03912691805421159,
+      0.6438852407807326,
+      0.761235447906605,
+      0.06634360435450974
+    ],
+    "palm_in_pad": [
+      0.13573140306332013,
+      -0.012697709457207563,
+      0.18518858199831367,
+      0.019245103444367844,
+      0.08297912723235053,
+      -0.9935703673563281,
+      -0.07457892161049455
+    ],
+    "arm_q": [
+      1.6204052953491694,
+      1.2055702298051167,
+      -0.474376021912882,
+      1.5734172859383286,
+      2.7845655806508276,
+      -0.4084690444368981,
+      -0.9599
+    ],
+    "arm_start": 2,
+    "arm_position_error_m": 2.7352260755149334e-14,
+    "arm_rotation_error_rad": 3.0473988284001204e-13,
+    "natural": {
+      "upper_tilt_deg": 91.85486541424193,
+      "forearm_pitch_deg": -26.012602187056892,
+      "forearm_heading_deg": 3.089410886211878,
+      "elbow_angle_deg": 93.82431267668527,
+      "wrist_deviation_deg": 58.076625619824206,
+      "deviation": 4.7903243609494615,
+      "natural": false,
+      "upper_forward": true,
+      "shoulder_axis_gap_m": 6.938893903907228e-18
+    },
+    "resting_hand_q": {
+      "ring_mcp_roll": -0.07026365493551265,
+      "ring_mcp_pitch": 0.7299819033876322,
+      "ring_pip": 0.04013044597469957,
+      "pinky_mcp_roll": -0.029103782952412262,
+      "pinky_mcp_pitch": 0.6984195248346329,
+      "pinky_pip": 0.050047089281975946,
+      "thumb_cmc_roll": 1.001011910474464,
+      "thumb_cmc_yaw": 0.3770292399711713,
+      "thumb_cmc_pitch": 0.22412992638763143,
+      "thumb_mcp": 0.5414420586667067,
+      "index_mcp_roll": 0.2189345636877643,
+      "index_mcp_pitch": 0.6274856642403678,
+      "index_pip": 1.4231498360775225,
+      "middle_mcp_roll": 0.1282979306569105,
+      "middle_mcp_pitch": 0.11140222788166045,
+      "middle_pip": 0.7249135877764941
+    },
+    "controls": [
+      "Y"
+    ],
+    "states": [
+      {
+        "control": "Y",
+        "state": 0,
+        "hand_q": {
+          "ring_mcp_roll": -0.07026365493551265,
+          "ring_mcp_pitch": 0.7299819033876322,
+          "ring_pip": 0.04013044597469957,
+          "pinky_mcp_roll": -0.029103782952412262,
+          "pinky_mcp_pitch": 0.6984195248346329,
+          "pinky_pip": 0.050047089281975946,
+          "thumb_cmc_roll": 0.9619482341609801,
+          "thumb_cmc_yaw": 0.38208468074670826,
+          "thumb_cmc_pitch": 0.5304489883913719,
+          "thumb_mcp": 0.2897552111297906,
+          "index_mcp_roll": 0.2189345636877643,
+          "index_mcp_pitch": 0.6274856642403678,
+          "index_pip": 1.4231498360775225,
+          "middle_mcp_roll": 0.1282979306569105,
+          "middle_mcp_pitch": 0.11140222788166045,
+          "middle_pip": 0.7249135877764941
+        },
+        "gamepad_q": {
+          "y_press": 0.0003808040168029378
+        },
+        "camera": {
+          "passed": true,
+          "reasons": [],
+          "margin_px": 193.3458391314659,
+          "group_margins_px": {
+            "gamepad_mesh": 193.3458391314659,
+            "right_fingertips": 207.4929667547309,
+            "right_palm_root": 204.6983504216348
+          },
+          "centroid_distances_m": {
+            "gamepad": 0.616596626728353,
+            "right": 0.5671942075872398
+          }
+        },
+        "table_clearance_m": {
+          "H": 0.042595954264888825,
+          "A": 0.29013063826491525
+        }
+      }
+    ],
+    "camera": {
+      "passed": true,
+      "reasons": [],
+      "margin_px": 193.3458391314659,
+      "group_margins_px": {
+        "gamepad_mesh": 193.3458391314659,
+        "right_fingertips": 207.4929667547309,
+        "right_palm_root": 204.6983504216348
+      },
+      "centroid_distances_m": {
+        "gamepad": 0.6165947202921667,
+        "right": 0.566440159898634
+      }
+    },
+    "min_camera_margin_px": 193.3458391314659,
+    "table_clearance_m": {
+      "H": 0.042595954264888825,
+      "A": 0.29013063826491525
+    },
+    "control_rejections": {
+      "A:hand_pad_or_other_collision": 1,
+      "B:point_ik": 1,
+      "X:hand_pad_or_other_collision": 1,
+      "RS:hand_pad_or_other_collision": 4,
+      "RS:point_ik": 1,
+      "R3:native_active_contact_missing": 1,
+      "RB:point_ik": 1,
+      "RT:point_ik": 3
+    },
+    "arm_alternatives": [
+      {
+        "arm_q": [
+          1.6204052953491694,
+          1.2055702298051167,
+          -0.474376021912882,
+          1.5734172859383286,
+          2.7845655806508276,
+          -0.4084690444368981,
+          -0.9599
+        ],
+        "arm_start": 2,
+        "arm_position_error_m": 2.7352260755149334e-14,
+        "arm_rotation_error_rad": 3.0473988284001204e-13,
+        "table_clearance_m": {
+          "H": 0.042595954264888825,
+          "A": 0.29013063826491525
+        },
+        "natural": {
+          "upper_tilt_deg": 91.85486541424193,
+          "forearm_pitch_deg": -26.012602187056892,
+          "forearm_heading_deg": 3.089410886211878,
+          "elbow_angle_deg": 93.82431267668527,
+          "wrist_deviation_deg": 58.076625619824206,
+          "deviation": 4.7903243609494615,
+          "natural": false,
+          "upper_forward": true,
+          "shoulder_axis_gap_m": 6.938893903907228e-18
+        }
+      },
+      {
+        "arm_q": [
+          -1.5211873582406223,
+          -1.2055702298051174,
+          2.667216631676909,
+          1.5734172859383289,
+          2.7845655806508285,
+          -0.4084690444368972,
+          -0.9599
+        ],
+        "arm_start": 1,
+        "arm_position_error_m": 2.7198060165985674e-14,
+        "arm_rotation_error_rad": 3.0287371631917566e-13,
+        "table_clearance_m": {
+          "H": 0.042595954264888825,
+          "A": 0.2901306382649157
+        },
+        "natural": {
+          "upper_tilt_deg": 91.85486541424204,
+          "forearm_pitch_deg": -26.012602187057016,
+          "forearm_heading_deg": 3.089410886211878,
+          "elbow_angle_deg": 93.82431267668522,
+          "wrist_deviation_deg": 58.076625619824185,
+          "deviation": 4.7903243609494695,
+          "natural": false,
+          "upper_forward": true,
+          "shoulder_axis_gap_m": 6.938893903907228e-18
+        }
+      },
+      {
+        "arm_q": [
+          1.6204052953491876,
+          1.2055702298051254,
+          -0.47437602191291117,
+          1.5734172859383284,
+          2.7845655806508374,
+          -0.4084690444368901,
+          -0.9599
+        ],
+        "arm_start": 0,
+        "arm_position_error_m": 2.521893140240881e-14,
+        "arm_rotation_error_rad": 2.814254912408967e-13,
+        "table_clearance_m": {
+          "H": 0.042595954264888825,
+          "A": 0.2901306382649155
+        },
+        "natural": {
+          "upper_tilt_deg": 91.85486541424288,
+          "forearm_pitch_deg": -26.012602187058125,
+          "forearm_heading_deg": 3.089410886211996,
+          "elbow_angle_deg": 93.82431267668525,
+          "wrist_deviation_deg": 58.07662561982412,
+          "deviation": 4.790324360949525,
+          "natural": false,
+          "upper_forward": true,
+          "shoulder_axis_gap_m": 6.938893903907228e-18
+        }
+      }
+    ]
+  },
+  "controls": [
+    "right:Y"
+  ],
+  "accepted_states": [
+    {
+      "control": "Y",
+      "state": 0,
+      "hand_q": {
+        "ring_mcp_roll": -0.07026365493551265,
+        "ring_mcp_pitch": 0.7299819033876322,
+        "ring_pip": 0.04013044597469957,
+        "pinky_mcp_roll": -0.029103782952412262,
+        "pinky_mcp_pitch": 0.6984195248346329,
+        "pinky_pip": 0.050047089281975946,
+        "thumb_cmc_roll": 0.9619482341609801,
+        "thumb_cmc_yaw": 0.38208468074670826,
+        "thumb_cmc_pitch": 0.5304489883913719,
+        "thumb_mcp": 0.2897552111297906,
+        "index_mcp_roll": 0.2189345636877643,
+        "index_mcp_pitch": 0.6274856642403678,
+        "index_pip": 1.4231498360775225,
+        "middle_mcp_roll": 0.1282979306569105,
+        "middle_mcp_pitch": 0.11140222788166045,
+        "middle_pip": 0.7249135877764941
+      },
+      "gamepad_q": {
+        "y_press": 0.0003808040168029378
+      },
+      "camera": {
+        "passed": true,
+        "margin_px": 193.3458391314659,
+        "group_margins_px": {
+          "gamepad_mesh": 193.3458391314659,
+          "right_fingertips": 207.4929667547309,
+          "right_palm_root": 204.6983504216348,
+          "left_fingertips": 207.21998388925635,
+          "left_palm_root": 232.36083668836793
+        },
+        "centroid_distances_m": {
+          "gamepad": 0.616596626728353,
+          "right": 0.5671942075872398,
+          "left": 0.5655955188226274
+        },
+        "reasons": []
+      },
+      "table_clearance_m": {
+        "H": 0.042595954264888825,
+        "A": 0.29013063826491525
+      },
+      "side": "right"
+    }
+  ],
+  "natural_pass": false,
+  "natural_deviation": 4.7903243609494615,
+  "wrist_deviation_deg": 58.076625619824206,
+  "min_camera_margin_px": 193.3458391314659
+}

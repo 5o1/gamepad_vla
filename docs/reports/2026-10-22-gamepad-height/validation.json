@@ -1,0 +1,361 @@
+{
+  "status": "passed",
+  "grasp": {
+    "left": {
+      "clear": true,
+      "grips": [
+        "pinky",
+        "ring"
+      ],
+      "violations": [],
+      "table_clearance_m": {
+        "H": 0.04430099153853595,
+        "A": 0.24608280839742636
+      }
+    },
+    "right": {
+      "clear": true,
+      "grips": [
+        "pinky",
+        "ring"
+      ],
+      "violations": [],
+      "table_clearance_m": {
+        "H": 0.042595954264888825,
+        "A": 0.29013063826491525
+      }
+    }
+  },
+  "open_home": {
+    "left": {
+      "fixture_collisions": [
+        {
+          "a": "world",
+          "b": "HL_middle_distal",
+          "geom_a": "table",
+          "geom_b": "HL_k1_geom_13",
+          "distance_m": -0.002615429271614955
+        },
+        {
+          "a": "world",
+          "b": "HL_middle_distal",
+          "geom_a": "table",
+          "geom_b": "HL_k1_geom_13",
+          "distance_m": -0.0026150582862584093
+        },
+        {
+          "a": "world",
+          "b": "HL_middle_distal",
+          "geom_a": "table",
+          "geom_b": "HL_k1_geom_13",
+          "distance_m": -0.002609319224835205
+        },
+        {
+          "a": "world",
+          "b": "HL_ring_distal",
+          "geom_a": "table",
+          "geom_b": "HL_k1_geom_17",
+          "distance_m": -0.005136666456336814
+        },
+        {
+          "a": "world",
+          "b": "HL_ring_distal",
+          "geom_a": "table",
+          "geom_b": "HL_k1_geom_17",
+          "distance_m": -0.005136295470980379
+        },
+        {
+          "a": "world",
+          "b": "HL_ring_distal",
+          "geom_a": "table",
+          "geom_b": "HL_k1_geom_17",
+          "distance_m": -0.005130556409557174
+        },
+        {
+          "a": "world",
+          "b": "HL_pinky_distal",
+          "geom_a": "table",
+          "geom_b": "HL_k1_geom_21",
+          "distance_m": -0.007657490081252605
+        },
+        {
+          "a": "world",
+          "b": "HL_pinky_distal",
+          "geom_a": "table",
+          "geom_b": "HL_k1_geom_21",
+          "distance_m": -0.00765711909589617
+        },
+        {
+          "a": "world",
+          "b": "HL_pinky_distal",
+          "geom_a": "table",
+          "geom_b": "HL_k1_geom_21",
+          "distance_m": -0.0076513800344729654
+        }
+      ],
+      "table_clearance_m": {
+        "H": -0.007657490081252605,
+        "A": 0.24608280839742636
+      },
+      "arm_q": [
+        1.7035956580907916,
+        -1.1478387083149293,
+        -2.786102738247252,
+        1.621958233582487,
+        -2.4746451538511893,
+        -0.35217836648980044,
+        0.9599
+      ]
+    },
+    "right": {
+      "fixture_collisions": [],
+      "table_clearance_m": {
+        "H": 0.027265293957499548,
+        "A": 0.29013063826491525
+      },
+      "arm_q": [
+        1.6204052953491694,
+        1.2055702298051167,
+        -0.474376021912882,
+        1.5734172859383286,
+        2.7845655806508276,
+        -0.4084690444368981,
+        -0.9599
+      ]
+    }
+  },
+  "configured_home": {},
+  "operations": [
+    {
+      "side": "right",
+      "control": "Y",
+      "state": 0,
+      "camera": {
+        "passed": true,
+        "reasons": [],
+        "margin_px": 193.3458391314659,
+        "group_margins_px": {
+          "gamepad_mesh": 193.3458391314659,
+          "left_fingertips": 207.21998388925635,
+          "left_palm_root": 232.36083668836793,
+          "right_fingertips": 207.4929667547309,
+          "right_palm_root": 204.6983504216348
+        },
+        "centroid_distances_m": {
+          "gamepad": 0.616596626728353,
+          "left": 0.5655955188226274,
+          "right": 0.5671942075872398
+        }
+      },
+      "table_clearance_m": {
+        "left": {
+          "H": 0.04430099153853595,
+          "A": 0.24608280839742636
+        },
+        "right": {
+          "H": 0.042595954264888825,
+          "A": 0.29013063826491525
+        }
+      }
+    }
+  ],
+  "camera": {
+    "passed": true,
+    "reasons": [],
+    "margin_px": 193.3458391314659,
+    "group_margins_px": {
+      "gamepad_mesh": 193.3458391314659,
+      "left_fingertips": 207.21998388925635,
+      "left_palm_root": 232.36083668836793,
+      "right_fingertips": 207.4929667547309,
+      "right_palm_root": 204.6983504216348
+    },
+    "centroid_distances_m": {
+      "gamepad": 0.6165947202921667,
+      "left": 0.5655955188226274,
+      "right": 0.566440159898634
+    }
+  },
+  "pair_clearances_m": {
+    "HL_HR": 0.09669160795123685,
+    "AL_AR": 0.18199958722891474,
+    "HL_AR": 0.20319529633045105,
+    "HR_AL": 0.17069391067087702
+  },
+  "grasp_arm_pose_is_open_home": false,
+  "parking_home": {
+    "vertical_offset_m": 0.06,
+    "arms": {
+      "left": {
+        "arm_q": [
+          -1.635957447968274,
+          1.1455643747011217,
+          0.42815119401104723,
+          1.7024686559394822,
+          -2.640580357498086,
+          -0.34098261149778364,
+          0.9599
+        ],
+        "palm_world": [
+          [
+            -0.23532289207776358,
+            -0.9322176650866377,
+            0.27494246919051035,
+            0.46066286387200134
+          ],
+          [
+            -0.971352862890641,
+            0.21594054442910146,
+            -0.09921339136335977,
+            0.7627526647758113
+          ],
+          [
+            0.03311724955839779,
+            -0.2904133367668932,
+            -0.9563280512510371,
+            1.062870762186564
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "arm_start": 3,
+        "arm_position_error_m": 9.656776283520252e-11,
+        "arm_rotation_error_rad": 1.0752920709424381e-09,
+        "natural": {
+          "upper_tilt_deg": 92.69153940257607,
+          "forearm_pitch_deg": -23.18596929934786,
+          "forearm_heading_deg": 0.8000256444668761,
+          "elbow_angle_deg": 86.43021383523791,
+          "wrist_deviation_deg": 56.722672296241534,
+          "deviation": 4.846102626838404,
+          "natural": false,
+          "upper_forward": true,
+          "shoulder_axis_gap_m": 6.938893903907228e-18
+        }
+      },
+      "right": {
+        "arm_q": [
+          1.8014662047495775,
+          1.2093258372399145,
+          -0.5271774683588284,
+          1.626226476264278,
+          2.9350475387355375,
+          -0.4347263405805538,
+          -0.9599
+        ],
+        "palm_world": [
+          [
+            -0.16776176197663442,
+            0.9751048977903465,
+            0.14500492930853584,
+            0.46979529461297426
+          ],
+          [
+            0.9854881808743463,
+            0.16202064573198077,
+            0.05061971664840032,
+            0.47793731261815803
+          ],
+          [
+            0.025865741347725502,
+            0.1513926968577759,
+            -0.9881352208896625,
+            1.102047559325669
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "arm_start": 0,
+        "arm_position_error_m": 6.546139416680338e-17,
+        "arm_rotation_error_rad": 7.733667733484078e-16,
+        "natural": {
+          "upper_tilt_deg": 101.56454783663926,
+          "forearm_pitch_deg": -25.06269476650537,
+          "forearm_heading_deg": 3.612394883485338,
+          "elbow_angle_deg": 90.79856895150526,
+          "wrist_deviation_deg": 58.84908296457741,
+          "deviation": 5.4376365224426175,
+          "natural": false,
+          "upper_forward": true,
+          "shoulder_axis_gap_m": 2.7755575615628914e-17
+        }
+      }
+    },
+    "checks": {
+      "open": {
+        "left": {
+          "clear": true,
+          "violations": [],
+          "table_clearance_m": {
+            "H": 0.05234250995102696,
+            "A": 0.30608280840537627
+          }
+        },
+        "right": {
+          "clear": true,
+          "violations": [],
+          "table_clearance_m": {
+            "H": 0.08726529395750149,
+            "A": 0.3501306382649164
+          }
+        },
+        "pair_clearances_m": {
+          "HL_HR": 0.058524095089177795,
+          "AL_AR": 0.18199958722891474,
+          "HL_AR": 0.16332327716981654,
+          "HR_AL": 0.1783172304354861
+        }
+      },
+      "configured": {
+        "left": {
+          "clear": true,
+          "violations": [],
+          "table_clearance_m": {
+            "H": 0.05234250995102696,
+            "A": 0.30608280840537627
+          }
+        },
+        "right": {
+          "clear": true,
+          "violations": [],
+          "table_clearance_m": {
+            "H": 0.10529867546516047,
+            "A": 0.3501306382649164
+          }
+        },
+        "pair_clearances_m": {
+          "HL_HR": 0.09158043381478202,
+          "AL_AR": 0.18199958722891474,
+          "HL_AR": 0.16332327716981654,
+          "HR_AL": 0.16576794126589364
+        }
+      }
+    },
+    "method": "minimum common upward offset in 0..120mm/10mm; six IK starts, minimum natural deviation among mesh-clear starts; actual FK palms; open and inherited hand home values both checked at >=30mm"
+  },
+  "static_arm_hand_global_distance_lower_bounds_m": {
+    "left_palm_157_opposite_arm_base": 0.2089199413004781,
+    "left_palm_290_opposite_arm_base": 0.19597829153733062,
+    "left_palm_670_opposite_arm_base": 0.2843826607959942,
+    "left_palm_962_opposite_arm_base": 0.22922859965359013,
+    "left_palm_1360_opposite_arm_base": 0.2516412097789788,
+    "left_palm_1478_opposite_arm_base": 0.28921270308792185,
+    "left_palm_2335_opposite_arm_base": 0.14991806572022018,
+    "left_palm_2417_opposite_arm_base": 0.19523461463936723,
+    "left_palm_2992_opposite_arm_base": 0.226973517560406,
+    "left_palm_3218_opposite_arm_base": 0.2910514700075374,
+    "right_palm_442_opposite_arm_base": 0.23517253333061666,
+    "right_palm_531_opposite_arm_base": 0.21493256064259528,
+    "right_palm_631_opposite_arm_base": 0.21439059448730802,
+    "right_palm_1526_opposite_arm_base": 0.24499236107135208,
+    "right_palm_1586_opposite_arm_base": 0.17600770546583736
+  }
+}

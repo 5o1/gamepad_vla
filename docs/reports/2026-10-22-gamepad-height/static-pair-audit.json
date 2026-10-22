@@ -1,0 +1,387 @@
+{
+  "sides": {
+    "left": [
+      {
+        "palm_index": 157,
+        "whole_hand_extended_column_distance_m": 0.0533618317160377,
+        "static_hand_pad_aabb_gap_m": 0.008457803782894846,
+        "static_geom_count": 1,
+        "native_static_hand_pad_violations": []
+      },
+      {
+        "palm_index": 290,
+        "whole_hand_extended_column_distance_m": 0.05465273534228643,
+        "static_hand_pad_aabb_gap_m": 0.006577832688127394,
+        "static_geom_count": 1,
+        "native_static_hand_pad_violations": []
+      },
+      {
+        "palm_index": 670,
+        "whole_hand_extended_column_distance_m": 0.033151173322773404,
+        "static_hand_pad_aabb_gap_m": 0.02575136282860968,
+        "static_geom_count": 1,
+        "native_static_hand_pad_violations": []
+      },
+      {
+        "palm_index": 962,
+        "whole_hand_extended_column_distance_m": 0.055489199371200115,
+        "static_hand_pad_aabb_gap_m": 0.013558882701484531,
+        "static_geom_count": 1,
+        "native_static_hand_pad_violations": []
+      },
+      {
+        "palm_index": 1360,
+        "whole_hand_extended_column_distance_m": 0.05069650973895601,
+        "static_hand_pad_aabb_gap_m": 0.017510927381321206,
+        "static_geom_count": 1,
+        "native_static_hand_pad_violations": []
+      },
+      {
+        "palm_index": 1478,
+        "whole_hand_extended_column_distance_m": 0.0442415406063623,
+        "static_hand_pad_aabb_gap_m": 0.05193535075393585,
+        "static_geom_count": 1,
+        "native_static_hand_pad_violations": []
+      },
+      {
+        "palm_index": 2335,
+        "whole_hand_extended_column_distance_m": 0.03273881873603271,
+        "static_hand_pad_aabb_gap_m": 0.0029478067550987586,
+        "static_geom_count": 1,
+        "native_static_hand_pad_violations": []
+      },
+      {
+        "palm_index": 2417,
+        "whole_hand_extended_column_distance_m": 0.052659505220837954,
+        "static_hand_pad_aabb_gap_m": 0.011919438147377504,
+        "static_geom_count": 1,
+        "native_static_hand_pad_violations": []
+      },
+      {
+        "palm_index": 2992,
+        "whole_hand_extended_column_distance_m": 0.04613696156254998,
+        "static_hand_pad_aabb_gap_m": 0.018369048180319147,
+        "static_geom_count": 1,
+        "native_static_hand_pad_violations": []
+      },
+      {
+        "palm_index": 3218,
+        "whole_hand_extended_column_distance_m": 0.049970000372317844,
+        "static_hand_pad_aabb_gap_m": 0.00040109461843940153,
+        "static_geom_count": 1,
+        "native_static_hand_pad_violations": []
+      }
+    ],
+    "right": [
+      {
+        "palm_index": 442,
+        "whole_hand_extended_column_distance_m": 0.03829810750746576,
+        "static_hand_pad_aabb_gap_m": 0.03777204977219206,
+        "static_geom_count": 1,
+        "native_static_hand_pad_violations": []
+      },
+      {
+        "palm_index": 531,
+        "whole_hand_extended_column_distance_m": 0.04081550585420929,
+        "static_hand_pad_aabb_gap_m": 0.021034774072976936,
+        "static_geom_count": 1,
+        "native_static_hand_pad_violations": []
+      },
+      {
+        "palm_index": 631,
+        "whole_hand_extended_column_distance_m": 0.046295227796661204,
+        "static_hand_pad_aabb_gap_m": 0.028671753220901097,
+        "static_geom_count": 1,
+        "native_static_hand_pad_violations": []
+      },
+      {
+        "palm_index": 1526,
+        "whole_hand_extended_column_distance_m": 0.03616258649357696,
+        "static_hand_pad_aabb_gap_m": 0.028476047977197827,
+        "static_geom_count": 1,
+        "native_static_hand_pad_violations": []
+      },
+      {
+        "palm_index": 1586,
+        "whole_hand_extended_column_distance_m": 0.04006889435824319,
+        "static_hand_pad_aabb_gap_m": 0.0,
+        "static_geom_count": 1,
+        "native_static_hand_pad_violations": []
+      }
+    ]
+  },
+  "static_hand_pairs": [
+    {
+      "left_index": 157,
+      "right_index": 442,
+      "distance_lower_bound_m": 0.06852120466055034
+    },
+    {
+      "left_index": 157,
+      "right_index": 531,
+      "distance_lower_bound_m": 0.05178392896133521
+    },
+    {
+      "left_index": 157,
+      "right_index": 631,
+      "distance_lower_bound_m": 0.059420908109259374
+    },
+    {
+      "left_index": 157,
+      "right_index": 1526,
+      "distance_lower_bound_m": 0.059225202865556104
+    },
+    {
+      "left_index": 157,
+      "right_index": 1586,
+      "distance_lower_bound_m": -0.047944985457885975
+    },
+    {
+      "left_index": 290,
+      "right_index": 442,
+      "distance_lower_bound_m": 0.05487656927904594
+    },
+    {
+      "left_index": 290,
+      "right_index": 531,
+      "distance_lower_bound_m": 0.03813929357983081
+    },
+    {
+      "left_index": 290,
+      "right_index": 631,
+      "distance_lower_bound_m": 0.045776272727754974
+    },
+    {
+      "left_index": 290,
+      "right_index": 1526,
+      "distance_lower_bound_m": 0.045580567484051704
+    },
+    {
+      "left_index": 290,
+      "right_index": 1586,
+      "distance_lower_bound_m": -0.05962177748935264
+    },
+    {
+      "left_index": 670,
+      "right_index": 442,
+      "distance_lower_bound_m": 0.21652341972738076
+    },
+    {
+      "left_index": 670,
+      "right_index": 531,
+      "distance_lower_bound_m": 0.19978614402816564
+    },
+    {
+      "left_index": 670,
+      "right_index": 631,
+      "distance_lower_bound_m": 0.2074231231760898
+    },
+    {
+      "left_index": 670,
+      "right_index": 1526,
+      "distance_lower_bound_m": 0.20722741793238653
+    },
+    {
+      "left_index": 670,
+      "right_index": 1586,
+      "distance_lower_bound_m": 0.07060828364671934
+    },
+    {
+      "left_index": 962,
+      "right_index": 442,
+      "distance_lower_bound_m": 0.2043309396002556
+    },
+    {
+      "left_index": 962,
+      "right_index": 531,
+      "distance_lower_bound_m": 0.18759366390104049
+    },
+    {
+      "left_index": 962,
+      "right_index": 631,
+      "distance_lower_bound_m": 0.19523064304896465
+    },
+    {
+      "left_index": 962,
+      "right_index": 1526,
+      "distance_lower_bound_m": 0.19503493780526138
+    },
+    {
+      "left_index": 962,
+      "right_index": 1586,
+      "distance_lower_bound_m": 0.05841580351959419
+    },
+    {
+      "left_index": 1360,
+      "right_index": 442,
+      "distance_lower_bound_m": 0.2082829842800923
+    },
+    {
+      "left_index": 1360,
+      "right_index": 531,
+      "distance_lower_bound_m": 0.19154570858087716
+    },
+    {
+      "left_index": 1360,
+      "right_index": 631,
+      "distance_lower_bound_m": 0.19918268772880132
+    },
+    {
+      "left_index": 1360,
+      "right_index": 1526,
+      "distance_lower_bound_m": 0.19898698248509805
+    },
+    {
+      "left_index": 1360,
+      "right_index": 1586,
+      "distance_lower_bound_m": 0.062367848199430864
+    },
+    {
+      "left_index": 1478,
+      "right_index": 442,
+      "distance_lower_bound_m": 0.24270740765270693
+    },
+    {
+      "left_index": 1478,
+      "right_index": 531,
+      "distance_lower_bound_m": 0.2259701319534918
+    },
+    {
+      "left_index": 1478,
+      "right_index": 631,
+      "distance_lower_bound_m": 0.23360711110141597
+    },
+    {
+      "left_index": 1478,
+      "right_index": 1526,
+      "distance_lower_bound_m": 0.2334114058577127
+    },
+    {
+      "left_index": 1478,
+      "right_index": 1586,
+      "distance_lower_bound_m": 0.09679227157204551
+    },
+    {
+      "left_index": 2335,
+      "right_index": 442,
+      "distance_lower_bound_m": 0.10386298514490189
+    },
+    {
+      "left_index": 2335,
+      "right_index": 531,
+      "distance_lower_bound_m": 0.08712570944568676
+    },
+    {
+      "left_index": 2335,
+      "right_index": 631,
+      "distance_lower_bound_m": 0.09476268859361092
+    },
+    {
+      "left_index": 2335,
+      "right_index": 1526,
+      "distance_lower_bound_m": 0.09456698334990765
+    },
+    {
+      "left_index": 2335,
+      "right_index": 1586,
+      "distance_lower_bound_m": -0.010449927598238266
+    },
+    {
+      "left_index": 2417,
+      "right_index": 442,
+      "distance_lower_bound_m": 0.12644302684007047
+    },
+    {
+      "left_index": 2417,
+      "right_index": 531,
+      "distance_lower_bound_m": 0.10970575114085535
+    },
+    {
+      "left_index": 2417,
+      "right_index": 631,
+      "distance_lower_bound_m": 0.1173427302887795
+    },
+    {
+      "left_index": 2417,
+      "right_index": 1526,
+      "distance_lower_bound_m": 0.11714702504507624
+    },
+    {
+      "left_index": 2417,
+      "right_index": 1586,
+      "distance_lower_bound_m": 0.001386406191241655
+    },
+    {
+      "left_index": 2992,
+      "right_index": 442,
+      "distance_lower_bound_m": 0.20914110507909023
+    },
+    {
+      "left_index": 2992,
+      "right_index": 531,
+      "distance_lower_bound_m": 0.1924038293798751
+    },
+    {
+      "left_index": 2992,
+      "right_index": 631,
+      "distance_lower_bound_m": 0.20004080852779926
+    },
+    {
+      "left_index": 2992,
+      "right_index": 1526,
+      "distance_lower_bound_m": 0.199845103284096
+    },
+    {
+      "left_index": 2992,
+      "right_index": 1586,
+      "distance_lower_bound_m": 0.0632259689984288
+    },
+    {
+      "left_index": 3218,
+      "right_index": 442,
+      "distance_lower_bound_m": 0.19117315151721048
+    },
+    {
+      "left_index": 3218,
+      "right_index": 531,
+      "distance_lower_bound_m": 0.17443587581799536
+    },
+    {
+      "left_index": 3218,
+      "right_index": 631,
+      "distance_lower_bound_m": 0.18357206564440823
+    },
+    {
+      "left_index": 3218,
+      "right_index": 1526,
+      "distance_lower_bound_m": 0.18187714972221625
+    },
+    {
+      "left_index": 3218,
+      "right_index": 1586,
+      "distance_lower_bound_m": 0.04525801543654906
+    }
+  ],
+  "static_arm_column_aabb_gaps_m": {
+    "AL_k1_geom_0": 0.3527091868568578,
+    "AR_k1_geom_0": 0.36047578356716836
+  },
+  "rejected_static_hand_pairs": [
+    {
+      "left_index": 157,
+      "right_index": 1586,
+      "distance_lower_bound_m": -0.047944985457885975
+    },
+    {
+      "left_index": 290,
+      "right_index": 1586,
+      "distance_lower_bound_m": -0.05962177748935264
+    },
+    {
+      "left_index": 2335,
+      "right_index": 1586,
+      "distance_lower_bound_m": -0.010449927598238266
+    }
+  ],
+  "passed": true
+}

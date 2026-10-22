@@ -1,0 +1,21 @@
+{
+  "base_git_archive": "bab0ccdabf8c63f53b72b021a79fc0fae0f92245",
+  "source_sha256": {
+    "src/gamepad_vla/feasibility.py": "085cb101aed04d1156f3186ce136a5c3044d3afa0a863c82cc790c0d6e4a15a2",
+    "scripts/k1_height_common.py": "630e8cf536e758c2dd207fd78f49844eebbd1aec7e11776aa2513f79f9db9eee",
+    "scripts/k1_natural_reference.py": "51ac88f61285e031315973f65c25dac2def30fde44dddf198dbbfbb6f2f24b89",
+    "scripts/search_gamepad_height.py": "6c15ffbdaffbf75970cf81f8b2200c5197f082494e6dceec79e405bcf3a1fc9d",
+    "scripts/check_gamepad_height_pairs.py": "3580a1969f02669d548f44019d7c28295b2df7e798cb6da14209021ed3a0f81c",
+    "scripts/finalize_gamepad_height.py": "23b12b0d10baaf8298c057497ff346167e72f75291ffd6382bdd894201f5ab31",
+    "scripts/validate_gamepad_height_geometry.py": "f40a735773340657406ce1d23ae2b18fa9944680ed7f6208dcae02fbe69aa8be",
+    "scripts/audit_gamepad_height_static_pairs.py": "4802c30d212f06c3cbd9c106f7ce2fd9f2e8c7dd9055dac9b58190a104c59b17"
+  },
+  "baseline_workcell_sha256": "262641b0caa3cbfcfc828434184cf35a21f965cb8c48b56a3ba868b2f67d36c6",
+  "k0_kinematics_sha256": {
+    "left": "397f35b0030d37061ee65e7da306dc5918dd94518bd95742432eff74f4d1a74c",
+    "right": "35408bd46b2f5315f25291fe21f08de45cded4070ef9c3367e2987434429f66b"
+  },
+  "isolation": "independent compute source archive; existing isolated fixed-gamepad environment; CPU only; concurrent collection/web changes and deployment source were not overwritten",
+  "assets": "existing K0 pinned AR5/G20 and 84f43e6 gamepad resources; converted meshes/NPZ/logs stay on compute",
+  "post_validation_updates": "side-view annotation layout rerendered; inherited notes marked v4.4 history; validation status explicit; no geometry, IK, thresholds or scan result changed"
+}

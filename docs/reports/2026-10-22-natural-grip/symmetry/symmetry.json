@@ -1,0 +1,509 @@
+{
+  "scope": "finite FK / constrained-local-optimization symmetry diagnostic; no collision certificate",
+  "mirror_plane_y_m": 0.6202000000000001,
+  "original_pad_centre_m": [
+    0.4948976146332803,
+    0.6140484658601327,
+    0.8586268509043572
+  ],
+  "original_decomposition": {
+    "left": {
+      "wrist_above_table_mm": 231.17467718186379,
+      "palm_above_table_mm": 331.1031403978576,
+      "median_grasp_offset_mm": 121.115316103648,
+      "reference_clearance_mm": 209.9878242942096
+    },
+    "right": {
+      "wrist_above_table_mm": 231.1746771815978,
+      "palm_above_table_mm": 270.4904364813724,
+      "median_grasp_offset_mm": 94.98263291121467,
+      "reference_clearance_mm": 175.5078035701577
+    }
+  },
+  "original_home_q": {
+    "left": [
+      -1.43823,
+      1.33764,
+      0.51476,
+      1.36853,
+      1.71606,
+      0.15145,
+      0.43553
+    ],
+    "right": [
+      -1.0,
+      1.0,
+      0.0,
+      2.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "palm_local_centroids_m": {
+    "left": [
+      0.00037907987224168523,
+      0.0004967746180022668,
+      0.07994584452610269
+    ],
+    "right": [
+      0.0003813212218661961,
+      -0.0004968521700547614,
+      0.07995031131596388
+    ]
+  },
+  "palm_centroid_mirror_residual_mm": [
+    0.002241349624510869,
+    -7.755205249455801e-05,
+    0.004466789861184983
+  ],
+  "base_pose_reflected_position_residual_mm": [
+    0.0,
+    -1.1102230246251565e-13,
+    0.0
+  ],
+  "base_rotation_comparison": [
+    [
+      1.0000000000000002,
+      1.4175315878735482e-16,
+      6.184805653995812e-17
+    ],
+    [
+      -1.4175315878735482e-16,
+      -1.0000000000000002,
+      1.417524567594109e-16
+    ],
+    [
+      6.184805653995812e-17,
+      -1.417524567594109e-16,
+      1.0000000000000002
+    ]
+  ],
+  "mount_reflection_max_abs": 0.0,
+  "mount_translation_mirror_residual_mm": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "joint_geometry_comparison": [
+    {
+      "left": "AR5_left_5_08R_W4C4A6_joint_1",
+      "right": "AR5_right_5_08R_W4C4A6_joint_1",
+      "origin_max_abs": 0.0,
+      "axis_max_abs": 0.0
+    },
+    {
+      "left": "AR5_left_5_08R_W4C4A6_joint_2",
+      "right": "AR5_right_5_08R_W4C4A6_joint_2",
+      "origin_max_abs": 0.0,
+      "axis_max_abs": 0.0
+    },
+    {
+      "left": "AR5_left_5_08R_W4C4A6_joint_3",
+      "right": "AR5_right_5_08R_W4C4A6_joint_3",
+      "origin_max_abs": 0.0,
+      "axis_max_abs": 0.0
+    },
+    {
+      "left": "AR5_left_5_08R_W4C4A6_joint_4",
+      "right": "AR5_right_5_08R_W4C4A6_joint_4",
+      "origin_max_abs": 0.0,
+      "axis_max_abs": 0.0
+    },
+    {
+      "left": "AR5_left_5_08R_W4C4A6_joint_5",
+      "right": "AR5_right_5_08R_W4C4A6_joint_5",
+      "origin_max_abs": 0.0,
+      "axis_max_abs": 0.0
+    },
+    {
+      "left": "AR5_left_5_08R_W4C4A6_joint_6",
+      "right": "AR5_right_5_08R_W4C4A6_joint_6",
+      "origin_max_abs": 0.0,
+      "axis_max_abs": 0.0
+    },
+    {
+      "left": "AR5_left_5_08R_W4C4A6_joint_7",
+      "right": "AR5_right_5_08R_W4C4A6_joint_7",
+      "origin_max_abs": 0.0,
+      "axis_max_abs": 0.0
+    },
+    {
+      "left": "AR5_left_5_08R_W4C4A6_tcp_joint",
+      "right": "AR5_right_5_08R_W4C4A6_tcp_joint",
+      "origin_max_abs": 0.0,
+      "axis_max_abs": 0.0
+    }
+  ],
+  "best_joint_signs": [
+    -1.0,
+    1.0,
+    -1.0,
+    1.0,
+    -1.0,
+    1.0,
+    -1.0
+  ],
+  "sign_map_joint_origin_max_residual_mm": 2.220446049250313e-13,
+  "sign_map_feature_errors_m": {
+    "shoulder": [
+      0.0,
+      -1.1102230246251565e-16,
+      0.0
+    ],
+    "elbow": [
+      -2.7755575615628914e-17,
+      -1.1102230246251565e-16,
+      0.0
+    ],
+    "wrist": [
+      -5.551115123125783e-17,
+      0.0,
+      1.1102230246251565e-16
+    ],
+    "joint_origins": [
+      [
+        0.0,
+        -1.1102230246251565e-16,
+        0.0
+      ],
+      [
+        0.0,
+        -1.1102230246251565e-16,
+        0.0
+      ],
+      [
+        0.0,
+        -1.1102230246251565e-16,
+        0.0
+      ],
+      [
+        0.0,
+        -1.1102230246251565e-16,
+        0.0
+      ],
+      [
+        0.0,
+        -1.1102230246251565e-16,
+        0.0
+      ],
+      [
+        0.0,
+        -1.1102230246251565e-16,
+        0.0
+      ],
+      [
+        0.0,
+        -1.1102230246251565e-16,
+        0.0
+      ]
+    ]
+  },
+  "sign_map_palm_translation_residual_mm": [
+    0.0,
+    -1.1102230246251565e-13,
+    0.0
+  ],
+  "sign_map_palm_rotation_residual_deg": 0.0,
+  "full_mirror_pose_fit": {
+    "q": [
+      0.3240890093695414,
+      1.5514166274043542,
+      0.9110909018153722,
+      1.5387150230831124,
+      -1.7160602012028658,
+      0.1514501426749166,
+      -0.435529991823338
+    ],
+    "success": true,
+    "nfev": 1,
+    "translation_residual_mm": [
+      0.0,
+      -1.1102230246251565e-13,
+      0.0
+    ],
+    "rotation_residual_deg": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "reference_cases": {
+    "original_target": {
+      "left": {
+        "result": {
+          "solution": {
+            "q": [
+              -0.3240890093695414,
+              1.5514166274043542,
+              -0.9110909018153722,
+              1.5387150230831124,
+              1.7160602012028658,
+              0.1514501426749166,
+              0.435529991823338
+            ],
+            "home_squared_distance_rad2": 3.3490243297169697,
+            "start": 1,
+            "constraint_residual": 1.837419105754634e-14,
+            "optimizer_success": true,
+            "upper_tilt_target_deg": 20,
+            "forearm_pitch_target_deg": 10,
+            "wrist_world_m": [
+              0.3656255954580022,
+              0.716021203186502,
+              0.9981746771818638
+            ],
+            "palm_world_m": [
+              0.4523082648355621,
+              0.5797118806580135,
+              1.0981031403978576
+            ],
+            "shoulder_world_m": [
+              0.03691435902570947,
+              0.8856999999988229,
+              1.2620000000023543
+            ],
+            "elbow_world_m": [
+              0.15052182115254417,
+              0.885699999998823,
+              0.949866063127333
+            ],
+            "angles": {
+              "upper_tilt_deg": 20.000000000000195,
+              "forearm_pitch_deg": 9.999999999998929,
+              "forearm_heading_deg": 0.0,
+              "elbow_angle_deg": 95.81260587784276,
+              "wrist_deviation_deg": 28.282569368400118
+            }
+          },
+          "failed_starts": [
+            {
+              "start": 0,
+              "message": "Positive directional derivative for linesearch",
+              "constraint_residual": 0.6258440111453045
+            }
+          ],
+          "scope": "nearest-home among 6 local constrained FK starts; no global optimum or collision certificate"
+        },
+        "heights": {
+          "wrist_above_table_mm": 231.17467718186379,
+          "palm_above_table_mm": 331.1031403978576,
+          "median_grasp_offset_mm": 121.115316103648,
+          "reference_clearance_mm": 209.9878242942096
+        },
+        "shared_left_median_heights": {
+          "wrist_above_table_mm": 231.17467718186379,
+          "palm_above_table_mm": 331.1031403978576,
+          "median_grasp_offset_mm": 121.115316103648,
+          "reference_clearance_mm": 209.9878242942096
+        }
+      },
+      "right": {
+        "result": {
+          "solution": {
+            "q": [
+              0.32367457770960756,
+              1.5519629770888748,
+              0.9327805274228194,
+              1.5340824570342797,
+              -1.7160600121774916,
+              0.15144992751980704,
+              -0.43553000536935615
+            ],
+            "home_squared_distance_rad2": 3.4109493224267795,
+            "start": 4,
+            "constraint_residual": 2.4341639814906557e-14,
+            "optimizer_success": true,
+            "upper_tilt_target_deg": 20,
+            "forearm_pitch_target_deg": 10,
+            "wrist_world_m": [
+              0.3693734403335096,
+              0.5195165543578268,
+              0.9981746771818754
+            ],
+            "palm_world_m": [
+              0.45931309382463836,
+              0.6534652809106751,
+              1.098424916192816
+            ],
+            "shoulder_world_m": [
+              0.03691435902570947,
+              0.3547000000011772,
+              1.2620000000023543
+            ],
+            "elbow_world_m": [
+              0.1505218211525431,
+              0.3547000000011772,
+              0.9498660631273327
+            ],
+            "angles": {
+              "upper_tilt_deg": 19.999999999999993,
+              "forearm_pitch_deg": 10.000000000001416,
+              "forearm_heading_deg": 0.0,
+              "elbow_angle_deg": 96.07803236075648,
+              "wrist_deviation_deg": 28.282566847662775
+            }
+          },
+          "failed_starts": [
+            {
+              "start": 0,
+              "message": "Positive directional derivative for linesearch",
+              "constraint_residual": 0.6213372713748571
+            }
+          ],
+          "scope": "nearest-home among 6 local constrained FK starts; no global optimum or collision certificate"
+        },
+        "heights": {
+          "wrist_above_table_mm": 231.17467718187535,
+          "palm_above_table_mm": 331.4249161928159,
+          "median_grasp_offset_mm": 94.98263291121467,
+          "reference_clearance_mm": 236.44228328160122
+        },
+        "shared_left_median_heights": {
+          "wrist_above_table_mm": 231.17467718187535,
+          "palm_above_table_mm": 331.4249161928159,
+          "median_grasp_offset_mm": 121.115316103648,
+          "reference_clearance_mm": 210.30960008916787
+        }
+      }
+    },
+    "symmetric_target": {
+      "left": {
+        "result": {
+          "solution": {
+            "q": [
+              -0.3238821945597677,
+              1.5516861965606321,
+              -0.921837225371115,
+              1.5364021921666449,
+              1.7160597448533383,
+              0.15144989050451588,
+              0.435529991823338
+            ],
+            "home_squared_distance_rad2": 3.379579466598433,
+            "start": 1,
+            "constraint_residual": 3.6125269442521812e-12,
+            "optimizer_success": true,
+            "upper_tilt_target_deg": 20,
+            "forearm_pitch_target_deg": 10,
+            "wrist_world_m": [
+              0.36749695107148816,
+              0.71842082973288,
+              0.9981746771808457
+            ],
+            "palm_world_m": [
+              0.4557993387030663,
+              0.5832726396838562,
+              1.0982619860883212
+            ],
+            "shoulder_world_m": [
+              0.03691435902570947,
+              0.8856999999988229,
+              1.2620000000023543
+            ],
+            "elbow_world_m": [
+              0.15052182115249374,
+              0.8856999999988235,
+              0.9498660631273148
+            ],
+            "angles": {
+              "upper_tilt_deg": 19.999999999990933,
+              "forearm_pitch_deg": 9.999999999789823,
+              "forearm_heading_deg": 0.0,
+              "elbow_angle_deg": 95.94512132808367,
+              "wrist_deviation_deg": 28.2825657586948
+            }
+          },
+          "failed_starts": [
+            {
+              "start": 0,
+              "message": "Positive directional derivative for linesearch",
+              "constraint_residual": 0.6163645521945273
+            }
+          ],
+          "scope": "nearest-home among 6 local constrained FK starts; no global optimum or collision certificate"
+        },
+        "heights": {
+          "wrist_above_table_mm": 231.17467718084572,
+          "palm_above_table_mm": 331.2619860883211,
+          "median_grasp_offset_mm": 121.115316103648,
+          "reference_clearance_mm": 210.14666998467314
+        },
+        "shared_left_median_heights": {
+          "wrist_above_table_mm": 231.17467718084572,
+          "palm_above_table_mm": 331.2619860883211,
+          "median_grasp_offset_mm": 121.115316103648,
+          "reference_clearance_mm": 210.14666998467314
+        }
+      },
+      "right": {
+        "result": {
+          "solution": {
+            "q": [
+              0.3238821945598167,
+              1.5516861965606161,
+              0.9218372253710692,
+              1.5364021921664506,
+              -1.7160598594349912,
+              0.1514498807419504,
+              -0.4355300383353349
+            ],
+            "home_squared_distance_rad2": 3.379579466598078,
+            "start": 1,
+            "constraint_residual": 3.781225332843974e-12,
+            "optimizer_success": true,
+            "upper_tilt_target_deg": 20,
+            "forearm_pitch_target_deg": 10,
+            "wrist_world_m": [
+              0.36749695107150865,
+              0.5219791702671213,
+              0.9981746771808042
+            ],
+            "palm_world_m": [
+              0.45580284219826717,
+              0.6571308572363945,
+              1.0982626591699196
+            ],
+            "shoulder_world_m": [
+              0.03691435902570947,
+              0.3547000000011772,
+              1.2620000000023543
+            ],
+            "elbow_world_m": [
+              0.1505218211525088,
+              0.3547000000011715,
+              0.9498660631273202
+            ],
+            "angles": {
+              "upper_tilt_deg": 19.999999999993705,
+              "forearm_pitch_deg": 9.999999999780009,
+              "forearm_heading_deg": 0.0,
+              "elbow_angle_deg": 95.94512132809488,
+              "wrist_deviation_deg": 28.28256803682535
+            }
+          },
+          "failed_starts": [
+            {
+              "start": 0,
+              "message": "Positive directional derivative for linesearch",
+              "constraint_residual": 0.6164194873928109
+            }
+          ],
+          "scope": "nearest-home among 6 local constrained FK starts; no global optimum or collision certificate"
+        },
+        "heights": {
+          "wrist_above_table_mm": 231.1746771808042,
+          "palm_above_table_mm": 331.2626591699196,
+          "median_grasp_offset_mm": 94.98263291121467,
+          "reference_clearance_mm": 236.28002625870494
+        },
+        "shared_left_median_heights": {
+          "wrist_above_table_mm": 231.1746771808042,
+          "palm_above_table_mm": 331.2626591699196,
+          "median_grasp_offset_mm": 121.115316103648,
+          "reference_clearance_mm": 210.1473430662716
+        }
+      }
+    }
+  }
+}

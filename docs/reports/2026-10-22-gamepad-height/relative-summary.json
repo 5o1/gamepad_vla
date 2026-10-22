@@ -1,0 +1,120 @@
+{
+  "left": {
+    "side": "left",
+    "sampled_palms": 4096,
+    "grip_point_ik": 2487,
+    "point_ik_per_control": {
+      "Dpad_up": 118,
+      "Dpad_down": 109,
+      "Dpad_left": 124,
+      "Dpad_right": 113,
+      "LS": 514,
+      "L3": 99,
+      "LB": 0,
+      "LT": 97
+    },
+    "relative_grip_palms": 10,
+    "relative_baselines": 52,
+    "relative_per_control": {
+      "Dpad_up": 0,
+      "Dpad_down": 0,
+      "Dpad_left": 0,
+      "Dpad_right": 0,
+      "LS": 0,
+      "L3": 0,
+      "LB": 0,
+      "LT": 0
+    },
+    "baseline_attempts": 2620,
+    "baseline_rejections": {
+      "hand_pad_or_other_collision": 2568
+    },
+    "shell_low_m": -0.029858977327355506,
+    "support_point_m": [
+      -0.00024295781293409008,
+      -0.00044332219595386545,
+      -0.010740793395157041
+    ],
+    "k0_parameters": {
+      "fk_samples_per_finger": 100000,
+      "palm_samples": 4096,
+      "shell_samples": 40000,
+      "grip_surface_samples": 2477,
+      "seed": 21,
+      "normal_cone_deg": 30,
+      "point_tolerance_m": 0.00025,
+      "grip_penetration_m": 0.001,
+      "active_penetration_numerical_m": 0.0001,
+      "arm_position_tolerance_m": 0.0005,
+      "arm_rotation_tolerance_rad": 0.005,
+      "arm_seeds": 6,
+      "arm_iterations": 100,
+      "arm_seed": 1021,
+      "rest_postures": 12,
+      "grip_patch": "signed x >25mm, y<5mm, z<-5mm, outward nz<-.3; shell only",
+      "grip_fixed": true,
+      "lookahead": 0
+    },
+    "elapsed_seconds": 224.7493285810051,
+    "method": "K0 samples/point IK/native contacts; all original resting alternatives retained; no relaxed contact, normal, joint-limit or motion thresholds; middle keys excluded from coverage"
+  },
+  "right": {
+    "side": "right",
+    "sampled_palms": 4096,
+    "grip_point_ik": 2463,
+    "point_ik_per_control": {
+      "A": 120,
+      "B": 118,
+      "X": 102,
+      "Y": 93,
+      "RS": 596,
+      "R3": 119,
+      "RB": 3,
+      "RT": 123
+    },
+    "relative_grip_palms": 5,
+    "relative_baselines": 30,
+    "relative_per_control": {
+      "A": 0,
+      "B": 0,
+      "X": 0,
+      "Y": 1,
+      "RS": 0,
+      "R3": 0,
+      "RB": 0,
+      "RT": 0
+    },
+    "baseline_attempts": 2524,
+    "baseline_rejections": {
+      "hand_pad_or_other_collision": 2494
+    },
+    "shell_low_m": -0.029858977327355506,
+    "support_point_m": [
+      -0.00024295781293409008,
+      -0.00044332219595386545,
+      -0.010740793395157041
+    ],
+    "k0_parameters": {
+      "fk_samples_per_finger": 100000,
+      "palm_samples": 4096,
+      "shell_samples": 40000,
+      "grip_surface_samples": 2461,
+      "seed": 22,
+      "normal_cone_deg": 30,
+      "point_tolerance_m": 0.00025,
+      "grip_penetration_m": 0.001,
+      "active_penetration_numerical_m": 0.0001,
+      "arm_position_tolerance_m": 0.0005,
+      "arm_rotation_tolerance_rad": 0.005,
+      "arm_seeds": 6,
+      "arm_iterations": 100,
+      "arm_seed": 1022,
+      "rest_postures": 12,
+      "grip_patch": "signed x >25mm, y<5mm, z<-5mm, outward nz<-.3; shell only",
+      "grip_fixed": true,
+      "lookahead": 0
+    },
+    "elapsed_seconds": 224.70339371199952,
+    "method": "K0 samples/point IK/native contacts; all original resting alternatives retained; no relaxed contact, normal, joint-limit or motion thresholds; middle keys excluded from coverage"
+  }
+}

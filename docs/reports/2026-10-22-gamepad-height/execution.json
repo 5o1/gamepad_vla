@@ -1,0 +1,27 @@
+{
+  "relative_seconds": {
+    "left": 224.7493285810051,
+    "right": 224.70339371199952
+  },
+  "world_seconds": {
+    "left": 795.1947976720112,
+    "right": 388.8112693800067
+  },
+  "pair_seconds": 535.3562885010033,
+  "global_stats": {
+    "placements": 539,
+    "full_control_pair_placements": 0,
+    "maximum_controls": 1,
+    "natural_at_best_tier": 0
+  },
+  "fixes": {
+    "world_layer": 1,
+    "moving_column_probe": 1,
+    "static_palm_audit": 1,
+    "pair_export": 1,
+    "open_home_export": 1,
+    "reference_fk": 1
+  },
+  "kinematics_regression": "4 passed in 0.17s",
+  "timing_scope": "elapsed to result construction; excludes final JSON serialization; completion log elapsed left=800.344601s, right=391.326914s"
+}

@@ -316,7 +316,7 @@ def arm_ik(arm, hand, palms_world, rng, seeds=6, iterations=100):
 
 class CollisionScene:
     """Separate static scene; includes both hands, both arms and all box fixtures."""
-    def __init__(self,spec,pad,work):
+    def __init__(self,spec,pad,work,*,moving_fixtures=(),force_static_hand_pairs=False):
         import mujoco as mj
         from xbox_gamepad_physics.mujoco import attach_to_spec
         self.mj=mj;self.spec=spec
@@ -328,8 +328,10 @@ class CollisionScene:
                 path=Path(work)/(letter+kind+'.urdf')
                 self.corrections[letter+kind]=clean_urdf(source,path,arm=arm if kind=='A' else None)
                 robot=mj.MjSpec.from_file(str(path))
-                for geom in robot.geoms:
+                for gi,geom in enumerate(robot.geoms):
                     geom.contype=1;geom.conaffinity=1
+                    if force_static_hand_pairs:
+                        geom.name=f'k1_geom_{gi}'
                 if kind=='A':
                     frame=parent.worldbody.add_frame(pos=arm.base_pose[:3],quat=arm.base_pose[3:])
                 else:
@@ -341,8 +343,36 @@ class CollisionScene:
         parent.worldbody.add_geom(name='table',type=mj.mjtGeom.mjGEOM_BOX,size=table.half_extents,pos=table.pose[:3],quat=table.pose[3:],contype=1,conaffinity=1)
         for f in spec.fixtures:
             if f.type=='box' and f.collision:
-                parent.worldbody.add_geom(name=f.name,type=mj.mjtGeom.mjGEOM_BOX,size=f.half_extents,pos=f.pose[:3],quat=f.pose[3:],contype=1,conaffinity=1)
-        self.model=parent.compile();self.data=mj.MjData(self.model)
+                if f.name in moving_fixtures:
+                    body=parent.worldbody.add_body(name=f.name+'_mover',mocap=True,pos=f.pose[:3],quat=f.pose[3:])
+                    body.add_geom(name=f.name,type=mj.mjtGeom.mjGEOM_BOX,size=f.half_extents,contype=1,conaffinity=1)
+                else:
+                    parent.worldbody.add_geom(name=f.name,type=mj.mjtGeom.mjGEOM_BOX,size=f.half_extents,pos=f.pose[:3],quat=f.pose[3:],contype=1,conaffinity=1)
+            elif f.type=='mesh' and f.collision:
+                # K1-b's vertical thin post has a sloped top; a convex mesh
+                # preserves that geometry without tilting the entire column.
+                asset=parent.add_mesh(name=f.name+'_fixture_mesh',file=str(f.mesh))
+                parent.worldbody.add_geom(name=f.name,type=mj.mjtGeom.mjGEOM_MESH,meshname=asset.name,
+                                          pos=f.pose[:3],quat=f.pose[3:],contype=1,conaffinity=1)
+        self.model=parent.compile()
+        if force_static_hand_pairs:
+            # MuJoCo omits pairs where both weld groups have no DOFs. Explicit
+            # pairs restore whole palm/pad and palm/palm checks for K1 replay.
+            m=self.model
+            for a in range(m.ngeom):
+                ba=m.body(m.geom_bodyid[a]).name
+                ga=next((k for k in ('HL','HR') if ba.startswith(k+'_')), 'pad' if ba.endswith('controller_body') or ba.startswith('xbox_') else None)
+                wa=m.body_weldid[m.geom_bodyid[a]]
+                if ga is None or m.body_dofnum[wa]!=0:continue
+                for b in range(a+1,m.ngeom):
+                    bb=m.body(m.geom_bodyid[b]).name
+                    gb=next((k for k in ('HL','HR') if bb.startswith(k+'_')), 'pad' if bb.endswith('controller_body') or bb.startswith('xbox_') else None)
+                    wb=m.body_weldid[m.geom_bodyid[b]]
+                    if gb is None or m.body_dofnum[wb]!=0:continue
+                    if {ga,gb} not in ({'HL','pad'},{'HR','pad'},{'HL','HR'}):continue
+                    parent.add_pair(geomname1=m.geom(a).name,geomname2=m.geom(b).name)
+            self.model=parent.compile()
+        self.data=mj.MjData(self.model)
         self.pad_prefix='xbox_'
         # Attach API exposes exact names via its prefix (currently xbox_).
         self.padroot=next(i for i in range(self.model.nbody) if self.model.body(i).name.endswith('controller_body'))

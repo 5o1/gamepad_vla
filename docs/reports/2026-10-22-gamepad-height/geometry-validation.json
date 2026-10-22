@@ -1,0 +1,191 @@
+{
+  "native_moving_column_checks": [
+    {
+      "column_height_m": 0.079118,
+      "xy_m": [
+        -0.06,
+        -0.06
+      ],
+      "probe_offset_m": [
+        0,
+        0,
+        0
+      ],
+      "native_contact": true
+    },
+    {
+      "column_height_m": 0.079118,
+      "xy_m": [
+        -0.06,
+        -0.06
+      ],
+      "probe_offset_m": [
+        0.05,
+        0,
+        0
+      ],
+      "native_contact": false
+    },
+    {
+      "column_height_m": 0.079118,
+      "xy_m": [
+        0.06,
+        0.06
+      ],
+      "probe_offset_m": [
+        0,
+        0,
+        0
+      ],
+      "native_contact": true
+    },
+    {
+      "column_height_m": 0.079118,
+      "xy_m": [
+        0.06,
+        0.06
+      ],
+      "probe_offset_m": [
+        0.05,
+        0,
+        0
+      ],
+      "native_contact": false
+    },
+    {
+      "column_height_m": 0.179118,
+      "xy_m": [
+        -0.06,
+        -0.06
+      ],
+      "probe_offset_m": [
+        0,
+        0,
+        0
+      ],
+      "native_contact": true
+    },
+    {
+      "column_height_m": 0.179118,
+      "xy_m": [
+        -0.06,
+        -0.06
+      ],
+      "probe_offset_m": [
+        0.05,
+        0,
+        0
+      ],
+      "native_contact": false
+    },
+    {
+      "column_height_m": 0.179118,
+      "xy_m": [
+        0.06,
+        0.06
+      ],
+      "probe_offset_m": [
+        0,
+        0,
+        0
+      ],
+      "native_contact": true
+    },
+    {
+      "column_height_m": 0.179118,
+      "xy_m": [
+        0.06,
+        0.06
+      ],
+      "probe_offset_m": [
+        0.05,
+        0,
+        0
+      ],
+      "native_contact": false
+    }
+  ],
+  "projection_probe_pixels": [
+    [
+      647.8959999999998,
+      362.233
+    ],
+    [
+      738.5520999999999,
+      543.4302
+    ]
+  ],
+  "arm_feature_checks": {
+    "left": {
+      "elbow_on_j4_error_m": 0.0,
+      "wrist_ls_gradient_m": [
+        1.1040092307826519e-16,
+        2.2908168598616824e-18,
+        -1.5453353260863391e-18
+      ],
+      "shoulder_axis_gap_m": 1.3877787807814457e-17,
+      "palm_surface_centroid_local_m": [
+        0.00037907987224168523,
+        0.0004967746180022668,
+        0.07994584452610269
+      ],
+      "home_metrics": {
+        "upper_tilt_deg": 81.67385704439975,
+        "forearm_pitch_deg": -32.03313692107063,
+        "forearm_heading_deg": 5.815403808105331,
+        "elbow_angle_deg": 105.56348943684158,
+        "wrist_deviation_deg": 28.28256772087707,
+        "deviation": 4.11159046962665,
+        "natural": false,
+        "upper_forward": true,
+        "shoulder_axis_gap_m": 1.3877787807814457e-17
+      }
+    },
+    "right": {
+      "elbow_on_j4_error_m": 3.192692611103594e-18,
+      "wrist_ls_gradient_m": [
+        -5.55111512312579e-17,
+        -1.1102230246251568e-16,
+        4.440892098500625e-16
+      ],
+      "shoulder_axis_gap_m": 4.85722573273506e-17,
+      "palm_surface_centroid_local_m": [
+        0.0003813212218661961,
+        -0.0004968521700547614,
+        0.07995031131596388
+      ],
+      "home_metrics": {
+        "upper_tilt_deg": 62.377315920278924,
+        "forearm_pitch_deg": -5.530814051250463,
+        "forearm_heading_deg": 65.56562735901089,
+        "elbow_angle_deg": 69.38292354771548,
+        "wrist_deviation_deg": 2.1630210598795365,
+        "deviation": 2.8251543946852617,
+        "natural": false,
+        "upper_forward": false,
+        "shoulder_axis_gap_m": 4.85722573273506e-17
+      }
+    }
+  },
+  "baseline_geometry": {
+    "tabletop_z_m": 0.767,
+    "gamepad_root_world_m": [
+      0.473415,
+      0.6252,
+      0.7979
+    ],
+    "gamepad_root_height_m": 0.03090000000000004,
+    "arm_axis_base_height_m": 0.495,
+    "ego_optical_height_m": 0.6778455444798973,
+    "ego_axis_world": [
+      0.17795170302686802,
+      -0.013565418072482946,
+      -0.9839457153839113
+    ],
+    "fov_deg": [
+      70.44147837576264,
+      43.34150353295499
+    ]
+  },
+  "status": "passed"
+}
