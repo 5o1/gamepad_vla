@@ -36,11 +36,13 @@ LOGICAL_SLOT_FROM_JOINT = {
 JOINT_FROM_LOGICAL_SLOT = {slot: name for name, slot in LOGICAL_SLOT_FROM_JOINT.items()}
 G20_COMMAND_LOWER = {
     "right": [255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, None, None, None, None, 255, 255, 255, 255, 255],
-    "left": [255, 255, 255, 255, 255, 0, 0, 0, 0, 0, 255, None, None, None, None, 255, 255, 255, 255, 255],
+    # Motor 10 (thumb rotation, thumb_cmc_yaw) is reversed for the left hand relative to the
+    # station source: live teleop on 2026-10-23 showed the sim left thumb rotating opposite to the glove.
+    "left": [255, 255, 255, 255, 255, 0, 0, 0, 0, 0, 0, None, None, None, None, 255, 255, 255, 255, 255],
 }
 G20_COMMAND_UPPER = {
     "right": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, None, None, None, None, 0, 0, 0, 0, 0],
-    "left": [0, 0, 0, 0, 0, 255, 255, 255, 255, 255, 0, None, None, None, None, 0, 0, 0, 0, 0],
+    "left": [0, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, None, None, None, None, 0, 0, 0, 0, 0],
 }
 G20_COMMAND_SOURCE_INDEX = {
     "right": [18, 1, 9, 13, 5, 16, 0, 8, 12, 4, 17, None, None, None, None, 19, 2, 10, 14, 6],
