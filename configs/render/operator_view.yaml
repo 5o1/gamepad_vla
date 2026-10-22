@@ -13,13 +13,14 @@ pip:
   width: 320
 overview:
   # Debug view looking straight down; image top is the far table edge (+x),
-  # bottom the robot column. Covers ~0.3 m behind the arms at arm height and
-  # the far table edge with margin.
+  # bottom the robot column. Same height and FOV as the original overview,
+  # shifted 0.25 m toward the robot so the area behind the arms is visible
+  # while the far table edge stays in view.
   enabled: true
   width: 480
   render_width: 640
   render_height: 360
-  position: [0.12, 0.6202, 2.30]
+  position: [0.12, 0.6202, 2.10]
   target: [0.12, 0.6202, 0.767]
   up: [1, 0, 0]
-  fovy_degrees: 60
+  fovy_degrees: 50

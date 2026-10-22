@@ -39,7 +39,9 @@ class OperatorView:
         if collection:
             from .spec import load_spec
             intr = next(c.intrinsics for c in load_spec(spec).cameras if c.name == 'camera_3')
-            cfg.update(width=intr.width, height=intr.height, view='operator')  # the elbow-90 gamepad sits below camera_3's view; camera_3 stays selectable
+            # Collection shows only the calibrated camera_3 plus the overview PiP;
+            # the gamepad-relative virtual operator camera is not used here.
+            cfg.update(width=intr.width, height=intr.height, view='camera_3')
             cfg['pip'] = dict(enabled=False)
         self.collection = collection
         self.port = port
@@ -182,13 +184,15 @@ def render(run):
     if cfg.get('resources'):
         os.environ['XBOX_GAMEPAD_PHYSICS_RESOURCES'] = cfg['resources']
     backend = SapienBackend(spec, render=True, work_dir=run/'render_work')
-    c = cfg['camera']
-    camera = backend.scene.add_camera('operator_only', cfg['width'],cfg['height'],
-                                     math.radians(c['fovy_degrees']), .001, 20.)
-    transform = pose_to_matrix(spec.gamepad.root_pose)
-    def world(point):return (transform @ np.r_[point,1])[:3]
-    camera.entity.set_pose(look_at(world(c['position_gamepad']),world(c['target_gamepad']),
-                                  transform[:3,:3] @ np.array(c['up_gamepad'])))
+    camera = None
+    if not cfg.get('collection'):
+        c = cfg['camera']
+        camera = backend.scene.add_camera('operator_only', cfg['width'],cfg['height'],
+                                         math.radians(c['fovy_degrees']), .001, 20.)
+        transform = pose_to_matrix(spec.gamepad.root_pose)
+        def world(point):return (transform @ np.r_[point,1])[:3]
+        camera.entity.set_pose(look_at(world(c['position_gamepad']),world(c['target_gamepad']),
+                                      transform[:3,:3] @ np.array(c['up_gamepad'])))
     pip = cfg.get('pip', {})
     ego = None
     if pip.get('enabled') or cfg.get('collection'):
@@ -232,7 +236,7 @@ def render(run):
             updated_ns = time.monotonic_ns()
             selected = cfg.get('view','operator')
             if (run/'view.json').is_file():selected=json.loads((run/'view.json').read_text())['view']
-            active_camera = ego if selected=='camera_3' else camera
+            active_camera = ego if (selected=='camera_3' or camera is None) else camera
             active_camera.take_picture()
             from .collection_camera import color_to_rgb8
             rgb = color_to_rgb8(active_camera.get_picture('Color'))

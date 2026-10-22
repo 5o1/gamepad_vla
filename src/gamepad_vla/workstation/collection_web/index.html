@@ -33,7 +33,7 @@
 <input id="note" placeholder="Note (N to focus)" aria-label="Note"><button id="addNote" data-action="note">Add note</button>
 <div id="integrity"></div><div id="message" role="alert"></div>
 <div id="health"></div><div id="clamps"></div>
-<label>View<select id="cameraView"><option value="camera_3">camera_3 calibrated ego view</option><option value="operator">Virtual operator view</option></select></label><span id="videoStatus"></span><div id="metrics">Waiting for stream metrics</div><div class="view"><canvas id="video" width="1280" height="720" aria-label="Simulation video"></canvas><svg id="overlayRoot" aria-label="Actual gamepad signals"></svg></div>
+<span>View: camera_3 calibrated ego view</span><span id="videoStatus"></span><div id="metrics">Waiting for stream metrics</div><div class="view"><canvas id="video" width="1280" height="720" aria-label="Simulation video"></canvas><svg id="overlayRoot" aria-label="Actual gamepad signals"></svg></div>
 <p id="notesState"></p><details open><summary>Recent control events</summary><ol id="recentEvents"></ol></details><section id="library"><h2>Episodes</h2><table><thead><tr><th>Time / ID</th><th>Duration / Rows</th><th>Notes</th><th>Integrity / Void</th><th>Actions</th></tr></thead><tbody id="episodes"></tbody></table></section>
 <p id="stopHint"></p><p>Stop collection ends only simulation processes started by this project. Software stop does not cut motor power.</p>
 <script src="overlay-core.js"></script><script src="overlay-spec.js"></script><script src="overlay-layout-xbox.js"></script><script src="overlay-renderer-svg.js"></script><script src="gamepad-input-sources.js"></script><script src="overlay-app.js"></script>
@@ -58,7 +58,6 @@ $('sessionForm').onsubmit=e=>{e.preventDefault();action(async()=>{await api('/ap
 $('endSession').onclick=()=>action(async()=>{await api('/api/v1/session/stop',{});video.stop();videoSession=null;await episodes()})}
 for(const button of document.querySelectorAll('[data-action]'))button.onclick=()=>action(async()=>{await api(button.dataset.action==='note'?'/api/v1/notes':'/api/v1/recording/'+button.dataset.action,button.dataset.action==='note'?{text:$('note').value}:{});if(button.dataset.action==='note')$('note').value=''});
 document.addEventListener('keydown',e=>{if(e.repeat||e.ctrlKey||e.metaKey||e.altKey||/INPUT|TEXTAREA|SELECT/.test(e.target.tagName))return;const key=e.key.toLowerCase();if(key==='r')$('startRecord').click();if(key==='s')$('stopRecord').click();if(key==='n'){e.preventDefault();$('note').focus()}});
-$('cameraView').onchange=()=>action(()=>api('/api/v1/view',{view:$('cameraView').value}));
 const labels={idle:'Idle',recording:'Recording',saving:'Saving',checking:'Checking',saved:'Saved',failed:'Failed'};
 function show(state){lastState=state;const recording=state.recording_status||{};const safety=state.safety;
 $('safety').classList.toggle('warn',!safety?.safe);$('safety').textContent=!safety?'Checking simulation mode':safety.safe?'Simulation only':`Simulation only · Warning: ${safety.matches.map(p=>`PID ${p.pid} ${(p.identity||p.command).split('/').slice(-2).join('/')}`).join('; ')||safety.errors.join('; ')}`;
@@ -79,7 +78,7 @@ if(state.disk){$('disk').textContent=`Disk free: ${(state.disk.free_bytes/2**30)
 $('health').replaceChildren();for(const [channel,c] of Object.entries(state.input_health||{})){const el=document.createElement('div');el.className='channel'+(c.warning?' warn':'');el.textContent=`${channel}: ${c.hz.toFixed(1)} Hz`;const line=document.createElement('small');line.textContent=`Age ${c.age_s===null?'Never received':c.age_s.toFixed(3)+' s'} · Total ${c.count} · Decode errors ${c.decode_errors}`;el.append(line);$('health').append(el)}
 const flags=[];for(const [side,masks] of Object.entries(state.arm_clamps||{}))if(masks)for(const [kind,mask] of Object.entries(masks))mask.forEach((hit,i)=>{if(hit)flags.push(`${side} joint_${i+1} ${kind==='startup'?'Startup clamp':'Absolute limit'}`)});$('clamps').textContent=flags.length?`Arm clamps: ${flags.join(', ')}`:Object.values(state.arm_clamps||{}).some(v=>v)?'Arm clamps: none triggered':'Arm clamps: unavailable for this input';$('clamps').classList.toggle('warn',flags.length>0);
 const stream=state.stream;$('metrics').textContent=stream?`${stream.fps.toFixed(1)} fps · Apply → encode P50 ${stream.apply_to_encode_p50_ms?.toFixed(1)??'—'} ms / P95 ${stream.apply_to_encode_p95_ms?.toFixed(1)??'—'} ms (target: 30 fps / 50 ms)`:'Waiting for stream metrics';$('metrics').classList.toggle('warn',!!stream?.warning||(active&&!stream));
-if(state.view)$('cameraView').value=state.view;
+
 if(state.overlay&&!video.stats.presented)adapter.applyFrame(state.overlay).catch(message);
 const id=state.session_id||'cli';if(active&&videoSession!==id){video.connect(id);videoSession=id}
 if(!active&&videoSession){video.stop();videoSession=null;}
