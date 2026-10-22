@@ -39,7 +39,7 @@ class OperatorView:
         if collection:
             from .spec import load_spec
             intr = next(c.intrinsics for c in load_spec(spec).cameras if c.name == 'camera_3')
-            cfg.update(width=intr.width, height=intr.height, view='operator')  # gamepad may sit outside camera_3; camera_3 stays selectable
+            cfg.update(width=intr.width, height=intr.height, view='camera_3')
             cfg['pip'] = dict(enabled=False)
         self.collection = collection
         self.port = port

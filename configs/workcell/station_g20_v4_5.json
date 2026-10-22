@@ -86,7 +86,8 @@
     "Static loading and three-view rendering verified. Existing 07-model home/IK/clearance certificates do not apply; dynamics and physical alignment remain unverified.",
     "Archived camera extrinsics and retained driver intrinsics unchanged from v4.3.",
     "v4.5 (2026-10-22): arm mounts rotated about each base z (J1) axis, left -90 deg and right +90 deg, relative to the vendor design value used through v4.4. Evidence: with the master arm hanging naturally, the station map_left/right gives slave J1 = +/-90 deg, and the station's real slave hangs in that pose, whereas the v4.4 mount hangs at J1 = 0 and folded the sim arm backward. home_q J1 shifted by +/-90 deg to keep the same physical home pose.",
-    "v4.5 right arm (2026-10-23): an extra +15 deg rotation about the right base z (J1) axis. LinkerTA adds offset_deg=-15 to right J1 (lta.yaml and main_ros2.cpp default, 2026-08-31, comment 'joint51 -15 deg'). Inferred to compensate the real right slave, so the right arm hangs vertically at slave J1 = -105 deg; before this change the sim right arm leaned back about 20 deg with the master hanging. This is an inference and has not been measured on the real slave. home_q J1 shifted by -15 deg."
+    "v4.5 right arm (2026-10-23): an extra +15 deg rotation about the right base z (J1) axis. LinkerTA adds offset_deg=-15 to right J1 (lta.yaml and main_ros2.cpp default, 2026-08-31, comment 'joint51 -15 deg'). Inferred to compensate the real right slave, so the right arm hangs vertically at slave J1 = -105 deg; before this change the sim right arm leaned back about 20 deg with the master hanging. This is an inference and has not been measured on the real slave. home_q J1 shifted by -15 deg.",
+    "camera_3 re-aimed and recalibrated on 2026-10-23 (tilted forward about 43 deg, position nearly unchanged); see references/calibration/2026-10-23-ego-upright/."
   ],
   "right_arm": {
     "urdf": "workspace://assets/derived/ar5_08r_e6bcf44f/right_arm.urdf",
@@ -331,18 +332,18 @@
       "type": "mesh",
       "parent": "world",
       "pose": [
-        0.31769932894388225,
-        0.6492315529228792,
-        1.4412037939300844,
-        0.06872849646290509,
-        0.6951635394212929,
-        0.7132464589124967,
-        0.05747639586815635
+        0.321597969,
+        0.621306971,
+        1.454856739,
+        0.274017212,
+        0.649276278,
+        0.649099421,
+        0.286399763
       ],
       "collision": false,
       "status": "estimated",
       "mesh": "workspace://external/online_20261015/realsense_d435_d455/realsense2_description/meshes/d435.dae",
-      "source": "v4.3 fitted ego optical pose, with the existing nominal optical-to-D435-shell transform preserved; visual only."
+      "source": "2026-10-23 ego optical pose with the existing nominal optical-to-D435-shell transform preserved; visual only."
     }
   ],
   "cameras": [
@@ -352,13 +353,13 @@
       "model": "D435 (recorded, physical model unverified)",
       "parent": "world",
       "pose_optical": [
-        0.316152573550708,
-        0.6817751421638744,
-        1.4448455444798973,
-        0.05747639586815635,
-        -0.7132464589124967,
-        0.6951635394212929,
-        -0.06872849646290498
+        0.318251076,
+        0.653733281,
+        1.458331321,
+        0.286399763,
+        -0.649099421,
+        0.649276278,
+        -0.274017212
       ],
       "intrinsics": {
         "width": 1280,
@@ -377,7 +378,7 @@
         "model": "none"
       },
       "status": "estimated",
-      "source": "references/calibration/2026-10-20-ego/measured/extrinsics_project_world.json; three-position joint fit using four-hole least-squares board poses, accepted by user. Physical accuracy not independently verified. K retained from v4.2: rounding differences from captured camera_info are below 0.0004 px."
+      "source": "references/calibration/2026-10-23-ego-upright/: single upright ChArUco image at the far table edge, 20 corners, reprojection median 0.18 px; camera position within the 2026-10-20 jackknife spread. K/D unchanged from the driver camera_info."
     }
   ],
   "appearance": "../appearance/station_v2.json"
