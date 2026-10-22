@@ -243,7 +243,7 @@ def render(run):
                 width = pip.get('width',320)
                 height = round(width*small.shape[0]/small.shape[1])
                 rgb[8:8+height,-width-8:-8] = cv2.resize(small,(width,height))
-                status = 'coarse' if definition.status == '粗配准' else definition.status
+                status = 'coarse' if definition.status == '\u7c97\u914d\u51c6' else definition.status
                 cv2.putText(rgb,f'ego ({status})',(cfg['width']-width,28),cv2.FONT_HERSHEY_SIMPLEX,.5,(255,255,255),1)
             if overview is not None:
                 overview.take_picture()
@@ -374,8 +374,8 @@ async def gateway(run, port):
                 data=physical.read()
                 self.latest=dict(json.loads(data[1]) if data else {},session_state='running')
                 return self.latest
-            async def start(self,values):raise ValueError('CLI 已持有会话，请在 CLI 终端结束它。')
-            async def stop(self,client='web'):raise ValueError('请在 CLI 终端停止仿真会话。')
+            async def start(self,values):raise ValueError('CLI owns this session. End it in the CLI terminal.')
+            async def stop(self,client='web'):raise ValueError('Stop the simulation session in the CLI terminal.')
         app=make_app(AttachedManager(),video_handler=video,frame_provider=frame_state,managed=False)
         async def state(request):return web.json_response(frame_state())
         app.router.add_get('/state',state)

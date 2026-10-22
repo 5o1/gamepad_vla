@@ -109,7 +109,7 @@ def stop_group(process, timeout=15, groups=None):
                 process.wait(timeout=3)
                 return
             time.sleep(.05)
-    raise RuntimeError(f'相机子进程组 {process.pid} 未退出，请查看日志。')
+    raise RuntimeError(f'Camera process group {process.pid} did not exit. Check the log.')
 
 
 class CameraPanel:
@@ -136,14 +136,14 @@ class CameraPanel:
     def serial(self):
         value = self.setting('camera.camera_3') or self.setting('camera.serials.camera_3')
         if not isinstance(value, str) or not value:
-            raise ValueError('请在站点配置填写 camera.camera_3 相机序列号。')
+            raise ValueError('Set the camera.camera_3 serial number in the station configuration.')
         return value
 
     def check_available(self):
         owners = self.owner_scan(self.serial)
         if owners:
-            raise CameraConflict('相机被其他进程占用，请现场人员处理，未结束这些进程：' +
-                                 '；'.join(f"PID {p['pid']} {p['command']}" for p in owners))
+            raise CameraConflict('Camera is in use. Ask the station operator to resolve it. These processes were left running: ' +
+                                 '; '.join(f"PID {p['pid']} {p['command']}" for p in owners))
 
     def ensure_session(self):
         if self.session is None:
@@ -156,7 +156,7 @@ class CameraPanel:
 
     def request(self, port, path, *, post=False, timeout=5):
         if port is None:
-            raise RuntimeError('相机服务尚未启动。')
+            raise RuntimeError('Camera service is not running.')
         try:
             with self.opener.open(Request(f'http://127.0.0.1:{port}'+path,
                                          data=b'{}' if post else None,
@@ -164,9 +164,9 @@ class CameraPanel:
                 return r.read()
         except HTTPError as exc:
             detail = exc.read().decode(errors='replace')
-            raise RuntimeError(f'相机服务 HTTP {exc.code}：{detail}') from exc
+            raise RuntimeError(f'Camera service HTTP {exc.code}: {detail}') from exc
         except (URLError, OSError) as exc:
-            raise RuntimeError(f'相机服务不可达：{exc}') from exc
+            raise RuntimeError(f'Camera service unreachable: {exc}') from exc
 
     def ego_request(self, path, *, post=False):
         return json.loads(self.request(self.ego_port, path, post=post, timeout=200 if path in ('/api/record/stop','/api/stop') else 20))
@@ -178,7 +178,7 @@ class CameraPanel:
         env['PYTHONPATH'] = str(repository_root()/'src')
         env['ROS_DOMAIN_ID'] = str(self.setting('camera.ros_domain_id', 73))
         if env['ROS_DOMAIN_ID'] == os.environ.get('ROS_DOMAIN_ID'):
-            raise ValueError('camera.ros_domain_id 必须与采集仿真 ROS 域不同。')
+            raise ValueError('camera.ros_domain_id must differ from the collection simulation ROS domain.')
         env['ROS_LOCALHOST_ONLY'] = '1'
         return subprocess.Popen(command, env=env, stdout=log, stderr=subprocess.STDOUT, start_new_session=True)
 
@@ -191,7 +191,7 @@ class CameraPanel:
                 if time.monotonic() >= deadline:
                     break
                 time.sleep(.15)
-        raise RuntimeError('相机服务启动失败或超时，请查看本次会话 camera 日志。')
+        raise RuntimeError('Camera startup failed or timed out. Check the camera log for this session.')
 
     def _start_preview(self):
         if self.preview and self.preview.poll() is None:
@@ -237,7 +237,7 @@ class CameraPanel:
     def start(self):
         with self.lock:
             if self.ego:
-                raise CameraConflict('RGB-D 录像服务正在独占相机，请先停止录像。')
+                raise CameraConflict('RGB-D recording is using the camera. Stop recording first.')
             self._start_preview()
         return self.status()
 
@@ -277,10 +277,10 @@ class CameraPanel:
 
     def snapshot(self, label=''):
         if not isinstance(label, str):
-            raise ValueError('标签必须是文字。')
+            raise ValueError('Label must be a string.')
         with self.lock:
             if self.mode != 'preview':
-                raise CameraConflict('请先启动预览，录像时不能拍标定照片。')
+                raise CameraConflict('Start preview first. Calibration photos are unavailable during recording.')
             safe = re.sub(r'[^a-zA-Z0-9_-]', '_', label)[:50] or 'capture'
             name = safe + '_' + datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S_%fZ')
             with zipfile.ZipFile(io.BytesIO(self.request(self.preview_port, '/snapshot', post=True))) as archive:
@@ -309,10 +309,10 @@ class CameraPanel:
     def record_start(self):
         with self.lock:
             if self.ego:
-                raise CameraConflict('录像已经启动，请先查询状态。')
+                raise CameraConflict('Recording already active. Check status first.')
             script = Path(self.setting('camera.ego_web_script') or '').expanduser()
             if not script.is_file():
-                raise ValueError('请在站点配置 camera.ego_web_script 指定已有的 ego 拍照录像网页。')
+                raise ValueError('Set camera.ego_web_script to the existing ego photo and recording web tool.')
             self.resume_preview = self.mode == 'preview'
             self._stop_preview()
             self.check_available()
@@ -330,7 +330,7 @@ class CameraPanel:
                 self.ego_request('/api/start', post=True)
                 result = self.ego_request('/api/record/start', post=True)
                 if not result.get('recording'):
-                    raise RuntimeError('站点 ego 网页没有进入录像状态。')
+                    raise RuntimeError('Station ego web tool did not start recording.')
                 self.mode, self.error = 'recording', None
                 self.last_recording = result
                 return result
@@ -369,10 +369,10 @@ class CameraPanel:
         if self.preview and self.mode == 'preview':
             try:
                 if self.preview.poll() is not None:
-                    raise RuntimeError('预览相机进程已经退出。')
+                    raise RuntimeError('Camera preview process exited.')
                 result.update(json.loads(self.request(self.preview_port, '/status', timeout=1)))
             except RuntimeError as exc:
                 result.update(error=str(exc))
         if self.ego and self.ego.poll() is not None:
-            result.update(mode='failed', error='站点 ego 网页已经退出，请停止相机并检查日志。')
+            result.update(mode='failed', error='Station ego web tool exited. Stop the camera and check the log.')
         return result

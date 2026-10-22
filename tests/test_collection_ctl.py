@@ -19,17 +19,17 @@ def test_wait_includes_controller_save_completion(monkeypatch,capsys):
     monkeypatch.setattr(m['time'],'sleep',lambda _:None)
     assert m['main'](['record-stop','--wait'])==0
     assert calls.count('episodes/session~episode')==2
-    assert '完整性检查通过' in capsys.readouterr().out
+    assert 'integrity: passed' in capsys.readouterr().out
 
 
 def test_refusal_and_unreachable_codes(monkeypatch,capsys):
     m=module()
-    monkeypatch.setitem(m['main'].__globals__,'request',lambda *a:(403,dict(message_zh='请现场人员开启远程控制')))
+    monkeypatch.setitem(m['main'].__globals__,'request',lambda *a:(403,dict(message='Ask the station operator to enable remote control.')))
     assert m['main'](['record-start'])==2
     def unavailable(*args):raise URLError('offline')
     monkeypatch.setitem(m['main'].__globals__,'request',unavailable)
     assert m['main'](['status'])==3
-    assert '服务不可达' in capsys.readouterr().out
+    assert 'Service unreachable' in capsys.readouterr().out
 
 
 def test_wait_rejects_previous_episode_and_pending_states(monkeypatch,capsys):
@@ -58,7 +58,7 @@ def test_wait_timeout_is_failure_not_old_success(monkeypatch,capsys):
         return 200,dict(integrity=dict(episode_id='session~first',state='passed',passed=True))
     monkeypatch.setitem(m['main'].__globals__,'request',request)
     assert m['main'](['record-stop','--wait','--wait-timeout','0'])==1
-    assert '超时' in capsys.readouterr().out
+    assert 'timed out' in capsys.readouterr().out
 
 
 def test_wait_never_reports_passed_while_same_episode_status_checks(monkeypatch,capsys):

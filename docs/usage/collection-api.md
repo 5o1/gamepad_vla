@@ -52,18 +52,18 @@ python scripts/collection_server.py --host 127.0.0.1 --port 8780 \
 
 ## CLI 示例
 
-以下命令都在采集台本机、代码目录执行。`--json` 输出原始 JSON，默认给简短中文摘要；`--url` 仅接受回环 URL。
+以下命令都在采集台本机、代码目录执行。`--json` 输出原始 JSON，默认给简短英文摘要；agent 向用户复述结果时使用中文；`--url` 仅接受回环 URL。
 
 ```bash
 python scripts/collection_ctl.py status --json
 python scripts/collection_ctl.py session-start --backend sapien --scene-variant full \
   --source replay --replay "$GAMEPAD_VLA_REPLAY"
-python scripts/collection_ctl.py record-start --note "自由备注"
-python scripts/collection_ctl.py note "补充备注"
+python scripts/collection_ctl.py record-start --note "Free-form note"
+python scripts/collection_ctl.py note "Additional note"
 python scripts/collection_ctl.py record-stop --wait --json
 python scripts/collection_ctl.py episodes --json
 python scripts/collection_ctl.py episodes "$EPISODE_ID" --json
-python scripts/collection_ctl.py void "$EPISODE_ID" --reason "用户指定作废原因"
+python scripts/collection_ctl.py void "$EPISODE_ID" --reason "User-specified reason"
 python scripts/collection_ctl.py export "$EPISODE_ID"
 python scripts/collection_ctl.py session-stop
 ```
@@ -82,19 +82,19 @@ python scripts/collection_ctl.py session-stop
 
 ## REST v1
 
-所有写操作均返回 `state` 与 `safety`；所有错误为 `{error_code, message_zh, state}` 并附 safety。JSON 示例中的字段值需换成实际用户指定值。非网页写调用需要现场开启远程控制。
+所有写操作均返回 `state` 与 `safety`；所有错误为 `{error_code, message, state}` 并附 safety。JSON 示例中的字段值需换成实际用户指定值。非网页写调用需要现场开启远程控制。
 
 | 方法 / 端点 | JSON 参数或结果 |
 |---|---|
 | GET `/api/v1/status` | 会话/后端/场景/源、四路健康、录制、episode_id、完整性、磁盘、安全、推流、远程开关、最近控制事件 |
-| POST `/api/v1/session/start` | `{"backend":"sapien","scene_variant":"full","source":"replay","replay":"所选文件","duration_s":null}` |
+| POST `/api/v1/session/start` | `{"backend":"sapien","scene_variant":"full","source":"replay","replay":"selected-file.jsonl","duration_s":null}` |
 | POST `/api/v1/session/stop` | `{}`；重复停止成功 |
-| POST `/api/v1/recording/start` | `{"note":"自由备注","force":false}`；ROS 不健康拒绝，明确 force 可绕过并记录 |
+| POST `/api/v1/recording/start` | `{"note":"Free-form note","force":false}`；ROS 不健康拒绝，明确 force 可绕过并记录 |
 | POST `/api/v1/recording/stop` | `{}`；立即返回 episode_id，检查由独立 CPU 进程异步执行 |
-| POST `/api/v1/notes` | `{"text":"自由备注"}` |
+| POST `/api/v1/notes` | `{"text":"Free-form note"}` |
 | GET `/api/v1/episodes` | episode 列表 |
 | GET `/api/v1/episodes/{id}` | meta、integrity、voided |
-| POST `/api/v1/episodes/{id}/void` | `{"reason":"明确原因"}`；旁路文件，不改原始数据 |
+| POST `/api/v1/episodes/{id}/void` | `{"reason":"Explicit reason"}`；旁路文件，不改原始数据 |
 | POST `/api/v1/episodes/{id}/export` | `{}`；调用已有 LeRobot 导出工具 |
 | GET `/api/v1/events` | SSE 状态流；网页自动重连，重连后先拉完整 status |
 | GET `/api/v1/config` | 网页可选配置与站点默认值 |
@@ -108,23 +108,37 @@ curl -H 'Content-Type: application/json' -H 'X-Gamepad-VLA-Client: cli' \
   -d '{}' http://127.0.0.1:8780/api/v1/recording/stop
 ```
 
-| error_code | HTTP | 下一步 |
+| error_code | HTTP / CLI exit | Message / next step |
 |---|---|---|
-| remote_control_disabled | 403 | 请现场人员在网页开启；不要绕过 |
-| web_session_required | 403 | 开关只由现场网页操作；Codex 不开开关 |
-| cross_origin | 403 | 改为本机同源网页或站点远程 shell 客户端 |
-| client_header_required | 403 | 使用标准客户端；自写客户端补 JSON 与标识头 |
-| session_active | 409 | 查询当前会话，用户明确需要时先停止 |
-| session_not_running | 409 | 启动并等待会话就绪，再操作 |
-| recording_active | 409 | 已经录制或保存中，查状态，不重复开始 |
-| input_unhealthy | 409 | 恢复列出的通道，不自行 force |
-| episode_recording | 409 | 先停止保存，再对明确编号作废 |
-| invalid_json / invalid_request | 400 | 核对参数、文件、episode 编号和导出环境 |
-| not_found / http_error | 404 / 其他 | 核对 API 路径和 HTTP 方法 |
-| operation_failed | 503 | 查看服务日志；查询状态后决定是否重试 |
-| service_unreachable | 客户端退出 3 | 确认采集台本机服务已启动 |
-| integrity_failed | 客户端退出 1 | 保留原始数据，查看完整性错误，不能声称通过 |
-| integrity_pending | 客户端退出 1 | 检查仍未完成，继续查询 status / episode |
+| remote_control_disabled | 403 | Ask the station operator to enable remote control on the web page. Do not bypass it. |
+| web_session_required | 403 | Only the local web page can toggle remote control. Ask the station operator. |
+| cross_origin | 403 | Request origin does not match this page. Call the API locally on the station. |
+| client_header_required | 403 | Write requests require JSON and a client header. Use collection_ctl.py or the local web page. |
+| session_active | 409 | Simulation session already active. Stop it first if requested. |
+| session_not_running | 409 | Simulation session not ready. Start it and wait until ready. |
+| recording_active | 409 | Recording or saving already in progress. Check status first. |
+| input_unhealthy | 409 | Unhealthy inputs: [channels]; restore inputs before retrying, or explicitly use force if authorized. |
+| episode_recording | 409 | Episode is still recording. Stop and save it before marking it as void. |
+| invalid_json / invalid_request | 400 | Invalid JSON or invalid parameters/data. Correct the request and retry. |
+| not_found / http_error | 404 / other | Endpoint or method not found. Check the API v1 documentation. |
+| operation_failed | 503 | Operation failed. Check the service log before retrying. |
+| camera_busy | 409 | Camera is in use. Ask the station operator to resolve it. Owner processes are left running. |
+| service_unreachable | CLI exit 3 | Service unreachable. Check that the service is running on the station. |
+| integrity_failed | CLI exit 1 | Integrity check failed. Keep the original files and review the results. |
+| integrity_pending | CLI exit 1 | Integrity check timed out. Passing is unconfirmed; query status or episodes. |
+
+英文消息示例（`state`、`safety` 以实际结果为准）：
+
+```json
+{"error_code":"remote_control_disabled","message":"Ask the station operator to enable remote control on the web page.","state":{},"safety":{}}
+```
+
+CLI 默认摘要示例：
+
+```text
+Session running; Recording; episode session-example~episode-000012; Remote control On.
+Stopped recording session-example~episode-000012; integrity: passed.
+```
 
 每次 API 调用追加 `api_audit.jsonl`，包含时间、端点、参数、结果和客户端；episode meta 保存 started_by/stopped_by、forced 与开始健康快照。日志和原始数据不进入公开仓库。
 
@@ -147,7 +161,7 @@ ROS_DOMAIN_ID=88 bash scripts/station/start_collection_server.sh \
   --output-root ~/gamepad_vla_data/episodes
 ```
 
-本机打开 `http://127.0.0.1:8780/`，确认参数后点“启动仿真”。远程写仍默认关闭。输入节点由现场人员用 `~/gamepad_vla/m2/start.sh` 启动；该服务和 Codex 不启动硬件节点。`gamepad-contact` 保留机器人与手柄接触，关闭桌面等环境碰撞；`--arm-startup none` 仅关闭启动姿态限幅，绝对关节限位保留。服务默认仍是 v4.4，以上命令显式选择临时抬高场景。
+本机打开 `http://127.0.0.1:8780/`，确认参数后点“Start simulation”。远程写仍默认关闭。输入节点由现场人员用 `~/gamepad_vla/m2/start.sh` 启动；该服务和 Codex 不启动硬件节点。`gamepad-contact` 保留机器人与手柄接触，关闭桌面等环境碰撞；`--arm-startup none` 仅关闭启动姿态限幅，绝对关节限位保留。服务默认仍是 v4.4，以上命令显式选择临时抬高场景。
 
 ## 相机面板 API
 
@@ -166,4 +180,4 @@ ROS_DOMAIN_ID=88 bash scripts/station/start_collection_server.sh \
 | POST `/api/v1/camera/record/stop` | `{}`；转发 record/stop，停掉 ego 相机子服务，按需恢复预览 |
 | GET `/api/v1/camera/record/state` | 站点 ego 网页的原始 state；结束后为最近一次原始录像结果 |
 
-`camera_busy` 为 409，含中文占用进程提示；不会结束其他进程。录像三个代理端点直接返回上游 JSON，不包装成仿真 state；失败仍使用统一错误格式。原有“接口不启动硬件节点”的说明对相机端点有例外：这些端点按现场授权仅启动 RealSense，不启动手、臂或 CAN 节点。
+`camera_busy` 为 409，含英文占用进程提示；不会结束其他进程。录像三个代理端点直接返回上游 JSON，不包装成仿真 state；失败仍使用统一错误格式。原有“接口不启动硬件节点”的说明对相机端点有例外：这些端点按现场授权仅启动 RealSense，不启动手、臂或 CAN 节点。

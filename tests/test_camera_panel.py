@@ -200,7 +200,7 @@ def test_camera_routes_auth_proxy_audit_and_conflict(tmp_path,preview):
                 try:
                     p.start=lambda:CameraPanel(tmp_path,settings={'camera.camera_3':'fixture'}).check_available()
                     r=await browser.post(url('/api/v1/camera/start'),json={},headers=headers)
-                    assert r.status==409 and str(child.pid) in (await r.json())['message_zh']
+                    assert r.status==409 and str(child.pid) in (await r.json())['message']
                     assert child.poll() is None
                 finally:child.terminate();child.wait(timeout=3)
         finally:await server.close()

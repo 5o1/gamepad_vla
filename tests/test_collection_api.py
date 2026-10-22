@@ -65,7 +65,7 @@ def test_all_api_contracts_and_audit_force(tmp_path):
             assert (await call('status'))[1]['remote_control_enabled'] is False
             for path,data in [('session/start',{}),('session/stop',{}),('recording/start',{}),('recording/stop',{}),('notes',{'text':'n'}),('episodes/missing/void',{}),('episodes/missing/export',{})]:
                 code,r=await call(path,data);assert code==403 and r['error_code']=='remote_control_disabled'
-                assert all(k in r for k in ('error_code','message_zh','state','safety'))
+                assert set(r)=={'error_code','message','state','safety'}
             assert (await call('remote-control',{'enabled':True}))[0]==403
             page=await browser.get(url+'/')
             cookie=page.cookies['collection_web_session']
@@ -81,7 +81,7 @@ def test_all_api_contracts_and_audit_force(tmp_path):
             assert (await call('session/start',dict(backend='sapien',source='ros2')))[0]==200
             assert (await call('session/start',{}))[0]==409
             code,r=await call('recording/start',{});assert code==409 and r['error_code']=='input_unhealthy'
-            assert all(k in r['message_zh'] for k in ('left_hand','left_arm','right_hand','right_arm'))
+            assert all(k in r['message'] for k in ('left_hand','left_arm','right_hand','right_arm'))
             code,r=await call('recording/start',dict(force=True,note='forced test'));assert code==200
             identifier=r['episode_id'];assert identifier
             assert (await call('recording/start',{}))[0]==409

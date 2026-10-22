@@ -18,7 +18,7 @@ def request(base,path,data=None):
         with urlopen(req,timeout=60) as response:return 200,json.load(response)
     except HTTPError as exc:
         try:return exc.code,json.load(exc)
-        except ValueError:return exc.code,dict(error_code='http_error',message_zh='服务返回异常，请查看服务日志。')
+        except ValueError:return exc.code,dict(error_code='http_error',message='Invalid server response. Check the service log.')
 
 
 def parser():
@@ -51,7 +51,7 @@ def main(argv=None):
     import ipaddress
     try:local=host=='localhost' or ipaddress.ip_address(host).is_loopback
     except ValueError:local=False
-    if not local:p.error('仅允许采集台本机回环服务地址')
+    if not local:p.error('Only station-local loopback URLs are allowed')
     path='status';data=None
     if a.command=='session-start':
         path='session/start';data=dict(backend=a.backend,scene_variant=a.scene_variant,source=a.source,
@@ -77,28 +77,28 @@ def main(argv=None):
                 if check.get('episode_id')==target and check.get('state') in ('passed','failed') and not active_pending:
                     result=episode
                     if check['state']=='failed':
-                        status=422;result=dict(result,error_code='integrity_failed',message_zh='完整性检查失败，请保留原始文件并查看检查结果。')
+                        status=422;result=dict(result,error_code='integrity_failed',message='Integrity check failed. Keep the original files and review the results.')
                     break
                 if time.monotonic()>deadline:
-                    status=504;result=dict(error_code='integrity_pending',message_zh='本段完整性检查等待超时，未确认通过，请用 status 或 episodes 查询。');break
+                    status=504;result=dict(error_code='integrity_pending',message='Integrity check timed out. Passing is unconfirmed; query status or episodes.');break
                 time.sleep(.05)
     except (OSError,URLError,TimeoutError) as exc:
-        result=dict(error_code='service_unreachable',message_zh='服务不可达，请确认采集台本机服务已启动。',detail=str(exc))
-        print(json.dumps(result,ensure_ascii=False) if a.json else result['message_zh'])
+        result=dict(error_code='service_unreachable',message='Service unreachable. Check that the service is running on the station.',detail=str(exc))
+        print(json.dumps(result,ensure_ascii=False) if a.json else result['message'])
         return 3
     if a.json:print(json.dumps(result,ensure_ascii=False))
-    elif status!=200:print(result.get('message_zh','操作失败，请查看服务日志。'))
+    elif status!=200:print(result.get('message','Operation failed. Check the service log.'))
     elif isinstance(result,list):
-        print('\n'.join(f"{e['id']} · {e.get('rows',0)} 行 · {'作废' if e.get('discarded') else '有效'}" for e in result) or '暂无 episode。')
+        print('\n'.join(f"{e['id']} · {e.get('rows',0)} rows · {'Void' if e.get('discarded') else 'Valid'}" for e in result) or 'No episodes yet.')
     else:
         state=result.get('state',result);rec=state.get('recording_status',{})
         if a.command=='record-stop' and a.wait and result.get('integrity'):
-            print('已停止录制 '+result.get('id','')+'，完整性检查通过。')
-        elif a.command=='export':print('已导出：'+result['output'])
-        elif a.command=='void':print('已标为作废，原始数据保留。')
+            print('Stopped recording '+result.get('id','')+'; integrity: passed.')
+        elif a.command=='export':print('Exported: '+result['output'])
+        elif a.command=='void':print('Marked as void. Original data retained.')
         else:
-            labels=dict(idle='未录制',recording='录制中',saving='保存中',checking='检查中',saved='已保存',failed='失败')
-            print(f"会话 {state.get('session_state','—')}；{labels.get(rec.get('state'),'检查已完成' if result.get('integrity') else '—')}；episode {result.get('id') or state.get('episode_id') or '—'}；远程控制 {'开' if state.get('remote_control_enabled') else '关'}。")
+            labels=dict(idle='Idle',recording='Recording',saving='Saving',checking='Checking',saved='Saved',failed='Failed')
+            print(f"Session {state.get('session_state','—')}; {labels.get(rec.get('state'),'Check complete' if result.get('integrity') else '—')}; episode {result.get('id') or state.get('episode_id') or '—'}; Remote control {'On' if state.get('remote_control_enabled') else 'Off'}.")
     return 0 if status==200 else 2 if status in (403,409) else 1
 
 

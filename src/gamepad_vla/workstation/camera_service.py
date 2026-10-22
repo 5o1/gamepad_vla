@@ -93,11 +93,11 @@ def camera_main(args):
             pair = latest
             times = list(received_times)
         if pair is None:
-            raise RuntimeError("等待相机图像及同帧 camera_info")
+            raise RuntimeError("Waiting for a camera image and matching camera_info")
         image, info, received = pair
         age = time.monotonic() - received
         if age > 2:
-            raise RuntimeError(f"相机画面已过期（{age:.1f} 秒），未保存照片")
+            raise RuntimeError(f"Camera frame is stale ({age:.1f} s). Photo was not saved")
         metadata = {
             "serial": args.serial, "width": image.width, "height": image.height,
             "fps": (len(times)-1)/(times[-1]-times[0]) if len(times)>1 else 0.,
@@ -120,13 +120,13 @@ def camera_main(args):
             pixels = bridge.imgmsg_to_cv2(image, desired_encoding="bgr8")
             ok, jpeg = cv2.imencode(".jpg", pixels, [cv2.IMWRITE_JPEG_QUALITY, 80])
             if not ok:
-                raise RuntimeError("JPEG 编码失败")
+                raise RuntimeError("JPEG encoding failed")
             handler.reply(jpeg.tobytes(), "image/jpeg")
         elif method == "POST" and path == "/snapshot":
             pixels = bridge.imgmsg_to_cv2(image, desired_encoding="bgr8")
             ok, png = cv2.imencode(".png", pixels, [cv2.IMWRITE_PNG_COMPRESSION, 3])
             if not ok:
-                raise RuntimeError("PNG 编码失败")
+                raise RuntimeError("PNG encoding failed")
             result = io.BytesIO()
             with zipfile.ZipFile(result, "w") as archive:
                 archive.writestr("image.png", png.tobytes())

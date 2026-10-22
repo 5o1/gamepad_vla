@@ -132,7 +132,7 @@ class SessionManager:
             deadline=time.monotonic()+30
             while self.refresh().get("recording_status",{}).get("state") in ("recording","saving","checking"):
                 if time.monotonic()>deadline:
-                    raise RuntimeError("录制保存超时，请检查采集日志。")
+                    raise RuntimeError("Saving timed out. Check the collection log.")
                 await asyncio.sleep(.025)
         async with self.lock:
             if self.worker and self.worker.is_alive():
@@ -153,9 +153,9 @@ class SessionManager:
             if result.get('request_id')==event['request_id']:
                 return result
             if not self.worker.is_alive():
-                raise RuntimeError('会话已经退出，请检查日志后重新启动。')
+                raise RuntimeError('Session exited. Check the log before restarting.')
             await asyncio.sleep(.01)
-        raise RuntimeError('控制命令等待确认超时，请查询状态后再操作。')
+        raise RuntimeError('Command acknowledgement timed out. Check status before retrying.')
 
     def control(self, event):
         if event.get('action') not in ('start','stop','note','view'):
@@ -244,32 +244,32 @@ def make_app(manager=None, *, enable_remote_control=False, video_handler=None, f
                 except ValueError:values={'raw_body':raw.decode(errors='replace')}
             origin=request.headers.get('Origin')
             if origin and origin!=f'{request.scheme}://{request.host}':
-                raise ApiError(403,'cross_origin','请求来源不属于本机页面，请在采集台本机调用接口。')
+                raise ApiError(403,'cross_origin','Request origin does not match this page. Call the API locally on the station.')
             if request.method=='POST':
                 if request.content_type!='application/json' or not who:
-                    raise ApiError(403,'client_header_required','写操作需要 JSON 和客户端标识，请使用 collection_ctl.py 或本机网页。')
+                    raise ApiError(403,'client_header_required','Write requests require JSON and a client header. Use collection_ctl.py or the local web page.')
                 try:values=await request.json()
-                except (ValueError,TypeError):raise ApiError(400,'invalid_json','JSON 格式错误，请修正参数后重试。')
-                if not isinstance(values,dict):raise ApiError(400,'invalid_json','参数必须为 JSON 对象，请修正参数后重试。')
+                except (ValueError,TypeError):raise ApiError(400,'invalid_json','Invalid JSON. Correct the request and retry.')
+                if not isinstance(values,dict):raise ApiError(400,'invalid_json','Request body must be a JSON object.')
                 request['values']=values
                 request['client']=who
                 is_web=secrets.compare_digest(request.cookies.get('collection_web_session',''),cookie)
                 request['is_web']=is_web
                 if request.path=='/api/v1/remote-control' and not is_web:
-                    raise ApiError(403,'web_session_required','只有现场网页能切换远程控制，请让现场人员操作网页。')
+                    raise ApiError(403,'web_session_required','Only the local web page can toggle remote control. Ask the station operator.')
                 if not is_web and not remote_enabled:
-                    raise ApiError(403,'remote_control_disabled','请现场人员在网页上开启远程控制。')
+                    raise ApiError(403,'remote_control_disabled','Ask the station operator to enable remote control on the web page.')
             result=await handler(request)
         except ApiError as exc:
-            result=web.json_response(dict(error_code=exc.code,message_zh=exc.message,state=snapshot(),safety=safety),status=exc.status)
+            result=web.json_response(dict(error_code=exc.code,message=exc.message,state=snapshot(),safety=safety),status=exc.status)
         except (ValueError,KeyError,TypeError,queue.Full) as exc:
-            result=web.json_response(dict(error_code='invalid_request',message_zh=f'参数或数据无效，请核对后重试：{exc}',state=snapshot(),safety=safety),status=400)
+            result=web.json_response(dict(error_code='invalid_request',message=f'Invalid parameters or data. Check and retry: {exc}',state=snapshot(),safety=safety),status=400)
         except CameraConflict as exc:
-            result=web.json_response(dict(error_code='camera_busy',message_zh=str(exc),state=snapshot(),safety=safety),status=409)
+            result=web.json_response(dict(error_code='camera_busy',message=str(exc),state=snapshot(),safety=safety),status=409)
         except RuntimeError as exc:
-            result=web.json_response(dict(error_code='operation_failed',message_zh=f'操作失败，请查看服务日志后重试：{exc}',state=snapshot(),safety=safety),status=503)
+            result=web.json_response(dict(error_code='operation_failed',message=f'Operation failed. Check the service log before retrying: {exc}',state=snapshot(),safety=safety),status=503)
         except web.HTTPException as exc:
-            result=web.json_response(dict(error_code='not_found' if exc.status==404 else 'http_error',message_zh='端点或方法不存在，请按 API v1 文档核对请求。',state=snapshot(),safety=safety),status=exc.status)
+            result=web.json_response(dict(error_code='not_found' if exc.status==404 else 'http_error',message='Endpoint or method not found. Check the API v1 documentation.',state=snapshot(),safety=safety),status=exc.status)
         if is_api and request.path!='/api/v1/events':
             body=json.loads(result.text) if isinstance(result,web.Response) and result.content_type=='application/json' else {}
             audit.write(json.dumps(dict(wall_time_ns=time.time_ns(),endpoint=request.path,method=request.method,
@@ -289,14 +289,14 @@ def make_app(manager=None, *, enable_remote_control=False, video_handler=None, f
         if default['replay'] and default['replay'] not in files:files=[default['replay'],*files]
         return response(dict(managed=managed,defaults=default,replay_files=files,
             backends=['sapien','mujoco'],scene_variants=['full','free-space','gamepad-contact'],sources=['ros2','replay','udp'],
-            estop_hint='~/gamepad_vla_estop/estop.sh（不能下电）'))
+            estop_hint='~/gamepad_vla_estop/estop.sh (does not cut motor power)'))
 
     async def status(request):
         return web.json_response(snapshot())
 
     async def start(request):
         if manager.worker and manager.worker.is_alive():
-            raise ApiError(409,'session_active','仿真会话已经运行，请先停止当前会话。')
+            raise ApiError(409,'session_active','Simulation session already active. Stop it first.')
         v=dict(request['values'])
         if 'duration_s' in v:v['duration']=v.pop('duration_s')
         await manager.start(v)
@@ -311,21 +311,21 @@ def make_app(manager=None, *, enable_remote_control=False, video_handler=None, f
     def running():
         s=manager.refresh()
         if not manager.worker or not manager.worker.is_alive() or s.get('session_state')!='running':
-            raise ApiError(409,'session_not_running','仿真会话尚未就绪，请先启动会话并等待就绪。')
+            raise ApiError(409,'session_not_running','Simulation session not ready. Start it and wait until ready.')
         return s
 
     async def recording_start(request):
         async with recording_lock:
             s=running()
             if manager.pending_start or s.get('recording_status',{}).get('state') in ('recording','saving','checking'):
-                raise ApiError(409,'recording_active','录制已经开始或正在保存，请先查询当前录制状态。')
+                raise ApiError(409,'recording_active','Recording or saving already in progress. Check status first.')
             v=request['values']
             if type(v.get('force',False)) is not bool:
-                raise ApiError(400,'invalid_request','force 必须是布尔值，请修正后重试。')
+                raise ApiError(400,'invalid_request','force must be a boolean.')
             result=await manager.command(dict(action='start',client=request['client'],force=v.get('force',False)))
             if not result['accepted']:
                 code=result['error_code']
-                raise ApiError(409,code,'输入不健康：'+', '.join(result.get('unhealthy',[]))+'；请恢复输入后重试，必要时显式 force。')
+                raise ApiError(409,code,'Unhealthy inputs: '+', '.join(result.get('unhealthy',[]))+'; restore inputs before retrying, or explicitly use force if authorized.')
             if v.get('note'):
                 await manager.command(dict(action='note',client=request['client'],text=str(v['note'])))
             event('recording/start',request['client'],v)
@@ -344,7 +344,7 @@ def make_app(manager=None, *, enable_remote_control=False, video_handler=None, f
     async def notes(request):
         running()
         text=request['values'].get('text')
-        if not isinstance(text,str):raise ApiError(400,'invalid_request','备注 text 必须是文字，请修正后重试。')
+        if not isinstance(text,str):raise ApiError(400,'invalid_request','Note text must be a string.')
         await manager.command(dict(action='note',client=request['client'],text=text))
         event('notes',request['client'],dict(text=text))
         return response()
@@ -362,7 +362,7 @@ def make_app(manager=None, *, enable_remote_control=False, video_handler=None, f
     async def void(request):
         path=manager.episode(request.match_info['id'])
         if json.loads((path/'meta.json').read_text())['status']=='recording':
-            raise ApiError(409,'episode_recording','该段仍在录制，请停止并保存后再作废。')
+            raise ApiError(409,'episode_recording','Episode is still recording. Stop and save it before marking it as void.')
         value=discard_episode(path,request['values'].get('reason',''))
         event('episodes/void',request['client'],dict(id=request.match_info['id']))
         return response(value)
@@ -375,7 +375,7 @@ def make_app(manager=None, *, enable_remote_control=False, video_handler=None, f
     async def remote(request):
         nonlocal remote_enabled
         value=request['values'].get('enabled')
-        if type(value) is not bool:raise ApiError(400,'invalid_request','enabled 必须是布尔值，请修正后重试。')
+        if type(value) is not bool:raise ApiError(400,'invalid_request','enabled must be a boolean.')
         remote_enabled=value
         event('remote-control',request['client'],dict(enabled=value))
         return response()
@@ -416,7 +416,7 @@ def make_app(manager=None, *, enable_remote_control=False, video_handler=None, f
     async def view(request):
         running()
         value=request['values'].get('view')
-        if value not in ('camera_3','operator'):raise ApiError(400,'invalid_request','视角必须是 camera_3 或 operator，请重新选择。')
+        if value not in ('camera_3','operator'):raise ApiError(400,'invalid_request','View must be camera_3 or operator.')
         await manager.command(dict(action='view',view=value,client=request['client']))
         event('view',request['client'],dict(view=value))
         return response()

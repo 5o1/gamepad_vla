@@ -45,11 +45,11 @@ def main():
         if args.hardware:
             serial = site_value('camera.camera_3') or site_value('camera.serials.camera_3')
             if not serial:
-                raise RuntimeError('站点尚未配置 camera_3；确认设备后再执行硬件验收。')
+                raise RuntimeError('camera_3 is not configured. Confirm the device before hardware checks.')
             owners = camera_owners(serial)
             if owners:
                 result['owners'] = owners
-                raise RuntimeError('相机被占用，停止验收，不结束占用进程。')
+                raise RuntimeError('Camera is in use. Check stopped; owner processes were left running.')
         env = os.environ.copy()
         env['CUDA_VISIBLE_DEVICES'] = ''  # This instance never starts simulation/rendering.
         with (output/'server.log').open('w') as log:
@@ -63,7 +63,7 @@ def main():
                     break
                 except OSError:
                     if server.poll() is not None or time.monotonic()>deadline:
-                        raise RuntimeError('临时服务启动失败。')
+                        raise RuntimeError('Temporary server failed to start.')
                     time.sleep(.1)
             with sync_playwright() as pw:
                 browser = pw.chromium.launch(headless=True, args=['--disable-gpu','--disable-dev-shm-usage','--password-store=basic'])
@@ -72,12 +72,12 @@ def main():
                 page.on('pageerror', lambda e: errors.append(str(e)))
                 page.goto(base, wait_until='domcontentloaded')
                 page.locator('#cameraPanel').evaluate('(el)=>el.open=true')
-                page.wait_for_function("document.querySelector('#cameraMode').textContent==='空闲'")
+                page.wait_for_function("document.querySelector('#cameraMode').textContent==='Idle'")
                 page.locator('#cameraGrid').check()
                 page.locator('#cameraCross').check()
                 if args.hardware:
                     page.locator('#cameraStart').click()
-                    page.wait_for_function("document.querySelector('#cameraMode').textContent==='预览中'", timeout=60000)
+                    page.wait_for_function("document.querySelector('#cameraMode').textContent==='Preview'", timeout=60000)
                     page.wait_for_function("document.querySelector('#cameraPreview').naturalWidth===1280", timeout=15000)
                     start = time.monotonic()
                     frames = page.evaluate('window.cameraPanelMetrics.frames')
@@ -102,10 +102,10 @@ def main():
                     result['snapshot'] = dict(path=str(png),json=str(png.with_suffix('.json')),K=metadata['K'],K_matches_calibration=metadata['K']==expected)
                     assert result['snapshot']['K_matches_calibration'], result['snapshot']
                     page.locator('#cameraRecordStart').click()
-                    page.wait_for_function("document.querySelector('#cameraMode').textContent==='录像中'", timeout=60000)
+                    page.wait_for_function("document.querySelector('#cameraMode').textContent==='Recording'", timeout=60000)
                     page.wait_for_timeout(5000)
                     page.locator('#cameraRecordStop').click()
-                    page.wait_for_function("document.querySelector('#cameraMode').textContent==='预览中' && !document.querySelector('#cameraStop').disabled", timeout=240000)
+                    page.wait_for_function("document.querySelector('#cameraMode').textContent==='Preview' && !document.querySelector('#cameraStop').disabled", timeout=240000)
                     state = get(base+'/api/v1/camera/status')
                     result['recording'] = state['recording']
                     result['recording_report'] = state['recording_report']
@@ -116,7 +116,7 @@ def main():
                     assert result['recording_report'] is not None
                     page.screenshot(path=str(output/'camera-panel.png'),full_page=True)
                     page.locator('#cameraStop').click()
-                    page.wait_for_function("document.querySelector('#cameraMode').textContent==='空闲' && !document.querySelector('#cameraStart').disabled", timeout=60000)
+                    page.wait_for_function("document.querySelector('#cameraMode').textContent==='Idle' && !document.querySelector('#cameraStart').disabled", timeout=60000)
                     result['owners_after_stop'] = camera_owners(serial)
                     assert not result['owners_after_stop']
                 else:
@@ -134,7 +134,7 @@ def main():
             try:
                 server.wait(timeout=45)
             except subprocess.TimeoutExpired:
-                result.update(passed=False,cleanup_error='临时服务退出超时，请查看日志，保留 PID 供排查。',owned_server_pid=server.pid)
+                result.update(passed=False,cleanup_error='Temporary server shutdown timed out. Check the log; PID retained for diagnosis.',owned_server_pid=server.pid)
         result['baseline_after'] = baseline()
         before,after = result['baseline_before'],result['baseline_after']
         result['original_session_preserved'] = (before['session_id']==after['session_id'] and before['revision']==after['revision']
