@@ -68,7 +68,7 @@
     "profile": "full_controls",
     "collision": "sdf",
     "root_pose": [
-      0.399,
+      0.63,
       0.6755,
       0.986859,
       0.7071067811865476,
@@ -85,9 +85,9 @@
     "Base mounting poses, home joint angles and hand mounts inherited from v4.3, not independently verified for this model.",
     "Static loading and three-view rendering verified. Existing 07-model home/IK/clearance certificates do not apply; dynamics and physical alignment remain unverified.",
     "Archived camera extrinsics and retained driver intrinsics unchanged from v4.3.",
-    "Collection placement (user decision 2026-10-22): gamepad flat, yaw -90 deg, shell bottom 190 mm above the table, root on the calibrated camera_3 principal ray (image centre). Grip feasibility is to be judged from collected teleop reference poses, not from a pre-collection search. Post: 20x24 mm design support under the back-shell centre. home_q unchanged from v4.4.",
     "v4.5 (2026-10-22): arm mounts rotated about each base z (J1) axis, left -90 deg and right +90 deg, relative to the vendor design value used through v4.4. Evidence: with the master arm hanging naturally, the station map_left/right gives slave J1 = +/-90 deg, and the station's real slave hangs in that pose, whereas the v4.4 mount hangs at J1 = 0 and folded the sim arm backward. home_q J1 shifted by +/-90 deg to keep the same physical home pose.",
-    "v4.5 right arm (2026-10-23): an extra +15 deg rotation about the right base z (J1) axis. LinkerTA adds offset_deg=-15 to right J1 (lta.yaml and main_ros2.cpp default, 2026-08-31, comment 'joint51 -15 deg'). Inferred to compensate the real right slave, so the right arm hangs vertically at slave J1 = -105 deg; before this change the sim right arm leaned back about 20 deg with the master hanging. This is an inference and has not been measured on the real slave. home_q J1 shifted by -15 deg."
+    "v4.5 right arm (2026-10-23): an extra +15 deg rotation about the right base z (J1) axis. LinkerTA adds offset_deg=-15 to right J1 (lta.yaml and main_ros2.cpp default, 2026-08-31, comment 'joint51 -15 deg'). Inferred to compensate the real right slave, so the right arm hangs vertically at slave J1 = -105 deg; before this change the sim right arm leaned back about 20 deg with the master hanging. This is an inference and has not been measured on the real slave. home_q J1 shifted by -15 deg.",
+    "Collection placement (user decision 2026-10-23): gamepad flat, yaw -90 deg, shell bottom 190 mm above the table, root x = 0.63 m (front shell edge about 1 cm inside the far table edge, away from the arms), y on the camera_3 principal ray. The calibrated camera_3 then no longer sees the gamepad; use the operator view or the overview PiP. Post: 20x24 mm design support under the back-shell centre."
   ],
   "right_arm": {
     "urdf": "workspace://assets/derived/ar5_08r_e6bcf44f/right_arm.urdf",
@@ -349,7 +349,7 @@
       "name": "gamepad_support_post",
       "type": "box",
       "pose": [
-        0.399,
+        0.63,
         0.6755,
         0.871559,
         1,
