@@ -56,7 +56,7 @@
       "selected_for_joint_solve": true
     }
   ],
-  "solver_repo_commit": "788696d54da4cb541b3baf6b645e591c7f4ecf20",
+  "solver_repo_commit": "25946950bdf1d760fef92082489b367244b137da",
   "project_world_table": {
     "pose": [
       0.405915,

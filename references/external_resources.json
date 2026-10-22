@@ -444,7 +444,7 @@
       "group": "calibration",
       "kind": "git",
       "repository": "https://github.com/5o1/calib_board.git",
-      "revision": "788696d54da4cb541b3baf6b645e591c7f4ecf20",
+      "revision": "25946950bdf1d760fef92082489b367244b137da",
       "destination": "external/calib_board",
       "purpose": "Joint ChArUco extrinsic solver",
       "license": "See the pinned repository"

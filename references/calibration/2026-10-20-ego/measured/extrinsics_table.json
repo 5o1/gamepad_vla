@@ -202,7 +202,7 @@
   "board_surface_above_table_mm": 5.0,
   "provenance": {
     "computed_at_utc": "2026-10-20T14:49:34.982810+00:00",
-    "solver_repo_commit": "788696d54da4cb541b3baf6b645e591c7f4ecf20",
+    "solver_repo_commit": "25946950bdf1d760fef92082489b367244b137da",
     "solver_source_hashes": {
       "common.py": "548a2eeb8a2daac92263fa5963d5ae2984593555a18eb68c847fe01310df0055",
       "detect.py": "b689379e0eb0046a4794f85ebd50d15fbca8ca9992d06acbd6066e948761c22b",

@@ -4,7 +4,7 @@
   "reason": "User confirmed board placement distances were not measured. No world-frame extrinsics have been solved.",
   "printing_user_statement": "A3 PDF print",
   "printed_scale_verified": false,
-  "calibration_tool_commit": "788696d54da4cb541b3baf6b645e591c7f4ecf20",
+  "calibration_tool_commit": "25946950bdf1d760fef92082489b367244b137da",
   "observations": [
     {
       "index": 1,
