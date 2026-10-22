@@ -71,6 +71,8 @@ python scripts/render_workcell.py configs/render/workcell_multiview_preview.yaml
 
 双手全手柄的[阶段 0 可行性与设计报告](docs/reports/2026-10-21-two-hand-feasibility/README.md)按指定手指和持续背面握持检查固定掌位、臂 IK 与碰撞，提供独立复现脚本。奖励设计参考 [RoboPianist 官方实现](https://github.com/google-research/robopianist/blob/main/robopianist/suite/tasks/piano_with_shadow_hands.py)，仅借鉴正确按键、误触、指尖接近和能耗分项；有限静态搜索不证明动态操作或实物可行，本阶段没有实现训练。
 
+[任务 S](docs/reports/2026-10-23-natural-grip-fixed/README.md)在只读固定手柄场景及 v4.5 臂安装参数下搜索自然臂姿，复用 K0 原生接触并显式检查桌面、桌架和两种立柱的距离。优化沿用 [SciPy TRF 最小二乘](https://docs.scipy.org/doc/scipy-1.15.3/reference/generated/scipy.optimize.least_squares.html)，比较固定差分步长、掌基网格中心种子及掌位/操作可达软偏好；原生两指触壳通过不代表整掌包握、控件可达或动态操作成功。
+
 ## 扩展工具与依据
 
 - [操作者画面](docs/usage/operator-view.md)：`run_workstation.py --operator-view configs/render/operator_view.yaml --operator-run <新目录>`，配合 `--backend sapien` 和输入源参数。

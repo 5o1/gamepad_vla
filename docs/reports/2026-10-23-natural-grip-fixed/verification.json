@@ -1,0 +1,36 @@
+{
+  "verified": {
+    "left": {
+      "source_stage": "grip-directed",
+      "original_seed": 22,
+      "pure_check": true,
+      "controls": [
+        "Dpad_up",
+        "Dpad_down",
+        "Dpad_left",
+        "L3"
+      ],
+      "native_states": 6,
+      "checked_candidates": 5,
+      "raw_pure_candidates": 5
+    },
+    "right": {
+      "source_stage": "search",
+      "original_seed": 42,
+      "pure_check": true,
+      "controls": [],
+      "native_states": 0,
+      "checked_candidates": 1,
+      "raw_pure_candidates": 1
+    }
+  },
+  "all_required_checks_passed": true,
+  "processes_before_cleanup": [],
+  "remaining_task_processes": [],
+  "stopped_epoch": 1792701723.5670335,
+  "effective_wall_seconds": 3331.580028772354,
+  "deadline_epoch": 1792701991.9870048,
+  "within_budget": true,
+  "renderer_returncode": 0,
+  "fixed_scene_sha256": "9cdda6611142dd9d24e457b262f90f56f663f41d8bf12b10193304128773e189"
+}

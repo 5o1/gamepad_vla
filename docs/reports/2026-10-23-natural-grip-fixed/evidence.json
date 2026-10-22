@@ -1,0 +1,1022 @@
+{
+  "stages": {
+    "search": {
+      "config": {
+        "requested_per_side": 192,
+        "stable_workers": 4,
+        "nfev": 180,
+        "repair_nfev": 50,
+        "seed_style": "root",
+        "reach_mode": "mixed"
+      },
+      "results": {
+        "left": {
+          "completed": 140,
+          "unfinished_not_failed": 52,
+          "native_pure_passes": 3,
+          "reasons": {
+            "grip_point_error": 65,
+            "native_collision": 137,
+            "natural_hard": 19,
+            "native_grip_missing:ring": 1
+          }
+        },
+        "right": {
+          "completed": 139,
+          "unfinished_not_failed": 53,
+          "native_pure_passes": 1,
+          "reasons": {
+            "grip_point_error": 64,
+            "native_collision": 138,
+            "natural_hard": 25
+          }
+        }
+      }
+    },
+    "human-search": {
+      "config": {
+        "requested_per_side": 64,
+        "workers_sequence": [
+          2,
+          4
+        ],
+        "nfev": 180,
+        "repair_nfev": 50,
+        "seed_style": "palm",
+        "reach_mode": "mixed"
+      },
+      "results": {
+        "left": {
+          "completed": 34,
+          "unfinished_not_failed": 30,
+          "native_pure_passes": 1,
+          "reasons": {
+            "native_collision": 33,
+            "grip_point_error": 16,
+            "natural_hard": 7
+          }
+        },
+        "right": {
+          "completed": 33,
+          "unfinished_not_failed": 31,
+          "native_pure_passes": 0,
+          "reasons": {
+            "native_collision": 33,
+            "grip_point_error": 16,
+            "natural_hard": 5
+          }
+        }
+      }
+    },
+    "grip-directed": {
+      "config": {
+        "requested_per_side": 32,
+        "workers": 4,
+        "nfev": 180,
+        "repair_nfev": 70,
+        "seed_style": "palm",
+        "reach_mode": "all",
+        "palm_preference": 0.3,
+        "reach_scale": 10,
+        "natural_weight": 10,
+        "feasibility_nfev": 80
+      },
+      "results": {
+        "left": {
+          "completed": 32,
+          "unfinished_not_failed": 0,
+          "native_pure_passes": 1,
+          "reasons": {
+            "native_collision": 31,
+            "grip_point_error": 26,
+            "natural_hard": 1
+          }
+        },
+        "right": {
+          "completed": 31,
+          "unfinished_not_failed": 1,
+          "native_pure_passes": 0,
+          "reasons": {
+            "grip_point_error": 26,
+            "native_collision": 31,
+            "natural_hard": 1
+          }
+        }
+      }
+    }
+  },
+  "refinements": {
+    "polish": {
+      "completed": 12,
+      "native_pass_entries": 0,
+      "already_passed_initial_entries": 0,
+      "newly_passed_from_failed_initial": 0,
+      "trials": [
+        {
+          "side": "left",
+          "seed": 14,
+          "step_rad": 0.0002,
+          "nfev": 20,
+          "passed": false,
+          "reasons": [
+            "grip_point_error",
+            "natural_hard",
+            "native_collision"
+          ]
+        },
+        {
+          "side": "left",
+          "seed": 13,
+          "step_rad": 0.0,
+          "nfev": 19,
+          "passed": false,
+          "reasons": [
+            "native_collision"
+          ]
+        },
+        {
+          "side": "right",
+          "seed": 4,
+          "step_rad": 0.001,
+          "nfev": 16,
+          "passed": false,
+          "reasons": [
+            "natural_hard",
+            "native_collision"
+          ]
+        },
+        {
+          "side": "left",
+          "seed": 14,
+          "step_rad": 0.001,
+          "nfev": 16,
+          "passed": false,
+          "reasons": [
+            "grip_point_error",
+            "native_collision"
+          ]
+        },
+        {
+          "side": "right",
+          "seed": 4,
+          "step_rad": 0.0002,
+          "nfev": 31,
+          "passed": false,
+          "reasons": [
+            "natural_hard",
+            "native_collision"
+          ]
+        },
+        {
+          "side": "right",
+          "seed": 6,
+          "step_rad": 0.0,
+          "nfev": 71,
+          "passed": false,
+          "reasons": [
+            "native_collision"
+          ]
+        },
+        {
+          "side": "right",
+          "seed": 4,
+          "step_rad": 0.0,
+          "nfev": 26,
+          "passed": false,
+          "reasons": [
+            "natural_hard",
+            "native_collision"
+          ]
+        },
+        {
+          "side": "right",
+          "seed": 6,
+          "step_rad": 0.0002,
+          "nfev": 19,
+          "passed": false,
+          "reasons": [
+            "native_collision"
+          ]
+        },
+        {
+          "side": "left",
+          "seed": 13,
+          "step_rad": 0.001,
+          "nfev": 15,
+          "passed": false,
+          "reasons": [
+            "native_collision"
+          ]
+        },
+        {
+          "side": "left",
+          "seed": 13,
+          "step_rad": 0.0002,
+          "nfev": 16,
+          "passed": false,
+          "reasons": [
+            "native_collision"
+          ]
+        },
+        {
+          "side": "right",
+          "seed": 6,
+          "step_rad": 0.001,
+          "nfev": 25,
+          "passed": false,
+          "reasons": [
+            "native_collision"
+          ]
+        },
+        {
+          "side": "left",
+          "seed": 14,
+          "step_rad": 0.0,
+          "nfev": 17,
+          "passed": false,
+          "reasons": [
+            "grip_point_error",
+            "native_collision"
+          ]
+        }
+      ]
+    },
+    "native-feasibility": {
+      "completed": 8,
+      "native_pass_entries": 2,
+      "already_passed_initial_entries": 2,
+      "newly_passed_from_failed_initial": 0,
+      "trials": [
+        {
+          "side": "right",
+          "seed": 44,
+          "step_rad": 0.001,
+          "nfev": 22,
+          "passed": false,
+          "reasons": [
+            "natural_hard",
+            "native_collision"
+          ]
+        },
+        {
+          "side": "right",
+          "seed": 4,
+          "step_rad": 0.001,
+          "nfev": 31,
+          "passed": false,
+          "reasons": [
+            "natural_hard",
+            "native_collision"
+          ]
+        },
+        {
+          "side": "right",
+          "seed": 42,
+          "step_rad": 0.0002,
+          "nfev": 1,
+          "passed": true,
+          "reasons": []
+        },
+        {
+          "side": "right",
+          "seed": 4,
+          "step_rad": 0.0002,
+          "nfev": 13,
+          "passed": false,
+          "reasons": [
+            "natural_hard",
+            "native_collision"
+          ]
+        },
+        {
+          "side": "right",
+          "seed": 44,
+          "step_rad": 0.0002,
+          "nfev": 22,
+          "passed": false,
+          "reasons": [
+            "natural_hard",
+            "native_collision"
+          ]
+        },
+        {
+          "side": "right",
+          "seed": 35,
+          "step_rad": 0.0002,
+          "nfev": 12,
+          "passed": false,
+          "reasons": [
+            "native_collision"
+          ]
+        },
+        {
+          "side": "right",
+          "seed": 35,
+          "step_rad": 0.001,
+          "nfev": 13,
+          "passed": false,
+          "reasons": [
+            "native_collision"
+          ]
+        },
+        {
+          "side": "right",
+          "seed": 42,
+          "step_rad": 0.001,
+          "nfev": 1,
+          "passed": true,
+          "reasons": []
+        }
+      ]
+    }
+  },
+  "closest_to_soft_palm_target": {
+    "left": {
+      "seed_index": 8,
+      "variant": "check",
+      "check": {
+        "passed": false,
+        "reasons": [
+          "grip_point_error",
+          "native_collision"
+        ],
+        "grips": [
+          "pinky",
+          "ring"
+        ],
+        "violations": [
+          {
+            "a": "HL_ring_middle",
+            "b": "xbox_controller_body",
+            "geom_a": "HL_k1_geom_16",
+            "geom_b": "xbox_sdf_shell_000",
+            "distance_m": -0.0003104837836466454
+          },
+          {
+            "a": "HL_ring_middle",
+            "b": "xbox_controller_body",
+            "geom_a": "HL_k1_geom_16",
+            "geom_b": "xbox_sdf_shell_000",
+            "distance_m": -0.00025847419326175585
+          },
+          {
+            "a": "HL_ring_middle",
+            "b": "xbox_controller_body",
+            "geom_a": "HL_k1_geom_16",
+            "geom_b": "xbox_sdf_shell_000",
+            "distance_m": -0.0026706310476329767
+          },
+          {
+            "a": "HL_ring_distal",
+            "b": "xbox_controller_body",
+            "geom_a": "HL_k1_geom_17",
+            "geom_b": "xbox_sdf_shell_000",
+            "distance_m": -0.00525677663231206
+          },
+          {
+            "a": "HL_ring_distal",
+            "b": "xbox_controller_body",
+            "geom_a": "HL_k1_geom_17",
+            "geom_b": "xbox_sdf_shell_000",
+            "distance_m": -0.005237855236691575
+          },
+          {
+            "a": "HL_pinky_middle",
+            "b": "xbox_controller_body",
+            "geom_a": "HL_k1_geom_20",
+            "geom_b": "xbox_sdf_shell_000",
+            "distance_m": -3.5393088422720065e-05
+          },
+          {
+            "a": "HL_pinky_middle",
+            "b": "xbox_controller_body",
+            "geom_a": "HL_k1_geom_20",
+            "geom_b": "xbox_sdf_shell_000",
+            "distance_m": -0.0002216847604317768
+          }
+        ],
+        "table_clearance_m": {
+          "H": 0.10125263425442221,
+          "A": 0.10328739772694351
+        },
+        "camera": {
+          "passed": false,
+          "reasons": [
+            "camera_border"
+          ],
+          "margin_px": -30.915900153601115,
+          "group_margins_px": {
+            "gamepad_mesh": 164.29750825572887,
+            "left_fingertips": 115.44259228033957,
+            "left_palm_root": -30.915900153601115
+          },
+          "centroid_distances_m": {
+            "gamepad": 0.6115586112036072,
+            "left": 0.6387356133636654
+          }
+        },
+        "natural": {
+          "upper_tilt_deg": 28.520827536215442,
+          "forearm_pitch_deg": -9.96230226445201,
+          "forearm_heading_deg": 3.792056392373203,
+          "elbow_angle_deg": 128.10025322142928,
+          "wrist_deviation_deg": 5.968392198796447,
+          "deviation": 0.9981151132226005,
+          "natural": true,
+          "upper_forward": true,
+          "shoulder_axis_gap_m": 2.7755575615628914e-17
+        },
+        "grip_point_error_m": [
+          0.000504687627211186,
+          0.0007312495443239956
+        ],
+        "support_distance_lower_bound_m": 0.006748795046749556,
+        "active_contact": null,
+        "gamepad_pose": [
+          0.709415,
+          0.6252,
+          0.986859,
+          0.6649764337857644,
+          0.2404294959225408,
+          -0.2404294959225408,
+          -0.6649764337857643
+        ],
+        "palm_world": [
+          0.5557197500785256,
+          0.7325223180909413,
+          0.9112798804939869,
+          0.0746799323205348,
+          0.7310985637735565,
+          -0.11956592564065857,
+          0.6675490897174049
+        ],
+        "arm_q": [
+          1.1107510119964688,
+          1.652657790558579,
+          -1.2081428612436491,
+          0.9751892692147266,
+          -1.620188600997908,
+          0.07641209345619575,
+          -0.03506888951988039
+        ],
+        "hand_q": {
+          "thumb_cmc_roll": 2.5726567906603416e-11,
+          "thumb_cmc_yaw": 2.58306355778993e-11,
+          "thumb_cmc_pitch": 2.5678534091117853e-11,
+          "thumb_mcp": 2.622480214916667e-11,
+          "index_mcp_roll": -0.22999999997413906,
+          "index_mcp_pitch": 2.586980763161185e-11,
+          "index_pip": 2.5879845767434413e-11,
+          "middle_mcp_roll": -0.22999999997412016,
+          "middle_mcp_pitch": 2.5879845811981243e-11,
+          "middle_pip": 2.587984578110096e-11,
+          "ring_mcp_roll": 0.2271050294216485,
+          "ring_mcp_pitch": 1.0289032425656655,
+          "ring_pip": 1.7399999999999998,
+          "pinky_mcp_roll": 0.18886448802003977,
+          "pinky_mcp_pitch": 1.2199717654148363,
+          "pinky_pip": 0.17013754639782772
+        },
+        "placement_auxiliary_reasons": [
+          "camera_border"
+        ],
+        "natural_points_m": {
+          "shoulder": [
+            0.036914359025768013,
+            0.8856999999988229,
+            1.2620000000024112
+          ],
+          "elbow": [
+            0.19248520425815713,
+            0.8548404421905443,
+            0.9701444710063725
+          ],
+          "wrist": [
+            0.4503144488671939,
+            0.762093511629617,
+            0.9220161270097211
+          ]
+        },
+        "palm_mesh_centroid_world_m": [
+          0.6322202647510076,
+          0.7105250464064462,
+          0.9038287170381029
+        ],
+        "palm_mesh_centroid_in_pad_m": [
+          -0.08532504640644623,
+          -0.11244486357308481,
+          -0.014464013790267793
+        ],
+        "human_seed_palm_target_distance_m": 0.09300113129924102,
+        "human_seed_palm_target_local_m": [
+          -0.055,
+          -0.03,
+          -0.045
+        ],
+        "native_fixture_distance_lower_bound_m": {
+          "table": 0.1,
+          "station_column": 0.030999829170078264,
+          "station_column_top_mount": -1.8579221352670304e-07,
+          "station_floor": 0.1,
+          "station_table_frame_panel": 0.1,
+          "station_table_frame_leg00": 0.1,
+          "station_table_frame_leg01": 0.1,
+          "station_table_frame_leg10": 0.1,
+          "station_table_frame_leg11": 0.1,
+          "gamepad_support_post": 0.006748795046749556
+        },
+        "other_arm_home_violations": [],
+        "native_grip_contact_depth_m": {
+          "ring": -0.00525677663231206,
+          "pinky": -0.00011042998221528938
+        }
+      }
+    },
+    "right": {
+      "seed_index": 13,
+      "variant": "initial_native",
+      "check": {
+        "passed": false,
+        "reasons": [
+          "grip_point_error",
+          "native_collision"
+        ],
+        "grips": [
+          "pinky",
+          "ring"
+        ],
+        "violations": [
+          {
+            "a": "HR_ring_middle",
+            "b": "xbox_controller_body",
+            "geom_a": "HR_k1_geom_16",
+            "geom_b": "xbox_sdf_shell_000",
+            "distance_m": -0.0029637259809507923
+          },
+          {
+            "a": "HR_ring_middle",
+            "b": "xbox_controller_body",
+            "geom_a": "HR_k1_geom_16",
+            "geom_b": "xbox_sdf_shell_000",
+            "distance_m": -0.0038459428942926384
+          },
+          {
+            "a": "HR_ring_distal",
+            "b": "xbox_controller_body",
+            "geom_a": "HR_k1_geom_17",
+            "geom_b": "xbox_sdf_shell_000",
+            "distance_m": -0.0031553413409134068
+          },
+          {
+            "a": "HR_ring_distal",
+            "b": "xbox_controller_body",
+            "geom_a": "HR_k1_geom_17",
+            "geom_b": "xbox_sdf_shell_000",
+            "distance_m": -0.008083280175875986
+          },
+          {
+            "a": "HR_pinky_middle",
+            "b": "xbox_controller_body",
+            "geom_a": "HR_k1_geom_20",
+            "geom_b": "xbox_sdf_shell_000",
+            "distance_m": -0.0009232646774036037
+          },
+          {
+            "a": "HR_pinky_middle",
+            "b": "xbox_controller_body",
+            "geom_a": "HR_k1_geom_20",
+            "geom_b": "xbox_sdf_shell_000",
+            "distance_m": -0.0017995508227525757
+          },
+          {
+            "a": "HR_pinky_distal",
+            "b": "xbox_controller_body",
+            "geom_a": "HR_k1_geom_21",
+            "geom_b": "xbox_sdf_shell_000",
+            "distance_m": -0.010455135139947969
+          },
+          {
+            "a": "HR_pinky_distal",
+            "b": "xbox_controller_body",
+            "geom_a": "HR_k1_geom_21",
+            "geom_b": "xbox_sdf_shell_000",
+            "distance_m": -0.010234056404448801
+          },
+          {
+            "a": "HR_pinky_distal",
+            "b": "xbox_controller_body",
+            "geom_a": "HR_k1_geom_21",
+            "geom_b": "xbox_sdf_shell_000",
+            "distance_m": -0.01299797914401836
+          },
+          {
+            "a": "HR_pinky_distal",
+            "b": "xbox_controller_body",
+            "geom_a": "HR_k1_geom_21",
+            "geom_b": "xbox_sdf_shell_000",
+            "distance_m": -0.013084602164138665
+          }
+        ],
+        "table_clearance_m": {
+          "H": 0.13742350232324962,
+          "A": 0.14746789277221228
+        },
+        "camera": {
+          "passed": true,
+          "reasons": [],
+          "margin_px": 73.38736763684324,
+          "group_margins_px": {
+            "gamepad_mesh": 164.29750825572887,
+            "right_fingertips": 193.02393993187536,
+            "right_palm_root": 73.38736763684324
+          },
+          "centroid_distances_m": {
+            "gamepad": 0.6115586112036072,
+            "right": 0.6265885321803167
+          }
+        },
+        "natural": {
+          "upper_tilt_deg": 34.870153473602194,
+          "forearm_pitch_deg": -3.1445333548086407,
+          "forearm_heading_deg": 12.981669631547563,
+          "elbow_angle_deg": 125.73336155337967,
+          "wrist_deviation_deg": 4.552379340399042,
+          "deviation": 0.991343564906813,
+          "natural": true,
+          "upper_forward": true,
+          "shoulder_axis_gap_m": 1.3877787807814457e-17
+        },
+        "grip_point_error_m": [
+          0.00020696766119979415,
+          0.00044086622676351854
+        ],
+        "support_distance_lower_bound_m": 0.033759305864552745,
+        "active_contact": null,
+        "gamepad_pose": [
+          0.709415,
+          0.6252,
+          0.986859,
+          0.6649764337857644,
+          0.2404294959225408,
+          -0.2404294959225408,
+          -0.6649764337857643
+        ],
+        "palm_world": [
+          0.5954606261597956,
+          0.46337600718428934,
+          0.9625005579835119,
+          0.14658781067382748,
+          0.6253280669301896,
+          0.40274982164109346,
+          0.6521268309456942
+        ],
+        "arm_q": [
+          1.8877468627236107,
+          -1.5333669181851017,
+          -1.95006985895141,
+          1.0164993218602125,
+          1.0093045672886924,
+          -0.09930968689756618,
+          -0.02523373892983289
+        ],
+        "hand_q": {
+          "thumb_cmc_roll": 0.37893285015263467,
+          "thumb_cmc_yaw": 0.8037658878358517,
+          "thumb_cmc_pitch": 0.17889423075219607,
+          "thumb_mcp": 0.5229837530533499,
+          "index_mcp_roll": -0.09295152949214573,
+          "index_mcp_pitch": 0.5338327987611601,
+          "index_pip": 0.2899723916524474,
+          "middle_mcp_roll": -0.16039664363914263,
+          "middle_mcp_pitch": 0.19500685967074474,
+          "middle_pip": 0.9381659557213714,
+          "ring_mcp_roll": 0.22999881516095128,
+          "ring_mcp_pitch": 1.0010712009025637,
+          "ring_pip": 1.4866393978715244,
+          "pinky_mcp_roll": 0.2299999997493616,
+          "pinky_mcp_pitch": 1.007948360304599,
+          "pinky_pip": 1.741573027980436
+        },
+        "placement_auxiliary_reasons": [],
+        "natural_points_m": {
+          "shoulder": [
+            0.03691435902568537,
+            0.3547000000011772,
+            1.2620000000024247
+          ],
+          "elbow": [
+            0.22662773005633288,
+            0.34616049807441646,
+            0.9894744713651413
+          ],
+          "wrist": [
+            0.4927577126175063,
+            0.425760738819647,
+            0.9742139322104796
+          ]
+        },
+        "palm_mesh_centroid_world_m": [
+          0.6698852749919724,
+          0.4912948638589741,
+          0.9539009280113414
+        ],
+        "palm_mesh_centroid_in_pad_m": [
+          0.1339051361410259,
+          -0.051466789160676596,
+          -5.728795976411849e-05
+        ],
+        "human_seed_palm_target_distance_m": 0.09330965068970272,
+        "human_seed_palm_target_local_m": [
+          0.055,
+          -0.03,
+          -0.045
+        ],
+        "native_fixture_distance_lower_bound_m": {
+          "table": 0.1,
+          "station_column": 0.030999837609852275,
+          "station_column_top_mount": -2.0326081207056035e-07,
+          "station_floor": 0.1,
+          "station_table_frame_panel": 0.1,
+          "station_table_frame_leg00": 0.1,
+          "station_table_frame_leg01": 0.1,
+          "station_table_frame_leg10": 0.1,
+          "station_table_frame_leg11": 0.1,
+          "gamepad_support_post": 0.033759305864552745
+        },
+        "other_arm_home_violations": [],
+        "native_grip_contact_depth_m": {
+          "ring": -0.008083280175875986,
+          "pinky": -0.013084602164138665
+        }
+      }
+    }
+  },
+  "total_completed_main_trials": 409,
+  "total_unfinished_not_failed": 167,
+  "budget": {
+    "started_epoch": 1792698359.9870048,
+    "wall_seconds": 3600,
+    "deadline_epoch": 1792701991.9870048,
+    "reviewer_pause_excluded_seconds": 32,
+    "resumed_epoch": 1792698771.6490026
+  },
+  "started_utc": "2026-10-22T19:45:59.987005+00:00",
+  "deadline_utc": "2026-10-22T20:46:31.987005+00:00",
+  "collected_epoch": 1792701594.2467318,
+  "source": {
+    "git_commit": "0678646bd04f28053e42b5ca17c13271f126fc54",
+    "dirty": true,
+    "source_sha256": "6865df8b6efa2c805d56e34e61fcfc690f65d4b6fd2556a6de8b07fce608fd46"
+  },
+  "initial_git_head": "3c73d1d92cfecf9773dee3d9a1d6d1352cda41df",
+  "concurrent_head_update": "0678646 changes calibration-board references only; task did not create a commit; fixed scene unchanged",
+  "fixed_spec_sha256": "9cdda6611142dd9d24e457b262f90f56f663f41d8bf12b10193304128773e189",
+  "versions": {
+    "python": "3.11.16 (main, Sep  2 2026, 23:39:52) [GCC 15.3.0]",
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "trimesh": "5.1.1",
+    "mujoco": "3.16.0",
+    "cpu_distribution_metadata": "0.4.0",
+    "actual_gamepad_module": "workspace://envs/sapien-3.0.3-py310/lib/python3.10/site-packages/xbox_gamepad_physics/__init__.py",
+    "interface": "existing 0.4.1 source package via isolated per-run PYTHONPATH symlink; installed CPU environment unchanged",
+    "rendering": "SAPIEN 3.0.3 / xbox-gamepad-physics 0.4.1 / Vulkan lavapipe CPU"
+  },
+  "static_geometry_provenance": {
+    "initial_git_head": "3c73d1d92cfecf9773dee3d9a1d6d1352cda41df",
+    "code": {
+      "git_commit": "0678646bd04f28053e42b5ca17c13271f126fc54",
+      "dirty": true,
+      "source_sha256": "796266b548a93c488e1b2ba3c1dcc60c5859582e3fbe6e5c19b42b0aa0c5efbe"
+    },
+    "fixed_spec_sha256": "9cdda6611142dd9d24e457b262f90f56f663f41d8bf12b10193304128773e189",
+    "native_resources": "workspace://assets/xbox_gamepad_physics_mujoco_84f43e6/resources",
+    "render_resources": "workspace://assets/xbox_gamepad_physics_v0.4.1/resources",
+    "interface_version": "0.4.1",
+    "collision_files": 40,
+    "collision_files_identical": true,
+    "collision_comparison": [
+      {
+        "path": "common/xbox_one_s/collision/manifest.json",
+        "a": "39de1a9a07fda842e1973ad4a55b5ae35ed7a2a667dbc04b711cabbe8bf53d33",
+        "b": "39de1a9a07fda842e1973ad4a55b5ae35ed7a2a667dbc04b711cabbe8bf53d33"
+      },
+      {
+        "path": "common/xbox_one_s/collision/README.md",
+        "a": "2a977b0cd0acc744c33c0355e66ddb07aa8e197fd118f31131c75f4a1f5950f7",
+        "b": "2a977b0cd0acc744c33c0355e66ddb07aa8e197fd118f31131c75f4a1f5950f7"
+      },
+      {
+        "path": "common/xbox_one_s/collision/sdf/right_stick_0.obj",
+        "a": "8265dd6f324f8badbb3f00a23e7f0880a69df4940dccfb0b85cfb67bad3e1cf0",
+        "b": "8265dd6f324f8badbb3f00a23e7f0880a69df4940dccfb0b85cfb67bad3e1cf0"
+      },
+      {
+        "path": "common/xbox_one_s/collision/sdf/pair_0.obj",
+        "a": "646d1561e254983908169fa658a550002f4463fe266dcf8d21029287a6cae216",
+        "b": "646d1561e254983908169fa658a550002f4463fe266dcf8d21029287a6cae216"
+      },
+      {
+        "path": "common/xbox_one_s/collision/sdf/right_trigger_0.obj",
+        "a": "890b1f91bac2fe25669cb46b465df3f5c9e895f5adde473339d72fb4aa46c5df",
+        "b": "890b1f91bac2fe25669cb46b465df3f5c9e895f5adde473339d72fb4aa46c5df"
+      },
+      {
+        "path": "common/xbox_one_s/collision/sdf/x_0.obj",
+        "a": "c159d19c3c44515662c46785b4b5c36ef1144b4314f5d106a27ff7d51b79795e",
+        "b": "c159d19c3c44515662c46785b4b5c36ef1144b4314f5d106a27ff7d51b79795e"
+      },
+      {
+        "path": "common/xbox_one_s/collision/sdf/left_stick_0.obj",
+        "a": "bcf2e1a4911bc2e46fc8f9bebc2fa5ad180c22986e4c4b47cd8fd4a8c0684da3",
+        "b": "bcf2e1a4911bc2e46fc8f9bebc2fa5ad180c22986e4c4b47cd8fd4a8c0684da3"
+      },
+      {
+        "path": "common/xbox_one_s/collision/sdf/left_stick_1.obj",
+        "a": "237c4e29523c0f0d29b36a6e1b5dc02b7a1e0cfcd64528a8b81c8e1e73327f74",
+        "b": "237c4e29523c0f0d29b36a6e1b5dc02b7a1e0cfcd64528a8b81c8e1e73327f74"
+      },
+      {
+        "path": "common/xbox_one_s/collision/sdf/menu_0.obj",
+        "a": "d75890bc69b1a43333c79539e4aa8f2adec45c84b89544c2e9eea575ee3e1337",
+        "b": "d75890bc69b1a43333c79539e4aa8f2adec45c84b89544c2e9eea575ee3e1337"
+      },
+      {
+        "path": "common/xbox_one_s/collision/sdf/shell_0.obj",
+        "a": "3f5de933570ef044b2689f8fbae50bde7a63f1ffcf132b55fbe67bec8ae16af5",
+        "b": "3f5de933570ef044b2689f8fbae50bde7a63f1ffcf132b55fbe67bec8ae16af5"
+      },
+      {
+        "path": "common/xbox_one_s/collision/sdf/y_0.obj",
+        "a": "543688e35b427a5b9a584dd9ce7c72d7eaff7aa86ee45ae4e9e541f963bb3a81",
+        "b": "543688e35b427a5b9a584dd9ce7c72d7eaff7aa86ee45ae4e9e541f963bb3a81"
+      },
+      {
+        "path": "common/xbox_one_s/collision/sdf/right_stick_1.obj",
+        "a": "fa4ec72329ce1d213557e78d4286b4acdc444340ae77fbbd14aa58caf9165cb4",
+        "b": "fa4ec72329ce1d213557e78d4286b4acdc444340ae77fbbd14aa58caf9165cb4"
+      },
+      {
+        "path": "common/xbox_one_s/collision/sdf/left_shoulder_0.obj",
+        "a": "9a545511771554b595e753c53d82812905daa07821a219b018df0cb770d73627",
+        "b": "9a545511771554b595e753c53d82812905daa07821a219b018df0cb770d73627"
+      },
+      {
+        "path": "common/xbox_one_s/collision/sdf/dpad_0.obj",
+        "a": "153383d59dfd41dc559be1bec226167aac6133fe22a1878e2316a62981c2ed22",
+        "b": "153383d59dfd41dc559be1bec226167aac6133fe22a1878e2316a62981c2ed22"
+      },
+      {
+        "path": "common/xbox_one_s/collision/sdf/README.md",
+        "a": "2a977b0cd0acc744c33c0355e66ddb07aa8e197fd118f31131c75f4a1f5950f7",
+        "b": "2a977b0cd0acc744c33c0355e66ddb07aa8e197fd118f31131c75f4a1f5950f7"
+      },
+      {
+        "path": "common/xbox_one_s/collision/sdf/left_trigger_0.obj",
+        "a": "4ca621bd446ad9a2cdf511a10f158dac332de1de65c475cb444e1758967adb24",
+        "b": "4ca621bd446ad9a2cdf511a10f158dac332de1de65c475cb444e1758967adb24"
+      },
+      {
+        "path": "common/xbox_one_s/collision/sdf/view_0.obj",
+        "a": "ff30232634b3becf5e05e992ceb10dc017d26cba1eeddfa067bb9ec9f63c8a93",
+        "b": "ff30232634b3becf5e05e992ceb10dc017d26cba1eeddfa067bb9ec9f63c8a93"
+      },
+      {
+        "path": "common/xbox_one_s/collision/sdf/a_0.obj",
+        "a": "9c682071b5ac459e85fb9987df43cbb6266467531b9cf0ba33f0013eb6385f11",
+        "b": "9c682071b5ac459e85fb9987df43cbb6266467531b9cf0ba33f0013eb6385f11"
+      },
+      {
+        "path": "common/xbox_one_s/collision/sdf/guide_0.obj",
+        "a": "130b4b2308e449ee1e7d3a24033a5d8affe4034483c2153643564d066ad0bb04",
+        "b": "130b4b2308e449ee1e7d3a24033a5d8affe4034483c2153643564d066ad0bb04"
+      },
+      {
+        "path": "common/xbox_one_s/collision/sdf/b_0.obj",
+        "a": "12e4b326617c8ab9bf56ae6de30d8e369464d971483c48e20c96233ee54d577d",
+        "b": "12e4b326617c8ab9bf56ae6de30d8e369464d971483c48e20c96233ee54d577d"
+      },
+      {
+        "path": "common/xbox_one_s/collision/sdf/right_shoulder_0.obj",
+        "a": "73a2d72a4d96efc5dcc97980180227194501934004cc0c6c081d35865cb5714c",
+        "b": "73a2d72a4d96efc5dcc97980180227194501934004cc0c6c081d35865cb5714c"
+      },
+      {
+        "path": "common/xbox_one_s/collision/sdf/shell_front_plate_0.obj",
+        "a": "094a383c0f6005eb16af64f1b988fb23f50b26fefd3a19ddde40f51f3d6a589d",
+        "b": "094a383c0f6005eb16af64f1b988fb23f50b26fefd3a19ddde40f51f3d6a589d"
+      },
+      {
+        "path": "common/xbox_one_s/collision/coacd/left_stick.obj",
+        "a": "e1095d928294a7ad3e7e2d8a0132462b9c7f621e4aee939a25cc3d00d9b944c5",
+        "b": "e1095d928294a7ad3e7e2d8a0132462b9c7f621e4aee939a25cc3d00d9b944c5"
+      },
+      {
+        "path": "common/xbox_one_s/collision/coacd/pair.obj",
+        "a": "80747a04d30c43937648ec2df8bb8b095ba9f31d2fec6028a5fd293b737a6f39",
+        "b": "80747a04d30c43937648ec2df8bb8b095ba9f31d2fec6028a5fd293b737a6f39"
+      },
+      {
+        "path": "common/xbox_one_s/collision/coacd/shell.obj",
+        "a": "5dadf9cda1554d1f9535c9c208a18b5d380d27dbd770d110c7c707a71bbdecd8",
+        "b": "5dadf9cda1554d1f9535c9c208a18b5d380d27dbd770d110c7c707a71bbdecd8"
+      },
+      {
+        "path": "common/xbox_one_s/collision/coacd/right_shoulder.obj",
+        "a": "422d5198c33c04fd258a72823e74959a1b85b7eeec79ac796db65ae542a3f444",
+        "b": "422d5198c33c04fd258a72823e74959a1b85b7eeec79ac796db65ae542a3f444"
+      },
+      {
+        "path": "common/xbox_one_s/collision/coacd/shell_front_plate.obj",
+        "a": "b3b9b6f1cab394d58770bd00a3be80fdc3839101e8a2cc69879a3c7c94ac47f2",
+        "b": "b3b9b6f1cab394d58770bd00a3be80fdc3839101e8a2cc69879a3c7c94ac47f2"
+      },
+      {
+        "path": "common/xbox_one_s/collision/coacd/guide.obj",
+        "a": "39fe67d3963185afb9ff2657a20ef4fbfff00280d9cf4d4acd9d5d5033137ee3",
+        "b": "39fe67d3963185afb9ff2657a20ef4fbfff00280d9cf4d4acd9d5d5033137ee3"
+      },
+      {
+        "path": "common/xbox_one_s/collision/coacd/dpad.obj",
+        "a": "5cf3103134acc3dc4144fd51ffaf1abed4fef5e33356e02d8426384bc75d3505",
+        "b": "5cf3103134acc3dc4144fd51ffaf1abed4fef5e33356e02d8426384bc75d3505"
+      },
+      {
+        "path": "common/xbox_one_s/collision/coacd/view.obj",
+        "a": "c5d19a00ef67bad8aaf75c084578f8f23bd10dadd330e27f2c4864ccd517e228",
+        "b": "c5d19a00ef67bad8aaf75c084578f8f23bd10dadd330e27f2c4864ccd517e228"
+      },
+      {
+        "path": "common/xbox_one_s/collision/coacd/x.obj",
+        "a": "b7a2e72505e6542f60db35a458676bc2bf365a5811f1f91bcabf6df66e8f97bf",
+        "b": "b7a2e72505e6542f60db35a458676bc2bf365a5811f1f91bcabf6df66e8f97bf"
+      },
+      {
+        "path": "common/xbox_one_s/collision/coacd/right_trigger.obj",
+        "a": "8616be9aacbe1537b8f49c01dc1cd9cde04beaeeebcc26e8a304e83284cb97a6",
+        "b": "8616be9aacbe1537b8f49c01dc1cd9cde04beaeeebcc26e8a304e83284cb97a6"
+      },
+      {
+        "path": "common/xbox_one_s/collision/coacd/README.md",
+        "a": "2a977b0cd0acc744c33c0355e66ddb07aa8e197fd118f31131c75f4a1f5950f7",
+        "b": "2a977b0cd0acc744c33c0355e66ddb07aa8e197fd118f31131c75f4a1f5950f7"
+      },
+      {
+        "path": "common/xbox_one_s/collision/coacd/menu.obj",
+        "a": "442834691faf827a46e0f64d67ddb06f07c1e81f1ac736817fa9a15346bade23",
+        "b": "442834691faf827a46e0f64d67ddb06f07c1e81f1ac736817fa9a15346bade23"
+      },
+      {
+        "path": "common/xbox_one_s/collision/coacd/a.obj",
+        "a": "98ec8dedc3c21f8a92b38748e2caab5b6ae6a5dffdc30b1b65a060fe959ad8bc",
+        "b": "98ec8dedc3c21f8a92b38748e2caab5b6ae6a5dffdc30b1b65a060fe959ad8bc"
+      },
+      {
+        "path": "common/xbox_one_s/collision/coacd/b.obj",
+        "a": "0d6c9239b4c7490fb88589dffe318fb8aa9831bcf5768772fcff551bdb81a0c9",
+        "b": "0d6c9239b4c7490fb88589dffe318fb8aa9831bcf5768772fcff551bdb81a0c9"
+      },
+      {
+        "path": "common/xbox_one_s/collision/coacd/y.obj",
+        "a": "a801d5bc9892160f119e328192e2fd169e9b9ace065d2b26ace0c1330b018471",
+        "b": "a801d5bc9892160f119e328192e2fd169e9b9ace065d2b26ace0c1330b018471"
+      },
+      {
+        "path": "common/xbox_one_s/collision/coacd/left_shoulder.obj",
+        "a": "a7980252d030660c3215e7d7e8e9a4e90a1aa27318c90cacbc1ac2051b8126cb",
+        "b": "a7980252d030660c3215e7d7e8e9a4e90a1aa27318c90cacbc1ac2051b8126cb"
+      },
+      {
+        "path": "common/xbox_one_s/collision/coacd/right_stick.obj",
+        "a": "db5d93c6a929813b09898312a56a28a1e883ed2593a196cadf491c1a88fbd6f4",
+        "b": "db5d93c6a929813b09898312a56a28a1e883ed2593a196cadf491c1a88fbd6f4"
+      },
+      {
+        "path": "common/xbox_one_s/collision/coacd/left_trigger.obj",
+        "a": "7a1d5d980883d0fc9a581ba09be2f567fd971b0a2e148229e6dbb21e4ccffca6",
+        "b": "7a1d5d980883d0fc9a581ba09be2f567fd971b0a2e148229e6dbb21e4ccffca6"
+      }
+    ],
+    "motion_contract_identical": true,
+    "kinematics_identical_except_acceptance_dynamics_ready": true,
+    "removed_metadata": {
+      "native:dynamics_ready": false
+    },
+    "cpu_affinity": "0-31",
+    "workers": 4,
+    "blas_threads": 1,
+    "budget": {
+      "started_epoch": 1792698359.9870048,
+      "wall_seconds": 3600,
+      "deadline_epoch": 1792701991.9870048,
+      "reviewer_pause_excluded_seconds": 32,
+      "resumed_epoch": 1792698771.6490026
+    },
+    "renderer": "SAPIEN 3.0.3, xbox-gamepad-physics 0.4.1 operator_view, Vulkan lavapipe CPU",
+    "initial_32_worker_batch": "Stopped before a completed candidate after excessive native-model construction memory pressure; replaced by 4 workers; no scientific acceptances from that batch."
+  },
+  "resource_notes": "Initial 32-worker model construction produced memory pressure and was stopped before a completed result. Stable pools used at most 4 each; CPU affinity union never exceeded 0-63. No environment install, GPU compute, hardware station connection or training.",
+  "metric_notes": "palm target is an approximate soft seed/preference at local [side*0.055,-0.03,-0.045], measured using the hand_base_link area centroid; not an acceptance gate. Raw output entries are not certified geometrically unique.",
+  "method_source": "https://docs.scipy.org/doc/scipy-1.15.3/reference/generated/scipy.optimize.least_squares.html",
+  "run": "workspace://runs/natural-grip-s-20261023"
+}
