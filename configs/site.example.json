@@ -54,5 +54,18 @@
   },
   "network": {
     "proxy_url": ""
+  },
+  "collection": {
+    "backend": "sapien",
+    "source": "ros2",
+    "scene_variant": "full",
+    "duration": null,
+    "rate_hz": 60,
+    "loop_replay": false,
+    "replay": "",
+    "replay_files": [],
+    "ros_topic_prefix": "",
+    "output_root": "",
+    "export_python": ""
   }
 }

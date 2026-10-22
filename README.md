@@ -79,6 +79,8 @@ python scripts/render_workcell.py configs/render/workcell_multiview_preview.yaml
 
 渲染沿用手柄资产 v0.3.1 的 example runner；网页串流适配其 latest-state/NVENC 链路，不修改上游。Python 资源打包依据 [Setuptools package data](https://setuptools.pypa.io/en/stable/userguide/datafiles.html)，CI 依据 [GitHub Python 工作流](https://docs.github.com/en/actions/tutorials/build-and-test-code/python)。
 
-双手双臂参考轨迹采集使用独立入口 `scripts/run_collection.py`；输入单位、episode v3（兼容读取 v2）、LeRobot v3 导出及以后部署的节点边界见[采集说明](docs/usage/collection.md)。双后端验收状态和设计适配的证据限度见[任务 L 报告](docs/reports/2026-10-22-collection-platform/README.md)，不以短测代替 L1/L2。
+双手双臂参考轨迹采集使用独立入口 `scripts/run_collection.py`；输入单位、episode v4（兼容读取 v2/v3）、LeRobot v3 导出及以后部署的节点边界见[采集说明](docs/usage/collection.md)。双后端验收状态和设计适配的证据限度见[任务 L 报告](docs/reports/2026-10-22-collection-platform/README.md)，不以短测代替 L1/L2。
 
 ROS 输入按 [Humble executor 源码](https://github.com/ros2/rclpy/blob/humble/rclpy/rclpy/executors.py)的持续 spin 模式，在专用 SingleThreadedExecutor 线程中串行接收，使用 [Python FIFO 队列](https://docs.python.org/3.10/library/queue.html)向录制器逐条交接原始消息；每路 QoS 深度 128。控制环只选最新目标，接收事件不会因此丢弃。episode v3 的 `commands.jsonl` 保存未取整的原始 JointState、整数消息头时间戳、单调/墙钟接收时间和转换值；`steps.jsonl` 单独保存实际应用目标、关联消息序号及应用时钟。实际门槛和原始数据限制见 [M1 报告](docs/reports/2026-10-22-station-install/README.md)。真实 rclpy 回归测试需显式设置 `GAMEPAD_VLA_TEST_ROS2=1`、非默认 ROS 域，仅发布测试前缀话题；普通单元测试中的替身不能替代它。此改动不更改仿真物理或既有 L1/L2 结论。
+
+采集网页及 REST 控制入口为 `scripts/collection_server.py`，供助手或 Codex 在采集台本机操作；[API 说明](docs/usage/collection-api.md)说明默认关闭的远程写控制、SSE、审计和语音规则。实现依据 [aiohttp 服务与流响应](https://docs.aiohttp.org/en/stable/web_quickstart.html)、[Python spawn](https://docs.python.org/3.10/library/multiprocessing.html)及 [MuJoCo 渲染相机定义](https://mujoco.readthedocs.io/en/stable/APIreference/APItypes.html#mjvglcamera)。CLI/网页共用采集控制器，episode v4 增加限幅标志并继续读取 v2/v3；独立渲染副本使用 v4.4 标定 ego 相机，MuJoCo 另对像素焦距比作图像校正，不修改物理模型。仿真、传输与浏览器验证不证明实物操作能力，本轮 N1 与采集台 N2 均通过；验收数值和限制见[任务 N 报告](docs/reports/2026-10-22-collection-web/README.md)。

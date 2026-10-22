@@ -5,15 +5,9 @@ import json
 import queue
 import sys
 import threading
-import time
 from pathlib import Path
 
-from gamepad_vla.site import configure_runtime, site_value
-from gamepad_vla.workstation.arm_mapping import ArmMapper
-from gamepad_vla.workstation.collection import Session, create_backend
-from gamepad_vla.workstation.collection_sources import CollectionReplay, Ros2Source
-from gamepad_vla.workstation.sources import UdpSource
-from gamepad_vla.workstation.spec import load_spec
+from gamepad_vla.site import site_value
 
 
 def main():
@@ -47,10 +41,7 @@ def main():
         p.error("--mujoco-workers must be positive and applies only to MuJoCo")
     if a.source == "replay" and a.replay is None:
         p.error("--replay is required")
-    configure_runtime()
-    spec = load_spec(a.spec)
-    mapper = ArmMapper({s: getattr(spec, s + "_arm").home_q for s in ("left", "right")})
-    backend = source = session = view = None
+    from gamepad_vla.workstation.collection_controller import CollectionController, CollectionOptions
     controls = queue.Queue()
     if sys.stdin.isatty():
         def keyboard():
@@ -58,77 +49,11 @@ def main():
                 text = line.strip()
                 controls.put({"action": text if text in {"start", "stop"} else "note", "text": text})
         threading.Thread(target=keyboard, daemon=True).start()
-    success = False
     try:
-        if a.source == "ros2":
-            source = Ros2Source(mapper, topic_prefix=a.ros_topic_prefix)
-        elif a.source == "udp":
-            source = UdpSource(a.udp_host, a.udp_port, stale_after_s=.25,
-                               allow_source=site_value("udp.allow_sources", []) or None, arm_mapper=mapper)
-        else:
-            source = CollectionReplay(a.replay, loop=a.loop_replay)
-        # Session creates output first, so keep the backend's generated assets in
-        # a sibling directory rather than pre-creating the recording destination.
-        backend = create_backend(a.backend, spec, work_dir=a.output.with_name(a.output.name + "-physics"),
-                                 render=False, resource_root=a.resource_root,
-                                 environment_collisions=a.scene_variant == "full")
-        backend.reset()
-        if a.backend == "mujoco" and a.mujoco_workers > 1:
-            backend.mj.mju_threadpool(backend.data, a.mujoco_workers)
-        session = Session(a.output, spec, backend, dict(kind=a.source, replay=None if a.replay is None else str(a.replay),
-                                                     loop=a.loop_replay), mapper=mapper, fps=a.rate_hz)
-        session.meta["native_cpu_workers"] = a.mujoco_workers
-        if a.note:
-            session.control(dict(action="note", text=a.note))
-        if a.record:
-            session.control(dict(action="start"))
-        if a.view:
-            from gamepad_vla.workstation.collection_stream import OperatorStream
-            view = OperatorStream(a.backend, a.spec, a.resource_root, a.output / "view", a.host, a.port,
-                                  environment_collisions=a.scene_variant == "full")
-        begin = time.monotonic()
-        n = max(1, round(a.duration * a.rate_hz))
-        for i in range(n):
-            if a.realtime:
-                time.sleep(max(0., begin + i / a.rate_hz - time.monotonic()))
-            if hasattr(source, "drain_events"):
-                session.record_inputs(source.drain_events())
-            while True:
-                try:
-                    session.control(controls.get_nowait())
-                except queue.Empty:
-                    break
-            if view:
-                for event in view.events():
-                    session.control(event)
-            commands = source.poll(time.monotonic() if a.source != "replay" else i / a.rate_hz)
-            backend.apply(commands)
-            applied_ns = time.monotonic_ns()
-            backend.step(1 / a.rate_hz)
-            row = session.record(backend.observe(), commands, applied_monotonic_ns=applied_ns,
-                                 input_sequences=getattr(source, "polled_sequences", None))
-            if view:
-                view.publish(row)
-        result = dict(ticks=n, sim_time_s=row["sim_time_s"], wall_elapsed_s=time.monotonic() - begin,
-                      decode_errors=source.decode_errors, source_cycles=getattr(source, "cycles", 0))
-        (a.output / "result.json").write_text(json.dumps(result, indent=2) + "\n")
+        result = CollectionController(CollectionOptions(**vars(a)), controls=controls).run()
         print(json.dumps(result))
-        success = True
-    except RuntimeError as exc:
+    except (RuntimeError, ValueError) as exc:
         p.exit(2, str(exc) + "\n")
-    except KeyboardInterrupt:
-        pass
-    finally:
-        if source:
-            source.close()
-            if session and hasattr(source, "drain_events"):
-                session.record_inputs(source.drain_events())
-        if session:
-            session.close("complete" if success else "interrupted")
-        if view:
-            view.close()
-        if backend:
-            backend.close()
 
 
 if __name__ == "__main__":

@@ -1,0 +1,54 @@
+{
+  "head": "bab0ccd",
+  "unit_compute": {
+    "passed": 151,
+    "skipped": 4,
+    "failed": 0,
+    "elapsed_s": 2.61
+  },
+  "unit_station": {
+    "passed": 151,
+    "skipped": 4,
+    "failed": 0,
+    "elapsed_s": 0.87
+  },
+  "browser_web_flow_completed": true,
+  "cli_full_cycle_completed": true,
+  "js_errors": 0,
+  "dom_latency_upper_bound": {
+    "samples": 20,
+    "p50_s": 0.0332544,
+    "p95_s": 0.0651230464,
+    "max_s": 0.068897024,
+    "values_s": [
+      0.02622208,
+      0.018288896,
+      0.030368,
+      0.068897024,
+      0.042703616,
+      0.032843264,
+      0.06427776,
+      0.02289024,
+      0.026379776,
+      0.026416896,
+      0.059863296,
+      0.021517568,
+      0.064924416,
+      0.053390848,
+      0.056502784,
+      0.033665536,
+      0.05574272,
+      0.015953664,
+      0.029630976,
+      0.061121792
+    ],
+    "method": "backend control -> DOM mutation -> read-only acknowledgement received by same backend; includes acknowledgement network trip"
+  },
+  "codex_readonly_scenarios_passed": 3,
+  "schema_version": 4,
+  "legacy_read_versions": [
+    2,
+    3
+  ],
+  "n2_status": "failed_not_retried"
+}

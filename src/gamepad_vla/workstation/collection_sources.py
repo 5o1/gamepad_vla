@@ -1,5 +1,6 @@
 """Subscriber-only ROS input and timed dual-arm/dual-hand replay."""
 import importlib
+import json
 from dataclasses import asdict
 import queue
 import threading
@@ -8,6 +9,7 @@ from pathlib import Path
 
 import numpy as np
 
+from gamepad_vla.workstation.collection_health import InputHealth
 from gamepad_vla.workstation.commands import ArmCommand, HandCommand, hand_command_from_packet
 from gamepad_vla.workstation.protocol import HandCommandPacket
 from gamepad_vla.workstation.episode_schema import SIDES, read_episode
@@ -31,6 +33,7 @@ class Ros2Source:
                  topic_prefix="", qos_depth=128):
         if qos_depth < 100:
             raise ValueError("ROS command QoS must buffer at least 100 messages per channel")
+        self.health = InputHealth(clock)
         self.mapper, self.clock = mapper, clock
         self.packet_sink, self.stale_after_s = packet_sink, stale_after_s
         self.decode_errors = self.received_packets = 0
@@ -73,6 +76,10 @@ class Ros2Source:
                 self._thread_error = exc
 
     def _receive(self, side, kind, msg):
+        with self._lock:
+            self._receive_locked(side, kind, msg)
+
+    def _receive_locked(self, side, kind, msg):
         from gamepad_vla.workstation.protocol import ArmCommandPacket, encode, decode
         received_mono, received_wall = time.monotonic_ns(), time.time_ns()
         received_clock = self.clock()
@@ -104,12 +111,16 @@ class Ros2Source:
         except (KeyError, TypeError, ValueError) as exc:
             self.decode_errors += 1
             event["error"] = str(exc)
+        self.health.receive(event["channel"], error=event["error"] is not None)
         self._events.put_nowait(event)
         if command is not None:
-            with self._lock:
-                self.latest[(kind, side)] = (received_clock, command, event["sequence"])
+            self.latest[(kind, side)] = (received_clock, command, event["sequence"])
             if self.packet_sink:
                 self.packet_sink(packet)
+
+    def boundary(self):
+        with self._lock:
+            return self.drain_events(), self.received_packets
 
     def drain_events(self):
         events = []
@@ -151,6 +162,9 @@ class CollectionReplay:
         self.start = None
         self.last_index = None
         self.events = []
+        self._input_events = []
+        self.received_packets = 0
+        self.health = InputHealth()
         self.uniform_grid = path.is_dir()
         if path.is_dir():
             meta, rows = read_episode(path)
@@ -170,7 +184,8 @@ class CollectionReplay:
                                                     None if h["motor_positions"] is None else tuple(h["motor_positions"])))
                     if a is not None:
                         commands.append(ArmCommand(side, tuple(a["positions"]), a["stamp"],
-                                                   None if a["raw_master_deg"] is None else tuple(a["raw_master_deg"])))
+                                                   None if a["raw_master_deg"] is None else tuple(a["raw_master_deg"]),
+                                                   a.get("clamp_flags")))
                 self.events.append(commands)
         else:
             with np.load(path, allow_pickle=False) as z:
@@ -209,7 +224,75 @@ class CollectionReplay:
         if marker == self.last_index:
             return []
         self.last_index = marker
-        return self.events[index]
+        commands = self.events[index]
+        for command in commands:
+            self._input_events.append(command_event(command, self.received_packets))
+            self.received_packets += 1
+            self.health.receive(command.side + ("_hand" if isinstance(command, HandCommand) else "_arm"))
+        return commands
+
+    def boundary(self):
+        return self.drain_events(), self.received_packets
+
+    def drain_events(self):
+        events, self._input_events = self._input_events, []
+        return events
 
     def close(self):
         pass
+
+
+def command_event(command, sequence):
+    wall = time.time_ns()
+    channel = command.side + ('_hand' if isinstance(command, HandCommand) else '_arm')
+    return dict(sequence=sequence, channel=channel, received_monotonic_ns=time.monotonic_ns(),
+                received_wall_time_ns=wall, header=dict(stamp=dict(sec=wall//10**9, nanosec=wall%10**9), frame_id=''),
+                raw=asdict(command), converted_command=asdict(command), error=None)
+
+
+class CollectionUdpSource:
+    """Existing UDP decoder/control behavior plus receive journal and health."""
+    def __init__(self, *args, **kwargs):
+        from .sources import UdpSource
+        self.source = UdpSource(*args, **kwargs)
+        self.source.event_sink = self._receive
+        self.health = InputHealth()
+        self._events = []
+        self.received_packets = 0
+
+    @property
+    def decode_errors(self):
+        return self.source.decode_errors
+
+    def _receive(self, data, command, error):
+        if command is not None:
+            event = command_event(command, self.received_packets)
+        else:
+            wall = time.time_ns()
+            event = dict(sequence=self.received_packets, channel='unknown', received_monotonic_ns=time.monotonic_ns(),
+                         received_wall_time_ns=wall, header=dict(stamp=dict(sec=wall//10**9, nanosec=wall%10**9)),
+                         converted_command=None)
+        if command is None:
+            try:
+                raw = json.loads(data)
+                kind = 'arm' if raw.get('type')=='arm_command' else 'hand' if raw.get('type')=='command' else None
+                side = raw.get('side') if kind=='arm' else raw.get('hand')
+                if kind and side in SIDES:event['channel']=side+'_'+kind
+            except (ValueError, AttributeError):pass
+        event.update(raw=dict(datagram_hex=data.hex()), error=error)
+        self.received_packets += 1
+        self._events.append(event)
+        self.health.receive(event['channel'], error=error is not None)
+
+    def poll(self, now):
+        return self.source.poll(now)
+
+    def drain_events(self):
+        events, self._events = self._events, []
+        return events
+
+    def boundary(self):
+        return self.drain_events(), self.received_packets
+
+    def close(self):
+        self.source.close()

@@ -1,4 +1,4 @@
-"""Collection v3: SI units, world poses in xyz/wxyz, left then right.
+"""Collection v4: SI units, world poses in xyz/wxyz, left then right.
 
 Unavailable original commands use null, never reconstructed measurements.
 Fingertips use distal-frame orientation and the collision mesh's +Z extremum
@@ -16,7 +16,7 @@ import numpy as np
 
 SIDES = ("left", "right")
 FINGERS = ("thumb", "index", "middle", "ring", "pinky")
-SCHEMA_VERSION = 3
+SCHEMA_VERSION = 4
 
 
 @dataclass
@@ -105,7 +105,7 @@ class EpisodeWriter:
     def _write_meta(self):
         (self.path / "meta.json").write_text(json.dumps(self.meta, ensure_ascii=False, indent=2, allow_nan=False) + "\n")
 
-    def append(self, observation, command_state, overlay, *, applied_monotonic_ns=None, input_sequences=None):
+    def append(self, observation, command_state, overlay, *, applied_monotonic_ns=None, input_sequences=None, arm_clamps=None):
         row = observation.to_dict()
         if observation.sim_time_s <= self.last_sim_time:
             raise ValueError("simulation timestamps must increase")
@@ -114,6 +114,7 @@ class EpisodeWriter:
         row["overlay"] = overlay
         row["applied_monotonic_ns"] = applied_monotonic_ns
         row["input_sequences"] = dict(input_sequences or {})
+        row["arm_clamps"] = arm_clamps or dict.fromkeys(SIDES)
         self.stream.write(json.dumps(row, ensure_ascii=False, allow_nan=False, separators=(",", ":")) + "\n")
         self.meta["rows"] += 1
 
@@ -142,8 +143,8 @@ class EpisodeWriter:
 def read_episode(path):
     path = Path(path)
     meta = json.loads((path / "meta.json").read_text())
-    if meta.get("schema_version") not in (2, SCHEMA_VERSION):
-        raise ValueError("expected collection schema v2 or v3")
+    if meta.get("schema_version") not in (2, 3, SCHEMA_VERSION):
+        raise ValueError("expected collection schema v2, v3 or v4")
     if hashlib.sha256(meta["scene_spec_text"].encode()).hexdigest() != meta["scene_spec_sha256"]:
         raise ValueError("scene specification hash mismatch")
     rows = [json.loads(s) for s in (path / "steps.jsonl").read_text().splitlines()]
@@ -153,10 +154,20 @@ def read_episode(path):
         Observation(**fields).validate()
         if row["sim_time_s"] <= last:
             raise ValueError("simulation timestamps must increase")
+        if meta["schema_version"] == 4:
+            flags = row["arm_clamps"]
+            if set(flags) != set(SIDES):
+                raise ValueError("invalid arm clamp sides")
+            for side in SIDES:
+                if flags[side] is not None:
+                    for kind in ("absolute", "startup"):
+                        mask = flags[side][kind]
+                        if len(mask) != 7 or any(type(v) is not bool for v in mask):
+                            raise ValueError("invalid arm clamp flags")
         last = row["sim_time_s"]
     if meta["rows"] != len(rows):
         raise ValueError("episode length differs from metadata; recording may be interrupted")
-    if meta["schema_version"] == 3:
+    if meta["schema_version"] >= 3:
         read_input_events(path, meta=meta)
     return meta, rows
 
@@ -167,8 +178,8 @@ def read_input_events(path, *, meta=None):
     meta = meta or json.loads((path / "meta.json").read_text())
     if meta["schema_version"] == 2:
         return []
-    if meta["schema_version"] != SCHEMA_VERSION:
-        raise ValueError("expected collection schema v2 or v3")
+    if meta["schema_version"] not in (3, SCHEMA_VERSION):
+        raise ValueError("expected collection schema v2, v3 or v4")
     events = [json.loads(line) for line in (path / "commands.jsonl").read_text().splitlines()]
     if len(events) != meta["input_messages"]:
         raise ValueError("input journal length differs from metadata")

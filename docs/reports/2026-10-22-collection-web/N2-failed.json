@@ -1,0 +1,68 @@
+{
+  "status": "failed",
+  "stage": "safety_testdouble_recovery",
+  "failure": "匹配了另一常驻终端包装进程命令行中的检查字符串，替身退出后横幅仍为红色",
+  "testdouble_detected": true,
+  "safety_recovered": false,
+  "formal_300s_browser_window_completed": false,
+  "ros2_60s_executed": false,
+  "remote_cli_cycle_executed": false,
+  "station_export_executed": false,
+  "station_dom_latency_executed": false,
+  "episodes": [
+    {
+      "id": "session-20261022-080630-485d84~episode-000000",
+      "rows": 8690,
+      "duration_s": 144.833,
+      "status": "complete",
+      "schema_version": 4,
+      "started_by": "web",
+      "stopped_by": "service",
+      "integrity": {
+        "passed": true,
+        "checked_wall_time_ns": 1792627738847541589,
+        "checks": {
+          "strict_readback": true,
+          "receiver_count_and_sequences": true,
+          "row_duration": true
+        },
+        "errors": [],
+        "rows": 8690,
+        "duration_s": 144.833,
+        "input_messages": 17380
+      }
+    }
+  ],
+  "stream_log_including_unattended_cleanup_delay": {
+    "frames": 4863,
+    "span_s": 146.687220356,
+    "interval_fps": 33.145355050019035,
+    "apply_to_encode_p50_ms": 43.575852,
+    "apply_to_encode_p95_ms": 50.878839899999996
+  },
+  "cleanup_driver_error": "Playwright 上下文退出后再次 browser.close，清理中断；随后已手工向自有服务 PID 发送 SIGINT 并核对全部子进程退出",
+  "baseline_gpu": {
+    "memory_mib": 356,
+    "util_percent": 4
+  },
+  "final_gpu": {
+    "memory_mib": 356,
+    "util_percent": 4
+  },
+  "cleanup": {
+    "task_processes": 0,
+    "domain87_processes": 0,
+    "cuda_processes": 0
+  },
+  "last_cleanup_recheck": {
+    "task_processes": 0,
+    "domain87_processes": 0,
+    "cuda_processes": 0,
+    "gpu_memory_mib": 356,
+    "gpu_util_percent": 4
+  },
+  "previous_cleanup_sample": {
+    "memory_mib": 356,
+    "util_percent": 8
+  }
+}

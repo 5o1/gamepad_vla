@@ -1,0 +1,250 @@
+{
+  "window_s": 300,
+  "encoded_frames": 17395,
+  "encoded_fps": 57.983333333333334,
+  "min_one_second_fps": 57,
+  "apply_to_encode_p50_ms": 26.186881,
+  "apply_to_encode_p95_ms": 33.122443000000004,
+  "unique_physics_states": 17394,
+  "safety_positive": true,
+  "safety_recovered": true,
+  "js_errors": [],
+  "replay_episodes": [
+    {
+      "id": "session-20261022-084826-1835cd~episode-000001",
+      "duration_s": 149.01600000000002,
+      "rows": 8941,
+      "passed": true
+    },
+    {
+      "id": "session-20261022-084826-1835cd~episode-000000",
+      "duration_s": 154.21599999999998,
+      "rows": 9253,
+      "passed": true
+    }
+  ],
+  "dom_latency": {
+    "count": 20,
+    "p50_s": 0.08709999990463257,
+    "p95_s": 0.09559500000476838,
+    "max_s": 0.09740000009536744
+  },
+  "ros": {
+    "channels": {
+      "left_hand": {
+        "published": 6000,
+        "recorded": 6000,
+        "bitwise_exact_ordered": true,
+        "publish_hz": 100.0000752909385,
+        "health_samples": 1088,
+        "health_hz_min": 99.27423000954612,
+        "health_hz_max": 100.26235887401188,
+        "max_frequency_relative_error": 0.007258447348970681,
+        "timestamps_monotonic": true
+      },
+      "left_arm": {
+        "published": 6000,
+        "recorded": 6000,
+        "bitwise_exact_ordered": true,
+        "publish_hz": 99.99999919153193,
+        "health_samples": 1088,
+        "health_hz_min": 99.2368532314988,
+        "health_hz_max": 100.28395975496205,
+        "max_frequency_relative_error": 0.007631459662029198,
+        "timestamps_monotonic": true
+      },
+      "right_hand": {
+        "published": 6000,
+        "recorded": 6000,
+        "bitwise_exact_ordered": true,
+        "publish_hz": 100.00004155527648,
+        "health_samples": 1088,
+        "health_hz_min": 99.22722269033069,
+        "health_hz_max": 100.29463762531489,
+        "max_frequency_relative_error": 0.007728185437989079,
+        "timestamps_monotonic": true
+      },
+      "right_arm": {
+        "published": 6000,
+        "recorded": 6000,
+        "bitwise_exact_ordered": true,
+        "publish_hz": 100.0000945275106,
+        "health_samples": 1088,
+        "health_hz_min": 99.23233597374876,
+        "health_hz_max": 100.30015750100699,
+        "max_frequency_relative_error": 0.007677578280194748,
+        "timestamps_monotonic": true
+      }
+    },
+    "formal_published": 24000,
+    "formal_recorded": 24000,
+    "journal_total": 24117,
+    "rows": 3622,
+    "duration_s": 60.366,
+    "schema_version": 4,
+    "publish_to_apply_p50_ms": 3.7388515,
+    "publish_to_apply_p95_ms": 10.29909525,
+    "latency_samples": 14400,
+    "decode_errors": 0,
+    "warning_after_cut_s": 0.251317173,
+    "warning_message_age_s": 0.25786847760900855,
+    "record_start_refused": {
+      "code": "input_unhealthy",
+      "message_zh": "输入不健康：left_hand；请恢复输入后重试，必要时显式 force。"
+    }
+  },
+  "exports": [
+    {
+      "episode_id": "session-20261022-085447-515296~episode-000000",
+      "rows": 125
+    },
+    {
+      "episode_id": "session-20261022-084826-1835cd~episode-000011",
+      "rows": 20
+    }
+  ],
+  "baseline": {
+    "memory_mib": 356,
+    "util_percent": 7,
+    "compute": ""
+  },
+  "final_gpu": {
+    "memory_mib": 356,
+    "util_percent": 5,
+    "compute": ""
+  },
+  "negative_safe": true,
+  "safety_recovery_s": 0.8952292059548199,
+  "owned_group_remaining": [],
+  "remote_cli_completed": true,
+  "pass_gate": true,
+  "run_label": "n-r4-n2-full-1",
+  "dom_latency_samples_s": [
+    0.0865,
+    0.08769999980926514,
+    0.09369999980926513,
+    0.09740000009536744,
+    0.08590000009536743,
+    0.09009999990463256,
+    0.0955,
+    0.05580000019073486,
+    0.0427999997138977,
+    0.0955,
+    0.08969999980926514,
+    0.0955,
+    0.08530000019073486,
+    0.089,
+    0.04419999980926514,
+    0.0505,
+    0.08779999971389771,
+    0.047199999809265133,
+    0.08580000019073486,
+    0.041
+  ],
+  "replay_episode_checks": [
+    {
+      "id": "session-20261022-084826-1835cd~episode-000001",
+      "episode": "episode-000001",
+      "created_wall_time_ns": 1792630266626039102,
+      "rows": 8941,
+      "duration_s": 149.01600000000002,
+      "notes": [],
+      "status": "complete",
+      "integrity": {
+        "episode_id": "session-20261022-084826-1835cd~episode-000001",
+        "state": "passed",
+        "passed": true,
+        "checked_wall_time_ns": 1792630415648543954,
+        "checks": {
+          "strict_readback": true,
+          "receiver_count_and_sequences": true,
+          "row_duration": true
+        },
+        "errors": [],
+        "rows": 8941,
+        "duration_s": 149.01600000000002,
+        "input_messages": 17884
+      },
+      "discarded": false
+    },
+    {
+      "id": "session-20261022-084826-1835cd~episode-000000",
+      "episode": "episode-000000",
+      "created_wall_time_ns": 1792630110376512314,
+      "rows": 9253,
+      "duration_s": 154.21599999999998,
+      "notes": [],
+      "status": "complete",
+      "integrity": {
+        "episode_id": "session-20261022-084826-1835cd~episode-000000",
+        "state": "passed",
+        "passed": true,
+        "checked_wall_time_ns": 1792630264681089290,
+        "checks": {
+          "strict_readback": true,
+          "receiver_count_and_sequences": true,
+          "row_duration": true
+        },
+        "errors": [],
+        "rows": 9253,
+        "duration_s": 154.21599999999998,
+        "input_messages": 18504
+      },
+      "discarded": false
+    }
+  ],
+  "ros_episode_check": {
+    "episode_id": "session-20261022-085454-efafc5~episode-000000",
+    "state": "passed",
+    "passed": true,
+    "checked_wall_time_ns": 1792630558284423850,
+    "checks": {
+      "strict_readback": true,
+      "receiver_count_and_sequences": true,
+      "row_duration": true
+    },
+    "errors": [],
+    "rows": 3622,
+    "duration_s": 60.366,
+    "input_messages": 24117
+  },
+  "final_cleanup": {
+    "task_processes": [],
+    "domain87_processes": [],
+    "cuda_processes": "",
+    "gpu": "356, 9"
+  },
+  "actual_gpu_pixel_comparisons": [
+    {
+      "sim_time_s": 0.016,
+      "rgb_reference_equal": true,
+      "before_acceptance_window": true
+    },
+    {
+      "sim_time_s": 0.233,
+      "rgb_reference_equal": true,
+      "before_acceptance_window": true
+    },
+    {
+      "sim_time_s": 0.25,
+      "rgb_reference_equal": true,
+      "before_acceptance_window": true
+    }
+  ],
+  "remote_cli_integrity": {
+    "episode_id": "session-20261022-085447-515296~episode-000000",
+    "state": "passed",
+    "passed": true,
+    "checked_wall_time_ns": 1792630493499022157,
+    "checks": {
+      "strict_readback": true,
+      "receiver_count_and_sequences": true,
+      "row_duration": true
+    },
+    "errors": [],
+    "rows": 125,
+    "duration_s": 2.083,
+    "input_messages": 252
+  },
+  "remote_cli_voided": true
+}

@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "episodes": [
+    "session-test~episode-000000",
+    "session-test~episode-000001"
+  ],
+  "js_errors": [],
+  "controlled_check_delay_s": 2,
+  "station_tests": {
+    "passed": 173,
+    "skipped": 4,
+    "failed": 0,
+    "seconds": 0.96
+  },
+  "local_tests": {
+    "passed": 178,
+    "skipped": 7,
+    "failed": 0,
+    "seconds": 1.37
+  }
+}

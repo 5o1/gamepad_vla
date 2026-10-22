@@ -1,0 +1,148 @@
+{
+  "actual_gpu_pixel_comparisons": [
+    {
+      "sim_time_s": 0.016,
+      "rgb_reference_equal": true,
+      "before_acceptance_window": true
+    },
+    {
+      "sim_time_s": 0.233,
+      "rgb_reference_equal": true,
+      "before_acceptance_window": true
+    },
+    {
+      "sim_time_s": 0.25,
+      "rgb_reference_equal": true,
+      "before_acceptance_window": true
+    }
+  ],
+  "remote_cli_integrity": {
+    "episode_id": "session-20261022-085447-515296~episode-000000",
+    "state": "passed",
+    "passed": true,
+    "checked_wall_time_ns": 1792630493499022157,
+    "checks": {
+      "strict_readback": true,
+      "receiver_count_and_sequences": true,
+      "row_duration": true
+    },
+    "errors": [],
+    "rows": 125,
+    "duration_s": 2.083,
+    "input_messages": 252
+  },
+  "remote_cli_voided": true,
+  "remote_cli_complete": true,
+  "files": [
+    {
+      "path": "configs/site.example.json",
+      "sha256": "2fad4a32655d88546b7c80efe84a8f142898f0d02f10e27a3ea7ee366cfeff0d"
+    },
+    {
+      "path": "constraints/data-py310.txt",
+      "sha256": "6ac5f96d72c1e82d3c72c45c7c8c60bc2d7e20fd08b70b6e2678f73073e2f0b2"
+    },
+    {
+      "path": "scripts/collection_ctl.py",
+      "sha256": "4f85511844fb40a2a2f9a71a1ebb5d52816e960da8e413798cbf09b14502f3eb"
+    },
+    {
+      "path": "scripts/collection_server.py",
+      "sha256": "a357c7dac6d8767a5070cc235ab7b28c5bea85a34a00ad70f56525c51ec3bb48"
+    },
+    {
+      "path": "scripts/run_collection.py",
+      "sha256": "12053812a059a0b6774776f62cb72299eeda8cf0a04f90e226b6045fe8d57bf2"
+    },
+    {
+      "path": "scripts/run_collection_web.py",
+      "sha256": "7e2f838a7ffccbc1efdd1c47dd70fd897f32f3dc2d17e3e31057bb359b7da51f"
+    },
+    {
+      "path": "src/gamepad_vla/workstation/arm_mapping.py",
+      "sha256": "ee76af63fbdacea1b60873f25a958696cb837936d29b4c49f3d86b0e1bf63f04"
+    },
+    {
+      "path": "src/gamepad_vla/workstation/collection.py",
+      "sha256": "5de5cd5152fac0224a2feccb8a3af1a2e4a8f2e6e06ab582e75155dbef215d9a"
+    },
+    {
+      "path": "src/gamepad_vla/workstation/collection_camera.py",
+      "sha256": "b7486a6a302cd3c57a1408acf3eb68f7c5edb295c807b12479c2dd00ca511318"
+    },
+    {
+      "path": "src/gamepad_vla/workstation/collection_controller.py",
+      "sha256": "8785d1f28c01d53edcf0e94da5ea464ee726f50d07462a447b9e2159cf4df5a6"
+    },
+    {
+      "path": "src/gamepad_vla/workstation/collection_health.py",
+      "sha256": "358c8d735d53c7985f165d6748ee18d73a5f074301e4333066685f67d4536083"
+    },
+    {
+      "path": "src/gamepad_vla/workstation/collection_integrity.py",
+      "sha256": "6dfd4de5136036a691aa0d433f1fdc94f1542b597330256cf7d2757711da552b"
+    },
+    {
+      "path": "src/gamepad_vla/workstation/collection_mujoco.py",
+      "sha256": "532dacf2979c14a7b1140b3dadb3ec054dd49c67cf32826afacdb409e7150112"
+    },
+    {
+      "path": "src/gamepad_vla/workstation/collection_sapien.py",
+      "sha256": "ce06a222cde152d0f8ca50fe7eaf2c2b22a65915e530669efc405339f20d661d"
+    },
+    {
+      "path": "src/gamepad_vla/workstation/collection_server.py",
+      "sha256": "e17728d8d20299ca235362bde2a8a74f2993db1582b9fa41516372fd0889e9dd"
+    },
+    {
+      "path": "src/gamepad_vla/workstation/collection_sources.py",
+      "sha256": "dcbe7cb8613b09a864ecfad2e113d856cab3296d083cc569378211fb33acfb50"
+    },
+    {
+      "path": "src/gamepad_vla/workstation/collection_stream.py",
+      "sha256": "0c6627c085426b6c162f4b24a40ec33fadb05f05210b1d681916d0724276f388"
+    },
+    {
+      "path": "src/gamepad_vla/workstation/collection_web/index.html",
+      "sha256": "cad7ddb93e14c7097c87a8fe0c633a336dc15e31bf7cfeea3c407eca6a7bdee4"
+    },
+    {
+      "path": "src/gamepad_vla/workstation/commands.py",
+      "sha256": "d363e3df97648a1e38165fcf38c8091783cef4125f9a08d27b55e62b3f705bd0"
+    },
+    {
+      "path": "src/gamepad_vla/workstation/episode_schema.py",
+      "sha256": "92eb66213a3ccd481579659132939caf39e238829717868b1b25c18eb80a1f80"
+    },
+    {
+      "path": "src/gamepad_vla/workstation/sources.py",
+      "sha256": "414fb2d8e34a5cd847c198c5328c905aaca3da9b1bb5b88ddb9ac72651837a99"
+    },
+    {
+      "path": "tests/test_collection.py",
+      "sha256": "84ed7bbd5f0fa95d7a144de09d69a6b1e8707b720e480b8de9a5f416a8bec4c5"
+    },
+    {
+      "path": "tests/test_collection_api.py",
+      "sha256": "e9c75ca7ca70d3ea179f8d7c0924fadbbb70633073e0fac91070d62786c0d36d"
+    },
+    {
+      "path": "tests/test_collection_ctl.py",
+      "sha256": "4df5649ba2e0333990e4b432f81e00a855a04467bf8883bffdd09d897b04ed81"
+    },
+    {
+      "path": "tests/test_collection_web.py",
+      "sha256": "dc243beabb09515ecd31fd79aad4a321602693b21099e6a8d0e4cba76d2df0e3"
+    }
+  ],
+  "git_commit": "bab0ccdabf8c63f53b72b021a79fc0fae0f92245",
+  "dirty": true,
+  "local_station_collection_sources_equal": true,
+  "scope": "collection executable files and tests only; not the entire concurrently edited working tree",
+  "initial_deployment": {
+    "git_commit": "bab0ccdabf8c63f53b72b021a79fc0fae0f92245",
+    "dirty": true,
+    "source_sha256": "8a214bcffe2453b7b1ac80506fff9a9cdf5c90697fca66933e0f496ec078706e"
+  },
+  "client_only_amendment": "After the twenty local CLI DOM samples, the CLI also waits while status for the same episode is pending/running. The independent remote CLI cycle, ROS stage and final tests used this final client. Simulation, rendering and service code did not change."
+}

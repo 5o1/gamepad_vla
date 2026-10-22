@@ -38,6 +38,7 @@ class UdpSource:
         self.rejected_packets = 0
         self.received_packets = 0
         self._newest = {}
+        self.event_sink = None
 
     def poll(self, now):
         while True:
@@ -57,9 +58,13 @@ class UdpSource:
                     command = arm_command_from_packet(packet, self.arm_mapper)
                 else:
                     continue
-            except (TypeError, ValueError):
+            except (TypeError, ValueError) as exc:
                 self.decode_errors += 1
+                if self.event_sink:
+                    self.event_sink(data, None, str(exc))
                 continue
+            if self.event_sink:
+                self.event_sink(data, command, None)
             self._newest[_key(command)] = (float(now), command)
         stale = [key for key, (received, _command) in self._newest.items()
                  if now - received > self.stale_after_s]

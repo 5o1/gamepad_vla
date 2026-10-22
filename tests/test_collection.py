@@ -100,7 +100,7 @@ def test_episode_roundtrip_and_invalid_pose(tmp_path):
     writer.note("operator note")
     writer.close()
     meta, rows = read_episode(tmp_path / "episode")
-    assert meta["schema_version"] == 3
+    assert meta["schema_version"] == 4
     assert meta["operator_notes"][0]["text"] == "operator note"
     assert rows[0]["control_joint_positions"]["button"] == .001
     obs.palm_pose_world[0,3] = 0.

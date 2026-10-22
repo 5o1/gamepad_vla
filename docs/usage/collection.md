@@ -1,6 +1,6 @@
 # 双手双臂参考轨迹采集
 
-本入口采集手套和 LinkerTA 主臂驱动的仿真参考轨迹，不接游戏策略。SAPIEN CPU PhysX 与 MuJoCo 输出同一 episode v3。当前验收状态以[任务 L 报告](../reports/2026-10-22-collection-platform/README.md)为准；代码存在和短测通过不代表 L1/L2 通过。采集台安装及不连接硬件的验收见 [M1 报告](../reports/2026-10-22-station-install/README.md)。
+本入口采集手套和 LinkerTA 主臂驱动的仿真参考轨迹，不接游戏策略。SAPIEN CPU PhysX 与 MuJoCo 输出同一 episode v4（继续读取 v2/v3）。当前验收状态以[任务 L 报告](../reports/2026-10-22-collection-platform/README.md)为准；代码存在和短测通过不代表 L1/L2 通过。采集台安装及不连接硬件的验收见 [M1 报告](../reports/2026-10-22-station-install/README.md)。
 
 ```mermaid
 flowchart LR
@@ -253,3 +253,21 @@ LeRobot 的 `timestamp` 使用均匀采样网格；实际引擎时间和 Unix �
 L1/L2 使用 `scripts/check_collection.py`。按审阅者裁决 2，门槛回放命令必须加 `--scene-variant free-space`：由代码关闭台面、手柄、立柱及固定物的环境碰撞，机器人、安装、驱动和原有自碰撞设置不变，v4.4 JSON 不改。完整场景用默认 `--scene-variant full`，接触及误差只报告，不用于门槛。两个后端都调用 `workstation/contact.py` 的同一距离≤0判据，记录区间所有子步的 OR。门槛失败即停止，不自动调参重跑；自由空间样本不加“稳态”筛选。报告必须列明自由空间/接触分母、P95、循环次数及未执行项。8 月数据与当前场景的几何不匹配，因此不能从完整场景接触误差推断无接触运动学一致性。
 
 完整场景接触回放较慢时，可显式加 `--mujoco-workers 8` 使用引擎原生 CPU 线程池；默认 1，不改变物理步长或求解器参数。线程数记入 episode meta。只增加线程不保证实时，具体速度仍应实际测量。
+
+## 本机采集网页与程序控制（任务 N）
+
+**N1 与采集台 N2 已通过。** 本轮以 replay 和隔离的 ROS 合成输入验收；数值、分母与限制见[任务 N 报告](../reports/2026-10-22-collection-web/README.md)。验收服务已退出，需要使用时由现场人员启动。
+
+由旁边助手操作网页；戴手套、握主臂的操作者不碰网页。加载本站私有运行环境后，用现有 SAPIEN Python 启动 `scripts/collection_server.py`，本机打开 `http://127.0.0.1:8780/`。服务拒绝非回环绑定。参数、错误与 Codex 语音操作流程见 [collection-api.md](collection-api.md)。原 `run_collection.py` 的参数与终端方式继续保留。
+
+网页从 `collection` 站点配置读取后端、场景、输入源、回放文件、时长（null 为不限）、采样率和回放循环设置。`replay_files` 是可选文件列表；`output_root` 指定数据盘目录；`export_python` 指向独立 data-tools 环境。私有路径留在 `.local/`，不要写入公开配置。既有会话结束后才能启动下一个；回看也占用唯一仿真会话。
+
+大号录制状态显示未录制、红色录制中与计时、保存中、检查中、带编号的检查通过或失败。快捷键 R 开始、S 停止、N 聚焦自由备注；在输入框中不拦截字母。页面不提供动作提示。常驻 ego 画面叠加**实际**信号 overlay，显示实测帧率及应用→编码延迟；低于 30 fps 或 P95 超过 50 ms 变色。
+
+左右手、左右臂分别显示实测频率、消息年龄、累计条数和解码错误；从未收到或年龄超过 0.25 s 告警。ROS 录制开始会拒绝不健康的通道，用户明确 force 才能绕过，并将 forced 和当时健康写入 meta。臂限幅显示侧和关节；v4 新增每侧 absolute/startup 七位布尔标志，未知为 null，不从最终目标反推限幅。旧 v2/v3 仍可回放。
+
+每个完整性结果包含所属的完整 episode_id 和 pending/running/passed/failed 状态；新段开始清除旧段当前结果。停止后显示保存中→检查中→带编号的检查通过/失败；网页驱动和 CLI 均按停止返回的编号等待，None 或非终态继续等，超时失败。停止录制后严格读回，检查独立接收计数与日志数量、连续序号、行数与物理时长及时间边界。检查结果保存为 `integrity.json`，CLI `record-stop --wait` 等待它。旧数据缺少独立计数时不冒称通过。episode 列表提供回看、旁路作废标记与现有 LeRobot 导出；作废只写 `discarded.json`，不删除或修改原始数据。数据盘剩余不足 10 GiB 告警。导出解释器缺失或导出失败会显示原因，不安装依赖。
+
+安全横幅每 1 s 按程序身份只读检查进程；仅匹配路径组成部分或 ROS 包名前缀，shell 和搜索工具参数里的检查文本不算硬件节点。检测到手 SDK 或珞石匹配进程时变红并显示进程。它不终止任何进程，不阻止仿真操作。页面只提示 `~/gamepad_vla_estop/estop.sh` 的位置及其不能下电，不调用它。“停止采集与仿真”只结束服务自己创建的进程，不按名称结束桌面或外部输入节点。
+
+远程控制每次服务启动默认关闭，助手在网页明确开启后，Codex/CLI 才可执行写操作。SSE 同步各客户端状态和最近 10 条控制事件；断线自动重连并先拉完整状态。GET 始终允许，所有 API 操作追加审计。现场硬件输入启动步骤仍按上面的 M2 手册执行，网页与 API 不提供硬件启动、急停或下电。

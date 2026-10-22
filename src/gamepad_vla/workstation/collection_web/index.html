@@ -1,33 +1,74 @@
-<!doctype html><html lang="zh-CN"><meta charset="utf-8">
-<base href="/overlay/"><title>双手双臂参考轨迹采集</title>
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<base href="/overlay/"><title>仿真采集台</title>
 <link rel="stylesheet" href="overlay-shell.css"><link rel="stylesheet" href="overlay-theme-research.css">
 <style>
-body{margin:0;background:#172126;color:#edf3f5;font:16px system-ui}main{max-width:1280px;margin:auto;padding:12px}
-.view{position:relative}.view img{width:100%;display:block}#overlayRoot{position:absolute;right:1%;bottom:2%;width:34%;height:34%;pointer-events:none}
-button,input{font:inherit;padding:8px;margin:8px 6px 8px 0}pre{white-space:pre-wrap;overflow-wrap:anywhere}#status{padding:8px}
-</style><main><div id="status">等待仿真画面</div><div class="view"><img src="/video" alt="仿真画面"><svg id="overlayRoot" aria-label="物理接触产生的实际手柄信号"></svg></div>
-<button data-action="start">开始录制</button><button data-action="stop">停止录制</button>
-<input id="note" placeholder="操作者备注"><button data-action="note">添加备注</button>
-<label><input id="compare" type="checkbox">显示指令与实际值</label><pre id="comparison" hidden></pre>
-<script src="overlay-core.js"></script><script src="overlay-spec.js"></script>
-<script src="overlay-layout-xbox.js"></script><script src="overlay-renderer-svg.js"></script>
-<script src="gamepad-input-sources.js"></script><script src="overlay-app.js"></script>
+*{box-sizing:border-box}html,body{height:auto;overflow:auto}body{margin:0;background:#142027;color:#f2f6f7;font:18px system-ui}main{max-width:1280px;margin:auto;padding:16px}button,input,select{font:inherit;padding:10px;margin:5px;border-radius:4px}button{cursor:pointer}button:disabled{opacity:.4;cursor:default}label{display:inline-block}#safety{position:sticky;top:0;z-index:3;background:#22634e;padding:16px;font-size:24px;font-weight:bold}#safety.warn,.warn{background:#91332d!important;color:white}#recording{font-size:48px;font-weight:800;padding:12px;border:2px solid #82959c}#recording.active{background:#b7222e}#recordDetails{font-size:24px;padding:8px}.view{position:relative;background:#0b1216;min-height:160px}.view img{width:100%;display:block}#overlayRoot{position:absolute;right:1%;bottom:2%;width:34%;height:34%;pointer-events:none}#health{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0}.channel{padding:10px;background:#25404b}#message{white-space:pre-wrap;color:#ffd591;min-height:26px}table{width:100%;border-collapse:collapse;font-size:16px}td,th{border-bottom:1px solid #50606a;padding:8px;text-align:left}small{display:block}#clamps{min-height:24px}fieldset{border:1px solid #50606a;margin:12px 0}#note{min-width:45%}#metrics{padding:8px;font-variant-numeric:tabular-nums}
+</style>
+<div id="safety">正在实际检测仿真模式…</div><main>
+<form id="sessionForm"><fieldset><legend>仿真会话</legend>
+<label>后端<select id="backend"></select></label><label>场景<select id="variant"></select></label><label>输入<select id="source"></select></label>
+<label id="replayLabel">回放文件<select id="replay"></select></label>
+<label>时长（秒，空白为不限）<input id="duration" type="number" min="0.1" step="any" style="width:130px"></label>
+<button id="launch" type="submit">启动仿真</button><button id="endSession" type="button">停止采集与仿真</button><small id="sessionStatus">正在读取后端状态…</small>
+</fieldset></form>
+<p><label><input type="checkbox" id="remoteToggle">远程控制：<strong id="remoteState">等待后端</strong></label></p><div id="recording" role="status">正在读取录制状态…</div><div id="recordDetails"></div><div id="disk"></div>
+<button id="startRecord" data-action="start">开始录制（R）</button><button id="stopRecord" data-action="stop">停止录制（S）</button>
+<input id="note" placeholder="自由备注（N 聚焦）" aria-label="自由备注"><button id="addNote" data-action="note">添加备注</button>
+<div id="integrity"></div><div id="message" role="alert"></div>
+<div id="health"></div><div id="clamps"></div>
+<div id="metrics">等待编码测量</div><div class="view"><img id="video" alt="v4.4 标定 ego 相机仿真画面"><svg id="overlayRoot" aria-label="实际手柄信号"></svg></div>
+<p id="notesState"></p><details open><summary>最近控制事件</summary><ol id="recentEvents"></ol></details><section id="library"><h2>Episodes</h2><table><thead><tr><th>时间 / 编号</th><th>时长 / 行数</th><th>备注</th><th>完整性 / 作废</th><th>操作</th></tr></thead><tbody id="episodes"></tbody></table></section>
+<p id="stopHint"></p><p>停止采集只停止本项目创建的仿真进程。软件停止不能给电机下电。</p>
+<script src="overlay-core.js"></script><script src="overlay-spec.js"></script><script src="overlay-layout-xbox.js"></script><script src="overlay-renderer-svg.js"></script><script src="gamepad-input-sources.js"></script><script src="overlay-app.js"></script>
 <script type="module">
 import {installCanonicalSource} from './canonical_adapter.mjs';
-const query=new URLSearchParams(location.search);query.set('theme','research');query.set('source','canonical');
-history.replaceState(null,'',`/?${query}`);
-const adapter=installCanonicalSource();
-await window.OverlayApp.init({svgId:'overlayRoot'});adapter.markReady();
-document.querySelector('#compare').onchange=e=>document.querySelector('#comparison').hidden=!e.target.checked;
-for(const button of document.querySelectorAll('button'))button.onclick=async()=>{
- const event={action:button.dataset.action,text:document.querySelector('#note').value};
- try{const r=await fetch('/control',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(event)});
- if(!r.ok)throw Error(await r.text());}catch(e){document.querySelector('#status').textContent=String(e)}
-};
-async function update(){try{
- const row=await(await fetch('/state')).json();if(row.overlay){await adapter.applyFrame(row.overlay);
- document.querySelector('#status').textContent=`${row.recording?'录制中':'未录制'} · 仿真时间 ${row.sim_time_s.toFixed(3)} s`;
- if(document.querySelector('#compare').checked)document.querySelector('#comparison').textContent=JSON.stringify({
-  commands:row.commands,actual_hand_rad:row.hand_q,actual_arm_rad:row.arm_q},null,2);
- }}catch(e){document.querySelector('#status').textContent=String(e)}setTimeout(update,30)}update();
+const $=id=>document.getElementById(id), query=new URLSearchParams(location.search);
+query.set('theme','research');query.set('source','canonical');history.replaceState(null,'',`/?${query}`);
+const adapter=installCanonicalSource();await window.OverlayApp.init({svgId:'overlayRoot'});adapter.markReady();
+async function api(path,value){const r=await fetch(path,value===undefined?{headers:{'X-Gamepad-VLA-Client':'web'}}:{method:'POST',headers:{'Content-Type':'application/json','X-Gamepad-VLA-Client':'web'},body:JSON.stringify(value)});const body=await r.json();if(!r.ok)throw Error(body.message_zh||r.statusText);return body}
+function message(e){$('message').textContent=String(e)}
+async function action(fn){try{$('message').textContent='';await fn()}catch(e){message(e)}}
+const config=await api('/api/v1/config');const managed=config.managed;let lastState={},videoSession=null,listSignature='';
+$('sessionForm').hidden=$('library').hidden=!managed;$('stopHint').textContent=`软件急停提示：${config.estop_hint}`;
+const d=config.defaults||{};
+function options(id,values,selected){for(const value of values){const o=document.createElement('option');o.value=value;o.textContent=id==='replay'?value.split('/').pop():value;$(id).append(o)}if(selected!==undefined)$(id).value=selected}
+if(managed){options('backend',config.backends,d.backend);options('variant',config.scene_variants,d.scene_variant);options('source',config.sources,d.source);options('replay',config.replay_files,d.replay);$('duration').value=d.duration??'';
+$('source').onchange=()=>$('replayLabel').hidden=$('source').value!=='replay';$('source').onchange();
+$('remoteToggle').onchange=()=>action(()=>api('/api/v1/remote-control',{enabled:$('remoteToggle').checked}));
+$('sessionForm').onsubmit=e=>{e.preventDefault();action(async()=>{await api('/api/v1/session/start',{backend:$('backend').value,scene_variant:$('variant').value,source:$('source').value,replay:$('replay').value,duration_s:$('duration').value===''?null:Number($('duration').value)});videoSession=null})};
+$('endSession').onclick=()=>action(async()=>{await api('/api/v1/session/stop');$('video').removeAttribute('src');videoSession=null;await episodes()})}
+for(const button of document.querySelectorAll('[data-action]'))button.onclick=()=>action(async()=>{await api(button.dataset.action==='note'?'/api/v1/notes':'/api/v1/recording/'+button.dataset.action,button.dataset.action==='note'?{text:$('note').value}:{});if(button.dataset.action==='note')$('note').value=''});
+document.addEventListener('keydown',e=>{if(e.repeat||e.ctrlKey||e.metaKey||e.altKey||/INPUT|TEXTAREA|SELECT/.test(e.target.tagName))return;const key=e.key.toLowerCase();if(key==='r')$('startRecord').click();if(key==='s')$('stopRecord').click();if(key==='n'){e.preventDefault();$('note').focus()}});
+$('video').onerror=()=>{videoSession=null};
+const labels={idle:'未录制',recording:'录制中',saving:'保存中',checking:'检查中',saved:'检查通过（已保存）',failed:'失败'};
+function show(state){lastState=state;const recording=state.recording_status||{};const safety=state.safety;
+$('safety').classList.toggle('warn',!safety?.safe);$('safety').textContent=!safety?'等待实际检测':safety.safe?'仅仿真模式':`仅仿真模式 · 警告：${safety.matches.map(p=>`PID ${p.pid} ${(p.identity||p.command).split('/').slice(-2).join('/')}`).join('；')||safety.errors.join('；')}`;
+const duration=Number(recording.duration_s||0);$('recording').textContent=`${labels[recording.state]||'状态未知'}${recording.state==='recording'?' · '+duration.toFixed(1)+' s':''}`;$('recording').classList.toggle('active',recording.state==='recording');
+$('remoteToggle').checked=!!state.remote_control_enabled;$('remoteState').textContent=state.remote_control_enabled?'开':'关';$('remoteState').classList.toggle('warn',!!state.remote_control_enabled);
+$('notesState').textContent='备注：'+(recording.notes||[]).map(n=>n.text).join('；');
+$('recentEvents').replaceChildren();const eventLabels={'recording/start':'开始录制','recording/stop':'停止录制','session/start':'启动会话','session/stop':'停止会话',notes:'备注','episodes/void':'作废','episodes/export':'导出','remote-control':'切换远程控制'};for(const e of [...(state.recent_control_events||[])].reverse()){const li=document.createElement('li');li.textContent=`${new Date(e.wall_time_ns/1e6).toLocaleTimeString()} ${eventLabels[e.operation]||e.operation}（${e.client}）`;$('recentEvents').append(li)}
+$('recordDetails').textContent=`${recording.episode||'尚无 episode'} · ${duration.toFixed(2)} s · ${recording.rows??0} 行`;
+const active=managed?state.session_state==='running':!!state.overlay;
+$('sessionStatus').textContent=`会话：${state.session_state||'CLI'}${state.error?' · '+state.error:''}`;$('launch').disabled=managed&&['starting','running','stopping'].includes(state.session_state);$('endSession').disabled=!managed||!['starting','running','stopping'].includes(state.session_state);
+$('startRecord').disabled=!active||['recording','saving','checking'].includes(recording.state);$('stopRecord').disabled=!active||recording.state!=='recording';$('addNote').disabled=!active;
+const check=state.integrity||recording.integrity;
+$('integrity').dataset.episodeId=check?.episode_id||'';$('integrity').dataset.state=check?.state||'pending';
+const checkLabels={pending:recording.state==='recording'?'录制中，尚未检查':'保存中，等待检查',running:'检查中',passed:'检查通过',failed:'检查失败'};
+$('integrity').textContent=check?.episode_id?`${check.episode_id}：${checkLabels[check.state]||'状态未知'} ${(check.errors||[]).join('；')}`:'';
+$('integrity').classList.toggle('warn',check?.state==='failed');
+if(state.disk){$('disk').textContent=`数据盘剩余 ${(state.disk.free_bytes/2**30).toFixed(1)} GiB${state.disk.warning?' · 不足 10 GiB':''}`;$('disk').classList.toggle('warn',state.disk.warning)}
+$('health').replaceChildren();for(const [channel,c] of Object.entries(state.input_health||{})){const el=document.createElement('div');el.className='channel'+(c.warning?' warn':'');el.textContent=`${channel}：${c.hz.toFixed(1)} Hz`;const line=document.createElement('small');line.textContent=`年龄 ${c.age_s===null?'从未收到':c.age_s.toFixed(3)+' s'} · 累计 ${c.count} · 解码错误 ${c.decode_errors}`;el.append(line);$('health').append(el)}
+const flags=[];for(const [side,masks] of Object.entries(state.arm_clamps||{}))if(masks)for(const [kind,mask] of Object.entries(masks))mask.forEach((hit,i)=>{if(hit)flags.push(`${side} joint_${i+1} ${kind==='startup'?'启动姿态限幅':'绝对限位'}`)});$('clamps').textContent=flags.length?`臂映射限幅：${flags.join('，')}`:Object.values(state.arm_clamps||{}).some(v=>v)?'臂映射限幅：未触发':'臂映射限幅：当前输入未提供映射标志';$('clamps').classList.toggle('warn',flags.length>0);
+const stream=state.stream;$('metrics').textContent=stream?`${stream.fps.toFixed(1)} fps · 应用 → 编码 P50 ${stream.apply_to_encode_p50_ms?.toFixed(1)??'—'} ms / P95 ${stream.apply_to_encode_p95_ms?.toFixed(1)??'—'} ms（阈值：30 fps / 50 ms）`:'等待编码测量';$('metrics').classList.toggle('warn',!!stream?.warning||(active&&!stream));
+if(state.overlay)adapter.applyFrame(state.overlay).catch(message);
+const id=state.session_id||'cli';if(active&&videoSession!==id){$('video').src='/video?session='+encodeURIComponent(id);videoSession=id}
+if(state.error)message(state.error);
+}
+async function episodes(){if(!managed)return;const list=await api('/api/v1/episodes');const signature=JSON.stringify(list);if(signature===listSignature)return;listSignature=signature;$('episodes').replaceChildren();for(const ep of list){const tr=document.createElement('tr');for(const text of [new Date(ep.created_wall_time_ns/1e6).toLocaleString()+' / '+ep.id,`${ep.duration_s==null?'未知':Number(ep.duration_s).toFixed(2)+' s'} / ${ep.rows??'未知'} 行`,(ep.notes||[]).map(n=>n.text).join('；'),`${ep.integrity?({pending:'待检查',running:'检查中',passed:'通过',failed:'失败'}[ep.integrity.state]||'未知'):'尚未检查'}${ep.discarded?' · 已作废':''}`]){const td=document.createElement('td');td.textContent=text;tr.append(td)}const actions=document.createElement('td');for(const [label,fn] of [['回看',()=>api('/api/v1/session/start',{episode:ep.id})],['作废',()=>api('/api/v1/episodes/'+encodeURIComponent(ep.id)+'/void',{reason:'网页助手标为作废'})],['导出 LeRobot',async()=>{message('正在导出…');const result=await api('/api/v1/episodes/'+encodeURIComponent(ep.id)+'/export',{});message(`已导出：${result.output}`)}]]){const b=document.createElement('button');b.textContent=label;b.onclick=()=>action(async()=>{await fn();await episodes()});actions.append(b)}tr.append(actions);$('episodes').append(tr)}}
+let episodeKey='';
+async function receive(state){show(state);const key=JSON.stringify([state.revision,state.recording_status?.state,state.recording_status?.episode]);if(key!==episodeKey){episodeKey=key;await episodes()}}
+const events=new EventSource('/api/v1/events');
+events.onopen=()=>action(async()=>receive(await api('/api/v1/status')));
+events.onmessage=e=>{try{receive(JSON.parse(e.data)).catch(message)}catch(error){message(error)}};
+events.onerror=()=>{message('状态连接中断，正在自动重连…');$('safety').textContent='后端连接中断 · 无法确认仿真模式';$('safety').classList.add('warn');for(const id of ['startRecord','stopRecord','launch'])$(id).disabled=true};
 </script></main></html>

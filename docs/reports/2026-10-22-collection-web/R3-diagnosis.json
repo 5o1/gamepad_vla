@@ -1,0 +1,193 @@
+{
+  "phases": [
+    {
+      "window_s": 60,
+      "frames": 2034,
+      "fps": 33.9,
+      "stages_ms": {
+        "apply_to_encode_ms": {
+          "p50": 42.143936,
+          "p95": 50.54201085,
+          "mean": 42.43839228957719
+        },
+        "state_sync_ms": {
+          "p50": 0.1139245,
+          "p95": 0.13782009999999997,
+          "mean": 0.11650501573254671
+        },
+        "render_rgb_ms": {
+          "p50": 27.763306999999998,
+          "p95": 29.4641827,
+          "mean": 27.78263331612586
+        },
+        "jpeg_ms": {
+          "p50": 1.24852,
+          "p95": 1.31255335,
+          "mean": 1.2655652974434612
+        }
+      },
+      "result": {
+        "diagnostic_completed": true,
+        "expected_failure_injected": true,
+        "owned_group_remaining": [],
+        "cleanup_errors": null,
+        "final_gpu": {
+          "memory_mib": 356,
+          "util_percent": 2,
+          "compute": ""
+        },
+        "js_errors": [],
+        "safety_recovery_s": 1.029615739826113
+      }
+    },
+    {
+      "window_s": 30,
+      "frames": 965,
+      "fps": 32.166666666666664,
+      "stages_ms": {
+        "apply_to_encode_ms": {
+          "p50": 43.764804,
+          "p95": 52.39369,
+          "mean": 44.140165578238346
+        },
+        "state_sync_ms": {
+          "p50": 0.117088,
+          "p95": 0.13678099999999999,
+          "mean": 0.11870697305699483
+        },
+        "render_rgb_ms": {
+          "p50": 29.451312,
+          "p95": 31.225550199999997,
+          "mean": 29.334734605181342
+        },
+        "jpeg_ms": {
+          "p50": 1.278804,
+          "p95": 1.3492826,
+          "mean": 1.2906125544041451
+        },
+        "scene_update_ms": {
+          "p50": 0.060528,
+          "p95": 0.07450819999999998,
+          "mean": 0.06200883730569948
+        },
+        "take_picture_ms": {
+          "p50": 0.069851,
+          "p95": 0.08628459999999996,
+          "mean": 0.07813780932642488
+        },
+        "readback_ms": {
+          "p50": 17.402443,
+          "p95": 18.4436948,
+          "mean": 17.175620092227977
+        },
+        "rgb_convert_ms": {
+          "p50": 11.866158,
+          "p95": 12.619795799999999,
+          "mean": 11.878487184455958
+        }
+      },
+      "result": {
+        "diagnostic_completed": true,
+        "expected_failure_injected": true,
+        "owned_group_remaining": [],
+        "cleanup_errors": null,
+        "final_gpu": {
+          "memory_mib": 356,
+          "util_percent": 2,
+          "compute": ""
+        },
+        "js_errors": [],
+        "safety_recovery_s": 1.0130109996534884
+      }
+    },
+    {
+      "window_s": 45,
+      "frames": 2608,
+      "fps": 57.955555555555556,
+      "stages_ms": {
+        "apply_to_encode_ms": {
+          "p50": 26.434789000000002,
+          "p95": 33.23252985,
+          "mean": 26.341732659892635
+        },
+        "state_sync_ms": {
+          "p50": 0.112196,
+          "p95": 0.15212705,
+          "mean": 0.1160936606595092
+        },
+        "render_rgb_ms": {
+          "p50": 11.331662,
+          "p95": 13.009429650000001,
+          "mean": 11.503987239263804
+        },
+        "jpeg_ms": {
+          "p50": 1.2828385,
+          "p95": 1.7412403,
+          "mean": 1.3448129467024539
+        },
+        "scene_update_ms": {
+          "p50": 0.0595585,
+          "p95": 0.08183125,
+          "mean": 0.06271635122699386
+        },
+        "take_picture_ms": {
+          "p50": 0.067352,
+          "p95": 0.08977235,
+          "mean": 0.07540458588957055
+        },
+        "readback_ms": {
+          "p50": 9.2292565,
+          "p95": 10.60352095,
+          "mean": 9.367280154907975
+        },
+        "rgb_convert_ms": {
+          "p50": 1.9481835,
+          "p95": 2.4028346000000003,
+          "mean": 1.9935818868865032
+        }
+      },
+      "result": {
+        "diagnostic_completed": true,
+        "expected_failure_injected": true,
+        "owned_group_remaining": [],
+        "cleanup_errors": null,
+        "final_gpu": {
+          "memory_mib": 356,
+          "util_percent": 4,
+          "compute": ""
+        },
+        "js_errors": [],
+        "safety_recovery_s": 1.030655076727271
+      }
+    }
+  ],
+  "cpu_conversion": {
+    "old_ms": 9.457211072246233,
+    "new_ms": 1.0975826376428206,
+    "bitwise_equal": true,
+    "shape": [
+      720,
+      1280,
+      4
+    ],
+    "dtype": "float32",
+    "opencv_threads": 32
+  },
+  "local_safety_controls": {
+    "passed": true,
+    "negative_safe": true,
+    "positive_detected": true,
+    "manual_scan_recovery_s": 0.0016209210152737796
+  },
+  "station_safety_controls": {
+    "passed": true,
+    "negative_safe": true,
+    "manual_scan_recovery_s": 0.012965052854269743
+  },
+  "existing_negative_program_types": {
+    "negative_program_types": {
+      "terminal sandbox shell": 1,
+      "shell": 1
+    }
+  }
+}

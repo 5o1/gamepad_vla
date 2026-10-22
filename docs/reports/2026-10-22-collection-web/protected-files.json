@@ -1,0 +1,26 @@
+[
+  {
+    "path": "src/gamepad_vla/workstation/collection_sapien.py",
+    "baseline_sha256": "ce06a222cde152d0f8ca50fe7eaf2c2b22a65915e530669efc405339f20d661d",
+    "current_sha256": "ce06a222cde152d0f8ca50fe7eaf2c2b22a65915e530669efc405339f20d661d",
+    "unchanged": true
+  },
+  {
+    "path": "src/gamepad_vla/workstation/collection_mujoco.py",
+    "baseline_sha256": "532dacf2979c14a7b1140b3dadb3ec054dd49c67cf32826afacdb409e7150112",
+    "current_sha256": "532dacf2979c14a7b1140b3dadb3ec054dd49c67cf32826afacdb409e7150112",
+    "unchanged": true
+  },
+  {
+    "path": "src/gamepad_vla/workstation/ros2_check.py",
+    "baseline_sha256": "28f983335058da64baf141a61d96dbb2427d895cdfd92806993476c63610758c",
+    "current_sha256": "28f983335058da64baf141a61d96dbb2427d895cdfd92806993476c63610758c",
+    "unchanged": true
+  },
+  {
+    "path": "configs/workcell/station_g20_v4_4.json",
+    "baseline_sha256": "262641b0caa3cbfcfc828434184cf35a21f965cb8c48b56a3ba868b2f67d36c6",
+    "current_sha256": "262641b0caa3cbfcfc828434184cf35a21f965cb8c48b56a3ba868b2f67d36c6",
+    "unchanged": true
+  }
+]

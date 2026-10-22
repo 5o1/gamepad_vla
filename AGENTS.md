@@ -20,3 +20,7 @@ conditioning path under `src/gamepad_vla/vla/` is deferred.
   training. Sending physical robot or hand commands, including CAN query
   frames, needs a separate hardware execution authorization.
 - Passing gradient tests is not evidence of manipulation success.
+
+## 采集控制
+
+Codex 通过语音或文字控制采集前，先读 [采集 API 使用说明](docs/usage/collection-api.md)。经站点远程 shell 在采集台本机运行 `collection_ctl.py`：先查状态，远程控制关闭时请现场人员开启，不得绕过。停止使用幂等的 `record-stop --wait`，随后查状态并复述实际结果。硬件节点、急停和下电不在该 API 的能力范围。

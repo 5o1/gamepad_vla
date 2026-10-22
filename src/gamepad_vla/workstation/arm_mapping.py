@@ -33,10 +33,13 @@ class ArmMapper:
         raw = self._vector(raw_deg)
         mapped = raw + OFFSETS[side]
         limited = np.clip(mapped, LOW_DEG + self.margin, HIGH_DEG - self.margin)
+        absolute = (limited != mapped).tolist()
+        before_startup = limited.copy()
         if self.limit_around_initial:
             limited = np.clip(limited, self.initial[side] - self.max_delta,
                               self.initial[side] + self.max_delta)
-        return ArmCommand(side, tuple(np.deg2rad(limited)), float(stamp), tuple(raw))
+        return ArmCommand(side, tuple(np.deg2rad(limited)), float(stamp), tuple(raw),
+                          dict(absolute=absolute, startup=(limited != before_startup).tolist()))
 
     def metadata(self):
         return dict(version=VERSION, startup_rad={s: np.deg2rad(v).tolist() for s, v in self.initial.items()},

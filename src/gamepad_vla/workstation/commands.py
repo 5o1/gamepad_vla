@@ -21,6 +21,7 @@ class ArmCommand:
     positions: tuple[float, ...]
     stamp: float
     raw_master_deg: tuple[float, ...] | None = None
+    clamp_flags: dict | None = None
 
 
 def _finite(value, label):
