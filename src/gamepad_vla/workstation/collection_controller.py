@@ -91,6 +91,12 @@ class CollectionController:
         action = event.get('action')
         request_id = event.get('request_id')
         self.control_result = dict(request_id=request_id, accepted=True, changed_wall_time_ns=time.time_ns())
+        if action == 'view':
+            if self.view is None:
+                raise ValueError('this session has no operator view')
+            self.view.set_view(event['view'])
+            self.emit(True)
+            return
         if action == 'start':
             health = self.source.health.snapshot()
             unhealthy = [k for k,c in health.items() if c['warning']]
@@ -146,9 +152,9 @@ class CollectionController:
             if a.record:
                 self.control(dict(action='start'))
             if a.view:
-                from .collection_stream import OperatorStream
-                self.view = OperatorStream(a.backend, a.spec, a.resource_root, a.output/'view', a.host, a.port,
-                                           environment_collisions=a.scene_variant=='full')
+                from .operator_view import OperatorView
+                self.view = OperatorView(None, repository_root()/'configs/render/operator_view.yaml',
+                    a.output/'view', a.spec, a.port, collection=True, host=a.host, resources=a.resource_root)
                 self.emit(True)
                 self.view.wait_ready(self.stop)
             self.state = 'running'

@@ -32,7 +32,7 @@ def parser():
         s.add_argument('--url',default=argparse.SUPPRESS)
         if name=='session-start':
             s.add_argument('--backend',choices=['sapien','mujoco'],required=True)
-            s.add_argument('--scene-variant',choices=['full','free-space'],required=True)
+            s.add_argument('--scene-variant',choices=['full','free-space','gamepad-contact'],required=True)
             s.add_argument('--source',choices=['ros2','udp','replay'],required=True)
             s.add_argument('--replay')
             s.add_argument('--duration-s',type=float)

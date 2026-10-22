@@ -11,3 +11,15 @@ camera:
 pip:
   enabled: true
   width: 320
+overview:
+  # Debug view looking straight down; image top is the far table edge (+x),
+  # bottom the robot column. Covers ~0.3 m behind the arms at arm height and
+  # the far table edge with margin.
+  enabled: true
+  width: 480
+  render_width: 640
+  render_height: 360
+  position: [0.12, 0.6202, 2.30]
+  target: [0.12, 0.6202, 0.767]
+  up: [1, 0, 0]
+  fovy_degrees: 60

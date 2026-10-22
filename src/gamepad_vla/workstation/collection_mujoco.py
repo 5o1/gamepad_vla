@@ -60,6 +60,8 @@ class CollectionMujocoBackend:
 
     def __init__(self, spec, *, work_dir=None, render=False, resource_root=None,
                  environment_collisions=True, gamepad_collisions=None):
+        if render:
+            raise ValueError("collection physics is renderer-free; use OperatorView")
         import mujoco as mj
         from xbox_gamepad_physics.mujoco import attach_to_spec
         from xbox_gamepad_physics.mujoco.numerics import apply_standalone_policy
@@ -254,42 +256,6 @@ class CollectionMujocoBackend:
             self.gamepad.joint_positions(), self._robot_contact, self.name)
         observation.validate()
         return observation
-
-    def render_rgb(self):
-        if not self._render_enabled:
-            raise RuntimeError('construct with render=True to render images')
-        if self._renderer is None:
-            self.model.vis.global_.offwidth = 640
-            self.model.vis.global_.offheight = 480
-            self._renderer = self.mj.Renderer(self.model, height=480, width=640)
-            self._camera = self.mj.MjvCamera()
-            self._camera.lookat[:] = np.asarray(self.spec.gamepad.root_pose[:3]) + [0,0,.08]
-            self._camera.distance = 1.25
-            self._camera.azimuth, self._camera.elevation = 135., -25.
-        self._renderer.update_scene(self.data, camera=self._camera)
-        return self._renderer.render().copy()
-
-    def set_render_state(self, observation):
-        """Synchronize measured state in the dedicated, non-stepping viewer.
-
-        This method is deliberately restricted to render instances. Collection
-        physics never calls it; its qpos writes replay measurements, not targets.
-        """
-        if not self._render_enabled:
-            raise RuntimeError('render-state synchronization requires render=True')
-        fields = {name: observation[name] for name in Observation.__dataclass_fields__}
-        Observation(**fields).validate()
-        for k, side in enumerate(SIDES):
-            self.data.qpos[self._hand_indices[side]] = observation['hand_q'][k]
-            self.data.qpos[self._arm_indices[side]] = observation['arm_q'][k]
-        # Native dynamics can transiently exceed a nominal shaft limit. Render
-        # that measured displacement verbatim; the explicit command-state setter
-        # would reject it and must not clamp or replace the recorded motion.
-        for name, value in observation['control_joint_positions'].items():
-            self.gamepad.joint_qpos(name)[0] = value
-        self.data.qvel[:] = 0.
-        self.data.time = observation['sim_time_s']
-        self.mj.mj_forward(self.model, self.data)
 
     def close(self):
         if self._renderer is not None:

@@ -1,7 +1,7 @@
 """SAPIEN 3.0.3 simulation backend: AR5 left arm + G20 left hand + SDF Xbox gamepad.
 
 Poses come only from the backend-neutral ``WorkcellSpec``. The gamepad is loaded
-through ``xbox_gamepad_physics.robotwin.load_into_scene`` (release v0.3.1, SDF
+through ``xbox_gamepad_physics.robotwin.load_into_scene`` (release v0.4.1, SDF
 collision), whose ``gamepad_state()`` yields the 32-channel signal.
 
 Simulation choices, all placeholders rather than measured values:
@@ -68,10 +68,8 @@ class SapienBackend:
             sapien.render.set_global_config(max_num_materials=50000, max_num_textures=50000)
             self._render_device_guard = sapien.render.SapienRenderer(sapien.Device(device))
         if scene is None:
-            from xbox_gamepad_physics.examples.scene import create_scene
-
-            scene = create_scene({"timestep": PHYSICS_DT, "ground": False,
-                                  "render": render, "robotwin_root": None})
+            from xbox_gamepad_physics.robotwin import create_scene
+            scene = create_scene(timestep=PHYSICS_DT, render=render)
         self.scene = scene
         self.appearance = None
         self.material_assignments = []
@@ -188,6 +186,11 @@ class SapienBackend:
         entry = (next(e for e in self.appearance["materials"] if e["name"] == material_name)
                  if material_name else match_material(self.appearance, name, mesh))
         if entry is None:
+            # Newly added supports have no photo-fit rule. Make them visible
+            # without changing the appearance file or collision geometry.
+            if name in {f.name for f in self.spec.fixtures}:
+                from sapien.render import RenderMaterial
+                return RenderMaterial(base_color=[.4,.4,.4,1.], metallic=0., roughness=.7)
             return None
         from sapien.render import RenderMaterial
         self.material_assignments.append(dict(link=name, mesh=mesh, material=entry["name"]))

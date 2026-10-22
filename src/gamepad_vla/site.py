@@ -59,7 +59,7 @@ def configure_runtime():
         if value:
             os.environ.setdefault(variable, str(value))
     os.environ.setdefault("XBOX_GAMEPAD_PHYSICS_RESOURCES", str(
-        workspace_root() / "assets/xbox_gamepad_physics_v0.3.1/resources"))
+        workspace_root() / "assets/xbox_gamepad_physics_v0.4.1/resources"))
 
 
 def main():

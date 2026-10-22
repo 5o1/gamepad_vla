@@ -189,8 +189,8 @@ def test_controller_final_status_does_not_publish_to_closed_view(tmp_path,monkey
         def publish(self,row):assert not closed[0]
         def events(self):return []
         def close(self,**kwargs):closed[0]=True
-    import gamepad_vla.workstation.collection_stream as stream
-    monkeypatch.setattr(stream,'OperatorStream',View)
+    import gamepad_vla.workstation.operator_view as stream
+    monkeypatch.setattr(stream,'OperatorView',View)
     monkeypatch.setattr(module,'load_spec',lambda path:SimpleNamespace(left_arm=SimpleNamespace(home_q=[0]*7),right_arm=SimpleNamespace(home_q=[0]*7)))
     monkeypatch.setattr(module,'configure_runtime',lambda:None)
     monkeypatch.setattr(module,'CollectionReplay',lambda *a,**kw:Source())
@@ -212,17 +212,16 @@ def test_manager_stopped_means_child_has_exited(tmp_path):
     assert m.refresh()['session_state']=='stopped'
 
 
-def test_stop_cancels_only_owned_initializing_renderer():
-    from gamepad_vla.workstation.collection_stream import OperatorStream
-    import threading
+def test_stop_closes_only_owned_operator_children(tmp_path):
+    from gamepad_vla.workstation.operator_view import OperatorView
+    import io
     calls=[]
-    view=OperatorStream.__new__(OperatorStream)
-    view.stop=threading.Event();view.ready=threading.Event()
-    alive=[True]
-    def terminate():calls.append('terminate');alive[0]=False
-    view.worker=SimpleNamespace(is_alive=lambda:alive[0],terminate=terminate,join=lambda **kw:calls.append('join'))
+    view=OperatorView.__new__(OperatorView)
+    view.run=tmp_path;view.collection=True;view.backend=None
+    view.children=[SimpleNamespace(wait=lambda **kw:calls.append('wait'),returncode=0)]
+    view.logs=[];view.timing=io.StringIO();view.snapshot=SimpleNamespace(close=lambda:calls.append('close'))
     view.close(cancelled=True)
-    assert view.stop.is_set() and calls==['terminate','join']
+    assert (tmp_path/'stop').exists() and calls==['wait','close']
 
 
 def test_episode_list_uses_actual_active_measurements(tmp_path):

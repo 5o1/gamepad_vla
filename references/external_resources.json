@@ -413,29 +413,29 @@
       "group": "simulation",
       "kind": "files",
       "repository": "https://github.com/5o1/xbox_gamepad_physics",
-      "revision": "v0.3.1",
-      "release": "https://github.com/5o1/xbox_gamepad_physics/releases/tag/v0.3.1",
+      "revision": "v0.4.1",
+      "release": "https://github.com/5o1/xbox_gamepad_physics/releases/tag/v0.4.1",
       "license": "See upstream release license; wheel and resources are fetched, not bundled",
-      "destination": "assets/xbox_gamepad_physics_v0.3.1/release",
+      "destination": "assets/xbox_gamepad_physics_v0.4.1/release",
       "purpose": "Pinned simulator adapter and gamepad resources",
       "files": [
         {
           "path": "SHA256SUMS",
-          "url": "https://github.com/5o1/xbox_gamepad_physics/releases/download/v0.3.1/SHA256SUMS",
-          "sha256": "259c5979ec6b37cea6ad48655ce4b4bce72599934631a742ac033b2b56725509",
+          "url": "https://github.com/5o1/xbox_gamepad_physics/releases/download/v0.4.1/SHA256SUMS",
+          "sha256": "5e5659391e24f3a076bbede9526fb4b73a4494024aacdc2e1837922e9392298e",
           "bytes": 217
         },
         {
-          "path": "xbox_gamepad_physics-0.3.1-py3-none-any.whl",
-          "url": "https://github.com/5o1/xbox_gamepad_physics/releases/download/v0.3.1/xbox_gamepad_physics-0.3.1-py3-none-any.whl",
-          "sha256": "20b33bd043cab10c260e4c8f2e21b28071fb1c51735fb8dcef54f9e4553754f9",
-          "bytes": 734019
+          "path": "xbox_gamepad_physics-0.4.1-py3-none-any.whl",
+          "url": "https://github.com/5o1/xbox_gamepad_physics/releases/download/v0.4.1/xbox_gamepad_physics-0.4.1-py3-none-any.whl",
+          "sha256": "b768d07f04d7bf28a429657ba9c76594cec27500f6677f8f596c9064a39ae55c",
+          "bytes": 797237
         },
         {
-          "path": "xbox_gamepad_physics-resources-0.3.1.zip",
-          "url": "https://github.com/5o1/xbox_gamepad_physics/releases/download/v0.3.1/xbox_gamepad_physics-resources-0.3.1.zip",
-          "sha256": "74aeeaa6ea598ddc8aa7023faf4c25481fc35091a12e89d1fab3b42b88ebab36",
-          "bytes": 38232567
+          "path": "xbox_gamepad_physics-resources-0.4.1.zip",
+          "url": "https://github.com/5o1/xbox_gamepad_physics/releases/download/v0.4.1/xbox_gamepad_physics-resources-0.4.1.zip",
+          "sha256": "96dc0a6fd4a936dc82912ce331d2c4493e87cc02105332f4c4eeffa236f659ce",
+          "bytes": 42683313
         }
       ]
     },

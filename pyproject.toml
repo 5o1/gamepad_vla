@@ -22,7 +22,7 @@ assets = ["scipy>=1.10", "pillow>=10", "trimesh>=4", "opencv-python>=4.10", "net
 dev = ["pytest>=8", "build>=1.2"]
 sim = [
     "sapien==3.0.3",
-    "xbox-gamepad-physics[build,robotwin,teleop]==0.3.1",
+    "xbox-gamepad-physics[build,robotwin,teleop]==0.4.1",
     "PyYAML>=6",
     "pillow>=10",
     "trimesh>=4",
@@ -40,7 +40,7 @@ gamepad-vla-recover = "gamepad_vla.workstation.recorder:main"
 where = ["src"]
 
 [tool.setuptools.package-data]
-"gamepad_vla.workstation" = ["operator_web/*.html", "operator_web/*.js", "collection_web/*.html", "collection_web/overlay/*"]
+"gamepad_vla.workstation" = ["operator_web/*.html", "operator_web/*.js", "operator_web/*.mjs", "collection_web/*.html", "collection_web/overlay/*"]
 
 [tool.pytest.ini_options]
 addopts = "-ra"

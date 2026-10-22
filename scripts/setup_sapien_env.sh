@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Build the SAPIEN 3.0.3 + xbox_gamepad_physics v0.3.1 environment on the compute node
+# Build the SAPIEN 3.0.3 + xbox_gamepad_physics v0.4.1 environment on the compute node
 # for the collection workstation's first simulation backend (RoboTwin SDF gamepad).
 # Python 3.10 and SAPIEN 3.0.3 follow the gamepad release's documented target.
 # Downloads go direct (no proxy) through the SJTU mirror; the gamepad wheel and
@@ -12,8 +12,8 @@ source "$(dirname "$0")/site_settings.sh"
 W=$GAMEPAD_VLA_WORKSPACE
 REPO=$(cd "$(dirname "$0")/.." && pwd)
 ENV=$W/envs/sapien-3.0.3-py310
-RELEASE=$W/assets/xbox_gamepad_physics_v0.3.1/release
-RESOURCES=$W/assets/xbox_gamepad_physics_v0.3.1/resources
+RELEASE=$W/assets/xbox_gamepad_physics_v0.4.1/release
+RESOURCES=$W/assets/xbox_gamepad_physics_v0.4.1/resources
 CONDA=$GAMEPAD_VLA_CONDA
 BOOTSTRAP_PYTHON=
 if [[ ${1:-} == --python ]]; then BOOTSTRAP_PYTHON=${2:?missing Python path}; shift 2; fi
@@ -41,9 +41,9 @@ fi
 PY=$ENV/bin/python
 "$PY" -m pip install -U pip
 "$PY" -m pip install -c "$REPO/constraints/sapien-py310.txt" \
-    "$RELEASE/xbox_gamepad_physics-0.3.1-py3-none-any.whl" -e "$REPO[sim,web,dev]"
+    "$RELEASE/xbox_gamepad_physics-0.4.1-py3-none-any.whl" -e "$REPO[sim,web,dev]"
 "$PY" -m xbox_gamepad_physics build-resources \
-    --archive "$RELEASE/xbox_gamepad_physics-resources-0.3.1.zip" \
+    --archive "$RELEASE/xbox_gamepad_physics-resources-0.4.1.zip" \
     --resources "$RESOURCES" --offline
 
 "$PY" - <<'EOF'

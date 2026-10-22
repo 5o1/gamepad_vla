@@ -131,3 +131,20 @@ curl -H 'Content-Type: application/json' -H 'X-Gamepad-VLA-Client: cli' \
 ## 这个接口做不到的事
 
 它不启动手套、重定向、LinkerTA、SDK、珞石或任何硬件节点；现场人员仍须按 [M2 手册](collection.md#采集台仅仿真联调)操作。它不能急停、不能下电、不能删除原始数据，也不能替 Codex 打开远程控制开关。`session-stop` 只停止本服务创建的仿真进程。页面提示的软件急停脚本不能下电，本接口不调用它。
+
+## 采集画面与现场启动
+
+画面通过 `operator_view` 的 teleop mmap、独立孪生渲染和 NVENC H.264 提供，浏览器使用 WebCodecs；需支持 H.264 的 Chrome/Edge。`POST /api/v1/view` 接受 `{"view":"camera_3"}` 或 `{"view":"operator"}`，遵守同一 JSON、客户端标识、同源和远程开关规则。status 的 `view` 来自实际编码帧。
+
+现场采用临时抬高场景、gamepad-contact 和不做启动姿态限幅时：
+
+```bash
+cd ~/gamepad_vla/code
+ROS_DOMAIN_ID=88 bash scripts/station/start_collection_server.sh \
+  --host 127.0.0.1 --port 8780 --source ros2 \
+  --spec configs/workcell/station_g20_v4_4_raised_interim.json \
+  --scene-variant gamepad-contact --arm-startup none --ros-topic-prefix '' \
+  --output-root ~/gamepad_vla_data/episodes
+```
+
+本机打开 `http://127.0.0.1:8780/`，确认参数后点“启动仿真”。远程写仍默认关闭。输入节点由现场人员用 `~/gamepad_vla/m2/start.sh` 启动；该服务和 Codex 不启动硬件节点。`gamepad-contact` 保留机器人与手柄接触，关闭桌面等环境碰撞；`--arm-startup none` 仅关闭启动姿态限幅，绝对关节限位保留。服务默认仍是 v4.4，以上命令显式选择临时抬高场景。

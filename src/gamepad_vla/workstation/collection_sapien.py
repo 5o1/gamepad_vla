@@ -97,6 +97,8 @@ class CollectionSapienBackend:
 
     def __init__(self, spec, work_dir=None, render=False, resource_root=None,
                  environment_collisions=True, gamepad_collisions=None):
+        if render:
+            raise ValueError("collection physics is renderer-free; use OperatorView")
         import sapien
         from xbox_gamepad_physics.robotwin import load_into_scene
 
@@ -111,9 +113,6 @@ class CollectionSapienBackend:
         self.work_dir.mkdir(parents=True, exist_ok=True)
         self.render_enabled = bool(render)
         systems = [sapien.physx.PhysxCpuSystem()]
-        if render:
-            device = os.environ.get("GAMEPAD_VLA_RENDER_DEVICE")
-            systems.append(sapien.render.RenderSystem(device) if device else sapien.render.RenderSystem())
         self.scene = sapien.Scene(systems)
         self.scene.set_timestep(PHYSICS_DT)
         self.tip_offsets = fingertip_offsets(spec)
@@ -121,8 +120,6 @@ class CollectionSapienBackend:
         table = self.scene.create_actor_builder()
         if self.environment_collisions:
             table.add_box_collision(half_size=list(spec.table.half_extents))
-        if render:
-            table.add_box_visual(half_size=list(spec.table.half_extents))
         actor = table.build_static(name="table")
         actor.set_pose(_pose(sapien, spec.table.pose))
         self._fixed_actors.append(actor)
@@ -135,13 +132,9 @@ class CollectionSapienBackend:
             if fixture.type == "box":
                 if self.environment_collisions:
                     builder.add_box_collision(half_size=list(fixture.half_extents))
-                if render:
-                    builder.add_box_visual(half_size=list(fixture.half_extents))
             else:
                 if self.environment_collisions:
                     builder.add_nonconvex_collision_from_file(fixture.mesh)
-                if render:
-                    builder.add_visual_from_file(fixture.mesh)
             actor = builder.build_static(name=fixture.name)
             actor.set_pose(_pose(sapien, fixture.pose))
             self._fixed_actors.append(actor)
@@ -150,8 +143,7 @@ class CollectionSapienBackend:
         for index, side in enumerate(SIDES):
             arm, hand = getattr(spec, side + "_arm"), getattr(spec, side + "_hand")
             urdf = compose_robot_urdf(spec, self.work_dir / (side + "_robot.urdf"), side)
-            if not render:
-                urdf = _physics_urdf(urdf, self.work_dir / (side + "_physics.urdf"))
+            urdf = _physics_urdf(urdf, self.work_dir / (side + "_physics.urdf"))
             loader = self.scene.create_urdf_loader()
             loader.fix_root_link = True
             robot = loader.load(str(urdf))
@@ -176,9 +168,9 @@ class CollectionSapienBackend:
             os.environ["XBOX_GAMEPAD_PHYSICS_RESOURCES"] = str(resource_root)
         try:
             self.gamepad = load_into_scene(
-                self.scene if render else _PhysicsScene(self.scene, self.work_dir),
+                _PhysicsScene(self.scene, self.work_dir),
                 _pose(sapien, spec.gamepad.root_pose), fixed_root=spec.gamepad.fixed_root,
-                profile=spec.gamepad.profile, attach_visual=bool(render),
+                profile=spec.gamepad.profile, attach_visual=False,
                 collision=spec.gamepad.collision)
         finally:
             if resource_root is not None:
@@ -195,22 +187,6 @@ class CollectionSapienBackend:
                     # asset filtering words and all model geometry/inertias.
                     groups[0] = groups[1] = 0
                     shape.set_collision_groups(groups)
-        self._camera = None
-        if render:
-            from .spec import matrix_to_pose
-            self.scene.set_ambient_light([.5] * 3)
-            self.scene.add_directional_light([0., .5, -1.], [.8] * 3, shadow=True)
-            self._camera = self.scene.add_camera("collection_operator", 640, 480, math.radians(55), .01, 10.)
-            target = np.asarray(spec.gamepad.root_pose[:3])
-            position = target + np.asarray([.6, -.6, .55])
-            forward = target - position
-            forward /= np.linalg.norm(forward)
-            left = np.cross([0., 0., 1.], forward)
-            left /= np.linalg.norm(left)
-            matrix = np.eye(4)
-            matrix[:3, :3] = np.column_stack((forward, left, np.cross(forward, left)))
-            matrix[:3, 3] = position
-            self._camera.entity.set_pose(_pose(sapien, matrix_to_pose(matrix)))
         self.reset()
 
     @staticmethod
@@ -304,41 +280,7 @@ class CollectionSapienBackend:
         observation.validate()
         return observation
 
-    def render_rgb(self):
-        if self._camera is None:
-            raise RuntimeError("render_rgb requires an explicitly enabled renderer")
-        self.scene.update_render()
-        self._camera.take_picture()
-        return np.rint(np.clip(self._camera.get_picture("Color")[..., :3], 0., 1.) * 255).astype(np.uint8)
-
-    def set_render_state(self, observation_dict):
-        """Copy actual completed physics state into a separate render replica.
-
-        This method never steps dynamics. The simulation/recording backend must
-        use apply/step; only its independent renderer may use this snapshot API.
-        """
-        if not self.render_enabled:
-            raise RuntimeError("set_render_state is restricted to the render replica")
-        hands = np.asarray(observation_dict["hand_q"], float)
-        arms = np.asarray(observation_dict["arm_q"], float)
-        if hands.shape != (2, 21) or arms.shape != (2, 7):
-            raise ValueError("render state requires measured hand_q(2,21) and arm_q(2,7)")
-        if not np.isfinite(hands).all() or not np.isfinite(arms).all():
-            raise ValueError("render state must be finite")
-        for index, side in enumerate(SIDES):
-            prefix = "right_" if side == "right" else ""
-            positions = dict(zip(getattr(self.spec, side + "_arm").joint_names, arms[index]))
-            positions.update(zip((prefix + n for n in G20_JOINT_NAMES), hands[index]))
-            self.robots[side].set_qpos(np.asarray([positions[n] for n in self.joint_order[side]]))
-        controls = observation_dict["control_joint_positions"]
-        if set(controls) != set(self._initial_gamepad_q):
-            raise ValueError("render state must contain all actual gamepad control displacements")
-        if not all(math.isfinite(float(value)) for value in controls.values()):
-            raise ValueError("render control displacements must be finite")
-        self.gamepad.set_joint_positions(controls)
-
     def close(self):
-        self._camera = None
         self.gamepad = None
         self.links.clear()
         self.joints.clear()

@@ -27,7 +27,7 @@ def defaults():
 
 
 class SessionManager:
-    def __init__(self, root=None):
+    def __init__(self, root=None, default_values=None):
         self.root = Path(root or site_value('collection.output_root') or workspace_root()/'runs/collection-web').expanduser().resolve()
         self.root.mkdir(parents=True, exist_ok=True)
         self.ctx = mp.get_context('spawn')
@@ -39,6 +39,7 @@ class SessionManager:
         self.export_process = None
         self.pending_start = False
         self.active_options = {}
+        self.default_values = default_values or {}
 
     def refresh(self):
         if self.statuses:
@@ -85,7 +86,8 @@ class SessionManager:
         async with self.lock:
             if self.worker and self.worker.is_alive():
                 raise ValueError('only one simulation session is allowed; stop it first')
-            v = dict(defaults(), **values)
+            v = dict(defaults(), **self.default_values)
+            v.update(values)
             replay = v.get('replay')
             if v.get('episode'):
                 path = self.episode(v['episode'])
@@ -104,7 +106,8 @@ class SessionManager:
                 rate_hz=int(v['rate_hz']), scene_variant=v['scene_variant'],
                 replay=Path(replay).expanduser().resolve() if replay else None,
                 ros_topic_prefix=v.get('ros_topic_prefix',''), loop_replay=bool(v.get('loop_replay')),
-                spec=Path(site_value('collection.spec') or repository_root()/'configs/workcell/station_g20_v4_4.json'),
+                spec=Path(v.get('spec') or site_value('collection.spec') or repository_root()/'configs/workcell/station_g20_v4_4.json'),
+                arm_startup=v.get('arm_startup') or site_value('collection.arm_startup','spec'),
                 resource_root=Path(site_value('collection.resource_root')) if site_value('collection.resource_root') else None,
                 view=True, realtime=True, host='127.0.0.1', port=port,
                 udp_host=site_value('udp.bind_host','127.0.0.1'), udp_port=site_value('udp.port',50200))
@@ -154,8 +157,8 @@ class SessionManager:
         raise RuntimeError('控制命令等待确认超时，请查询状态后再操作。')
 
     def control(self, event):
-        if event.get('action') not in ('start','stop','note'):
-            raise ValueError('expected start/stop/note')
+        if event.get('action') not in ('start','stop','note','view'):
+            raise ValueError('expected start/stop/note/view')
         if not self.worker or not self.worker.is_alive():
             raise ValueError('start a simulation session first')
         self.controls.put_nowait(event)
@@ -186,7 +189,7 @@ class ApiError(Exception):
 
 
 def make_app(manager=None, *, enable_remote_control=False, video_handler=None, frame_provider=None, managed=True):
-    from aiohttp import web, ClientSession, ClientTimeout, ClientError
+    from aiohttp import web, ClientSession, ClientTimeout, ClientError, WSMsgType
     manager=manager or SessionManager()
     root=Path(__file__).with_name('collection_web')
     cookie=secrets.token_urlsafe(32)
@@ -205,7 +208,7 @@ def make_app(manager=None, *, enable_remote_control=False, video_handler=None, f
         if frame_provider:
             current.update(frame_provider())
         if frame_row:
-            for key in ('overlay','gamepad_signal','gamepad_mask','sim_time_s','arm_clamps'):
+            for key in ('overlay','gamepad_signal','gamepad_mask','sim_time_s','arm_clamps','view'):
                 if key in frame_row:current[key]=frame_row[key]
         free=shutil.disk_usage(manager.root).free
         status=current.get('recording_status',{})
@@ -278,10 +281,10 @@ def make_app(manager=None, *, enable_remote_control=False, video_handler=None, f
 
     async def config(request):
         files=site_value('collection.replay_files',[])
-        default=defaults()
+        default=dict(defaults(),**getattr(manager,"default_values",{}))
         if default['replay'] and default['replay'] not in files:files=[default['replay'],*files]
         return response(dict(managed=managed,defaults=default,replay_files=files,
-            backends=['sapien','mujoco'],scene_variants=['full','free-space'],sources=['ros2','replay','udp'],
+            backends=['sapien','mujoco'],scene_variants=['full','free-space','gamepad-contact'],sources=['ros2','replay','udp'],
             estop_hint='~/gamepad_vla_estop/estop.sh（不能下电）'))
 
     async def status(request):
@@ -389,12 +392,30 @@ def make_app(manager=None, *, enable_remote_control=False, video_handler=None, f
     async def video(request):
         if not manager.worker or not manager.worker.is_alive():raise web.HTTPServiceUnavailable(text='no active simulation')
         try:
-            async with client.get(f'http://127.0.0.1:{manager.port}/video',timeout=ClientTimeout(total=None,sock_connect=2)) as upstream:
-                result=web.StreamResponse(headers={'Content-Type':upstream.headers['Content-Type']})
-                await result.prepare(request)
-                async for chunk in upstream.content.iter_any():await result.write(chunk)
-                return result
+            upstream=await client.ws_connect(f'http://127.0.0.1:{manager.port}/video')
         except (ClientError,OSError,asyncio.TimeoutError):return web.Response(status=503,text='stream unavailable')
+        result=web.WebSocketResponse()
+        await result.prepare(request)
+        async def forward():
+            async for message in upstream:
+                if message.type==WSMsgType.BINARY:await result.send_bytes(message.data)
+        async def closed():
+            async for _ in result:pass
+        tasks=[asyncio.create_task(forward()),asyncio.create_task(closed())]
+        try:await asyncio.wait(tasks,return_when=asyncio.FIRST_COMPLETED)
+        finally:
+            for task in tasks:task.cancel()
+            await asyncio.gather(*tasks,return_exceptions=True)
+            await upstream.close();await result.close()
+        return result
+
+    async def view(request):
+        running()
+        value=request['values'].get('view')
+        if value not in ('camera_3','operator'):raise ApiError(400,'invalid_request','视角必须是 camera_3 或 operator，请重新选择。')
+        await manager.command(dict(action='view',view=value,client=request['client']))
+        event('view',request['client'],dict(view=value))
+        return response()
 
     async def inspect():
         nonlocal safety
@@ -433,10 +454,11 @@ def make_app(manager=None, *, enable_remote_control=False, video_handler=None, f
     app.router.add_get('/',index)
     app.router.add_get('/video',video_handler or video)
     app.router.add_static('/overlay',root/'overlay')
+    app.router.add_static('/web',root.parent/'operator_web')
     for path,handler in [('config',config),('status',status),('events',events),('episodes',episodes),('episodes/{id}',episode)]:
         app.router.add_get('/api/v1/'+path,handler)
     for path,handler in [('session/start',start),('session/stop',stop),('recording/start',recording_start),('recording/stop',recording_stop),
-                         ('notes',notes),('episodes/{id}/void',void),('episodes/{id}/export',export),('remote-control',remote)]:
+                         ('notes',notes),('episodes/{id}/void',void),('episodes/{id}/export',export),('remote-control',remote),('view',view)]:
         app.router.add_post('/api/v1/'+path,handler)
     return app
 
@@ -449,5 +471,13 @@ def main():
     parser.add_argument('--host',default=site_value('operator.bind_host','127.0.0.1'))
     parser.add_argument('--port',type=int,default=site_value('operator.port',8780))
     parser.add_argument('--enable-remote-control',action='store_true')
+    parser.add_argument('--source',choices=('ros2','udp','replay'))
+    parser.add_argument('--spec',type=Path)
+    parser.add_argument('--scene-variant',choices=('full','free-space','gamepad-contact'))
+    parser.add_argument('--arm-startup',choices=('spec','first_command','none'))
+    parser.add_argument('--output-root',type=Path)
+    parser.add_argument('--ros-topic-prefix')
     args=parser.parse_args();require_loopback(args.host);configure_runtime()
-    web.run_app(make_app(enable_remote_control=args.enable_remote_control),host=args.host,port=args.port,shutdown_timeout=2)
+    values={k:str(v) if isinstance(v,Path) else v for k,v in vars(args).items() if k in ('source','spec','scene_variant','arm_startup','ros_topic_prefix') and v is not None}
+    manager=SessionManager(args.output_root,default_values=values)
+    web.run_app(make_app(manager,enable_remote_control=args.enable_remote_control),host=args.host,port=args.port,shutdown_timeout=2)

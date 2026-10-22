@@ -40,7 +40,7 @@ python scripts/run_workstation.py --source scripted --backend null --duration 1
 
 可选依赖按用途安装：`sim` 为 SAPIEN，`web` 为操作者画面，`assets` 为资产处理，`data` 为 Parquet 转换。`vla` 暂缓开发，基础安装无需 Torch。ROS2 和 Isaac 使用各自的隔离环境。
 
-仿真环境在配置的计算节点上由 `scripts/setup_sapien_env.sh` 创建，使用 Python 3.10、SAPIEN 3.0.3、手柄资产 v0.3.1 和 [版本约束](constraints/sapien-py310.txt)。先运行 `PYTHONPATH=src python3 scripts/fetch_resources.py --group simulation` 获取并校验公开资源，再安装环境并执行 `scripts/prepare_resources.py`。脚本不会覆盖已有环境；操作者视频另外需要支持 NVENC 的 FFmpeg。
+仿真环境在配置的计算节点上由 `scripts/setup_sapien_env.sh` 创建，使用 Python 3.10、SAPIEN 3.0.3、手柄资产 v0.4.1 和 [版本约束](constraints/sapien-py310.txt)。先运行 `PYTHONPATH=src python3 scripts/fetch_resources.py --group simulation` 获取并校验公开资源，再安装环境并执行 `scripts/prepare_resources.py`。脚本不会覆盖已有环境；操作者视频另外需要支持 NVENC 的 FFmpeg。
 
 在节点的仿真环境中：
 
@@ -77,7 +77,7 @@ python scripts/render_workcell.py configs/render/workcell_multiview_preview.yaml
 - 相机拍照：`python scripts/station/camera_capture.py`，按程序打印的本地地址打开网页。原始 PNG 和逐帧内参默认保存至 `build/camera_capture/`；需要长期保留的标定数据归档到 `references/`。
 - [资产来源](references/robot_assets.md)记录当前模型依据；[模块边界](docs/architecture.md)说明采集与配置分工。
 
-渲染沿用手柄资产 v0.3.1 的 example runner；网页串流适配其 latest-state/NVENC 链路，不修改上游。Python 资源打包依据 [Setuptools package data](https://setuptools.pypa.io/en/stable/userguide/datafiles.html)，CI 依据 [GitHub Python 工作流](https://docs.github.com/en/actions/tutorials/build-and-test-code/python)。
+渲染沿用手柄资产 v0.4.1 的 example runner；网页串流适配其 latest-state/NVENC 链路，不修改上游。Python 资源打包依据 [Setuptools package data](https://setuptools.pypa.io/en/stable/userguide/datafiles.html)，CI 依据 [GitHub Python 工作流](https://docs.github.com/en/actions/tutorials/build-and-test-code/python)。
 
 双手双臂参考轨迹采集使用独立入口 `scripts/run_collection.py`；输入单位、episode v4（兼容读取 v2/v3）、LeRobot v3 导出及以后部署的节点边界见[采集说明](docs/usage/collection.md)。双后端验收状态和设计适配的证据限度见[任务 L 报告](docs/reports/2026-10-22-collection-platform/README.md)，不以短测代替 L1/L2。
 
