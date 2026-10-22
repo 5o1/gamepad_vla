@@ -78,7 +78,8 @@ def main():
             "GAMEPAD_VLA_CONDA": site_value("conda_executable", "conda"),
         }
         for field in ("ssh_profile", "home", "workspace", "data_root", "camera_root", "estop_script",
-                      "ros_setup", "python", "conda_setup", "left_arm_ip", "right_arm_ip",
+                      "ros_setup", "python", "conda_setup", "input_source", "input_mirror",
+                      "input_log_root", "retarget_python", "left_arm_ip", "right_arm_ip",
                       "left_local_ip", "right_local_ip", "left_can", "right_can", "hand_joint"):
             values["STATION_" + field.upper()] = site_value("station." + field, "")
         for key, value in values.items():

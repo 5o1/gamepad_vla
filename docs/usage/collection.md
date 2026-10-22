@@ -49,54 +49,53 @@ bash scripts/setup_lerobot_check_env.sh
 
 ### 现场预检和环境
 
-确认没有手 SDK、珞石节点、旧遥操或策略进程；若存在，先由现场人员按其流程处理。保留启动前的 `nvidia-smi`：没有其他 CUDA 计算任务、显存 <4 GiB 且利用率 <30% 时可用。常驻 Xorg、gnome-shell、Firefox、RobotAssist 图形进程允许共存，不关闭或干扰它们；退出后显存应回到测试前水平。LinkerTA 的安装配置 `~/workstation/ros2_ws/install/linkerta/share/linkerta/config/lta.yaml` 必须是 `calibration: 0`；源配置在 `~/workstation/linkerhand-tele-arm-main/src/linkerta/config/lta.yaml`。M1 已只读核对安装配置为 0，现场仍须复核，不修改或重新标定。
+确认没有手 SDK、珞石节点、旧遥操或策略进程；若存在，先由现场人员按其流程处理。保留启动前的 `nvidia-smi`：没有其他 CUDA 计算任务、显存 <4 GiB 且利用率 <30% 时可用。常驻 Xorg、gnome-shell、Firefox、RobotAssist 图形进程允许共存，不关闭或干扰它们；退出后显存应回到测试前水平。LinkerTA 的标定开关必须是 `calibration: 0`。启动脚本读取**我们镜像安装目录**中的 `linkerta/share/linkerta/config/lta.yaml`，不再读取上游工作空间的配置；不修改或重新标定。
 
-每个 ROS 终端先加载私有站点配置和已存在的工作空间（不使用 conda base）：
+### 输入链镜像与构建
+
+2026-10-23 起维护独立的 `~/gamepad_vla/station_ws`，来源为采集台 `~/workstation`，后者保持只读。上游还承担拧瓶盖等任务，配置会随任务变化，所以采集不再直接加载其安装目录。复制关系：
+
+| 上游相对路径 | 镜像相对路径 |
+|---|---|
+| `linkerhand-tele-manus/retarget/src/linkerhand_retarget` | `src/linkerhand_retarget` |
+| `linkerhand-tele-arm-main/src/linkerta` | `src/linkerta` |
+| `linkerhand-tele-manus/manus_ros2/{manus_ros2,manus_ros2_msgs,ManusSDK}` | `src/manus_ros2_bundle/` 下的同名目录 |
+
+唯一源码改动是 retarget 的 `linkerhand_retarget/config/base_config.yml` 中 `manus_dex.thumb_ergo.enabled: true → false`。上游为拧瓶盖启用了 `angle_direct` 的拇指对掌覆盖（`opposition_base: 1.39`）；我们恢复向量重定向器自身的拇指解，供手柄任务使用。关闭覆盖已通过配置和运行日志核对；动作是否适合操控手柄仍需现场实验，话题正常不代表操控成功。
+
+路径由私有站点配置的 `station.input_source`、`station.input_mirror`、`station.input_log_root`、`station.retarget_python`、`station.ros_setup` 提供，默认见 `configs/site.example.json`，也可用脚本参数覆盖。默认使用工作站已有 conda 环境 `workstation` 的 Python（需要 anytree 等依赖），不安装或改动环境。
+
+首次复制与构建（在采集台代码目录运行）：
 
 ```bash
-cd ~/gamepad_vla/code
-export GAMEPAD_VLA_SITE_CONFIG="$PWD/.local/station.json"
-source scripts/site_settings.sh
-source "$STATION_ROS_SETUP"
-source ~/workstation/ros2_ws/install/setup.bash
-export ROS_DOMAIN_ID="${M2_ROS_DOMAIN_ID:?填写现场批准的ROS域}"
-export ROS_LOG_DIR="$GAMEPAD_VLA_WORKSPACE/logs/m2-ros"
-export ROS_HOME="$GAMEPAD_VLA_WORKSPACE/cache/ros"
+bash scripts/station/build_input_mirror.sh
+# 对已有镜像仅修复 LinkerTA 的 ROS2 构建，不重新复制源码：
+bash scripts/station/build_input_mirror.sh --linkerta-only
+# 其他来源/目标可显式传入：--source DIR --mirror DIR --ros-setup FILE
 ```
 
-Humble 使用系统 Python 3.10；M1 venv 未启用 system-site-packages，通过 ROS setup 加入 Humble 的 Python 路径。不要用 Python 3.11 加载 Humble 的 rclpy。所有日志和临时文件应指向安装根目录。
+首次构建遇到已有 `src/` 会退出；需要更新来源时选择新的镜像目录再验收。构建使用 `PYTHONNOUSERSITE=1` 隔离站上不兼容的用户 setuptools，LinkerTA 单独加 `--cmake-args -DUSE_ROS2=ON`（上游默认 OFF，普通构建成功并不产生 ROS2 包）。镜像内 `MIRROR.md` 记录实际来源、复制日期、改动与原因，需要比较时用 `diff -r <上游包目录> <镜像包目录>`，不维护逐文件 SHA-256 清单。仓库部署继续使用 `sync_tree.py` 的整树同步及传输哈希检查。
 
 ### 只启动输入链
 
-终端 1，Manus 手套发布器：
+现场授权后，在采集台运行：
 
 ```bash
-ros2 run manus_ros2 manus_data_publisher
+cd ~/gamepad_vla/code
+bash scripts/station/stop_input_chain.sh
+bash scripts/station/start_input_chain.sh
 ```
 
-终端 2，左右手重定向：
+`start_input_chain.sh` 固定域 88、`ROS_LOCALHOST_ONLY=1`，依次启动 Manus 发布器、左右手 retarget 和 LinkerTA。它拒绝在检测到手 SDK、珞石节点或未停输入节点时启动；清除继承的工作空间 overlay，只加载 Humble 和镜像，并检查三个包前缀都在镜像。retarget 显式使用 conda Python，参数为 `motion_type:=manus_dex`、`enabled_hands:=left,right`、`calibration:=false`。LinkerTA 使用镜像的 `run.launch.py`，标定始终为 0；它会访问主臂 CAN，须有现场输入授权。
 
-```bash
-ros2 run linkerhand_retarget handretarget --ros-args \
-  -p motion_type:=manus_dex -p enabled_hands:=left,right -p calibration:=false
-```
-
-`enabled_hands` 参数已从站上源码核对，显式启用两侧，避免配置默认只启用右手。保持站上现有 G20 双手重定向配置，不调用串口扫描或校准模式。
-
-终端 3，LinkerTA 主臂输入：
-
-```bash
-ros2 launch linkerta run.launch.py
-```
-
-该 launch 仅启动 `linkerta_node`，读取安装配置，默认约 100 Hz。**标定开关始终为 0**。该输入节点会访问主臂 CAN，属于 M2 硬件输入授权范围，M1 没有运行。
+日志与进程组记录在 `<input_log_root>/m2-<时间>-<PID>/`，`m2-current` 指向本次目录。`stop_input_chain.sh` 仅对登记的输入进程组发送 SIGINT，等待并核实退出；未退出则报失败，不宣称已停。两脚本均支持 `--log-root DIR`；启动还支持 `--mirror DIR --retarget-python FILE --ros-setup FILE`。站上旧 `m2/start.sh`、`m2/stop.sh` 和 `build_station_ws.sh` 仅转调仓库入口，业务脚本只保留一份。输入节点重启不改变话题名，8780 服务自动续接，无需重启。
 
 ### 话题核对
 
 | 话题 | 现场核对 |
 |---|---|
 | `/manus_glove_0` 及现场实际第二路手套话题 | 手套左右归属正确；不把 0/1 编号当作固定左右 |
-| `/cb_left_hand_control_cmd`、`/cb_right_hand_control_cmd` | `sensor_msgs/msg/JointState`；position 恰好 20 路、0–255 电机值；两侧持续更新，约 100 Hz |
+| `/cb_left_hand_control_cmd`、`/cb_right_hand_control_cmd` | `sensor_msgs/msg/JointState`；position 恰好 20 路、0–255 电机值；两侧持续更新，约 60 Hz |
 | `/left_arm_joint_control`、`/right_arm_joint_control` | JointState；position 恰好 7 路、单位度；约 100 Hz；小幅动作方向正确 |
 | `/cb_*_hand_state`、`/rokae/*`、相机话题 | 本模式不要求这些话题；确认没有为了补齐它们而启动硬件节点 |
 
@@ -123,7 +122,7 @@ export CUDA_VISIBLE_DEVICES="${M2_CUDA_VISIBLE_DEVICES:?先确认符合GPU共享
 ### 停止和急停
 
 1. 浏览器“停止录制”，确认 episode 已完成；采集终端 Ctrl+C，等待仿真和渲染子进程退出。
-2. 重定向 Ctrl+C，再停止 Manus 发布器和 LinkerTA；对 `ros2 launch` 所在终端 Ctrl+C 并等待子节点退出。
+2. 用 `bash scripts/station/stop_input_chain.sh` 停止登记的三个输入进程组，检查退出结果。
 3. 用 `pgrep -a -f 'run_collection\.py|manus_data_publisher|handretarget|linkerta_node'` 检查；只结束本次启动的 PID，复查 GPU 回到基线。
 
 需要软件停止时，仓库入口为 `bash scripts/station/stop_collection_sim.sh`；若 launch 子节点仍在，回到其终端 Ctrl+C 并检查 `linkerta_node`。现有站点急停脚本是 `bash ~/gamepad_vla_estop/estop.sh`，M1 仅核对其存在，未执行。它只能停止进程，**不能下电**；若发现真实手臂上电或运动，由现场人员使用 RobotHMI 或控制柜电源处理。不要通过启动珞石节点来“查询是否上电”。
@@ -272,7 +271,7 @@ L1/L2 使用 `scripts/check_collection.py`。按审阅者裁决 2，门槛回放
 
 远程控制每次服务启动默认关闭，助手在网页明确开启后，Codex/CLI 才可执行写操作。SSE 同步各客户端状态和最近 10 条控制事件；断线自动重连并先拉完整状态。GET 始终允许，所有 API 操作追加审计。现场硬件输入启动步骤仍按上面的 M2 手册执行，网页与 API 不提供硬件启动、急停或下电。
 
-任务 P 将采集画面统一回 `operator_view` 的 teleop mmap/独立孪生渲染/NVENC 管线，移除 MJPEG 自建场景。主画面可在标定 camera_3 与原操作者虚拟视角之间切换，手柄资产固定 v0.4.1；现场域 88、临时抬高场景及 gamepad-contact 的确切服务命令见 [API 现场启动说明](collection-api.md#采集画面与现场启动)。输入节点仍由现场人员的 `~/gamepad_vla/m2/start.sh` 启动。
+任务 P 将采集画面统一回 `operator_view` 的 teleop mmap/独立孪生渲染/NVENC 管线，移除 MJPEG 自建场景。主画面可在标定 camera_3 与原操作者虚拟视角之间切换，手柄资产固定 v0.4.1；现场域 88、临时抬高场景及 gamepad-contact 的确切服务命令见 [API 现场启动说明](collection-api.md#采集画面与现场启动)。输入节点由现场授权的 `scripts/station/start_input_chain.sh` 启动，站上 `~/gamepad_vla/m2/start.sh` 仅作兼容入口。
 
 ## 调整并重新标定 ego 相机
 
