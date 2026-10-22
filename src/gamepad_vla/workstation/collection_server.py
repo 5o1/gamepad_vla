@@ -16,6 +16,7 @@ from gamepad_vla.site import site_value, workspace_root, repository_root
 from .collection_controller import CollectionOptions, run_managed
 from .collection_health import detect_safety, require_loopback, DISK_MIN_BYTES, SAFETY_INTERVAL_S
 from .collection_integrity import discard_episode, read_integrity
+from .camera_panel import CameraPanel, CameraConflict
 
 
 def defaults():
@@ -188,10 +189,11 @@ class ApiError(Exception):
         self.status,self.code,self.message=status,code,message
 
 
-def make_app(manager=None, *, enable_remote_control=False, video_handler=None, frame_provider=None, managed=True):
+def make_app(manager=None, *, enable_remote_control=False, video_handler=None, frame_provider=None, managed=True, camera=None):
     from aiohttp import web, ClientSession, ClientTimeout, ClientError, WSMsgType
     manager=manager or SessionManager()
     root=Path(__file__).with_name('collection_web')
+    camera=camera or CameraPanel(site_value('station.data_root') or manager.root.parent)
     cookie=secrets.token_urlsafe(32)
     remote_enabled=bool(enable_remote_control)
     safety={}
@@ -262,6 +264,8 @@ def make_app(manager=None, *, enable_remote_control=False, video_handler=None, f
             result=web.json_response(dict(error_code=exc.code,message_zh=exc.message,state=snapshot(),safety=safety),status=exc.status)
         except (ValueError,KeyError,TypeError,queue.Full) as exc:
             result=web.json_response(dict(error_code='invalid_request',message_zh=f'参数或数据无效，请核对后重试：{exc}',state=snapshot(),safety=safety),status=400)
+        except CameraConflict as exc:
+            result=web.json_response(dict(error_code='camera_busy',message_zh=str(exc),state=snapshot(),safety=safety),status=409)
         except RuntimeError as exc:
             result=web.json_response(dict(error_code='operation_failed',message_zh=f'操作失败，请查看服务日志后重试：{exc}',state=snapshot(),safety=safety),status=503)
         except web.HTTPException as exc:
@@ -417,6 +421,41 @@ def make_app(manager=None, *, enable_remote_control=False, video_handler=None, f
         event('view',request['client'],dict(view=value))
         return response()
 
+    async def camera_module(request):
+        return web.FileResponse(root/'camera-panel.mjs')
+
+    async def camera_status(request):
+        return web.json_response(await asyncio.to_thread(camera.status), headers={'Cache-Control':'no-store'})
+
+    async def camera_preview(request):
+        pixels=await asyncio.to_thread(camera.preview_jpeg)
+        return web.Response(body=pixels,content_type='image/jpeg',headers={'Cache-Control':'no-store'})
+
+    async def camera_photos(request):
+        return web.json_response(await asyncio.to_thread(camera.photos))
+
+    async def camera_photo(request):
+        try:
+            path=camera.photo(request.match_info['name'])
+        except FileNotFoundError:
+            raise web.HTTPNotFound()
+        return web.FileResponse(path)
+
+    async def camera_write(request):
+        action=request.match_info['action']
+        methods={'start':camera.start,'stop':camera.stop,'snapshot':camera.snapshot,
+                 'record/start':camera.record_start,'record/stop':camera.record_stop}
+        method=methods.get(action)
+        if method is None:raise web.HTTPNotFound()
+        args=(request['values'].get('label',''),) if action=='snapshot' else ()
+        value=await asyncio.to_thread(method,*args)
+        event('camera/'+action,request['client'],request['values'])
+        # Recording responses remain exactly as returned by the station tool.
+        return web.json_response(value,headers={'Cache-Control':'no-store'})
+
+    async def camera_record_state(request):
+        return web.json_response(await asyncio.to_thread(camera.record_state),headers={'Cache-Control':'no-store'})
+
     async def inspect():
         nonlocal safety
         while True:
@@ -444,6 +483,7 @@ def make_app(manager=None, *, enable_remote_control=False, video_handler=None, f
         yield
         for task in tasks:task.cancel()
         await asyncio.gather(*tasks,return_exceptions=True)
+        await asyncio.to_thread(camera.stop)
         if managed:await manager.stop()
         if manager.export_process and manager.export_process.returncode is None:
             await manager.export_process.wait()
@@ -453,6 +493,13 @@ def make_app(manager=None, *, enable_remote_control=False, video_handler=None, f
     app.cleanup_ctx.append(lifecycle)
     app.router.add_get('/',index)
     app.router.add_get('/video',video_handler or video)
+    app.router.add_get('/camera-panel.mjs',camera_module)
+    app.router.add_get('/api/v1/camera/status',camera_status)
+    app.router.add_get('/api/v1/camera/preview.jpg',camera_preview)
+    app.router.add_get('/api/v1/camera/photos',camera_photos)
+    app.router.add_get('/api/v1/camera/photos/{name}',camera_photo)
+    app.router.add_get('/api/v1/camera/record/state',camera_record_state)
+    app.router.add_post('/api/v1/camera/{action:start|stop|snapshot|record/start|record/stop}',camera_write)
     app.router.add_static('/overlay',root/'overlay')
     app.router.add_static('/web',root.parent/'operator_web')
     for path,handler in [('config',config),('status',status),('events',events),('episodes',episodes),('episodes/{id}',episode)]:

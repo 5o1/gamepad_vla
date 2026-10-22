@@ -74,7 +74,7 @@ python scripts/render_workcell.py configs/render/workcell_multiview_preview.yaml
 ## 扩展工具与依据
 
 - [操作者画面](docs/usage/operator-view.md)：`run_workstation.py --operator-view configs/render/operator_view.yaml --operator-run <新目录>`，配合 `--backend sapien` 和输入源参数。
-- 相机拍照：`python scripts/station/camera_capture.py`，按程序打印的本地地址打开网页。原始 PNG 和逐帧内参默认保存至 `build/camera_capture/`；需要长期保留的标定数据归档到 `references/`。
+- [相机面板](docs/usage/collection.md#调整并重新标定-ego-相机)：在采集网站预览、对正网格、拍标定照片及录 RGB-D；PNG 与同帧内参 JSON 保存在站点数据目录。旧的独立拍照入口已并入网站。
 - [资产来源](references/robot_assets.md)记录当前模型依据；[模块边界](docs/architecture.md)说明采集与配置分工。
 
 渲染沿用手柄资产 v0.4.1 的 example runner；网页串流适配其 latest-state/NVENC 链路，不修改上游。Python 资源打包依据 [Setuptools package data](https://setuptools.pypa.io/en/stable/userguide/datafiles.html)，CI 依据 [GitHub Python 工作流](https://docs.github.com/en/actions/tutorials/build-and-test-code/python)。
@@ -84,3 +84,5 @@ python scripts/render_workcell.py configs/render/workcell_multiview_preview.yaml
 ROS 输入按 [Humble executor 源码](https://github.com/ros2/rclpy/blob/humble/rclpy/rclpy/executors.py)的持续 spin 模式，在专用 SingleThreadedExecutor 线程中串行接收，使用 [Python FIFO 队列](https://docs.python.org/3.10/library/queue.html)向录制器逐条交接原始消息；每路 QoS 深度 128。控制环只选最新目标，接收事件不会因此丢弃。episode v3 的 `commands.jsonl` 保存未取整的原始 JointState、整数消息头时间戳、单调/墙钟接收时间和转换值；`steps.jsonl` 单独保存实际应用目标、关联消息序号及应用时钟。实际门槛和原始数据限制见 [M1 报告](docs/reports/2026-10-22-station-install/README.md)。真实 rclpy 回归测试需显式设置 `GAMEPAD_VLA_TEST_ROS2=1`、非默认 ROS 域，仅发布测试前缀话题；普通单元测试中的替身不能替代它。此改动不更改仿真物理或既有 L1/L2 结论。
 
 采集网页及 REST 控制入口为 `scripts/collection_server.py`，供助手或 Codex 在采集台本机操作；[API 说明](docs/usage/collection-api.md)说明默认关闭的远程写控制、SSE、审计和语音规则。实现依据 [aiohttp 服务与流响应](https://docs.aiohttp.org/en/stable/web_quickstart.html)、[Python spawn](https://docs.python.org/3.10/library/multiprocessing.html)及 [MuJoCo 渲染相机定义](https://mujoco.readthedocs.io/en/stable/APIreference/APItypes.html#mjvglcamera)。CLI/网页共用采集控制器，episode v4 增加限幅标志并继续读取 v2/v3；独立渲染副本使用 v4.4 标定 ego 相机，MuJoCo 另对像素焦距比作图像校正，不修改物理模型。仿真、传输与浏览器验证不证明实物操作能力，本轮 N1 与采集台 N2 均通过；验收数值和限制见[任务 N 报告](docs/reports/2026-10-22-collection-web/README.md)。
+
+相机预览复用本项目原有标定拍照 worker 的同帧 ROS Image/CameraInfo 配对与过期检查。RGB-D 只调用站上已有 ego 网页，使用私有 `camera.ego_web_script` 路径，通过回环 HTTP 原样代理录像状态及质量报告；不复制编码/统计代码。相机进程组依据 [Python Popen](https://docs.python.org/3.10/library/subprocess.html#subprocess.Popen) 的 `start_new_session` 隔离，清理接入 [aiohttp cleanup context](https://docs.aiohttp.org/en/stable/web_advanced.html#cleanup-context)。替身测试只验证接口、文件兼容与进程生命周期，真实图像、内参和录像质量仍以站点冒烟为准，见[任务 Q 报告](docs/reports/2026-10-23-camera-panel/README.md)。

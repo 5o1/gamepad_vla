@@ -273,3 +273,13 @@ L1/L2 使用 `scripts/check_collection.py`。按审阅者裁决 2，门槛回放
 远程控制每次服务启动默认关闭，助手在网页明确开启后，Codex/CLI 才可执行写操作。SSE 同步各客户端状态和最近 10 条控制事件；断线自动重连并先拉完整状态。GET 始终允许，所有 API 操作追加审计。现场硬件输入启动步骤仍按上面的 M2 手册执行，网页与 API 不提供硬件启动、急停或下电。
 
 任务 P 将采集画面统一回 `operator_view` 的 teleop mmap/独立孪生渲染/NVENC 管线，移除 MJPEG 自建场景。主画面可在标定 camera_3 与原操作者虚拟视角之间切换，手柄资产固定 v0.4.1；现场域 88、临时抬高场景及 gamepad-contact 的确切服务命令见 [API 现场启动说明](collection-api.md#采集画面与现场启动)。输入节点仍由现场人员的 `~/gamepad_vla/m2/start.sh` 启动。
+
+## 调整并重新标定 ego 相机
+
+打开采集网站，展开“相机”面板。相机与仿真会话独立，未启动仿真也可以使用。点击“启动相机”，观察 1280×720、30 fps 的彩色画面、浏览器实际预览帧率和画面年龄；可开启网格与中心十字线，边移动 ego 相机边确认自然姿态下的手柄仍在视野内。遇到 409 占用提示，请现场人员核对提示中的 PID 与程序，本服务不会结束别人的进程。
+
+相机固定后，输入摆放位置标签，点击“拍照”。预览为 JPEG，保存的是未缩放、未裁剪、未去畸变的无损 PNG 及同帧 camera_info JSON（K、D、R、P、时间戳和 serial）。最新照片立即显示，本次会话列表可下载 PNG 和 JSON。文件位于采集台 `<data_root>/calibration/<YYYYMMDD-HHMMSS>/<label>_<UTC时间>.png` 和同名 `.json`；`data_root` 来自私有配置 `station.data_root`，标签中的非 ASCII 字母数字/下划线/连字符转为下划线，原标签保存在 JSON。同秒创建的会话追加微秒以避免覆盖。照片格式可直接交给[2026-10-20 标定流程](../../references/calibration/2026-10-20-ego/README.md)及其中 measured 方法；需要测量至少三个不同标定板位置。本任务只提供预览与拍照，不重新求解标定，也不更新已有外参。
+
+“RGB-D 录像”通过回环子进程代理站上已有 ego 网页；点击开始会释放本项目的预览相机，停止并保存后先释放站点网页的相机，再恢复此前开启的预览。空闲时也可直接开始录像，结束后回到空闲。录像产物位于 `<data_root>/camera/<会话>/videos/`：彩色 H.264 MP4、对齐彩色的 16 位无损深度 MKV、带 depth_scale 的内参 JSON、逐帧 jsonl 和质量报告。面板原样显示站点工具返回的质量报告；warning/failed 必须按报告解释，文件存在不代表录像质量通过。
+
+站点配置需填写 `camera.camera_3`（兼容 `camera.serials.camera_3`）、`camera.ego_web_script`（站上已有 `ego_camera_photo_web.py` 的路径）、`station.python`（系统 Python）和 `station.ros_setup`。预览固定使用标定所需的 1280×720、30 fps；录像分辨率、帧率及设备选择由已有 ego 工具负责，必须由现场人员确认它选择的就是本次 ego 相机。`camera.ros_domain_id` 必须与采集仿真使用的域不同，所有相机子服务仅回环监听、ROS 仅 loopback。网页所有写操作使用 POST，并沿用 web cookie / 远程控制开关和审计；非网页客户端需要现场开启远程控制。关闭面板只折叠显示，不停止相机；用“停止相机”释放设备。

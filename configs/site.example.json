@@ -37,7 +37,9 @@
     "port": 18788,
     "tunnel_port": 18787,
     "remote_port": 18787,
-    "ros_domain_id": 73
+    "ros_domain_id": 73,
+    "camera_3": "",
+    "ego_web_script": ""
   },
   "udp": {
     "bind_host": "127.0.0.1",

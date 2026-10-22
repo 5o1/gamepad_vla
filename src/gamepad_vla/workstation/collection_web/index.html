@@ -5,6 +5,23 @@
 *{box-sizing:border-box}html,body{height:auto;overflow:auto}body{margin:0;background:#142027;color:#f2f6f7;font:18px system-ui}main{max-width:1280px;margin:auto;padding:16px}button,input,select{font:inherit;padding:10px;margin:5px;border-radius:4px}button{cursor:pointer}button:disabled{opacity:.4;cursor:default}label{display:inline-block}#safety{position:sticky;top:0;z-index:3;background:#22634e;padding:16px;font-size:24px;font-weight:bold}#safety.warn,.warn{background:#91332d!important;color:white}#recording{font-size:48px;font-weight:800;padding:12px;border:2px solid #82959c}#recording.active{background:#b7222e}#recordDetails{font-size:24px;padding:8px}.view{position:relative;background:#0b1216;min-height:160px}.view canvas{width:100%;display:block}#overlayRoot{position:absolute;right:1%;bottom:2%;width:34%;height:34%;pointer-events:none}#health{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0}.channel{padding:10px;background:#25404b}#message{white-space:pre-wrap;color:#ffd591;min-height:26px}table{width:100%;border-collapse:collapse;font-size:16px}td,th{border-bottom:1px solid #50606a;padding:8px;text-align:left}small{display:block}#clamps{min-height:24px}fieldset{border:1px solid #50606a;margin:12px 0}#note{min-width:45%}#metrics{padding:8px;font-variant-numeric:tabular-nums}
 </style>
 <div id="safety">正在实际检测仿真模式…</div><main>
+<details id="cameraPanel"><summary>相机</summary>
+<style>
+#cameraPanel{border:1px solid #50606a;padding:12px;margin:16px 0}#cameraMode{font-size:22px}#cameraMessage{color:#ffd591;white-space:pre-wrap}.cameraPreview{position:relative;background:#090d10;max-width:100%;aspect-ratio:16/9}.cameraPreview img{display:block;width:100%;height:100%;object-fit:contain}.cameraGuide{position:absolute;inset:0;pointer-events:none}.cameraGuide.grid{background-image:linear-gradient(to right,transparent calc(100% - 1px),#ffffff80 0),linear-gradient(to bottom,transparent calc(100% - 1px),#ffffff80 0);background-size:33.333% 33.333%}.cameraGuide.cross:before,.cameraGuide.cross:after{content:"";position:absolute;background:#ffde59}.cameraGuide.cross:before{left:50%;top:0;width:1px;height:100%}.cameraGuide.cross:after{top:50%;left:0;height:1px;width:100%}#cameraPhotos{display:flex;gap:12px;flex-wrap:wrap}#cameraPhotos figure{margin:0;width:220px;overflow-wrap:anywhere}#cameraPhotos img{width:220px}#cameraLastPhoto{max-width:240px}#cameraInfo,#cameraReport{white-space:pre-wrap;overflow-wrap:anywhere}#cameraReport{max-height:300px;overflow:auto}#cameraPanel summary{cursor:pointer;font-size:24px}
+</style>
+<div id="cameraMode" role="status">空闲</div><div id="cameraMessage" role="alert"></div>
+<fieldset><legend>预览与网格</legend>
+<button type="button" id="cameraStart">启动相机</button><button type="button" id="cameraStop">停止相机</button>
+<label><input id="cameraGrid" type="checkbox">网格</label><label><input id="cameraCross" type="checkbox">中心十字线</label>
+<div id="cameraMetrics">预览未启动</div><div class="cameraPreview"><img id="cameraPreview" alt="ego 相机实时预览"><div id="cameraGuide" class="cameraGuide"></div></div><pre id="cameraInfo"></pre>
+</fieldset>
+<fieldset><legend>标定拍照</legend><label>标签<input id="cameraLabel" value="position_1" maxlength="200"></label><button type="button" id="cameraSnapshot">拍照</button>
+<img id="cameraLastPhoto" alt="最新标定照片" hidden><p id="cameraOutput"></p><div id="cameraPhotos"></div>
+</fieldset>
+<fieldset><legend>RGB-D 录像</legend><p>录像独占相机，期间暂停预览和标定拍照；停止并保存后恢复原有预览。产物：彩色 H.264 MP4、对齐到彩色的 16 位无损深度 MKV、内参 JSON、逐帧 jsonl 和质量报告。</p>
+<button type="button" id="cameraRecordStart">开始 RGB-D 录像</button><button type="button" id="cameraRecordStop">停止并保存录像</button><pre id="cameraReport">完成录像后显示站点工具的原始质量报告。</pre>
+</fieldset></details>
+<script type="module" src="/camera-panel.mjs"></script>
 <form id="sessionForm"><fieldset><legend>仿真会话</legend>
 <label>后端<select id="backend"></select></label><label>场景<select id="variant"></select></label><label>输入<select id="source"></select></label>
 <label id="replayLabel">回放文件<select id="replay"></select></label>

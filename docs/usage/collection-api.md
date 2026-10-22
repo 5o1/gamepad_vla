@@ -148,3 +148,22 @@ ROS_DOMAIN_ID=88 bash scripts/station/start_collection_server.sh \
 ```
 
 本机打开 `http://127.0.0.1:8780/`，确认参数后点“启动仿真”。远程写仍默认关闭。输入节点由现场人员用 `~/gamepad_vla/m2/start.sh` 启动；该服务和 Codex 不启动硬件节点。`gamepad-contact` 保留机器人与手柄接触，关闭桌面等环境碰撞；`--arm-startup none` 仅关闭启动姿态限幅，绝对关节限位保留。服务默认仍是 v4.4，以上命令显式选择临时抬高场景。
+
+## 相机面板 API
+
+相机生命周期独立于仿真；沿用上文所有写权限和审计规则。相机操作不发送手或臂命令。除相机子进程外，原有仿真进程所有权保持不变。
+
+| 方法 / 端点 | 参数或结果 |
+|---|---|
+| POST `/api/v1/camera/start` | `{}`；启动预览，固定 1280×720 @ 30 fps |
+| POST `/api/v1/camera/stop` | `{}`；停止相机及其录像子服务，释放 USB |
+| GET `/api/v1/camera/status` | mode、serial、分辨率、K、fps、age_s、会话及质量报告 |
+| GET `/api/v1/camera/preview.jpg` | 新鲜 JPEG，过期/未启动返回 503 |
+| POST `/api/v1/camera/snapshot` | `{"label":"position_1"}`；保存 PNG + JSON，返回 name、path、metadata |
+| GET `/api/v1/camera/photos` | 当前标定会话照片及原始元数据 |
+| GET `/api/v1/camera/photos/{name}` | 当前会话单个 PNG 或 JSON，可下载 |
+| POST `/api/v1/camera/record/start` | `{}`；停止预览，启动站点 ego 网页并转发 start/record/start |
+| POST `/api/v1/camera/record/stop` | `{}`；转发 record/stop，停掉 ego 相机子服务，按需恢复预览 |
+| GET `/api/v1/camera/record/state` | 站点 ego 网页的原始 state；结束后为最近一次原始录像结果 |
+
+`camera_busy` 为 409，含中文占用进程提示；不会结束其他进程。录像三个代理端点直接返回上游 JSON，不包装成仿真 state；失败仍使用统一错误格式。原有“接口不启动硬件节点”的说明对相机端点有例外：这些端点按现场授权仅启动 RealSense，不启动手、臂或 CAN 节点。
