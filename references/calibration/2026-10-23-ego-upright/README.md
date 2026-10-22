@@ -32,3 +32,18 @@ Full transform: [result.json](result.json). Overlay: [position_mid_overlay.jpg](
 **Cross-check.** The 2026-10-20 three-placement fit put the camera at (222.7, 681.6, 677.8) mm. The difference, (2, −28, 14) mm, is within that fit's jackknife spread of (13.8, 29.3, 11.9) mm. The two calibrations are independent: board flat versus upright, and a different camera orientation.
 
 **Limits.** This is a single view. Its absolute accuracy depends on the measured board pose, mainly the 602 mm print plane and the assumed centring. A low reprojection error does not show the pose is accurate. Adding left and right upright placements to a joint fit, as on 2026-10-20, would reduce this dependence.
+
+## Second photo after a small camera adjustment (adopted)
+
+The user adjusted the camera slightly, trying to level it, and took one more photo with the board in the same upright centre placement: [position_mid_2.png](position_mid_2.png), metadata in [position_mid_2.json](position_mid_2.json). The same script and assumptions were used.
+
+| Quantity | Value |
+|---|---|
+| ChArUco corners | 20 / 20 |
+| Reprojection median / P95 / max | 0.24 / 0.37 / 0.39 px |
+| Camera in table frame | (224.9, 652.0, 691.5) mm, within 1.5 mm of the first photo |
+| Optical axis (world) | (0.727, 0.026, −0.687); roll −1.5°, yaw 2.1° |
+
+Full transform: [result_2.json](result_2.json). Overlay: [position_mid_2_overlay.jpg](position_mid_2_overlay.jpg).
+
+The scene camera_3 now uses this pose. The gamepad tilt needed to face the camera is 39.73°, unchanged from the 39.8° fixture design, with a 2.5° residual.

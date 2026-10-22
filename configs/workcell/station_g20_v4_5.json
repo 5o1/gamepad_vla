@@ -332,13 +332,13 @@
       "type": "mesh",
       "parent": "world",
       "pose": [
-        0.321597969,
-        0.621306971,
-        1.454856739,
-        0.274017212,
-        0.649276278,
-        0.649099421,
-        0.286399763
+        0.321860546,
+        0.619791644,
+        1.454657384,
+        0.269642534,
+        0.64928106,
+        0.649380498,
+        0.289882696
       ],
       "collision": false,
       "status": "estimated",
@@ -375,13 +375,13 @@
       "model": "D435 (recorded, physical model unverified)",
       "parent": "world",
       "pose_optical": [
-        0.318251076,
-        0.653733281,
-        1.458331321,
-        0.286399763,
-        -0.649099421,
-        0.649276278,
-        -0.274017212
+        0.318363773,
+        0.652165064,
+        1.458461886,
+        0.289882696,
+        -0.649380498,
+        0.64928106,
+        -0.269642534
       ],
       "intrinsics": {
         "width": 1280,
@@ -400,7 +400,7 @@
         "model": "none"
       },
       "status": "estimated",
-      "source": "references/calibration/2026-10-23-ego-upright/: single upright ChArUco image at the far table edge, 20 corners, reprojection median 0.18 px; camera position within the 2026-10-20 jackknife spread. K/D unchanged from the driver camera_info."
+      "source": "references/calibration/2026-10-23-ego-upright/ (second photo, position_mid_2, after a small camera adjustment): single upright ChArUco image, 20 corners, reprojection median 0.24 px. K/D unchanged."
     }
   ],
   "appearance": "../appearance/station_v2.json"
