@@ -36,11 +36,12 @@ class CollectionOptions:
     port: int = 8780
     udp_host: str = '127.0.0.1'
     udp_port: int = 50200
+    arm_startup: str = 'spec'
 
     def validate(self):
         if self.backend not in ('sapien', 'mujoco') or self.source not in ('ros2', 'replay', 'udp'):
             raise ValueError('invalid simulation backend or source')
-        if self.scene_variant not in ('full', 'free-space'):
+        if self.scene_variant not in ('full', 'free-space', 'gamepad-contact'):
             raise ValueError('invalid scene variant')
         if (self.duration is not None and (self.duration <= 0 or not __import__('math').isfinite(self.duration))) or self.rate_hz <= 0:
             raise ValueError('duration and rate must be positive (null duration means unlimited)')
@@ -121,7 +122,7 @@ class CollectionController:
         try:
             configure_runtime()
             spec = load_spec(a.spec)
-            mapper = ArmMapper({s: getattr(spec, s+'_arm').home_q for s in ('left', 'right')})
+            mapper = ArmMapper({s: getattr(spec, s+'_arm').home_q for s in ('left', 'right')}, startup=a.arm_startup)
             if a.source == 'ros2':
                 self.source = Ros2Source(mapper, topic_prefix=a.ros_topic_prefix)
             elif a.source == 'udp':
@@ -130,7 +131,8 @@ class CollectionController:
             else:
                 self.source = CollectionReplay(a.replay, loop=a.loop_replay)
             self.backend = create_backend(a.backend, spec, work_dir=a.output.with_name(a.output.name+'-physics'),
-                render=False, resource_root=a.resource_root, environment_collisions=a.scene_variant=='full')
+                render=False, resource_root=a.resource_root, environment_collisions=a.scene_variant=='full',
+                gamepad_collisions=a.scene_variant!='free-space')
             self.backend.reset()
             if a.backend == 'mujoco' and a.mujoco_workers > 1:
                 self.backend.mj.mju_threadpool(self.backend.data, a.mujoco_workers)

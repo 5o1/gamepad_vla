@@ -59,7 +59,7 @@ class CollectionMujocoBackend:
     name = "mujoco"
 
     def __init__(self, spec, *, work_dir=None, render=False, resource_root=None,
-                 environment_collisions=True):
+                 environment_collisions=True, gamepad_collisions=None):
         import mujoco as mj
         from xbox_gamepad_physics.mujoco import attach_to_spec
         from xbox_gamepad_physics.mujoco.numerics import apply_standalone_policy
@@ -70,6 +70,9 @@ class CollectionMujocoBackend:
             raise ValueError('collection v1 retains the fixed gamepad mount')
         self.mj, self.spec = mj, spec
         self.environment_collisions = bool(environment_collisions)
+        if gamepad_collisions is not None and bool(gamepad_collisions) != self.environment_collisions:
+            raise NotImplementedError("the gamepad-contact variant is implemented for SAPIEN only")
+        self.gamepad_collisions = self.environment_collisions
         self._temporary = tempfile.TemporaryDirectory(prefix='collection_mujoco_') if work_dir is None else None
         self.work_dir = Path(self._temporary.name if self._temporary else work_dir)
         self.work_dir.mkdir(parents=True, exist_ok=True)

@@ -14,8 +14,19 @@ OFFSETS = {"left": np.array([90., 90., -90., 0., 0., 0., 0.]),
 
 
 class ArmMapper:
-    def __init__(self, startup_rad, *, margin_deg=3., max_delta_deg=60., limit_around_initial=True):
-        self.initial = {side: np.rad2deg(self._vector(startup_rad[side])) for side in OFFSETS}
+    def __init__(self, startup_rad, *, margin_deg=3., max_delta_deg=60., limit_around_initial=True,
+                 startup="spec"):
+        # "spec": clamp around the scene home_q. "first_command": a simulated slave
+        # starts where the master is, so each side's first mapped command (after the
+        # absolute limits) becomes its startup reference, as on the station.
+        # "none": simulation only; no startup clamp, absolute limits still apply.
+        if startup not in ("spec", "first_command", "none"):
+            raise ValueError("arm startup must be 'spec', 'first_command' or 'none'")
+        self.startup = startup
+        if startup == "none":
+            limit_around_initial, startup = False, "spec"
+        self.initial = {side: (np.rad2deg(self._vector(startup_rad[side])) if startup == "spec" else None)
+                        for side in OFFSETS}
         self.margin = float(margin_deg)
         self.max_delta = float(max_delta_deg)
         self.limit_around_initial = bool(limit_around_initial)
@@ -35,6 +46,8 @@ class ArmMapper:
         limited = np.clip(mapped, LOW_DEG + self.margin, HIGH_DEG - self.margin)
         absolute = (limited != mapped).tolist()
         before_startup = limited.copy()
+        if self.initial[side] is None:
+            self.initial[side] = limited.copy()
         if self.limit_around_initial:
             limited = np.clip(limited, self.initial[side] - self.max_delta,
                               self.initial[side] + self.max_delta)
@@ -42,6 +55,7 @@ class ArmMapper:
                           dict(absolute=absolute, startup=(limited != before_startup).tolist()))
 
     def metadata(self):
-        return dict(version=VERSION, startup_rad={s: np.deg2rad(v).tolist() for s, v in self.initial.items()},
+        return dict(version=VERSION, startup=self.startup,
+                    startup_rad={s: (None if v is None else np.deg2rad(v).tolist()) for s, v in self.initial.items()},
                     margin_deg=self.margin, max_delta_deg=self.max_delta,
                     limit_around_initial=self.limit_around_initial)

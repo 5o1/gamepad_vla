@@ -30,7 +30,7 @@ class Ros2Source:
     """
     def __init__(self, mapper, *, node=None, joint_state_type=None, spin_once=None,
                  stale_after_s=.25, clock=time.monotonic, packet_sink=None,
-                 topic_prefix="", qos_depth=128):
+                 topic_prefix="", qos_depth=128, reliability=None):
         if qos_depth < 100:
             raise ValueError("ROS command QoS must buffer at least 100 messages per channel")
         self.health = InputHealth(clock)
@@ -56,11 +56,20 @@ class Ros2Source:
                                            start_parameter_services=False)
         self.node = node
         self.subscriptions = []
+        # Station publishers: retarget hand commands are RELIABLE, LinkerTA arm
+        # commands are BEST_EFFORT. A RELIABLE subscription never matches a
+        # BEST_EFFORT publisher, so each channel follows its publisher.
+        self.reliability = {"hand": "reliable", "arm": "best_effort", **(reliability or {})}
         for key, topic in ros_command_topics(topic_prefix).items():
             side, kind = key.split("_")
+            qos = qos_depth
+            if self._rclpy is not None:
+                qos_module = importlib.import_module("rclpy.qos")
+                qos = qos_module.QoSProfile(depth=qos_depth, reliability=getattr(
+                    qos_module.ReliabilityPolicy, self.reliability[kind].upper()))
             self.subscriptions.append(node.create_subscription(
                 joint_state_type, topic,
-                lambda msg, s=side, k=kind: self._receive(s, k, msg), qos_depth))
+                lambda msg, s=side, k=kind: self._receive(s, k, msg), qos))
         if self._rclpy is not None:
             executor_type = importlib.import_module("rclpy.executors").SingleThreadedExecutor
             self._executor = executor_type(context=node.context)

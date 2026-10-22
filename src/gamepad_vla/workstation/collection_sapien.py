@@ -96,7 +96,7 @@ class CollectionSapienBackend:
     name = "sapien"
 
     def __init__(self, spec, work_dir=None, render=False, resource_root=None,
-                 environment_collisions=True):
+                 environment_collisions=True, gamepad_collisions=None):
         import sapien
         from xbox_gamepad_physics.robotwin import load_into_scene
 
@@ -104,6 +104,9 @@ class CollectionSapienBackend:
             raise ValueError("collection requires both arms and both hands")
         self.spec = spec
         self.environment_collisions = bool(environment_collisions)
+        # gamepad-contact: robots touch only the gamepad, so a hanging master arm
+        # passes through the table instead of jamming against it.
+        self.gamepad_collisions = self.environment_collisions if gamepad_collisions is None else bool(gamepad_collisions)
         self.work_dir = Path(work_dir or tempfile.mkdtemp(prefix="collection_sapien_"))
         self.work_dir.mkdir(parents=True, exist_ok=True)
         self.render_enabled = bool(render)
@@ -184,7 +187,7 @@ class CollectionSapienBackend:
                 else:
                     os.environ["XBOX_GAMEPAD_PHYSICS_RESOURCES"] = previous_resources
         self._initial_gamepad_q = dict(self.gamepad.joint_positions())
-        if not self.environment_collisions:
+        if not self.gamepad_collisions:
             for link in self.gamepad.articulation.get_links():
                 for shape in link.get_collision_shapes():
                     groups = list(shape.get_collision_groups())

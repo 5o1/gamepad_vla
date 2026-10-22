@@ -39,9 +39,14 @@ class Session:
         self.output = Path(output)
         self.output.mkdir(parents=True, exist_ok=False)
         scene = spec_to_dict(spec)
-        scene["collection_variant"] = dict(name="full" if backend.environment_collisions else "free-space",
-            environment_collisions=backend.environment_collisions, robot_self_collision="backend_existing",
-            definition="table, gamepad, fixtures have no collision in free-space; robot model, mount, drives unchanged")
+        gamepad_collisions = getattr(backend, "gamepad_collisions", backend.environment_collisions)
+        name = ("full" if backend.environment_collisions else
+                "gamepad-contact" if gamepad_collisions else "free-space")
+        scene["collection_variant"] = dict(name=name,
+            environment_collisions=backend.environment_collisions, gamepad_collisions=gamepad_collisions,
+            robot_self_collision="backend_existing",
+            definition="free-space: table, gamepad, fixtures have no collision; gamepad-contact: only the "
+                       "gamepad collides with robots; robot model, mount, drives unchanged")
         self.meta = dict(scene_spec_text=json.dumps(scene, sort_keys=True),
                          scene_variant=scene["collection_variant"],
                          backend_name=backend.name, backend_version=importlib.metadata.version(backend.name),

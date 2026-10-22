@@ -13,7 +13,7 @@ from gamepad_vla.site import site_value
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--backend", choices=("sapien", "mujoco"), required=True)
-    p.add_argument("--scene-variant", choices=("full", "free-space"), default="full",
+    p.add_argument("--scene-variant", choices=("full", "free-space", "gamepad-contact"), default="full",
                    help="free-space disables environment collision in code, leaving v4.4 unchanged")
     p.add_argument("--mujoco-workers", type=int, default=1,
                    help="native CPU worker threads for MuJoCo; changes no solver parameters")
@@ -34,6 +34,8 @@ def main():
     p.add_argument("--port", type=int, default=site_value("operator.port", 8780))
     p.add_argument("--udp-host", default=site_value("udp.bind_host", "127.0.0.1"))
     p.add_argument("--udp-port", type=int, default=site_value("udp.port", 50200))
+    p.add_argument("--arm-startup", choices=("spec", "first_command", "none"), default="spec",
+                   help="arm startup clamp: around scene home_q, around the first master command, or none (sim only)")
     a = p.parse_args()
     if a.duration <= 0 or a.rate_hz <= 0:
         p.error("duration and rate must be positive")
