@@ -175,6 +175,25 @@
       "roughness": 0.9,
       "status": "estimated",
       "source": "photo 0, pixel ROI [40, 1130, 120, 1210]; neutral WB photo 0 white_arm; metallic/roughness assumed initial values"
+    },
+    {
+      "name": "backdrop_green",
+      "match": {
+        "link_glob": [
+          "station_backdrop*"
+        ],
+        "mesh_glob": []
+      },
+      "base_color": [
+        0.0173,
+        0.1706,
+        0.0623,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.95,
+      "status": "estimated",
+      "source": "2026-10-23 ego calibration image position_mid, median of green-screen ROIs [380,20,700,200] and [260,250,560,380], sRGB->linear; camera auto white balance, not neutralised like the photo-0 entries"
     }
   ],
   "visual_splits": [

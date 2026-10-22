@@ -344,6 +344,28 @@
       "status": "estimated",
       "mesh": "workspace://external/online_20261015/realsense_d435_d455/realsense2_description/meshes/d435.dae",
       "source": "2026-10-23 ego optical pose with the existing nominal optical-to-D435-shell transform preserved; visual only."
+    },
+    {
+      "name": "station_backdrop_green",
+      "type": "box",
+      "parent": "world",
+      "pose": [
+        1.5,
+        0.62,
+        1.25,
+        1,
+        0,
+        0,
+        0
+      ],
+      "half_extents": [
+        0.01,
+        1.6,
+        1.25
+      ],
+      "collision": false,
+      "status": "design",
+      "source": "2026-10-23 visual-only green screen beyond the far table edge, so the re-aimed camera_3 no longer sees empty background past the floor; colour from the calibration photo (appearance backdrop_green)."
     }
   ],
   "cameras": [

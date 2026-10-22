@@ -68,13 +68,13 @@
     "profile": "full_controls",
     "collision": "sdf",
     "root_pose": [
-      0.63,
-      0.6755,
+      0.709415,
+      0.6252,
       0.986859,
-      0.7071067811865476,
-      0.0,
-      0.0,
-      -0.7071067811865476
+      0.664976434,
+      0.240429496,
+      -0.240429496,
+      -0.664976434
     ],
     "fixed_root": true
   },
@@ -87,8 +87,8 @@
     "Archived camera extrinsics and retained driver intrinsics unchanged from v4.3.",
     "v4.5 (2026-10-22): arm mounts rotated about each base z (J1) axis, left -90 deg and right +90 deg, relative to the vendor design value used through v4.4. Evidence: with the master arm hanging naturally, the station map_left/right gives slave J1 = +/-90 deg, and the station's real slave hangs in that pose, whereas the v4.4 mount hangs at J1 = 0 and folded the sim arm backward. home_q J1 shifted by +/-90 deg to keep the same physical home pose.",
     "v4.5 right arm (2026-10-23): an extra +15 deg rotation about the right base z (J1) axis. LinkerTA adds offset_deg=-15 to right J1 (lta.yaml and main_ros2.cpp default, 2026-08-31, comment 'joint51 -15 deg'). Inferred to compensate the real right slave, so the right arm hangs vertically at slave J1 = -105 deg; before this change the sim right arm leaned back about 20 deg with the master hanging. This is an inference and has not been measured on the real slave. home_q J1 shifted by -15 deg.",
-    "Collection placement (user decision 2026-10-23): gamepad flat, yaw -90 deg, shell bottom 190 mm above the table, root x = 0.63 m (front shell edge about 1 cm inside the far table edge, away from the arms), y on the camera_3 principal ray. The calibrated camera_3 then no longer sees the gamepad; use the operator view or the overview PiP. Post: 20x24 mm design support under the back-shell centre.",
-    "camera_3 re-aimed and recalibrated on 2026-10-23 (tilted forward about 43 deg, position nearly unchanged); see references/calibration/2026-10-23-ego-upright/."
+    "camera_3 re-aimed and recalibrated on 2026-10-23 (tilted forward about 43 deg, position nearly unchanged); see references/calibration/2026-10-23-ego-upright/.",
+    "Collection placement (user decision 2026-10-23, revised): gamepad on the edge post, root [0.709415, 0.6252, 0.986859] (220 mm above the table), yaw -90 deg, tilted 39.8 deg about its left-right axis (bumper edge up) so the face normal points at camera_3 (2.7 deg residual; camera 29 mm off the table centre line). Back-shell support point 211.3 mm above the table."
   ],
   "right_arm": {
     "urdf": "workspace://assets/derived/ar5_08r_e6bcf44f/right_arm.urdf",
@@ -350,22 +350,44 @@
       "name": "gamepad_support_post",
       "type": "box",
       "pose": [
-        0.63,
-        0.6755,
-        0.871559,
+        0.709415,
+        0.6252,
+        0.872659,
         1,
         0,
         0,
         0
       ],
       "half_extents": [
+        0.009,
         0.012,
-        0.01,
-        0.104559
+        0.105659
       ],
       "collision": true,
       "status": "design",
-      "source": "interim teleop placement 2026-10-22: shell bottom 190 mm (natural-posture FK reference band 176-210 mm, K1-a), centred on the calibrated ego optical axis; 20x24 mm post per K0. Not a K1-b result."
+      "source": "2026-10-23 user fixture: 18 mm (front-back) post at the far table edge centre, the calibration-board clamp position (table X 607-625 mm, Y = 625 mm). It reaches the back-shell centre support point. The real fixture has one rotation DOF about the gamepad's left-right axis. Width 24 mm along the edge is assumed."
+    },
+    {
+      "name": "station_backdrop_green",
+      "type": "box",
+      "parent": "world",
+      "pose": [
+        1.5,
+        0.62,
+        1.25,
+        1,
+        0,
+        0,
+        0
+      ],
+      "half_extents": [
+        0.01,
+        1.6,
+        1.25
+      ],
+      "collision": false,
+      "status": "design",
+      "source": "2026-10-23 visual-only green screen beyond the far table edge, so the re-aimed camera_3 no longer sees empty background past the floor; colour from the calibration photo (appearance backdrop_green)."
     }
   ],
   "cameras": [
