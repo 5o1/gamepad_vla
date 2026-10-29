@@ -1,0 +1,25 @@
+{
+  "status": "not_detected",
+  "message": "未检测到可验证的手柄：轮廓缺少真实图像边缘支持",
+  "detected": false,
+  "estimated_pose": null,
+  "quality": {
+    "boundary_evidence": 0.24141630901287553
+  },
+  "captured_at_utc": "2026-10-29T23:10:48.859380+00:00",
+  "image_shape": [
+    720,
+    1280
+  ],
+  "camera_3_intrinsics": [
+    906.560791015625,
+    0.0,
+    647.8956298828125,
+    0.0,
+    905.986328125,
+    362.2329406738281,
+    0.0,
+    0.0,
+    1.0
+  ]
+}

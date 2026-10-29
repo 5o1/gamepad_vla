@@ -1,0 +1,6 @@
+{
+  "states": 79,
+  "collisions": 0,
+  "minimum_gap_mm": 28.395073475110287,
+  "scope": "79 saved/diagnostic hand poses, per-link convex hulls; does not prove every continuous human/robot motion"
+}

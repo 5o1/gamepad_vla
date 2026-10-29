@@ -1,0 +1,7 @@
+{
+  "count": 11,
+  "all_closed": true,
+  "positive_volume": true,
+  "z_min_nonnegative": true,
+  "seam_weld_tolerance_mm": 1e-06
+}

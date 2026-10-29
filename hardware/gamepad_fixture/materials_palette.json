@@ -1,0 +1,12 @@
+{
+  "PETG": {"label": "PETG", "color": "#187B88", "default": true},
+  "PLA-CF": {"label": "PLA-CF（可选）", "color": "#425163", "default": false},
+  "ASA": {"label": "ASA（可选）", "color": "#D77B2A", "default": false},
+  "TPU": {"label": "TPU（可选软垫）", "color": "#9358AC", "default": false},
+  "silicone": {"label": "硅胶片（默认）", "color": "#E3AF57", "default": true},
+  "EVA": {"label": "EVA片（整套替代）", "color": "#8CAF5D", "default": false},
+  "steel": {"label": "钢", "color": "#8193A5", "default": true},
+  "copper": {"label": "铜", "color": "#C17E55", "default": true},
+  "aluminum": {"label": "铝板（可选）", "color": "#B8C9D7", "default": false},
+  "reference": {"label": "手柄参照（非夹具材料）", "color": "#DCE2E7", "default": true}
+}

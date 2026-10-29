@@ -1,0 +1,97 @@
+{
+  "opencv": "4.11.0",
+  "source": "local replay of SAPIEN planar sticker RGB",
+  "total": 16,
+  "cases": [
+    {
+      "case": "nominal",
+      "position_error_mm": 0.0,
+      "angle_error_deg": 0.0
+    },
+    {
+      "case": "slip_0_-0.5",
+      "position_error_mm": 0.20284980270701278,
+      "angle_error_deg": 0.675854819326986
+    },
+    {
+      "case": "slip_0_-0.2",
+      "position_error_mm": 0.14967371515030298,
+      "angle_error_deg": 0.38766318363161645
+    },
+    {
+      "case": "slip_0_+0.2",
+      "position_error_mm": 0.12339721836016476,
+      "angle_error_deg": 0.18869286636839888
+    },
+    {
+      "case": "slip_0_+0.5",
+      "position_error_mm": 0.08060096793118694,
+      "angle_error_deg": 0.25148864353312206
+    },
+    {
+      "case": "slip_1_-0.5",
+      "position_error_mm": 0.1517351490960997,
+      "angle_error_deg": 0.0030291229856231894
+    },
+    {
+      "case": "slip_1_-0.2",
+      "position_error_mm": 0.2124785401038602,
+      "angle_error_deg": 0.2823461860345162
+    },
+    {
+      "case": "slip_1_+0.2",
+      "position_error_mm": 0.1921097330509835,
+      "angle_error_deg": 0.6049180403006744
+    },
+    {
+      "case": "slip_1_+0.5",
+      "position_error_mm": 0.17740451964972154,
+      "angle_error_deg": 0.20494446021737645
+    },
+    {
+      "case": "slip_turn_-1.0",
+      "position_error_mm": 0.013255859230641532,
+      "angle_error_deg": 0.9818243267867217
+    },
+    {
+      "case": "slip_turn_-0.3",
+      "position_error_mm": 0.050794039367804474,
+      "angle_error_deg": 0.400974500413696
+    },
+    {
+      "case": "slip_turn_+0.3",
+      "position_error_mm": 0.226011081875567,
+      "angle_error_deg": 0.23802077224434015
+    },
+    {
+      "case": "slip_turn_+1.0",
+      "position_error_mm": 0.19968906024252345,
+      "angle_error_deg": 0.073005854997092
+    },
+    {
+      "case": "common_left",
+      "position_error_mm": 0.3843935018987914,
+      "angle_error_deg": 0.5186896298423846
+    },
+    {
+      "case": "common_pitch",
+      "position_error_mm": 0.03321722843030134,
+      "angle_error_deg": 0.10144249314532772
+    },
+    {
+      "case": "planar_noise",
+      "position_error_mm": 0.04622442000138442,
+      "angle_error_deg": 0.284172552460376
+    }
+  ],
+  "accuracy": {
+    "position_error_mm": {
+      "median": 0.15070443212320134,
+      "max": 0.3843935018987914
+    },
+    "angle_error_deg": {
+      "median": 0.26691741478381914,
+      "max": 0.9818243267867217
+    }
+  }
+}

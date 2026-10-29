@@ -1,0 +1,105 @@
+{
+  "states": 79,
+  "contacts": 14,
+  "hits": [
+    {
+      "id": "right_p442_pointIK_RS_0",
+      "quality": "point_ik_diagnostic",
+      "links": [
+        "right/thumb_distal"
+      ]
+    },
+    {
+      "id": "right_p442_pointIK_RS_1",
+      "quality": "point_ik_diagnostic",
+      "links": [
+        "right/thumb_distal"
+      ]
+    },
+    {
+      "id": "right_p442_pointIK_RS_3",
+      "quality": "point_ik_diagnostic",
+      "links": [
+        "right/thumb_distal"
+      ]
+    },
+    {
+      "id": "right_p442_pointIK_RS_4",
+      "quality": "point_ik_diagnostic",
+      "links": [
+        "right/thumb_distal"
+      ]
+    },
+    {
+      "id": "right_p442_pointIK_RS_5",
+      "quality": "point_ik_diagnostic",
+      "links": [
+        "right/thumb_distal"
+      ]
+    },
+    {
+      "id": "right_p442_pointIK_RS_6",
+      "quality": "point_ik_diagnostic",
+      "links": [
+        "right/thumb_distal"
+      ]
+    },
+    {
+      "id": "right_p442_pointIK_RS_7",
+      "quality": "point_ik_diagnostic",
+      "links": [
+        "right/thumb_distal"
+      ]
+    },
+    {
+      "id": "right_p1526_pointIK_RS_0",
+      "quality": "point_ik_diagnostic",
+      "links": [
+        "right/thumb_distal"
+      ]
+    },
+    {
+      "id": "right_p1526_pointIK_RS_1",
+      "quality": "point_ik_diagnostic",
+      "links": [
+        "right/thumb_distal"
+      ]
+    },
+    {
+      "id": "right_p1526_pointIK_RS_2",
+      "quality": "point_ik_diagnostic",
+      "links": [
+        "right/thumb_distal"
+      ]
+    },
+    {
+      "id": "right_p1526_pointIK_RS_3",
+      "quality": "point_ik_diagnostic",
+      "links": [
+        "right/thumb_distal"
+      ]
+    },
+    {
+      "id": "right_p1526_pointIK_RS_5",
+      "quality": "point_ik_diagnostic",
+      "links": [
+        "right/thumb_distal"
+      ]
+    },
+    {
+      "id": "right_p1526_pointIK_RS_6",
+      "quality": "point_ik_diagnostic",
+      "links": [
+        "right/thumb_distal"
+      ]
+    },
+    {
+      "id": "right_p1526_pointIK_RS_7",
+      "quality": "point_ik_diagnostic",
+      "links": [
+        "right/thumb_distal"
+      ]
+    }
+  ],
+  "scope": "actual hand triangle meshes versus planar 15 mm paper proxy; raw FCL negative distances are not interpreted as penetration depth"
+}

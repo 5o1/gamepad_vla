@@ -1,0 +1,68 @@
+{
+  "local_base": {
+    "command": "PYTHONPATH=src .venv/bin/python -m pytest tests -q",
+    "passed": 197,
+    "skipped": 18
+  },
+  "local_isolated_vision": {
+    "opencv": "4.11.0",
+    "tests_passed": 12,
+    "tests_total": 12,
+    "synthetic_replay_detected": 16,
+    "synthetic_replay_total": 16,
+    "planar_sticker_replay_total": 16,
+    "planar_sticker_max_error_mm": 0.3843935018987914
+  },
+  "station_vision": {
+    "opencv": "5.0.0",
+    "tests_passed": 12,
+    "tests_total": 12,
+    "planar_sticker_cases": 16,
+    "planar_sticker_max_error_mm": 0.3110735028269491
+  },
+  "cad": {
+    "body_original_function_ast_changed": [
+      "main"
+    ],
+    "original_build_and_parameter_definitions_unchanged": true,
+    "coupons_closed": 11,
+    "marker_bracket_closed": true,
+    "published_cad_transform_matches_generated_manifest": true,
+    "print_pdf_A4_points": [
+      595.32,
+      841.92
+    ]
+  },
+  "station_runtime": {
+    "collection_port": 8780,
+    "pid_before_and_after": 294114,
+    "state": "idle",
+    "revision": 0,
+    "remote_control_enabled": false,
+    "camera_children_after_capture": 0
+  },
+  "not_certified": [
+    "physical fixture pose/load/creep",
+    "real positive-image metrology accuracy",
+    "normal displacement/tilt from small sticker",
+    "physical averaging noise reduction"
+  ],
+  "commit_created": false,
+  "sticker_placement": {
+    "hand_contact_is_criterion": false,
+    "controls_min_gap_mm": 0.3545055645858743,
+    "paper_size_mm": [
+      16,
+      16
+    ],
+    "camera_visible_synthetic": true
+  },
+  "averaging": {
+    "recommended_frames": 10,
+    "interval_s": 0.5,
+    "maximum_frames": 30,
+    "single_owned_camera_process": true,
+    "independent_random_noise_sem_scaling": "1/sqrt(N)",
+    "systematic_error_not_reduced": true
+  }
+}

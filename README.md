@@ -38,7 +38,7 @@ python scripts/run_workstation.py --source scripted --backend null --duration 1
 
 填写 `configs/site.local.json` 中的工作目录、连接脚本及设备参数；也可用 `GAMEPAD_VLA_SITE_CONFIG` 指定其他配置文件。该文件只保存在本机，不加入 Git 或发行包。
 
-可选依赖按用途安装：`sim` 为 SAPIEN，`web` 为操作者画面，`assets` 为资产处理，`data` 为 Parquet 转换。`vla` 暂缓开发，基础安装无需 Torch。ROS2 和 Isaac 使用各自的隔离环境。
+可选依赖按用途安装：`sim` 为 SAPIEN，`web` 为操作者画面，`assets` 为资产处理，`data` 为 Parquet 转换，`pose` 为隔离环境中的照片位姿测量。`vla` 暂缓开发，基础安装无需 Torch。ROS2 和 Isaac 使用各自的隔离环境。
 
 仿真环境在配置的计算节点上由 `scripts/setup_sapien_env.sh` 创建，使用 Python 3.10、SAPIEN 3.0.3、手柄资产 v0.4.1 和 [版本约束](constraints/sapien-py310.txt)。先运行 `PYTHONPATH=src python3 scripts/fetch_resources.py --group simulation` 获取并校验公开资源，再安装环境并执行 `scripts/prepare_resources.py`。脚本不会覆盖已有环境；操作者视频另外需要支持 NVENC 的 FFmpeg。
 
@@ -74,6 +74,10 @@ python scripts/render_workcell.py configs/render/workcell_multiview_preview.yaml
 [任务 S](docs/reports/2026-10-23-natural-grip-fixed/README.md)在只读固定手柄场景及 v4.5 臂安装参数下搜索自然臂姿，复用 K0 原生接触并显式检查桌面、桌架和两种立柱的距离。优化沿用 [SciPy TRF 最小二乘](https://docs.scipy.org/doc/scipy-1.15.3/reference/generated/scipy.optimize.least_squares.html)，比较固定差分步长、掌基网格中心种子及掌位/操作可达软偏好；原生两指触壳通过不代表整掌包握、控件可达或动态操作成功。
 
 ## 扩展工具与依据
+
+- [手柄夹具参数化 CAD](hardware/gamepad_fixture/README.md)：桌边底座、打印端面齿转轴与弹簧滑动夹，提供分件 STEP/STL、软垫模板和几何检查。[任务 V 报告](docs/reports/2026-10-29-gamepad-fixture-cad/README.md)记录 Voith Hirth 正向咬合原则的打印适配、压簧选型、1–2 kN 夹持估算及实物验证限制；尚未实物试装。
+
+- [夹具实物验证清单](hardware/gamepad_fixture/VALIDATION.md)与[camera_3标记卡工具](docs/reports/2026-10-30-fixture-validation/README.md)：可拆ChArUco支架、1:1模板、小样、绝对与两图相对测量，适配[OpenCV ChArUco](https://docs.opencv.org/4.11.0/df/d4a/tutorial_charuco_detection.html)和[SciPy最小二乘](https://docs.scipy.org/doc/scipy-1.15.3/reference/generated/scipy.optimize.least_squares.html)。较好合成成像条件下相对误差最大0.46mm/0.20°；轮廓法只做粗调，临时ID90只测面内滑移（合成最大0.311mm），配合划线法；法向/倾角依背托接触和托架卡保证，实物验收仍待执行。
 
 - [操作者画面](docs/usage/operator-view.md)：`run_workstation.py --operator-view configs/render/operator_view.yaml --operator-run <新目录>`，配合 `--backend sapien` 和输入源参数。
 - [相机面板](docs/usage/collection.md#调整并重新标定-ego-相机)：在采集网站预览、对正网格、拍标定照片及录 RGB-D；PNG 与同帧内参 JSON 保存在站点数据目录。旧的独立拍照入口已并入网站。

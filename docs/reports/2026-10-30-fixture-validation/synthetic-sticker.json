@@ -1,0 +1,425 @@
+{
+  "source": "SAPIEN 3.0.3, shared collection backend, CAD marker geometry",
+  "supersample": 4,
+  "cases": [
+    {
+      "case": "nominal",
+      "truth_delta_mm_deg": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "detected": true,
+      "position_error_mm": 0.4732834842300839,
+      "rotation_error_deg": 0.07187736220404578,
+      "corners": 35,
+      "rms_px": 0.1234951044093536,
+      "relative_position_error_mm": 5.551115123125783e-14,
+      "relative_rotation_error_deg": 1.622925608084835e-15,
+      "relative_position_change_mm": 6.942281208919284e-15,
+      "relative_rotation_change_deg": 4.7435276799935774e-17,
+      "sticker_detected": true,
+      "sticker_position_error_mm": 0.0,
+      "sticker_rotation_error_deg": 0.0
+    },
+    {
+      "case": "slip_0_-0.5",
+      "truth_delta_mm_deg": [
+        -0.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "detected": true,
+      "position_error_mm": 0.4732834842300839,
+      "rotation_error_deg": 0.07187736220404578,
+      "corners": 35,
+      "rms_px": 0.1234951044093536,
+      "relative_position_error_mm": 5.5943571385846397e-14,
+      "relative_rotation_error_deg": 1.6024003454249246e-15,
+      "relative_position_change_mm": 6.942281208919284e-15,
+      "relative_rotation_change_deg": 4.7435276799935774e-17,
+      "sticker_detected": true,
+      "sticker_position_error_mm": 3.883984476481268,
+      "sticker_rotation_error_deg": 2.565515905688216,
+      "sticker_position_change_mm": 3.905753316496217
+    },
+    {
+      "case": "slip_0_-0.2",
+      "truth_delta_mm_deg": [
+        -0.2,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "detected": true,
+      "position_error_mm": 0.4732834842300839,
+      "rotation_error_deg": 0.07187736220404578,
+      "corners": 35,
+      "rms_px": 0.1234951044093536,
+      "relative_position_error_mm": 5.5943571385846397e-14,
+      "relative_rotation_error_deg": 1.6024003454249246e-15,
+      "relative_position_change_mm": 6.942281208919284e-15,
+      "relative_rotation_change_deg": 4.7435276799935774e-17,
+      "sticker_detected": true,
+      "sticker_position_error_mm": 5.792302375946274,
+      "sticker_rotation_error_deg": 2.498239633838109,
+      "sticker_position_change_mm": 5.801920486625466
+    },
+    {
+      "case": "slip_0_+0.2",
+      "truth_delta_mm_deg": [
+        0.2,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "detected": true,
+      "position_error_mm": 0.4732834842300839,
+      "rotation_error_deg": 0.07187736220404578,
+      "corners": 35,
+      "rms_px": 0.1234951044093536,
+      "relative_position_error_mm": 5.5943571385846397e-14,
+      "relative_rotation_error_deg": 1.6024003454249246e-15,
+      "relative_position_change_mm": 6.942281208919284e-15,
+      "relative_rotation_change_deg": 4.7435276799935774e-17,
+      "sticker_detected": true,
+      "sticker_position_error_mm": 6.774584905027467,
+      "sticker_rotation_error_deg": 2.3648691190685622,
+      "sticker_position_change_mm": 6.781640245401415
+    },
+    {
+      "case": "slip_0_+0.5",
+      "truth_delta_mm_deg": [
+        0.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "detected": true,
+      "position_error_mm": 0.4732834842300839,
+      "rotation_error_deg": 0.07187736220404578,
+      "corners": 35,
+      "rms_px": 0.1234951044093536,
+      "relative_position_error_mm": 5.5943571385846397e-14,
+      "relative_rotation_error_deg": 1.6024003454249246e-15,
+      "relative_position_change_mm": 6.942281208919284e-15,
+      "relative_rotation_change_deg": 4.7435276799935774e-17,
+      "sticker_detected": true,
+      "sticker_position_error_mm": 7.729403988324132,
+      "sticker_rotation_error_deg": 2.7387339254848206,
+      "sticker_position_change_mm": 7.731967864011531
+    },
+    {
+      "case": "slip_1_-0.5",
+      "truth_delta_mm_deg": [
+        0.0,
+        -0.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "detected": true,
+      "position_error_mm": 0.4732834842300839,
+      "rotation_error_deg": 0.07187736220404578,
+      "corners": 35,
+      "rms_px": 0.1234951044093536,
+      "relative_position_error_mm": 5.5943571385846397e-14,
+      "relative_rotation_error_deg": 1.6024003454249246e-15,
+      "relative_position_change_mm": 6.942281208919284e-15,
+      "relative_rotation_change_deg": 4.7435276799935774e-17,
+      "sticker_detected": true,
+      "sticker_position_error_mm": 0.8842095531108144,
+      "sticker_rotation_error_deg": 4.152740800361154,
+      "sticker_position_change_mm": 1.1459962083624198
+    },
+    {
+      "case": "slip_1_-0.2",
+      "truth_delta_mm_deg": [
+        0.0,
+        -0.2,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "detected": true,
+      "position_error_mm": 0.4732834842300839,
+      "rotation_error_deg": 0.07187736220404578,
+      "corners": 35,
+      "rms_px": 0.1234951044093536,
+      "relative_position_error_mm": 5.5943571385846397e-14,
+      "relative_rotation_error_deg": 1.6024003454249246e-15,
+      "relative_position_change_mm": 6.942281208919284e-15,
+      "relative_rotation_change_deg": 4.7435276799935774e-17,
+      "sticker_detected": true,
+      "sticker_position_error_mm": 0.7009179780807264,
+      "sticker_rotation_error_deg": 1.474804813853648,
+      "sticker_position_change_mm": 0.7738394430652923
+    },
+    {
+      "case": "slip_1_+0.2",
+      "truth_delta_mm_deg": [
+        0.0,
+        0.2,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "detected": true,
+      "position_error_mm": 0.4732834842300839,
+      "rotation_error_deg": 0.07187736220404578,
+      "corners": 35,
+      "rms_px": 0.1234951044093536,
+      "relative_position_error_mm": 5.5943571385846397e-14,
+      "relative_rotation_error_deg": 1.6024003454249246e-15,
+      "relative_position_change_mm": 6.942281208919284e-15,
+      "relative_rotation_change_deg": 4.7435276799935774e-17,
+      "sticker_detected": true,
+      "sticker_position_error_mm": 1.6676087146067406,
+      "sticker_rotation_error_deg": 4.81254203734522,
+      "sticker_position_change_mm": 1.6174214901391875
+    },
+    {
+      "case": "slip_1_+0.5",
+      "truth_delta_mm_deg": [
+        0.0,
+        0.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "detected": true,
+      "position_error_mm": 0.4732834842300839,
+      "rotation_error_deg": 0.07187736220404578,
+      "corners": 35,
+      "rms_px": 0.1234951044093536,
+      "relative_position_error_mm": 5.5943571385846397e-14,
+      "relative_rotation_error_deg": 1.6024003454249246e-15,
+      "relative_position_change_mm": 6.942281208919284e-15,
+      "relative_rotation_change_deg": 4.7435276799935774e-17,
+      "sticker_detected": true,
+      "sticker_position_error_mm": 1.011994449321252,
+      "sticker_rotation_error_deg": 1.7810577282642592,
+      "sticker_position_change_mm": 1.0134248806648771
+    },
+    {
+      "case": "slip_2_-0.5",
+      "truth_delta_mm_deg": [
+        0.0,
+        0.0,
+        -0.5,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "detected": true,
+      "position_error_mm": 0.4732834842300839,
+      "rotation_error_deg": 0.07187736220404578,
+      "corners": 35,
+      "rms_px": 0.1234951044093536,
+      "relative_position_error_mm": 5.5943571385846397e-14,
+      "relative_rotation_error_deg": 1.6024003454249246e-15,
+      "relative_position_change_mm": 6.942281208919284e-15,
+      "relative_rotation_change_deg": 4.7435276799935774e-17,
+      "sticker_detected": true,
+      "sticker_position_error_mm": 0.9960494990677593,
+      "sticker_rotation_error_deg": 1.8579338577759206,
+      "sticker_position_change_mm": 0.4990783496814266
+    },
+    {
+      "case": "slip_2_-0.2",
+      "truth_delta_mm_deg": [
+        0.0,
+        0.0,
+        -0.2,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "detected": true,
+      "position_error_mm": 0.4732834842300839,
+      "rotation_error_deg": 0.07187736220404578,
+      "corners": 35,
+      "rms_px": 0.1234951044093536,
+      "relative_position_error_mm": 5.5943571385846397e-14,
+      "relative_rotation_error_deg": 1.6024003454249246e-15,
+      "relative_position_change_mm": 6.942281208919284e-15,
+      "relative_rotation_change_deg": 4.7435276799935774e-17,
+      "sticker_detected": true,
+      "sticker_position_error_mm": 0.6643796176076165,
+      "sticker_rotation_error_deg": 0.9115622404839787,
+      "sticker_position_change_mm": 0.4698785823450728
+    },
+    {
+      "case": "slip_2_+0.2",
+      "truth_delta_mm_deg": [
+        0.0,
+        0.0,
+        0.2,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "detected": true,
+      "position_error_mm": 0.4732834842300839,
+      "rotation_error_deg": 0.07187736220404578,
+      "corners": 35,
+      "rms_px": 0.1234951044093536,
+      "relative_position_error_mm": 5.5943571385846397e-14,
+      "relative_rotation_error_deg": 1.6024003454249246e-15,
+      "relative_position_change_mm": 6.942281208919284e-15,
+      "relative_rotation_change_deg": 4.7435276799935774e-17,
+      "sticker_detected": true,
+      "sticker_position_error_mm": 0.09104307939393727,
+      "sticker_rotation_error_deg": 0.622945910528377,
+      "sticker_position_change_mm": 0.15527769590929458
+    },
+    {
+      "case": "slip_2_+0.5",
+      "truth_delta_mm_deg": [
+        0.0,
+        0.0,
+        0.5,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "detected": true,
+      "position_error_mm": 0.4732834842300839,
+      "rotation_error_deg": 0.07187736220404578,
+      "corners": 35,
+      "rms_px": 0.1234951044093536,
+      "relative_position_error_mm": 5.5943571385846397e-14,
+      "relative_rotation_error_deg": 1.6024003454249246e-15,
+      "relative_position_change_mm": 6.942281208919284e-15,
+      "relative_rotation_change_deg": 4.7435276799935774e-17,
+      "sticker_detected": true,
+      "sticker_position_error_mm": 0.26052265898477983,
+      "sticker_rotation_error_deg": 2.3719588974633226,
+      "sticker_position_change_mm": 0.43438017653876554
+    },
+    {
+      "case": "slip_rot_0",
+      "truth_delta_mm_deg": [
+        0.0,
+        0.0,
+        0.0,
+        0.3,
+        0.0,
+        0.0
+      ],
+      "detected": true,
+      "position_error_mm": 0.4732834842300839,
+      "rotation_error_deg": 0.07187736220404578,
+      "corners": 35,
+      "rms_px": 0.1234951044093536,
+      "relative_position_error_mm": 5.5943571385846397e-14,
+      "relative_rotation_error_deg": 1.6024003454249246e-15,
+      "relative_position_change_mm": 6.942281208919284e-15,
+      "relative_rotation_change_deg": 4.7435276799935774e-17,
+      "sticker_detected": true,
+      "sticker_position_error_mm": 1.908507063268239,
+      "sticker_rotation_error_deg": 0.4120620479118523,
+      "sticker_position_change_mm": 1.9085070632682088
+    },
+    {
+      "case": "slip_rot_1",
+      "truth_delta_mm_deg": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.3,
+        0.0
+      ],
+      "detected": true,
+      "position_error_mm": 0.4732834842300839,
+      "rotation_error_deg": 0.07187736220404578,
+      "corners": 35,
+      "rms_px": 0.1234951044093536,
+      "relative_position_error_mm": 5.5943571385846397e-14,
+      "relative_rotation_error_deg": 1.6024003454249246e-15,
+      "relative_position_change_mm": 6.942281208919284e-15,
+      "relative_rotation_change_deg": 4.7435276799935774e-17,
+      "sticker_detected": true,
+      "sticker_position_error_mm": 2.091727619048645,
+      "sticker_rotation_error_deg": 0.8833258643712653,
+      "sticker_position_change_mm": 2.0917276190486147
+    },
+    {
+      "case": "slip_rot_2",
+      "truth_delta_mm_deg": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.3
+      ],
+      "detected": true,
+      "position_error_mm": 0.4732834842300839,
+      "rotation_error_deg": 0.07187736220404578,
+      "corners": 35,
+      "rms_px": 0.1234951044093536,
+      "relative_position_error_mm": 5.5943571385846397e-14,
+      "relative_rotation_error_deg": 1.6024003454249246e-15,
+      "relative_position_change_mm": 6.942281208919284e-15,
+      "relative_rotation_change_deg": 4.7435276799935774e-17,
+      "sticker_detected": true,
+      "sticker_position_error_mm": 0.1197666573956994,
+      "sticker_rotation_error_deg": 0.31414672147620143,
+      "sticker_position_change_mm": 0.11976665739566927
+    }
+  ],
+  "total": 16,
+  "detected": 16,
+  "accuracy": {
+    "position_error_mm": {
+      "median": 0.4732834842300839,
+      "p95": 0.4732834842300839,
+      "max": 0.4732834842300839
+    },
+    "rotation_error_deg": {
+      "median": 0.07187736220404578,
+      "p95": 0.07187736220404578,
+      "max": 0.07187736220404578
+    },
+    "relative_position_error_mm": {
+      "median": 5.5943571385846397e-14,
+      "p95": 5.5943571385846397e-14,
+      "max": 5.5943571385846397e-14
+    },
+    "relative_rotation_error_deg": {
+      "median": 1.6024003454249246e-15,
+      "p95": 1.607531661089902e-15,
+      "max": 1.622925608084835e-15
+    }
+  },
+  "sticker_successes": 16,
+  "sticker_accuracy": {
+    "sticker_position_error_mm": {
+      "median": 1.0040219741945058,
+      "max": 7.729403988324132
+    },
+    "sticker_rotation_error_deg": {
+      "median": 1.81949579302009,
+      "max": 4.81254203734522
+    }
+  },
+  "relative_successes": 16
+}

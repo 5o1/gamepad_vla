@@ -1,0 +1,81 @@
+{
+  "total": 16,
+  "cases": [
+    {
+      "position_error_mm": 5.551115123125783e-14,
+      "rotation_error_deg": 2.4728259411203224e-15
+    },
+    {
+      "position_error_mm": 1.2113345953744297,
+      "rotation_error_deg": 0.5757740899066609
+    },
+    {
+      "position_error_mm": 1.3206035921708532,
+      "rotation_error_deg": 0.4943104651861819
+    },
+    {
+      "position_error_mm": 0.716257410365425,
+      "rotation_error_deg": 0.18129098976902297
+    },
+    {
+      "position_error_mm": 1.4492814557536935,
+      "rotation_error_deg": 0.6406761639225751
+    },
+    {
+      "position_error_mm": 0.16533672336413108,
+      "rotation_error_deg": 0.1504361444831669
+    },
+    {
+      "position_error_mm": 1.3997908987220349,
+      "rotation_error_deg": 0.9282811814832996
+    },
+    {
+      "position_error_mm": 0.3713716798531217,
+      "rotation_error_deg": 0.32954867209827543
+    },
+    {
+      "position_error_mm": 1.6890297629685473,
+      "rotation_error_deg": 1.1697222958172744
+    },
+    {
+      "position_error_mm": 2.205073144295961,
+      "rotation_error_deg": 0.7909804333546553
+    },
+    {
+      "position_error_mm": 1.367946748758023,
+      "rotation_error_deg": 1.1115017821093236
+    },
+    {
+      "position_error_mm": 1.5783583246009116,
+      "rotation_error_deg": 0.5822532461641529
+    },
+    {
+      "position_error_mm": 1.7075556452519662,
+      "rotation_error_deg": 1.118401504065
+    },
+    {
+      "position_error_mm": 0.18939227879383966,
+      "rotation_error_deg": 0.37417777363481924
+    },
+    {
+      "position_error_mm": 1.0549964958943463,
+      "rotation_error_deg": 0.35721349754982223
+    },
+    {
+      "position_error_mm": 3.179964374134287,
+      "rotation_error_deg": 1.6852976578384715
+    }
+  ],
+  "accuracy": {
+    "position_error_mm": {
+      "median": 1.3442751704644382,
+      "p95": 2.4487959517555424,
+      "max": 3.179964374134287
+    },
+    "rotation_error_deg": {
+      "median": 0.5790136680354069,
+      "p95": 1.2986161363225737,
+      "max": 1.6852976578384715
+    }
+  }
+}

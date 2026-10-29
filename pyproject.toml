@@ -16,6 +16,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+pose = ["scipy>=1.10", "opencv-python-headless>=4.10"]
 vla = ["torch>=2.4"]
 train = ["gymnasium==1.4.0", "stable-baselines3==2.9.0", "scipy>=1.10"]
 assets = ["scipy>=1.10", "pillow>=10", "trimesh>=4", "opencv-python>=4.10", "networkx>=3"]
