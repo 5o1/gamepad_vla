@@ -1,6 +1,7 @@
 """Loopback-only aiohttp collection desk; owns only its simulation children."""
 import asyncio
 import json
+import math
 import multiprocessing as mp
 from pathlib import Path
 import queue
@@ -25,6 +26,25 @@ def defaults():
                 rate_hz=site_value('collection.rate_hz'), replay=site_value('collection.replay'),
                 loop_replay=site_value('collection.loop_replay'),
                 ros_topic_prefix=site_value('collection.ros_topic_prefix', ''))
+
+
+class IdleSession:
+    """Only browser connections/activity and accepted writes keep a session alive."""
+    def __init__(self, timeout_s=7200, clock=time.monotonic):
+        if not math.isfinite(timeout_s) or timeout_s <= 0:
+            raise ValueError('idle timeout must be finite and positive')
+        self.timeout_s, self.clock = timeout_s, clock
+        self.connections = 0
+        self.touch()
+
+    def touch(self):
+        self.last_activity = self.clock()
+
+    def expired(self, state, pending=False):
+        if self.connections or pending or state.get('session_state') not in ('starting','running') or state.get('recording_status', {}).get('state') in ('recording','saving','checking'):
+            self.touch()
+            return False
+        return self.clock() - self.last_activity >= self.timeout_s
 
 
 class SessionManager:
@@ -111,6 +131,7 @@ class SessionManager:
                 arm_startup=v.get('arm_startup') or site_value('collection.arm_startup','spec'),
                 resource_root=Path(site_value('collection.resource_root')) if site_value('collection.resource_root') else None,
                 view=True, realtime=True, host='127.0.0.1', port=port,
+                diagnostics=values.get('diagnostics', False),
                 udp_host=site_value('udp.bind_host','127.0.0.1'), udp_port=site_value('udp.port',50200))
             options.validate()
             if options.replay and not options.replay.exists():
@@ -189,7 +210,7 @@ class ApiError(Exception):
         self.status,self.code,self.message=status,code,message
 
 
-def make_app(manager=None, *, enable_remote_control=False, video_handler=None, frame_provider=None, managed=True, camera=None):
+def make_app(manager=None, *, enable_remote_control=False, video_handler=None, frame_provider=None, managed=True, camera=None, idle_timeout_s=None, clock=time.monotonic):
     from aiohttp import web, ClientSession, ClientTimeout, ClientError, WSMsgType
     manager=manager or SessionManager()
     root=Path(__file__).with_name('collection_web')
@@ -204,6 +225,7 @@ def make_app(manager=None, *, enable_remote_control=False, video_handler=None, f
     revision=0
     audit=(manager.root/'api_audit.jsonl').open('a',buffering=1)
     recording_lock=asyncio.Lock()
+    idle=IdleSession(site_value('collection.idle_timeout_s',7200) if idle_timeout_s is None else idle_timeout_s, clock)
 
     def snapshot():
         current=dict(manager.refresh(), **manager.active_options)
@@ -225,11 +247,26 @@ def make_app(manager=None, *, enable_remote_control=False, video_handler=None, f
     def event(endpoint, who, values):
         nonlocal revision
         revision+=1
+        idle.touch()
         recent.append(dict(wall_time_ns=time.time_ns(),operation=endpoint,client=who,parameters=values))
 
     def response(value=None):
         state=snapshot()
         return web.json_response(dict(value or {},state=state,safety=state['safety']))
+
+    @web.middleware
+    async def presence(request, handler):
+        browser = secrets.compare_digest(request.cookies.get('collection_web_session',''),cookie)
+        connected = request.path in ('/api/v1/events','/video') or (request.method in ('GET','HEAD') and (browser or request.path=='/'))
+        if connected:
+            idle.connections += 1
+            idle.touch()
+        try:
+            return await handler(request)
+        finally:
+            if connected:
+                idle.connections -= 1
+                idle.touch()
 
     @web.middleware
     async def contract(request,handler):
@@ -259,6 +296,8 @@ def make_app(manager=None, *, enable_remote_control=False, video_handler=None, f
                     raise ApiError(403,'web_session_required','Only the local web page can toggle remote control. Ask the station operator.')
                 if not is_web and not remote_enabled:
                     raise ApiError(403,'remote_control_disabled','Ask the station operator to enable remote control on the web page.')
+            if request.method not in ('GET','HEAD','OPTIONS'):
+                idle.touch()
             result=await handler(request)
         except ApiError as exc:
             result=web.json_response(dict(error_code=exc.code,message=exc.message,state=snapshot(),safety=safety),status=exc.status)
@@ -270,7 +309,7 @@ def make_app(manager=None, *, enable_remote_control=False, video_handler=None, f
             result=web.json_response(dict(error_code='operation_failed',message=f'Operation failed. Check the service log before retrying: {exc}',state=snapshot(),safety=safety),status=503)
         except web.HTTPException as exc:
             result=web.json_response(dict(error_code='not_found' if exc.status==404 else 'http_error',message='Endpoint or method not found. Check the API v1 documentation.',state=snapshot(),safety=safety),status=exc.status)
-        if is_api and request.path!='/api/v1/events':
+        if is_api and (request.method not in ('GET','HEAD','OPTIONS') or result.status>=400):
             body=json.loads(result.text) if isinstance(result,web.Response) and result.content_type=='application/json' else {}
             audit.write(json.dumps(dict(wall_time_ns=time.time_ns(),endpoint=request.path,method=request.method,
                 parameters=values,client=who or 'unspecified',result=dict(http_status=result.status,
@@ -382,8 +421,6 @@ def make_app(manager=None, *, enable_remote_control=False, video_handler=None, f
 
     async def events(request):
         result=web.StreamResponse(headers={'Content-Type':'text/event-stream','Cache-Control':'no-cache','X-Accel-Buffering':'no'})
-        audit.write(json.dumps(dict(wall_time_ns=time.time_ns(),endpoint=request.path,method='GET',parameters={},
-                                   client=request.headers.get('X-Gamepad-VLA-Client','web'),result=dict(http_status=200)))+'\n')
         await result.prepare(request)
         try:
             while True:
@@ -456,11 +493,25 @@ def make_app(manager=None, *, enable_remote_control=False, video_handler=None, f
     async def camera_record_state(request):
         return web.json_response(await asyncio.to_thread(camera.record_state),headers={'Cache-Control':'no-store'})
 
+    async def stop_idle():
+        # Serialize with recording/start so an accepted start cannot race the stop.
+        async with recording_lock:
+            if managed and manager.worker and manager.worker.is_alive() and idle.expired(manager.refresh(), manager.pending_start):
+                await manager.stop('idle-timeout')
+                values=dict(idle_timeout_s=idle.timeout_s)
+                event('session/idle-stop','service',values)
+                # A control event is production audit, not a per-frame diagnostic.
+                if manager.output:
+                    with (manager.output/'events.jsonl').open('a') as journal:
+                        journal.write(json.dumps(dict(action='session/idle-stop',client='service',
+                            wall_time_ns=time.time_ns(),**values))+'\n')
+
     async def inspect():
         nonlocal safety
         while True:
             safety=await asyncio.to_thread(detect_safety)
             manager.refresh()
+            await stop_idle()
             await asyncio.sleep(SAFETY_INTERVAL_S)
 
     async def measure_stream():
@@ -489,7 +540,9 @@ def make_app(manager=None, *, enable_remote_control=False, video_handler=None, f
             await manager.export_process.wait()
         await client.close();audit.close()
 
-    app=web.Application(middlewares=[contract])
+    app=web.Application(middlewares=[presence,contract])
+    app['idle_session']=idle
+    app['stop_idle']=stop_idle
     app.cleanup_ctx.append(lifecycle)
     app.router.add_get('/',index)
     app.router.add_get('/video',video_handler or video)
@@ -518,6 +571,7 @@ def main():
     parser.add_argument('--host',default=site_value('operator.bind_host','127.0.0.1'))
     parser.add_argument('--port',type=int,default=site_value('operator.port',8780))
     parser.add_argument('--enable-remote-control',action='store_true')
+    parser.add_argument('--idle-timeout-s',type=float,default=site_value('collection.idle_timeout_s',7200))
     parser.add_argument('--source',choices=('ros2','udp','replay'))
     parser.add_argument('--spec',type=Path)
     parser.add_argument('--scene-variant',choices=('full','free-space','gamepad-contact'))
@@ -527,4 +581,4 @@ def main():
     args=parser.parse_args();require_loopback(args.host);configure_runtime()
     values={k:str(v) if isinstance(v,Path) else v for k,v in vars(args).items() if k in ('source','spec','scene_variant','arm_startup','ros_topic_prefix') and v is not None}
     manager=SessionManager(args.output_root,default_values=values)
-    web.run_app(make_app(manager,enable_remote_control=args.enable_remote_control),host=args.host,port=args.port,shutdown_timeout=2)
+    web.run_app(make_app(manager,enable_remote_control=args.enable_remote_control,idle_timeout_s=args.idle_timeout_s),host=args.host,port=args.port,shutdown_timeout=2,access_log=None)

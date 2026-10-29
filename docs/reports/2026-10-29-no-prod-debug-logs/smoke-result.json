@@ -1,0 +1,42 @@
+{
+  "idle": {
+    "seconds": 180.0036130324006,
+    "growth_bytes": 0,
+    "growth_allocated_bytes": 0,
+    "changes": {},
+    "session_startup_bytes": 4109867,
+    "session_startup_allocated_bytes": 3039232,
+    "stream": {
+      "frames": 10834,
+      "fps": 59.974311248318834,
+      "apply_to_encode_p50_ms": 44.256831500000004,
+      "apply_to_encode_p95_ms": 46.205844,
+      "warning": false
+    },
+    "forbidden_files_present": []
+  },
+  "recording": {
+    "rows": 1806,
+    "integrity": {
+      "episode_id": "session-20261029-183829-831f56~episode-000000",
+      "state": "passed",
+      "passed": true,
+      "checked_wall_time_ns": 1793270524003257300,
+      "checks": {
+        "strict_readback": true,
+        "receiver_count_and_sequences": true,
+        "row_duration": true
+      },
+      "errors": [],
+      "rows": 1806,
+      "duration_s": 30.100000000000023,
+      "input_messages": 3612
+    },
+    "duration_s": 30.100000000000023
+  },
+  "audit": {
+    "rows": 4,
+    "successful_reads": 0
+  },
+  "cleaned": true
+}

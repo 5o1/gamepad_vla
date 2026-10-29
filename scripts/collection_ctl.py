@@ -36,6 +36,7 @@ def parser():
             s.add_argument('--source',choices=['ros2','udp','replay'],required=True)
             s.add_argument('--replay')
             s.add_argument('--duration-s',type=float)
+            s.add_argument('--diagnostics',action='store_true',help='bounded capture for this session only')
         if name=='record-start':s.add_argument('--note',default='');s.add_argument('--force',action='store_true')
         if name=='record-stop':s.add_argument('--wait',action='store_true');s.add_argument('--wait-timeout',type=float,default=120)
         if name=='note':s.add_argument('text')
@@ -55,7 +56,7 @@ def main(argv=None):
     path='status';data=None
     if a.command=='session-start':
         path='session/start';data=dict(backend=a.backend,scene_variant=a.scene_variant,source=a.source,
-                                      replay=a.replay,duration_s=a.duration_s)
+                                      replay=a.replay,duration_s=a.duration_s,diagnostics=a.diagnostics)
     elif a.command=='session-stop':path='session/stop';data={}
     elif a.command=='record-start':path='recording/start';data=dict(note=a.note,force=a.force)
     elif a.command=='record-stop':path='recording/stop';data={}

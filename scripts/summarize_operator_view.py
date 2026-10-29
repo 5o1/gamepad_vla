@@ -6,6 +6,8 @@ import numpy as np
 
 
 def read(path):
+    if not Path(path).is_file():
+        raise ValueError(f'{path} is absent. Start the benchmark session with --diagnostics; production sessions do not capture timing.')
     return [json.loads(line) for line in path.read_text().splitlines()]
 
 

@@ -114,6 +114,8 @@ def test_all_api_contracts_and_audit_force(tmp_path):
             assert (await call('session/stop',{}))[0]==403
         await server.close()
         logs=[json.loads(line) for line in (tmp_path/'api_audit.jsonl').read_text().splitlines()]
+        assert not any(e['method']=='GET' and e['result']['http_status']<400 for e in logs)
+        assert any(e['method']=='GET' and e['result']['http_status']>=400 for e in logs)
         assert any(e['client']=='cli' and e['result']['http_status']==409 for e in logs)
         assert any(e['endpoint']=='/api/v1/remote-control' and e['client']=='web' for e in logs)
         assert all(k in logs[0] for k in ('wall_time_ns','endpoint','parameters','result','client'))
@@ -121,4 +123,47 @@ def test_all_api_contracts_and_audit_force(tmp_path):
         async with ClientSession() as c:
             async with c.get(server.make_url('/api/v1/status')) as r:assert not (await r.json())['remote_control_enabled']
         await server.close()
+    asyncio.run(scenario())
+
+
+def test_idle_stop_and_read_polling_with_fake_clock(tmp_path):
+    async def scenario():
+        now=[0.]
+        m=Desk(tmp_path)
+        app=make_app(m,enable_remote_control=True,clock=lambda:now[0])
+        server=TestServer(app);await server.start_server()
+        headers={'X-Gamepad-VLA-Client':'cli','Content-Type':'application/json'}
+        async with ClientSession() as cli:
+            async with cli.post(server.make_url('/api/v1/session/start'),json={'source':'ros2'},headers=headers) as r:assert r.status==200
+            # A live SSE connection keeps the simulation alive even without writes.
+            async with cli.get(server.make_url('/api/v1/events')) as sse:
+                assert (await sse.content.readline()).startswith(b'data: ')
+                now[0]=10000
+                await app['stop_idle']()
+                assert m.alive
+            # Wait for the server to observe the disconnect.
+            for _ in range(100):
+                if app['idle_session'].connections==0:break
+                await asyncio.sleep(.01)
+            assert app['idle_session'].connections==0
+            # Browser polling also counts as presence; CLI read polling does not.
+            async with ClientSession(cookie_jar=CookieJar(unsafe=True)) as browser:
+                async with browser.get(server.make_url('/')) as r:assert r.status==200
+                now[0]+=7000
+                async with browser.get(server.make_url('/api/v1/status')) as r:assert r.status==200
+                now[0]+=7000
+                await app['stop_idle']();assert m.alive
+            now[0]+=200
+            for path in ('status','episodes','config'):
+                async with cli.get(server.make_url('/api/v1/'+path)) as r:assert r.status==200
+            await app['stop_idle']()
+            assert not m.alive
+            async with cli.get(server.make_url('/api/v1/status')) as r:
+                status=await r.json()
+                assert status['recent_control_events'][-1]['operation']=='session/idle-stop'
+        await server.close()
+        control=[json.loads(line) for line in (m.output/'events.jsonl').read_text().splitlines()]
+        assert sum(e.get('action')=='session/idle-stop' for e in control)==1
+        audit=[json.loads(line) for line in (tmp_path/'api_audit.jsonl').read_text().splitlines()]
+        assert all(e['method']=='POST' for e in audit)
     asyncio.run(scenario())

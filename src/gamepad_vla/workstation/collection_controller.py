@@ -1,7 +1,6 @@
 """Single simulation/recording path used by CLI and local web sessions."""
 from dataclasses import dataclass
 import json
-import os
 from pathlib import Path
 import queue
 import time
@@ -32,6 +31,7 @@ class CollectionOptions:
     record: bool = False
     note: str = ''
     view: bool = False
+    diagnostics: bool = False
     host: str = '127.0.0.1'
     port: int = 8780
     udp_host: str = '127.0.0.1'
@@ -49,6 +49,8 @@ class CollectionOptions:
             raise ValueError('--mujoco-workers must be positive and applies only to MuJoCo')
         if self.source == 'replay' and self.replay is None:
             raise ValueError('--replay is required')
+        if type(self.diagnostics) is not bool:
+            raise ValueError('diagnostics must be a boolean')
         require_loopback(self.host)
 
 
@@ -154,7 +156,7 @@ class CollectionController:
             if a.view:
                 from .operator_view import OperatorView
                 self.view = OperatorView(None, repository_root()/'configs/render/operator_view.yaml',
-                    a.output/'view', a.spec, a.port, collection=True, host=a.host, resources=a.resource_root)
+                    a.output/'view', a.spec, a.port, collection=True, host=a.host, resources=a.resource_root, diagnostics=a.diagnostics)
                 self.emit(True)
                 self.view.wait_ready(self.stop)
             self.state = 'running'
@@ -233,14 +235,7 @@ def run_managed(options, controls, stop, statuses):
                 pass
     try:
         controller = CollectionController(options, controls=controls, stop=stop, publish=publish)
-        if os.environ.get('GAMEPAD_VLA_COLLECTION_PROFILE') == '1':
-            import cProfile
-            profiler = cProfile.Profile()
-            try:profiler.runcall(controller.run)
-            finally:
-                if options.output.exists():profiler.dump_stats(str(options.output/'controller-profile.pstats'))
-        else:
-            controller.run()
+        controller.run()
     except Exception as exc:
         publish(dict(session_state='failed', error=str(exc), recording_status=dict(state='failed')))
         raise

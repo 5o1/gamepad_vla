@@ -7,6 +7,8 @@ import subprocess
 p=argparse.ArgumentParser(description=__doc__)
 p.add_argument('run',type=Path)
 a=p.parse_args()
+if not (a.run/'stream_timing.jsonl').is_file() or not (a.run/'operator.h264').is_file():
+    p.error('Start the capture session with --diagnostics; production sessions do not save timing or video.')
 frames=[json.loads(line) for line in (a.run/'stream_timing.jsonl').read_text().splitlines()]
 selected={}
 for label,remainder in (('approach',1),('pressed',2),('released',0)):

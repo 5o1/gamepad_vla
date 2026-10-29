@@ -42,6 +42,7 @@ def parser():
     result.add_argument("--rate-hz", type=float, default=60.0)
     result.add_argument("--duration", type=float, required=True)
     result.add_argument("--target-timeline")
+    result.add_argument("--diagnostics", action="store_true", help="bounded diagnostic capture for this session only")
     result.add_argument("--operator-view", type=Path, help="Operator camera/stream YAML (sapien only)")
     result.add_argument("--operator-run", type=Path, help="New node output directory for stream and timing")
     result.add_argument("--operator-port", type=int, default=site_value("operator.port", 8780))
@@ -106,7 +107,7 @@ def main(argv=None):
     backend, backend_names = _backend(args, spec)
     if args.operator_view:
         from gamepad_vla.workstation.operator_view import OperatorView
-        backend = OperatorView(backend, args.operator_view, args.operator_run, args.spec, args.operator_port)
+        backend = OperatorView(backend, args.operator_view, args.operator_run, args.spec, args.operator_port, diagnostics=args.diagnostics)
     target_sequence = targets.load_timeline(args.target_timeline) if args.target_timeline else None
     recorder = None
     if args.record_root:

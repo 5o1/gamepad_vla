@@ -68,7 +68,9 @@ python scripts/collection_ctl.py export "$EPISODE_ID"
 python scripts/collection_ctl.py session-stop
 ```
 
-`EPISODE_ID` 使用列表返回的完整 id（包括会话部分）。默认不限制会话时长；`session-start --duration-s 300` 可限制。回看由网页同一 session/start 端点传 `{episode: id}`，使用现有 replay 源。导出调用已有工具；缺少 data-tools 环境时明确报错，不会安装依赖或静默失败。客户端退出码：0 成功，2 被拒绝（403/409），3 服务不可达，1 参数/导出/完整性等其他失败。`record-stop --wait` 默认最多等 120 s，超时后保留数据并请继续查询。
+`EPISODE_ID` 使用列表返回的完整 id（包括会话部分）。默认不限制会话总时长，但未录制、无网页/SSE/视频连接或网页请求、无写操作连续 2 小时会自动停止仿真并记录 `session/idle-stop`。录制、保存和检查期间不自动停止。服务参数 `--idle-timeout-s`（或 `collection.idle_timeout_s`）可配置此时长。CLI 的只读状态轮询不会阻止闲置停止。
+
+`session-start --duration-s 300` 可限制。回看由网页同一 session/start 端点传 `{episode: id}`，使用现有 replay 源。导出调用已有工具；缺少 data-tools 环境时明确报错，不会安装依赖或静默失败。客户端退出码：0 成功，2 被拒绝（403/409），3 服务不可达，1 参数/导出/完整性等其他失败。`record-stop --wait` 默认最多等 120 s，超时后保留数据并请继续查询。
 
 ## 完整性结果按 episode 等待
 
@@ -140,7 +142,9 @@ Session running; Recording; episode session-example~episode-000012; Remote contr
 Stopped recording session-example~episode-000012; integrity: passed.
 ```
 
-每次 API 调用追加 `api_audit.jsonl`，包含时间、端点、参数、结果和客户端；episode meta 保存 started_by/stopped_by、forced 与开始健康快照。日志和原始数据不进入公开仓库。
+只有写操作和被拒绝的 API 请求追加 `api_audit.jsonl`；成功的状态、SSE、episode 和配置等只读请求不记录。审计包含时间、端点、参数、结果和客户端；episode meta 保存 started_by/stopped_by、forced 与开始健康快照。日志和原始数据不进入公开仓库。
+
+诊断默认始终关闭。仅本次 `session-start --diagnostics`（API `session/start` 参数 `diagnostics: true`）开启；不读取站点默认值、不沿用到下一会话、网页无开关。每个诊断文件最多记录 900 秒、120000 条/视频单元或 32 MiB，先到者自动关闭；时间从本次 view 初始化起算。关闭时不产生逐帧 JSONL 或 H.264 录屏；网页统计仍在内存中更新。
 
 ## 这个接口做不到的事
 

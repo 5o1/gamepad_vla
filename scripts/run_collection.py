@@ -29,6 +29,7 @@ def main():
     p.add_argument("--realtime", action="store_true")
     p.add_argument("--record", action="store_true", help="start recording immediately; otherwise keyboard/browser start")
     p.add_argument("--note", default="")
+    p.add_argument("--diagnostics", action="store_true", help="bounded diagnostic capture for this session only")
     p.add_argument("--view", action="store_true")
     p.add_argument("--host", default=site_value("operator.bind_host", "127.0.0.1"))
     p.add_argument("--port", type=int, default=site_value("operator.port", 8780))

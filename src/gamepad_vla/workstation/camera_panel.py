@@ -16,6 +16,7 @@ from urllib.request import build_opener, ProxyHandler, Request
 import zipfile
 
 from gamepad_vla.site import repository_root, site_value
+from .runtime_logs import CappedProcessLog
 
 
 class CameraConflict(RuntimeError):
@@ -201,7 +202,7 @@ class CameraPanel:
         self.mode = 'starting'
         self.preview_port = free_port()
         path = self.data_root/'calibration'/session
-        self.preview_log = (path/'camera.log').open('ab')
+        self.preview_log = CappedProcessLog(path/'camera.log')
         command = [self.setting('station.python', '/usr/bin/python3'), '-u', '-m',
             'gamepad_vla.workstation.camera_service', '--serve-camera', '--serial', self.serial,
             '--width', '1280', '--height', '720', '--remote-port', str(self.preview_port)]
@@ -320,7 +321,7 @@ class CameraPanel:
             path.mkdir(parents=True, exist_ok=True)
             self.mode = 'starting_recording'
             self.ego_port = free_port()
-            self.ego_log = (path/'ego-web.log').open('ab')
+            self.ego_log = CappedProcessLog(path/'ego-web.log')
             command = [self.setting('station.python', '/usr/bin/python3'), '-u', str(script),
                 '--host', '127.0.0.1', '--port', str(self.ego_port), '--no-open',
                 '--output-dir', str(path/'photos'), '--video-output-dir', str(path/'videos')]

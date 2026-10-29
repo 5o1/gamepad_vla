@@ -15,6 +15,7 @@ import subprocess
 import sys
 import time
 from gamepad_vla.site import site_value
+from .runtime_logs import diagnostic_file, CappedProcessLog
 
 
 def load_config(path):
@@ -27,7 +28,7 @@ def load_config(path):
 
 class OperatorView:
     """Backend proxy; adds completed-state publication, never render/encode IO."""
-    def __init__(self, backend, config, run, spec, port=8780, *, collection=False, host="127.0.0.1", resources=None):
+    def __init__(self, backend, config, run, spec, port=8780, *, collection=False, host="127.0.0.1", resources=None, diagnostics=False):
         from xbox_gamepad_physics.teleop.stream.ipc import Latest, SNAPSHOT_CAPACITY, FRAME_CAPACITY
         from .collection_health import require_loopback
         require_loopback(host)
@@ -35,7 +36,8 @@ class OperatorView:
         self.run = Path(run).resolve()
         self.run.mkdir(parents=True, exist_ok=False)
         cfg = load_config(config)
-        cfg.update(collection=collection, host=host, resources=None if resources is None else str(resources))
+        cfg.update(collection=collection, host=host, resources=None if resources is None else str(resources),
+                   diagnostics=diagnostics is True, diagnostics_started=time.monotonic())
         if collection:
             from .spec import load_spec
             intr = next(c.intrinsics for c in load_spec(spec).cameras if c.name == 'camera_3')
@@ -60,12 +62,12 @@ class OperatorView:
         self.applied_ns = time.monotonic_ns()
         self.step_id = 0
         self.last_tick_ns = None
-        self.timing = (self.run/'physics_timing.jsonl').open('w', buffering=1)
+        self.timing = diagnostic_file(self.run, 'physics_timing.jsonl', cfg)
         env = dict(os.environ)
         env['PYTHONPATH'] = os.pathsep.join(str(Path(p or '.').resolve())
             for p in env.get('PYTHONPATH', '').split(os.pathsep))
         for role in ('render', 'gateway'):
-            log = (self.run/f'{role}.log').open('w')
+            log = CappedProcessLog(self.run/f'{role}.log')
             self.logs.append(log)
             self.children.append(subprocess.Popen(
                 [sys.executable, '-u', '-m', __name__, role, '--run', str(self.run), '--port', str(port)],
@@ -116,9 +118,9 @@ class OperatorView:
             self.last_commands = list(commands)
             self.command_id += 1
             self.command_ns = self.applied_ns
-            self.timing.write(json.dumps({'kind':'command','command_id':self.command_id,
+            self.timing.json({'kind':'command','command_id':self.command_id,
                                          'applied_ns':self.command_ns,'step':self.step_id,
-                                         'stamps':[c.stamp for c in commands]})+'\n')
+                                         'stamps':[c.stamp for c in commands]})
 
     def observe(self):
         observation = self.backend.observe()
@@ -132,9 +134,9 @@ class OperatorView:
             signals=observation.gamepad_signal.tolist())
         self.snapshot.write(json.dumps(snapshot, separators=(',', ':')).encode())
         end = time.monotonic_ns()
-        self.timing.write(json.dumps({'kind':'tick','step':self.step_id,'applied_ns':self.applied_ns,
+        self.timing.json({'kind':'tick','step':self.step_id,'applied_ns':self.applied_ns,
             'published_ns':end,'publish_ns':end-start,
-            'interval_ns':None if self.last_tick_ns is None else end-self.last_tick_ns})+'\n')
+            'interval_ns':None if self.last_tick_ns is None else end-self.last_tick_ns})
         self.last_tick_ns = end
         self.step_id += 1
         return observation
@@ -210,7 +212,7 @@ def render(run):
     frame_id = 0
     deadline = time.monotonic()
     captures = set()
-    with (run/'render_timing.jsonl').open('w', buffering=1) as timing:
+    with diagnostic_file(run, 'render_timing.jsonl', cfg) as timing:
         while not (run/'stop').exists():
             data = source.read()
             if not data:
@@ -257,15 +259,17 @@ def render(run):
                 rgb[8:8+height,8:8+width] = cv2.resize(small,(width,height))
                 cv2.putText(rgb,'overview',(16,28),cv2.FONT_HERSHEY_SIMPLEX,.6,(255,255,255),1)
             end = time.monotonic_ns()
-            meta = dict(state, view=selected, frame_id=frame_id,width=cfg['width'],height=cfg['height'],capture_ns=end,
+            meta = dict(view=selected, frame_id=frame_id,width=cfg['width'],height=cfg['height'],capture_ns=end,
                         render_ns=end-start,update_ns=updated_ns-start,
                         main_camera_ns=main_ns-updated_ns,pip_ns=end-main_ns)
-            for key in ('left_q','right_q','gamepad_q'):meta.pop(key,None)
-            output.write(packet(meta,rgb.tobytes()))
-            timing.write(json.dumps(meta)+'\n')
+            # Only the live stream needs overlay data; never journal simulation state.
+            meta.update({k:state[k] for k in ('step','applied_ns','command_id','command_applied_ns') if k in state})
+            live = dict(meta, **{k:state[k] for k in ('overlay','signals','gamepad_signal','sim_time_s','arm_clamps','candidate_side') if k in state})
+            output.write(packet(live,rgb.tobytes()))
+            timing.json(meta)
             # Three evidence frames, after a new command has physically settled.
             slot = state['command_id']
-            if slot in (1,2,3) and slot not in captures and state['command_applied_ns'] and end-state['command_applied_ns']>700_000_000:
+            if timing.enabled and slot in (1,2,3) and slot not in captures and state['command_applied_ns'] and end-state['command_applied_ns']>700_000_000:
                 Image.fromarray(rgb).save(run/f'operator_command_{slot}.jpg',quality=92)
                 captures.add(slot)
             frame_id += 1
@@ -285,7 +289,7 @@ async def gateway(run, port):
     codec = None
     recent = deque(maxlen=600)
     latest = {}
-    encoder_log = (run/'encoder.log').open('w')
+    encoder_log = CappedProcessLog(run/'encoder.log')
     encoder = await asyncio.create_subprocess_exec(
         'ffmpeg','-hide_banner','-loglevel','warning','-threads','2','-filter_threads','2',
         '-f','rawvideo','-pixel_format','rgb24','-video_size',f"{cfg['width']}x{cfg['height']}",
@@ -310,7 +314,9 @@ async def gateway(run, port):
     async def telemetry(request):
         # Client timestamps retain their own clock domain; no fake one-way latency.
         data = await request.json()
-        browser.write(json.dumps({'server_received_ns':time.monotonic_ns(),'browser':data})+'\n')
+        browser.json(dict(server_received_ns=time.monotonic_ns(), browser=dict(frames=[
+            {k:v for k,v in frame.items() if k in ('encoded_ns','command_id','server_clock_estimate_ns',
+                'clock_rtt_ms','presented_ms','received_ms') and (v is None or isinstance(v,(int,float)))} for frame in data.get('frames',[])[:120]])))
         return web.Response(status=204)
     async def raw_writer():
         generation = 0
@@ -346,11 +352,11 @@ async def gateway(run, port):
                         if ws._req and ws._req.transport:ws._req.transport.abort()
                 metadata['sent_ns'] = time.monotonic_ns()
                 metadata['clients'] = len(peers)
-                timing.write(json.dumps(metadata)+'\n')
+                timing.json({k:v for k,v in metadata.items() if k not in ('overlay','signals','gamepad_signal','sim_time_s','arm_clamps','candidate_side')})
                 encoded_count += 1
                 recent.append((end, (end-metadata['applied_ns'])/1e6))
                 latest = metadata
-                (run/'first_frame').touch(exist_ok=True)
+                if encoded_count == 1:(run/'first_frame').touch()
         raise RuntimeError(f'encoder stopped ({encoder.returncode}); see encoder.log')
     def frame_state():
         import numpy as np
@@ -392,11 +398,11 @@ async def gateway(run, port):
     app.router.add_get('/health',health)
     app.router.add_get('/clock',clock)
     app.router.add_post('/telemetry',telemetry)
-    runner = web.AppRunner(app)
+    runner = web.AppRunner(app, access_log=None)
     tasks = []
-    browser = (run/'browser_timing.jsonl').open('w',buffering=1)
-    timing = (run/'stream_timing.jsonl').open('w',buffering=1)
-    recording = (run/'operator.h264').open('wb')
+    browser = diagnostic_file(run, 'browser_timing.jsonl', cfg)
+    timing = diagnostic_file(run, 'stream_timing.jsonl', cfg)
+    recording = diagnostic_file(run, 'operator.h264', cfg)
     try:
         await runner.setup()
         await web.TCPSite(runner,cfg.get('host',site_value('operator.bind_host','127.0.0.1')),port).start()
