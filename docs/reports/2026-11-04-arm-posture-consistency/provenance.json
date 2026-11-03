@@ -1,0 +1,27 @@
+{
+  "source_head": "a643a8f",
+  "source_run": "workspace://runs/gamepad-placement-x-20261103",
+  "output_run": "workspace://runs/arm-posture-y-20261104",
+  "versions": {
+    "sapien": "3.0.3",
+    "gamepad": "0.4.1"
+  },
+  "renderer": "operator_view.render(collection=True,review_camera=True); Vulkan lavapipe CPU",
+  "source_sha256": {
+    "scripts/k1_natural_reference.py": "51ac88f61285e031315973f65c25dac2def30fde44dddf198dbbfbb6f2f24b89",
+    "scripts/gamepad_placement.py": "715ee05ee25ae7559138e34b7eb883275bea58246827e481998181640205985e",
+    "src/gamepad_vla/feasibility.py": "06b1c5d85032d55ecd1d28194a847a0e37500eec782e70d11aa552961a7745db",
+    "src/gamepad_vla/workstation/sapien_backend.py": "3fe311e1f2f9accf6e4de4c86519347de584e03723ce1edbce0abb496b2f6598",
+    "src/gamepad_vla/workstation/operator_view.py": "3865f54c7fa82974f8ea2b87240c46448aa7d3fc2eb019e10a10ee3f3c34dda3",
+    "src/gamepad_vla/workstation/robot_description.py": "cf45dd6f38dc46c6992343eb8779e902205f4b765f137357bdd8df611980db38",
+    "configs/workcell/station_g20_v4_5.json": "09f34c84a72df8a6711f420633752b0a4fc3a8eeafdfd3964875eed7def60041"
+  },
+  "audit_sha256": "403609c2436ddfe17aabea7f3552e11ff8b5115950e8cf6de6243c8a33f08142",
+  "completed_epoch": 1793715582.4423635,
+  "runtime_constraints": {
+    "cuda_visible_devices": "",
+    "vk_icd_filenames": "/usr/share/vulkan/icd.d/lvp_icd.x86_64.json",
+    "physics_steps": 0,
+    "dependency_installs": 0
+  }
+}
