@@ -76,6 +76,7 @@ class FixtureSpec:
     half_extents: tuple[float, ...] | None = None
     mesh: str | None = None
     parent: str | None = None
+    convex_mesh: str | None = None
 
 
 @dataclass(frozen=True)
@@ -292,22 +293,25 @@ def _fixtures(values):
         raise ValueError("fixtures must be a list")
     result = []
     for data in values:
-        data = _mapping(data, ("name", "type", "pose", "collision", "status", "source"), "fixture", ("half_extents", "mesh", "parent"))
+        data = _mapping(data, ("name", "type", "pose", "collision", "status", "source"), "fixture", ("half_extents", "mesh", "parent", "convex_mesh"))
         kind = data["type"]
-        if kind not in {"box", "mesh"}:
-            raise ValueError("fixture.type must be box or mesh")
+        if kind not in {"box", "mesh", "convex"}:
+            raise ValueError("fixture.type must be box, mesh or convex")
         if type(data["collision"]) is not bool:
             raise ValueError("fixture.collision must be bool")
-        if (kind == "box" and ("half_extents" not in data or "mesh" in data)) or (kind == "mesh" and ("mesh" not in data or "half_extents" in data)):
+        if (kind == "box" and ("half_extents" not in data or "mesh" in data)) or (kind != "box" and ("mesh" not in data or "half_extents" in data)):
             raise ValueError("fixture needs exactly its type's geometry")
+        if "convex_mesh" in data and kind != "mesh":
+            raise ValueError("fixture.convex_mesh is only a mesh fixture's MuJoCo collision alternative")
         half = tuple(_finite(data["half_extents"], 3, "fixture.half_extents")) if kind == "box" else None
         if half is not None and min(half) <= 0:
             raise ValueError("fixture.half_extents must be positive")
         result.append(FixtureSpec(_string(data["name"], "fixture.name"), kind,
                                   _pose(data["pose"], "fixture.pose"), data["collision"],
                                   _status(data["status"]), _string(data["source"], "fixture.source"),
-                                  half, _string(data["mesh"], "fixture.mesh") if kind == "mesh" else None,
-                                  _string(data["parent"],"fixture.parent") if "parent" in data else None))
+                                  half, _string(data["mesh"], "fixture.mesh") if kind != "box" else None,
+                                  _string(data["parent"],"fixture.parent") if "parent" in data else None,
+                                  _string(data["convex_mesh"], "fixture.convex_mesh") if "convex_mesh" in data else None))
     if len({f.name for f in result}) != len(result):
         raise ValueError("fixture names must be unique")
     return tuple(result)
@@ -404,6 +408,8 @@ def load_spec(path):
     for fixture in data.get("fixtures", []):
         if "mesh" in fixture:
             fixture["mesh"] = resolve_workspace_path(fixture["mesh"])
+        if "convex_mesh" in fixture:
+            fixture["convex_mesh"] = resolve_workspace_path(fixture["convex_mesh"])
     if data.get("appearance"):
         data["appearance"] = resolve_workspace_path(data["appearance"])
     for camera in data.get("cameras", []):

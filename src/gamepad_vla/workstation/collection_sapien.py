@@ -19,7 +19,7 @@ from .contact import has_robot_contact
 from .episode_schema import FINGERS, SIDES, Observation, fingertip_offsets, tip_pose
 from .g20_mapping import G20_JOINT_NAMES, apply_mimic_joint_positions
 from .robot_description import compose_robot_urdf
-
+from .fixture_collision import add_sapien_fixture_collision, configure_sapien_shapes
 
 PHYSICS_DT = 0.001
 HAND_GAINS = dict(stiffness=240., damping=8., force_limit=60., armature=1e-4)
@@ -122,6 +122,7 @@ class CollectionSapienBackend:
             table.add_box_collision(half_size=list(spec.table.half_extents))
         actor = table.build_static(name="table")
         actor.set_pose(_pose(sapien, spec.table.pose))
+        configure_sapien_shapes(actor)
         self._fixed_actors.append(actor)
         for fixture in spec.fixtures:
             if not fixture.collision:
@@ -129,14 +130,11 @@ class CollectionSapienBackend:
             if fixture.parent not in (None, spec.world_frame):
                 raise ValueError("collection collision fixture must be world-fixed")
             builder = self.scene.create_actor_builder()
-            if fixture.type == "box":
-                if self.environment_collisions:
-                    builder.add_box_collision(half_size=list(fixture.half_extents))
-            else:
-                if self.environment_collisions:
-                    builder.add_nonconvex_collision_from_file(fixture.mesh)
+            if self.environment_collisions:
+                add_sapien_fixture_collision(builder, fixture)
             actor = builder.build_static(name=fixture.name)
             actor.set_pose(_pose(sapien, fixture.pose))
+            configure_sapien_shapes(actor, exclude_fixture_gamepad=True)
             self._fixed_actors.append(actor)
         self.robots, self.joints, self.links, self.joint_order = {}, {}, {}, {}
         self._robot_entities = set()
@@ -158,6 +156,7 @@ class CollectionSapienBackend:
             for name in G20_JOINT_NAMES:
                 self._configure(self.joints[side][prefix + name], HAND_GAINS)
             for link in robot.get_links():
+                configure_sapien_shapes(link)
                 self._robot_entities.add(link.entity)
                 for shape in link.get_collision_shapes():
                     groups = list(shape.get_collision_groups())
@@ -178,6 +177,8 @@ class CollectionSapienBackend:
                     os.environ.pop("XBOX_GAMEPAD_PHYSICS_RESOURCES", None)
                 else:
                     os.environ["XBOX_GAMEPAD_PHYSICS_RESOURCES"] = previous_resources
+        for link in self.gamepad.articulation.get_links():
+            configure_sapien_shapes(link, exclude_fixture_gamepad=True)
         self._initial_gamepad_q = dict(self.gamepad.joint_positions())
         if not self.gamepad_collisions:
             for link in self.gamepad.articulation.get_links():

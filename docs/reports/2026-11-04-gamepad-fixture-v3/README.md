@@ -179,3 +179,7 @@ C夹的1–2kN、压脚15–20mm工况保留，未悄悄把最大夹力降成1kN
 5. **部署保持试验状态。** 新spec和派生资产已在计算节点验证；没有修改采集默认spec、没有切换8780，没有连接采集台或发送硬件/CAN命令，没有commit。切换应等使用者确认。
 
 复现入口与单次参数覆盖见[硬件README](../../../hardware/gamepad_fixture/README.md)。源代码为 `fixture.py/contact_fit.py/asset_geometry.py`，检查为 `check_fixture.py/printability.py/print_policy.py`，图纸为 `render.py/design_sheet.py`，仿真转换为 `scene_export.py`；依赖仅在 `.local/cad-env`，本轮仅补录已经安装的OpenCV直接依赖，未改兄弟仓库或共享Python环境。报告目录沿用用户指定的2026-11-04，实际执行于2026-11-03 UTC。
+
+## AB：碰撞表示更新
+
+本报告中 834 盒子的实验结果保留为历史对照。当前试验 spec 改用 SAPIEN 静态 CAD 三角网格，夹具与固定根手柄通过碰撞组排除；MuJoCo 使用独立多凸块。原盒子配置另存为 `configs/workcell/placement_trials/gamepad_fixture_v3_boxes.json`。当前实现、几何误差、保护空间、原生物理与性能结果见 [AB 报告](../2026-11-04-fixture-convex-collision/README.md)。采集默认场景未切换。

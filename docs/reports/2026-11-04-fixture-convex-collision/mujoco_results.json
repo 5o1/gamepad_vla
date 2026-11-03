@@ -1,0 +1,336 @@
+{
+  "version": "3.16.0",
+  "load_seconds": 25.532946143997833,
+  "fixture_mesh_geoms": 332,
+  "fixture_gamepad_allowed_pairs": 0,
+  "fixture_robot_allowed_pairs": 21080,
+  "native_filter_control": [
+    {
+      "filter_enabled": true,
+      "contact_pairs": 0
+    },
+    {
+      "filter_enabled": false,
+      "contact_pairs": 4
+    }
+  ],
+  "margin_m": [
+    0.0002
+  ],
+  "witnesses_executed": true,
+  "compiled_fixture_vertex_roundtrip_max_mm": 9.666599212821623e-06,
+  "accepted_witness_approaches": [
+    {
+      "side": "left",
+      "mode": "strict",
+      "control": "Dpad_up",
+      "state": 0,
+      "approach_mm": 3.0,
+      "maximum_overlap_mm3": 0.0,
+      "violations": []
+    },
+    {
+      "side": "left",
+      "mode": "strict",
+      "control": "Dpad_left",
+      "state": 0,
+      "approach_mm": 3.0,
+      "maximum_overlap_mm3": 0.0,
+      "violations": []
+    },
+    {
+      "side": "left",
+      "mode": "strict",
+      "control": "Dpad_right",
+      "state": 0,
+      "approach_mm": 3.0,
+      "maximum_overlap_mm3": 0.0,
+      "violations": []
+    },
+    {
+      "side": "left",
+      "mode": "strict",
+      "control": "LS",
+      "state": 0,
+      "approach_mm": 3.0,
+      "maximum_overlap_mm3": 0.0,
+      "violations": []
+    },
+    {
+      "side": "left",
+      "mode": "strict",
+      "control": "LS",
+      "state": 1,
+      "approach_mm": 3.0,
+      "maximum_overlap_mm3": 0.0,
+      "violations": []
+    },
+    {
+      "side": "left",
+      "mode": "strict",
+      "control": "LS",
+      "state": 2,
+      "approach_mm": 3.0,
+      "maximum_overlap_mm3": 0.0,
+      "violations": []
+    },
+    {
+      "side": "left",
+      "mode": "strict",
+      "control": "LS",
+      "state": 3,
+      "approach_mm": 3.0,
+      "maximum_overlap_mm3": 0.0,
+      "violations": []
+    },
+    {
+      "side": "left",
+      "mode": "strict",
+      "control": "LS",
+      "state": 4,
+      "approach_mm": 3.0,
+      "maximum_overlap_mm3": 0.0,
+      "violations": []
+    },
+    {
+      "side": "left",
+      "mode": "strict",
+      "control": "LS",
+      "state": 5,
+      "approach_mm": 3.0,
+      "maximum_overlap_mm3": 0.0,
+      "violations": []
+    },
+    {
+      "side": "left",
+      "mode": "strict",
+      "control": "LS",
+      "state": 6,
+      "approach_mm": 3.0,
+      "maximum_overlap_mm3": 0.0,
+      "violations": []
+    },
+    {
+      "side": "left",
+      "mode": "strict",
+      "control": "LS",
+      "state": 7,
+      "approach_mm": 3.0,
+      "maximum_overlap_mm3": 0.0,
+      "violations": []
+    },
+    {
+      "side": "left",
+      "mode": "strict",
+      "control": "L3",
+      "state": 0,
+      "approach_mm": 3.0,
+      "maximum_overlap_mm3": 0.0,
+      "violations": []
+    },
+    {
+      "side": "left",
+      "mode": "realistic",
+      "control": "Dpad_up",
+      "state": 0,
+      "approach_mm": 3.0,
+      "maximum_overlap_mm3": 0.0,
+      "violations": []
+    },
+    {
+      "side": "left",
+      "mode": "realistic",
+      "control": "Dpad_left",
+      "state": 0,
+      "approach_mm": 3.0,
+      "maximum_overlap_mm3": 0.0,
+      "violations": []
+    },
+    {
+      "side": "left",
+      "mode": "realistic",
+      "control": "Dpad_right",
+      "state": 0,
+      "approach_mm": 3.0,
+      "maximum_overlap_mm3": 0.0,
+      "violations": []
+    },
+    {
+      "side": "left",
+      "mode": "realistic",
+      "control": "LS",
+      "state": 0,
+      "approach_mm": 3.0,
+      "maximum_overlap_mm3": 0.0,
+      "violations": []
+    },
+    {
+      "side": "left",
+      "mode": "realistic",
+      "control": "LS",
+      "state": 1,
+      "approach_mm": 3.0,
+      "maximum_overlap_mm3": 0.0,
+      "violations": []
+    },
+    {
+      "side": "left",
+      "mode": "realistic",
+      "control": "LS",
+      "state": 2,
+      "approach_mm": 3.0,
+      "maximum_overlap_mm3": 0.0,
+      "violations": []
+    },
+    {
+      "side": "left",
+      "mode": "realistic",
+      "control": "LS",
+      "state": 3,
+      "approach_mm": 3.0,
+      "maximum_overlap_mm3": 0.0,
+      "violations": []
+    },
+    {
+      "side": "left",
+      "mode": "realistic",
+      "control": "LS",
+      "state": 4,
+      "approach_mm": 3.0,
+      "maximum_overlap_mm3": 0.0,
+      "violations": []
+    },
+    {
+      "side": "left",
+      "mode": "realistic",
+      "control": "LS",
+      "state": 5,
+      "approach_mm": 3.0,
+      "maximum_overlap_mm3": 0.0,
+      "violations": []
+    },
+    {
+      "side": "left",
+      "mode": "realistic",
+      "control": "LS",
+      "state": 6,
+      "approach_mm": 3.0,
+      "maximum_overlap_mm3": 0.0,
+      "violations": []
+    },
+    {
+      "side": "left",
+      "mode": "realistic",
+      "control": "LS",
+      "state": 7,
+      "approach_mm": 3.0,
+      "maximum_overlap_mm3": 0.0,
+      "violations": []
+    },
+    {
+      "side": "left",
+      "mode": "realistic",
+      "control": "L3",
+      "state": 0,
+      "approach_mm": 3.0,
+      "maximum_overlap_mm3": 0.0,
+      "violations": []
+    },
+    {
+      "side": "right",
+      "mode": "strict",
+      "control": "A",
+      "state": 0,
+      "approach_mm": 3.0,
+      "maximum_overlap_mm3": 0.0,
+      "violations": []
+    },
+    {
+      "side": "right",
+      "mode": "strict",
+      "control": "B",
+      "state": 0,
+      "approach_mm": 3.0,
+      "maximum_overlap_mm3": 0.0,
+      "violations": []
+    },
+    {
+      "side": "right",
+      "mode": "strict",
+      "control": "Y",
+      "state": 0,
+      "approach_mm": 3.0,
+      "maximum_overlap_mm3": 0.0,
+      "violations": []
+    },
+    {
+      "side": "right",
+      "mode": "strict",
+      "control": "RB",
+      "state": 0,
+      "approach_mm": 3.0,
+      "maximum_overlap_mm3": 0.0,
+      "violations": []
+    },
+    {
+      "side": "right",
+      "mode": "realistic",
+      "control": "A",
+      "state": 0,
+      "approach_mm": 3.0,
+      "maximum_overlap_mm3": 0.0,
+      "violations": []
+    },
+    {
+      "side": "right",
+      "mode": "realistic",
+      "control": "B",
+      "state": 0,
+      "approach_mm": 3.0,
+      "maximum_overlap_mm3": 0.0,
+      "violations": []
+    },
+    {
+      "side": "right",
+      "mode": "realistic",
+      "control": "Y",
+      "state": 0,
+      "approach_mm": 3.0,
+      "maximum_overlap_mm3": 0.0,
+      "violations": []
+    },
+    {
+      "side": "right",
+      "mode": "realistic",
+      "control": "R3",
+      "state": 0,
+      "approach_mm": 3.0,
+      "maximum_overlap_mm3": 0.0,
+      "violations": []
+    },
+    {
+      "side": "right",
+      "mode": "realistic",
+      "control": "RB",
+      "state": 0,
+      "approach_mm": 3.0,
+      "maximum_overlap_mm3": 0.0,
+      "violations": []
+    },
+    {
+      "side": "right",
+      "mode": "realistic",
+      "control": "X",
+      "state": 0,
+      "approach_mm": 3.0,
+      "maximum_overlap_mm3": 0.0,
+      "violations": []
+    }
+  ],
+  "witness_approaches_zero_overlap": true,
+  "invocation": {
+    "spec": "configs/workcell/placement_trials/gamepad_fixture_v3.json",
+    "hulls_override": null,
+    "asset_provenance": "assets/derived/gamepad_fixture_v3/provenance.json"
+  }
+}

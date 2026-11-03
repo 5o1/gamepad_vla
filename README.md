@@ -77,7 +77,7 @@ python scripts/render_workcell.py configs/render/workcell_multiview_preview.yaml
 
 - [示范数据扩增](docs/usage/demogen.md)：读取 v4、按控件切片、保持手柄系下的掌与指尖参考、重新解臂 IK，再经完整场景物理回放筛选后输出 v4。适配 [MimicGen 的片段选择与拼接](https://mimicgen.github.io/docs/modules/datagen.html)及 [DexMimicGen 的分臂片段和手指关节回放](https://arxiv.org/html/2410.24185v1#S4)。支持原位恒等对照、固定手柄的单侧序列；原生反馈合成源已在新位姿产生通过样本，另一侧保持并参与验证。当前证据限于左拇指 down 操作，真实人类示范、全手握持和其他控件仍待验证；[任务 AA 报告](docs/reports/2026-11-04-demogen-framework/README.md)列出通过与拒绝统计及正常接触校准依据。
 
-- [手柄夹具参数化 CAD V3](hardware/gamepad_fixture/README.md)：竖直柱、对称叉耳/M8 双剪轴、平面夹爪与独立 Hirth 盘，提供 STEP/STL、软垫模板和逐件可打印性硬门。[V3 报告](docs/reports/2026-11-04-gamepad-fixture-v3/README.md)记录原厂 Hirth 原理的打印适配、视觉网格测量、抗扭粗算、实际网格试验场景与 camera_3 检查；尚未实物试装。
+- [手柄夹具参数化 CAD V3](hardware/gamepad_fixture/README.md)：竖直柱、对称叉耳/M8 双剪轴、平面夹爪与独立 Hirth 盘，提供 STEP/STL、软垫模板和逐件可打印性硬门。[V3 报告](docs/reports/2026-11-04-gamepad-fixture-v3/README.md)记录原厂 Hirth 原理的打印适配、视觉网格测量、抗扭粗算、实际网格试验场景与 camera_3 检查；尚未实物试装。 [碰撞后端报告](docs/reports/2026-11-04-fixture-convex-collision/README.md)说明固定根手柄与夹具的碰撞排除、SAPIEN 静态 CAD 网格及 MuJoCo 多凸块适配；`gamepad-contact` 保留机器人只碰手柄的语义。
 
 - [夹具实物验证清单](hardware/gamepad_fixture/VALIDATION.md)与[camera_3标记卡工具](docs/reports/2026-10-30-fixture-validation/README.md)：可拆ChArUco支架、1:1模板、小样、绝对与两图相对测量，适配[OpenCV ChArUco](https://docs.opencv.org/4.11.0/df/d4a/tutorial_charuco_detection.html)和[SciPy最小二乘](https://docs.scipy.org/doc/scipy-1.15.3/reference/generated/scipy.optimize.least_squares.html)。较好合成成像条件下相对误差最大0.46mm/0.20°；轮廓法只做粗调，临时ID90只测面内滑移（合成最大0.311mm），配合划线法；法向/倾角依背托接触和托架卡保证，实物验收仍待执行。
 

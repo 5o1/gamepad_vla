@@ -28,6 +28,8 @@ from gamepad_vla.workstation.g20_mapping import G20_JOINT_NAMES, G20_MIMIC_JOINT
 from gamepad_vla.workstation.robot_description import compose_robot_urdf
 from gamepad_vla.workstation.appearance import load_appearance, match_material, match_visual_split
 
+from .fixture_collision import add_sapien_fixture_collision, configure_sapien_shapes
+
 ROBOT_IGNORE_BIT = 0x00010000  # groups[2] bit shared by every robot shape
 RIGHT_ROBOT_IGNORE_BIT = 0x00020000
 PHYSICS_DT = 1 / 240
@@ -86,6 +88,7 @@ class SapienBackend:
         table.add_box_visual(half_size=list(spec.table.half_extents), material=self._material("table"))
         self.table = table.build_static(name="table")
         self.table.set_pose(_sapien_pose(spec.table.pose))
+        configure_sapien_shapes(self.table)
         self.fixtures = []
         for fixture in spec.fixtures:
             if fixture.parent is not None and fixture.parent != spec.world_frame:
@@ -96,14 +99,15 @@ class SapienBackend:
             material = self._material(fixture.name, fixture.mesh or "")
             if fixture.type == "box":
                 if fixture.collision:
-                    builder.add_box_collision(half_size=list(fixture.half_extents))
+                    add_sapien_fixture_collision(builder, fixture)
                 builder.add_box_visual(half_size=list(fixture.half_extents), material=material)
             else:
                 if fixture.collision:
-                    builder.add_nonconvex_collision_from_file(fixture.mesh)
+                    add_sapien_fixture_collision(builder, fixture)
                 builder.add_visual_from_file(fixture.mesh, material=material)
             actor = builder.build_static(name=fixture.name)
             actor.set_pose(_sapien_pose(fixture.pose))
+            configure_sapien_shapes(actor, exclude_fixture_gamepad=True)
             self.fixtures.append(actor)
 
         self._work_dir = Path(work_dir) if work_dir else Path(tempfile.mkdtemp(prefix="workcell_"))
@@ -171,6 +175,10 @@ class SapienBackend:
                                       fixed_root=spec.gamepad.fixed_root,
                                       collision=collision or spec.gamepad.collision)
         self.gamepad = gamepad
+        for articulation in (self.robot, self.right_robot, gamepad.articulation):
+            if articulation is not None:
+                for link in articulation.get_links():
+                    configure_sapien_shapes(link, exclude_fixture_gamepad=articulation is gamepad.articulation)
         overlap = [shape for link in self.gamepad.articulation.get_links()
                    for shape in link.get_collision_shapes()
                    if shape.get_collision_groups()[2] & (ROBOT_IGNORE_BIT | RIGHT_ROBOT_IGNORE_BIT)]

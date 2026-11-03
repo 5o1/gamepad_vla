@@ -1,0 +1,195 @@
+{
+  "cad": {
+    "vertex_grid_mm": 0.0001,
+    "maximum_rounding_distance_mm": 8.660254037844386e-05,
+    "method": "cad",
+    "threshold": null,
+    "parts": {
+      "base_printed": {
+        "hulls": 15,
+        "max_vertices": 10
+      },
+      "column": {
+        "hulls": 116,
+        "max_vertices": 62
+      },
+      "hirth_fixed": {
+        "hulls": 68,
+        "max_vertices": 52
+      },
+      "hirth_moving": {
+        "hulls": 92,
+        "max_vertices": 54
+      },
+      "cradle_lower_jaw": {
+        "hulls": 122,
+        "max_vertices": 52
+      },
+      "slider_upper_jaw": {
+        "hulls": 39,
+        "max_vertices": 10
+      },
+      "guide_cap": {
+        "hulls": 27,
+        "max_vertices": 46
+      },
+      "guide_rod_1": {
+        "hulls": 1,
+        "max_vertices": 128
+      },
+      "guide_rod_2": {
+        "hulls": 1,
+        "max_vertices": 128
+      },
+      "lock_screw_spacer": {
+        "hulls": 4,
+        "max_vertices": 54
+      },
+      "M8_hand_knob": {
+        "hulls": 24,
+        "max_vertices": 62
+      },
+      "pad_back": {
+        "hulls": 1,
+        "max_vertices": 8
+      },
+      "pad_lower_jaw": {
+        "hulls": 1,
+        "max_vertices": 8
+      },
+      "pad_upper_jaw": {
+        "hulls": 5,
+        "max_vertices": 8
+      }
+    },
+    "hulls": 516,
+    "elapsed_seconds": 5.982687812997028
+  },
+  "merge": {
+    "parts": {
+      "M8_hand_knob": {
+        "before": 24,
+        "after_containment": 24,
+        "after": 14,
+        "merges": 10,
+        "seconds": 25.196980170963798
+      },
+      "base_printed": {
+        "before": 15,
+        "after_containment": 15,
+        "after": 14,
+        "merges": 1,
+        "seconds": 31.997431622992735
+      },
+      "column": {
+        "before": 116,
+        "after_containment": 97,
+        "after": 56,
+        "merges": 41,
+        "seconds": 30.19809877203079
+      },
+      "cradle_lower_jaw": {
+        "before": 122,
+        "after_containment": 106,
+        "after": 90,
+        "merges": 16,
+        "seconds": 30.101064205984585
+      },
+      "guide_cap": {
+        "before": 27,
+        "after_containment": 27,
+        "after": 25,
+        "merges": 2,
+        "seconds": 30.653531624004245
+      },
+      "guide_rod_1": {
+        "before": 1,
+        "after_containment": 1,
+        "after": 1,
+        "merges": 0,
+        "seconds": 0.00841004797257483
+      },
+      "guide_rod_2": {
+        "before": 1,
+        "after_containment": 1,
+        "after": 1,
+        "merges": 0,
+        "seconds": 0.008359196013770998
+      },
+      "hirth_fixed": {
+        "before": 68,
+        "after_containment": 68,
+        "after": 50,
+        "merges": 18,
+        "seconds": 30.200583356025163
+      },
+      "hirth_moving": {
+        "before": 92,
+        "after_containment": 92,
+        "after": 51,
+        "merges": 41,
+        "seconds": 30.11241250403691
+      },
+      "lock_screw_spacer": {
+        "before": 4,
+        "after_containment": 4,
+        "after": 4,
+        "merges": 0,
+        "seconds": 0.11415655497694388
+      },
+      "pad_back": {
+        "before": 1,
+        "after_containment": 1,
+        "after": 1,
+        "merges": 0,
+        "seconds": 0.002285240974742919
+      },
+      "pad_lower_jaw": {
+        "before": 1,
+        "after_containment": 1,
+        "after": 1,
+        "merges": 0,
+        "seconds": 0.002355171018280089
+      },
+      "pad_upper_jaw": {
+        "before": 5,
+        "after_containment": 5,
+        "after": 3,
+        "merges": 2,
+        "seconds": 0.02946732798591256
+      },
+      "slider_upper_jaw": {
+        "before": 39,
+        "after_containment": 39,
+        "after": 21,
+        "merges": 18,
+        "seconds": 30.978441725019366
+      }
+    },
+    "hulls": 332,
+    "seconds": 240.1447014459991,
+    "per_part_budget_seconds": 30.0
+  },
+  "coacd": {
+    "executed": true,
+    "version": "1.0.14",
+    "installation": ".local/cad-env",
+    "thresholds": [
+      0.005,
+      0.01,
+      0.02,
+      0.03,
+      0.05
+    ],
+    "wall_seconds": 953.5573884400073,
+    "wall_ceiling_seconds": 1200,
+    "report": "coacd_sweep.json"
+  },
+  "generation_seconds": 246.12738925899612,
+  "selection": "CAD 332: fewest eligible count in every tested per-part candidate; ties prefer CAD.",
+  "rejected_earlier_candidate": {
+    "hulls": 682,
+    "max_outward_mm": 1.639252934082125,
+    "reason": "Dense check rejected cap and moving Hirth merges; not installed as the chosen MuJoCo collision asset."
+  }
+}

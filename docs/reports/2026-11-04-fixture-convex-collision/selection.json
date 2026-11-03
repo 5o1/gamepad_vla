@@ -1,0 +1,1594 @@
+{
+  "hulls": 332,
+  "cad_hulls": 332,
+  "chosen": {
+    "M8_hand_knob": {
+      "method": "cad",
+      "directory": ".local/fixture-convex/cad_adaptive_merged",
+      "hulls": 14,
+      "eligible": true,
+      "outward": {
+        "max_mm": 0.783716682453251,
+        "p95_mm": 0.6979339533433788,
+        "samples": 8662
+      },
+      "inward": {
+        "max_mm": 0.036150092918406464,
+        "p95_mm": 0.03010308796564955,
+        "samples": 6229
+      },
+      "contact": null,
+      "protected_intersections": []
+    },
+    "base_printed": {
+      "method": "cad",
+      "directory": ".local/fixture-convex/cad_adaptive_merged",
+      "hulls": 14,
+      "eligible": true,
+      "outward": {
+        "max_mm": 0.9367183017453109,
+        "p95_mm": 4.894159484380265e-05,
+        "samples": 106552
+      },
+      "inward": {
+        "max_mm": 0.001853205541236545,
+        "p95_mm": 5.65288730606507e-05,
+        "samples": 30465
+      },
+      "contact": null,
+      "protected_intersections": []
+    },
+    "column": {
+      "method": "cad",
+      "directory": ".local/fixture-convex/cad_adaptive_merged",
+      "hulls": 56,
+      "eligible": true,
+      "outward": {
+        "max_mm": 1.2519205561628044,
+        "p95_mm": 0.6819505379169967,
+        "samples": 50067
+      },
+      "inward": {
+        "max_mm": 0.0014466177132401972,
+        "p95_mm": 0.0008052381032554765,
+        "samples": 15053
+      },
+      "contact": null,
+      "protected_intersections": []
+    },
+    "cradle_lower_jaw": {
+      "method": "cad",
+      "directory": ".local/fixture-convex/cad_adaptive_merged",
+      "hulls": 90,
+      "eligible": true,
+      "outward": {
+        "max_mm": 1.2462220805594504,
+        "p95_mm": 0.7336201417836421,
+        "samples": 27863
+      },
+      "inward": {
+        "max_mm": 0.03855863266165703,
+        "p95_mm": 0.03133644081102574,
+        "samples": 27436
+      },
+      "contact": null,
+      "protected_intersections": []
+    },
+    "guide_cap": {
+      "method": "cad",
+      "directory": ".local/fixture-convex/cad_adaptive_merged",
+      "hulls": 25,
+      "eligible": true,
+      "outward": {
+        "max_mm": 0.914791806140535,
+        "p95_mm": 0.9016382010694561,
+        "samples": 8830
+      },
+      "inward": {
+        "max_mm": 0.004915227372169899,
+        "p95_mm": 0.004363832834126793,
+        "samples": 2292
+      },
+      "contact": null,
+      "protected_intersections": []
+    },
+    "guide_rod_1": {
+      "method": "cad",
+      "directory": ".local/fixture-convex/cad_adaptive_merged",
+      "hulls": 1,
+      "eligible": true,
+      "outward": {
+        "max_mm": 0.0037757552974973688,
+        "p95_mm": 0.0031884209463583124,
+        "samples": 3814
+      },
+      "inward": {
+        "max_mm": 0.0036011612256240267,
+        "p95_mm": 0.0031075029709432857,
+        "samples": 3242
+      },
+      "contact": null,
+      "protected_intersections": []
+    },
+    "guide_rod_2": {
+      "method": "cad",
+      "directory": ".local/fixture-convex/cad_adaptive_merged",
+      "hulls": 1,
+      "eligible": true,
+      "outward": {
+        "max_mm": 0.003775999878404079,
+        "p95_mm": 0.0031994822860515987,
+        "samples": 3887
+      },
+      "inward": {
+        "max_mm": 0.0036016101618740514,
+        "p95_mm": 0.0031074973521777035,
+        "samples": 3242
+      },
+      "contact": null,
+      "protected_intersections": []
+    },
+    "hirth_fixed": {
+      "method": "cad",
+      "directory": ".local/fixture-convex/cad_adaptive_merged",
+      "hulls": 50,
+      "eligible": true,
+      "outward": {
+        "max_mm": 0.7881330567418944,
+        "p95_mm": 0.4190490259065867,
+        "samples": 14655
+      },
+      "inward": {
+        "max_mm": 0.0409367446925389,
+        "p95_mm": 0.027582956563709484,
+        "samples": 3042
+      },
+      "contact": null,
+      "protected_intersections": []
+    },
+    "hirth_moving": {
+      "method": "cad",
+      "directory": ".local/fixture-convex/cad_adaptive_merged",
+      "hulls": 51,
+      "eligible": true,
+      "outward": {
+        "max_mm": 1.0561375388280407,
+        "p95_mm": 0.3308888662630657,
+        "samples": 14581
+      },
+      "inward": {
+        "max_mm": 0.0409367446925389,
+        "p95_mm": 0.032165783070240435,
+        "samples": 2666
+      },
+      "contact": null,
+      "protected_intersections": []
+    },
+    "lock_screw_spacer": {
+      "method": "cad",
+      "directory": ".local/fixture-convex/cad_adaptive_merged",
+      "hulls": 4,
+      "eligible": true,
+      "outward": {
+        "max_mm": 0.6576303881335156,
+        "p95_mm": 0.6222772859786907,
+        "samples": 583
+      },
+      "inward": {
+        "max_mm": 0.006032567747518211,
+        "p95_mm": 0.005892004193878772,
+        "samples": 351
+      },
+      "contact": null,
+      "protected_intersections": []
+    },
+    "pad_back": {
+      "method": "cad",
+      "directory": ".local/fixture-convex/cad_adaptive_merged",
+      "hulls": 1,
+      "eligible": true,
+      "outward": {
+        "max_mm": 0.0,
+        "p95_mm": 0.0,
+        "samples": 0
+      },
+      "inward": {
+        "max_mm": 5.8703282915162635e-05,
+        "p95_mm": 4.2232906431924926e-05,
+        "samples": 5454
+      },
+      "contact": {
+        "source_samples": 3237,
+        "max_mm": 5.8703282915162635e-05,
+        "p95_mm": 3.9661433619699716e-05,
+        "samples": 3237
+      },
+      "protected_intersections": []
+    },
+    "pad_lower_jaw": {
+      "method": "cad",
+      "directory": ".local/fixture-convex/cad_adaptive_merged",
+      "hulls": 1,
+      "eligible": true,
+      "outward": {
+        "max_mm": 1.7465209960931816e-05,
+        "p95_mm": 1.7465209960931816e-05,
+        "samples": 4629
+      },
+      "inward": {
+        "max_mm": 1.71661376953125e-05,
+        "p95_mm": 1.71661376953125e-05,
+        "samples": 4550
+      },
+      "contact": {
+        "source_samples": 4573,
+        "max_mm": 1.71661376953125e-05,
+        "p95_mm": 1.71661376953125e-05,
+        "samples": 4573
+      },
+      "protected_intersections": []
+    },
+    "pad_upper_jaw": {
+      "method": "cad",
+      "directory": ".local/fixture-convex/cad_adaptive_merged",
+      "hulls": 3,
+      "eligible": true,
+      "outward": {
+        "max_mm": 0.5,
+        "p95_mm": 0.5,
+        "samples": 943
+      },
+      "inward": {
+        "max_mm": 2.288818359375e-05,
+        "p95_mm": 2.288818359375e-05,
+        "samples": 831
+      },
+      "contact": {
+        "source_samples": 831,
+        "max_mm": 2.288818359375e-05,
+        "p95_mm": 2.288818359375e-05,
+        "samples": 831
+      },
+      "protected_intersections": []
+    },
+    "slider_upper_jaw": {
+      "method": "cad",
+      "directory": ".local/fixture-convex/cad_adaptive_merged",
+      "hulls": 21,
+      "eligible": true,
+      "outward": {
+        "max_mm": 1.0587082325059805,
+        "p95_mm": 0.9415115471646366,
+        "samples": 17813
+      },
+      "inward": {
+        "max_mm": 0.0018491434622915353,
+        "p95_mm": 1.9073486328125e-05,
+        "samples": 5400
+      },
+      "contact": null,
+      "protected_intersections": []
+    }
+  },
+  "candidates": {
+    "M8_hand_knob": [
+      {
+        "method": "cad",
+        "directory": ".local/fixture-convex/cad_adaptive_merged",
+        "hulls": 14,
+        "eligible": true,
+        "outward": {
+          "max_mm": 0.783716682453251,
+          "p95_mm": 0.6979339533433788,
+          "samples": 8662
+        },
+        "inward": {
+          "max_mm": 0.036150092918406464,
+          "p95_mm": 0.03010308796564955,
+          "samples": 6229
+        },
+        "contact": null,
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.02",
+        "directory": ".local/fixture-convex/coacd_scan/t0.02",
+        "hulls": 67,
+        "eligible": true,
+        "outward": {
+          "max_mm": 0.7310517851323777,
+          "p95_mm": 0.1386620074063634,
+          "samples": 2321
+        },
+        "inward": {
+          "max_mm": 0.0076187966082298065,
+          "p95_mm": 0.0036802370891700913,
+          "samples": 12817
+        },
+        "contact": null,
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.03",
+        "directory": ".local/fixture-convex/coacd_scan/t0.03",
+        "hulls": 48,
+        "eligible": true,
+        "outward": {
+          "max_mm": 1.026041511023625,
+          "p95_mm": 0.47995448040225913,
+          "samples": 2381
+        },
+        "inward": {
+          "max_mm": 0.009785389759549103,
+          "p95_mm": 0.0037116264608773896,
+          "samples": 12862
+        },
+        "contact": null,
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.05",
+        "directory": ".local/fixture-convex/coacd_scan/t0.05",
+        "hulls": 25,
+        "eligible": true,
+        "outward": {
+          "max_mm": 1.48176206464345,
+          "p95_mm": 0.9413069078504677,
+          "samples": 2881
+        },
+        "inward": {
+          "max_mm": 0.009621552629949966,
+          "p95_mm": 0.003674858976839357,
+          "samples": 13829
+        },
+        "contact": null,
+        "protected_intersections": []
+      }
+    ],
+    "base_printed": [
+      {
+        "method": "cad",
+        "directory": ".local/fixture-convex/cad_adaptive_merged",
+        "hulls": 14,
+        "eligible": true,
+        "outward": {
+          "max_mm": 0.9367183017453109,
+          "p95_mm": 4.894159484380265e-05,
+          "samples": 106552
+        },
+        "inward": {
+          "max_mm": 0.001853205541236545,
+          "p95_mm": 5.65288730606507e-05,
+          "samples": 30465
+        },
+        "contact": null,
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.01",
+        "directory": ".local/fixture-convex/coacd_scan/t0.01",
+        "hulls": 131,
+        "eligible": true,
+        "outward": {
+          "max_mm": 1.2486373799157773,
+          "p95_mm": 0.002075535646284256,
+          "samples": 110137
+        },
+        "inward": {
+          "max_mm": 0.00830078125,
+          "p95_mm": 0.0020361134010673234,
+          "samples": 87483
+        },
+        "contact": null,
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.02",
+        "directory": ".local/fixture-convex/coacd_scan/t0.02",
+        "hulls": 33,
+        "eligible": false,
+        "outward": {
+          "max_mm": 3.0247973639907935,
+          "p95_mm": 0.002069207556535469,
+          "samples": 118225
+        },
+        "inward": {
+          "max_mm": 0.01619720458984375,
+          "p95_mm": 0.0017960179272701045,
+          "samples": 80665
+        },
+        "contact": null,
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.03",
+        "directory": ".local/fixture-convex/coacd_scan/t0.03",
+        "hulls": 8,
+        "eligible": false,
+        "outward": {
+          "max_mm": 3.16073967084394,
+          "p95_mm": 0.001961666102702112,
+          "samples": 106421
+        },
+        "inward": {
+          "max_mm": 0.0023808112104393023,
+          "p95_mm": 0.0019095148357675003,
+          "samples": 91052
+        },
+        "contact": null,
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.05",
+        "directory": ".local/fixture-convex/coacd_scan/t0.05",
+        "hulls": 4,
+        "eligible": false,
+        "outward": {
+          "max_mm": 3.16073967084394,
+          "p95_mm": 0.0032467471248949793,
+          "samples": 122357
+        },
+        "inward": {
+          "max_mm": 0.0026845356528533014,
+          "p95_mm": 0.0016091808027451843,
+          "samples": 81941
+        },
+        "contact": null,
+        "protected_intersections": []
+      }
+    ],
+    "column": [
+      {
+        "method": "cad",
+        "directory": ".local/fixture-convex/cad_adaptive_merged",
+        "hulls": 56,
+        "eligible": true,
+        "outward": {
+          "max_mm": 1.2519205561628044,
+          "p95_mm": 0.6819505379169967,
+          "samples": 50067
+        },
+        "inward": {
+          "max_mm": 0.0014466177132401972,
+          "p95_mm": 0.0008052381032554765,
+          "samples": 15053
+        },
+        "contact": null,
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.01",
+        "directory": ".local/fixture-convex/coacd_scan/t0.01",
+        "hulls": 332,
+        "eligible": true,
+        "outward": {
+          "max_mm": 0.776525589333545,
+          "p95_mm": 0.2499870323064061,
+          "samples": 53164
+        },
+        "inward": {
+          "max_mm": 0.00545469695419568,
+          "p95_mm": 0.002027019644816413,
+          "samples": 76652
+        },
+        "contact": null,
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.02",
+        "directory": ".local/fixture-convex/coacd_scan/t0.02",
+        "hulls": 165,
+        "eligible": false,
+        "outward": {
+          "max_mm": 1.5649013821045556,
+          "p95_mm": 0.6206502667856091,
+          "samples": 59830
+        },
+        "inward": {
+          "max_mm": 0.009025101304280327,
+          "p95_mm": 0.003332526429063958,
+          "samples": 71470
+        },
+        "contact": null,
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.03",
+        "directory": ".local/fixture-convex/coacd_scan/t0.03",
+        "hulls": 117,
+        "eligible": false,
+        "outward": {
+          "max_mm": 2.0442162804138038,
+          "p95_mm": 0.9458463064193467,
+          "samples": 58301
+        },
+        "inward": {
+          "max_mm": 0.008996841995677077,
+          "p95_mm": 0.0033538235377931617,
+          "samples": 74071
+        },
+        "contact": null,
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.05",
+        "directory": ".local/fixture-convex/coacd_scan/t0.05",
+        "hulls": 50,
+        "eligible": false,
+        "outward": {
+          "max_mm": 3.088639888374165,
+          "p95_mm": 1.8162711205688578,
+          "samples": 67715
+        },
+        "inward": {
+          "max_mm": 0.017134111184530336,
+          "p95_mm": 0.003925128834428433,
+          "samples": 73861
+        },
+        "contact": null,
+        "protected_intersections": []
+      }
+    ],
+    "cradle_lower_jaw": [
+      {
+        "method": "cad",
+        "directory": ".local/fixture-convex/cad_adaptive_merged",
+        "hulls": 90,
+        "eligible": true,
+        "outward": {
+          "max_mm": 1.2462220805594504,
+          "p95_mm": 0.7336201417836421,
+          "samples": 27863
+        },
+        "inward": {
+          "max_mm": 0.03855863266165703,
+          "p95_mm": 0.03133644081102574,
+          "samples": 27436
+        },
+        "contact": null,
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.01",
+        "directory": ".local/fixture-convex/coacd_scan/t0.01",
+        "hulls": 210,
+        "eligible": true,
+        "outward": {
+          "max_mm": 0.7609340386484231,
+          "p95_mm": 0.3326283543753064,
+          "samples": 32708
+        },
+        "inward": {
+          "max_mm": 0.005004214229829396,
+          "p95_mm": 0.001986497633065797,
+          "samples": 45236
+        },
+        "contact": null,
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.02",
+        "directory": ".local/fixture-convex/coacd_scan/t0.02",
+        "hulls": 88,
+        "eligible": false,
+        "outward": {
+          "max_mm": 1.8993438660435569,
+          "p95_mm": 1.4778683497020402,
+          "samples": 43116
+        },
+        "inward": {
+          "max_mm": 0.004773205300429712,
+          "p95_mm": 0.0023735962621228065,
+          "samples": 42353
+        },
+        "contact": null,
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.03",
+        "directory": ".local/fixture-convex/coacd_scan/t0.03",
+        "hulls": 47,
+        "eligible": false,
+        "outward": {
+          "max_mm": 2.7022255926112044,
+          "p95_mm": 1.500017846679686,
+          "samples": 44563
+        },
+        "inward": {
+          "max_mm": 0.006923126363629705,
+          "p95_mm": 0.004299163818359375,
+          "samples": 42338
+        },
+        "contact": null,
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.05",
+        "directory": ".local/fixture-convex/coacd_scan/t0.05",
+        "hulls": 20,
+        "eligible": false,
+        "outward": {
+          "max_mm": 3.8670203090763025,
+          "p95_mm": 2.249939560341112,
+          "samples": 48830
+        },
+        "inward": {
+          "max_mm": 0.006335854136074791,
+          "p95_mm": 0.004379221357555865,
+          "samples": 38623
+        },
+        "contact": null,
+        "protected_intersections": [
+          {
+            "space": "grip_left",
+            "volume_mm3": 14.801511250161782
+          },
+          {
+            "space": "grip_right",
+            "volume_mm3": 14.805324398525109
+          }
+        ]
+      }
+    ],
+    "guide_cap": [
+      {
+        "method": "cad",
+        "directory": ".local/fixture-convex/cad_adaptive_merged",
+        "hulls": 25,
+        "eligible": true,
+        "outward": {
+          "max_mm": 0.914791806140535,
+          "p95_mm": 0.9016382010694561,
+          "samples": 8830
+        },
+        "inward": {
+          "max_mm": 0.004915227372169899,
+          "p95_mm": 0.004363832834126793,
+          "samples": 2292
+        },
+        "contact": null,
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.01",
+        "directory": ".local/fixture-convex/coacd_scan/t0.01",
+        "hulls": 131,
+        "eligible": true,
+        "outward": {
+          "max_mm": 0.2697822753319759,
+          "p95_mm": 0.12825371321586948,
+          "samples": 9428
+        },
+        "inward": {
+          "max_mm": 0.0023061591768437618,
+          "p95_mm": 0.0009795719000677868,
+          "samples": 7367
+        },
+        "contact": null,
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.02",
+        "directory": ".local/fixture-convex/coacd_scan/t0.02",
+        "hulls": 62,
+        "eligible": true,
+        "outward": {
+          "max_mm": 0.5832836474489734,
+          "p95_mm": 0.49174414673058103,
+          "samples": 9778
+        },
+        "inward": {
+          "max_mm": 0.002310725431891489,
+          "p95_mm": 0.0009002685546875,
+          "samples": 6140
+        },
+        "contact": null,
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.03",
+        "directory": ".local/fixture-convex/coacd_scan/t0.03",
+        "hulls": 51,
+        "eligible": true,
+        "outward": {
+          "max_mm": 0.8490436898659254,
+          "p95_mm": 0.5565145950224009,
+          "samples": 9586
+        },
+        "inward": {
+          "max_mm": 0.002310725431891489,
+          "p95_mm": 0.0009002685546875,
+          "samples": 6367
+        },
+        "contact": null,
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.05",
+        "directory": ".local/fixture-convex/coacd_scan/t0.05",
+        "hulls": 39,
+        "eligible": true,
+        "outward": {
+          "max_mm": 1.3940272521972688,
+          "p95_mm": 1.0497884741571575,
+          "samples": 9472
+        },
+        "inward": {
+          "max_mm": 0.002295886227479806,
+          "p95_mm": 0.0009002685546875,
+          "samples": 6025
+        },
+        "contact": null,
+        "protected_intersections": []
+      }
+    ],
+    "guide_rod_1": [
+      {
+        "method": "cad",
+        "directory": ".local/fixture-convex/cad_adaptive_merged",
+        "hulls": 1,
+        "eligible": true,
+        "outward": {
+          "max_mm": 0.0037757552974973688,
+          "p95_mm": 0.0031884209463583124,
+          "samples": 3814
+        },
+        "inward": {
+          "max_mm": 0.0036011612256240267,
+          "p95_mm": 0.0031075029709432857,
+          "samples": 3242
+        },
+        "contact": null,
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.01",
+        "directory": ".local/fixture-convex/coacd_scan/t0.01",
+        "hulls": 1,
+        "eligible": true,
+        "outward": {
+          "max_mm": 5.0572750769068025e-05,
+          "p95_mm": 3.5666816400665326e-05,
+          "samples": 2481
+        },
+        "inward": {
+          "max_mm": 3.2281011238132656e-05,
+          "p95_mm": 2.960358475486033e-05,
+          "samples": 1841
+        },
+        "contact": null,
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.02",
+        "directory": ".local/fixture-convex/coacd_scan/t0.02",
+        "hulls": 1,
+        "eligible": true,
+        "outward": {
+          "max_mm": 5.0572750769068025e-05,
+          "p95_mm": 3.5666816400665326e-05,
+          "samples": 2481
+        },
+        "inward": {
+          "max_mm": 3.2281011238132656e-05,
+          "p95_mm": 2.960358475486033e-05,
+          "samples": 1841
+        },
+        "contact": null,
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.03",
+        "directory": ".local/fixture-convex/coacd_scan/t0.03",
+        "hulls": 1,
+        "eligible": true,
+        "outward": {
+          "max_mm": 5.0572750769068025e-05,
+          "p95_mm": 3.5666816400665326e-05,
+          "samples": 2481
+        },
+        "inward": {
+          "max_mm": 3.2281011238132656e-05,
+          "p95_mm": 2.960358475486033e-05,
+          "samples": 1841
+        },
+        "contact": null,
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.05",
+        "directory": ".local/fixture-convex/coacd_scan/t0.05",
+        "hulls": 1,
+        "eligible": true,
+        "outward": {
+          "max_mm": 5.0572750769068025e-05,
+          "p95_mm": 3.5666816400665326e-05,
+          "samples": 2481
+        },
+        "inward": {
+          "max_mm": 3.2281011238132656e-05,
+          "p95_mm": 2.960358475486033e-05,
+          "samples": 1841
+        },
+        "contact": null,
+        "protected_intersections": []
+      }
+    ],
+    "guide_rod_2": [
+      {
+        "method": "cad",
+        "directory": ".local/fixture-convex/cad_adaptive_merged",
+        "hulls": 1,
+        "eligible": true,
+        "outward": {
+          "max_mm": 0.003775999878404079,
+          "p95_mm": 0.0031994822860515987,
+          "samples": 3887
+        },
+        "inward": {
+          "max_mm": 0.0036016101618740514,
+          "p95_mm": 0.0031074973521777035,
+          "samples": 3242
+        },
+        "contact": null,
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.01",
+        "directory": ".local/fixture-convex/coacd_scan/t0.01",
+        "hulls": 1,
+        "eligible": true,
+        "outward": {
+          "max_mm": 5.057277083250007e-05,
+          "p95_mm": 3.5780824313325145e-05,
+          "samples": 2488
+        },
+        "inward": {
+          "max_mm": 3.2281011238132656e-05,
+          "p95_mm": 2.9766289018476906e-05,
+          "samples": 1840
+        },
+        "contact": null,
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.02",
+        "directory": ".local/fixture-convex/coacd_scan/t0.02",
+        "hulls": 1,
+        "eligible": true,
+        "outward": {
+          "max_mm": 5.057277083250007e-05,
+          "p95_mm": 3.5780824313325145e-05,
+          "samples": 2488
+        },
+        "inward": {
+          "max_mm": 3.2281011238132656e-05,
+          "p95_mm": 2.9766289018476906e-05,
+          "samples": 1840
+        },
+        "contact": null,
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.03",
+        "directory": ".local/fixture-convex/coacd_scan/t0.03",
+        "hulls": 1,
+        "eligible": true,
+        "outward": {
+          "max_mm": 5.057277083250007e-05,
+          "p95_mm": 3.5780824313325145e-05,
+          "samples": 2488
+        },
+        "inward": {
+          "max_mm": 3.2281011238132656e-05,
+          "p95_mm": 2.9766289018476906e-05,
+          "samples": 1840
+        },
+        "contact": null,
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.05",
+        "directory": ".local/fixture-convex/coacd_scan/t0.05",
+        "hulls": 1,
+        "eligible": true,
+        "outward": {
+          "max_mm": 5.057277083250007e-05,
+          "p95_mm": 3.5780824313325145e-05,
+          "samples": 2488
+        },
+        "inward": {
+          "max_mm": 3.2281011238132656e-05,
+          "p95_mm": 2.9766289018476906e-05,
+          "samples": 1840
+        },
+        "contact": null,
+        "protected_intersections": []
+      }
+    ],
+    "hirth_fixed": [
+      {
+        "method": "cad",
+        "directory": ".local/fixture-convex/cad_adaptive_merged",
+        "hulls": 50,
+        "eligible": true,
+        "outward": {
+          "max_mm": 0.7881330567418944,
+          "p95_mm": 0.4190490259065867,
+          "samples": 14655
+        },
+        "inward": {
+          "max_mm": 0.0409367446925389,
+          "p95_mm": 0.027582956563709484,
+          "samples": 3042
+        },
+        "contact": null,
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.01",
+        "directory": ".local/fixture-convex/coacd_scan/t0.01",
+        "hulls": 446,
+        "eligible": true,
+        "outward": {
+          "max_mm": 0.4541808612594375,
+          "p95_mm": 0.28749614699126735,
+          "samples": 18591
+        },
+        "inward": {
+          "max_mm": 0.0025745092690707782,
+          "p95_mm": 0.001024738486648071,
+          "samples": 7853
+        },
+        "contact": null,
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.02",
+        "directory": ".local/fixture-convex/coacd_scan/t0.02",
+        "hulls": 114,
+        "eligible": true,
+        "outward": {
+          "max_mm": 0.6170228953377263,
+          "p95_mm": 0.33589999999999876,
+          "samples": 16275
+        },
+        "inward": {
+          "max_mm": 0.005005126281921149,
+          "p95_mm": 0.0019692831667695023,
+          "samples": 7905
+        },
+        "contact": null,
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.03",
+        "directory": ".local/fixture-convex/coacd_scan/t0.03",
+        "hulls": 91,
+        "eligible": true,
+        "outward": {
+          "max_mm": 1.0356546286316566,
+          "p95_mm": 0.4085962916247372,
+          "samples": 18166
+        },
+        "inward": {
+          "max_mm": 0.004832569204056974,
+          "p95_mm": 0.0027252352270069223,
+          "samples": 6654
+        },
+        "contact": null,
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.05",
+        "directory": ".local/fixture-convex/coacd_scan/t0.05",
+        "hulls": 35,
+        "eligible": false,
+        "outward": {
+          "max_mm": 1.7821838289263445,
+          "p95_mm": 1.1321227290179818,
+          "samples": 21800
+        },
+        "inward": {
+          "max_mm": 0.00474494348302463,
+          "p95_mm": 0.0029264247129197926,
+          "samples": 5834
+        },
+        "contact": null,
+        "protected_intersections": []
+      }
+    ],
+    "hirth_moving": [
+      {
+        "method": "cad",
+        "directory": ".local/fixture-convex/cad_adaptive_merged",
+        "hulls": 51,
+        "eligible": true,
+        "outward": {
+          "max_mm": 1.0561375388280407,
+          "p95_mm": 0.3308888662630657,
+          "samples": 14581
+        },
+        "inward": {
+          "max_mm": 0.0409367446925389,
+          "p95_mm": 0.032165783070240435,
+          "samples": 2666
+        },
+        "contact": null,
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.03",
+        "directory": ".local/fixture-convex/coacd_scan/t0.03",
+        "hulls": 190,
+        "eligible": true,
+        "outward": {
+          "max_mm": 1.0292971368302521,
+          "p95_mm": 0.5788288189086698,
+          "samples": 22922
+        },
+        "inward": {
+          "max_mm": 0.007505568815726196,
+          "p95_mm": 0.0019007819007765814,
+          "samples": 18422
+        },
+        "contact": null,
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.05",
+        "directory": ".local/fixture-convex/coacd_scan/t0.05",
+        "hulls": 61,
+        "eligible": false,
+        "outward": {
+          "max_mm": 1.7138563741256445,
+          "p95_mm": 1.0135911216372469,
+          "samples": 22116
+        },
+        "inward": {
+          "max_mm": 0.010625057021622145,
+          "p95_mm": 0.0034292787047756593,
+          "samples": 21608
+        },
+        "contact": null,
+        "protected_intersections": []
+      }
+    ],
+    "lock_screw_spacer": [
+      {
+        "method": "cad",
+        "directory": ".local/fixture-convex/cad_adaptive_merged",
+        "hulls": 4,
+        "eligible": true,
+        "outward": {
+          "max_mm": 0.6576303881335156,
+          "p95_mm": 0.6222772859786907,
+          "samples": 583
+        },
+        "inward": {
+          "max_mm": 0.006032567747518211,
+          "p95_mm": 0.005892004193878772,
+          "samples": 351
+        },
+        "contact": null,
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.01",
+        "directory": ".local/fixture-convex/coacd_scan/t0.01",
+        "hulls": 136,
+        "eligible": true,
+        "outward": {
+          "max_mm": 0.016877556988338593,
+          "p95_mm": 0.008058194039776853,
+          "samples": 766
+        },
+        "inward": {
+          "max_mm": 0.0004660600888944802,
+          "p95_mm": 0.00031463365541137484,
+          "samples": 618
+        },
+        "contact": null,
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.02",
+        "directory": ".local/fixture-convex/coacd_scan/t0.02",
+        "hulls": 18,
+        "eligible": true,
+        "outward": {
+          "max_mm": 0.044456209616172186,
+          "p95_mm": 0.040454354435430884,
+          "samples": 360
+        },
+        "inward": {
+          "max_mm": 0.00043850672457664913,
+          "p95_mm": 0.0003327188142631741,
+          "samples": 539
+        },
+        "contact": null,
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.03",
+        "directory": ".local/fixture-convex/coacd_scan/t0.03",
+        "hulls": 15,
+        "eligible": true,
+        "outward": {
+          "max_mm": 0.1342538370969877,
+          "p95_mm": 0.08041752147875104,
+          "samples": 333
+        },
+        "inward": {
+          "max_mm": 0.00043850672457664913,
+          "p95_mm": 0.0003319238834928908,
+          "samples": 534
+        },
+        "contact": null,
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.05",
+        "directory": ".local/fixture-convex/coacd_scan/t0.05",
+        "hulls": 9,
+        "eligible": true,
+        "outward": {
+          "max_mm": 0.2362632572513112,
+          "p95_mm": 0.19960869027677433,
+          "samples": 268
+        },
+        "inward": {
+          "max_mm": 0.0005213204774557088,
+          "p95_mm": 0.00033129502955633655,
+          "samples": 551
+        },
+        "contact": null,
+        "protected_intersections": []
+      }
+    ],
+    "pad_back": [
+      {
+        "method": "cad",
+        "directory": ".local/fixture-convex/cad_adaptive_merged",
+        "hulls": 1,
+        "eligible": true,
+        "outward": {
+          "max_mm": 0.0,
+          "p95_mm": 0.0,
+          "samples": 0
+        },
+        "inward": {
+          "max_mm": 5.8703282915162635e-05,
+          "p95_mm": 4.2232906431924926e-05,
+          "samples": 5454
+        },
+        "contact": {
+          "source_samples": 3237,
+          "max_mm": 5.8703282915162635e-05,
+          "p95_mm": 3.9661433619699716e-05,
+          "samples": 3237
+        },
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.01",
+        "directory": ".local/fixture-convex/coacd_scan/t0.01",
+        "hulls": 1,
+        "eligible": true,
+        "outward": {
+          "max_mm": 0.0,
+          "p95_mm": 0.0,
+          "samples": 0
+        },
+        "inward": {
+          "max_mm": 5.8703282915162635e-05,
+          "p95_mm": 4.2232906431924926e-05,
+          "samples": 5454
+        },
+        "contact": {
+          "source_samples": 3237,
+          "max_mm": 5.8703282915162635e-05,
+          "p95_mm": 3.9661433619699716e-05,
+          "samples": 3237
+        },
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.02",
+        "directory": ".local/fixture-convex/coacd_scan/t0.02",
+        "hulls": 1,
+        "eligible": true,
+        "outward": {
+          "max_mm": 0.0,
+          "p95_mm": 0.0,
+          "samples": 0
+        },
+        "inward": {
+          "max_mm": 5.8703282915162635e-05,
+          "p95_mm": 4.2232906431924926e-05,
+          "samples": 5454
+        },
+        "contact": {
+          "source_samples": 3237,
+          "max_mm": 5.8703282915162635e-05,
+          "p95_mm": 3.9661433619699716e-05,
+          "samples": 3237
+        },
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.03",
+        "directory": ".local/fixture-convex/coacd_scan/t0.03",
+        "hulls": 1,
+        "eligible": true,
+        "outward": {
+          "max_mm": 0.0,
+          "p95_mm": 0.0,
+          "samples": 0
+        },
+        "inward": {
+          "max_mm": 5.8703282915162635e-05,
+          "p95_mm": 4.2232906431924926e-05,
+          "samples": 5454
+        },
+        "contact": {
+          "source_samples": 3237,
+          "max_mm": 5.8703282915162635e-05,
+          "p95_mm": 3.9661433619699716e-05,
+          "samples": 3237
+        },
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.05",
+        "directory": ".local/fixture-convex/coacd_scan/t0.05",
+        "hulls": 1,
+        "eligible": true,
+        "outward": {
+          "max_mm": 0.0,
+          "p95_mm": 0.0,
+          "samples": 0
+        },
+        "inward": {
+          "max_mm": 5.8703282915162635e-05,
+          "p95_mm": 4.2232906431924926e-05,
+          "samples": 5454
+        },
+        "contact": {
+          "source_samples": 3237,
+          "max_mm": 5.8703282915162635e-05,
+          "p95_mm": 3.9661433619699716e-05,
+          "samples": 3237
+        },
+        "protected_intersections": []
+      }
+    ],
+    "pad_lower_jaw": [
+      {
+        "method": "cad",
+        "directory": ".local/fixture-convex/cad_adaptive_merged",
+        "hulls": 1,
+        "eligible": true,
+        "outward": {
+          "max_mm": 1.7465209960931816e-05,
+          "p95_mm": 1.7465209960931816e-05,
+          "samples": 4629
+        },
+        "inward": {
+          "max_mm": 1.71661376953125e-05,
+          "p95_mm": 1.71661376953125e-05,
+          "samples": 4550
+        },
+        "contact": {
+          "source_samples": 4573,
+          "max_mm": 1.71661376953125e-05,
+          "p95_mm": 1.71661376953125e-05,
+          "samples": 4573
+        },
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.01",
+        "directory": ".local/fixture-convex/coacd_scan/t0.01",
+        "hulls": 1,
+        "eligible": true,
+        "outward": {
+          "max_mm": 1.7465209960931816e-05,
+          "p95_mm": 1.7465209960931816e-05,
+          "samples": 4629
+        },
+        "inward": {
+          "max_mm": 1.71661376953125e-05,
+          "p95_mm": 1.71661376953125e-05,
+          "samples": 4550
+        },
+        "contact": {
+          "source_samples": 4573,
+          "max_mm": 1.71661376953125e-05,
+          "p95_mm": 1.71661376953125e-05,
+          "samples": 4573
+        },
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.02",
+        "directory": ".local/fixture-convex/coacd_scan/t0.02",
+        "hulls": 1,
+        "eligible": true,
+        "outward": {
+          "max_mm": 1.7465209960931816e-05,
+          "p95_mm": 1.7465209960931816e-05,
+          "samples": 4629
+        },
+        "inward": {
+          "max_mm": 1.71661376953125e-05,
+          "p95_mm": 1.71661376953125e-05,
+          "samples": 4550
+        },
+        "contact": {
+          "source_samples": 4573,
+          "max_mm": 1.71661376953125e-05,
+          "p95_mm": 1.71661376953125e-05,
+          "samples": 4573
+        },
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.03",
+        "directory": ".local/fixture-convex/coacd_scan/t0.03",
+        "hulls": 1,
+        "eligible": true,
+        "outward": {
+          "max_mm": 1.7465209960931816e-05,
+          "p95_mm": 1.7465209960931816e-05,
+          "samples": 4629
+        },
+        "inward": {
+          "max_mm": 1.71661376953125e-05,
+          "p95_mm": 1.71661376953125e-05,
+          "samples": 4550
+        },
+        "contact": {
+          "source_samples": 4573,
+          "max_mm": 1.71661376953125e-05,
+          "p95_mm": 1.71661376953125e-05,
+          "samples": 4573
+        },
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.05",
+        "directory": ".local/fixture-convex/coacd_scan/t0.05",
+        "hulls": 1,
+        "eligible": true,
+        "outward": {
+          "max_mm": 1.7465209960931816e-05,
+          "p95_mm": 1.7465209960931816e-05,
+          "samples": 4629
+        },
+        "inward": {
+          "max_mm": 1.71661376953125e-05,
+          "p95_mm": 1.71661376953125e-05,
+          "samples": 4550
+        },
+        "contact": {
+          "source_samples": 4573,
+          "max_mm": 1.71661376953125e-05,
+          "p95_mm": 1.71661376953125e-05,
+          "samples": 4573
+        },
+        "protected_intersections": []
+      }
+    ],
+    "pad_upper_jaw": [
+      {
+        "method": "cad",
+        "directory": ".local/fixture-convex/cad_adaptive_merged",
+        "hulls": 3,
+        "eligible": true,
+        "outward": {
+          "max_mm": 0.5,
+          "p95_mm": 0.5,
+          "samples": 943
+        },
+        "inward": {
+          "max_mm": 2.288818359375e-05,
+          "p95_mm": 2.288818359375e-05,
+          "samples": 831
+        },
+        "contact": {
+          "source_samples": 831,
+          "max_mm": 2.288818359375e-05,
+          "p95_mm": 2.288818359375e-05,
+          "samples": 831
+        },
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.01",
+        "directory": ".local/fixture-convex/coacd_scan/t0.01",
+        "hulls": 5,
+        "eligible": true,
+        "outward": {
+          "max_mm": 0.01516107977467307,
+          "p95_mm": 0.01249999999999929,
+          "samples": 979
+        },
+        "inward": {
+          "max_mm": 0.0009224561178407516,
+          "p95_mm": 0.00019979476928710938,
+          "samples": 1013
+        },
+        "contact": {
+          "source_samples": 831,
+          "max_mm": 0.0009224561178407516,
+          "p95_mm": 2.288818359375e-05,
+          "samples": 831
+        },
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.02",
+        "directory": ".local/fixture-convex/coacd_scan/t0.02",
+        "hulls": 5,
+        "eligible": true,
+        "outward": {
+          "max_mm": 0.01516107977467307,
+          "p95_mm": 0.01249999999999929,
+          "samples": 979
+        },
+        "inward": {
+          "max_mm": 0.0009224561178407516,
+          "p95_mm": 0.00019979476928710938,
+          "samples": 1013
+        },
+        "contact": {
+          "source_samples": 831,
+          "max_mm": 0.0009224561178407516,
+          "p95_mm": 2.288818359375e-05,
+          "samples": 831
+        },
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.03",
+        "directory": ".local/fixture-convex/coacd_scan/t0.03",
+        "hulls": 3,
+        "eligible": true,
+        "outward": {
+          "max_mm": 0.4452100120052904,
+          "p95_mm": 0.2586113680161065,
+          "samples": 1057
+        },
+        "inward": {
+          "max_mm": 0.00020110151362610494,
+          "p95_mm": 0.00019979476928710938,
+          "samples": 1016
+        },
+        "contact": {
+          "source_samples": 831,
+          "max_mm": 0.00020110151362610494,
+          "p95_mm": 2.288818359375e-05,
+          "samples": 831
+        },
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.05",
+        "directory": ".local/fixture-convex/coacd_scan/t0.05",
+        "hulls": 3,
+        "eligible": true,
+        "outward": {
+          "max_mm": 0.4452100120052904,
+          "p95_mm": 0.2586113680161065,
+          "samples": 1057
+        },
+        "inward": {
+          "max_mm": 0.00020110151362610494,
+          "p95_mm": 0.00019979476928710938,
+          "samples": 1016
+        },
+        "contact": {
+          "source_samples": 831,
+          "max_mm": 0.00020110151362610494,
+          "p95_mm": 2.288818359375e-05,
+          "samples": 831
+        },
+        "protected_intersections": []
+      }
+    ],
+    "slider_upper_jaw": [
+      {
+        "method": "cad",
+        "directory": ".local/fixture-convex/cad_adaptive_merged",
+        "hulls": 21,
+        "eligible": true,
+        "outward": {
+          "max_mm": 1.0587082325059805,
+          "p95_mm": 0.9415115471646366,
+          "samples": 17813
+        },
+        "inward": {
+          "max_mm": 0.0018491434622915353,
+          "p95_mm": 1.9073486328125e-05,
+          "samples": 5400
+        },
+        "contact": null,
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.01",
+        "directory": ".local/fixture-convex/coacd_scan/t0.01",
+        "hulls": 214,
+        "eligible": true,
+        "outward": {
+          "max_mm": 0.35481205637378477,
+          "p95_mm": 0.1688074223526069,
+          "samples": 24130
+        },
+        "inward": {
+          "max_mm": 0.0034999847412109375,
+          "p95_mm": 0.001399993896484375,
+          "samples": 19076
+        },
+        "contact": null,
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.02",
+        "directory": ".local/fixture-convex/coacd_scan/t0.02",
+        "hulls": 124,
+        "eligible": true,
+        "outward": {
+          "max_mm": 0.7396027436017909,
+          "p95_mm": 0.3358505476758516,
+          "samples": 24467
+        },
+        "inward": {
+          "max_mm": 0.00350138976456546,
+          "p95_mm": 0.001399993896484375,
+          "samples": 19864
+        },
+        "contact": null,
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.03",
+        "directory": ".local/fixture-convex/coacd_scan/t0.03",
+        "hulls": 79,
+        "eligible": true,
+        "outward": {
+          "max_mm": 1.1385987030966793,
+          "p95_mm": 0.9028017816184483,
+          "samples": 25039
+        },
+        "inward": {
+          "max_mm": 0.00350138976456546,
+          "p95_mm": 0.001399993896484375,
+          "samples": 19681
+        },
+        "contact": null,
+        "protected_intersections": []
+      },
+      {
+        "method": "t0.05",
+        "directory": ".local/fixture-convex/coacd_scan/t0.05",
+        "hulls": 51,
+        "eligible": false,
+        "outward": {
+          "max_mm": 1.920615307254961,
+          "p95_mm": 0.962316717615577,
+          "samples": 31841
+        },
+        "inward": {
+          "max_mm": 0.002193494406818474,
+          "p95_mm": 0.001399993896484375,
+          "samples": 11681
+        },
+        "contact": null,
+        "protected_intersections": []
+      }
+    ]
+  },
+  "scope": "Minimum sum over independently validated per-part candidates only; global geometry is rechecked after composition."
+}

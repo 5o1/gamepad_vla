@@ -1,0 +1,12 @@
+{
+  "pair_filter_probe": [
+    {
+      "filtered": true,
+      "fixture_gamepad_contact_pairs": 0
+    },
+    {
+      "filtered": false,
+      "fixture_gamepad_contact_pairs": 340
+    }
+  ]
+}

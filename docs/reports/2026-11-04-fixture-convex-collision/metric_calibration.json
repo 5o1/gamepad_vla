@@ -1,0 +1,13 @@
+{
+  "executed": true,
+  "box_side_mm": 10.0,
+  "translation_mm": [
+    1.0,
+    0.0,
+    0.0
+  ],
+  "expected_max_outward_mm": 1.0,
+  "measured_max_outward_mm": 1.0,
+  "absolute_error_mm": 0.0,
+  "assertion_tolerance_mm": 1e-10
+}

@@ -69,3 +69,6 @@ wcwidth==0.9.4
 webcolors==24.8.0
 wrapt==2.5.1
 opencv-python-headless==4.11.0.86
+
+# Optional fixture collision comparison (AB); install only in .local/cad-env.
+coacd==1.0.14

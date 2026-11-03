@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""V3 actual meshes, regular collision boxes, full-visual camera projection.
+"""V3 CAD triangle collisions, optional convex alternatives, camera projection.
 
 Runtime assets use workspace://assets/derived/gamepad_fixture_v3, matching
 repository asset management. No collection default or live service is changed.
 """
 from __future__ import annotations
-import argparse,itertools,json,math,shutil
+import argparse,hashlib,itertools,json,math,shutil
 from pathlib import Path
 import numpy as np
 import trimesh
@@ -88,7 +88,7 @@ def project(out,destination):
     destination.mkdir(parents=True,exist_ok=True);(destination/'projection.json').write_text(json.dumps(result,indent=2)+'\n')
     return result
 
-def export(out,destination):
+def export_boxes(out,destination):
     mf=json.loads((out/'manifest.json').read_text());scene=json.loads((ROOT/mf['source_scene']).read_text())
     scene['name']='station-g20-v3-fixture-planar-fork';scene['gamepad']['root_pose']=mf['derived_root_pose'];scene['gamepad']['release']='xbox_gamepad_physics==0.4.1'
     scene['fixtures']=[f for f in scene['fixtures'] if f['name'] not in ('gamepad_support_post','gamepad_clamp_base','station_table_frame_panel')]
@@ -173,7 +173,7 @@ def export(out,destination):
     # ../appearance path would resolve incorrectly here, so set it explicitly.
     scene['notes']+=['V3: actual CAD visual meshes plus collision-only box decomposition. Root is derived from compressed-pad assembly, not prescribed d050-h220.',
         'V3 vertical post axis from integer base/flange/post dimensions. Camera_3 calibration unchanged. This is a trial spec only; no service/default switch.']
-    spec=ROOT/'configs/workcell/placement_trials/gamepad_fixture_v3.json';spec.write_text(json.dumps(scene,indent=2)+'\n')
+    spec=ROOT/'configs/workcell/placement_trials/gamepad_fixture_v3_boxes.json';spec.write_text(json.dumps(scene,indent=2)+'\n')
     (assets/'provenance.json').write_text(json.dumps(dict(generator='hardware/gamepad_fixture/scene_export.py',cad_generator='hardware/gamepad_fixture/fixture.py',revision=mf['design_revision'],units='m',source_out='hardware/gamepad_fixture/out',spec=str(spec.relative_to(ROOT))),indent=2)+'\n')
     destination.mkdir(parents=True,exist_ok=True)
     (destination/'collision_approximation.json').write_text(json.dumps(dict(executed=True,box_count=count,parts=deviations,max_sampled_deviation_mm=max(r['sampled_hausdorff_mm'] for r in deviations.values()),continuous_maximum_upper_bound_mm=max(r['continuous_deviation_upper_bound_mm'] for r in deviations.values()),certified_continuous_maximum=False,certified_conservative_upper_bound=True),indent=2)+'\n')
@@ -181,5 +181,48 @@ def export(out,destination):
     print(spec,count,flush=True)
     return spec
 
+def export(out,destination,convex_dir=None):
+    """Reuse the baseline station/appearance; replace only collision proxies.
+
+    SAPIEN consumes the same CAD mesh as the visual. MuJoCo consumes the
+    separately validated multi-object convex OBJ, never a hull of the assembly.
+    """
+    baseline=ROOT/'configs/workcell/placement_trials/gamepad_fixture_v3_boxes.json'
+    scene=json.loads(baseline.read_text())
+    scene['name']='station-g20-v3-fixture-static-mesh'
+    scene['fixtures']=[f for f in scene['fixtures'] if not f['name'].startswith('v3_proxy_')]
+    assets=ROOT/'assets/derived/gamepad_fixture_v3'
+    for f in scene['fixtures']:
+        if not f['name'].startswith('v3_visual_'):continue
+        name=f['name'].removeprefix('v3_visual_')
+        src=out/'assembly_mesh'/(name+'.stl')
+        cad=trimesh.load(src,force='mesh');cad.apply_scale(.001)
+        assets.mkdir(parents=True,exist_ok=True);cad.export(assets/(name+'.glb'))
+        if name.startswith('hardware_'):continue
+        f['collision']=True
+        f['source']='V3 closed CAD solid, static triangle mesh in SAPIEN; convex_mesh alternative in MuJoCo. Gamepad pair filtered.'
+        if convex_dir is not None:
+            shutil.copyfile(convex_dir/(name+'.obj'),assets/(name+'.convex.obj'))
+        if (assets/(name+'.convex.obj')).exists():
+            f['convex_mesh']=f'workspace://assets/derived/gamepad_fixture_v3/{name}.convex.obj'
+    scene['notes']=[n for n in scene['notes'] if 'collision-only box decomposition' not in n]
+    scene['notes'].append('AB: fixed-root CAD assembly; fixture-gamepad collision disabled. Static CAD triangles in SAPIEN; per-object convex meshes in MuJoCo. gamepad-contact continues to disable robot/environment contact.')
+    spec=ROOT/'configs/workcell/placement_trials/gamepad_fixture_v3.json'
+    spec.write_text(json.dumps(scene,indent=2)+'\n')
+    files={}
+    for f in scene['fixtures']:
+        if not f['name'].startswith('v3_visual_'):continue
+        for field in ('mesh','convex_mesh'):
+            if field in f:
+                path=assets/Path(f[field]).name
+                files[path.name]=hashlib.sha256(path.read_bytes()).hexdigest()
+    mf=json.loads((out/'manifest.json').read_text())
+    (assets/'provenance.json').write_text(json.dumps(dict(generator='hardware/gamepad_fixture/scene_export.py',
+        cad_generator='hardware/gamepad_fixture/fixture.py',revision=mf['design_revision'],units='m',
+        source_out='hardware/gamepad_fixture/out',spec=str(spec.relative_to(ROOT)),
+        collision=dict(sapien='static_triangle_mesh',mujoco='per_object_convex_mesh',fixture_gamepad=False),
+        asset_sha256=files),indent=2)+'\n')
+    return spec
+
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('--out',type=Path,default=HERE/'out');p.add_argument('--evidence',type=Path,default=ROOT/'docs/reports/2026-11-04-gamepad-fixture-v3');a=p.parse_args();export(a.out,a.evidence)
+    p=argparse.ArgumentParser();p.add_argument('--out',type=Path,default=HERE/'out');p.add_argument('--evidence',type=Path,default=ROOT/'docs/reports/2026-11-04-gamepad-fixture-v3');p.add_argument('--collision',choices=['mesh','boxes'],default='mesh');p.add_argument('--convex-dir',type=Path);a=p.parse_args();export(a.out,a.evidence,a.convex_dir) if a.collision=='mesh' else export_boxes(a.out,a.evidence)

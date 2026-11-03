@@ -1,0 +1,3349 @@
+{
+  "coacd_version": "1.0.14",
+  "thresholds": [
+    0.005,
+    0.01,
+    0.02,
+    0.03,
+    0.05
+  ],
+  "parts": [
+    "base_printed",
+    "column",
+    "hirth_fixed",
+    "hirth_moving",
+    "cradle_lower_jaw",
+    "slider_upper_jaw",
+    "guide_cap",
+    "guide_rod_1",
+    "guide_rod_2",
+    "lock_screw_spacer",
+    "M8_hand_knob",
+    "pad_back",
+    "pad_lower_jaw",
+    "pad_upper_jaw"
+  ],
+  "workers": 4,
+  "threads_per_worker": 1,
+  "wall_ceiling_seconds": 1180,
+  "generation": [
+    {
+      "threshold": 0.005,
+      "part": "hirth_fixed",
+      "status": "timeout",
+      "seconds": 120.0154120909865
+    },
+    {
+      "threshold": 0.005,
+      "part": "column",
+      "status": "timeout",
+      "seconds": 120.01628409099067
+    },
+    {
+      "threshold": 0.005,
+      "part": "base_printed",
+      "status": "timeout",
+      "seconds": 120.01580772298621
+    },
+    {
+      "threshold": 0.005,
+      "part": "hirth_moving",
+      "status": "timeout",
+      "seconds": 120.01388741499977
+    },
+    {
+      "threshold": 0.005,
+      "part": "guide_rod_1",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 19.298798848001752,
+      "hulls": 81,
+      "generation_seconds": 18.631085817993153
+    },
+    {
+      "threshold": 0.005,
+      "part": "guide_rod_2",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 25.61893398303073,
+      "hulls": 88,
+      "generation_seconds": 25.018731864984147
+    },
+    {
+      "threshold": 0.005,
+      "part": "guide_cap",
+      "status": "timeout",
+      "seconds": 120.01420293800766
+    },
+    {
+      "threshold": 0.005,
+      "part": "slider_upper_jaw",
+      "status": "timeout",
+      "seconds": 120.01459673198406
+    },
+    {
+      "threshold": 0.005,
+      "part": "cradle_lower_jaw",
+      "status": "timeout",
+      "seconds": 120.01621242600959
+    },
+    {
+      "threshold": 0.005,
+      "part": "pad_back",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 0.7169861069996841,
+      "hulls": 1,
+      "generation_seconds": 0.014853133005090058
+    },
+    {
+      "threshold": 0.005,
+      "part": "pad_lower_jaw",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 0.7679427489638329,
+      "hulls": 1,
+      "generation_seconds": 0.0140734399901703
+    },
+    {
+      "threshold": 0.005,
+      "part": "pad_upper_jaw",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 1.0196505640051328,
+      "hulls": 6,
+      "generation_seconds": 0.29666584701044485
+    },
+    {
+      "threshold": 0.01,
+      "part": "base_printed",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 38.167666180001106,
+      "hulls": 131,
+      "generation_seconds": 37.46098544198321
+    },
+    {
+      "threshold": 0.005,
+      "part": "lock_screw_spacer",
+      "status": "timeout",
+      "seconds": 120.01462018303573
+    },
+    {
+      "threshold": 0.01,
+      "part": "column",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 62.365726996038575,
+      "hulls": 332,
+      "generation_seconds": 61.57563984504668
+    },
+    {
+      "threshold": 0.005,
+      "part": "M8_hand_knob",
+      "status": "timeout",
+      "seconds": 120.01483160199132
+    },
+    {
+      "threshold": 0.01,
+      "part": "cradle_lower_jaw",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 79.61157366697444,
+      "hulls": 210,
+      "generation_seconds": 78.92172162502538
+    },
+    {
+      "threshold": 0.01,
+      "part": "hirth_fixed",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 111.25924212002428,
+      "hulls": 446,
+      "generation_seconds": 110.53483821003465
+    },
+    {
+      "threshold": 0.01,
+      "part": "guide_rod_1",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 0.7171014100313187,
+      "hulls": 1,
+      "generation_seconds": 0.015459061018191278
+    },
+    {
+      "threshold": 0.01,
+      "part": "guide_rod_2",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 0.7172545060166158,
+      "hulls": 1,
+      "generation_seconds": 0.02144903299631551
+    },
+    {
+      "threshold": 0.01,
+      "part": "hirth_moving",
+      "status": "timeout",
+      "seconds": 120.010998880025
+    },
+    {
+      "threshold": 0.01,
+      "part": "lock_screw_spacer",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 26.239841406000778,
+      "hulls": 136,
+      "generation_seconds": 25.481422016979195
+    },
+    {
+      "threshold": 0.01,
+      "part": "guide_cap",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 34.55908914399333,
+      "hulls": 131,
+      "generation_seconds": 33.848593153990805
+    },
+    {
+      "threshold": 0.01,
+      "part": "pad_back",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 0.7174430019804277,
+      "hulls": 1,
+      "generation_seconds": 0.013586223998572677
+    },
+    {
+      "threshold": 0.01,
+      "part": "pad_lower_jaw",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 0.7676483190152794,
+      "hulls": 1,
+      "generation_seconds": 0.013771302998065948
+    },
+    {
+      "threshold": 0.01,
+      "part": "pad_upper_jaw",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 0.9677911080070771,
+      "hulls": 5,
+      "generation_seconds": 0.211771473987028
+    },
+    {
+      "threshold": 0.01,
+      "part": "slider_upper_jaw",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 66.13719930598745,
+      "hulls": 214,
+      "generation_seconds": 65.40698998700827
+    },
+    {
+      "threshold": 0.02,
+      "part": "base_printed",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 16.37840073701227,
+      "hulls": 33,
+      "generation_seconds": 15.669020331988577
+    },
+    {
+      "threshold": 0.02,
+      "part": "column",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 41.99720471398905,
+      "hulls": 165,
+      "generation_seconds": 41.23098239302635
+    },
+    {
+      "threshold": 0.02,
+      "part": "hirth_fixed",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 43.49437028699322,
+      "hulls": 114,
+      "generation_seconds": 42.77299803902861
+    },
+    {
+      "threshold": 0.02,
+      "part": "cradle_lower_jaw",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 43.15937909000786,
+      "hulls": 88,
+      "generation_seconds": 42.23754863295471
+    },
+    {
+      "threshold": 0.02,
+      "part": "slider_upper_jaw",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 46.97650808899198,
+      "hulls": 124,
+      "generation_seconds": 46.204211850999855
+    },
+    {
+      "threshold": 0.02,
+      "part": "guide_rod_1",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 0.6674664889578708,
+      "hulls": 1,
+      "generation_seconds": 0.02104999899165705
+    },
+    {
+      "threshold": 0.02,
+      "part": "guide_rod_2",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 0.7175890869693831,
+      "hulls": 1,
+      "generation_seconds": 0.017356341006234288
+    },
+    {
+      "threshold": 0.02,
+      "part": "lock_screw_spacer",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 3.6780749000026844,
+      "hulls": 18,
+      "generation_seconds": 2.9983834279701114
+    },
+    {
+      "threshold": 0.01,
+      "part": "M8_hand_knob",
+      "status": "timeout",
+      "seconds": 120.01718148897635
+    },
+    {
+      "threshold": 0.02,
+      "part": "pad_back",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 0.7672287719906308,
+      "hulls": 1,
+      "generation_seconds": 0.012470608984585851
+    },
+    {
+      "threshold": 0.02,
+      "part": "pad_lower_jaw",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 0.6672034300281666,
+      "hulls": 1,
+      "generation_seconds": 0.01215660898014903
+    },
+    {
+      "threshold": 0.02,
+      "part": "guide_cap",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 22.449060692975763,
+      "hulls": 62,
+      "generation_seconds": 21.746221570996568
+    },
+    {
+      "threshold": 0.02,
+      "part": "pad_upper_jaw",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 0.9179734539939091,
+      "hulls": 5,
+      "generation_seconds": 0.23076795804081485
+    },
+    {
+      "threshold": 0.03,
+      "part": "base_printed",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 3.0249507209518924,
+      "hulls": 8,
+      "generation_seconds": 2.3581452070502564
+    },
+    {
+      "threshold": 0.02,
+      "part": "hirth_moving",
+      "status": "timeout",
+      "seconds": 120.01181961799739
+    },
+    {
+      "threshold": 0.03,
+      "part": "column",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 32.911739472998306,
+      "hulls": 117,
+      "generation_seconds": 32.24239418696379
+    },
+    {
+      "threshold": 0.03,
+      "part": "hirth_fixed",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 37.806032939988654,
+      "hulls": 91,
+      "generation_seconds": 37.12948212196352
+    },
+    {
+      "threshold": 0.03,
+      "part": "cradle_lower_jaw",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 31.944491738046054,
+      "hulls": 47,
+      "generation_seconds": 31.24922197702108
+    },
+    {
+      "threshold": 0.02,
+      "part": "M8_hand_knob",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 74.08743412198965,
+      "hulls": 67,
+      "generation_seconds": 73.38885241397657
+    },
+    {
+      "threshold": 0.03,
+      "part": "guide_rod_1",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 0.7168107650359161,
+      "hulls": 1,
+      "generation_seconds": 0.025008580996654928
+    },
+    {
+      "threshold": 0.03,
+      "part": "guide_rod_2",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 0.7173813420231454,
+      "hulls": 1,
+      "generation_seconds": 0.018424684996716678
+    },
+    {
+      "threshold": 0.03,
+      "part": "lock_screw_spacer",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 3.3768035040120594,
+      "hulls": 15,
+      "generation_seconds": 2.7027215759735554
+    },
+    {
+      "threshold": 0.03,
+      "part": "slider_upper_jaw",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 36.461094381986186,
+      "hulls": 79,
+      "generation_seconds": 35.78665365994675
+    },
+    {
+      "threshold": 0.03,
+      "part": "pad_back",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 0.7176874969736673,
+      "hulls": 1,
+      "generation_seconds": 0.011421723989769816
+    },
+    {
+      "threshold": 0.03,
+      "part": "pad_lower_jaw",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 0.7173196540097706,
+      "hulls": 1,
+      "generation_seconds": 0.01181220100261271
+    },
+    {
+      "threshold": 0.03,
+      "part": "pad_upper_jaw",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 0.8677838379517198,
+      "hulls": 3,
+      "generation_seconds": 0.14176527498057112
+    },
+    {
+      "threshold": 0.05,
+      "part": "base_printed",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 2.375325323024299,
+      "hulls": 4,
+      "generation_seconds": 1.5884465369745158
+    },
+    {
+      "threshold": 0.03,
+      "part": "guide_cap",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 20.398856656975113,
+      "hulls": 51,
+      "generation_seconds": 19.694670149008743
+    },
+    {
+      "threshold": 0.05,
+      "part": "column",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 18.24580945901107,
+      "hulls": 50,
+      "generation_seconds": 17.434647790971212
+    },
+    {
+      "threshold": 0.05,
+      "part": "hirth_fixed",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 18.39516239997465,
+      "hulls": 35,
+      "generation_seconds": 17.548562292999122
+    },
+    {
+      "threshold": 0.05,
+      "part": "cradle_lower_jaw",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 20.137137092009652,
+      "hulls": 20,
+      "generation_seconds": 19.34103514702292
+    },
+    {
+      "threshold": 0.03,
+      "part": "hirth_moving",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 105.20185009995475,
+      "hulls": 190,
+      "generation_seconds": 104.43284523894545
+    },
+    {
+      "threshold": 0.05,
+      "part": "hirth_moving",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 42.98355597502086,
+      "hulls": 61,
+      "generation_seconds": 42.053686548024416
+    },
+    {
+      "threshold": 0.05,
+      "part": "guide_rod_1",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 0.9795115869492292,
+      "hulls": 1,
+      "generation_seconds": 0.024404494964983314
+    },
+    {
+      "threshold": 0.05,
+      "part": "guide_rod_2",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 1.0332623290014453,
+      "hulls": 1,
+      "generation_seconds": 0.019241914968006313
+    },
+    {
+      "threshold": 0.05,
+      "part": "lock_screw_spacer",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 3.389532366010826,
+      "hulls": 9,
+      "generation_seconds": 2.4628217539866455
+    },
+    {
+      "threshold": 0.05,
+      "part": "guide_cap",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 20.249538803007454,
+      "hulls": 39,
+      "generation_seconds": 19.32639611698687
+    },
+    {
+      "threshold": 0.05,
+      "part": "pad_back",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 0.8768451859941706,
+      "hulls": 1,
+      "generation_seconds": 0.014642852998804301
+    },
+    {
+      "threshold": 0.05,
+      "part": "pad_lower_jaw",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 1.0886545749963261,
+      "hulls": 1,
+      "generation_seconds": 0.021455759997479618
+    },
+    {
+      "threshold": 0.05,
+      "part": "pad_upper_jaw",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 1.2352049350156449,
+      "hulls": 3,
+      "generation_seconds": 0.17098102095769718
+    },
+    {
+      "threshold": 0.03,
+      "part": "M8_hand_knob",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 85.42793555697426,
+      "hulls": 48,
+      "generation_seconds": 84.67459198198048
+    },
+    {
+      "threshold": 0.05,
+      "part": "slider_upper_jaw",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 38.132623043027706,
+      "hulls": 51,
+      "generation_seconds": 37.17317207099404
+    },
+    {
+      "threshold": 0.05,
+      "part": "M8_hand_knob",
+      "status": "complete",
+      "returncode": 0,
+      "seconds": 46.495535248017404,
+      "hulls": 25,
+      "generation_seconds": 45.57068306300789
+    }
+  ],
+  "metrics": [
+    {
+      "threshold": 0.05,
+      "status": "complete",
+      "returncode": 0,
+      "metric_seconds": 185.6745767609682,
+      "accuracy": {
+        "executed": true,
+        "density_points_per_mm2": 4.0,
+        "method": "Area samples plus all vertices/face centres; outward only outside CAD solid, exact point-to-triangle distance. Inward only CAD samples not contained in any hull (10 nm tolerance in mm coordinates). Sample maxima are not continuous certificates.",
+        "parts": {
+          "M8_hand_knob": {
+            "hulls": 25,
+            "vertices_max": 74,
+            "outward": {
+              "max_mm": 1.48176206464345,
+              "p95_mm": 0.9413069078504677,
+              "samples": 2881
+            },
+            "inward": {
+              "max_mm": 0.009621552629949966,
+              "p95_mm": 0.003674858976839357,
+              "samples": 13829
+            },
+            "protected_intersections": [],
+            "source_samples": 37223,
+            "hull_samples": 111288
+          },
+          "base_printed": {
+            "hulls": 4,
+            "vertices_max": 12,
+            "outward": {
+              "max_mm": 3.16073967084394,
+              "p95_mm": 0.0032467471248949793,
+              "samples": 122357
+            },
+            "inward": {
+              "max_mm": 0.0026845356528533014,
+              "p95_mm": 0.0016091808027451843,
+              "samples": 81941
+            },
+            "protected_intersections": [],
+            "source_samples": 220224,
+            "hull_samples": 345274
+          },
+          "column": {
+            "hulls": 50,
+            "vertices_max": 58,
+            "outward": {
+              "max_mm": 3.088639888374165,
+              "p95_mm": 1.8162711205688578,
+              "samples": 67715
+            },
+            "inward": {
+              "max_mm": 0.017134111184530336,
+              "p95_mm": 0.003925128834428433,
+              "samples": 73861
+            },
+            "protected_intersections": [],
+            "source_samples": 176376,
+            "hull_samples": 365114
+          },
+          "cradle_lower_jaw": {
+            "hulls": 20,
+            "vertices_max": 252,
+            "outward": {
+              "max_mm": 3.8670203090763025,
+              "p95_mm": 2.249939560341112,
+              "samples": 48830
+            },
+            "inward": {
+              "max_mm": 0.006335854136074791,
+              "p95_mm": 0.004379221357555865,
+              "samples": 38623
+            },
+            "protected_intersections": [
+              {
+                "space": "grip_left",
+                "volume_mm3": 14.801511250161782
+              },
+              {
+                "space": "grip_right",
+                "volume_mm3": 14.805324398525109
+              }
+            ],
+            "source_samples": 147254,
+            "hull_samples": 214147
+          },
+          "guide_cap": {
+            "hulls": 39,
+            "vertices_max": 44,
+            "outward": {
+              "max_mm": 1.3940272521972688,
+              "p95_mm": 1.0497884741571575,
+              "samples": 9472
+            },
+            "inward": {
+              "max_mm": 0.002295886227479806,
+              "p95_mm": 0.0009002685546875,
+              "samples": 6025
+            },
+            "protected_intersections": [],
+            "source_samples": 29882,
+            "hull_samples": 56328
+          },
+          "guide_rod_1": {
+            "hulls": 1,
+            "vertices_max": 126,
+            "outward": {
+              "max_mm": 5.0572750769068025e-05,
+              "p95_mm": 3.5666816400665326e-05,
+              "samples": 2481
+            },
+            "inward": {
+              "max_mm": 3.2281011238132656e-05,
+              "p95_mm": 2.960358475486033e-05,
+              "samples": 1841
+            },
+            "protected_intersections": [],
+            "source_samples": 7308,
+            "hull_samples": 7308
+          },
+          "guide_rod_2": {
+            "hulls": 1,
+            "vertices_max": 126,
+            "outward": {
+              "max_mm": 5.057277083250007e-05,
+              "p95_mm": 3.5780824313325145e-05,
+              "samples": 2488
+            },
+            "inward": {
+              "max_mm": 3.2281011238132656e-05,
+              "p95_mm": 2.9766289018476906e-05,
+              "samples": 1840
+            },
+            "protected_intersections": [],
+            "source_samples": 7308,
+            "hull_samples": 7308
+          },
+          "hirth_fixed": {
+            "hulls": 35,
+            "vertices_max": 155,
+            "outward": {
+              "max_mm": 1.7821838289263445,
+              "p95_mm": 1.1321227290179818,
+              "samples": 21800
+            },
+            "inward": {
+              "max_mm": 0.00474494348302463,
+              "p95_mm": 0.0029264247129197926,
+              "samples": 5834
+            },
+            "protected_intersections": [],
+            "source_samples": 43333,
+            "hull_samples": 65880
+          },
+          "hirth_moving": {
+            "hulls": 61,
+            "vertices_max": 194,
+            "outward": {
+              "max_mm": 1.7138563741256445,
+              "p95_mm": 1.0135911216372469,
+              "samples": 22116
+            },
+            "inward": {
+              "max_mm": 0.010625057021622145,
+              "p95_mm": 0.0034292787047756593,
+              "samples": 21608
+            },
+            "protected_intersections": [],
+            "source_samples": 46243,
+            "hull_samples": 93396
+          },
+          "lock_screw_spacer": {
+            "hulls": 9,
+            "vertices_max": 34,
+            "outward": {
+              "max_mm": 0.2362632572513112,
+              "p95_mm": 0.19960869027677433,
+              "samples": 268
+            },
+            "inward": {
+              "max_mm": 0.0005213204774557088,
+              "p95_mm": 0.00033129502955633655,
+              "samples": 551
+            },
+            "protected_intersections": [],
+            "source_samples": 1803,
+            "hull_samples": 2262
+          },
+          "pad_back": {
+            "hulls": 1,
+            "vertices_max": 8,
+            "outward": {
+              "max_mm": 0.0,
+              "p95_mm": 0.0,
+              "samples": 0
+            },
+            "inward": {
+              "max_mm": 5.8703282915162635e-05,
+              "p95_mm": 4.2232906431924926e-05,
+              "samples": 5454
+            },
+            "protected_intersections": [],
+            "source_samples": 7308,
+            "hull_samples": 7308
+          },
+          "pad_lower_jaw": {
+            "hulls": 1,
+            "vertices_max": 8,
+            "outward": {
+              "max_mm": 1.7465209960931816e-05,
+              "p95_mm": 1.7465209960931816e-05,
+              "samples": 4629
+            },
+            "inward": {
+              "max_mm": 1.71661376953125e-05,
+              "p95_mm": 1.71661376953125e-05,
+              "samples": 4550
+            },
+            "protected_intersections": [],
+            "source_samples": 10268,
+            "hull_samples": 10268
+          },
+          "pad_upper_jaw": {
+            "hulls": 3,
+            "vertices_max": 10,
+            "outward": {
+              "max_mm": 0.4452100120052904,
+              "p95_mm": 0.2586113680161065,
+              "samples": 1057
+            },
+            "inward": {
+              "max_mm": 0.00020110151362610494,
+              "p95_mm": 0.00019979476928710938,
+              "samples": 1016
+            },
+            "protected_intersections": [],
+            "source_samples": 2415,
+            "hull_samples": 2534
+          },
+          "slider_upper_jaw": {
+            "hulls": 51,
+            "vertices_max": 21,
+            "outward": {
+              "max_mm": 1.920615307254961,
+              "p95_mm": 0.962316717615577,
+              "samples": 31841
+            },
+            "inward": {
+              "max_mm": 0.002193494406818474,
+              "p95_mm": 0.001399993896484375,
+              "samples": 11681
+            },
+            "protected_intersections": [],
+            "source_samples": 62604,
+            "hull_samples": 123410
+          }
+        },
+        "hulls": 301,
+        "outward": {
+          "max_mm": 3.8670203090763025,
+          "p95_mm": 1.4996608809280483,
+          "samples": 337935
+        },
+        "inward": {
+          "max_mm": 0.017134111184530336,
+          "p95_mm": 0.00329086865471827,
+          "samples": 268654
+        },
+        "contacts": {
+          "back": {
+            "source_samples": 3237,
+            "max_mm": 5.8703282915162635e-05,
+            "p95_mm": 3.9661433619699716e-05,
+            "samples": 3237
+          },
+          "lower": {
+            "source_samples": 4573,
+            "max_mm": 1.71661376953125e-05,
+            "p95_mm": 1.71661376953125e-05,
+            "samples": 4573
+          },
+          "upper": {
+            "source_samples": 831,
+            "max_mm": 0.00020110151362610494,
+            "p95_mm": 2.288818359375e-05,
+            "samples": 831
+          }
+        },
+        "protected_intersections": [
+          {
+            "part": "cradle_lower_jaw",
+            "space": "grip_left",
+            "volume_mm3": 14.801511250161782
+          },
+          {
+            "part": "cradle_lower_jaw",
+            "space": "grip_right",
+            "volume_mm3": 14.805324398525109
+          }
+        ],
+        "control_sweep_samples": 17,
+        "control_sweep_sagitta_bounds_mm": {
+          "a": 0.0,
+          "b": 0.0,
+          "left_shoulder": 0.0,
+          "right_shoulder": 0.0,
+          "pair": 0.0,
+          "dpad": 0.0016429397995612696,
+          "view": 0.0,
+          "menu": 0.0,
+          "left_stick": 0.012850988839193667,
+          "right_stick": 0.012883280170137472,
+          "left_trigger": 0.0013239327561446097,
+          "right_trigger": 0.001323924945647015,
+          "x": 0.0,
+          "guide": 0.0,
+          "y": 0.0
+        },
+        "elapsed_seconds": 184.56983391899848,
+        "gates": {
+          "outward": false,
+          "contacts": true,
+          "vertices": true,
+          "protected_zero": false
+        }
+      }
+    },
+    {
+      "threshold": 0.03,
+      "status": "complete",
+      "returncode": 0,
+      "metric_seconds": 231.2224299259833,
+      "accuracy": {
+        "executed": true,
+        "density_points_per_mm2": 4.0,
+        "method": "Area samples plus all vertices/face centres; outward only outside CAD solid, exact point-to-triangle distance. Inward only CAD samples not contained in any hull (10 nm tolerance in mm coordinates). Sample maxima are not continuous certificates.",
+        "parts": {
+          "M8_hand_knob": {
+            "hulls": 48,
+            "vertices_max": 74,
+            "outward": {
+              "max_mm": 1.026041511023625,
+              "p95_mm": 0.47995448040225913,
+              "samples": 2381
+            },
+            "inward": {
+              "max_mm": 0.009785389759549103,
+              "p95_mm": 0.0037116264608773896,
+              "samples": 12862
+            },
+            "protected_intersections": [],
+            "source_samples": 37223,
+            "hull_samples": 131368
+          },
+          "base_printed": {
+            "hulls": 8,
+            "vertices_max": 14,
+            "outward": {
+              "max_mm": 3.16073967084394,
+              "p95_mm": 0.001961666102702112,
+              "samples": 106421
+            },
+            "inward": {
+              "max_mm": 0.0023808112104393023,
+              "p95_mm": 0.0019095148357675003,
+              "samples": 91052
+            },
+            "protected_intersections": [],
+            "source_samples": 220224,
+            "hull_samples": 463037
+          },
+          "column": {
+            "hulls": 117,
+            "vertices_max": 60,
+            "outward": {
+              "max_mm": 2.0442162804138038,
+              "p95_mm": 0.9458463064193467,
+              "samples": 58301
+            },
+            "inward": {
+              "max_mm": 0.008996841995677077,
+              "p95_mm": 0.0033538235377931617,
+              "samples": 74071
+            },
+            "protected_intersections": [],
+            "source_samples": 176376,
+            "hull_samples": 440481
+          },
+          "cradle_lower_jaw": {
+            "hulls": 47,
+            "vertices_max": 125,
+            "outward": {
+              "max_mm": 2.7022255926112044,
+              "p95_mm": 1.500017846679686,
+              "samples": 44563
+            },
+            "inward": {
+              "max_mm": 0.006923126363629705,
+              "p95_mm": 0.004299163818359375,
+              "samples": 42338
+            },
+            "protected_intersections": [],
+            "source_samples": 147254,
+            "hull_samples": 263415
+          },
+          "guide_cap": {
+            "hulls": 51,
+            "vertices_max": 42,
+            "outward": {
+              "max_mm": 0.8490436898659254,
+              "p95_mm": 0.5565145950224009,
+              "samples": 9586
+            },
+            "inward": {
+              "max_mm": 0.002310725431891489,
+              "p95_mm": 0.0009002685546875,
+              "samples": 6367
+            },
+            "protected_intersections": [],
+            "source_samples": 29882,
+            "hull_samples": 59060
+          },
+          "guide_rod_1": {
+            "hulls": 1,
+            "vertices_max": 126,
+            "outward": {
+              "max_mm": 5.0572750769068025e-05,
+              "p95_mm": 3.5666816400665326e-05,
+              "samples": 2481
+            },
+            "inward": {
+              "max_mm": 3.2281011238132656e-05,
+              "p95_mm": 2.960358475486033e-05,
+              "samples": 1841
+            },
+            "protected_intersections": [],
+            "source_samples": 7308,
+            "hull_samples": 7308
+          },
+          "guide_rod_2": {
+            "hulls": 1,
+            "vertices_max": 126,
+            "outward": {
+              "max_mm": 5.057277083250007e-05,
+              "p95_mm": 3.5780824313325145e-05,
+              "samples": 2488
+            },
+            "inward": {
+              "max_mm": 3.2281011238132656e-05,
+              "p95_mm": 2.9766289018476906e-05,
+              "samples": 1840
+            },
+            "protected_intersections": [],
+            "source_samples": 7308,
+            "hull_samples": 7308
+          },
+          "hirth_fixed": {
+            "hulls": 91,
+            "vertices_max": 88,
+            "outward": {
+              "max_mm": 1.0356546286316566,
+              "p95_mm": 0.4085962916247372,
+              "samples": 18166
+            },
+            "inward": {
+              "max_mm": 0.004832569204056974,
+              "p95_mm": 0.0027252352270069223,
+              "samples": 6654
+            },
+            "protected_intersections": [],
+            "source_samples": 43333,
+            "hull_samples": 72747
+          },
+          "hirth_moving": {
+            "hulls": 190,
+            "vertices_max": 169,
+            "outward": {
+              "max_mm": 1.0292971368302521,
+              "p95_mm": 0.5788288189086698,
+              "samples": 22922
+            },
+            "inward": {
+              "max_mm": 0.007505568815726196,
+              "p95_mm": 0.0019007819007765814,
+              "samples": 18422
+            },
+            "protected_intersections": [],
+            "source_samples": 46243,
+            "hull_samples": 125715
+          },
+          "lock_screw_spacer": {
+            "hulls": 15,
+            "vertices_max": 32,
+            "outward": {
+              "max_mm": 0.1342538370969877,
+              "p95_mm": 0.08041752147875104,
+              "samples": 333
+            },
+            "inward": {
+              "max_mm": 0.00043850672457664913,
+              "p95_mm": 0.0003319238834928908,
+              "samples": 534
+            },
+            "protected_intersections": [],
+            "source_samples": 1803,
+            "hull_samples": 2827
+          },
+          "pad_back": {
+            "hulls": 1,
+            "vertices_max": 8,
+            "outward": {
+              "max_mm": 0.0,
+              "p95_mm": 0.0,
+              "samples": 0
+            },
+            "inward": {
+              "max_mm": 5.8703282915162635e-05,
+              "p95_mm": 4.2232906431924926e-05,
+              "samples": 5454
+            },
+            "protected_intersections": [],
+            "source_samples": 7308,
+            "hull_samples": 7308
+          },
+          "pad_lower_jaw": {
+            "hulls": 1,
+            "vertices_max": 8,
+            "outward": {
+              "max_mm": 1.7465209960931816e-05,
+              "p95_mm": 1.7465209960931816e-05,
+              "samples": 4629
+            },
+            "inward": {
+              "max_mm": 1.71661376953125e-05,
+              "p95_mm": 1.71661376953125e-05,
+              "samples": 4550
+            },
+            "protected_intersections": [],
+            "source_samples": 10268,
+            "hull_samples": 10268
+          },
+          "pad_upper_jaw": {
+            "hulls": 3,
+            "vertices_max": 10,
+            "outward": {
+              "max_mm": 0.4452100120052904,
+              "p95_mm": 0.2586113680161065,
+              "samples": 1057
+            },
+            "inward": {
+              "max_mm": 0.00020110151362610494,
+              "p95_mm": 0.00019979476928710938,
+              "samples": 1016
+            },
+            "protected_intersections": [],
+            "source_samples": 2415,
+            "hull_samples": 2534
+          },
+          "slider_upper_jaw": {
+            "hulls": 79,
+            "vertices_max": 17,
+            "outward": {
+              "max_mm": 1.1385987030966793,
+              "p95_mm": 0.9028017816184483,
+              "samples": 25039
+            },
+            "inward": {
+              "max_mm": 0.00350138976456546,
+              "p95_mm": 0.001399993896484375,
+              "samples": 19681
+            },
+            "protected_intersections": [],
+            "source_samples": 62604,
+            "hull_samples": 123953
+          }
+        },
+        "hulls": 653,
+        "outward": {
+          "max_mm": 3.16073967084394,
+          "p95_mm": 0.9261716609395386,
+          "samples": 298367
+        },
+        "inward": {
+          "max_mm": 0.009785389759549103,
+          "p95_mm": 0.0027507738376164317,
+          "samples": 286682
+        },
+        "contacts": {
+          "back": {
+            "source_samples": 3237,
+            "max_mm": 5.8703282915162635e-05,
+            "p95_mm": 3.9661433619699716e-05,
+            "samples": 3237
+          },
+          "lower": {
+            "source_samples": 4573,
+            "max_mm": 1.71661376953125e-05,
+            "p95_mm": 1.71661376953125e-05,
+            "samples": 4573
+          },
+          "upper": {
+            "source_samples": 831,
+            "max_mm": 0.00020110151362610494,
+            "p95_mm": 2.288818359375e-05,
+            "samples": 831
+          }
+        },
+        "protected_intersections": [],
+        "control_sweep_samples": 17,
+        "control_sweep_sagitta_bounds_mm": {
+          "a": 0.0,
+          "b": 0.0,
+          "left_shoulder": 0.0,
+          "right_shoulder": 0.0,
+          "pair": 0.0,
+          "dpad": 0.0016429397995612696,
+          "view": 0.0,
+          "menu": 0.0,
+          "left_stick": 0.012850988839193667,
+          "right_stick": 0.012883280170137472,
+          "left_trigger": 0.0013239327561446097,
+          "right_trigger": 0.001323924945647015,
+          "x": 0.0,
+          "guide": 0.0,
+          "y": 0.0
+        },
+        "elapsed_seconds": 230.16125331196235,
+        "gates": {
+          "outward": false,
+          "contacts": true,
+          "vertices": true,
+          "protected_zero": true
+        }
+      }
+    }
+  ],
+  "elapsed_seconds": 953.5573884400073,
+  "initial_plan_parameters": {
+    "seed": 0,
+    "preprocess_mode": "off",
+    "max_convex_hull": -1,
+    "decimate": true,
+    "max_ch_vertex": 255,
+    "resolution": 2000,
+    "mcts_nodes": 20,
+    "mcts_iterations": 150,
+    "mcts_max_depth": 3
+  },
+  "actual_per_part_parameters": {
+    "0.005": {
+      "guide_rod_1": {
+        "parameters": {
+          "mcts_nodes": 20,
+          "mcts_iterations": 150,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255,
+          "provenance": "initial generator used installed API defaults"
+        },
+        "exact_convex_fast_path": false,
+        "obj_sha256": "f3e43069fcd05826aed70eb254b769e6b5a1167450a03a4deead5621ff9821fd"
+      },
+      "guide_rod_2": {
+        "parameters": {
+          "mcts_nodes": 20,
+          "mcts_iterations": 150,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255,
+          "provenance": "initial generator used installed API defaults"
+        },
+        "exact_convex_fast_path": false,
+        "obj_sha256": "1e4eeb778659600db0b384cc44439fb5dd7650c504415b759322ab7dca2d7b86"
+      },
+      "pad_back": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": true,
+        "obj_sha256": "83015db2b0db6d6372caba0e1cddc7e0cf4a9d2f7f2b1f530b49675df80bc653"
+      },
+      "pad_lower_jaw": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": true,
+        "obj_sha256": "840daa126e10b2810a4860bcb3ce22190ca9c479d8df5a7aeffcc3c3f67c3cb1"
+      },
+      "pad_upper_jaw": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": false,
+        "obj_sha256": "ff880b19e54ca4780544eed0033e0d086026a207433226905fb90b1794b58767"
+      }
+    },
+    "0.01": {
+      "base_printed": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": false,
+        "obj_sha256": "4506183ccab8e895240cb28620fd311a1e71c6fa14826ddc01d75b3f128b2d23"
+      },
+      "column": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": false,
+        "obj_sha256": "cddc7dfe1cff0323ce3d94ace51da05441894209304c121ccbe764ad9a9c10de"
+      },
+      "cradle_lower_jaw": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": false,
+        "obj_sha256": "71931eea1947d74830ffdb7fa8945edb5ca6751c0ebdb10fddde113d360dd29d"
+      },
+      "hirth_fixed": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": false,
+        "obj_sha256": "532fd740eadb3b8ebbd70bbfeaa25540f362928ebd8a9f1e84db5fd6673af008"
+      },
+      "guide_rod_1": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": true,
+        "obj_sha256": "272be2e80d5e9069cb4a9d4e3fe545aaa2df7badc2b248a4d3261383fc755eb5"
+      },
+      "guide_rod_2": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": true,
+        "obj_sha256": "955545b1ad19a259d0403f5a7540e40d4e6b26fa32723b38e07ecf9659c3c118"
+      },
+      "lock_screw_spacer": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": false,
+        "obj_sha256": "24e1677a674a2dd4dd6f9d1ee66ac7d00cb05578ee9aa2402afc1896f1229469"
+      },
+      "guide_cap": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": false,
+        "obj_sha256": "7a72306f4e1d47e8c277048cecd27c6ee063e8b2aa6b99b363915f3b20463e25"
+      },
+      "pad_back": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": true,
+        "obj_sha256": "83015db2b0db6d6372caba0e1cddc7e0cf4a9d2f7f2b1f530b49675df80bc653"
+      },
+      "pad_lower_jaw": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": true,
+        "obj_sha256": "840daa126e10b2810a4860bcb3ce22190ca9c479d8df5a7aeffcc3c3f67c3cb1"
+      },
+      "pad_upper_jaw": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": false,
+        "obj_sha256": "e3b6ae86092f00de4f408450059421cd53af46891f72b565807cf8c1bc7b4b18"
+      },
+      "slider_upper_jaw": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": false,
+        "obj_sha256": "b72057194dcbde708692d0b8366d688637ced1a3f81478c22929d0468b78cec5"
+      }
+    },
+    "0.02": {
+      "base_printed": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": false,
+        "obj_sha256": "82343a56ad07ec7217d41c3b4888d612e858059abfff330cfae21975d382d8f7"
+      },
+      "column": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": false,
+        "obj_sha256": "227a360e6ec1172ae0f5a654026a759a132dd5b6cd0f1320d8e936e0cc13e542"
+      },
+      "hirth_fixed": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": false,
+        "obj_sha256": "d1e168dad2caf95bd7fa71f98b4cd3ceaa45340c9cf0577e6e4d6c82a7422c3b"
+      },
+      "cradle_lower_jaw": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": false,
+        "obj_sha256": "4dc6103fb6d5862e7e5851ee73467a29f3674e9e2755f2050d136bb2e51b8b15"
+      },
+      "slider_upper_jaw": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": false,
+        "obj_sha256": "f4f91f41e7c27e4ee61276894545d2c08f6403c74e16183c11c0ce6e68319d52"
+      },
+      "guide_rod_1": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": true,
+        "obj_sha256": "272be2e80d5e9069cb4a9d4e3fe545aaa2df7badc2b248a4d3261383fc755eb5"
+      },
+      "guide_rod_2": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": true,
+        "obj_sha256": "955545b1ad19a259d0403f5a7540e40d4e6b26fa32723b38e07ecf9659c3c118"
+      },
+      "lock_screw_spacer": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": false,
+        "obj_sha256": "bd95057d733e4682730a32e94922b3de6ee39ec8e28124ed31f95c0c9ef0661e"
+      },
+      "pad_back": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": true,
+        "obj_sha256": "83015db2b0db6d6372caba0e1cddc7e0cf4a9d2f7f2b1f530b49675df80bc653"
+      },
+      "pad_lower_jaw": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": true,
+        "obj_sha256": "840daa126e10b2810a4860bcb3ce22190ca9c479d8df5a7aeffcc3c3f67c3cb1"
+      },
+      "guide_cap": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": false,
+        "obj_sha256": "6b9e534a6229a75a8a750b4f470277ef2ab76735995530511e5ecd4bf9ad7b81"
+      },
+      "pad_upper_jaw": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": false,
+        "obj_sha256": "e3b6ae86092f00de4f408450059421cd53af46891f72b565807cf8c1bc7b4b18"
+      },
+      "M8_hand_knob": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": false,
+        "obj_sha256": "e176d2d1c12f8017b8bc0a5a88c4e28aa225e53dd8125a36a90c45d515471b9f"
+      }
+    },
+    "0.03": {
+      "base_printed": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": false,
+        "obj_sha256": "36568b90a9d44b48f1e75495a2bf40833c7169d0b5175e9377b5a5da654c2738"
+      },
+      "column": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": false,
+        "obj_sha256": "f1d95f47607b0c224f77f4035da2096b30e2eefc3ef0ccbdff7c5e5a4fd341b5"
+      },
+      "hirth_fixed": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": false,
+        "obj_sha256": "78123645499eb17b7b50f661ffdcb62f99485b1bb09aa0bf3159dfc4098ce78b"
+      },
+      "cradle_lower_jaw": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": false,
+        "obj_sha256": "7a0c5275477f5c0558e72617abe22277299f76566023dcbd23a7fffa659cb157"
+      },
+      "guide_rod_1": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": true,
+        "obj_sha256": "272be2e80d5e9069cb4a9d4e3fe545aaa2df7badc2b248a4d3261383fc755eb5"
+      },
+      "guide_rod_2": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": true,
+        "obj_sha256": "955545b1ad19a259d0403f5a7540e40d4e6b26fa32723b38e07ecf9659c3c118"
+      },
+      "lock_screw_spacer": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": false,
+        "obj_sha256": "372465a5169c33afb5797ef871e25b985986b020b823b1a5019c79e781fe6170"
+      },
+      "slider_upper_jaw": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": false,
+        "obj_sha256": "241d324b7fffedee1ed38adaba74f1e8f03f35cb6f2d690aaa6e0bc684213d50"
+      },
+      "pad_back": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": true,
+        "obj_sha256": "83015db2b0db6d6372caba0e1cddc7e0cf4a9d2f7f2b1f530b49675df80bc653"
+      },
+      "pad_lower_jaw": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": true,
+        "obj_sha256": "840daa126e10b2810a4860bcb3ce22190ca9c479d8df5a7aeffcc3c3f67c3cb1"
+      },
+      "pad_upper_jaw": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": false,
+        "obj_sha256": "db7d0e2cb13c261bc3b23a3dcac706c261296e3f5c6a7ac2ff7ad2eea3dd9ee2"
+      },
+      "guide_cap": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": false,
+        "obj_sha256": "1457a1ef8b1772dbc38e7329837dba62c4eabf759b397c3ceb56d17aca02e384"
+      },
+      "hirth_moving": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": false,
+        "obj_sha256": "b5e9c47bfdd373811a86da77fae4e3cd27548cf82a5401a92ad86240913a79ea"
+      },
+      "M8_hand_knob": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": false,
+        "obj_sha256": "24206996409f1178f4da834555b49e53ebe24910a8cf5f96c9bb237e9180cfe7"
+      }
+    },
+    "0.05": {
+      "base_printed": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": false,
+        "obj_sha256": "48a2b5c871cb76319931eb7529deb78db1696415b1614de1b9b043f76d0fb62d"
+      },
+      "column": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": false,
+        "obj_sha256": "df0fc5642841050eab33fb0b12745bf3f5c205bc4a71c3725d8febe95bb531c1"
+      },
+      "hirth_fixed": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": false,
+        "obj_sha256": "b1732d6c3e4a502402c253acf3de06112aeadd4672e9f98affa6bb9be0c122b3"
+      },
+      "cradle_lower_jaw": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": false,
+        "obj_sha256": "405b64060b3e5e9ad7cf7aa863118ac2a87c20f9b19b3dc1bc8ddc1886359cf8"
+      },
+      "hirth_moving": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": false,
+        "obj_sha256": "2f50758de87584c31be330ba3afc4d887549c2bb088a50ad765542db46db634b"
+      },
+      "guide_rod_1": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": true,
+        "obj_sha256": "272be2e80d5e9069cb4a9d4e3fe545aaa2df7badc2b248a4d3261383fc755eb5"
+      },
+      "guide_rod_2": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": true,
+        "obj_sha256": "955545b1ad19a259d0403f5a7540e40d4e6b26fa32723b38e07ecf9659c3c118"
+      },
+      "lock_screw_spacer": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": false,
+        "obj_sha256": "a6bb2ae02699623f3ab3adf876732b752aad440d9915be191442b79c28cc5cc4"
+      },
+      "guide_cap": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": false,
+        "obj_sha256": "be51f4a404ae2d148bbc6bc9a21088d9d824ac8261ce189bed9cb4f9f157f715"
+      },
+      "pad_back": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": true,
+        "obj_sha256": "83015db2b0db6d6372caba0e1cddc7e0cf4a9d2f7f2b1f530b49675df80bc653"
+      },
+      "pad_lower_jaw": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": true,
+        "obj_sha256": "840daa126e10b2810a4860bcb3ce22190ca9c479d8df5a7aeffcc3c3f67c3cb1"
+      },
+      "pad_upper_jaw": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": false,
+        "obj_sha256": "db7d0e2cb13c261bc3b23a3dcac706c261296e3f5c6a7ac2ff7ad2eea3dd9ee2"
+      },
+      "slider_upper_jaw": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": false,
+        "obj_sha256": "995569c55bf3c58b14e008058e7e6c54e1edcedaadda4e83cf91fa05442597a4"
+      },
+      "M8_hand_knob": {
+        "parameters": {
+          "mcts_iterations": 60,
+          "mcts_nodes": 10,
+          "mcts_max_depth": 3,
+          "seed": 0,
+          "preprocess_mode": "off",
+          "max_convex_hull": -1,
+          "decimate": true,
+          "max_ch_vertex": 255
+        },
+        "exact_convex_fast_path": false,
+        "obj_sha256": "b3afcb15ca07dc6c1cf37af1eb5c7e942ce362890081e6e37323aa24a5e65573"
+      }
+    }
+  },
+  "threshold_summary": [
+    {
+      "threshold": 0.005,
+      "completed_parts": 5,
+      "expected_parts": 14,
+      "hulls": 177,
+      "generation_task_wall_seconds_sum": 1127.5581674519926,
+      "completed_generation_seconds_sum": 43.975410102983005,
+      "accuracy": null,
+      "complete_fixture": false
+    },
+    {
+      "threshold": 0.01,
+      "completed_parts": 12,
+      "expected_parts": 14,
+      "hulls": 1609,
+      "generation_task_wall_seconds_sum": 662.255757533072,
+      "completed_generation_seconds_sum": 413.5062273750664,
+      "accuracy": {
+        "executed": true,
+        "density_points_per_mm2": 4.0,
+        "method": "Area samples plus all vertices/face centres; outward only outside CAD solid, exact point-to-triangle distance. Inward only CAD samples not contained in any hull (10 nm tolerance in mm coordinates). Sample maxima are not continuous certificates.",
+        "parts": {
+          "base_printed": {
+            "hulls": 131,
+            "vertices_max": 24,
+            "outward": {
+              "max_mm": 1.2486373799157773,
+              "p95_mm": 0.002075535646284256,
+              "samples": 110137
+            },
+            "inward": {
+              "max_mm": 0.00830078125,
+              "p95_mm": 0.0020361134010673234,
+              "samples": 87483
+            },
+            "protected_intersections": [],
+            "source_samples": 220224,
+            "hull_samples": 800291
+          },
+          "column": {
+            "hulls": 332,
+            "vertices_max": 45,
+            "outward": {
+              "max_mm": 0.776525589333545,
+              "p95_mm": 0.2499870323064061,
+              "samples": 53164
+            },
+            "inward": {
+              "max_mm": 0.00545469695419568,
+              "p95_mm": 0.002027019644816413,
+              "samples": 76652
+            },
+            "protected_intersections": [],
+            "source_samples": 176376,
+            "hull_samples": 549366
+          },
+          "cradle_lower_jaw": {
+            "hulls": 210,
+            "vertices_max": 90,
+            "outward": {
+              "max_mm": 0.7609340386484231,
+              "p95_mm": 0.3326283543753064,
+              "samples": 32708
+            },
+            "inward": {
+              "max_mm": 0.005004214229829396,
+              "p95_mm": 0.001986497633065797,
+              "samples": 45236
+            },
+            "protected_intersections": [],
+            "source_samples": 147254,
+            "hull_samples": 412018
+          },
+          "guide_cap": {
+            "hulls": 131,
+            "vertices_max": 26,
+            "outward": {
+              "max_mm": 0.2697822753319759,
+              "p95_mm": 0.12825371321586948,
+              "samples": 9428
+            },
+            "inward": {
+              "max_mm": 0.0023061591768437618,
+              "p95_mm": 0.0009795719000677868,
+              "samples": 7367
+            },
+            "protected_intersections": [],
+            "source_samples": 29882,
+            "hull_samples": 87676
+          },
+          "guide_rod_1": {
+            "hulls": 1,
+            "vertices_max": 126,
+            "outward": {
+              "max_mm": 5.0572750769068025e-05,
+              "p95_mm": 3.5666816400665326e-05,
+              "samples": 2481
+            },
+            "inward": {
+              "max_mm": 3.2281011238132656e-05,
+              "p95_mm": 2.960358475486033e-05,
+              "samples": 1841
+            },
+            "protected_intersections": [],
+            "source_samples": 7308,
+            "hull_samples": 7308
+          },
+          "guide_rod_2": {
+            "hulls": 1,
+            "vertices_max": 126,
+            "outward": {
+              "max_mm": 5.057277083250007e-05,
+              "p95_mm": 3.5780824313325145e-05,
+              "samples": 2488
+            },
+            "inward": {
+              "max_mm": 3.2281011238132656e-05,
+              "p95_mm": 2.9766289018476906e-05,
+              "samples": 1840
+            },
+            "protected_intersections": [],
+            "source_samples": 7308,
+            "hull_samples": 7308
+          },
+          "hirth_fixed": {
+            "hulls": 446,
+            "vertices_max": 48,
+            "outward": {
+              "max_mm": 0.4541808612594375,
+              "p95_mm": 0.28749614699126735,
+              "samples": 18591
+            },
+            "inward": {
+              "max_mm": 0.0025745092690707782,
+              "p95_mm": 0.001024738486648071,
+              "samples": 7853
+            },
+            "protected_intersections": [],
+            "source_samples": 43333,
+            "hull_samples": 155538
+          },
+          "lock_screw_spacer": {
+            "hulls": 136,
+            "vertices_max": 34,
+            "outward": {
+              "max_mm": 0.016877556988338593,
+              "p95_mm": 0.008058194039776853,
+              "samples": 766
+            },
+            "inward": {
+              "max_mm": 0.0004660600888944802,
+              "p95_mm": 0.00031463365541137484,
+              "samples": 618
+            },
+            "protected_intersections": [],
+            "source_samples": 1803,
+            "hull_samples": 17550
+          },
+          "pad_back": {
+            "hulls": 1,
+            "vertices_max": 8,
+            "outward": {
+              "max_mm": 0.0,
+              "p95_mm": 0.0,
+              "samples": 0
+            },
+            "inward": {
+              "max_mm": 5.8703282915162635e-05,
+              "p95_mm": 4.2232906431924926e-05,
+              "samples": 5454
+            },
+            "protected_intersections": [],
+            "source_samples": 7308,
+            "hull_samples": 7308
+          },
+          "pad_lower_jaw": {
+            "hulls": 1,
+            "vertices_max": 8,
+            "outward": {
+              "max_mm": 1.7465209960931816e-05,
+              "p95_mm": 1.7465209960931816e-05,
+              "samples": 4629
+            },
+            "inward": {
+              "max_mm": 1.71661376953125e-05,
+              "p95_mm": 1.71661376953125e-05,
+              "samples": 4550
+            },
+            "protected_intersections": [],
+            "source_samples": 10268,
+            "hull_samples": 10268
+          },
+          "pad_upper_jaw": {
+            "hulls": 5,
+            "vertices_max": 10,
+            "outward": {
+              "max_mm": 0.01516107977467307,
+              "p95_mm": 0.01249999999999929,
+              "samples": 979
+            },
+            "inward": {
+              "max_mm": 0.0009224561178407516,
+              "p95_mm": 0.00019979476928710938,
+              "samples": 1013
+            },
+            "protected_intersections": [],
+            "source_samples": 2415,
+            "hull_samples": 2658
+          },
+          "slider_upper_jaw": {
+            "hulls": 214,
+            "vertices_max": 17,
+            "outward": {
+              "max_mm": 0.35481205637378477,
+              "p95_mm": 0.1688074223526069,
+              "samples": 24130
+            },
+            "inward": {
+              "max_mm": 0.0034999847412109375,
+              "p95_mm": 0.001399993896484375,
+              "samples": 19076
+            },
+            "protected_intersections": [],
+            "source_samples": 62604,
+            "hull_samples": 185996
+          }
+        },
+        "hulls": 1609,
+        "outward": {
+          "max_mm": 1.2486373799157773,
+          "p95_mm": 0.21543490346614194,
+          "samples": 259501
+        },
+        "inward": {
+          "max_mm": 0.00830078125,
+          "p95_mm": 0.0019260588758127388,
+          "samples": 258983
+        },
+        "contacts": {
+          "back": {
+            "source_samples": 3237,
+            "max_mm": 5.8703282915162635e-05,
+            "p95_mm": 3.9661433619699716e-05,
+            "samples": 3237
+          },
+          "lower": {
+            "source_samples": 4573,
+            "max_mm": 1.71661376953125e-05,
+            "p95_mm": 1.71661376953125e-05,
+            "samples": 4573
+          },
+          "upper": {
+            "source_samples": 831,
+            "max_mm": 0.0009224561178407516,
+            "p95_mm": 2.288818359375e-05,
+            "samples": 831
+          }
+        },
+        "protected_intersections": [],
+        "control_sweep_samples": 17,
+        "control_sweep_sagitta_bounds_mm": {
+          "a": 0.0,
+          "b": 0.0,
+          "left_shoulder": 0.0,
+          "right_shoulder": 0.0,
+          "pair": 0.0,
+          "dpad": 0.0016429397995612696,
+          "view": 0.0,
+          "menu": 0.0,
+          "left_stick": 0.012850988839193667,
+          "right_stick": 0.012883280170137472,
+          "left_trigger": 0.0013239327561446097,
+          "right_trigger": 0.001323924945647015,
+          "x": 0.0,
+          "guide": 0.0,
+          "y": 0.0
+        },
+        "elapsed_seconds": 327.80664461897686,
+        "gates": {
+          "outward": true,
+          "contacts": true,
+          "vertices": true,
+          "protected_zero": true
+        }
+      },
+      "complete_fixture": false
+    },
+    {
+      "threshold": 0.02,
+      "completed_parts": 13,
+      "expected_parts": 14,
+      "hulls": 680,
+      "generation_task_wall_seconds_sum": 415.9697134818998,
+      "completed_generation_seconds_sum": 286.5420201769448,
+      "accuracy": {
+        "executed": true,
+        "density_points_per_mm2": 4.0,
+        "method": "Area samples plus all vertices/face centres; outward only outside CAD solid, exact point-to-triangle distance. Inward only CAD samples not contained in any hull (10 nm tolerance in mm coordinates). Sample maxima are not continuous certificates.",
+        "parts": {
+          "M8_hand_knob": {
+            "hulls": 67,
+            "vertices_max": 74,
+            "outward": {
+              "max_mm": 0.7310517851323777,
+              "p95_mm": 0.1386620074063634,
+              "samples": 2321
+            },
+            "inward": {
+              "max_mm": 0.0076187966082298065,
+              "p95_mm": 0.0036802370891700913,
+              "samples": 12817
+            },
+            "protected_intersections": [],
+            "source_samples": 37223,
+            "hull_samples": 142013
+          },
+          "base_printed": {
+            "hulls": 33,
+            "vertices_max": 20,
+            "outward": {
+              "max_mm": 3.0247973639907935,
+              "p95_mm": 0.002069207556535469,
+              "samples": 118225
+            },
+            "inward": {
+              "max_mm": 0.01619720458984375,
+              "p95_mm": 0.0017960179272701045,
+              "samples": 80665
+            },
+            "protected_intersections": [],
+            "source_samples": 220224,
+            "hull_samples": 604379
+          },
+          "column": {
+            "hulls": 165,
+            "vertices_max": 60,
+            "outward": {
+              "max_mm": 1.5649013821045556,
+              "p95_mm": 0.6206502667856091,
+              "samples": 59830
+            },
+            "inward": {
+              "max_mm": 0.009025101304280327,
+              "p95_mm": 0.003332526429063958,
+              "samples": 71470
+            },
+            "protected_intersections": [],
+            "source_samples": 176376,
+            "hull_samples": 472297
+          },
+          "cradle_lower_jaw": {
+            "hulls": 88,
+            "vertices_max": 118,
+            "outward": {
+              "max_mm": 1.8993438660435569,
+              "p95_mm": 1.4778683497020402,
+              "samples": 43116
+            },
+            "inward": {
+              "max_mm": 0.004773205300429712,
+              "p95_mm": 0.0023735962621228065,
+              "samples": 42353
+            },
+            "protected_intersections": [],
+            "source_samples": 147254,
+            "hull_samples": 300154
+          },
+          "guide_cap": {
+            "hulls": 62,
+            "vertices_max": 35,
+            "outward": {
+              "max_mm": 0.5832836474489734,
+              "p95_mm": 0.49174414673058103,
+              "samples": 9778
+            },
+            "inward": {
+              "max_mm": 0.002310725431891489,
+              "p95_mm": 0.0009002685546875,
+              "samples": 6140
+            },
+            "protected_intersections": [],
+            "source_samples": 29882,
+            "hull_samples": 62736
+          },
+          "guide_rod_1": {
+            "hulls": 1,
+            "vertices_max": 126,
+            "outward": {
+              "max_mm": 5.0572750769068025e-05,
+              "p95_mm": 3.5666816400665326e-05,
+              "samples": 2481
+            },
+            "inward": {
+              "max_mm": 3.2281011238132656e-05,
+              "p95_mm": 2.960358475486033e-05,
+              "samples": 1841
+            },
+            "protected_intersections": [],
+            "source_samples": 7308,
+            "hull_samples": 7308
+          },
+          "guide_rod_2": {
+            "hulls": 1,
+            "vertices_max": 126,
+            "outward": {
+              "max_mm": 5.057277083250007e-05,
+              "p95_mm": 3.5780824313325145e-05,
+              "samples": 2488
+            },
+            "inward": {
+              "max_mm": 3.2281011238132656e-05,
+              "p95_mm": 2.9766289018476906e-05,
+              "samples": 1840
+            },
+            "protected_intersections": [],
+            "source_samples": 7308,
+            "hull_samples": 7308
+          },
+          "hirth_fixed": {
+            "hulls": 114,
+            "vertices_max": 88,
+            "outward": {
+              "max_mm": 0.6170228953377263,
+              "p95_mm": 0.33589999999999876,
+              "samples": 16275
+            },
+            "inward": {
+              "max_mm": 0.005005126281921149,
+              "p95_mm": 0.0019692831667695023,
+              "samples": 7905
+            },
+            "protected_intersections": [],
+            "source_samples": 43333,
+            "hull_samples": 78831
+          },
+          "lock_screw_spacer": {
+            "hulls": 18,
+            "vertices_max": 32,
+            "outward": {
+              "max_mm": 0.044456209616172186,
+              "p95_mm": 0.040454354435430884,
+              "samples": 360
+            },
+            "inward": {
+              "max_mm": 0.00043850672457664913,
+              "p95_mm": 0.0003327188142631741,
+              "samples": 539
+            },
+            "protected_intersections": [],
+            "source_samples": 1803,
+            "hull_samples": 3133
+          },
+          "pad_back": {
+            "hulls": 1,
+            "vertices_max": 8,
+            "outward": {
+              "max_mm": 0.0,
+              "p95_mm": 0.0,
+              "samples": 0
+            },
+            "inward": {
+              "max_mm": 5.8703282915162635e-05,
+              "p95_mm": 4.2232906431924926e-05,
+              "samples": 5454
+            },
+            "protected_intersections": [],
+            "source_samples": 7308,
+            "hull_samples": 7308
+          },
+          "pad_lower_jaw": {
+            "hulls": 1,
+            "vertices_max": 8,
+            "outward": {
+              "max_mm": 1.7465209960931816e-05,
+              "p95_mm": 1.7465209960931816e-05,
+              "samples": 4629
+            },
+            "inward": {
+              "max_mm": 1.71661376953125e-05,
+              "p95_mm": 1.71661376953125e-05,
+              "samples": 4550
+            },
+            "protected_intersections": [],
+            "source_samples": 10268,
+            "hull_samples": 10268
+          },
+          "pad_upper_jaw": {
+            "hulls": 5,
+            "vertices_max": 10,
+            "outward": {
+              "max_mm": 0.01516107977467307,
+              "p95_mm": 0.01249999999999929,
+              "samples": 979
+            },
+            "inward": {
+              "max_mm": 0.0009224561178407516,
+              "p95_mm": 0.00019979476928710938,
+              "samples": 1013
+            },
+            "protected_intersections": [],
+            "source_samples": 2415,
+            "hull_samples": 2658
+          },
+          "slider_upper_jaw": {
+            "hulls": 124,
+            "vertices_max": 16,
+            "outward": {
+              "max_mm": 0.7396027436017909,
+              "p95_mm": 0.3358505476758516,
+              "samples": 24467
+            },
+            "inward": {
+              "max_mm": 0.00350138976456546,
+              "p95_mm": 0.001399993896484375,
+              "samples": 19864
+            },
+            "protected_intersections": [],
+            "source_samples": 62604,
+            "hull_samples": 154848
+          }
+        },
+        "hulls": 680,
+        "outward": {
+          "max_mm": 3.0247973639907935,
+          "p95_mm": 0.5916702721970025,
+          "samples": 284949
+        },
+        "inward": {
+          "max_mm": 0.01619720458984375,
+          "p95_mm": 0.0022501938405014377,
+          "samples": 256451
+        },
+        "contacts": {
+          "back": {
+            "source_samples": 3237,
+            "max_mm": 5.8703282915162635e-05,
+            "p95_mm": 3.9661433619699716e-05,
+            "samples": 3237
+          },
+          "lower": {
+            "source_samples": 4573,
+            "max_mm": 1.71661376953125e-05,
+            "p95_mm": 1.71661376953125e-05,
+            "samples": 4573
+          },
+          "upper": {
+            "source_samples": 831,
+            "max_mm": 0.0009224561178407516,
+            "p95_mm": 2.288818359375e-05,
+            "samples": 831
+          }
+        },
+        "protected_intersections": [],
+        "control_sweep_samples": 17,
+        "control_sweep_sagitta_bounds_mm": {
+          "a": 0.0,
+          "b": 0.0,
+          "left_shoulder": 0.0,
+          "right_shoulder": 0.0,
+          "pair": 0.0,
+          "dpad": 0.0016429397995612696,
+          "view": 0.0,
+          "menu": 0.0,
+          "left_stick": 0.012850988839193667,
+          "right_stick": 0.012883280170137472,
+          "left_trigger": 0.0013239327561446097,
+          "right_trigger": 0.001323924945647015,
+          "x": 0.0,
+          "guide": 0.0,
+          "y": 0.0
+        },
+        "elapsed_seconds": 244.75815331103513,
+        "gates": {
+          "outward": false,
+          "contacts": true,
+          "vertices": true,
+          "protected_zero": true
+        }
+      },
+      "complete_fixture": false
+    },
+    {
+      "threshold": 0.03,
+      "completed_parts": 14,
+      "expected_parts": 14,
+      "hulls": 653,
+      "generation_task_wall_seconds_sum": 360.2907381678815,
+      "completed_generation_seconds_sum": 350.47915856481995,
+      "accuracy": {
+        "executed": true,
+        "density_points_per_mm2": 4.0,
+        "method": "Area samples plus all vertices/face centres; outward only outside CAD solid, exact point-to-triangle distance. Inward only CAD samples not contained in any hull (10 nm tolerance in mm coordinates). Sample maxima are not continuous certificates.",
+        "parts": {
+          "M8_hand_knob": {
+            "hulls": 48,
+            "vertices_max": 74,
+            "outward": {
+              "max_mm": 1.026041511023625,
+              "p95_mm": 0.47995448040225913,
+              "samples": 2381
+            },
+            "inward": {
+              "max_mm": 0.009785389759549103,
+              "p95_mm": 0.0037116264608773896,
+              "samples": 12862
+            },
+            "protected_intersections": [],
+            "source_samples": 37223,
+            "hull_samples": 131368
+          },
+          "base_printed": {
+            "hulls": 8,
+            "vertices_max": 14,
+            "outward": {
+              "max_mm": 3.16073967084394,
+              "p95_mm": 0.001961666102702112,
+              "samples": 106421
+            },
+            "inward": {
+              "max_mm": 0.0023808112104393023,
+              "p95_mm": 0.0019095148357675003,
+              "samples": 91052
+            },
+            "protected_intersections": [],
+            "source_samples": 220224,
+            "hull_samples": 463037
+          },
+          "column": {
+            "hulls": 117,
+            "vertices_max": 60,
+            "outward": {
+              "max_mm": 2.0442162804138038,
+              "p95_mm": 0.9458463064193467,
+              "samples": 58301
+            },
+            "inward": {
+              "max_mm": 0.008996841995677077,
+              "p95_mm": 0.0033538235377931617,
+              "samples": 74071
+            },
+            "protected_intersections": [],
+            "source_samples": 176376,
+            "hull_samples": 440481
+          },
+          "cradle_lower_jaw": {
+            "hulls": 47,
+            "vertices_max": 125,
+            "outward": {
+              "max_mm": 2.7022255926112044,
+              "p95_mm": 1.500017846679686,
+              "samples": 44563
+            },
+            "inward": {
+              "max_mm": 0.006923126363629705,
+              "p95_mm": 0.004299163818359375,
+              "samples": 42338
+            },
+            "protected_intersections": [],
+            "source_samples": 147254,
+            "hull_samples": 263415
+          },
+          "guide_cap": {
+            "hulls": 51,
+            "vertices_max": 42,
+            "outward": {
+              "max_mm": 0.8490436898659254,
+              "p95_mm": 0.5565145950224009,
+              "samples": 9586
+            },
+            "inward": {
+              "max_mm": 0.002310725431891489,
+              "p95_mm": 0.0009002685546875,
+              "samples": 6367
+            },
+            "protected_intersections": [],
+            "source_samples": 29882,
+            "hull_samples": 59060
+          },
+          "guide_rod_1": {
+            "hulls": 1,
+            "vertices_max": 126,
+            "outward": {
+              "max_mm": 5.0572750769068025e-05,
+              "p95_mm": 3.5666816400665326e-05,
+              "samples": 2481
+            },
+            "inward": {
+              "max_mm": 3.2281011238132656e-05,
+              "p95_mm": 2.960358475486033e-05,
+              "samples": 1841
+            },
+            "protected_intersections": [],
+            "source_samples": 7308,
+            "hull_samples": 7308
+          },
+          "guide_rod_2": {
+            "hulls": 1,
+            "vertices_max": 126,
+            "outward": {
+              "max_mm": 5.057277083250007e-05,
+              "p95_mm": 3.5780824313325145e-05,
+              "samples": 2488
+            },
+            "inward": {
+              "max_mm": 3.2281011238132656e-05,
+              "p95_mm": 2.9766289018476906e-05,
+              "samples": 1840
+            },
+            "protected_intersections": [],
+            "source_samples": 7308,
+            "hull_samples": 7308
+          },
+          "hirth_fixed": {
+            "hulls": 91,
+            "vertices_max": 88,
+            "outward": {
+              "max_mm": 1.0356546286316566,
+              "p95_mm": 0.4085962916247372,
+              "samples": 18166
+            },
+            "inward": {
+              "max_mm": 0.004832569204056974,
+              "p95_mm": 0.0027252352270069223,
+              "samples": 6654
+            },
+            "protected_intersections": [],
+            "source_samples": 43333,
+            "hull_samples": 72747
+          },
+          "hirth_moving": {
+            "hulls": 190,
+            "vertices_max": 169,
+            "outward": {
+              "max_mm": 1.0292971368302521,
+              "p95_mm": 0.5788288189086698,
+              "samples": 22922
+            },
+            "inward": {
+              "max_mm": 0.007505568815726196,
+              "p95_mm": 0.0019007819007765814,
+              "samples": 18422
+            },
+            "protected_intersections": [],
+            "source_samples": 46243,
+            "hull_samples": 125715
+          },
+          "lock_screw_spacer": {
+            "hulls": 15,
+            "vertices_max": 32,
+            "outward": {
+              "max_mm": 0.1342538370969877,
+              "p95_mm": 0.08041752147875104,
+              "samples": 333
+            },
+            "inward": {
+              "max_mm": 0.00043850672457664913,
+              "p95_mm": 0.0003319238834928908,
+              "samples": 534
+            },
+            "protected_intersections": [],
+            "source_samples": 1803,
+            "hull_samples": 2827
+          },
+          "pad_back": {
+            "hulls": 1,
+            "vertices_max": 8,
+            "outward": {
+              "max_mm": 0.0,
+              "p95_mm": 0.0,
+              "samples": 0
+            },
+            "inward": {
+              "max_mm": 5.8703282915162635e-05,
+              "p95_mm": 4.2232906431924926e-05,
+              "samples": 5454
+            },
+            "protected_intersections": [],
+            "source_samples": 7308,
+            "hull_samples": 7308
+          },
+          "pad_lower_jaw": {
+            "hulls": 1,
+            "vertices_max": 8,
+            "outward": {
+              "max_mm": 1.7465209960931816e-05,
+              "p95_mm": 1.7465209960931816e-05,
+              "samples": 4629
+            },
+            "inward": {
+              "max_mm": 1.71661376953125e-05,
+              "p95_mm": 1.71661376953125e-05,
+              "samples": 4550
+            },
+            "protected_intersections": [],
+            "source_samples": 10268,
+            "hull_samples": 10268
+          },
+          "pad_upper_jaw": {
+            "hulls": 3,
+            "vertices_max": 10,
+            "outward": {
+              "max_mm": 0.4452100120052904,
+              "p95_mm": 0.2586113680161065,
+              "samples": 1057
+            },
+            "inward": {
+              "max_mm": 0.00020110151362610494,
+              "p95_mm": 0.00019979476928710938,
+              "samples": 1016
+            },
+            "protected_intersections": [],
+            "source_samples": 2415,
+            "hull_samples": 2534
+          },
+          "slider_upper_jaw": {
+            "hulls": 79,
+            "vertices_max": 17,
+            "outward": {
+              "max_mm": 1.1385987030966793,
+              "p95_mm": 0.9028017816184483,
+              "samples": 25039
+            },
+            "inward": {
+              "max_mm": 0.00350138976456546,
+              "p95_mm": 0.001399993896484375,
+              "samples": 19681
+            },
+            "protected_intersections": [],
+            "source_samples": 62604,
+            "hull_samples": 123953
+          }
+        },
+        "hulls": 653,
+        "outward": {
+          "max_mm": 3.16073967084394,
+          "p95_mm": 0.9261716609395386,
+          "samples": 298367
+        },
+        "inward": {
+          "max_mm": 0.009785389759549103,
+          "p95_mm": 0.0027507738376164317,
+          "samples": 286682
+        },
+        "contacts": {
+          "back": {
+            "source_samples": 3237,
+            "max_mm": 5.8703282915162635e-05,
+            "p95_mm": 3.9661433619699716e-05,
+            "samples": 3237
+          },
+          "lower": {
+            "source_samples": 4573,
+            "max_mm": 1.71661376953125e-05,
+            "p95_mm": 1.71661376953125e-05,
+            "samples": 4573
+          },
+          "upper": {
+            "source_samples": 831,
+            "max_mm": 0.00020110151362610494,
+            "p95_mm": 2.288818359375e-05,
+            "samples": 831
+          }
+        },
+        "protected_intersections": [],
+        "control_sweep_samples": 17,
+        "control_sweep_sagitta_bounds_mm": {
+          "a": 0.0,
+          "b": 0.0,
+          "left_shoulder": 0.0,
+          "right_shoulder": 0.0,
+          "pair": 0.0,
+          "dpad": 0.0016429397995612696,
+          "view": 0.0,
+          "menu": 0.0,
+          "left_stick": 0.012850988839193667,
+          "right_stick": 0.012883280170137472,
+          "left_trigger": 0.0013239327561446097,
+          "right_trigger": 0.001323924945647015,
+          "x": 0.0,
+          "guide": 0.0,
+          "y": 0.0
+        },
+        "elapsed_seconds": 230.16125331196235,
+        "gates": {
+          "outward": false,
+          "contacts": true,
+          "vertices": true,
+          "protected_zero": true
+        }
+      },
+      "complete_fixture": true
+    },
+    {
+      "threshold": 0.05,
+      "completed_parts": 14,
+      "expected_parts": 14,
+      "hulls": 301,
+      "generation_task_wall_seconds_sum": 215.61769832106074,
+      "completed_generation_seconds_sum": 202.7501773648546,
+      "accuracy": {
+        "executed": true,
+        "density_points_per_mm2": 4.0,
+        "method": "Area samples plus all vertices/face centres; outward only outside CAD solid, exact point-to-triangle distance. Inward only CAD samples not contained in any hull (10 nm tolerance in mm coordinates). Sample maxima are not continuous certificates.",
+        "parts": {
+          "M8_hand_knob": {
+            "hulls": 25,
+            "vertices_max": 74,
+            "outward": {
+              "max_mm": 1.48176206464345,
+              "p95_mm": 0.9413069078504677,
+              "samples": 2881
+            },
+            "inward": {
+              "max_mm": 0.009621552629949966,
+              "p95_mm": 0.003674858976839357,
+              "samples": 13829
+            },
+            "protected_intersections": [],
+            "source_samples": 37223,
+            "hull_samples": 111288
+          },
+          "base_printed": {
+            "hulls": 4,
+            "vertices_max": 12,
+            "outward": {
+              "max_mm": 3.16073967084394,
+              "p95_mm": 0.0032467471248949793,
+              "samples": 122357
+            },
+            "inward": {
+              "max_mm": 0.0026845356528533014,
+              "p95_mm": 0.0016091808027451843,
+              "samples": 81941
+            },
+            "protected_intersections": [],
+            "source_samples": 220224,
+            "hull_samples": 345274
+          },
+          "column": {
+            "hulls": 50,
+            "vertices_max": 58,
+            "outward": {
+              "max_mm": 3.088639888374165,
+              "p95_mm": 1.8162711205688578,
+              "samples": 67715
+            },
+            "inward": {
+              "max_mm": 0.017134111184530336,
+              "p95_mm": 0.003925128834428433,
+              "samples": 73861
+            },
+            "protected_intersections": [],
+            "source_samples": 176376,
+            "hull_samples": 365114
+          },
+          "cradle_lower_jaw": {
+            "hulls": 20,
+            "vertices_max": 252,
+            "outward": {
+              "max_mm": 3.8670203090763025,
+              "p95_mm": 2.249939560341112,
+              "samples": 48830
+            },
+            "inward": {
+              "max_mm": 0.006335854136074791,
+              "p95_mm": 0.004379221357555865,
+              "samples": 38623
+            },
+            "protected_intersections": [
+              {
+                "space": "grip_left",
+                "volume_mm3": 14.801511250161782
+              },
+              {
+                "space": "grip_right",
+                "volume_mm3": 14.805324398525109
+              }
+            ],
+            "source_samples": 147254,
+            "hull_samples": 214147
+          },
+          "guide_cap": {
+            "hulls": 39,
+            "vertices_max": 44,
+            "outward": {
+              "max_mm": 1.3940272521972688,
+              "p95_mm": 1.0497884741571575,
+              "samples": 9472
+            },
+            "inward": {
+              "max_mm": 0.002295886227479806,
+              "p95_mm": 0.0009002685546875,
+              "samples": 6025
+            },
+            "protected_intersections": [],
+            "source_samples": 29882,
+            "hull_samples": 56328
+          },
+          "guide_rod_1": {
+            "hulls": 1,
+            "vertices_max": 126,
+            "outward": {
+              "max_mm": 5.0572750769068025e-05,
+              "p95_mm": 3.5666816400665326e-05,
+              "samples": 2481
+            },
+            "inward": {
+              "max_mm": 3.2281011238132656e-05,
+              "p95_mm": 2.960358475486033e-05,
+              "samples": 1841
+            },
+            "protected_intersections": [],
+            "source_samples": 7308,
+            "hull_samples": 7308
+          },
+          "guide_rod_2": {
+            "hulls": 1,
+            "vertices_max": 126,
+            "outward": {
+              "max_mm": 5.057277083250007e-05,
+              "p95_mm": 3.5780824313325145e-05,
+              "samples": 2488
+            },
+            "inward": {
+              "max_mm": 3.2281011238132656e-05,
+              "p95_mm": 2.9766289018476906e-05,
+              "samples": 1840
+            },
+            "protected_intersections": [],
+            "source_samples": 7308,
+            "hull_samples": 7308
+          },
+          "hirth_fixed": {
+            "hulls": 35,
+            "vertices_max": 155,
+            "outward": {
+              "max_mm": 1.7821838289263445,
+              "p95_mm": 1.1321227290179818,
+              "samples": 21800
+            },
+            "inward": {
+              "max_mm": 0.00474494348302463,
+              "p95_mm": 0.0029264247129197926,
+              "samples": 5834
+            },
+            "protected_intersections": [],
+            "source_samples": 43333,
+            "hull_samples": 65880
+          },
+          "hirth_moving": {
+            "hulls": 61,
+            "vertices_max": 194,
+            "outward": {
+              "max_mm": 1.7138563741256445,
+              "p95_mm": 1.0135911216372469,
+              "samples": 22116
+            },
+            "inward": {
+              "max_mm": 0.010625057021622145,
+              "p95_mm": 0.0034292787047756593,
+              "samples": 21608
+            },
+            "protected_intersections": [],
+            "source_samples": 46243,
+            "hull_samples": 93396
+          },
+          "lock_screw_spacer": {
+            "hulls": 9,
+            "vertices_max": 34,
+            "outward": {
+              "max_mm": 0.2362632572513112,
+              "p95_mm": 0.19960869027677433,
+              "samples": 268
+            },
+            "inward": {
+              "max_mm": 0.0005213204774557088,
+              "p95_mm": 0.00033129502955633655,
+              "samples": 551
+            },
+            "protected_intersections": [],
+            "source_samples": 1803,
+            "hull_samples": 2262
+          },
+          "pad_back": {
+            "hulls": 1,
+            "vertices_max": 8,
+            "outward": {
+              "max_mm": 0.0,
+              "p95_mm": 0.0,
+              "samples": 0
+            },
+            "inward": {
+              "max_mm": 5.8703282915162635e-05,
+              "p95_mm": 4.2232906431924926e-05,
+              "samples": 5454
+            },
+            "protected_intersections": [],
+            "source_samples": 7308,
+            "hull_samples": 7308
+          },
+          "pad_lower_jaw": {
+            "hulls": 1,
+            "vertices_max": 8,
+            "outward": {
+              "max_mm": 1.7465209960931816e-05,
+              "p95_mm": 1.7465209960931816e-05,
+              "samples": 4629
+            },
+            "inward": {
+              "max_mm": 1.71661376953125e-05,
+              "p95_mm": 1.71661376953125e-05,
+              "samples": 4550
+            },
+            "protected_intersections": [],
+            "source_samples": 10268,
+            "hull_samples": 10268
+          },
+          "pad_upper_jaw": {
+            "hulls": 3,
+            "vertices_max": 10,
+            "outward": {
+              "max_mm": 0.4452100120052904,
+              "p95_mm": 0.2586113680161065,
+              "samples": 1057
+            },
+            "inward": {
+              "max_mm": 0.00020110151362610494,
+              "p95_mm": 0.00019979476928710938,
+              "samples": 1016
+            },
+            "protected_intersections": [],
+            "source_samples": 2415,
+            "hull_samples": 2534
+          },
+          "slider_upper_jaw": {
+            "hulls": 51,
+            "vertices_max": 21,
+            "outward": {
+              "max_mm": 1.920615307254961,
+              "p95_mm": 0.962316717615577,
+              "samples": 31841
+            },
+            "inward": {
+              "max_mm": 0.002193494406818474,
+              "p95_mm": 0.001399993896484375,
+              "samples": 11681
+            },
+            "protected_intersections": [],
+            "source_samples": 62604,
+            "hull_samples": 123410
+          }
+        },
+        "hulls": 301,
+        "outward": {
+          "max_mm": 3.8670203090763025,
+          "p95_mm": 1.4996608809280483,
+          "samples": 337935
+        },
+        "inward": {
+          "max_mm": 0.017134111184530336,
+          "p95_mm": 0.00329086865471827,
+          "samples": 268654
+        },
+        "contacts": {
+          "back": {
+            "source_samples": 3237,
+            "max_mm": 5.8703282915162635e-05,
+            "p95_mm": 3.9661433619699716e-05,
+            "samples": 3237
+          },
+          "lower": {
+            "source_samples": 4573,
+            "max_mm": 1.71661376953125e-05,
+            "p95_mm": 1.71661376953125e-05,
+            "samples": 4573
+          },
+          "upper": {
+            "source_samples": 831,
+            "max_mm": 0.00020110151362610494,
+            "p95_mm": 2.288818359375e-05,
+            "samples": 831
+          }
+        },
+        "protected_intersections": [
+          {
+            "part": "cradle_lower_jaw",
+            "space": "grip_left",
+            "volume_mm3": 14.801511250161782
+          },
+          {
+            "part": "cradle_lower_jaw",
+            "space": "grip_right",
+            "volume_mm3": 14.805324398525109
+          }
+        ],
+        "control_sweep_samples": 17,
+        "control_sweep_sagitta_bounds_mm": {
+          "a": 0.0,
+          "b": 0.0,
+          "left_shoulder": 0.0,
+          "right_shoulder": 0.0,
+          "pair": 0.0,
+          "dpad": 0.0016429397995612696,
+          "view": 0.0,
+          "menu": 0.0,
+          "left_stick": 0.012850988839193667,
+          "right_stick": 0.012883280170137472,
+          "left_trigger": 0.0013239327561446097,
+          "right_trigger": 0.001323924945647015,
+          "x": 0.0,
+          "guide": 0.0,
+          "y": 0.0
+        },
+        "elapsed_seconds": 184.56983391899848,
+        "gates": {
+          "outward": false,
+          "contacts": true,
+          "vertices": true,
+          "protected_zero": false
+        }
+      },
+      "complete_fixture": true
+    }
+  ],
+  "partial_metrics": {
+    "0.01": {
+      "threshold": 0.01,
+      "expected_parts": 14,
+      "available_parts": 12,
+      "partial": true,
+      "started_elapsed_seconds": 615.506418466568,
+      "returncode": 0,
+      "status": "complete",
+      "finished_elapsed_seconds": 935.8031661510468
+    },
+    "0.02": {
+      "threshold": 0.02,
+      "expected_parts": 14,
+      "available_parts": 13,
+      "partial": true,
+      "started_elapsed_seconds": 708.2270910739899,
+      "returncode": 0,
+      "status": "complete",
+      "finished_elapsed_seconds": 940.5025703907013
+    }
+  },
+  "method_wall_seconds_including_partial_metrics": 953.5573884400073
+}

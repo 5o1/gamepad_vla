@@ -22,6 +22,7 @@ from gamepad_vla.workstation.episode_schema import (
 from gamepad_vla.workstation.g20_mapping import G20_JOINT_NAMES, G20_MIMIC_JOINTS
 from gamepad_vla.workstation.paths import resolve_workspace_path
 from gamepad_vla.workstation.robot_description import compose_robot_urdf
+from .fixture_collision import add_mujoco_fixture, CONTACT_OFFSET
 
 # Same unmeasured drive placeholders as the existing SAPIEN workcell. These
 # settings are local to collection and never alter the direction-key task.
@@ -96,7 +97,8 @@ class CollectionMujocoBackend:
                 if geom.contype or geom.conaffinity:
                     # Disable same-side self-collision, keep opposite robots,
                     # the gamepad, and the unchanged fixed support in contact.
-                    geom.contype, geom.conaffinity = own_bit, 1 | other_bit
+                    geom.contype, geom.conaffinity = own_bit, 1 | other_bit | 8
+                    geom.margin = CONTACT_OFFSET
             for joint in robot.joints:
                 joint.armature = (ARM_GAINS if joint.name in arm.joint_names else HAND_GAINS)['armature']
             frame = parent.worldbody.add_frame(pos=arm.base_pose[:3], quat=arm.base_pose[3:])
@@ -124,22 +126,22 @@ class CollectionMujocoBackend:
         table = spec.table
         parent.worldbody.add_geom(name='table', type=mj.mjtGeom.mjGEOM_BOX,
             size=table.half_extents, pos=table.pose[:3], quat=table.pose[3:],
-            contype=1, conaffinity=7, rgba=[.12,.4,.2,1])
+            contype=16, conaffinity=7, margin=CONTACT_OFFSET, rgba=[.12,.4,.2,1])
         for fixture in spec.fixtures:
             if fixture.parent and fixture.parent != spec.world_frame:
                 if fixture.collision:
                     raise ValueError('attached collision fixtures are unsupported')
                 continue  # Camera shells are optional visual geometry.
-            if fixture.type == 'box':
-                parent.worldbody.add_geom(name=fixture.name, type=mj.mjtGeom.mjGEOM_BOX,
-                    size=fixture.half_extents, pos=fixture.pose[:3], quat=fixture.pose[3:],
-                    contype=1 if fixture.collision else 0,
-                    conaffinity=7 if fixture.collision else 0)
-            elif fixture.collision:
-                raise ValueError('mesh support collision requires a dedicated conversion')
+            add_mujoco_fixture(parent, mj, fixture)
         attachment = attach_to_spec(parent, resource_root=resource_root,
             fixed_root=True, pose=spec.gamepad.root_pose, profile=spec.gamepad.profile,
             attach_visual=render, collision=spec.gamepad.collision)
+        for geom in parent.geoms:
+            if geom.name.startswith(attachment.prefix) and (geom.contype or geom.conaffinity):
+                # Gamepad internal body excludes remain owned by the asset.
+                # Neither side of fixture(8) <-> gamepad(1) shares a mask bit.
+                geom.contype, geom.conaffinity = 1, 2 | 4 | 16
+                geom.margin = CONTACT_OFFSET
         apply_standalone_policy(parent.option, attachment.asset.numerical_policy)
         parent.option.sdf_iterations = attachment.asset.sdf_policy['sdf_iterations']
         parent.option.sdf_initpoints = attachment.asset.sdf_policy['sdf_initpoints']
