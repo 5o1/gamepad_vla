@@ -1,0 +1,1010 @@
+{
+  "code": {
+    "git_commit": "dc1d8f2c2e832276e7ec6d17ffb6e69a5fe4806b",
+    "dirty": true,
+    "source_sha256": "fda6fe4a6b16a84949db9492aef3e5e1f93c0692ac4e5be40cda1534db8b26fe",
+    "deployment_modified": false
+  },
+  "accepted": 2,
+  "rejected": 1,
+  "sequence": [
+    "dpad_down:press",
+    "dpad_down:press"
+  ],
+  "configs": {
+    "slicing": {
+      "on": 0.3,
+      "off": 0.15,
+      "debounce_frames": 2,
+      "bridge_frames": 1,
+      "before_s": 0.15,
+      "after_s": 0.2,
+      "grip_min_s": 0.3,
+      "grip_arm_range_rad": 0.02,
+      "grip_hand_range_rad": 0.03
+    },
+    "generation": {
+      "heading_point_gamepad_m": [
+        -0.00037975017865455045,
+        0.012404610563098554,
+        0.0017678735770016996
+      ],
+      "speed_range": [
+        1,
+        1
+      ],
+      "amplitude_range": [
+        1,
+        1
+      ],
+      "joint_noise_rad": 0,
+      "max_joint_noise_rad": 0.01,
+      "transition_s": 1.5,
+      "grip_s": 0.3,
+      "max_duration_s": 120,
+      "ik_iterations": 160,
+      "position_tolerance_m": 0.00001,
+      "rotation_tolerance_rad": 0.0002,
+      "fingertip_tolerance_m": 0.001
+    },
+    "validation": {
+      "penetration_tolerance_m": 0.000001,
+      "control_contact_tolerance_m": 0.00003,
+      "signal_timing_tolerance_s": 0.08,
+      "analog_tolerance": 0.15,
+      "digital_threshold": 0.3,
+      "min_hit_s": 0.03
+    }
+  },
+  "attempts": [
+    {
+      "seed": 42,
+      "target_spec": "source-xplus1mm-final2.json",
+      "status": "accepted",
+      "reasons": [],
+      "ik": {
+        "solves": 213,
+        "max_position_error_m": 6.994302059985847e-11,
+        "max_fingertip_error_m": 0.0006791923184859578
+      },
+      "source_gamepad_pose": [
+        0.709415,
+        0.6252,
+        0.986859,
+        0.6649764337857643,
+        0.24042949592254076,
+        -0.24042949592254076,
+        -0.6649764337857643
+      ],
+      "target_gamepad_pose": [
+        0.710415,
+        0.6252,
+        0.986859,
+        0.6649764337857643,
+        0.24042949592254076,
+        -0.24042949592254076,
+        -0.6649764337857643
+      ],
+      "validation": {
+        "passed": true,
+        "reasons": [],
+        "counts": {
+          "penetration_substeps": 0,
+          "signal_mismatch_substeps": 0,
+          "natural_invalid_samples": 0,
+          "raw_negative_contact_substeps": 1267,
+          "normal_control_contact_substeps": 1267
+        },
+        "backend": "sapien",
+        "packages": {
+          "sapien": "3.0.3",
+          "xbox-gamepad-physics": "0.4.1"
+        },
+        "physics_timestep_s": 0.001,
+        "substeps": 8500,
+        "frames": 255,
+        "config": {
+          "penetration_tolerance_m": 0.000001,
+          "control_contact_tolerance_m": 0.00003,
+          "signal_timing_tolerance_s": 0.08,
+          "analog_tolerance": 0.15,
+          "digital_threshold": 0.3,
+          "min_hit_s": 0.03
+        },
+        "min_robot_contact_distance_m": -0.000026053688998217694,
+        "deepest_pair": [
+          "dpad",
+          "thumb_distal"
+        ],
+        "posture": {
+          "left": {
+            "invalid_samples": 0,
+            "total_samples": 8501,
+            "ranges": {
+              "upper_tilt_deg": [
+                26.524497807325268,
+                26.524501545119662
+              ],
+              "forearm_pitch_deg": [
+                13.254949474167017,
+                13.255003103742446
+              ],
+              "forearm_heading_deg": [
+                9.51733697141997,
+                9.517602867068911
+              ],
+              "elbow_forward_m": [
+                0.14726922320972324,
+                0.14726924761820118
+              ]
+            }
+          },
+          "right": {
+            "invalid_samples": 0,
+            "total_samples": 8501,
+            "ranges": {
+              "upper_tilt_deg": [
+                12.881683154832318,
+                12.882352184980721
+              ],
+              "forearm_pitch_deg": [
+                13.983873616291195,
+                13.985085295864973
+              ],
+              "forearm_heading_deg": [
+                15.204100039549218,
+                15.217148475749866
+              ],
+              "elbow_forward_m": [
+                0.05768452284046255,
+                0.05768501123140182
+              ]
+            }
+          }
+        },
+        "events": [
+          {
+            "control": "dpad_down:press",
+            "start": 54,
+            "stop": 78,
+            "channels": [
+              18
+            ],
+            "kind": "digital",
+            "passed": true,
+            "hit_duration_s": 0.461,
+            "channels_available": true
+          },
+          {
+            "control": "dpad_down:press",
+            "start": 177,
+            "stop": 201,
+            "channels": [
+              18
+            ],
+            "kind": "digital",
+            "passed": true,
+            "hit_duration_s": 0.46,
+            "channels_available": true
+          }
+        ],
+        "natural_heading_point_world_m": [
+          0.7188207597477353,
+          0.6255797501786545,
+          0.9961510903606106
+        ],
+        "normal_contact_policy": "sapien-dpad-down-minimum-closure-v1; left thumb_distal/dpad only; other pairs retain geometric limit",
+        "collision_scope": "full collection scene; native robot self-collision filters retained"
+      },
+      "episode": "episode-000000",
+      "schema": 4,
+      "collection_replay_commands_at_start": 4,
+      "integrity_state": "passed"
+    },
+    {
+      "seed": 43,
+      "target_spec": "d050-h220-t+10.json",
+      "status": "rejected",
+      "reasons": [
+        "robot penetration exceeds numerical tolerance"
+      ],
+      "ik": {
+        "solves": 209,
+        "max_position_error_m": 1.1749577960883417e-8,
+        "max_fingertip_error_m": 0.0006761310734480932
+      },
+      "source_gamepad_pose": [
+        0.709415,
+        0.6252,
+        0.986859,
+        0.6649764337857643,
+        0.24042949592254076,
+        -0.24042949592254076,
+        -0.6649764337857643
+      ],
+      "target_gamepad_pose": [
+        0.6684,
+        0.6252,
+        0.987,
+        0.6238288268455032,
+        0.2691353649334968,
+        -0.2906656230321082,
+        -0.6737338092496422
+      ],
+      "validation": {
+        "passed": false,
+        "reasons": [
+          "robot penetration exceeds numerical tolerance"
+        ],
+        "counts": {
+          "penetration_substeps": 1,
+          "signal_mismatch_substeps": 0,
+          "natural_invalid_samples": 0,
+          "raw_negative_contact_substeps": 5336,
+          "normal_control_contact_substeps": 5336
+        },
+        "backend": "sapien",
+        "packages": {
+          "sapien": "3.0.3",
+          "xbox-gamepad-physics": "0.4.1"
+        },
+        "physics_timestep_s": 0.001,
+        "substeps": 8500,
+        "frames": 255,
+        "config": {
+          "penetration_tolerance_m": 0.000001,
+          "control_contact_tolerance_m": 0.00003,
+          "signal_timing_tolerance_s": 0.08,
+          "analog_tolerance": 0.15,
+          "digital_threshold": 0.3,
+          "min_hit_s": 0.03
+        },
+        "min_robot_contact_distance_m": -0.0003152061253786087,
+        "deepest_pair": [
+          "dpad",
+          "thumb_distal"
+        ],
+        "posture": {
+          "left": {
+            "invalid_samples": 0,
+            "total_samples": 8501,
+            "ranges": {
+              "upper_tilt_deg": [
+                19.93280330186828,
+                19.93280404107442
+              ],
+              "forearm_pitch_deg": [
+                8.762237930332441,
+                8.762245977282673
+              ],
+              "forearm_heading_deg": [
+                8.175987931157628,
+                8.176022010020533
+              ],
+              "elbow_forward_m": [
+                0.11220946316161438,
+                0.11220946653931914
+              ]
+            }
+          },
+          "right": {
+            "invalid_samples": 0,
+            "total_samples": 8501,
+            "ranges": {
+              "upper_tilt_deg": [
+                12.881723565268883,
+                12.882392604769038
+              ],
+              "forearm_pitch_deg": [
+                13.984166192526196,
+                13.985377798848448
+              ],
+              "forearm_heading_deg": [
+                16.498214565528478,
+                16.511238451067616
+              ],
+              "elbow_forward_m": [
+                0.05768447610731159,
+                0.05768496446850646
+              ]
+            }
+          }
+        },
+        "events": [
+          {
+            "control": "dpad_down:press",
+            "start": 54,
+            "stop": 78,
+            "channels": [
+              18
+            ],
+            "kind": "digital",
+            "passed": true,
+            "hit_duration_s": 0.463,
+            "channels_available": true
+          },
+          {
+            "control": "dpad_down:press",
+            "start": 177,
+            "stop": 201,
+            "channels": [
+              18
+            ],
+            "kind": "digital",
+            "passed": true,
+            "hit_duration_s": 0.463,
+            "channels_available": true
+          }
+        ],
+        "natural_heading_point_world_m": [
+          0.675633320084939,
+          0.6250236560136345,
+          0.9972367931380817
+        ],
+        "normal_contact_policy": "sapien-dpad-down-minimum-closure-v1; left thumb_distal/dpad only; other pairs retain geometric limit",
+        "collision_scope": "full collection scene; native robot self-collision filters retained"
+      }
+    },
+    {
+      "seed": 44,
+      "target_spec": "d075-h190-t+10.json",
+      "status": "accepted",
+      "reasons": [],
+      "ik": {
+        "solves": 215,
+        "max_position_error_m": 1.7009679872690425e-7,
+        "max_fingertip_error_m": 0.0006743373026829086
+      },
+      "source_gamepad_pose": [
+        0.709415,
+        0.6252,
+        0.986859,
+        0.6649764337857643,
+        0.24042949592254076,
+        -0.24042949592254076,
+        -0.6649764337857643
+      ],
+      "target_gamepad_pose": [
+        0.6434000000000001,
+        0.6252,
+        0.9570000000000001,
+        0.6300344424327159,
+        0.2484321229288391,
+        -0.2698955343050542,
+        -0.6844665676333332
+      ],
+      "validation": {
+        "passed": true,
+        "reasons": [],
+        "counts": {
+          "penetration_substeps": 0,
+          "signal_mismatch_substeps": 0,
+          "natural_invalid_samples": 0,
+          "raw_negative_contact_substeps": 1268,
+          "normal_control_contact_substeps": 1268
+        },
+        "backend": "sapien",
+        "packages": {
+          "sapien": "3.0.3",
+          "xbox-gamepad-physics": "0.4.1"
+        },
+        "physics_timestep_s": 0.001,
+        "substeps": 8500,
+        "frames": 255,
+        "config": {
+          "penetration_tolerance_m": 0.000001,
+          "control_contact_tolerance_m": 0.00003,
+          "signal_timing_tolerance_s": 0.08,
+          "analog_tolerance": 0.15,
+          "digital_threshold": 0.3,
+          "min_hit_s": 0.03
+        },
+        "min_robot_contact_distance_m": -0.00002600096740934532,
+        "deepest_pair": [
+          "dpad",
+          "thumb_distal"
+        ],
+        "posture": {
+          "left": {
+            "invalid_samples": 0,
+            "total_samples": 8501,
+            "ranges": {
+              "upper_tilt_deg": [
+                16.347466264429134,
+                16.347472808279548
+              ],
+              "forearm_pitch_deg": [
+                7.876138254382294,
+                7.876197067452261
+              ],
+              "forearm_heading_deg": [
+                8.500116360592337,
+                8.500390346629487
+              ],
+              "elbow_forward_m": [
+                0.09109056929322233,
+                0.09109059740378621
+              ]
+            }
+          },
+          "right": {
+            "invalid_samples": 0,
+            "total_samples": 8501,
+            "ranges": {
+              "upper_tilt_deg": [
+                12.881723565268883,
+                12.882392604769038
+              ],
+              "forearm_pitch_deg": [
+                13.984166192526196,
+                13.985377798848448
+              ],
+              "forearm_heading_deg": [
+                17.32654113990613,
+                17.33955023097931
+              ],
+              "elbow_forward_m": [
+                0.05768447610731159,
+                0.05768496446850646
+              ]
+            }
+          }
+        },
+        "events": [
+          {
+            "control": "dpad_down:press",
+            "start": 54,
+            "stop": 78,
+            "channels": [
+              18
+            ],
+            "kind": "digital",
+            "passed": true,
+            "hit_duration_s": 0.461,
+            "channels_available": true
+          },
+          {
+            "control": "dpad_down:press",
+            "start": 177,
+            "stop": 201,
+            "channels": [
+              18
+            ],
+            "kind": "digital",
+            "passed": true,
+            "hit_duration_s": 0.461,
+            "channels_available": true
+          }
+        ],
+        "natural_heading_point_world_m": [
+          0.6512641254170471,
+          0.6249286454699968,
+          0.9667583732531907
+        ],
+        "normal_contact_policy": "sapien-dpad-down-minimum-closure-v1; left thumb_distal/dpad only; other pairs retain geometric limit",
+        "collision_scope": "full collection scene; native robot self-collision filters retained"
+      },
+      "episode": "episode-000001",
+      "schema": 4,
+      "collection_replay_commands_at_start": 4,
+      "integrity_state": "passed"
+    }
+  ],
+  "identities": {
+    "original_kinematic": {
+      "passed": false,
+      "reasons": [
+        "robot penetration exceeds numerical tolerance",
+        "actual gamepad signal mismatches target or has unintended input",
+        "required control event missing or unavailable"
+      ],
+      "counts": {
+        "penetration_substeps": 11954,
+        "signal_mismatch_substeps": 1691,
+        "natural_invalid_samples": 0,
+        "raw_negative_contact_substeps": 11997,
+        "normal_control_contact_substeps": 0
+      },
+      "backend": "sapien",
+      "packages": {
+        "sapien": "3.0.3",
+        "xbox-gamepad-physics": "0.4.1"
+      },
+      "physics_timestep_s": 0.001,
+      "substeps": 12000,
+      "frames": 360,
+      "config": {
+        "penetration_tolerance_m": 0.000001,
+        "control_contact_tolerance_m": 0.000001,
+        "signal_timing_tolerance_s": 0.08,
+        "analog_tolerance": 0.15,
+        "digital_threshold": 0.3,
+        "min_hit_s": 0.03
+      },
+      "min_robot_contact_distance_m": -0.01598772034049034,
+      "deepest_pair": [
+        "right_thumb_distal",
+        "thumb_metacarpals"
+      ],
+      "posture": {
+        "left": {
+          "invalid_samples": 0,
+          "total_samples": 12001,
+          "ranges": {
+            "upper_tilt_deg": [
+              26.304569970132064,
+              26.479840274239905
+            ],
+            "forearm_pitch_deg": [
+              13.121251671017665,
+              13.4877757862487
+            ],
+            "forearm_heading_deg": [
+              8.719810330214527,
+              9.550080638544646
+            ],
+            "elbow_forward_m": [
+              0.1462549360621308,
+              0.14718154509513884
+            ]
+          }
+        },
+        "right": {
+          "invalid_samples": 0,
+          "total_samples": 12001,
+          "ranges": {
+            "upper_tilt_deg": [
+              19.737811672406107,
+              20.02522996563488
+            ],
+            "forearm_pitch_deg": [
+              6.99381501476282,
+              7.529328525908729
+            ],
+            "forearm_heading_deg": [
+              5.957011682689243,
+              6.210026429769435
+            ],
+            "elbow_forward_m": [
+              0.07457851486643574,
+              0.07647516968466735
+            ]
+          }
+        }
+      },
+      "events": [
+        {
+          "control": "dpad_up:press",
+          "start": 20,
+          "stop": 38,
+          "channels": [
+            17
+          ],
+          "kind": "digital",
+          "passed": false,
+          "hit_duration_s": 0,
+          "channels_available": true
+        },
+        {
+          "control": "dpad_up:press",
+          "start": 58,
+          "stop": 76,
+          "channels": [
+            17
+          ],
+          "kind": "digital",
+          "passed": false,
+          "hit_duration_s": 0,
+          "channels_available": true
+        },
+        {
+          "control": "dpad_up:press",
+          "start": 96,
+          "stop": 114,
+          "channels": [
+            17
+          ],
+          "kind": "digital",
+          "passed": false,
+          "hit_duration_s": 0,
+          "channels_available": true
+        },
+        {
+          "control": "dpad_down:press",
+          "start": 134,
+          "stop": 152,
+          "channels": [
+            18
+          ],
+          "kind": "digital",
+          "passed": true,
+          "hit_duration_s": 0.255,
+          "channels_available": true
+        },
+        {
+          "control": "dpad_down:press",
+          "start": 172,
+          "stop": 190,
+          "channels": [
+            18
+          ],
+          "kind": "digital",
+          "passed": true,
+          "hit_duration_s": 0.299,
+          "channels_available": true
+        },
+        {
+          "control": "dpad_down:press",
+          "start": 210,
+          "stop": 228,
+          "channels": [
+            18
+          ],
+          "kind": "digital",
+          "passed": true,
+          "hit_duration_s": 0.303,
+          "channels_available": true
+        },
+        {
+          "control": "dpad_left:press",
+          "start": 248,
+          "stop": 265,
+          "channels": [
+            19
+          ],
+          "kind": "digital",
+          "passed": true,
+          "hit_duration_s": 0.333,
+          "channels_available": true
+        },
+        {
+          "control": "dpad_left:press",
+          "start": 286,
+          "stop": 304,
+          "channels": [
+            19
+          ],
+          "kind": "digital",
+          "passed": true,
+          "hit_duration_s": 0.333,
+          "channels_available": true
+        },
+        {
+          "control": "dpad_left:press",
+          "start": 324,
+          "stop": 341,
+          "channels": [
+            19
+          ],
+          "kind": "digital",
+          "passed": true,
+          "hit_duration_s": 0.333,
+          "channels_available": true
+        }
+      ],
+      "natural_heading_point_world_m": [
+        0.7178207597477353,
+        0.6255797501786545,
+        0.9961510903606106
+      ],
+      "normal_contact_policy": "uniform geometric numerical tolerance",
+      "collision_scope": "full collection scene; native robot self-collision filters retained"
+    },
+    "feedback_uniform_1um": {
+      "passed": false,
+      "reasons": [
+        "robot penetration exceeds numerical tolerance"
+      ],
+      "counts": {
+        "penetration_substeps": 2265,
+        "signal_mismatch_substeps": 0,
+        "natural_invalid_samples": 0,
+        "raw_negative_contact_substeps": 2282,
+        "normal_control_contact_substeps": 0
+      },
+      "backend": "sapien",
+      "packages": {
+        "sapien": "3.0.3",
+        "xbox-gamepad-physics": "0.4.1"
+      },
+      "physics_timestep_s": 0.001,
+      "substeps": 13700,
+      "frames": 411,
+      "config": {
+        "penetration_tolerance_m": 0.000001,
+        "control_contact_tolerance_m": 0.000001,
+        "signal_timing_tolerance_s": 0.08,
+        "analog_tolerance": 0.15,
+        "digital_threshold": 0.3,
+        "min_hit_s": 0.03
+      },
+      "min_robot_contact_distance_m": -0.00002640273487486411,
+      "deepest_pair": [
+        "dpad",
+        "thumb_distal"
+      ],
+      "posture": {
+        "left": {
+          "invalid_samples": 0,
+          "total_samples": 13701,
+          "ranges": {
+            "upper_tilt_deg": [
+              26.3728422211786,
+              26.37284543115581
+            ],
+            "forearm_pitch_deg": [
+              13.337792588934008,
+              13.337876896568892
+            ],
+            "forearm_heading_deg": [
+              9.550046333850137,
+              9.550284596860072
+            ],
+            "elbow_forward_m": [
+              0.1464972007335485,
+              0.14649722168781115
+            ]
+          }
+        },
+        "right": {
+          "invalid_samples": 0,
+          "total_samples": 13701,
+          "ranges": {
+            "upper_tilt_deg": [
+              12.8822456882701,
+              12.88291475333866
+            ],
+            "forearm_pitch_deg": [
+              13.983461160437379,
+              13.984666629313232
+            ],
+            "forearm_heading_deg": [
+              15.24399953657159,
+              15.257048219026219
+            ],
+            "elbow_forward_m": [
+              0.057684159602855584,
+              0.057684648148191825
+            ]
+          }
+        }
+      },
+      "events": [
+        {
+          "control": "dpad_down:press",
+          "start": 69,
+          "stop": 93,
+          "channels": [
+            18
+          ],
+          "kind": "digital",
+          "passed": true,
+          "hit_duration_s": 0.465,
+          "channels_available": true
+        },
+        {
+          "control": "dpad_down:press",
+          "start": 200,
+          "stop": 224,
+          "channels": [
+            18
+          ],
+          "kind": "digital",
+          "passed": true,
+          "hit_duration_s": 0.464,
+          "channels_available": true
+        },
+        {
+          "control": "dpad_down:press",
+          "start": 331,
+          "stop": 355,
+          "channels": [
+            18
+          ],
+          "kind": "digital",
+          "passed": true,
+          "hit_duration_s": 0.465,
+          "channels_available": true
+        }
+      ],
+      "natural_heading_point_world_m": [
+        0.7178207597477353,
+        0.6255797501786545,
+        0.9961510903606106
+      ],
+      "normal_contact_policy": "uniform geometric numerical tolerance",
+      "collision_scope": "full collection scene; native robot self-collision filters retained"
+    },
+    "feedback_calibrated": {
+      "passed": true,
+      "reasons": [],
+      "counts": {
+        "penetration_substeps": 0,
+        "signal_mismatch_substeps": 0,
+        "natural_invalid_samples": 0,
+        "raw_negative_contact_substeps": 2282,
+        "normal_control_contact_substeps": 2282
+      },
+      "backend": "sapien",
+      "packages": {
+        "sapien": "3.0.3",
+        "xbox-gamepad-physics": "0.4.1"
+      },
+      "physics_timestep_s": 0.001,
+      "substeps": 13700,
+      "frames": 411,
+      "config": {
+        "penetration_tolerance_m": 0.000001,
+        "control_contact_tolerance_m": 0.00003,
+        "signal_timing_tolerance_s": 0.08,
+        "analog_tolerance": 0.15,
+        "digital_threshold": 0.3,
+        "min_hit_s": 0.03
+      },
+      "min_robot_contact_distance_m": -0.00002640273487486411,
+      "deepest_pair": [
+        "dpad",
+        "thumb_distal"
+      ],
+      "posture": {
+        "left": {
+          "invalid_samples": 0,
+          "total_samples": 13701,
+          "ranges": {
+            "upper_tilt_deg": [
+              26.3728422211786,
+              26.37284543115581
+            ],
+            "forearm_pitch_deg": [
+              13.337792588934008,
+              13.337876896568892
+            ],
+            "forearm_heading_deg": [
+              9.550046333850137,
+              9.550284596860072
+            ],
+            "elbow_forward_m": [
+              0.1464972007335485,
+              0.14649722168781115
+            ]
+          }
+        },
+        "right": {
+          "invalid_samples": 0,
+          "total_samples": 13701,
+          "ranges": {
+            "upper_tilt_deg": [
+              12.8822456882701,
+              12.88291475333866
+            ],
+            "forearm_pitch_deg": [
+              13.983461160437379,
+              13.984666629313232
+            ],
+            "forearm_heading_deg": [
+              15.24399953657159,
+              15.257048219026219
+            ],
+            "elbow_forward_m": [
+              0.057684159602855584,
+              0.057684648148191825
+            ]
+          }
+        }
+      },
+      "events": [
+        {
+          "control": "dpad_down:press",
+          "start": 69,
+          "stop": 93,
+          "channels": [
+            18
+          ],
+          "kind": "digital",
+          "passed": true,
+          "hit_duration_s": 0.465,
+          "channels_available": true
+        },
+        {
+          "control": "dpad_down:press",
+          "start": 200,
+          "stop": 224,
+          "channels": [
+            18
+          ],
+          "kind": "digital",
+          "passed": true,
+          "hit_duration_s": 0.464,
+          "channels_available": true
+        },
+        {
+          "control": "dpad_down:press",
+          "start": 331,
+          "stop": 355,
+          "channels": [
+            18
+          ],
+          "kind": "digital",
+          "passed": true,
+          "hit_duration_s": 0.465,
+          "channels_available": true
+        }
+      ],
+      "natural_heading_point_world_m": [
+        0.7178207597477353,
+        0.6255797501786545,
+        0.9961510903606106
+      ],
+      "normal_contact_policy": "sapien-dpad-down-minimum-closure-v1; left thumb_distal/dpad only; other pairs retain geometric limit",
+      "collision_scope": "full collection scene; native robot self-collision filters retained"
+    }
+  },
+  "source": {
+    "rows": 411,
+    "fps": 30,
+    "physics_duration_s": 13.700000000000001,
+    "feedback": {
+      "target_signal": 0.34,
+      "press_alphas": [
+        0.9621578866547275,
+        0.9621588051044202,
+        0.9622019459863642
+      ],
+      "max_alpha": 0.97,
+      "approach_s": 1.5,
+      "release_s": 1.5,
+      "source_min_distances_m": {
+        "dpad|thumb_distal": -0.000026409436031826772,
+        "controller_body|thumb_distal": 0,
+        "gamepad_support_post|thumb_distal": 0
+      }
+    },
+    "peak_dpad_down": 0.35106645605716613,
+    "candidate_sha256": "b1a0066366e9bb5c6afc4b4b0210cdccc1726e3fde288b0fbd9cd7ec3a4c3985",
+    "synthetic": true,
+    "physics_generated": true
+  },
+  "paired_full_gamepad_contact": {
+    "max_signal_difference": 0,
+    "full_min_distance_m": -0.000026409436031826772,
+    "gamepad_contact_min_distance_m": -0.000026409436031826772
+  },
+  "native_regression": {
+    "accepted": 1,
+    "rejected": 1
+  },
+  "tests": {
+    "local_full": {
+      "passed": 240,
+      "skipped": 20
+    },
+    "local_aa": {
+      "passed": 43,
+      "skipped": 2
+    },
+    "remote_aa": {
+      "passed": 45,
+      "scope": "43 CPU contracts and two native integration tests"
+    },
+    "public_tree_findings": 0
+  },
+  "observed_reproduction": {
+    "seed_42": {
+      "max_tip_error_m": 0.000665379588415976,
+      "max_palm_error_m": 0.0000034875716835708144,
+      "tip_p95_m": 0.0006415775681579731
+    },
+    "seed_44": {
+      "max_tip_error_m": 0.0006635204897354451,
+      "max_palm_error_m": 0.00000293354343997304,
+      "tip_p95_m": 0.0006398116871352788
+    }
+  },
+  "feedback_fast_source_rejected": {
+    "reason": "measured-source reference vs command FK exceeds 1 mm during release",
+    "max_fingertip_error_m": 0.002623500118922032,
+    "accepted": 0,
+    "rejected": 2
+  },
+  "evidence_scope": "Native CPU simulation, fixed gamepad, left Dpad_down only, source demonstration synthetic; no real human or hardware validation"
+}

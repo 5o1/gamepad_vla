@@ -1,0 +1,34 @@
+{
+  "slicing": {
+    "on": 0.3,
+    "off": 0.15,
+    "debounce_frames": 2,
+    "bridge_frames": 1,
+    "before_s": 0.15,
+    "after_s": 0.2,
+    "grip_min_s": 0.3,
+    "grip_arm_range_rad": 0.02,
+    "grip_hand_range_rad": 0.03
+  },
+  "generation": {
+    "heading_point_gamepad_m": [-0.00037975017865455045, 0.012404610563098554, 0.0017678735770016996],
+    "speed_range": [0.9, 1.1],
+    "amplitude_range": [0.97, 1.03],
+    "joint_noise_rad": 0.002,
+    "max_joint_noise_rad": 0.01,
+    "transition_s": 0.25,
+    "grip_s": 0.2,
+    "max_duration_s": 120.0,
+    "ik_iterations": 80,
+    "position_tolerance_m": 0.0005,
+    "rotation_tolerance_rad": 0.01,
+    "fingertip_tolerance_m": 0.001
+  },
+  "validation": {
+    "penetration_tolerance_m": 0.000001,
+    "signal_timing_tolerance_s": 0.08,
+    "analog_tolerance": 0.15,
+    "digital_threshold": 0.3,
+    "min_hit_s": 0.03
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "generation": {
+    "speed_range": [1.0, 1.0],
+    "amplitude_range": [1.0, 1.0],
+    "joint_noise_rad": 0.0,
+    "transition_s": 1.5,
+    "grip_s": 0.3,
+    "position_tolerance_m": 0.00001,
+    "rotation_tolerance_rad": 0.0002,
+    "fingertip_tolerance_m": 0.001,
+    "ik_iterations": 160
+  },
+  "validation": {
+    "penetration_tolerance_m": 0.000001,
+    "control_contact_tolerance_m": 0.00003,
+    "signal_timing_tolerance_s": 0.08,
+    "analog_tolerance": 0.15,
+    "digital_threshold": 0.3,
+    "min_hit_s": 0.03
+  }
+}

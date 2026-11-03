@@ -1,0 +1,7 @@
+{
+  "generation": {
+    "speed_range": [1.0, 1.0],
+    "amplitude_range": [1.0, 1.0],
+    "joint_noise_rad": 0.0
+  }
+}

@@ -1,0 +1,607 @@
+{
+  "scope": "Historical initial-stage snapshot before reviewer decision 1; current acceptance and public-tree status are in reviewer-1.json",
+  "code": {
+    "git_commit": "37f44eff2e05732aa6151c44a2a5d032aa0146af",
+    "dirty": true,
+    "source_sha256": "6ded9d54a16b2ef1f4fbe358e8ae792a63c3cb43ec2ec11b328a20fa07fa2bc6",
+    "deployment_modified": false
+  },
+  "native": {
+    "accepted": 0,
+    "rejected": 2,
+    "attempts": [
+      {
+        "attempt": 0,
+        "seed": 42,
+        "target_spec": "d050-h220-t+10.json",
+        "status": "rejected",
+        "stage": "physics",
+        "reasons": [
+          "robot penetration exceeds numerical tolerance",
+          "actual gamepad signal mismatches target or has unintended input",
+          "required control event missing or unavailable"
+        ],
+        "validation": {
+          "passed": false,
+          "reasons": [
+            "robot penetration exceeds numerical tolerance",
+            "actual gamepad signal mismatches target or has unintended input",
+            "required control event missing or unavailable"
+          ],
+          "counts": {
+            "penetration_substeps": 4200,
+            "signal_mismatch_substeps": 4151,
+            "natural_invalid_samples": 0
+          },
+          "backend": "sapien",
+          "packages": {
+            "sapien": "3.0.3",
+            "xbox-gamepad-physics": "0.4.1"
+          },
+          "physics_timestep_s": 0.001,
+          "substeps": 4200,
+          "frames": 126,
+          "config": {
+            "penetration_tolerance_m": 0.000001,
+            "signal_timing_tolerance_s": 0.08,
+            "analog_tolerance": 0.15,
+            "digital_threshold": 0.3,
+            "min_hit_s": 0.03
+          },
+          "min_robot_contact_distance_m": -0.012525267899036407,
+          "deepest_pair": [
+            "right_thumb_distal",
+            "thumb_distal"
+          ],
+          "posture": {
+            "left": {
+              "invalid_samples": 0,
+              "total_samples": 4201,
+              "ranges": {
+                "upper_tilt_deg": [
+                  19.909036920567168,
+                  20.091052775474253
+                ],
+                "forearm_pitch_deg": [
+                  8.571356387128052,
+                  8.978806892566507
+                ],
+                "forearm_heading_deg": [
+                  7.868378319865301,
+                  8.17584635862422
+                ],
+                "elbow_forward_m": [
+                  0.11200186527002202,
+                  0.11300547519664296
+                ]
+              }
+            },
+            "right": {
+              "invalid_samples": 0,
+              "total_samples": 4201,
+              "ranges": {
+                "upper_tilt_deg": [
+                  19.878653266875006,
+                  20.028634551783917
+                ],
+                "forearm_pitch_deg": [
+                  7.11523954824271,
+                  7.531142571714376
+                ],
+                "forearm_heading_deg": [
+                  7.092696650605515,
+                  7.237649124185849
+                ],
+                "elbow_forward_m": [
+                  0.075743328212515,
+                  0.07648317711292521
+                ]
+              }
+            }
+          },
+          "events": [
+            {
+              "control": "dpad_up:press",
+              "start": 14,
+              "stop": 32,
+              "channels": [
+                17
+              ],
+              "kind": "digital",
+              "passed": false,
+              "hit_duration_s": 0,
+              "channels_available": true
+            },
+            {
+              "control": "dpad_down:press",
+              "start": 54,
+              "stop": 72,
+              "channels": [
+                18
+              ],
+              "kind": "digital",
+              "passed": true,
+              "hit_duration_s": 0.305,
+              "channels_available": true
+            },
+            {
+              "control": "dpad_left:press",
+              "start": 94,
+              "stop": 112,
+              "channels": [
+                19
+              ],
+              "kind": "digital",
+              "passed": true,
+              "hit_duration_s": 0.28600000000000003,
+              "channels_available": true
+            }
+          ],
+          "natural_heading_point_world_m": [
+            0.675633320084939,
+            0.6250236560136345,
+            0.9972367931380817
+          ],
+          "collision_scope": "full collection scene; native robot self-collision filters retained"
+        }
+      },
+      {
+        "attempt": 1,
+        "seed": 43,
+        "target_spec": "d075-h190-t+10.json",
+        "status": "rejected",
+        "stage": "physics",
+        "reasons": [
+          "robot penetration exceeds numerical tolerance",
+          "actual gamepad signal mismatches target or has unintended input"
+        ],
+        "validation": {
+          "passed": false,
+          "reasons": [
+            "robot penetration exceeds numerical tolerance",
+            "actual gamepad signal mismatches target or has unintended input"
+          ],
+          "counts": {
+            "penetration_substeps": 4198,
+            "signal_mismatch_substeps": 520,
+            "natural_invalid_samples": 0
+          },
+          "backend": "sapien",
+          "packages": {
+            "sapien": "3.0.3",
+            "xbox-gamepad-physics": "0.4.1"
+          },
+          "physics_timestep_s": 0.001,
+          "substeps": 4200,
+          "frames": 126,
+          "config": {
+            "penetration_tolerance_m": 0.000001,
+            "signal_timing_tolerance_s": 0.08,
+            "analog_tolerance": 0.15,
+            "digital_threshold": 0.3,
+            "min_hit_s": 0.03
+          },
+          "min_robot_contact_distance_m": -0.007420357782393694,
+          "deepest_pair": [
+            "pinky_distal",
+            "controller_body"
+          ],
+          "posture": {
+            "left": {
+              "invalid_samples": 0,
+              "total_samples": 4201,
+              "ranges": {
+                "upper_tilt_deg": [
+                  16.305133322214086,
+                  16.34746309342412
+                ],
+                "forearm_pitch_deg": [
+                  7.670160320289175,
+                  7.8762521475202245
+                ],
+                "forearm_heading_deg": [
+                  8.415066441595764,
+                  8.500141435004764
+                ],
+                "elbow_forward_m": [
+                  0.09080422694295502,
+                  0.09109056031245381
+                ]
+              }
+            },
+            "right": {
+              "invalid_samples": 0,
+              "total_samples": 4201,
+              "ranges": {
+                "upper_tilt_deg": [
+                  19.997940956756256,
+                  19.999911139165484
+                ],
+                "forearm_pitch_deg": [
+                  7.343351726604251,
+                  7.355562723981519
+                ],
+                "forearm_heading_deg": [
+                  7.868682253134004,
+                  7.875807787530579
+                ],
+                "elbow_forward_m": [
+                  0.07611321990832624,
+                  0.07613451209523305
+                ]
+              }
+            }
+          },
+          "events": [
+            {
+              "control": "dpad_up:press",
+              "start": 14,
+              "stop": 32,
+              "channels": [
+                17
+              ],
+              "kind": "digital",
+              "passed": true,
+              "hit_duration_s": 0.273,
+              "channels_available": true
+            },
+            {
+              "control": "dpad_down:press",
+              "start": 54,
+              "stop": 72,
+              "channels": [
+                18
+              ],
+              "kind": "digital",
+              "passed": true,
+              "hit_duration_s": 0.309,
+              "channels_available": true
+            },
+            {
+              "control": "dpad_left:press",
+              "start": 94,
+              "stop": 112,
+              "channels": [
+                19
+              ],
+              "kind": "digital",
+              "passed": true,
+              "hit_duration_s": 0.28500000000000003,
+              "channels_available": true
+            }
+          ],
+          "natural_heading_point_world_m": [
+            0.6512641254170471,
+            0.6249286454699968,
+            0.9667583732531907
+          ],
+          "collision_scope": "full collection scene; native robot self-collision filters retained"
+        }
+      }
+    ]
+  },
+  "cli": {
+    "accepted": 0,
+    "rejected": 2,
+    "exit_code": 2,
+    "attempts": [
+      {
+        "attempt": 0,
+        "seed": 42,
+        "target_spec": "d050-h220-t+10.json",
+        "status": "rejected",
+        "stage": "physics",
+        "reasons": [
+          "robot penetration exceeds numerical tolerance",
+          "actual gamepad signal mismatches target or has unintended input",
+          "required control event missing or unavailable"
+        ],
+        "validation": {
+          "passed": false,
+          "reasons": [
+            "robot penetration exceeds numerical tolerance",
+            "actual gamepad signal mismatches target or has unintended input",
+            "required control event missing or unavailable"
+          ],
+          "counts": {
+            "penetration_substeps": 4166,
+            "signal_mismatch_substeps": 4117,
+            "natural_invalid_samples": 0
+          },
+          "backend": "sapien",
+          "packages": {
+            "sapien": "3.0.3",
+            "xbox-gamepad-physics": "0.4.1"
+          },
+          "physics_timestep_s": 0.001,
+          "substeps": 4166,
+          "frames": 125,
+          "config": {
+            "penetration_tolerance_m": 0.000001,
+            "signal_timing_tolerance_s": 0.08,
+            "analog_tolerance": 0.15,
+            "digital_threshold": 0.3,
+            "min_hit_s": 0.03
+          },
+          "min_robot_contact_distance_m": -0.012525267899036407,
+          "deepest_pair": [
+            "right_thumb_distal",
+            "thumb_distal"
+          ],
+          "posture": {
+            "left": {
+              "invalid_samples": 0,
+              "total_samples": 4167,
+              "ranges": {
+                "upper_tilt_deg": [
+                  19.909036920567168,
+                  20.091052775474253
+                ],
+                "forearm_pitch_deg": [
+                  8.572893518554741,
+                  8.978806892566507
+                ],
+                "forearm_heading_deg": [
+                  7.868378319865301,
+                  8.17584635862422
+                ],
+                "elbow_forward_m": [
+                  0.11200186527002202,
+                  0.11300547519664296
+                ]
+              }
+            },
+            "right": {
+              "invalid_samples": 0,
+              "total_samples": 4167,
+              "ranges": {
+                "upper_tilt_deg": [
+                  19.878653266875006,
+                  20.028634551783917
+                ],
+                "forearm_pitch_deg": [
+                  7.11523954824271,
+                  7.531142571714376
+                ],
+                "forearm_heading_deg": [
+                  7.092696650605515,
+                  7.237649124185849
+                ],
+                "elbow_forward_m": [
+                  0.075743328212515,
+                  0.07648317711292521
+                ]
+              }
+            }
+          },
+          "events": [
+            {
+              "control": "dpad_up:press",
+              "start": 14,
+              "stop": 32,
+              "channels": [
+                17
+              ],
+              "kind": "digital",
+              "passed": false,
+              "hit_duration_s": 0,
+              "channels_available": true
+            },
+            {
+              "control": "dpad_down:press",
+              "start": 54,
+              "stop": 72,
+              "channels": [
+                18
+              ],
+              "kind": "digital",
+              "passed": true,
+              "hit_duration_s": 0.305,
+              "channels_available": true
+            },
+            {
+              "control": "dpad_left:press",
+              "start": 94,
+              "stop": 111,
+              "channels": [
+                19
+              ],
+              "kind": "digital",
+              "passed": true,
+              "hit_duration_s": 0.28600000000000003,
+              "channels_available": true
+            }
+          ],
+          "natural_heading_point_world_m": [
+            0.675633320084939,
+            0.6250236560136345,
+            0.9972367931380817
+          ],
+          "collision_scope": "full collection scene; native robot self-collision filters retained"
+        }
+      },
+      {
+        "attempt": 1,
+        "seed": 43,
+        "target_spec": "d075-h190-t+10.json",
+        "status": "rejected",
+        "stage": "physics",
+        "reasons": [
+          "robot penetration exceeds numerical tolerance",
+          "actual gamepad signal mismatches target or has unintended input"
+        ],
+        "validation": {
+          "passed": false,
+          "reasons": [
+            "robot penetration exceeds numerical tolerance",
+            "actual gamepad signal mismatches target or has unintended input"
+          ],
+          "counts": {
+            "penetration_substeps": 4164,
+            "signal_mismatch_substeps": 520,
+            "natural_invalid_samples": 0
+          },
+          "backend": "sapien",
+          "packages": {
+            "sapien": "3.0.3",
+            "xbox-gamepad-physics": "0.4.1"
+          },
+          "physics_timestep_s": 0.001,
+          "substeps": 4166,
+          "frames": 125,
+          "config": {
+            "penetration_tolerance_m": 0.000001,
+            "signal_timing_tolerance_s": 0.08,
+            "analog_tolerance": 0.15,
+            "digital_threshold": 0.3,
+            "min_hit_s": 0.03
+          },
+          "min_robot_contact_distance_m": -0.007420357782393694,
+          "deepest_pair": [
+            "pinky_distal",
+            "controller_body"
+          ],
+          "posture": {
+            "left": {
+              "invalid_samples": 0,
+              "total_samples": 4167,
+              "ranges": {
+                "upper_tilt_deg": [
+                  16.305133322214086,
+                  16.34746309342412
+                ],
+                "forearm_pitch_deg": [
+                  7.670160320289175,
+                  7.8762521475202245
+                ],
+                "forearm_heading_deg": [
+                  8.415066441595764,
+                  8.500141435004764
+                ],
+                "elbow_forward_m": [
+                  0.09080422694295502,
+                  0.09109056031245381
+                ]
+              }
+            },
+            "right": {
+              "invalid_samples": 0,
+              "total_samples": 4167,
+              "ranges": {
+                "upper_tilt_deg": [
+                  19.997940956756256,
+                  19.999911139165484
+                ],
+                "forearm_pitch_deg": [
+                  7.343351726604251,
+                  7.355562723981519
+                ],
+                "forearm_heading_deg": [
+                  7.868682253134004,
+                  7.875807787530579
+                ],
+                "elbow_forward_m": [
+                  0.07611321990832624,
+                  0.07613451209523305
+                ]
+              }
+            }
+          },
+          "events": [
+            {
+              "control": "dpad_up:press",
+              "start": 14,
+              "stop": 32,
+              "channels": [
+                17
+              ],
+              "kind": "digital",
+              "passed": true,
+              "hit_duration_s": 0.273,
+              "channels_available": true
+            },
+            {
+              "control": "dpad_down:press",
+              "start": 54,
+              "stop": 72,
+              "channels": [
+                18
+              ],
+              "kind": "digital",
+              "passed": true,
+              "hit_duration_s": 0.309,
+              "channels_available": true
+            },
+            {
+              "control": "dpad_left:press",
+              "start": 94,
+              "stop": 111,
+              "channels": [
+                19
+              ],
+              "kind": "digital",
+              "passed": true,
+              "hit_duration_s": 0.28500000000000003,
+              "channels_available": true
+            }
+          ],
+          "natural_heading_point_world_m": [
+            0.6512641254170471,
+            0.6249286454699968,
+            0.9667583732531907
+          ],
+          "collision_scope": "full collection scene; native robot self-collision filters retained"
+        }
+      }
+    ]
+  },
+  "synthetic": {
+    "rows": 360,
+    "duration_s": 12,
+    "repetitions_per_direction": 3,
+    "segments": 19,
+    "control_counts": {
+      "dpad_down:press": 3,
+      "dpad_left:press": 3,
+      "dpad_up:press": 3,
+      "grip": 10
+    }
+  },
+  "local_tests": {
+    "full": {
+      "passed": 235,
+      "skipped": 19
+    },
+    "aa_cpu": {
+      "passed": 38
+    },
+    "native_probe": {
+      "skipped": 1,
+      "reason": "SAPIEN not installed"
+    }
+  },
+  "remote_tests": {
+    "aa": {
+      "passed": 39,
+      "scope": "38 CPU contracts and one native pipeline test containing two placements"
+    },
+    "backend": "sapien",
+    "training": false,
+    "gpu": false,
+    "nice": 10
+  },
+  "public_tree": {
+    "aa_scope_findings": 0,
+    "whole_working_tree_findings": 13,
+    "whole_tree_passed": false,
+    "external_report_findings": 3,
+    "protected_task_z_findings": 10
+  },
+  "evidence_limits": [
+    "No real human demonstration available",
+    "No native physical trajectory accepted",
+    "Accepted serialization tested with an explicitly controlled test adapter only",
+    "MuJoCo native path not executed",
+    "Existing backend self-collision filters and authored scene geometry retained"
+  ]
+}
