@@ -1,0 +1,80 @@
+{
+  "started_epoch": 1793723308.947799,
+  "wall_ceiling_seconds": 1720,
+  "worker_seconds": 1500,
+  "cpu": true,
+  "gpu": false,
+  "commands": [
+    {
+      "name": "left",
+      "pid": 2076086,
+      "command": [
+        "timeout",
+        "1700",
+        "nice",
+        "-n",
+        "10",
+        "taskset",
+        "-c",
+        "0-3",
+        "$GAMEPAD_VLA_WORKSPACE/envs/fixed-gamepad-mujoco-py311/bin/python",
+        "$GAMEPAD_VLA_WORKSPACE/runs/fixture-v3-20261104/code/docs/reports/2026-11-04-gamepad-fixture-v3/coverage.py",
+        "--spec",
+        "$GAMEPAD_VLA_WORKSPACE/runs/fixture-v3-20261104/code/configs/workcell/placement_trials/gamepad_fixture_v3.json",
+        "--output",
+        "$GAMEPAD_VLA_WORKSPACE/runs/fixture-v3-20261104/coverage/left",
+        "--side",
+        "left",
+        "--seconds",
+        "1500"
+      ]
+    },
+    {
+      "name": "right",
+      "pid": 2076087,
+      "command": [
+        "timeout",
+        "1700",
+        "nice",
+        "-n",
+        "10",
+        "taskset",
+        "-c",
+        "4-7",
+        "$GAMEPAD_VLA_WORKSPACE/envs/fixed-gamepad-mujoco-py311/bin/python",
+        "$GAMEPAD_VLA_WORKSPACE/runs/fixture-v3-20261104/code/docs/reports/2026-11-04-gamepad-fixture-v3/coverage.py",
+        "--spec",
+        "$GAMEPAD_VLA_WORKSPACE/runs/fixture-v3-20261104/code/configs/workcell/placement_trials/gamepad_fixture_v3.json",
+        "--output",
+        "$GAMEPAD_VLA_WORKSPACE/runs/fixture-v3-20261104/coverage/right",
+        "--side",
+        "right",
+        "--seconds",
+        "1500"
+      ]
+    },
+    {
+      "name": "render",
+      "pid": 2076088,
+      "command": [
+        "timeout",
+        "1700",
+        "nice",
+        "-n",
+        "10",
+        "taskset",
+        "-c",
+        "8-11",
+        "$GAMEPAD_VLA_WORKSPACE/envs/sapien-3.0.3-py310/bin/python",
+        "$GAMEPAD_VLA_WORKSPACE/runs/fixture-v3-20261104/code/docs/reports/2026-11-04-gamepad-fixture-v3/render_evidence.py",
+        "capture",
+        "--spec",
+        "$GAMEPAD_VLA_WORKSPACE/runs/fixture-v3-20261104/code/configs/workcell/placement_trials/gamepad_fixture_v3.json",
+        "--run",
+        "$GAMEPAD_VLA_WORKSPACE/runs/fixture-v3-20261104/render",
+        "--projection",
+        "$GAMEPAD_VLA_WORKSPACE/runs/fixture-v3-20261104/code/docs/reports/2026-11-04-gamepad-fixture-v3/projection.json"
+      ]
+    }
+  ]
+}

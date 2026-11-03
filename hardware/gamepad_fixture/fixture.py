@@ -1,12 +1,10 @@
 #!/usr/bin/env python3
-"""Task V: printable Xbox 1708 fixture. Units: mm, degrees, N.
+"""V3 printable Xbox 1708 fixture. CAD mm; simulation m.
 
-Run with .local/cad-env/bin/python hardware/gamepad_fixture/fixture.py.
-All exported assembly geometry uses controller-local coordinates; print files
-are separate rigid transforms with their lowest point on the build plate.
+Integer structural dimensions determine the assembled controller pose. Contact
+surfaces are analytic planes measured by contact_fit, never mesh subtraction.
 """
 from __future__ import annotations
-
 import argparse
 import dataclasses
 import hashlib
@@ -14,896 +12,686 @@ import json
 import math
 from pathlib import Path
 import shutil
-
 import numpy as np
 import trimesh
 from scipy.spatial.transform import Rotation
-from build123d import (Align, Axis, Box, Circle, Color, Compound, Cone, Cylinder, Face, Helix, Location,
-                      Plane, Shell, Solid, Text, Wire, export_step, export_stl,
-                      extrude, loft, sweep)
-
+from build123d import (Axis, Box, Circle, Color, Compound, Cylinder, Face, Helix,
+                      Location, Plane, Shell, Solid, Wire, export_step, export_stl,
+                      extrude, sweep)
 from asset_geometry import ControllerAsset, DEFAULT_URDF
+from contact_fit import measure, OPENINGS
 
-HERE = Path(__file__).resolve().parent
-ROOT = HERE.parents[1]
-SCENE = ROOT / "configs/workcell/station_g20_v4_4_raised_interim.json"
+HERE=Path(__file__).resolve().parent
+ROOT=HERE.parents[1]
+SCENE=ROOT/'configs/workcell/placement_trials/d050-h220-t+10.json'
 
-
-# PARAMETER BLOCK. Change measured values here, then regenerate AND recheck.
 @dataclasses.dataclass
 class ControllerMeasurements:
-    width: float = 153.0
-    height: float = 104.6
-    depth: float = 50.2
-    top_center_y: float = 49.05
-    center_span: float = 72.6
-    center_span_uncertainty: float = 6.0
-    top_center_depth: float = 28.0
-    bottom_center_depth: float = 26.0
-    shoulder_inner_gap: float = 46.0
-    upper_jaw_width: float = 20.0
-    lower_jaw_width: float = 24.0
-    xbox_button_y_max: float = 45.7
-    top_lip_y_min: float = 47.5
-    rear_support_width: float = 30.0
-    rear_support_height: float = 36.0
-    jaw_pad_thickness: float = 2.0
-    back_pad_thickness: float = 2.0
-    base_pad_thickness: float = 1.0
-    shoe_pad_thickness: float = 1.0
-    pad_compression: float = 0.25
-    base_pad_compression: float = 0.25
-    pad_proud_uncompressed: float = 0.5
-    use_printed_tpu_pads: bool = False
-    pad_material: str = "adhesive_silicone_sheet"
-
+    width:float=153.
+    height:float=104.6
+    depth:float=50.2
+    # None selects current asset measurement. Caliper values override directly.
+    top_center_y:float|None=None
+    center_span:float|None=None
+    rear_plane_z:float|None=None
+    rear_plane_slope:float|None=None
+    upper_jaw_width:float=40.
+    lower_jaw_width:float=56.
+    shoulder_inner_gap:float=46.2
+    rear_support_width:float=44.
+    rear_support_height:float=22.
+    rear_center_y:float=23.
+    jaw_pad_thickness:float=2.
+    back_pad_thickness:float=2.
+    pad_compression:float=.15
+    pad_proud_uncompressed:float=.5
+    user_base_pad_thickness:float=1.
+    user_base_pad_compression:float=.25
+    use_printed_tpu_pads:bool=False
+    pad_material:str='adhesive_silicone_sheet'
+    top_lip_y_min:float=47.5
+    xbox_button_y_max:float=45.7
+    pair_x_min:float|None=None
+    pair_x_max:float|None=None
+    pair_z_min:float|None=None
+    pair_z_max:float|None=None
+    port_clearance:float=2.
+    port_fit_allowance:float=.1
+    usb_x_min:float=-4.
+    usb_x_max:float=4.
+    usb_z_min:float=-4.
+    usb_z_max:float=6.5
+    headphone_x_min:float=-21.
+    headphone_x_max:float=-18.
+    extension_x_min:float=-8.
+    extension_x_max:float=8.
+    lateral_stop_half_gap:float=32.75
+    lateral_stop_y_min:float=-30.
+    lateral_stop_y_max:float=-25.
+    lateral_stop_z_min:float=-6.
+    lateral_stop_z_max:float=-2.
+    battery_seam_y_max:float=8.
 
 @dataclasses.dataclass
 class Installation:
-    layout_revision: str = "v2-Z"
-    # The quaternion is read from the specified scene; do not round to 40 deg.
-    table_edge_x: float = 718.4
-    table_center_y: float = 625.2
-    tabletop_z: float = 767.0
-    pivot_pad_y: float = -40.0
-    pivot_pad_z: float = -85.0
-    major_mark_deg: float = 40.0
-    base_width: float = 220.0
-    base_depth: float = 160.0
-    printed_base_thickness: float = 20.0
-    aluminum_base: bool = False
-    aluminum_thickness: float = 6.0
-    aluminum_pad_tray_thickness: float = 0.8
-    clamp_center_x: float = 70.0
-    clamp_center_y: float = -26.0
-    clamp_zone_width: float = 44.0
-    clamp_zone_depth: float = 40.0
-    clamp_band_depth: float = 60.0
-    pressure_shoe_thickness: float = 16.0
-    flange_width: float = 96.0
-    flange_depth: float = 76.0
-    flange_thickness: float = 10.0
-    flange_center_y: float = -120.0
-    bolt_x: float = 34.0
-    bolt_y: tuple = (-142.0, -98.0)
-    column_x_min: float = -30.0
-    column_x_max: float = -16.0
-    column_foot_y: float = -130.0
-    column_foot_width: float = 40.0
-    column_section_depth: float = 32.0
-    column_spine_stop_from_axis: float = 38.0
-    column_root_gusset_height: float = 24.0
-    rib_width: float = 6.0
-    rib_height: float = 18.0
-    flange_rib_clearance: float = 0.3
-    lower_seat_length: float = 10.0
-    spring_socket_depth: float = 6.0
-    upper_spine_overlap: float = 7.0
-    slider_min_span: float = 64.0
-    slider_max_span: float = 84.0
-    slider_length: float = 40.0
-    slider_center_y: float = 12.0
-    slider_width: float = 32.0
-    slider_depth: float = 16.0
-    lock_center_y: float = 1.0
-    guide_x: float = 9.0
-    guide_z: float = -42.0
-    guide_min_y: float = -22.6
-    guide_max_y: float = 66.0
-    cap_spring_seat_y: float = 62.0
-    slider_spring_seat_y: float = 32.0
-    lower_guide_seat_top_y: float = -16.6
-    frame_back_z: float = -29.0
-    frame_front_z: float = -23.0
-    frame_outer_half_width: float = 21.0
-    frame_slot_half_width: float = 11.0
-    frame_slot_min_y: float = 15.0
-    cap_outer_half_width: float = 23.0
-    cap_bolt_x: float = 16.0
-    frame_top_y: float = 75.0
-    rear_block_back_z: float = -23.0
-    rear_pocket_width: float = 24.0
-    rear_pocket_height: float = 28.0
-    shell_surface_grid_mm: float = 2.0
-    jaw_wall: float = 6.0
-    jaw_front_lip_z: float = 20.75
-    jaw_front_end_z: float = 25.0
-    top_pad_z_min: float = -7.0
-    top_pad_z_max: float = 8.0
-    lower_pad_z_min: float = -7.0
-    lower_pad_z_max: float = 12.0
-    pivot_fixed_x_min: float = -28.0
-    pivot_fixed_face_x: float = -16.0
-    pivot_moving_x_max: float = 8.0
-    pivot_disc_radius: float = 27.0
-    fixed_disc_radius: float = 34.0
-    spring_stop_outer_d: float = 7.6
-    tooth_outer_radius: float = 25.0
-    tooth_inner_radius: float = 10.0
-    teeth: int = 36
-    tooth_height: float = 1.6
-    knob_radius: float = 22.0
-    knob_thickness: float = 14.0
-    # Generic C-clamp mounted with fixed jaw ABOVE and screw/tommy bar BELOW.
-    # These are provisional procurement envelopes, not a specific measured tool.
-    c_upper_arm_height: float = 60.0
-    c_arm_width: float = 32.0
-    c_spine_y: float = 64.0
-    c_spine_depth: float = 16.0
-    c_table_stack_thickness: float = 35.0
-    c_lower_arm_drop_min: float = 10.0
-    c_lower_arm_drop_max: float = 25.0
-    c_handle_below_table_bottom: float = 65.0
-    c_handle_sweep_radius: float = 50.0
-    c_handle_sweep_height: float = 12.0
-    c_operator_extra_radius: float = 25.0
-    c_operator_hand_height: float = 50.0
-    c_operator_approach_y: float = 140.0
-    c_spindle_d: float = 12.0
-    base_stiffness_fraction: float = 0.4
-
+    layout_revision:str='v3-vertical-fork-planar'
+    table_edge_x:float=718.4
+    table_center_y:float=625.2
+    tabletop_z:float=767.
+    table_thickness:float=25.
+    table_edge_to_apron:float=30.
+    base_width:float=240.
+    base_depth:float=90.
+    printed_base_thickness:float=16.
+    aluminum_base:bool=False
+    aluminum_thickness:float=8.
+    clamp_band_depth:float=30.
+    flange_width:float=90.
+    flange_depth:float=50.
+    flange_thickness:float=8.
+    column_center_y:float=-30.
+    column_width:float=36.
+    column_depth:float=32.
+    column_height_to_axis:float=105.
+    ear_inner_x:float=21.
+    ear_outer_x:float=29.
+    ear_radius:float=34.
+    gusset_width:float=6.
+    gusset_height:float=35.
+    bolt_x:float=35.
+    bolt_dy:float=16.
+    # Independent design choice, not a requested root-pose constraint.
+    tilt_deg:float=45.
+    major_mark_deg:float=40.
+    support_to_axis_vertical:float=100.
+    tooth_inner_radius:float=18.
+    tooth_outer_radius:float=30.
+    teeth:int=36
+    tooth_flank_deg:float=60.
+    tooth_tip_flat:float=1.1
+    tooth_root_flat:float=.9
+    fixed_disc_radius:float=34.
+    pivot_fixed_face_x:float=-17.
+    knob_radius:float=30.
+    knob_thickness:float=16.
+    slider_min_span:float=66.
+    slider_max_span:float=80.
+    slider_length:float=40.
+    slider_center_y:float=12.
+    slider_width:float=36.
+    slider_depth:float=16.
+    guide_x:float=10.
+    guide_z:float=-42.
+    guide_min_y:float=-23.
+    guide_max_y:float=66.
+    lower_guide_seat_top_y:float=-17.
+    lower_seat_length:float=10.
+    cap_spring_seat_y:float=62.
+    slider_spring_seat_y:float=32.
+    lock_center_y:float=1.
+    frame_back_z:float=-30.
+    frame_front_z:float=-24.
+    cap_outer_half_width:float=30.
+    cap_bolt_x:float=25.
+    frame_top_y:float=75.
+    top_pad_z_min:float=6.
+    top_pad_z_max:float=17.
+    lower_pad_z_min:float=-8.
+    lower_pad_z_max:float=14.
+    jaw_front_lip_z:float=22.
+    jaw_front_end_z:float=26.
+    keep_USB_cable:bool=True
+    USB_cable_back_z:float=-10.
+    pair_slot_extra_z:float=1.
 
 @dataclasses.dataclass
 class Hardware:
-    pivot_bolt_d: float = 6.0
-    pivot_bolt_length: float = 60.0
-    pivot_nut_af: float = 10.0
-    pivot_nut_height: float = 5.0
-    pivot_washer_od: float = 18.0
-    pivot_washer_thickness: float = 1.6
-    base_bolt_d: float = 5.0
-    base_bolt_head_d: float = 10.0
-    base_nut_af: float = 8.0
-    base_nut_height: float = 4.0
-    cap_bolt_d: float = 3.0
-    cap_insert_od: float = 4.6
-    cap_insert_length: float = 4.0
-    cap_insert_pilot: float = 4.1
-    lock_bolt_d: float = 4.0
-    lock_insert_od: float = 6.0
-    lock_insert_length: float = 6.0
-    lock_insert_pilot: float = 5.4
-    guide_d: float = 6.0
-    spring_od: float = 9.5
-    spring_wire: float = 0.7
-    spring_free_length: float = 40.0
-    spring_rate: float = 0.35
-    spring_solid_height_max: float = 10.0
-    spring_active_coils: float = 10.0
-    clamp_spreader_od: float = 24.0
-    clamp_spreader_id: float = 8.4
-    clamp_spreader_thickness: float = 2.0
-    clamp_force_min: float = 1000.0
-    clamp_force_max: float = 2000.0
-    clamp_foot_d_min: float = 15.0
-    clamp_foot_d_max: float = 20.0
-    pivot_hand_torque_Nm: float = 0.5
-    pivot_nut_factor: float = 0.2
-    finger_force_N: float = 30.0
-    finger_lever_mm: float = 110.0
-    design_pivot_torque_Nm: float = 4.0
-
+    pivot_bolt_d:float=8.
+    pivot_bolt_length:float=80.
+    pivot_bolt_head_height:float=5.3
+    pivot_nut_af:float=13.
+    pivot_nut_height:float=6.5
+    pivot_washer_od:float=20.
+    pivot_washer_thickness:float=1.6
+    pivot_hand_torque_Nm:float=1.2
+    pivot_nut_factor:float=.2
+    ring_mount_radius:float=12.
+    fixed_ring_bolt_length:float=14.
+    moving_ring_bolt_length:float=22.
+    design_pivot_torque_Nm:float=4.
+    base_bolt_d:float=5.
+    base_insert_pilot:float=6.4
+    base_insert_od:float=7.
+    base_insert_length:float=8.
+    base_insert_pilot_depth:float=9.
+    aluminum_tap_drill_d:float=4.2
+    aluminum_tap_depth:float=6.5
+    aluminum_base_bolt_length:float=12.
+    cap_bolt_d:float=3.
+    cap_insert_pilot:float=4.1
+    cap_insert_od:float=4.6
+    cap_insert_length:float=4.
+    lock_insert_pilot:float=5.4
+    lock_insert_od:float=6.
+    lock_insert_length:float=6.
+    guide_d:float=6.
+    spring_od:float=11.
+    spring_wire:float=1.1
+    spring_free_length:float=40.
+    spring_rate:float=2.
+    spring_solid_height_max:float=13.
+    spring_active_coils:float=7.5
+    pad_friction:float=.6
+    pad_effective_E_MPa:float=.6
+    clamp_force_max:float=2000.
+    clamp_foot_d_min:float=15.
 
 @dataclasses.dataclass
 class Printing:
-    hard_shell_clearance: float = 0.25
-    clearance_hole: float = 0.5
-    guide_diametral_clearance: float = 0.6
-    guide_socket_clearance: float = 0.25
-    tooth_axial_clearance: float = 0.12
-    nut_af_clearance: float = 0.3
-    counterbore_clearance: float = 0.4
-    build_limit: float = 300.0
-    mesh_tolerance: float = 0.08
-    tooth_mesh_tolerance: float = 0.025
-    material_E_MPa: float = 1500.0
-    short_term_compression_allow_MPa: float = 10.0
-    short_term_bending_allow_MPa: float = 15.0
-    tooth_shear_allow_MPa: float = 5.0
-    effective_loaded_teeth: int = 4
-    effective_solid_area_fraction: float = 0.4
-    table_local_gap_span: float = 10.0
-
+    nozzle_mm:float=.4
+    line_width_mm:float=.42
+    build_limits_mm:tuple=(300.,320.,325.)
+    hard_shell_clearance:float=.25
+    clearance_hole:float=.5
+    guide_diametral_clearance:float=.6
+    guide_socket_clearance:float=.25
+    tooth_axial_clearance:float=.2
+    nut_af_clearance:float=.3
+    mesh_tolerance:float=.06
+    tooth_mesh_tolerance:float=.02
+    material_E_MPa:float=1500.
+    tooth_shear_allow_MPa:float=5.
+    effective_loaded_teeth:int=4
 
 @dataclasses.dataclass
 class Parameters:
-    measured: ControllerMeasurements = dataclasses.field(default_factory=ControllerMeasurements)
-    installation: Installation = dataclasses.field(default_factory=Installation)
-    hardware: Hardware = dataclasses.field(default_factory=Hardware)
-    printing: Printing = dataclasses.field(default_factory=Printing)
+    measured:ControllerMeasurements=dataclasses.field(default_factory=ControllerMeasurements)
+    installation:Installation=dataclasses.field(default_factory=Installation)
+    hardware:Hardware=dataclasses.field(default_factory=Hardware)
+    printing:Printing=dataclasses.field(default_factory=Printing)
 
 
-def box(x0, x1, y0, y1, z0, z1):
-    return Box(x1-x0, y1-y0, z1-z0).moved(Location(((x0+x1)/2, (y0+y1)/2, (z0+z1)/2)))
+def box(x0,x1,y0,y1,z0,z1):
+    return Box(x1-x0,y1-y0,z1-z0).moved(Location(((x0+x1)/2,(y0+y1)/2,(z0+z1)/2)))
 
+def cyl(radius,length,center,axis='z'):
+    return Cylinder(radius,length).moved(Location(center,{'x':(0,90,0),'y':(90,0,0),'z':(0,0,0)}[axis]))
 
-def cyl(radius, length, center, axis="z"):
-    rotation = {"x": (0, 90, 0), "y": (90, 0, 0), "z": (0, 0, 0)}[axis]
-    return Cylinder(radius, length).moved(Location(center, rotation))
+def prism(points,direction):
+    return extrude(Face(Wire.make_polygon(points,close=True)),amount=float(np.linalg.norm(direction)),dir=tuple(np.asarray(direction)/np.linalg.norm(direction)))
 
-
-def prism(points, direction):
-    face = Face(Wire.make_polygon(points, close=True))
-    length = np.linalg.norm(direction)
-    return extrude(face, amount=float(length), dir=tuple(np.asarray(direction)/length))
-
-
-def hex_prism(af, length, center, axis="z"):
-    r = af/math.sqrt(3)
-    pts = [(r*math.cos(k*math.pi/3), r*math.sin(k*math.pi/3), -length/2) for k in range(6)]
-    s = prism(pts, (0, 0, length))
-    return s.moved(Location(center, {"x": (0, 90, 0), "y": (90, 0, 0), "z": (0, 0, 0)}[axis]))
-
+def hex_prism(af,length,center,axis='z'):
+    r=af/math.sqrt(3)
+    s=prism([(r*math.cos(k*math.pi/3),r*math.sin(k*math.pi/3),-length/2) for k in range(6)],(0,0,length))
+    return s.moved(Location(center,{'x':(0,90,0),'y':(90,0,0),'z':(0,0,0)}[axis]))
 
 def mesh_solid(mesh):
-    """Sew the *actual* convex-decomposition triangles; no fitted shell model."""
-    faces = [Face(Wire.make_polygon([tuple(v) for v in tri], close=True)) for tri in mesh.triangles]
-    return Solid(Shell(faces))
+    return Solid(Shell([Face(Wire.make_polygon([tuple(v) for v in tri],close=True)) for tri in mesh.triangles]))
+
+def bounds(shape):
+    b=shape.bounding_box();return [[b.min.X,b.min.Y,b.min.Z],[b.max.X,b.max.Y,b.max.Z]]
+
+def location(tm):
+    return Location(tuple(tm[:3,3]),tuple(Rotation.from_matrix(tm[:3,:3]).as_euler('xyz',degrees=True)))
 
 
-def shell_cutters(asset, scale_xyz,clearance=0.):
-    # Only connected convex pieces intersecting the narrow central support.
-    result = []
-    for name, link, origin, _mesh, path in asset.geometry:
-        if name not in {"shell", "shell_front_plate"}:
-            continue
-        # Preserve OBJ 'o hull_N' boundaries. Merging touching hull vertices
-        # first destroys the decomposition and produces nonmanifold seams.
-        vertices,groups,current=[],[],[]
-        for line in path.read_text().splitlines():
-            fields=line.split()
-            if not fields: continue
-            if fields[0]=="v": vertices.append([float(v)*1000 for v in fields[1:4]])
-            elif fields[0]=="o":
-                if current: groups.append(current);current=[]
-            elif fields[0]=="f": current.append([int(v.split('/')[0])-1 for v in fields[1:4]])
-        if current: groups.append(current)
-        for faces in groups:
-            component=trimesh.Trimesh(vertices=np.array(vertices),faces=faces,process=True)
-            component.remove_unreferenced_vertices()
-            component.apply_transform(asset.link_transform(link)@origin)
-            component.apply_scale(scale_xyz)
-            if clearance:
-                # Minkowski sum of each convex hull with an axis-aligned
-                # tolerance cube. Its support is >= clearance in EVERY normal
-                # direction, unlike a translation along only jaw closing Y.
-                import itertools
-                corners=np.array(list(itertools.product((-clearance,clearance),repeat=3)))
-                component=trimesh.convex.convex_hull((component.vertices[:,None,:]+corners[None,:,:]).reshape(-1,3))
-            lo, hi = component.bounds
-            if lo[0] < 18 and hi[0] > -18:
-                result.append(mesh_solid(component))
-    return result
+_HIRTH_CACHE={}
 
+def hirth(p,moving=False):
+    """Constant-angle planar radial flanks; radial crest height grows with r.
 
-def subtract_shifted(shape, cutters, xyz):
-    for tool in cutters:
-        shape = shape - tool.moved(Location(xyz))
-    return shape
-
-
-def exterior_cutter(asset, axis, side, bounds, scale, spacing=2.):
-    """A solid behind the outermost ray/triangle intersection of the asset.
-
-    CoACD contains internal faces and micron-wide seams. A first-hit envelope
-    closes those internal cavities without interpreting their walls as contact
-    surfaces. This is a sampled piecewise-planar surface, not an analytic fit.
+    Flank plane x = tan(beta)*(distance from radial valley ray - root_flat/2).
+    Tip/root flats 1.1/.9 mm meet the default two-line hard gate. A complementary
+    moving face uses exactly the same mesh surface + .2 mm axial clearance.
+    Crest bands are conical faceted surfaces, not constant-height v2 ramps.
     """
-    mesh=asset.shell().copy();mesh.apply_scale(scale)
-    u,v=[a for a in range(3) if a!=axis]
-    aa=np.linspace(bounds[0],bounds[1],math.ceil((bounds[1]-bounds[0])/spacing)+1)
-    bb=np.linspace(bounds[2],bounds[3],math.ceil((bounds[3]-bounds[2])/spacing)+1)
-    origins=np.zeros((len(aa)*len(bb),3));origins[:,axis]=side*100
-    origins[:,u]=np.repeat(aa,len(bb));origins[:,v]=np.tile(bb,len(aa))
-    directions=np.zeros_like(origins);directions[:,axis]=-side
-    hits,indices,_=mesh.ray.intersects_location(origins,directions,multiple_hits=True)
-    heights=np.full(len(origins),np.nan)
-    for n in range(len(origins)):
-        values=hits[indices==n,axis]
-        if len(values): heights[n]=max(values) if side>0 else min(values)
-    if np.isnan(heights).any():
-        raise ValueError(f"No exterior shell at {origins[np.isnan(heights)].tolist()}")
-    front=origins.copy();front[:,axis]=heights
-    rear=front.copy();rear[:,axis]=-side*40
-    verts=np.vstack([front,rear]);N=len(front);faces=[]
-    def tri(a,b,c): faces.extend([[a,b,c],[a+N,c+N,b+N]])
-    for a in range(len(aa)-1):
-        for b in range(len(bb)-1):
-            k=a*len(bb)+b
-            tri(k,k+len(bb),k+len(bb)+1);tri(k,k+len(bb)+1,k+1)
-    boundary=list(range(len(bb)))+[a*len(bb)+len(bb)-1 for a in range(1,len(aa))]+[(len(aa)-1)*len(bb)+b for b in range(len(bb)-2,-1,-1)]+[a*len(bb) for a in range(len(aa)-2,0,-1)]
-    for a,b in zip(boundary,boundary[1:]+boundary[:1]):faces.extend([[a,b,b+N],[a,b+N,a+N]])
-    envelope=trimesh.Trimesh(vertices=verts,faces=faces,process=True);envelope.fix_normals()
-    return mesh_solid(envelope)
-
-
-def serrations(p, fixed=True):
-    """Piecewise-planar radial V teeth with complementary mating surfaces.
-
-    Each half pitch is a ruled ramp. The moving lower face uses the very same
-    sampled surface, translated by the axial fit clearance, so assembly is
-    complementary rather than two coincident sets of tooth peaks.
-    """
-    i, t = p.installation, p.printing
-    result = []
-    for k in range(i.teeth*2):
-        a, b = 2*math.pi*k/(i.teeth*2), 2*math.pi*(k+1)/(i.teeth*2)
-        ha, hb = (0., i.tooth_height) if k % 2 == 0 else (i.tooth_height, 0.)
-        points0, points1 = [], []
-        if fixed:
-            xbase = i.pivot_fixed_face_x - 0.15
-            for r, ang, h in [(i.tooth_inner_radius,a,ha),(i.tooth_outer_radius,a,ha),
-                              (i.tooth_outer_radius,b,hb),(i.tooth_inner_radius,b,hb)]:
-                points0.append((xbase, i.pivot_pad_y+r*math.cos(ang), i.pivot_pad_z+r*math.sin(ang)))
-                points1.append((i.pivot_fixed_face_x+h, i.pivot_pad_y+r*math.cos(ang), i.pivot_pad_z+r*math.sin(ang)))
-        else:
-            xbase = i.pivot_fixed_face_x+i.tooth_height+0.15+t.tooth_axial_clearance
-            for r, ang, h in [(i.tooth_inner_radius,a,ha),(i.tooth_outer_radius,a,ha),
-                              (i.tooth_outer_radius,b,hb),(i.tooth_inner_radius,b,hb)]:
-                points0.append((i.pivot_fixed_face_x+h+t.tooth_axial_clearance, i.pivot_pad_y+r*math.cos(ang), i.pivot_pad_z+r*math.sin(ang)))
-                points1.append((xbase, i.pivot_pad_y+r*math.cos(ang), i.pivot_pad_z+r*math.sin(ang)))
-        # Triangulated ramp: radial edge heights are constant, so the four
-        # top vertices need not share a plane. Sewing facets avoids a warped
-        # quadrilateral being silently flattened by the CAD kernel.
-        vertices=np.array(points0+points1)
-        faces=[[0,2,1],[0,3,2],[4,5,6],[4,6,7],
-               [0,1,5],[0,5,4],[1,2,6],[1,6,5],
-               [2,3,7],[2,7,6],[3,0,4],[3,4,7]]
-        mesh=trimesh.Trimesh(vertices=vertices,faces=faces,process=True)
-        mesh.fix_normals()
-        result.append(mesh_solid(mesh))
+    i,t=p.installation,p.printing;k=math.tan(math.radians(i.tooth_flank_deg))
+    cache_key=(moving,i.teeth,i.tooth_inner_radius,i.tooth_outer_radius,i.tooth_tip_flat,i.tooth_root_flat,i.tooth_flank_deg,i.pivot_fixed_face_x,i.fixed_disc_radius,t.tooth_axial_clearance)
+    if cache_key in _HIRTH_CACHE:return _HIRTH_CACHE[cache_key].moved(Location((0,0,0)))
+    pitch=2*math.pi/i.teeth;half=pitch/2
+    # At each radius split at the exact root/crest flat transitions. Joining
+    # corresponding points gives planar flanks; no constant-height radial ramp.
+    rings=[]
+    for r in (i.tooth_inner_radius,i.tooth_outer_radius):
+        maximum=k*(r*math.sin(half)-i.tooth_root_flat/2-i.tooth_tip_flat/2)
+        if maximum<=t.tooth_axial_clearance:
+            raise ValueError('Tooth pitch consumed by flats: reduce tooth count or use a finer nozzle/flat design')
+        def angle_at(height):return math.asin((height/k+i.tooth_root_flat/2)/r)
+        transitions=[angle_at(0),angle_at(t.tooth_axial_clearance),angle_at(maximum),angle_at(maximum+t.tooth_axial_clearance)]
+        ang=np.array([0,*transitions,half,*[pitch-a for a in transitions[::-1]],pitch])
+        raw=k*np.minimum(r*np.sin(ang)-i.tooth_root_flat/2,r*np.sin(pitch-ang)-i.tooth_root_flat/2)
+        h=np.clip(raw,t.tooth_axial_clearance,maximum+t.tooth_axial_clearance) if moving else np.clip(raw,0,maximum)
+        rings.append((r,ang,h))
+    pieces=[]
+    for tooth in range(i.teeth):
+        for j in range(10):
+            front=[]
+            for ri,ji in ((0,j),(1,j),(1,j+1),(0,j+1)):
+                r,a,h=rings[ri];ang=a[ji]+tooth*pitch
+                front.append((i.pivot_fixed_face_x+h[ji],r*math.cos(ang),r*math.sin(ang)))
+            back=[((-9. if moving else -21.),v[1],v[2]) for v in front]
+            vertices=np.array(front+back)
+            faces=[[0,1,2],[0,2,3],[4,6,5],[4,7,6],[0,4,5],[0,5,1],[1,5,6],[1,6,2],[2,6,7],[2,7,3],[3,7,4],[3,4,0]]
+            mesh=trimesh.Trimesh(vertices,faces,process=True);mesh.fix_normals();pieces.append(mesh_solid(mesh))
+    result=pieces[0].fuse(*pieces[1:])
+    # Mid-flanks contact at locked position; root/tip flats alone retain
+    # .2 mm relief. Tightening cannot consume the root clearance.
+    # Central solid connects all teeth and gives three M3 screw lands. The
+    # mating inner annulus retains clearance; no pilot tries to centre twice.
+    result+=cyl(i.fixed_disc_radius,4 if not moving else 3,(-19 if not moving else -10.5,0,0),'x')
+    if not moving:result+=cyl(i.tooth_inner_radius,4,(-19,0,0),'x')
+    else:result+=cyl(i.tooth_inner_radius,3,(-10.5,0,0),'x')
+    _HIRTH_CACHE[cache_key]=result
     return result
 
 
 def mechanics(p):
-    i, h, t = p.installation, p.hardware, p.printing
-    area = i.clamp_zone_width*i.clamp_zone_depth
-    sheet_area=(i.clamp_zone_width-2)*(i.clamp_zone_depth-2)
-    force = h.clamp_force_max
-    shoe_t = i.pressure_shoe_thickness
-    shoe_I = i.clamp_zone_width*shoe_t**3/12
-    base_t = i.aluminum_thickness if i.aluminum_base else i.printed_base_thickness
-    modulus = 69000. if i.aluminum_base else t.material_E_MPa
-    base_I = i.clamp_zone_width*base_t**3/12
-    span = t.table_local_gap_span
-    pitch = 2*math.pi*(i.tooth_outer_radius+i.tooth_inner_radius)/2/i.teeth
-    tooth_area = (i.tooth_outer_radius-i.tooth_inner_radius)*2*math.pi*i.tooth_inner_radius/i.teeth
-    mean_r = (i.tooth_outer_radius+i.tooth_inner_radius)/2
-    preload = h.pivot_hand_torque_Nm/(h.pivot_nut_factor*h.pivot_bolt_d/1000)
-    separating = h.design_pivot_torque_Nm*1000/mean_r*(pitch/2)/i.tooth_height
-    min_span, max_span = i.slider_min_span, i.slider_max_span
-    spring_nominal = i.cap_spring_seat_y-i.slider_spring_seat_y
-    lengths = [spring_nominal-(s-p.measured.center_span) for s in (min_span,p.measured.center_span,max_span)]
-    beam_span=abs(i.flange_center_y-i.clamp_center_y)
-    beam_width=i.flange_width
-    beam_I=beam_width*base_t**3/12
-    beam_E=modulus if i.aluminum_base else modulus*i.base_stiffness_fraction
-    applied_M=h.design_pivot_torque_Nm*1000
-    beam_stress=(h.finger_force_N*beam_span+applied_M)*(base_t/2)/beam_I
-    beam_deflection=h.finger_force_N*beam_span**3/(3*beam_E*beam_I)+applied_M*beam_span**2/(2*beam_E*beam_I)
-    beam_rotation=h.finger_force_N*beam_span**2/(2*beam_E*beam_I)+applied_M*beam_span/(beam_E*beam_I)
-    return {
-        "scope": "Analytic estimates, not FEA or measured printed-material properties; N/mm/MPa.",
-        "clamp_each_N": [h.clamp_force_min,h.clamp_force_max],
-        "clamp_zone_full_area_mm2": area,
-        "shoe_bottom_sheet_actual_contact_area_mm2":sheet_area,
-        "base_pressure_under_shoe_sheet_MPa_at_2kN":force/sheet_area,
-        "base_compression_nominal_MPa_at_2kN": force/area,
-        "base_compression_effective_MPa_at_2kN": force/(area*t.effective_solid_area_fraction),
-        "base_elastic_compression_mm": force*base_t/(area*modulus),
-        "base_unbacked_edge_assumed_mm": span,
-        "base_unbacked_edge_cantilever_stress_MPa": force*span*(base_t/2)/base_I,
-        "base_unbacked_edge_cantilever_deflection_mm": force*span**3/(3*modulus*base_I),
-        "shoe_foot_local_pressure_MPa_15mm": force/(math.pi*(h.clamp_foot_d_min/2)**2),
-        "shoe_pressure_with_standard_spreader_MPa": force/(math.pi*(h.clamp_spreader_od**2-h.clamp_spreader_id**2)/4),
-        "shoe_40mm_simply_supported_stress_MPa": (force*i.clamp_zone_depth/4)*(shoe_t/2)/shoe_I,
-        "shoe_40mm_simply_supported_deflection_mm": force*i.clamp_zone_depth**3/(48*t.material_E_MPa*shoe_I),
-        "spring_installed_lengths_mm_at_min_nominal_max": lengths,
-        "spring_total_closing_force_N_at_min_nominal_max": [2*h.spring_rate*(h.spring_free_length-L) for L in lengths],
-        "spring_solid_height_margin_mm": min(lengths)-h.spring_solid_height_max,
-        "spring_wire_rate_crosscheck_N_per_mm": 79000*h.spring_wire**4/(8*(h.spring_od-h.spring_wire)**3*h.spring_active_coils),
-        "pivot_applied_finger_torque_Nm": h.finger_force_N*h.finger_lever_mm/1000,
-        "pivot_design_torque_Nm": h.design_pivot_torque_Nm,
-        "pivot_tooth_shear_capacity_Nm": t.effective_loaded_teeth*tooth_area*t.tooth_shear_allow_MPa*mean_r/1000,
-        "pivot_preload_N": preload,
-        "pivot_tooth_separating_force_N": separating,
-        "pivot_separation_safety_factor": preload/separating,
-        "z_layout_base_root_to_clamp_span_mm":beam_span,
-        "z_layout_effective_strip_width_mm":beam_width,
-        "z_layout_effective_modulus_MPa":beam_E,
-        "z_layout_fully_unbacked_base_stress_MPa":beam_stress,
-        "z_layout_fully_unbacked_base_deflection_mm":beam_deflection,
-        "z_layout_fully_unbacked_base_rotation_deg":math.degrees(beam_rotation),
-        "z_layout_bending_scope":"Conservative fully unsupported root-to-clamp strip with the configured end force and pivot design moment; actual underside is continuously supported by table and thin sheet. No loaded-pose certification.",
-        "assumptions": dataclasses.asdict(t),
-    }
+    m,i,h,t=p.measured,p.installation,p.hardware,p.printing
+    preload=h.pivot_hand_torque_Nm/(h.pivot_nut_factor*h.pivot_bolt_d/1000)
+    mean_r=(i.tooth_inner_radius+i.tooth_outer_radius)/2
+    sep=h.design_pivot_torque_Nm*1000/mean_r/math.tan(math.radians(i.tooth_flank_deg))
+    N=2*h.spring_rate*(h.spring_free_length-(i.cap_spring_seat_y-i.slider_spring_seat_y))
+    cap=h.pad_friction*N*(m.upper_jaw_width+m.lower_jaw_width-8)/4000
+    kt=h.pad_effective_E_MPa/(m.back_pad_thickness-m.pad_compression)*(m.rear_support_height-2)*(m.rear_support_width-4)**3/12/1000
+    area=(i.tooth_outer_radius-i.tooth_inner_radius)*(2*math.pi*i.tooth_inner_radius/i.teeth-i.tooth_root_flat)
+    shaft_tau=30/(2*math.pi*h.pivot_bolt_d**2/4)
+    return dict(scope='Analytic assumptions, not FEA or measured polymer properties',pivot_preload_N=preload,
+        pivot_design_torque_Nm=h.design_pivot_torque_Nm,pivot_tooth_separating_force_N=sep,
+        pivot_separation_safety_factor=preload/sep,pivot_tooth_shear_capacity_Nm=t.effective_loaded_teeth*area*t.tooth_shear_allow_MPa*mean_r/1000,
+        pivot_cases={str(M):dict(separating_N=M*1000/mean_r/math.tan(math.radians(i.tooth_flank_deg)),safety_factor=preload/(M*1000/mean_r/math.tan(math.radians(i.tooth_flank_deg)))) for M in (.3,1.,4.)},
+        metal_axis_double_shear_MPa_at_30N=shaft_tau,spring_total_closing_force_N=N,
+        spring_total_closing_force_N_at_min_nominal_max=[2*h.spring_rate*(h.spring_free_length-(30-(s-m.center_span))) for s in (i.slider_min_span,m.center_span,i.slider_max_span)],
+        spring_solid_height_margin_mm=30-(i.slider_max_span-m.center_span)-h.spring_solid_height_max,
+        anti_twist_rectangle_upper_bound_Nm=cap,anti_twist_rectangle_upper_bound_safety_factor_at_0_4Nm=cap/.4,
+        anti_twist_backpad_stiffness_Nm_per_rad=kt,anti_twist_backpad_rotation_deg_at_0_4Nm=math.degrees(.4/kt),
+        anti_twist_width_sweep=[dict(upper_width_mm=w,lower_width_mm=m.lower_jaw_width,capacity_Nm=h.pad_friction*N*(w+m.lower_jaw_width-8)/4000) for w in (20,36,40)],
+        anti_twist_limits='Rectangle estimate omits relief loss; use checks.json exact pad integrals. Friction mu=.6, spring rate and back-pad E are hypotheses. Backpad stiffness assumes continuous preloaded contact; without preload it is an upper bound. Bench test required.',
+        column_bending_MPa_at_4Nm=4000/(i.column_width*i.column_depth**2/6),
+        column_deflection_mm_at_30N=30*i.column_height_to_axis**3/(3*t.material_E_MPa*i.column_width*i.column_depth**3/12),
+        clamp_pressure_MPa=h.clamp_force_max/(math.pi*h.clamp_foot_d_min**2/4),
+        clamp_pressure_cases=[dict(force_N=force,foot_diameter_mm=d,pressure_MPa=force/(math.pi*d*d/4)) for force in (1000.,2000.) for d in (15.,20.)],
+        clamp_pressure_limit_scope='Foot diameter and actual force unmeasured. At2kN/15mm pressure11.3MPa exceeds the v2 provisional10MPa short-term assumption; no pad/shoe/spreader is modelled. Measure foot/force and creep; do not infer allowable clamp torque from this estimate.')
 
 
-def build(p=None, asset=None):
-    p = p or Parameters()
-    asset = asset or ControllerAsset()
-    m, i, h, t = p.measured, p.installation, p.hardware, p.printing
-    # Derived stop locations keep their specified span when a caliper updates
-    # the nominal controller span. Guide length follows the lower blind seat.
-    i.lower_guide_seat_top_y=i.slider_center_y-i.slider_length/2+i.slider_min_span-m.center_span
-    i.guide_min_y=i.lower_guide_seat_top_y-i.spring_socket_depth
-    scene = json.loads(SCENE.read_text())
-    pose = scene["gamepad"]["root_pose"]
-    world_R = Rotation.from_quat(pose[4:]+pose[3:4]).as_matrix()
-    world_F = np.array([[0,1,0],[-1,0,0],[0,0,1]],float)
-    F_R_pad = world_F.T @ world_R
-    angle = math.degrees(math.atan2(F_R_pad[2,1], F_R_pad[1,1]))
-    datum = np.array([i.table_edge_x,i.table_center_y,i.tabletop_z])
-    root_F = world_F.T @ (np.array(pose[:3])*1000-datum)
-    pivot_F = root_F+F_R_pad @ np.array([0,i.pivot_pad_y,i.pivot_pad_z])
-    pad_from_F = Location(tuple(-F_R_pad.T@root_F), tuple(Rotation.from_matrix(F_R_pad.T).as_euler("xyz",degrees=True)))
-    base_float = m.pad_proud_uncompressed-m.base_pad_compression
-    tray_t = i.aluminum_pad_tray_thickness if i.aluminum_base else 0.
-    base_t = i.aluminum_thickness if i.aluminum_base else i.printed_base_thickness
-    base_z = base_float+tray_t
-    flange_z = base_z+base_t
-    parts, meta, modifiers = {}, {}, {}
-
-    def add(name, shape, material="PETG", fixed=False, rotation=(0,0,0), note=""):
-        if fixed:
-            shape = shape.moved(pad_from_F)
-        shape.label = name
-        parts[name] = shape
-        meta[name] = {"name":name,"material":material,"is_printed": material in {"PETG","TPU95A"},
-                      "print_rotation_deg": list(rotation),"fixed_in_base_frame":fixed,"note":note}
-
-    # Flat underside; all structural ribs are on top. Recess stops before edge.
-    base = box(-i.base_width/2,i.base_width/2,-i.base_depth,0,base_z,flange_z)
-    pad_outline = (-i.base_width/2+4,i.base_width/2-4,-i.base_depth+4,-4)
-    if not i.aluminum_base:
-        base -= box(*pad_outline,base_float-0.1,base_float+m.base_pad_thickness-m.pad_proud_uncompressed)
-    for x in (-i.bolt_x,i.bolt_x):
-        for y in i.bolt_y:
-            base -= cyl((h.base_bolt_d+t.clearance_hole)/2,base_t+2,(x,y,base_z+base_t/2))
-            cs_r=(h.base_bolt_head_d+t.counterbore_clearance)/2
-            hole_r=(h.base_bolt_d+t.clearance_hole)/2
-            cs_h=cs_r-hole_r
-            base-=Cone(cs_r,hole_r,cs_h).moved(Location((x,y,base_z+cs_h/2)))
-    if not i.aluminum_base:
-        # All ribs remain on the INNER side. The complete outer 60 mm band
-        # remains flat over its full width, rather than two corner islands.
-        for side in (-1,1):
-            for y0,end_y in ((-142.,-116.),(-108.,-65.)):
-                x0=side*(i.flange_width/2+i.flange_rib_clearance+i.rib_width/2)
-                x1=side*76.
-                a=np.array([x0,y0,flange_z]); b=np.array([x1,end_y,flange_z])
-                d=b-a; n=np.array([-d[1],d[0],0]);n=n/np.linalg.norm(n)*i.rib_width/2
-                rib=prism([tuple(a-n),tuple(b-n),tuple(b-n+[0,0,2]),tuple(a-n+[0,0,i.rib_height])],tuple(2*n))
-                base += rib
-        base-=box(-i.base_width/2+4,i.base_width/2-4,-i.clamp_band_depth-1.8,-i.clamp_band_depth-1.2,flange_z-.35,flange_z+.1)
-    add("base_aluminum" if i.aluminum_base else "base_printed",base,"Aluminum_6061" if i.aluminum_base else "PETG",True,rotation=(angle+90,0,0),note="Z layout: inner foot, continuous flat 220x60 outer clamp band. Print on long inboard edge with brim/support under ribs. One full-band 100% infill modifier.")
-    if i.aluminum_base:
-        tray=box(-i.base_width/2,i.base_width/2,-i.base_depth,0,base_float,base_z)-box(*pad_outline,base_float-.1,base_float+m.base_pad_thickness-m.pad_proud_uncompressed)
-        for x in (-i.bolt_x,i.bolt_x):
-            for y in i.bolt_y:
-                tray-=cyl(6,2,(x,y,base_float+.4))
-        add("aluminum_pad_recess_tray",tray,fixed=True,rotation=(angle+180,0,0),note="0.8 mm printed liner; print flat back down and shallow pocket up, avoiding a wide bridge.")
-    # Column with a broad four-bolt foot and a rearward side cheek.
-    flange=box(-i.flange_width/2,i.flange_width/2,i.flange_center_y-i.flange_depth/2,i.flange_center_y+i.flange_depth/2,flange_z,flange_z+i.flange_thickness)
-    for x in (-i.bolt_x,i.bolt_x):
-        for y in i.bolt_y:
-            flange-=cyl((h.base_bolt_d+t.clearance_hole)/2,12,(x,y,flange_z+5))
-            flange-=hex_prism(h.base_nut_af+t.nut_af_clearance,h.base_nut_height+.2,(x,y,flange_z+i.flange_thickness-h.base_nut_height/2+.1))
-    py,pz=pivot_F[1],pivot_F[2]
-    foot_center=np.array([i.column_foot_y,flange_z+16])
-    head_center=np.array([py,pz])
-    direction=head_center-foot_center;direction/=np.linalg.norm(direction)
-    normal=np.array([-direction[1],direction[0]])*i.column_section_depth/2
-    yz=[foot_center-normal,head_center-normal,head_center+normal,foot_center+normal]
-    outline=[(i.column_x_min,*point) for point in yz]
-    column=flange+prism(outline,(i.column_x_max-i.column_x_min,0,0))
-    # The broad rib follows the SAME slanted load path; it is not a separate
-    # fork/prong. Stop 38 mm from the axis to clear the moving 27 mm hub.
-    spine_end=head_center-direction*i.column_spine_stop_from_axis
-    spine=[(i.column_x_max,*point) for point in (foot_center-normal,spine_end-normal,spine_end+normal,foot_center+normal)]
-    column+=prism(spine,(36,0,0))
-    # Root gussets, mirrored about the narrow cheek, inside the flange.
-    for y in (i.flange_center_y-24,i.flange_center_y+20):
-        column+=prism([(-20,y,flange_z+7),(22,y,flange_z+7),(-20,y,flange_z+i.column_root_gusset_height)],(0,6,0))
-    # Build the head in pad axes, then map just it into the base frame.
-    fixed_disc=cyl(i.fixed_disc_radius,12,(-22,i.pivot_pad_y,i.pivot_pad_z),"x")
-    for tooth in serrations(p,True):
-        fixed_disc+=tooth
-    fixed_disc-=cyl((h.pivot_bolt_d+t.clearance_hole)/2,20,(-22,i.pivot_pad_y,i.pivot_pad_z),"x")
-    for label in (10,20,30,40,50,60,70):
-        delta=label-i.major_mark_deg
-        tick=box(-16.8,-15.8,i.pivot_pad_y+27.5,i.pivot_pad_y+(33 if label==40 else 31.5),i.pivot_pad_z-(.5 if label==40 else .25),i.pivot_pad_z+(.5 if label==40 else .25))
-        tick=tick.rotate(Axis((0,i.pivot_pad_y,i.pivot_pad_z),(1,0,0)),delta)
-        fixed_disc-=tick
-        a=math.radians(delta+4)
-        number=extrude(Text(str(label),font_size=2.5),amount=.7).moved(Location((-16.6,i.pivot_pad_y+30.5*math.cos(a),i.pivot_pad_z+30.5*math.sin(a)),(90,0,90)))
-        fixed_disc-=number
-    fixed_disc_F=fixed_disc.moved(Location(tuple(root_F),tuple(Rotation.from_matrix(F_R_pad).as_euler("xyz",degrees=True))))
-    column+=fixed_disc_F
-    column-=cyl((h.pivot_bolt_d+t.clearance_hole)/2,32,(-22,py,pz),"x")
-    # Reopen foot holes AFTER adding the upright/gussets, including nut access.
-    for x in (-i.bolt_x,i.bolt_x):
-        for y in i.bolt_y:
-            column-=cyl((h.base_bolt_d+t.clearance_hole)/2,32,(x,y,flange_z+10))
-            column-=hex_prism(h.base_nut_af+t.nut_af_clearance,20,(x,y,flange_z+i.flange_thickness-h.base_nut_height+10))
-    add("column",column,fixed=True,rotation=(0,-90,0),note="M6 axis; keyed nominal 40 mark corresponds to scene quaternion, not rounded 40 deg.")
-
-    # Asset-derived shell cuts; only width is scaled symmetrically. The center
-    # contour is translated to follow a changed measured center span.
-    scale=[m.width/153.,m.height/104.6,m.depth/50.2]
-    print("Sewing actual central shell triangles ...",flush=True)
-    cutters=shell_cutters(asset,scale)
-    clearance_cutters=shell_cutters(asset,scale,t.hard_shell_clearance)
-    rear_tools=[exterior_cutter(asset,2,-1,(-m.rear_support_width/2-1,m.rear_support_width/2+1,-m.rear_support_height/2-1,m.rear_support_height/2+1),scale,i.shell_surface_grid_mm)]
-    upper_delta=m.top_center_y-49.05*scale[1]
+def build(p=None,asset=None):
+    p=p or Parameters();asset=asset or ControllerAsset();m,i,h,t=p.measured,p.installation,p.hardware,p.printing
+    fit=measure(asset)
+    for field,side,axis in (('pair_x_min',0,0),('pair_x_max',1,0),('pair_z_min',0,2),('pair_z_max',1,2)):
+        if getattr(m,field) is None:setattr(m,field,fit['obstacles_visual_bounds_mm']['pair'][side][axis])
+    if m.top_center_y is None:m.top_center_y=fit['contacts']['top']['visual']['plane_offset_mm']
+    if m.center_span is None:m.center_span=m.top_center_y-fit['contacts']['bottom']['visual']['plane_offset_mm']
+    if m.rear_plane_z is None:m.rear_plane_z=fit['contacts']['back']['visual']['plane_offset_mm']
+    if m.rear_plane_slope is None:m.rear_plane_slope=fit['contacts']['back']['visual']['unconstrained_plane_coefficients'][1]
     lower_y=m.top_center_y-m.center_span
-    lower_delta=lower_y+23.55*scale[1]
-    upper_tools=[exterior_cutter(asset,1,1,(-m.upper_jaw_width/2-1,m.upper_jaw_width/2+1,i.top_pad_z_min,i.top_pad_z_max),scale,i.shell_surface_grid_mm).moved(Location((0,upper_delta,0)))]
-    lower_tools=[exterior_cutter(asset,1,-1,(-m.lower_jaw_width/2-1,m.lower_jaw_width/2+1,i.lower_pad_z_min,i.lower_pad_z_max),scale,i.shell_surface_grid_mm).moved(Location((0,lower_delta,0)))]
-    upper_cutters=[s.moved(Location((0,upper_delta,0))) for s in cutters]
-    lower_cutters=[s.moved(Location((0,lower_delta,0))) for s in cutters]
-    upper_clearance_cutters=[s.moved(Location((0,upper_delta,0))) for s in clearance_cutters]
-    lower_clearance_cutters=[s.moved(Location((0,lower_delta,0))) for s in clearance_cutters]
-    rear_blank=box(-m.rear_support_width/2,m.rear_support_width/2,-m.rear_support_height/2,m.rear_support_height/2,i.rear_block_back_z,4)
-    proud=m.pad_proud_uncompressed-m.pad_compression
-    back_rim=subtract_shifted(rear_blank,rear_tools,(0,0,-proud))
-    pocket=box(-i.rear_pocket_width/2,i.rear_pocket_width/2,-i.rear_pocket_height/2,i.rear_pocket_height/2,-25,4)
-    back_floor=subtract_shifted(rear_blank,rear_tools,(0,0,-(m.back_pad_thickness-m.pad_compression)))
-    back=back_rim-(pocket-back_floor)
-    contact_back=subtract_shifted(rear_blank,rear_tools,(0,0,0))
-    back_pad=subtract_shifted((contact_back-back_floor)&pocket,cutters,(0,0,0))
-    back-=back_pad
-    back=subtract_shifted(back,clearance_cutters,(0,0,0))
-    # Central load path, lower seat, fixed backplate and lower jaw.
-    fixed_frame=box(-i.frame_outer_half_width,i.frame_outer_half_width,-25,75,-29,-23)-box(-i.frame_slot_half_width,i.frame_slot_half_width,i.frame_slot_min_y,76,-30,-22)
-    cradle=back+fixed_frame+box(-i.slider_width/2,i.slider_width/2,i.lower_guide_seat_top_y-i.lower_seat_length,i.lower_guide_seat_top_y,i.guide_z-i.slider_depth/2+1,i.frame_front_z)
-    lower_blank=box(-m.lower_jaw_width/2,m.lower_jaw_width/2,lower_y-7,lower_y+8,i.lower_pad_z_min,i.lower_pad_z_max)
-    # Extend into the notch before subtracting the exterior: this supports
-    # the complete contoured pad rather than leaving its middle floating.
-    lower_rim=subtract_shifted(lower_blank,lower_tools,(0,-proud,0))
-    lower_floor=subtract_shifted(lower_blank,lower_tools,(0,-(m.jaw_pad_thickness-m.pad_compression),0))
-    lower_pocket=box(-m.lower_jaw_width/2+2,m.lower_jaw_width/2-2,lower_y-9,lower_y+4,i.lower_pad_z_min,i.lower_pad_z_max)
-    lower=lower_rim-(lower_pocket-lower_floor)
-    lower_depth_delta=m.bottom_center_depth-26.
-    lower+=box(-m.lower_jaw_width/2,m.lower_jaw_width/2,lower_y-7,lower_y-3,-29,24+lower_depth_delta)
-    lower+=box(-m.lower_jaw_width/2,m.lower_jaw_width/2,lower_y-7,lower_y+3,i.jaw_front_lip_z+lower_depth_delta,i.jaw_front_end_z+lower_depth_delta)
-    if lower_y-3 < -31:
-        lower+=box(-m.lower_jaw_width/2,m.lower_jaw_width/2,lower_y-7,-30,-29,-23)
-    lower_pad_blank=box(-m.lower_jaw_width/2+2,m.lower_jaw_width/2-2,lower_y-5,lower_y+4,i.lower_pad_z_min,i.lower_pad_z_max)
-    lower_pad=subtract_shifted(lower_pad_blank,lower_tools,(0,0,0))-subtract_shifted(lower_pad_blank,lower_tools,(0,-(m.jaw_pad_thickness-m.pad_compression),0))
-    lower_pad=subtract_shifted(lower_pad,lower_cutters,(0,0,0))
-    lower-=lower_pad
-    lower=subtract_shifted(lower,lower_clearance_cutters,(0,0,0))
-    cradle+=lower
-    # Pivot hub and a stout web: no structure reaches the two grip backs.
-    moving_start=i.pivot_fixed_face_x+i.tooth_height+t.tooth_axial_clearance
-    hub=cyl(i.pivot_disc_radius,i.pivot_moving_x_max-moving_start,((moving_start+i.pivot_moving_x_max)/2,i.pivot_pad_y,i.pivot_pad_z),"x")
-    for tooth in serrations(p,False):
-        hub+=tooth
-    hub-=cyl((h.pivot_bolt_d+t.clearance_hole)/2,32,(-3,i.pivot_pad_y,i.pivot_pad_z),"x")
-    cradle+=hub+box(-14,8,-31,-19,i.pivot_pad_z,-23)
-    # Pointer is just outside the moving disk; it reads the fixed outer ring.
-    cradle+=box(moving_start, moving_start+2,i.pivot_pad_y+25,i.pivot_pad_y+32,i.pivot_pad_z-.4,i.pivot_pad_z+.4)
-    for x in (-i.guide_x,i.guide_x):
-        cradle-=cyl((h.guide_d+t.guide_socket_clearance)/2,6.2,(x,i.lower_guide_seat_top_y-3,i.guide_z),"y")
-    # Cap screws enter from rear into these two heat-set inserts.
-    for x in (-i.cap_bolt_x,i.cap_bolt_x):
-        cradle-=cyl(h.cap_insert_pilot/2,h.cap_insert_length+.3,(x,71,-27),"z")
-    # Preserve real clearance at the sharp center-notch facets where the
-    # sampled outer surface otherwise crosses the asset by a fraction of mm.
-    # Trimming the sampled notch against actual CoACD facets leaves one
-    # disconnected sub-millimetre chip (0.238 mm3 in this asset). It has no
-    # load path and cannot be printed as part of the jaw; remove that chip.
-    pieces=sorted(cradle.solids(),key=lambda s:s.volume,reverse=True)
-    if len(pieces)>1 and sum(s.volume for s in pieces[1:])<1.0:
-        cradle=pieces[0]
-    add("cradle_lower_jaw",cradle,rotation=(0,90,0),note="Actual asset shell subtraction and sampled exterior pocket, narrow central backrest, integrated lower jaw. Hirth face up; support below webs.")
-
-    upper_y=m.top_center_y
-    upper_blank=box(-m.upper_jaw_width/2,m.upper_jaw_width/2,upper_y-8,upper_y+6,i.top_pad_z_min,i.top_pad_z_max)
-    upper_rim=subtract_shifted(upper_blank,upper_tools,(0,proud,0))
-    upper_floor=subtract_shifted(upper_blank,upper_tools,(0,m.jaw_pad_thickness-m.pad_compression,0))
-    upper_pocket=box(-m.upper_jaw_width/2+2,m.upper_jaw_width/2-2,upper_y-2,upper_y+8,i.top_pad_z_min,i.top_pad_z_max)
-    upper=upper_rim-(upper_pocket-upper_floor)
-    upper_depth_delta=m.top_center_depth-28.
-    upper+=box(-m.upper_jaw_width/2,m.upper_jaw_width/2,upper_y+1,upper_y+6,-30,i.jaw_front_end_z+upper_depth_delta)
-    upper+=box(-m.upper_jaw_width/2,m.upper_jaw_width/2,m.top_lip_y_min,upper_y+6,i.jaw_front_lip_z+upper_depth_delta,i.jaw_front_end_z+upper_depth_delta)
-    upper_pad_blank=box(-m.upper_jaw_width/2+2,m.upper_jaw_width/2-2,upper_y-3,upper_y+5,i.top_pad_z_min,i.top_pad_z_max)
-    upper_pad=subtract_shifted(upper_pad_blank,upper_tools,(0,0,0))-subtract_shifted(upper_pad_blank,upper_tools,(0,m.jaw_pad_thickness-m.pad_compression,0))
-    upper_pad=subtract_shifted(upper_pad,upper_cutters,(0,0,0))
-    upper-=upper_pad
-    upper=subtract_shifted(upper,upper_clearance_cutters,(0,0,0))
-    sy0=i.slider_center_y-i.slider_length/2;sy1=i.slider_center_y+i.slider_length/2
-    sz0=i.guide_z-i.slider_depth/2;sz1=i.guide_z+i.slider_depth/2
-    slider=box(-i.slider_width/2,i.slider_width/2,sy0,sy1,sz0,sz1)+box(-m.upper_jaw_width/2,m.upper_jaw_width/2,sy1-i.upper_spine_overlap,upper_y+5,sz1-2,i.frame_front_z)+upper
-    for x in (-i.guide_x,i.guide_x):
-        slider-=cyl((h.guide_d+t.guide_diametral_clearance)/2,44,(x,12,i.guide_z),"y")
-    slider-=cyl(h.lock_insert_pilot/2,h.lock_insert_length+.2,(0,i.lock_center_y,-47),"z")
-    slider-=cyl((h.lock_bolt_d+t.clearance_hole)/2,24,(0,i.lock_center_y,-39),"z")
-    # Integral travel stops: shoulder seat prevents 64 mm undersize; separate
-    # cap limits extension before the spring approaches solid height.
-    add("slider_upper_jaw",slider,rotation=(-90,0,0),note="Slide on two printed rods. M4x25 locking screw + 3 mm printed spacer + 1 mm washer; insert from rear, screw bears on fixed backplate.")
-    spacer=cyl(5,3,(0,i.lock_center_y,-51.5))-cyl(2.25,4,(0,i.lock_center_y,-51.5))
-    add("lock_screw_spacer",spacer)
-    cap=box(-i.cap_outer_half_width,i.cap_outer_half_width,62,75,-49,-29)-box(-11,11,61,76,-36,-28)
-    for x in (-i.guide_x,i.guide_x):
-        stop_y=i.slider_spring_seat_y+(i.slider_max_span-m.center_span)
-        sleeve=cyl(i.spring_stop_outer_d/2,i.cap_spring_seat_y-stop_y+.2,(x,(stop_y+i.cap_spring_seat_y)/2+.1,i.guide_z),"y")
-        cap+=sleeve
-        cap-=cyl((h.guide_d+t.guide_socket_clearance)/2,i.guide_max_y-stop_y+.2,(x,(stop_y+i.guide_max_y)/2,i.guide_z),"y")
-    for x in (-i.cap_bolt_x,i.cap_bolt_x):
-        cap-=cyl((h.cap_bolt_d+t.clearance_hole)/2,24,(x,71,-39),"z")
-        cap-=cyl(3.2,3.2,(x,71,-47.5),"z")
-    add("guide_cap",cap,rotation=(-90,0,0),note="Remove to fit rails, slider and springs; 2x M3x22 screws into cradle inserts. Broad end down, sleeves point upward.")
-    for n,x in enumerate((-i.guide_x,i.guide_x),1):
-        rail=cyl(h.guide_d/2,i.guide_max_y-i.guide_min_y,(x,(i.guide_max_y+i.guide_min_y)/2,i.guide_z),"y")
-        add(f"guide_rod_{n}",rail,rotation=(-90,0,0),note="Print vertical with brim; sand lightly, do not lubricate contact pads.")
-    # Hand knob traps an ordinary M6 nut; axial bolt and washer are hardware.
-    knob_x=i.pivot_moving_x_max+h.pivot_washer_thickness+i.knob_thickness/2
-    knob=cyl(i.knob_radius,i.knob_thickness,(knob_x,i.pivot_pad_y,i.pivot_pad_z),"x")
-    for k in range(8):
-        a=k*math.pi/4
-        knob-=cyl(5,18,(knob_x,i.pivot_pad_y+22*math.cos(a),i.pivot_pad_z+22*math.sin(a)),"x")
-    knob-=cyl((h.pivot_bolt_d+t.clearance_hole)/2,18,(knob_x,i.pivot_pad_y,i.pivot_pad_z),"x")
-    knob-=hex_prism(h.pivot_nut_af+t.nut_af_clearance,h.pivot_nut_height+2.0,(22,i.pivot_pad_y,i.pivot_pad_z),"x")
-    add("M6_hand_knob",knob,rotation=(0,-90,0),note="M6 nut pocket opens outward; washer between knob and hub. Nut is not a heat-set insert.")
-
-    # Standard hardware is represented separately (threads intentionally omitted).
-    bolt_start=i.column_x_min-h.pivot_washer_thickness
-    bolt=cyl(h.pivot_bolt_d/2,h.pivot_bolt_length,(bolt_start+h.pivot_bolt_length/2,i.pivot_pad_y,i.pivot_pad_z),"x")+cyl(5,6,(bolt_start-3,i.pivot_pad_y,i.pivot_pad_z),"x")
-    add("hardware_M6x60_axis_bolt",bolt,"Steel")
-    for n,xx in enumerate((i.column_x_min-h.pivot_washer_thickness/2,i.pivot_moving_x_max+h.pivot_washer_thickness/2),1):
-        washer=cyl(h.pivot_washer_od/2,h.pivot_washer_thickness,(xx,i.pivot_pad_y,i.pivot_pad_z),"x")-cyl(3.2,3,(xx,i.pivot_pad_y,i.pivot_pad_z),"x")
-        add(f"hardware_M6_washer_{n}",washer,"Steel")
-    nut=hex_prism(h.pivot_nut_af,h.pivot_nut_height,(21,i.pivot_pad_y,i.pivot_pad_z),"x")-cyl(3.05,8,(21,i.pivot_pad_y,i.pivot_pad_z),"x")
-    add("hardware_M6_nut",nut,"Steel")
-    for n,x in enumerate((-i.guide_x,i.guide_x),1):
-        spring_length=i.cap_spring_seat_y-i.slider_spring_seat_y-h.spring_wire
-        rad=(h.spring_od-h.spring_wire)/2
-        pitch=spring_length/h.spring_active_coils
-        path=Helix(pitch=pitch,height=spring_length,radius=rad)
-        profile=Plane(origin=(rad,0,0),z_dir=(0,rad*2*math.pi,pitch))*Circle(h.spring_wire/2)
-        spring=sweep(profile,path=path).moved(Location((x,i.slider_spring_seat_y+h.spring_wire/2,i.guide_z),(-90,0,0)))
-        add(f"hardware_compression_spring_{n}",spring,"Spring_steel",note="Nominal installed coil envelope; exact vendor end turns are not modelled.")
-
-    # Sheet pads are separate thin geometries at their compressed assembly
-    # thickness. TPU is optional and exported at free thickness separately.
-    padmat="TPU95A" if m.use_printed_tpu_pads else m.pad_material
-    add("pad_back",back_pad,padmat,note="2 mm stock, 1.5 mm recess, assumed 0.25 mm compression.")
-    add("pad_lower_jaw",lower_pad,padmat)
-    add("pad_upper_jaw",upper_pad,padmat)
-    bottom=box(*pad_outline,0,m.base_pad_thickness-m.base_pad_compression)
+    uw=m.upper_jaw_width/2;lw=m.lower_jaw_width/2;rw=m.rear_support_width/2
+    by0=m.rear_center_y-m.rear_support_height/2;by1=m.rear_center_y+m.rear_support_height/2
+    if by0<m.battery_seam_y_max+2:raise ValueError('Back contact overlaps the measured battery seam/latch exclusion; move the back contact window')
+    if m.upper_jaw_width>m.shoulder_inner_gap-2:raise ValueError('Upper jaw leaves less than1mm per shoulder; update the caliper widths/contact window')
+    # Structural datum: vertical post on edge band, integer base/flange/height.
+    F_R=Rotation.from_euler('x',i.tilt_deg,degrees=True).as_matrix()
+    Fworld=np.array([[0,1,0],[-1,0,0],[0,0,1.]])
+    base_z=m.user_base_pad_thickness-m.user_base_pad_compression
+    base_t=i.aluminum_thickness if i.aluminum_base else i.printed_base_thickness
+    floor=base_z+base_t;axis_z=floor+i.flange_thickness+i.column_height_to_axis
+    support=np.array([0.,m.rear_center_y,m.rear_plane_z])
+    pivot=support-F_R.T@np.array([0,0,i.support_to_axis_vertical])
+    pivot_F=np.array([0.,i.column_center_y,axis_z]);root_F=pivot_F-F_R@pivot
+    W=np.eye(4);W[:3,:3]=Fworld@F_R;W[:3,3]=np.array([i.table_edge_x,i.table_center_y,i.tabletop_z])+Fworld@root_F
+    Fpad=np.eye(4);Fpad[:3,:3]=F_R;Fpad[:3,3]=root_F;padF=np.linalg.inv(Fpad)
+    Ppivot=Location(tuple(pivot));parts={};meta={};modifiers={};cuts=[];cut_shapes={};ribs=[];contacts=[]
+    def add(name,shape,material='PETG',fixed=False,rotation=(0,0,0),note=''):
+        if fixed:shape=shape.moved(location(padF))
+        shape.label=name;parts[name]=shape
+        meta[name]=dict(name=name,material=material,is_printed=material in ('PETG','TPU95A'),fixed_in_base_frame=fixed,
+                        print_rotation_deg=list(rotation),note=note)
+    def cut(name,shape,tool,label,fixed=False,allowed=None):
+        removed=shape & tool;after=shape-tool
+        if removed.volume>1e-6:
+            if fixed:removed=removed.moved(location(padF))
+            key=f'{name}_{len(cuts):03d}_{label}';cut_shapes[key]=removed
+            rb=bounds(removed)
+            # Independent allowed tool envelope includes exact intended extent;
+            # audit tests removed material cannot escape this specified region.
+            toolpad=tool.moved(location(padF)) if fixed else tool
+            cuts.append(dict(part=name,name=label,before_volume_mm3=shape.volume,after_volume_mm3=after.volume,
+                removed_volume_mm3=removed.volume,removed_bounds_pad_mm=rb,allowed_bounds_pad_mm=allowed or bounds(toolpad),
+                removed_mesh=f'cuts/{key}.stl',forbidden_parts=[]))
+        return after
+    # Flat full-width edge band; no pressure shoes, spreaders or underside pocket.
+    base=box(-i.base_width/2,i.base_width/2,-i.base_depth,0,base_z,floor)
+    cy=i.column_center_y
     for x in (-i.bolt_x,i.bolt_x):
-        for y in i.bolt_y:
-            bottom-=cyl(6,2,(x,y,.5))
-    add("pad_base_bottom",bottom,padmat,True,rotation=(angle,0,0))
-    zone=box(-i.base_width/2,i.base_width/2,-i.clamp_band_depth,0,base_float,flange_z)
-    modifiers["base_clamp_band"]=zone.moved(pad_from_F)
-    for n,side in enumerate((-1,1),1):
-        x=side*i.clamp_center_x; y=i.clamp_center_y
-        sx,sy=i.clamp_zone_width/2,i.clamp_zone_depth/2
-        # Both shoe faces have a shallow rectangular recess. Pad proud .5 mm
-        # uncompressed; no circular socket which would concentrate load.
-        bottomface=flange_z+(m.pad_proud_uncompressed-m.pad_compression)
-        topface=bottomface+i.pressure_shoe_thickness
-        shoe=box(x-sx,x+sx,y-sy,y+sy,bottomface,topface)
-        shoe_recess=m.shoe_pad_thickness-m.pad_proud_uncompressed
-        shoe-=box(x-sx+1,x+sx-1,y-sy+1,y+sy-1,bottomface-.1,bottomface+shoe_recess)
-        shoe-=box(x-sx+1,x+sx-1,y-sy+1,y+sy-1,topface-shoe_recess,topface+.1)
-        add(f"pressure_shoe_{n}",shoe,fixed=True,rotation=(angle+90,0,0),note="Print on narrow edge, entire shoe 100% infill, >=6 walls, >=8 top/bottom; both faces carry 1 mm sheet pads.")
-        for face,z in (("lower",flange_z),("upper",topface-shoe_recess)):
-            pad=box(x-sx+1,x+sx-1,y-sy+1,y+sy-1,z,z+m.shoe_pad_thickness-m.pad_compression)
-            add(f"pad_shoe_{n}_{face}",pad,padmat,True,rotation=(angle,0,0))
-        washer_z=topface+m.pad_proud_uncompressed-m.pad_compression+h.clamp_spreader_thickness/2
-        washer=cyl(h.clamp_spreader_od/2,h.clamp_spreader_thickness,(x,y,washer_z))-cyl(h.clamp_spreader_id/2,h.clamp_spreader_thickness+1,(x,y,washer_z))
-        add(f"hardware_M8_wide_spreader_{n}",washer,"Steel",True,note="DIN 9021 M8, 24 OD x 8.4 ID x 2.0; C-clamp foot bears on this standard washer above the sheet pad.")
-
-    # Mechanical target reconstruction uses the manufactured pivot datum and
-    # the key angle, not copying root_pose as the measured result.
-    actual_R_F=Rotation.from_euler("x",angle,degrees=True).as_matrix()
-    actual_R_world=world_F@actual_R_F
-    actual_root=datum+world_F@(pivot_F-actual_R_F@np.array([0,i.pivot_pad_y,i.pivot_pad_z]))
-    world_from_pad=np.eye(4);world_from_pad[:3,:3]=actual_R_world;world_from_pad[:3,3]=actual_root
-    return parts,modifiers,{"design_revision":i.layout_revision,"modifier_expected_volumes_mm3":{"base_clamp_band":i.base_width*i.clamp_band_depth*base_t-(i.base_width-8)*(i.clamp_band_depth-4)*(m.base_pad_thickness-m.pad_proud_uncompressed)},"parameters":dataclasses.asdict(p),"parts":list(meta.values()),
-        "world_from_pad":world_from_pad.tolist(),"target_root_pose":pose,
-        "fixed_frame_world_axes":world_F.tolist(),"fixed_frame_world_origin_mm":datum.tolist(),
-        "pivot_base_mm":pivot_F.tolist(),"pivot_pad_mm":[0,i.pivot_pad_y,i.pivot_pad_z],
-        "key_angle_deg":angle,"mark_label_deg":i.major_mark_deg,"clocking_offset_deg":angle-i.major_mark_deg,
-        "base_bottom_rigid_plane_above_table_mm":base_float,
-        "nominal_span_mm":m.center_span,"jaw_span_range_mm":[i.slider_min_span,i.slider_max_span],
-        "mechanics":mechanics(p),"source_scene":str(SCENE.relative_to(ROOT)),
-        "assembly_frame":"controller local, mm; world_from_pad includes mm translation"}
-
-
-def flat_pad(name,p):
-    """Flexible TPU prints flat at free thickness, then conforms on assembly."""
-    m,i=p.measured,p.installation
-    if name=="pad_base_bottom":
-        w,d,t=i.base_width-8,i.base_depth-8,m.base_pad_thickness
-    elif name=="pad_back":
-        w,d,t=i.rear_pocket_width,i.rear_pocket_height,m.back_pad_thickness
-    elif name=="pad_upper_jaw":
-        w,d,t=m.upper_jaw_width-4,i.top_pad_z_max-i.top_pad_z_min,m.jaw_pad_thickness
-    elif name=="pad_lower_jaw":
-        w,d,t=m.lower_jaw_width-4,i.lower_pad_z_max-i.lower_pad_z_min,m.jaw_pad_thickness
-    else:
-        w,d,t=i.clamp_zone_width-2,i.clamp_zone_depth-2,m.shoe_pad_thickness
-    shape=box(-w/2,w/2,-d/2,d/2,0,t)
-    if name=="pad_base_bottom":
-        for x in (-i.bolt_x,i.bolt_x):
-            for y in i.bolt_y:
-                shape-=cyl(6,t+2,(x,y+i.base_depth/2,t/2))
-    return shape
+        for y in (cy-i.bolt_dy,cy+i.bolt_dy):
+            if i.aluminum_base:
+                tool=cyl(h.aluminum_tap_drill_d/2,h.aluminum_tap_depth+.2,(x,y,floor-h.aluminum_tap_depth/2+.1))
+            else:tool=cyl(h.base_insert_pilot/2,h.base_insert_pilot_depth+.2,(x,y,floor-h.base_insert_pilot_depth/2+.1))
+            base=cut('base_aluminum' if i.aluminum_base else 'base_printed',base,tool,'top_insert',True)
+    add('base_aluminum' if i.aluminum_base else 'base_printed',base,'Aluminum_6061' if i.aluminum_base else 'PETG',True,rotation=(i.tilt_deg,0,0),note='Flat underside down. Entire 30 mm edge band uses one 100% infill modifier; no fixed clamp locations.')
+    flange=box(-45,45,cy-25,cy+25,floor,floor+8)
+    column=flange+box(-18,18,cy-16,cy+16,floor+7,axis_z-36)+box(-29,29,cy-16,cy+16,axis_z-65,axis_z-36)
+    # Two identical ears; circular heads blend into vertical cheek stems.
+    for side in (-1,1):
+        x0,x1=(-29,-21) if side<0 else (21,29)
+        ear=cyl(34,8,((x0+x1)/2,cy,axis_z),'x')
+        ear+=box(x0,x1,cy-16,cy+16,axis_z-65,axis_z)
+        column+=ear
+        xg0,xg1=(-24,-18) if side<0 else (18,24)
+        # yz-plane trapezoid keeps 2 mm blunt ends; gussets lie in the main
+        # fore/aft bending plane, outside the upright, one on each side.
+        rib=prism([(xg0,cy-24,floor+7),(xg0,cy+24,floor+7),(xg0,cy+24,floor+9),(xg0,cy+12,floor+43),(xg0,cy-12,floor+43),(xg0,cy-24,floor+9)],(6,0,0))
+        column+=rib
+        ribs.append(dict(part='column',side=side,plane_normal=[1,0,0],load_plane_normal=[1,0,0],bounds_base_mm=bounds(rib)))
+    for x in (-35,35):
+        for y in (cy-16,cy+16):column=cut('column',column,cyl(2.75,10,(x,y,floor+4)),'top_down_M5',True)
+    column=cut('column',column,cyl(4.3,12,(-25,cy,axis_z),'x'),'left_axis',True)
+    column=cut('column',column,cyl(6.25,12,(25,cy,axis_z),'x'),'right_sliding_sleeve',True)
+    # Fixed ring screws in top/front/rear positions, without cutting the root.
+    for a in (0,120,240):
+        y=cy+h.ring_mount_radius*math.cos(math.radians(a+i.tilt_deg));z=axis_z+h.ring_mount_radius*math.sin(math.radians(a+i.tilt_deg))
+        column=cut('column',column,cyl(1.6,10,(-25,y,z),'x'),'fixed_ring_M3',True)
+        column=cut('column',column,hex_prism(5.8,3.,(-27.6,y,z),'x').rotate(Axis((-27.6,y,z),(1,0,0)),i.tilt_deg),'fixed_ring_nut',True)
+    add('column',column,'PETG',True,rotation=(i.tilt_deg,0,0),note='Vertical symmetric fork. Base bolts enter from above into base heat-set M5 inserts; no nut access channels. Support horizontal axis holes.')
+    # Hirth surfaces in pivot coordinates. Fixed teeth clocked with assembled
+    # cradle; only one pair locates, opposite sleeve slides axially (no spring).
+    for name,moving in (('hirth_fixed',False),('hirth_moving',True)):
+        ring=hirth(p,moving)
+        ring=cut(name,ring,cyl(4.3,25,(-17,0,0),'x'),'M8_axis')
+        for a in ((60,180,300) if moving else (0,120,240)):
+            y,z=h.ring_mount_radius*math.cos(math.radians(a)),h.ring_mount_radius*math.sin(math.radians(a))
+            ring=cut(name,ring,cyl(1.7,25,(-17,y,z),'x'),'M3_mount')
+        # Only three readable marks, no tiny numbers or protruding pointer.
+        if not moving:
+            for d in (-10,0,10):
+                tick=box(-17.9,-16.9,30.8,34.2,-.65,.65).rotate(Axis.X,d)
+                ring=cut(name,ring,tick,'index_groove')
+        else:
+            ring=cut(name,ring,box(-12.1,-11.1,30.8,34.2,-.65,.65),'alignment_groove')
+        # Cut audit coordinates above were pivot-local; update to pad-local.
+        for row in cuts:
+            if row['part']==name:
+                key=Path(row['removed_mesh']).stem;cut_shapes[key]=cut_shapes[key].moved(Ppivot)
+                row['removed_bounds_pad_mm']=bounds(cut_shapes[key]);row['allowed_bounds_pad_mm']=(np.asarray(row['allowed_bounds_pad_mm'])+pivot).tolist()
+        add(name,ring.moved(Ppivot),rotation=(0,90 if moving else -90,0),note='Toothed face UP, 0.08-0.12 mm layers. Constant 60 deg flank; fixed tip/root 1.1/.9 mm; .2 mm tip/root relief, touching loaded flanks.')
+    # Fixed carrier frame and lower jaw. All three contact seats are planes.
+    c=m.pad_compression;proud=m.pad_proud_uncompressed-c;tc=m.jaw_pad_thickness-c;bc=m.back_pad_thickness-c
+    upper=m.top_center_y;back=m.rear_plane_z
+    frame=cut('cradle_lower_jaw',box(-28,28,-31,75,-30,-24),box(-22,22,15,76,-31,-23),'frame_window')
+    rear=box(-rw,rw,by0,by1,-25,back-proud)
+    rear=cut('cradle_lower_jaw',rear,box(-rw+2,rw-2,by0+1,by1-1,back-bc,back+1),'back_pad_pocket')
+    backpad=box(-rw+2,rw-2,by0+1,by1-1,back-bc,back)
+    back_tilt=math.degrees(math.atan(m.rear_plane_slope))
+    back_axis=Axis((0,m.rear_center_y,back),(1,0,0))
+    rear=rear.rotate(back_axis,back_tilt);backpad=backpad.rotate(back_axis,back_tilt)
+    # Contact-pocket audit follows the same rigid plane rotation.
+    for row in cuts:
+        if row['name']=='back_pad_pocket':
+            key=Path(row['removed_mesh']).stem;cut_shapes[key]=cut_shapes[key].rotate(back_axis,back_tilt)
+            row['removed_bounds_pad_mm']=bounds(cut_shapes[key]);row['allowed_bounds_pad_mm']=row['removed_bounds_pad_mm']
+    lower=box(-lw,lw,lower_y-7,lower_y-proud,-30,i.jaw_front_end_z)
+    lower=cut('cradle_lower_jaw',lower,box(-lw+2,lw-2,lower_y-tc,lower_y+1,i.lower_pad_z_min,i.lower_pad_z_max),'lower_pad_pocket')
+    lower+=box(-lw,lw,lower_y-7,lower_y+3,i.jaw_front_lip_z,i.jaw_front_end_z)
+    lowerpad=box(-lw+2,lw-2,lower_y-tc,lower_y,i.lower_pad_z_min,i.lower_pad_z_max)
+    # Coarse lateral registration at the inner grip arcs, with clearance.
+    # These are stops, not extra preloaded locating planes. No grip-back rib.
+    for side in (-1,1):
+        x0,x1=(-m.lateral_stop_half_gap,-lw) if side<0 else (lw,m.lateral_stop_half_gap)
+        lower+=box(x0,x1,m.lateral_stop_y_min,m.lateral_stop_y_max,m.lateral_stop_z_min,m.lateral_stop_z_max)
+    # Lower spine overlaps frame and connects all regular faces to central hub.
+    cradle=frame+rear+lower+box(-18,18,-31,-17,-49,-24)
+    hub=cyl(32,18,(0,*pivot[1:]),'x')
+    web=box(-9,9,pivot[1]-8,-20,pivot[2],-24)
+    cradle+=hub+web
+    cradle=cut('cradle_lower_jaw',cradle,cyl(4.3,22,(0,*pivot[1:]),'x'),'M8_axis')
+    for a in (60,180,300):
+        y,z=pivot[1]+h.ring_mount_radius*math.cos(math.radians(a)),pivot[2]+h.ring_mount_radius*math.sin(math.radians(a))
+        cradle=cut('cradle_lower_jaw',cradle,cyl(1.6,20,(0,y,z),'x'),'moving_ring_M3')
+        cradle=cut('cradle_lower_jaw',cradle,hex_prism(5.8,3.,(7.6,y,z),'x'),'moving_ring_nut')
+    for x in (-i.guide_x,i.guide_x):cradle=cut('cradle_lower_jaw',cradle,cyl((h.guide_d+t.guide_socket_clearance)/2,6.2,(x,-20,-42),'y'),'guide_socket')
+    for x in (-i.cap_bolt_x,i.cap_bolt_x):cradle=cut('cradle_lower_jaw',cradle,cyl(h.cap_insert_pilot/2,6.2,(x,71,-27),'z'),'cap_insert')
+    min_stop=-8+(i.slider_min_span-m.center_span)
+    for x in (-10,10):
+        collar=cut('cradle_lower_jaw',cyl(4.1,min_stop+17,(x,(-17+min_stop)/2,-42),'y'),cyl(3.125,min_stop+17.2,(x,(-17+min_stop)/2,-42),'y'),'minimum_travel_collar')
+        cradle+=collar
+    add('cradle_lower_jaw',cradle,rotation=(0,90,0),note='Regular planar lower/back contacts. Print X side down; supports under jaw overhangs, keep contact pockets clean.')
+    upperjaw=box(-uw,uw,upper+proud,upper+7,-30,i.jaw_front_end_z)
+    upperjaw=cut('slider_upper_jaw',upperjaw,box(-uw+2,uw-2,upper-1,upper+tc,i.top_pad_z_min,i.top_pad_z_max),'upper_pad_pocket')
+    upperjaw+=box(-uw,uw,m.top_lip_y_min,upper+7,i.jaw_front_lip_z,i.jaw_front_end_z)
+    upperpad=box(-uw+2,uw-2,upper,upper+tc,i.top_pad_z_min,i.top_pad_z_max)
+    # Pair button and its mirror clear full travel. USB channel stays open to
+    # rear edge; preserve an intact rear load path outside the cable envelope.
+    pair_lo=m.pair_x_min-m.port_clearance-m.port_fit_allowance;pair_hi=m.pair_x_max+m.port_clearance+m.port_fit_allowance
+    pair_zlo=math.floor(m.pair_z_min-m.port_clearance);pair_zhi=math.ceil(m.pair_z_max+m.port_clearance+i.pair_slot_extra_z)
+    for x0,x1 in ((pair_lo,pair_hi),(-pair_hi,-pair_lo)):
+        tool=box(x0,x1,upper-.8,upper+8,pair_zlo,pair_zhi)
+        upperjaw=cut('slider_upper_jaw',upperjaw,tool,'pair_clearance')
+        upperpad=cut('pad_upper_jaw',upperpad,tool,'pair_clearance')
+    if i.keep_USB_cable:
+        tool=box(m.usb_x_min-m.port_clearance,m.usb_x_max+m.port_clearance,upper-.8,upper+8,i.USB_cable_back_z,m.usb_z_max+m.port_clearance)
+        upperjaw=cut('slider_upper_jaw',upperjaw,tool,'USB_cable_clearance');upperpad=cut('pad_upper_jaw',upperpad,tool,'USB_cable_clearance')
+    slider=box(-18,18,-8,32,-50,-34)+box(-uw,uw,25,upper+7,-35,-26.5)+upperjaw
+    for x in (-i.guide_x,i.guide_x):slider=cut('slider_upper_jaw',slider,cyl((h.guide_d+t.guide_diametral_clearance)/2,44,(x,12,-42),'y'),'guide_slide')
+    slider=cut('slider_upper_jaw',slider,cyl(h.lock_insert_pilot/2,6.2,(0,1,-47),'z'),'lock_insert')
+    slider=cut('slider_upper_jaw',slider,cyl(2.25,24,(0,1,-39),'z'),'lock_screw')
+    add('slider_upper_jaw',slider,rotation=(-90,0,0),note='40 mm upper jaw; relieved Pair/USB zones. Two springs preload lower datum; M4 set screw locks slide against frame.')
+    cap=cut('guide_cap',box(-i.cap_outer_half_width,i.cap_outer_half_width,62,75,-50,-30),box(-22,22,61,76,-36,-29),'frame_window')
+    max_stop=32+(i.slider_max_span-m.center_span)
+    for x in (-10,10):
+        cap+=cyl(4.1,62-max_stop+.2,(x,(62+max_stop)/2+.1,-42),'y')
+        cap=cut('guide_cap',cap,cyl(3.125,68-max_stop+.2,(x,(68+max_stop)/2,-42),'y'),'guide_socket')
+    for x in (-i.cap_bolt_x,i.cap_bolt_x):cap=cut('guide_cap',cap,cyl(1.75,24,(x,71,-40),'z'),'M3_cap_screw')
+    add('guide_cap',cap,rotation=(-90,0,0))
+    for n,x in enumerate((-10,10),1):
+        add(f'guide_rod_{n}',cyl(3,89,(x,21.5,-42),'y'),rotation=(-90,0,0),note='Print vertical with brim; guide socket coupon first.')
+        L=30-h.spring_wire;rad=(h.spring_od-h.spring_wire)/2;pitch=L/h.spring_active_coils
+        path=Helix(pitch=pitch,height=L,radius=rad)
+        spring=sweep(Plane(origin=(rad,0,0),z_dir=(0,rad*2*math.pi,pitch))*Circle(h.spring_wire/2),path=path)
+        add(f'hardware_compression_spring_{n}',spring.moved(Location((x,32+h.spring_wire/2,-42),(-90,0,0))),'Spring_steel')
+    add('lock_screw_spacer',cut('lock_screw_spacer',cyl(5,3,(0,1,-51.5)),cyl(2.25,4,(0,1,-51.5)),'M4_clearance'))
+    # M8 metal sleeve in right ear transmits shear and slides during release.
+    add('hardware_M8_sliding_sleeve',(cyl(6,22,(20,*pivot[1:]),'x')-cyl(4.2,24,(20,*pivot[1:]),'x')),'Steel',note='12 OD x 8.4 ID x 22 mm metal tube, axial slide >=4 mm; right ear double-shear support.')
+    knob_x=31+h.pivot_washer_thickness+i.knob_thickness/2
+    nut_x=knob_x+i.knob_thickness/2-h.pivot_nut_height/2-.15
+    knob=cyl(i.knob_radius,i.knob_thickness,(knob_x,*pivot[1:]),'x')
+    knob=cut('M8_hand_knob',knob,cyl((h.pivot_bolt_d+t.clearance_hole)/2,i.knob_thickness+2,(knob_x,*pivot[1:]),'x'),'M8_axis')
+    knob=cut('M8_hand_knob',knob,hex_prism(h.pivot_nut_af+t.nut_af_clearance,h.pivot_nut_height+.5,(nut_x,*pivot[1:]),'x'),'M8_nut')
+    add('M8_hand_knob',knob,rotation=(0,-90,0),note='60 mm diameter; target torque1.2 N m: hold knob and use a13mm torque wrench on the exposed LEFT bolt head. Optional Belleville washer below knob; no separating spring.')
+    bolt_start=-29-h.pivot_washer_thickness
+    add('hardware_M8_axis_bolt',cyl(h.pivot_bolt_d/2,h.pivot_bolt_length,(bolt_start+h.pivot_bolt_length/2,*pivot[1:]),'x')+hex_prism(h.pivot_nut_af,h.pivot_bolt_head_height,(bolt_start-h.pivot_bolt_head_height/2,*pivot[1:]),'x'),'Steel')
+    for n,x in enumerate((-29-h.pivot_washer_thickness/2,31+h.pivot_washer_thickness/2),1):add(f'hardware_M8_washer_{n}',cyl(h.pivot_washer_od/2,h.pivot_washer_thickness,(x,*pivot[1:]),'x')-cyl(h.pivot_bolt_d/2+.2,h.pivot_washer_thickness+.4,(x,*pivot[1:]),'x'),'Steel')
+    add('hardware_M8_nut',hex_prism(h.pivot_nut_af,h.pivot_nut_height,(nut_x,*pivot[1:]),'x')-cyl(h.pivot_bolt_d/2,h.pivot_nut_height+1.5,(nut_x,*pivot[1:]),'x'),'Steel')
+    for a in (0,120,240):
+        y,z=pivot[1]+h.ring_mount_radius*math.cos(math.radians(a)),pivot[2]+h.ring_mount_radius*math.sin(math.radians(a))
+        add(f'hardware_fixed_ring_M3_{a}',cyl(1.5,h.fixed_ring_bolt_length,(-17-h.fixed_ring_bolt_length/2,y,z),'x')+cyl(2.75,3,(-15.5,y,z),'x'),'Steel')
+        add(f'hardware_fixed_ring_nut_{a}',hex_prism(5.5,2.4,(-27.6,y,z),'x')-cyl(1.5,3,(-27.6,y,z),'x'),'Steel')
+    for a in (60,180,300):
+        y,z=pivot[1]+h.ring_mount_radius*math.cos(math.radians(a)),pivot[2]+h.ring_mount_radius*math.sin(math.radians(a))
+        add(f'hardware_moving_ring_M3_{a}',cyl(1.5,h.moving_ring_bolt_length,(-12+h.moving_ring_bolt_length/2,y,z),'x')+cyl(2.75,3,(-13.5,y,z),'x'),'Steel')
+        add(f'hardware_moving_ring_nut_{a}',hex_prism(5.5,2.4,(7.6,y,z),'x')-cyl(1.5,3,(7.6,y,z),'x'),'Steel')
+    for n,(x,y) in enumerate(( (x,y) for x in (-35,35) for y in (cy-16,cy+16))):
+        length=h.aluminum_base_bolt_length if i.aluminum_base else 16.
+        radius=2. if i.aluminum_base else 2.5
+        add(f'hardware_base_M5_{n}',cyl(radius,length,(x,y,floor+8-length/2))+cyl(4.25,5,(x,y,floor+10.5)),'Steel',True,note='Nominal M5x12, threaded core Ø4.0 only; M5x0.8 tapped6.5 deep in Ø4.2 pilot; tooth crests omitted' if i.aluminum_base else 'M5x16 top-down into8mm heat-set insert')
+    padmat='TPU95A' if m.use_printed_tpu_pads else m.pad_material
+    add('pad_back',backpad,padmat,rotation=(-back_tilt,0,0));add('pad_lower_jaw',lowerpad,padmat,rotation=(90,0,0));add('pad_upper_jaw',upperpad,padmat,rotation=(-90,0,0))
+    # Back plane (3), lower plane (2), clearance side stops (1 bounded).
+    # Upper jaw supplies preload; it is not a second rigid Y datum.
+    for label,normal,fitvalue,free,pad,rigid,window in (
+        ('upper',[0,1,0],upper,m.jaw_pad_thickness,'pad_upper_jaw','slider_upper_jaw',[-uw+2,uw-2,i.top_pad_z_min,i.top_pad_z_max]),
+        ('lower',[0,-1,0],-lower_y,m.jaw_pad_thickness,'pad_lower_jaw','cradle_lower_jaw',[-lw+2,lw-2,i.lower_pad_z_min,i.lower_pad_z_max]),
+        ('back',[0,math.sin(math.radians(back_tilt)),-math.cos(math.radians(back_tilt))],float(np.dot([0,math.sin(math.radians(back_tilt)),-math.cos(math.radians(back_tilt))],[0,m.rear_center_y,back])),m.back_pad_thickness,'pad_back','cradle_lower_jaw',[-rw+2,rw-2,by0+1,by1-1])):
+        contacts.append(dict(name=label,pad=pad,rigid_part=rigid,normal=normal,fit_offset_mm=fitvalue,
+            free_thickness_mm=free,compression_mm=c,compressed_thickness_mm=free-c,
+            groove_depth_mm=free-m.pad_proud_uncompressed,rigid_face_offset_mm=fitvalue+free-c,
+            rim_offset_mm=fitvalue+proud,probe_window_mm=window,plane_tilt_deg=back_tilt if label=='back' else 0.,
+            plane_point_mm=[0,m.rear_center_y,back] if label=='back' else [0,upper,0] if label=='upper' else [0,lower_y,0]))
+    modifiers['base_clamp_band']=box(-120,120,-min(i.clamp_band_depth,i.table_edge_to_apron),0,base_z,floor).moved(location(padF))
+    q=Rotation.from_matrix(W[:3,:3]).as_quat();pose=(W[:3,3]/1000).tolist()+[q[3],q[0],q[1],q[2]]
+    openings=json.loads(json.dumps(OPENINGS))
+    for opening in openings:
+        if opening['name']=='pair_button':
+            opening['bounds_pad_mm']=[[m.pair_x_min-m.port_clearance,upper-.3,m.pair_z_min-m.port_clearance],[m.pair_x_max+m.port_clearance,upper+7,m.pair_z_max+m.port_clearance]]
+        elif opening['name']=='USB':
+            opening['bounds_pad_mm']=[[m.usb_x_min-m.port_clearance,upper-6,m.usb_z_min-m.port_clearance],[m.usb_x_max+m.port_clearance,upper+7,m.usb_z_max+m.port_clearance-.5]]
+        if opening['name'] in ('headphone','extension'):
+            opening['bounds_pad_mm'][0][1]=lower_y
+            if opening['name']=='headphone':opening['bounds_pad_mm'][0][0]=m.headphone_x_min-m.port_clearance;opening['bounds_pad_mm'][1][0]=m.headphone_x_max+m.port_clearance
+            else:opening['bounds_pad_mm'][0][0]=m.extension_x_min-m.port_clearance;opening['bounds_pad_mm'][1][0]=m.extension_x_max+m.port_clearance
+            opening['source']+='; entry boundary is the asset-measured lower support plane, replacing rounded y=-24 estimate; planar bridge stays outside the aperture'
+    manifest=dict(design_revision=i.layout_revision,parameters=dataclasses.asdict(p),parts=list(meta.values()),world_from_pad=W.tolist(),
+        target_root_pose=pose,derived_root_pose=pose,fixed_frame_world_axes=Fworld.tolist(),fixed_frame_world_origin_mm=[i.table_edge_x,i.table_center_y,i.tabletop_z],
+        pivot_base_mm=pivot_F.tolist(),pivot_pad_mm=pivot.tolist(),key_angle_deg=i.tilt_deg,mark_label_deg=40.,clocking_offset_deg=i.tilt_deg-40,
+        base_bottom_rigid_plane_above_table_mm=base_z,nominal_span_mm=m.center_span,jaw_span_range_mm=[i.slider_min_span,i.slider_max_span],
+        source_scene=str(SCENE.relative_to(ROOT)),mechanics=mechanics(p),contact_fit=fit,contact_planes=contacts,openings=openings,
+        cut_audit=cuts,ribs=ribs,printability_exemptions=[],support_regions=[],
+        clamp_usable_segments_base_x_mm=[[-120,-45],[45,120]],clamp_usable_length_mm=150.,
+        symmetry=dict(plane='pad x=0',structural_parts=['base_aluminum' if i.aluminum_base else 'base_printed','column','cradle_lower_jaw','slider_upper_jaw','guide_cap'],
+            exceptions=['Left Hirth locates; right sliding metal sleeve releases without bending fork','Three ring screw holes are functional single-side fasteners','Knob, nut pocket and readable index grooves are single-sided']),
+        modifier_expected_volumes_mm3={'base_clamp_band':(parts['base_aluminum' if i.aluminum_base else 'base_printed'] & modifiers['base_clamp_band']).volume},
+        assembly_frame='controller local mm',feasible_region=dict(depth_mm=[25,75],height_mm=[190,250]),physical_pose_certified=False)
+    # Exact regular rear-contact collision primitives, in the same fitted
+    # plane frame as CAD. Residual structure can be coarsened independently.
+    B=np.eye(4);B[:3,:3]=Rotation.from_euler('x',back_tilt,degrees=True).as_matrix()
+    B[:3,3]=np.array([0,m.rear_center_y,back])-B[:3,:3]@np.array([0,m.rear_center_y,back])
+    rear_boxes=[[-rw,rw,by0,by1,-25,back-bc],[-rw,-rw+2,by0,by1,back-bc,back-proud],
+        [rw-2,rw,by0,by1,back-bc,back-proud],[-rw+2,rw-2,by0,by0+1,back-bc,back-proud],
+        [-rw+2,rw-2,by1-1,by1,back-bc,back-proud]]
+    def record_box(v):return dict(bounds_mm=[[v[0],v[2],v[4]],[v[1],v[3],v[5]]],pad_from_box_frame=B.tolist())
+    manifest['collision_overrides']={'cradle_lower_jaw':dict(residual_mesh='simulation/cradle_without_backrest_mm.stl',boxes=[record_box(v) for v in rear_boxes]),
+        'pad_back':dict(boxes=[record_box([-rw+2,rw-2,by0+1,by1-1,back-bc,back])])}
+    manifest['_collision_shapes']={'cradle_without_backrest_mm':cradle-rear}
+    manifest['_cut_shapes']=cut_shapes
+    return parts,modifiers,manifest
 
 
 def export_simulation(out,manifest):
-    """glTF uses metres. STEP/STL and world_from_pad retain CAD millimetres."""
     from trimesh.visual.material import PBRMaterial
     from trimesh.visual.texture import TextureVisuals
     sim=trimesh.Scene()
-    for part in manifest["parts"]:
-        name,material=part["name"],part["material"]
-        mesh=trimesh.load(out/"assembly_mesh"/(name+".stl"),force="mesh")
-        mesh.apply_scale(.001);mesh.units="m"
-        color="#287d94" if material=="PETG" else "#937ca0" if name.startswith("pad_") else "#adb9c4"
-        mesh.visual=TextureVisuals(material=PBRMaterial(name=material,baseColorFactor=trimesh.visual.color.hex_to_rgba(color),roughnessFactor=.7))
-        mesh.metadata.update({"part_name":name,"physical_material":material,"frame":"controller_local"})
+    for part in manifest['parts']:
+        name,mat=part['name'],part['material'];mesh=trimesh.load(out/'assembly_mesh'/(name+'.stl'),force='mesh')
+        mesh.apply_scale(.001);mesh.units='m'
+        col='#247c91' if mat=='PETG' else '#94789e' if name.startswith('pad_') else '#b1bcc5'
+        mesh.visual=TextureVisuals(material=PBRMaterial(name=mat,baseColorFactor=trimesh.visual.color.hex_to_rgba(col),roughnessFactor=.7))
         sim.add_geometry(mesh,node_name=name,geom_name=name)
-    sim.metadata.update({"units":"m","frame":"controller_local","source_geometry_units":"mm"})
-    sim.export(out/"simulation/fixture.glb")
-    manifest["simulation_materials"]={a["name"]:a["material"] for a in manifest["parts"]}
-    manifest["simulation_units"]="m"
-    transform=np.array(manifest["world_from_pad"]);transform[:3,3]/=1000
-    manifest["world_from_simulation_m"]=transform.tolist()
+    sim.export(out/'simulation/fixture.glb')
+    manifest['simulation_units']='m';manifest['simulation_materials']={p['name']:p['material'] for p in manifest['parts']}
+    W=np.asarray(manifest['world_from_pad']);W[:3,3]/=1000;manifest['world_from_simulation_m']=W.tolist()
 
 
-def export_clamp_envelopes(p,out,manifest):
-    """Parametric procurement/hand keepouts, separate from physical CAD solids."""
-    i,m=p.installation,p.measured
-    out=Path(out);folder=out/"envelopes";folder.mkdir(exist_ok=True)
-    Fworld=np.eye(4);Fworld[:3,:3]=np.asarray(manifest["fixed_frame_world_axes"])
-    Fworld[:3,3]=manifest["fixed_frame_world_origin_mm"]
-    pad_from_F=np.linalg.inv(np.asarray(manifest["world_from_pad"]))@Fworld
-    top=manifest["base_bottom_rigid_plane_above_table_mm"]+(i.aluminum_pad_tray_thickness+i.aluminum_thickness if i.aluminum_base else i.printed_base_thickness)
-    shoe_contact=top+i.pressure_shoe_thickness+2*(m.pad_proud_uncompressed-m.pad_compression)+p.hardware.clamp_spreader_thickness
-    lower_bottom=-i.c_table_stack_thickness-i.c_lower_arm_drop_max
-    lower_top=-i.c_table_stack_thickness-i.c_lower_arm_drop_min
-    handle_z=-i.c_table_stack_thickness-i.c_handle_below_table_bottom
-    entries=[]
-    def block(lo,hi):
-        lo,hi=np.asarray(lo),np.asarray(hi)
-        return trimesh.creation.box(hi-lo,transform=trimesh.transformations.translation_matrix((lo+hi)/2))
-    def add(index,kind,shape,role):
-        bounds=shape.bounds.copy();shape.apply_transform(pad_from_F)
-        name=f"c{index}_{kind}";file=f"envelopes/{name}.stl";shape.export(out/file)
-        entries.append({"name":name,"file":file,"clamp_index":index,"kind":kind,"role":role,
-                        "base_frame_bounds_mm":bounds.tolist(),"frame":"controller_local_mm",
-                        "expected_fixture_contacts":[f"pressure_shoe_{index}",f"pad_shoe_{index}_upper",f"hardware_M8_wide_spreader_{index}"] if kind=="upper_arm" else [],
-                        "operator_intended_contact":kind in ("spindle","handle_rotation")})
-    for n,sign in enumerate((-1,1),1):
-        x=sign*i.clamp_center_x;y=i.clamp_center_y;hw=i.c_arm_width/2
-        add(n,"upper_arm",block([x-hw,y,shoe_contact],[x+hw,i.c_spine_y,top+i.c_upper_arm_height]),"hardware")
-        add(n,"outer_spine",block([x-hw,i.c_spine_y-i.c_spine_depth/2,lower_bottom],[x+hw,i.c_spine_y+i.c_spine_depth/2,top+i.c_upper_arm_height]),"hardware")
-        add(n,"lower_arm",block([x-hw,y,lower_bottom],[x+hw,i.c_spine_y,lower_top]),"hardware")
-        spindle=trimesh.creation.cylinder(radius=i.c_spindle_d/2,height=-i.c_table_stack_thickness-handle_z,sections=32)
-        spindle.apply_translation([x,y,(handle_z-i.c_table_stack_thickness)/2]);add(n,"spindle",spindle,"hardware")
-        for kind,radius,height,role in (("handle_rotation",i.c_handle_sweep_radius,i.c_handle_sweep_height,"hardware"),
-                                         ("operator_hand_rotation",i.c_handle_sweep_radius+i.c_operator_extra_radius,i.c_operator_hand_height,"operator_access")):
-            mesh=trimesh.creation.cylinder(radius=radius,height=height,sections=64);mesh.apply_translation([x,y,handle_z]);add(n,kind,mesh,role)
-        add(n,"operator_hand_approach",block([x-i.c_operator_extra_radius,y,handle_z-i.c_operator_hand_height/2],[x+i.c_operator_extra_radius,i.c_operator_approach_y,handle_z+i.c_operator_hand_height/2]),"operator_access")
-    manifest["clamp_envelopes"]=entries
-    manifest["clamp_mounting"]={"orientation":"Fixed upper C-jaw above table; spindle and R50 tommy-bar below table. Adjust clamps sequentially.",
-                               "provisional_table_stack_mm":i.c_table_stack_thickness,"required_throat_depth_mm":i.c_spine_y-i.clamp_center_y,
-                               "handle_center_base_z_mm":handle_z,"upper_arm_top_base_z_mm":top+i.c_upper_arm_height,
-                               "upper_fixed_contact_base_z_mm":shoe_contact,
-                               "scope":"Parametric conservative envelope, not a measured vendor clamp. Confirm all dimensions before purchasing/installing."}
-
-
-def export_all(p, out):
-    asset=ControllerAsset()
-    parts,modifiers,manifest=build(p,asset)
-    out.mkdir(parents=True,exist_ok=True)
-    for d in ("print","assembly_mesh","modifiers","simulation","reference"):
-        (out/d).mkdir(exist_ok=True)
-    # Switching variants in one output directory must not leave old solids
-    # for the checker/renderer to mistake for extra assembled components.
-    printed={a["name"] for a in manifest["parts"] if a["is_printed"]}
-    for d,valid in (("assembly_mesh",set(parts)),("print",printed),("modifiers",set(modifiers) if not p.installation.aluminum_base else set())):
-        for old in (out/d).iterdir():
-            if old.suffix in {".stl",".step"} and old.stem not in valid:
-                old.unlink()
-    print("Exporting solids ...",flush=True)
-    metas={a["name"]:a for a in manifest["parts"]}
-    children=[]
-    for name,shape in parts.items():
-        print(name,round(shape.volume,1),len(shape.solids()),flush=True)
-        if not shape.is_valid or len(shape.solids())!=1:
-            raise RuntimeError(f"{name}: expected one valid solid, got {len(shape.solids())}")
-        color="#207f9c" if metas[name]["material"]=="PETG" else "#d79343"
-        shape.color=Color(color)
-        children.append(shape)
-        spring="compression_spring" in name
-        export_stl(shape,out/"assembly_mesh"/(name+".stl"),
-                   tolerance=.20 if spring else p.printing.mesh_tolerance,
-                   angular_tolerance=.4 if spring else .15)
-        if name=="base_aluminum":
-            plate=shape.moved(Location((0,0,0),(manifest["key_angle_deg"],0,0)))
-            bb=plate.bounding_box()
-            plate=plate.moved(Location((-bb.min.X,-bb.min.Y,-bb.min.Z)))
-            export_step(plate,out/"aluminum_plate.step")
-        if metas[name]["is_printed"]:
-            rot=metas[name]["print_rotation_deg"]
-            flat_tpu=p.measured.use_printed_tpu_pads and name.startswith("pad_")
-            to_print=flat_pad(name,p) if flat_tpu else shape
-            if flat_tpu:
-                rot=(0,0,0)
-                metas[name]["print_shape_state"]="Flat free-thickness flexible sheet; assembled shape is conformed and compressed. No rigid transform relates these states."
-            oriented=to_print.moved(Location((0,0,0),rot))
-            b=oriented.bounding_box(); tr=(-b.min.X,-b.min.Y,-b.min.Z)
-            oriented=oriented.moved(Location(tr))
-            export_step(oriented,out/"print"/(name+".step"))
-            export_stl(oriented,out/"print"/(name+".stl"),tolerance=p.printing.tooth_mesh_tolerance if "cradle" in name or name=="column" else p.printing.mesh_tolerance)
-            metas[name]["print_bounds_mm"]=list(oriented.bounding_box().size)
-            tm=np.eye(4);tm[:3,:3]=Rotation.from_euler("xyz",rot,degrees=True).as_matrix();tm[:3,3]=tr
-            metas[name]["print_transform"]=tm.tolist()
-        metas[name]["solid_volume_mm3"]=shape.volume
-        metas[name]["valid_solid"]=shape.is_valid
-        metas[name]["solid_count"]=len(shape.solids())
-    assembly=Compound(label="Xbox_1708_fixture",children=children)
-    export_step(assembly,out/"assembly.step")
-    # Modifier coordinates exactly match the BASE's recommended print file.
-    base_meta=metas["base_aluminum" if p.installation.aluminum_base else "base_printed"]
-    if base_meta["is_printed"]:
-        rot=base_meta["print_rotation_deg"];tm=np.array(base_meta["print_transform"])
-        for name,s in modifiers.items():
-            mod=s.moved(Location((0,0,0),rot)).moved(Location(tuple(tm[:3,3])))
-            export_stl(mod,out/"modifiers"/(name+".stl"),tolerance=.1)
-    # Simplified independent, material-labelled visual/contact meshes; never
-    # take one convex hull across the two free grip-back spaces.
-    export_simulation(out,manifest)
-    export_clamp_envelopes(p,out,manifest)
+def export_all(p,out):
+    out=Path(out);asset=ControllerAsset();parts,mods,mf=build(p,asset);cutshapes=mf.pop('_cut_shapes');collision_shapes=mf.pop('_collision_shapes')
+    for folder in ('print','assembly_mesh','modifiers','simulation','reference','cuts'):(out/folder).mkdir(parents=True,exist_ok=True)
+    # Remove stale v2 solids by file role, without erasing unrelated reports.
+    for folder,valid in (('print',{n for n,v in zip(parts,mf['parts']) if v['is_printed']}),('assembly_mesh',set(parts)),('modifiers',set(mods)),('cuts',set(cutshapes))):
+        for old in (out/folder).iterdir():
+            if old.suffix in ('.stl','.step') and old.stem not in valid:old.unlink()
+    for name,shape in collision_shapes.items():export_stl(shape,out/'simulation'/(name+'.stl'),tolerance=.04)
+    for name,shape in cutshapes.items():export_stl(shape,out/'cuts'/(name+'.stl'),tolerance=.04)
+    for row in mf['parts']:
+        name=row['name'];shape=parts[name]
+        print(name,round(shape.volume,2),len(shape.solids()),flush=True)
+        if not shape.is_valid or len(shape.solids())!=1:raise RuntimeError(f'{name}: expected 1 valid solid, got {len(shape.solids())}')
+        export_stl(shape,out/'assembly_mesh'/(name+'.stl'),tolerance=.1 if 'spring' in name else p.printing.tooth_mesh_tolerance if 'hirth' in name else p.printing.mesh_tolerance,angular_tolerance=.2)
+        row.update(solid_volume_mm3=shape.volume,valid_solid=shape.is_valid,solid_count=len(shape.solids()))
+        if row['is_printed']:
+            free=shape
+            if name.startswith('pad_'):
+                # Free stock extends outward from its fixed floor. Assembly
+                # surface is compressed by exactly the configured amount.
+                contact=next(c for c in mf['contact_planes'] if c['pad']==name)
+                normal=np.asarray(contact['normal'],float);free_t=contact['free_thickness_mm']
+                ratio=free_t/(free_t-p.measured.pad_compression)
+                seat=contact['fit_offset_mm']+contact['compressed_thickness_mm']
+                tm=np.eye(4);tm[:3,:3]=np.eye(3)+(ratio-1)*np.outer(normal,normal);tm[:3,3]=(1-ratio)*seat*normal
+                mesh=trimesh.load(out/'assembly_mesh'/(name+'.stl'),force='mesh');mesh.apply_transform(tm)
+                free=mesh_solid(mesh);row['print_shape_state']='flat free-thickness pad, assembly compressed'
+            rot=row['print_rotation_deg'];oriented=free.moved(Location((0,0,0),tuple(rot)));b=oriented.bounding_box();tr=(-b.min.X,-b.min.Y,-b.min.Z);oriented=oriented.moved(Location(tr))
+            export_step(oriented,out/'print'/(name+'.step'));export_stl(oriented,out/'print'/(name+'.stl'),tolerance=p.printing.tooth_mesh_tolerance if 'hirth' in name else p.printing.mesh_tolerance)
+            tm=np.eye(4);tm[:3,:3]=Rotation.from_euler('xyz',rot,degrees=True).as_matrix();tm[:3,3]=tr
+            row['print_transform']=tm.tolist();row['print_bounds_mm']=list(oriented.bounding_box().size)
+        elif name=='base_aluminum':export_step(shape,out/'aluminum_plate.step')
+    # Build123d Compound preserves all material bodies in STEP.
+    export_step(Compound(label='Xbox1708_fixture_v3',children=list(parts.values())),out/'assembly.step')
+    basemeta=next(r for r in mf['parts'] if r['name'] in ('base_printed','base_aluminum'))
+    if basemeta['is_printed']:
+        for name,shape in mods.items():export_stl(shape.moved(location(np.asarray(basemeta['print_transform']))),out/'modifiers'/(name+'.stl'),tolerance=.05)
+    export_simulation(out,mf)
+    # Copy local asset evidence with provenance. Source is never modified.
+    neutral=trimesh.util.concatenate(list(asset.visual_meshes().values()));neutral.export(out/'reference/controller_neutral_mm.stl')
     refs=[]
-    for source in [asset.urdf]+[g[-1] for g in asset.geometry]:
-        rel=source.relative_to(asset.urdf.parent)
-        dest=out/"reference"/rel;dest.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(source,dest)
-        refs.append({"path":str(rel),"sha256":hashlib.sha256(source.read_bytes()).hexdigest(),"bytes":source.stat().st_size})
-    manifest["reference_asset"]={"upstream":"xbox-gamepad-physics 0.4.1 working-tree build export","source":str(asset.urdf),"files":refs}
-    neutral=trimesh.util.concatenate(list(asset.meshes().values()))
-    neutral.apply_scale([p.measured.width/153.,p.measured.height/104.6,p.measured.depth/50.2])
-    neutral.export(out/"reference/controller_neutral_mm.stl")
-    (out/"manifest.json").write_text(json.dumps(manifest,indent=2)+"\n")
-    (out/"asset_measurements.json").write_text(json.dumps(asset.summary(),indent=2)+"\n")
-    templates(out,p)
-    # Large exports live under .local; keep a convenient relative symlink in
-    # the requested output tree. Source and small generated files stay put.
-    large_root=ROOT/".local/gamepad_fixture_large"/out.name
-    for path in list(out.rglob("*")):
-        if path.is_file() and not path.is_symlink() and path.stat().st_size>5_000_000:
-            dest=large_root/path.relative_to(out);dest.parent.mkdir(parents=True,exist_ok=True)
-            shutil.move(str(path),str(dest))
-            import os
-            path.symlink_to(os.path.relpath(dest,path.parent))
-    return manifest
+    sources=[asset.urdf]+[g[-1] for g in asset.geometry]
+    vis=asset.urdf.parents[2]/'common/xbox_one_s'
+    sources += [vis/'visual/manifest.json',vis/'visual/appearance.json',vis/'physical/full_controls.calibration.json']
+    for src in sources:
+        refs.append(dict(source=str(src.relative_to(ROOT.parent)),sha256=hashlib.sha256(src.read_bytes()).hexdigest()))
+    mf['reference_asset']=dict(upstream='xbox-gamepad-physics 0.4.1 build resources',files=refs)
+    # Remove absolute machine paths from output metadata.
+    mf['reference_asset']['urdf']='../xbox_gamepad_physics/build/resources/robotwin/full_controls/mobility.urdf'
+    from print_policy import apply_policy
+    apply_policy(mf)
+    (out/'manifest.json').write_text(json.dumps(mf,indent=2)+'\n');(out/'asset_measurements.json').write_text(json.dumps(mf['contact_fit'],indent=2)+'\n')
+    templates(out,p,parts)
+    return mf
+
+
+def templates(out,p,parts):
+    # True planar cut outlines, including Pair/USB reliefs. Normal section at
+    # pad mid-thickness avoids drawing triangulated seams.
+    svg=['<svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="297mm" viewBox="0 0 210 297"><rect width="210" height="297" fill="white"/>']
+    for name,axis,pos in [('pad_upper_jaw',1,(50,50)),('pad_lower_jaw',1,(130,50)),('pad_back',2,(50,110))]:
+        s=parts[name];b=np.asarray(bounds(s));center=b.mean(0);u,v=[k for k in range(3) if k!=axis]
+        # Exported STL section yields exact simple polygon, no fabricated slots.
+        temp=out/'assembly_mesh'/(name+'.stl');mesh=trimesh.load(temp,force='mesh');sec=mesh.section(plane_origin=center,plane_normal=([0,-p.measured.rear_plane_slope,1] if name=='pad_back' else np.eye(3)[axis]))
+        for loop in sec.discrete:
+            xy=loop[:,[u,v]]-center[[u,v]]+pos
+            svg.append('<polygon points="'+' '.join(f'{x:.3f},{y:.3f}' for x,y in xy)+'" fill="none" stroke="black" stroke-width=".2"/>')
+        svg.append(f'<text x="{pos[0]-25}" y="{pos[1]-18}" font-size="3">{name}: 2mm stock</text>')
+    svg.append('<path d="M20 170h100m-100 -2v4m100 -4v4" fill="none" stroke="black" stroke-width=".25"/><text x="20" y="180" font-size="4">100 mm / actual size 100%</text></svg>')
+    (out/'pad_templates_A4.svg').write_text(''.join(svg))
+    old=out/'pad_template_base_A4.svg'
+    if old.exists():old.unlink()
+
+
+def matrix_for_print(shape,rot):
+    oriented=shape.moved(Location((0,0,0),tuple(rot)));b=oriented.bounding_box()
+    T=np.eye(4);T[:3,:3]=Rotation.from_euler('xyz',rot,degrees=True).as_matrix();T[:3,3]=[-b.min.X,-b.min.Y,-b.min.Z]
+    return T.tolist()
+
+
+def export_coupons(p,out):
+    out=Path(out);out.mkdir(parents=True,exist_ok=True);parts,_,mf=build(p);rows=[]
+    def add(name,shape,source,rotation=None):
+        row=next(r for r in mf['parts'] if r['name']==source);rot=rotation or row['print_rotation_deg']
+        flat=shape.moved(Location((0,0,0),tuple(rot)));b=flat.bounding_box();flat=flat.moved(Location((-b.min.X,-b.min.Y,-b.min.Z)))
+        if not flat.is_valid or len(flat.solids())!=1:raise ValueError(name+' disconnected coupon')
+        export_stl(flat,out/(name+'.stl'),tolerance=.025);export_step(flat,out/(name+'.step'))
+        rows.append(dict(name=name,source_part=source,volume_mm3=flat.volume,bounds_mm=list(flat.bounding_box().size),print_rotation_deg=rot,assembly_to_print_transform=matrix_for_print(shape,rot)))
+    m,i=p.measured,p.installation;lo=m.top_center_y-m.center_span
+    add('upper_jaw_section',parts['slider_upper_jaw'] & box(3,9,m.top_center_y-3,m.top_center_y+8,-30,27),'slider_upper_jaw')
+    add('lower_jaw_section',parts['cradle_lower_jaw'] & box(-3,3,lo-8,lo+4,-30,27),'cradle_lower_jaw')
+    back_axis=Axis((0,m.rear_center_y,m.rear_plane_z),(1,0,0));back_tilt=math.degrees(math.atan(m.rear_plane_slope))
+    add('backrest_section',parts['cradle_lower_jaw'] & box(-3,3,14,32,-24,0).rotate(back_axis,back_tilt),'cradle_lower_jaw')
+    add('hirth_fixed',parts['hirth_fixed'],'hirth_fixed');add('hirth_moving',parts['hirth_moving'],'hirth_moving')
+    add('guide_rod_segment',parts['guide_rod_1'] & box(-14,-6,-5,25,-46,-38),'guide_rod_1')
+    add('slider_segment',parts['slider_upper_jaw'] & box(-18,18,10,22,-50,-34),'slider_upper_jaw')
+    add('insert_M3',parts['cradle_lower_jaw'] & box(19,28,65,75,-30,-24),'cradle_lower_jaw')
+    add('insert_M4',parts['slider_upper_jaw'] & box(-8,8,-7,9,-50,-34),'slider_upper_jaw')
+    name='base_aluminum' if i.aluminum_base else 'base_printed'
+    Fpad=np.eye(4);Fpad[:3,:3]=Rotation.from_euler('x',i.tilt_deg,degrees=True).as_matrix();W=np.asarray(mf['world_from_pad']);Fworld=np.asarray(mf['fixed_frame_world_axes']);Fpad[:3,3]=Fworld.T@(W[:3,3]-mf['fixed_frame_world_origin_mm'])
+    baseF=parts[name].moved(location(Fpad))
+    add('clamp_band_block',baseF & box(60,100,-30,0,0,30),name,(0,0,0))
+    add('insert_M5',baseF & box(27,43,-54,-38,0,30),name,(0,0,0))
+    valid={r['name'] for r in rows}
+    for old in out.iterdir():
+        if old.suffix in ('.stl','.step') and old.stem not in valid:old.unlink()
+    (out/'coupons.json').write_text(json.dumps(dict(design_revision=i.layout_revision,coupons=rows),indent=2)+'\n')
+    # Companion manifest makes every coupon subject to the same print gate.
+    coupon_manifest=dict(design_revision=i.layout_revision,artifact_type='coupons',parameters=dataclasses.asdict(p),pivot_pad_mm=mf['pivot_pad_mm'],
+        cut_audit=[r for r in mf['cut_audit'] if r['part'] in ('hirth_fixed','hirth_moving')],
+        parts=[dict(name=r['name'],is_printed=True,print_file=r['name']+'.stl',print_bounds_mm=r['bounds_mm'],print_transform=r['assembly_to_print_transform']) for r in rows],printability_exemptions=[],support_regions=[])
+    from print_policy import apply_policy
+    apply_policy(coupon_manifest)
+    (out/'manifest.json').write_text(json.dumps(coupon_manifest,indent=2)+'\n')
 
 
 @dataclasses.dataclass
@@ -936,16 +724,16 @@ def export_marker_card(p, out, card=None):
     center = np.array([0.,card.center_y,card.face_z])
     origin = center+rotation@np.array([-width/2,-height/2,0.])
     transform = np.eye(4);transform[:3,:3]=rotation;transform[:3,3]=origin/1000
-    config = {"revision":"marker-card-v1", "board":{
+    config = {"revision":"marker-card-v3", "board":{
         "dictionary":"DICT_4X4_100", "squares_x":card.squares_x,"squares_y":card.squares_y,
         "square_m":card.square_mm/1000,"marker_m":card.marker_mm/1000,"first_id":card.first_id,
         "legacy_pattern":False,"border_m":card.border_mm/1000},
         "gamepad_from_board":transform.tolist(),"units":"metres; board origin pattern top-left, x right y down z into backing",
         "card_parameters":dataclasses.asdict(card),
         "mount":{"parent":"moving cradle via existing guide cap", "existing_body_changed":False,
-            "interface":"46.2 mm keyed slot around guide-cap sides + two existing M3 screw axes",
+            "interface":"60.2 mm keyed slot around v3 guide-cap sides + two M3 screw axes",
             "bolt_x_mm":[-i.cap_bolt_x,i.cap_bolt_x],"bolt_y_mm":i.frame_top_y-4,
-            "hardware":"replace 2 M3x22 by M3x30 + nominal 2.5 mm metal spacers; verify 3-4 mm engagement/no bottoming",
+            "hardware":"2 M3x30 + 2 mm metal spacers behind marker anchor; verify 3-4 mm insert engagement and no bottoming",
             "observable":"cradle; pad pose assumes unchanged contact/no slip"}}
     # Nominal sticker geometry is for the synthetic slip test only. Grid
     # clearance checks found saved hand contacts here; do not certify a site.
@@ -964,15 +752,15 @@ def export_marker_card(p, out, card=None):
     location = Location(tuple(center),tuple(Rotation.from_matrix(rotation).as_euler("xyz",degrees=True)))
     backing = box(-width/2-card.border_mm,width/2+card.border_mm,
                   -height/2-card.border_mm,height/2+card.border_mm,.2,card.plate_thickness+.2).moved(location)
-    anchor = box(-i.cap_outer_half_width-2,i.cap_outer_half_width+2,62,75,-53,-49)
+    anchor = box(-i.cap_outer_half_width-2,i.cap_outer_half_width+2,62,75,-54,-50)
     key_gap = i.cap_outer_half_width+card.slot_clearance/2
     for sign in (-1,1):
         anchor += box(sign*key_gap if sign>0 else -i.cap_outer_half_width-2,
-                      i.cap_outer_half_width+2 if sign>0 else -key_gap,62,75,-49.1,-43)
-        anchor -= cyl((h.cap_bolt_d+t.clearance_hole)/2,8,(sign*i.cap_bolt_x,71,-51),"z")
+                      i.cap_outer_half_width+2 if sign>0 else -key_gap,62,75,-50.1,-44)
+        anchor -= cyl((h.cap_bolt_d+t.clearance_hole)/2,8,(sign*i.cap_bolt_x,71,-52),"z")
     # Short sloping rib reaches the lower edge of the tilted card; it stays
     # above the pad controls, rather than passing in front of the upper jaw.
-    start=np.array([72.,-51.]);end=np.array([110.,-63.])
+    start=np.array([72.,-52.]);end=np.array([110.,-63.])
     direction=end-start;normal=np.array([-direction[1],direction[0]])/np.linalg.norm(direction)*5
     neck=prism([(-6.,*v) for v in (start-normal,end-normal,end+normal,start+normal)],(12,0,0))
     shape=anchor+neck+backing
@@ -1023,137 +811,24 @@ def export_marker_card(p, out, card=None):
     sticker_draw.text((round(30*px),round(96*px)),"100 mm / ID90 black edge 15 mm",fill="black",font=label_font)
     (out/"sticker_ID90_A4.svg").write_text(''.join(sticker_svg))
     sticker_page.save(out/"sticker_ID90_A4.pdf","PDF",resolution=dpi)
+    config.update(design_revision=p.installation.layout_revision, artifact_type='marker', parameters=dataclasses.asdict(p),
+        parts=[dict(name='marker_bracket',is_printed=True,print_file='marker_bracket.stl',print_bounds_mm=list(print_shape.bounding_box().size),print_transform=matrix_for_print(shape,(-card.tilt_deg,0,0)))],
+        printability_exemptions=[],support_regions=[])
+    from print_policy import apply_policy
+    apply_policy(config)
     (out/"manifest.json").write_text(json.dumps(config,indent=2)+"\n")
     print(f"Marker card accessory, transform and 1:1 templates: {out}")
 
 
-def export_coupons(p, out):
-    """Cut test pieces from the unchanged production solids; never rewrite out/."""
-    out = Path(out)
-    out.mkdir(parents=True, exist_ok=True)
-    parts, _, manifest = build(p)
-    m, i, h = p.measured, p.installation, p.hardware
-    meta = {v["name"]: v for v in manifest["parts"]}
-    coupons = []
-
-    def add(name, shape, source, rotation=None, purpose=""):
-        rotation = rotation if rotation is not None else meta[source]["print_rotation_deg"]
-        oriented = shape.moved(Location((0, 0, 0), tuple(rotation)))
-        bounds = oriented.bounding_box()
-        oriented = oriented.moved(Location((-bounds.min.X, -bounds.min.Y, -bounds.min.Z)))
-        if oriented.volume <= 0 or not oriented.is_valid:
-            raise ValueError(f"Invalid coupon: {name}")
-        export_stl(oriented, out/(name+".stl"), tolerance=p.printing.tooth_mesh_tolerance)
-        # Weld sub-micron STL seam duplicates from OCCT tessellation. This is
-        # below 1e-6 mm and does not change the CAD design or tooth geometry.
-        mesh=trimesh.load(out/(name+".stl"),force="mesh")
-        mesh.merge_vertices(digits_vertex=6)
-        if not mesh.is_watertight:
-            raise ValueError(f"Non-closed coupon STL: {name}")
-        mesh.export(out/(name+".stl"))
-        b = oriented.bounding_box()
-        coupons.append({"name": name, "source_part": source, "purpose": purpose,
-                        "volume_mm3": oriented.volume, "solid_count": len(oriented.solids()),
-                        "bounds_mm": [b.size.X, b.size.Y, b.size.Z],
-                        "print_rotation_deg": list(rotation),
-                        "estimated_minutes_range": [round(oriented.volume/60/4+5), round(oriented.volume/60/2+10)]})
-
-    # Central XZ/YZ slices retain the real shell subtraction and pad pockets.
-    upper_section = parts["slider_upper_jaw"] & box(-3,3,m.top_center_y-9,m.top_center_y+9,
-        i.frame_back_z-2,i.jaw_front_end_z+4)
-    # The section plane detaches a 5.53 mm3 shell-trim flake. It has no load
-    # path in this coupon; keep the connected jaw, without modifying the part.
-    upper_section = max(upper_section.solids(), key=lambda solid: solid.volume)
-    add("upper_jaw_section", upper_section, "slider_upper_jaw",
-        purpose="Upper contact profile, lip and sheet recess; detached section flake omitted")
-    add("lower_jaw_section", parts["cradle_lower_jaw"] & box(-3,3,m.top_center_y-m.center_span-12,
-        m.top_center_y-m.center_span+9,i.frame_back_z-1,i.jaw_front_end_z+4),
-        "cradle_lower_jaw", purpose="Lower notch contact and front lip")
-    add("backrest_section", parts["cradle_lower_jaw"] & box(-3,3,-m.rear_support_height/2+1,
-        m.rear_support_height/2-1,i.frame_back_z-1,5),
-        "cradle_lower_jaw", purpose="Back-shell profile and sheet recess")
-    # Full mating rings preserve all 36 teeth and the original axial clearance.
-    fixed = parts["column"] & cyl(i.fixed_disc_radius, 8,
-              (i.pivot_fixed_face_x-2, i.pivot_pad_y, i.pivot_pad_z), "x")
-    moving = parts["cradle_lower_jaw"] & cyl(i.pivot_disc_radius, 8,
-              (i.pivot_fixed_face_x+4, i.pivot_pad_y, i.pivot_pad_z), "x")
-    add("hirth_fixed", fixed, "column", (0,-90,0), "Full fixed toothed face, upward")
-    add("hirth_moving", moving, "cradle_lower_jaw", (0,90,0), "Full mating toothed face, upward")
-    add("guide_rod_segment", parts["guide_rod_1"] & box(-i.guide_x-h.guide_d,-i.guide_x+h.guide_d,
-        i.slider_center_y-15,i.slider_center_y+15,i.guide_z-h.guide_d,i.guide_z+h.guide_d),
-        "guide_rod_1", purpose="30 mm of the same vertically printed 6 mm guide")
-    add("slider_segment", parts["slider_upper_jaw"] & box(-i.slider_width/2,i.slider_width/2,
-        i.lock_center_y-5,i.lock_center_y+5,i.guide_z-i.slider_depth/2-1,i.guide_z+i.slider_depth/2+1),
-        "slider_upper_jaw", purpose="Both guide bores and actual diametral clearance")
-    add("insert_M3", parts["cradle_lower_jaw"] & box(i.cap_bolt_x-5,i.cap_bolt_x+5,
-        i.frame_top_y-10,i.frame_top_y,i.frame_back_z-1,i.frame_front_z+1),
-        "cradle_lower_jaw", purpose="Actual M3 heat-set pilot and wall")
-    add("insert_M4", parts["slider_upper_jaw"] & box(-8,8,i.lock_center_y-8,i.lock_center_y+8,
-        i.guide_z-i.slider_depth/2,i.guide_z+h.lock_insert_length),
-        "slider_upper_jaw", purpose="Actual M4 pilot and lock screw through-hole")
-    # Transform the actual base back to fixture F coordinates for a local cut.
-    world_pad = np.asarray(manifest["world_from_pad"])
-    world_F = np.asarray(manifest["fixed_frame_world_axes"])
-    R = world_F.T @ world_pad[:3,:3]
-    origin = world_F.T @ (world_pad[:3,3]-manifest["fixed_frame_world_origin_mm"])
-    base_name = "base_aluminum" if i.aluminum_base else "base_printed"
-    base_F = parts[base_name].moved(Location(tuple(origin), tuple(Rotation.from_matrix(R).as_euler("xyz", degrees=True))))
-    add("clamp_band_block", base_F & box(i.clamp_center_x-i.clamp_zone_width/2,i.clamp_center_x+i.clamp_zone_width/2,
-        i.clamp_center_y-i.clamp_zone_depth/2,i.clamp_center_y+i.clamp_zone_depth/2,-1,
-        max(i.printed_base_thickness,i.aluminum_thickness)+10), base_name, (90,0,0),
-        "Actual clamp band with underside recess; aluminium variant is machining reference only")
-    add("pressure_shoe", parts["pressure_shoe_1"], "pressure_shoe_1", purpose="Full pressure shoe, two sheet recesses")
-    (out/"coupons.json").write_text(json.dumps({"design_revision": i.layout_revision,
-        "source": "Intersections of build(Parameters()) production solids; no structural changes",
-        "time_estimate": "PETG 0.16 mm, 6 walls, solid; net 2-4 mm3/s plus per-part overhead, NOT slicer timing",
-        "coupons": coupons}, indent=2)+"\n")
-    print(f"Exported {len(coupons)} coupons to {out}")
-
-
-def templates(out,p):
-    """A4 SVGs use explicit mm units; print actual size, no fit-to-page."""
-    header='<svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="297mm" viewBox="0 0 210 297"><rect width="210" height="297" fill="white"/><g fill="none" stroke="#222" stroke-width="0.25">'
-    text=['</g><g fill="#111" font-family="sans-serif" font-size="3">']
-    shapes=[]
-    m,i=p.measured,p.installation
-    pads=[(f"Upper jaw: {m.jaw_pad_thickness:g} mm sheet",m.upper_jaw_width-4,i.top_pad_z_max-i.top_pad_z_min,15,30),
-          (f"Lower jaw: {m.jaw_pad_thickness:g} mm sheet",m.lower_jaw_width-4,i.lower_pad_z_max-i.lower_pad_z_min,65,30),
-          (f"Backrest: {m.back_pad_thickness:g} mm sheet",i.rear_pocket_width,i.rear_pocket_height,120,30),
-          (f"Pressure shoe: {m.shoe_pad_thickness:g} mm sheet, cut 4",i.clamp_zone_width-2,i.clamp_zone_depth-2,15,90)]
-    for name,w,h,x,y in pads:
-        shapes.append(f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="1"/>')
-        text.append(f'<text x="{x}" y="{y-4}">{name}</text>')
-    shapes.append('<path d="M15 160h100m-100 -2v4m100 -4v4"/>')
-    text.append('<text x="15" y="168">Calibration bar must measure exactly 100 mm.</text><text x="15" y="179">Print A4 / 100% / actual size. Do not fit to page.</text><text x="15" y="190">Templates show planar cut outlines; press flexible sheet into curved pockets.</text>')
-    (out/"pad_templates_A4.svg").write_text(header+''.join(shapes)+''.join(text)+'</g></svg>')
-    # A4 landscape accommodates the entire underside without tiled printing.
-    w,d=i.base_width-8,i.base_depth-8;x0=(297-w)/2;y0=26
-    a=[f'<rect x="{x0}" y="{y0}" width="{w}" height="{d}"/>']
-    for x in (-i.bolt_x,i.bolt_x):
-        for y in i.bolt_y:
-            a.append(f'<circle cx="{148.5+x}" cy="{y0+y+i.base_depth-4}" r="6"/>')
-    a.append('<path d="M15 195h100m-100 -2v4m100 -4v4"/>')
-    header2=header.replace('width="210mm" height="297mm" viewBox="0 0 210 297"','width="297mm" height="210mm" viewBox="0 0 297 210"').replace('<rect width="210" height="297"','<rect width="297" height="210"')
-    (out/"pad_template_base_A4.svg").write_text(header2+''.join(a)+f'</g><g fill="#111" font-family="sans-serif" font-size="3"><text x="15" y="17">Base underside: {w:g} x {d:g} mm, stock thickness &lt;= 1 mm</text><text x="15" y="205">100 mm calibration bar; A4 landscape / actual size / 100%</text></g></svg>')
-
-
 def main():
-    parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--out",type=Path,default=HERE/"out")
-    parser.add_argument("--marker-card",action="store_true",help="export removable marker accessory only")
-    parser.add_argument("--coupons",action="store_true",help="export test pieces only; default destination out_coupons")
-    parser.add_argument("--aluminum",action="store_true")
-    parser.add_argument("--tpu-pads",action="store_true")
-    args=parser.parse_args()
-    p=Parameters();p.installation.aluminum_base=args.aluminum;p.measured.use_printed_tpu_pads=args.tpu_pads
-    if args.marker_card:
-        export_marker_card(p,HERE/"out_marker" if args.out==HERE/"out" else args.out)
-    elif args.coupons:
-        destination = HERE/"out_coupons" if args.out == HERE/"out" else args.out
-        export_coupons(p,destination)
-    else:
-        export_all(p,args.out)
+    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--out',type=Path,default=HERE/'out');ap.add_argument('--aluminum',action='store_true');ap.add_argument('--tpu-pads',action='store_true');ap.add_argument('--coupons',action='store_true');ap.add_argument('--marker-card',action='store_true');ap.add_argument('--parameters',type=Path)
+    a=ap.parse_args();p=Parameters();p.installation.aluminum_base=a.aluminum;p.measured.use_printed_tpu_pads=a.tpu_pads
+    if a.parameters:
+        overrides=json.loads(a.parameters.read_text())
+        for group,fields in overrides.items():
+            for k,v in fields.items():setattr(getattr(p,group),k,v)
+    if a.coupons:export_coupons(p,HERE/'out_coupons' if a.out==HERE/'out' else a.out)
+    elif a.marker_card:export_marker_card(p,HERE/'out_marker' if a.out==HERE/'out' else a.out)
+    else:export_all(p,a.out)
 
-
-if __name__=="__main__":
-    main()
+if __name__=='__main__':main()

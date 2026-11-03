@@ -1,0 +1,482 @@
+{
+  "revision": "v3",
+  "units": "mm",
+  "parameter_source": "asset-derived, not physical measurements",
+  "method": "first-hit ray scans, opening-footprint exclusions, median/MAD robust axis-plane fit; parallel jaw normals constrained to Y",
+  "openings": [
+    {
+      "name": "pair_button",
+      "bounds_pad_mm": [
+        [
+          -17.9,
+          48.35,
+          8.1
+        ],
+        [
+          -9.0,
+          55.0,
+          17.1
+        ]
+      ],
+      "source": "visual Connect_Button bounds + >=2 mm lateral/depth allowance"
+    },
+    {
+      "name": "USB",
+      "bounds_pad_mm": [
+        [
+          -6.0,
+          42.0,
+          -6.0
+        ],
+        [
+          6.0,
+          55.0,
+          8.0
+        ]
+      ],
+      "source": "visual ray recess + provisional cable envelope; keep cable access"
+    },
+    {
+      "name": "headphone",
+      "bounds_pad_mm": [
+        [
+          -23.0,
+          -24.0,
+          -4.0
+        ],
+        [
+          -16.0,
+          -18.0,
+          4.0
+        ]
+      ],
+      "source": "visual bottom ray recess; inner aperture only, verify on 1708"
+    },
+    {
+      "name": "extension",
+      "bounds_pad_mm": [
+        [
+          -10.0,
+          -24.0,
+          -4.0
+        ],
+        [
+          10.0,
+          -17.0,
+          3.0
+        ]
+      ],
+      "source": "visual bottom ray recess; inner aperture only, verify on 1708"
+    }
+  ],
+  "contacts": {
+    "top": {
+      "visual": {
+        "window_mm": [
+          -20,
+          20,
+          6,
+          17
+        ],
+        "ray_count": 1863,
+        "plane_axis": 1,
+        "plane_offset_mm": 48.623380108945,
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "raw_hit_count": 1863,
+        "excluded_opening_samples": 773,
+        "rejected_outliers": 224,
+        "retained_samples": 866,
+        "rms_mm": 0.018608274509309228,
+        "max_abs_mm": 0.05577740515836638,
+        "residual_p05_p95_mm": [
+          -0.047425795569264295,
+          0.01562899547101182
+        ],
+        "unconstrained_plane_coefficients": [
+          -0.0011053805081579211,
+          0.003019323343022906,
+          48.58175118655424
+        ],
+        "unconstrained_plane_rms_mm": 0.011416185487997272,
+        "retained_range_mm": [
+          [
+            -20.0,
+            48.56760270378663,
+            8.0
+          ],
+          [
+            20.0,
+            48.63998216407111,
+            17.0
+          ]
+        ]
+      },
+      "collision": {
+        "window_mm": [
+          -20,
+          20,
+          6,
+          17
+        ],
+        "ray_count": 1863,
+        "plane_axis": 1,
+        "plane_offset_mm": 48.62639682473201,
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "raw_hit_count": 1863,
+        "excluded_opening_samples": 773,
+        "rejected_outliers": 224,
+        "retained_samples": 866,
+        "rms_mm": 0.015554315645132244,
+        "max_abs_mm": 0.0559904229615924,
+        "residual_p05_p95_mm": [
+          -0.03433523370033065,
+          0.012609477896369015
+        ],
+        "unconstrained_plane_coefficients": [
+          -0.0008219572177016268,
+          0.0026691952943949104,
+          48.58906821525695
+        ],
+        "unconstrained_plane_rms_mm": 0.00993718525839119,
+        "retained_range_mm": [
+          [
+            -20.0,
+            48.57040640177042,
+            8.0
+          ],
+          [
+            20.0,
+            48.63995478097659,
+            17.0
+          ]
+        ]
+      },
+      "visual_minus_collision_offset_mm": -0.0030167157870124583
+    },
+    "bottom": {
+      "visual": {
+        "window_mm": [
+          -28,
+          28,
+          -8,
+          14
+        ],
+        "ray_count": 5085,
+        "plane_axis": 1,
+        "plane_offset_mm": -23.931418015458547,
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "raw_hit_count": 5085,
+        "excluded_opening_samples": 870,
+        "rejected_outliers": 0,
+        "retained_samples": 4215,
+        "rms_mm": 0.006204155952023462,
+        "max_abs_mm": 0.04413823143885054,
+        "residual_p05_p95_mm": [
+          -4.09932903266963e-06,
+          0.016090169490681205
+        ],
+        "unconstrained_plane_coefficients": [
+          -2.4449276646129174e-05,
+          0.0003958259734524461,
+          -23.930681009243155
+        ],
+        "unconstrained_plane_rms_mm": 0.0051146559098759455,
+        "retained_range_mm": [
+          [
+            -28.0,
+            -23.931422981980916,
+            -8.0
+          ],
+          [
+            28.0,
+            -23.887279784019697,
+            14.0
+          ]
+        ]
+      },
+      "collision": {
+        "window_mm": [
+          -28,
+          28,
+          -8,
+          14
+        ],
+        "ray_count": 5085,
+        "plane_axis": 1,
+        "plane_offset_mm": -23.931420972133637,
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "raw_hit_count": 5085,
+        "excluded_opening_samples": 870,
+        "rejected_outliers": 0,
+        "retained_samples": 4215,
+        "rms_mm": 0.020154134884675243,
+        "max_abs_mm": 0.06669984522737593,
+        "residual_p05_p95_mm": [
+          -0.04932677393672264,
+          0.005641372975416904
+        ],
+        "unconstrained_plane_coefficients": [
+          -0.0005766596883951447,
+          0.0011806918027055247,
+          -23.944266252284446
+        ],
+        "unconstrained_plane_rms_mm": 0.012405210078842785,
+        "retained_range_mm": [
+          [
+            -28.0,
+            -23.998120817361013,
+            -8.0
+          ],
+          [
+            28.0,
+            -23.902443477424697,
+            14.0
+          ]
+        ]
+      },
+      "visual_minus_collision_offset_mm": 2.956675089649252e-06
+    },
+    "back": {
+      "visual": {
+        "window_mm": [
+          -20,
+          20,
+          12,
+          34
+        ],
+        "ray_count": 3645,
+        "plane_axis": 2,
+        "plane_offset_mm": -10.146022506701371,
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "raw_hit_count": 3645,
+        "excluded_opening_samples": 0,
+        "rejected_outliers": 0,
+        "retained_samples": 3645,
+        "rms_mm": 0.13124208431382492,
+        "max_abs_mm": 0.28162918966678774,
+        "residual_p05_p95_mm": [
+          -0.2201296057999514,
+          0.20386492989088079
+        ],
+        "unconstrained_plane_coefficients": [
+          -1.1975804064220523e-05,
+          0.0197875947100693,
+          -10.602729339037884
+        ],
+        "unconstrained_plane_rms_mm": 0.026676169215069417,
+        "retained_range_mm": [
+          [
+            -20.0,
+            12.0,
+            -10.391666646586117
+          ],
+          [
+            20.0,
+            34.0,
+            -9.864393317034583
+          ]
+        ]
+      },
+      "collision": {
+        "window_mm": [
+          -20,
+          20,
+          12,
+          34
+        ],
+        "ray_count": 3645,
+        "plane_axis": 2,
+        "plane_offset_mm": -10.198874946660837,
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "raw_hit_count": 3645,
+        "excluded_opening_samples": 0,
+        "rejected_outliers": 0,
+        "retained_samples": 3645,
+        "rms_mm": 0.15548695144735378,
+        "max_abs_mm": 0.31465778490094465,
+        "residual_p05_p95_mm": [
+          -0.25894355384899087,
+          0.2363580960091582
+        ],
+        "unconstrained_plane_coefficients": [
+          0.00137582506276431,
+          0.02318587133315203,
+          -10.731985476235039
+        ],
+        "unconstrained_plane_rms_mm": 0.03534568622059892,
+        "retained_range_mm": [
+          [
+            -20.0,
+            12.0,
+            -10.513532731561781
+          ],
+          [
+            20.0,
+            34.0,
+            -9.89761886346804
+          ]
+        ]
+      },
+      "visual_minus_collision_offset_mm": 0.05285243995946587
+    }
+  },
+  "obstacles_visual_bounds_mm": {
+    "pair": [
+      [
+        -15.93305648530385,
+        42.86103114962829,
+        10.102989818541111
+      ],
+      [
+        -10.972295131169949,
+        48.87007946482132,
+        15.063751172675012
+      ]
+    ],
+    "left_shoulder": [
+      [
+        -53.26338716360882,
+        38.44434541054859,
+        0.8869644313307322
+      ],
+      [
+        -23.069570758696006,
+        51.56478779707931,
+        17.31029298501583
+      ]
+    ],
+    "right_shoulder": [
+      [
+        23.069559066335184,
+        38.44435543257215,
+        0.8869815522876481
+      ],
+      [
+        53.26338048225978,
+        51.564794478428354,
+        17.310309688388433
+      ]
+    ],
+    "left_trigger": [
+      [
+        -53.57375252990592,
+        34.4944487814988,
+        -25.080990887294945
+      ],
+      [
+        -35.895113431620786,
+        52.69805817725724,
+        4.6014534357789385
+      ]
+    ],
+    "right_trigger": [
+      [
+        35.89512011296982,
+        34.494458803522356,
+        -25.080959150887004
+      ],
+      [
+        53.57376923327852,
+        52.698078221304364,
+        4.60147765566921
+      ]
+    ]
+  },
+  "obstacles_collision_bounds_mm": {
+    "pair": [
+      [
+        -15.933056049506423,
+        42.861031000000004,
+        10.102989950493576
+      ],
+      [
+        -10.972294950493577,
+        48.870079,
+        15.063751049506422
+      ]
+    ],
+    "left_shoulder": [
+      [
+        -53.263387,
+        38.44434479619216,
+        0.8869629213075649
+      ],
+      [
+        -23.069571000000003,
+        51.564788653730744,
+        17.3102931788466
+      ]
+    ],
+    "right_shoulder": [
+      [
+        23.07040575507429,
+        38.44435485930125,
+        0.8869817610197952
+      ],
+      [
+        53.26338,
+        51.56479414069874,
+        17.310310238980207
+      ]
+    ],
+    "left_trigger": [
+      [
+        -53.573752611312514,
+        34.49444924296617,
+        -25.080990999999997
+      ],
+      [
+        -35.89511338868749,
+        52.69805775703383,
+        4.601453000000002
+      ]
+    ],
+    "right_trigger": [
+      [
+        35.89511989641657,
+        34.494459312596916,
+        -25.080959
+      ],
+      [
+        53.57376910358343,
+        52.69807768740308,
+        4.601477999999999
+      ]
+    ]
+  },
+  "recommended_widths_mm": {
+    "upper": 40.0,
+    "lower": 56.0,
+    "back": 44.0
+  },
+  "shoulder_inner_gap_mm": 46.2,
+  "notes": [
+    "Back window y=12..34 avoids provisional battery-cover envelope y<=8. Real seam/latch position is unmeasured.",
+    "Flat collision regions alone do not establish real shell flatness; visual mesh is also an uncalibrated artist asset.",
+    "Contact CAD uses the median axis plane only; 2 mm pads absorb residuals. No triangulated fitting surface is exported as contact geometry."
+  ]
+}

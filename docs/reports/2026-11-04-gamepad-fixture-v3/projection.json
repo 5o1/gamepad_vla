@@ -1,0 +1,123 @@
+{
+  "all_joint_endpoints": {
+    "lower": {
+      "a_press": 0.0,
+      "b_press": 0.0,
+      "left_shoulder_press": 0.0,
+      "right_shoulder_press": 0.0,
+      "pair_press": 0.0,
+      "dpad_horizontal": -0.17453241348266602,
+      "dpad_vertical": -0.17453241348266602,
+      "view_press": 0.0,
+      "menu_press": 0.0,
+      "left_stick_x": -0.4014257279586958,
+      "left_stick_y": -0.4014257279586958,
+      "left_stick_click": 0.0,
+      "right_stick_x": -0.4014257279586958,
+      "right_stick_y": -0.4014257279586958,
+      "right_stick_click": 0.0,
+      "left_trigger_hinge": 0.0,
+      "right_trigger_hinge": 0.0,
+      "x_press": 0.0,
+      "guide_press": 0.0,
+      "y_press": 0.0
+    },
+    "upper": {
+      "a_press": 0.0008967542780293029,
+      "b_press": 0.0013767679701224785,
+      "left_shoulder_press": 0.0022283242790158146,
+      "right_shoulder_press": 0.002228327410900139,
+      "pair_press": 0.0010423330438958324,
+      "dpad_horizontal": 0.17453241348266602,
+      "dpad_vertical": 0.17453241348266602,
+      "view_press": 0.0012666219641293659,
+      "menu_press": 0.001266622590506351,
+      "left_stick_x": 0.4014257279586958,
+      "left_stick_y": 0.4014257279586958,
+      "left_stick_click": 0.0004,
+      "right_stick_x": 0.4014257279586958,
+      "right_stick_y": 0.4014257279586958,
+      "right_stick_click": 0.0004,
+      "left_trigger_hinge": 0.29531940817832947,
+      "right_trigger_hinge": 0.29531940817832947,
+      "x_press": 0.0007809609139585009,
+      "guide_press": 0.0007251785396074228,
+      "y_press": 0.001228400054203025
+    }
+  },
+  "executed": true,
+  "source": "Complete upstream visual glTF, all vertices; appearance scale/rotation + URDF link FK",
+  "state_cases": 444,
+  "projected_vertices": 150304,
+  "image_size": [
+    1280,
+    720
+  ],
+  "required_margin_px": 20.0,
+  "bounds_px": [
+    [
+      597.4142373609649,
+      439.7575663585091
+    ],
+    [
+      835.3694257189455,
+      607.894845710058
+    ]
+  ],
+  "margins_px": {
+    "left": 597.4142373609649,
+    "right": 443.63057428105446,
+    "top": 439.7575663585091,
+    "bottom": 111.10515428994199
+  },
+  "worst_cases": {
+    "left": {
+      "part": "shell",
+      "joint_state": {},
+      "vertices": 3414,
+      "margins_px": {
+        "left": 597.4142373609649,
+        "right": 443.63057428105446,
+        "top": 449.4959443861092,
+        "bottom": 111.10515428994199
+      }
+    },
+    "right": {
+      "part": "shell",
+      "joint_state": {},
+      "vertices": 3414,
+      "margins_px": {
+        "left": 597.4142373609649,
+        "right": 443.63057428105446,
+        "top": 449.4959443861092,
+        "bottom": 111.10515428994199
+      }
+    },
+    "top": {
+      "part": "right_trigger",
+      "joint_state": {
+        "right_trigger_hinge": 0.0
+      },
+      "vertices": 67,
+      "margins_px": {
+        "left": 772.1231599055201,
+        "right": 479.3451757698242,
+        "top": 439.7575663585091,
+        "bottom": 247.74407438930393
+      }
+    },
+    "bottom": {
+      "part": "shell",
+      "joint_state": {},
+      "vertices": 3414,
+      "margins_px": {
+        "left": 597.4142373609649,
+        "right": 443.63057428105446,
+        "top": 449.4959443861092,
+        "bottom": 111.10515428994199
+      }
+    }
+  },
+  "pass_all_edges": true,
+  "notes": "Includes joint limits and 9-point revolute grids; shell, both sticks, shoulders, triggers, digital controls, Pair and Xbox. Projection, not occlusion certification."
+}

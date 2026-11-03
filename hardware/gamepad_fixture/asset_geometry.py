@@ -1,7 +1,7 @@
-"""Read-only URDF geometry, in controller-local millimetres.
+"""Read-only upstream geometry in controller-local millimetres.
 
-The upstream export has collision meshes only. Those meshes are also used for
-the preview, with per-control colours; no replacement controller is invented.
+Visuals use the upstream appearance scale/Y-up conversion and neutral-link
+binding; collision hulls remain a separate, explicitly named comparison.
 """
 from __future__ import annotations
 
@@ -181,6 +181,45 @@ class ControllerAsset:
 
     def shell(self):
         return trimesh.util.concatenate([m for n, m in self.meshes().items() if n in SHELL_NAMES])
+
+    def visual_meshes(self, state=None):
+        """Apply the existing upstream visual binding, including joint motion.
+
+        full_controls.calibration.json currently has no geometric overrides.
+        appearance.json supplies the authored-to-simulation pose and scale.
+        The URDF supplies the same public motion origins used by the backend.
+        """
+        import json
+        directory = self.urdf.parents[2] / "common/xbox_one_s/visual"
+        binding = json.loads((directory / "appearance.json").read_text())
+        names = {"A_Button":"a", "B_Button":"b", "Bumper_L":"left_shoulder",
+                 "Bumper_R":"right_shoulder", "Controller_Body":"shell",
+                 "Connect_Button":"pair", "Controller_Front_Plate":"shell_front_plate", "D-Pad":"dpad",
+                 "Menu_L":"view", "Menu_R":"menu", "Stick_L":"left_stick",
+                 "Stick_R":"right_stick", "Trigger_L":"left_trigger",
+                 "Trigger_R":"right_trigger", "X_Button":"x", "XBox_Button":"guide",
+                 "XboxButton":"guide", "Y_Button":"y"}
+        links = {name:link for name,link,*_ in self.geometry}
+        result = {}
+        for part in binding["parts"]:
+            stem = part["name"][3:].replace("_VISUAL_UNCALIBRATED", "")
+            name = names[stem]
+            path = directory / (part["name"] + ".gltf")
+            mesh = trimesh.load(path, force="mesh")
+            mesh.apply_scale(part["meters_per_native_unit"] * 1000)
+            pose = part["local_pose"]
+            q = pose["orientation_wxyz"]
+            tm = trimesh.transformations.quaternion_matrix(q)
+            tm[:3,3] = np.asarray(pose["position_m"])*1000
+            mesh.apply_transform(tm)
+            link = links.get(name)
+            if link:
+                mesh.apply_transform(self.link_transform(link,state) @ np.linalg.inv(self.link_transform(link)))
+            result[name] = mesh
+        return result
+
+    def visual_shell(self):
+        return trimesh.util.concatenate([m for n,m in self.visual_meshes().items() if n in SHELL_NAMES])
 
     def shell_section(self, x=0.):
         """Return yz polylines from actual asset triangles at pad-local x."""

@@ -1,0 +1,3538 @@
+{
+  "design_revision": "v3-vertical-fork-planar",
+  "all_hard_gates_pass": true,
+  "variants": {
+    "out": {
+      "summary": {
+        "build_volume_pass": true,
+        "exported_mesh_validity_pass": true,
+        "assembly_interference_pass": true,
+        "control_full_travel_clearance_pass": true,
+        "shell_clearance_pass": true,
+        "openings_pass": true,
+        "grip_back_keepout_pass": true,
+        "contact_offset_chain_pass": true,
+        "visual_contact_clearance_pass": true,
+        "cut_audit_pass": true,
+        "structural_symmetry_and_ribs_pass": true,
+        "mounting_band_pass": true,
+        "mechanics_pass": true,
+        "hirth_actual_sections_pass": true,
+        "slider_motion_pass": true,
+        "derived_pose_pass": true,
+        "simulation_export_pass": true,
+        "printability_pass": true,
+        "all_hard_gates_pass": true
+      },
+      "artifact_type": "assembly",
+      "assembly_parts": 37,
+      "printed_parts": 11,
+      "wall_threshold_mm": 0.84,
+      "gap_threshold_mm": 0.63,
+      "parts": {
+        "base_printed": {
+          "samples": 62028,
+          "raw_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          },
+          "unwaived_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          }
+        },
+        "column": {
+          "samples": 65608,
+          "raw_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 2130
+          },
+          "unwaived_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          }
+        },
+        "hirth_fixed": {
+          "samples": 64888,
+          "raw_flags": {
+            "thin_wall": 161,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          },
+          "unwaived_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          }
+        },
+        "hirth_moving": {
+          "samples": 65430,
+          "raw_flags": {
+            "thin_wall": 93,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          },
+          "unwaived_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          }
+        },
+        "cradle_lower_jaw": {
+          "samples": 65708,
+          "raw_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 4,
+            "unsupported_overhang": 11431
+          },
+          "unwaived_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          }
+        },
+        "slider_upper_jaw": {
+          "samples": 62172,
+          "raw_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 2374
+          },
+          "unwaived_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          }
+        },
+        "guide_cap": {
+          "samples": 63060,
+          "raw_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 1138
+          },
+          "unwaived_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          }
+        },
+        "guide_rod_1": {
+          "samples": 60500,
+          "raw_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          },
+          "unwaived_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          }
+        },
+        "guide_rod_2": {
+          "samples": 60500,
+          "raw_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          },
+          "unwaived_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          }
+        },
+        "lock_screw_spacer": {
+          "samples": 61008,
+          "raw_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          },
+          "unwaived_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          }
+        },
+        "M8_hand_knob": {
+          "samples": 61032,
+          "raw_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          },
+          "unwaived_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          }
+        }
+      },
+      "local_ray_exemptions": [
+        {
+          "part": "cradle_lower_jaw",
+          "kind": "narrow_gap",
+          "bounds_print_mm": [
+            [
+              88.79670062535611,
+              91.86266170220105,
+              10.699999999999992
+            ],
+            [
+              88.91670062535611,
+              92.10266170220106,
+              54.8
+            ]
+          ],
+          "normal_print": [
+            1.0,
+            0.0,
+            2.220446049250313e-16
+          ],
+          "normal_tolerance_deg": 0.2,
+          "reason": "Strictly local open concave rear-block/frame junction, not a separate narrow slot. Tilted block and frame overlap into one solid; checker records the connected local material volume. Contact seats and actual slots are not waived."
+        },
+        {
+          "part": "cradle_lower_jaw",
+          "kind": "narrow_gap",
+          "bounds_print_mm": [
+            [
+              88.79670062535611,
+              91.86266170220105,
+              10.699999999999992
+            ],
+            [
+              88.91670062535611,
+              92.10266170220106,
+              54.8
+            ]
+          ],
+          "normal_print": [
+            -0.019783721941801013,
+            -0.9998042830204967,
+            -4.392868722513879e-18
+          ],
+          "normal_tolerance_deg": 0.2,
+          "reason": "Strictly local open concave rear-block/frame junction, not a separate narrow slot. Tilted block and frame overlap into one solid; checker records the connected local material volume. Contact seats and actual slots are not waived."
+        },
+        {
+          "part": "hirth_fixed",
+          "kind": "thin_wall",
+          "bounds_print_mm": [
+            [
+              -0.01,
+              -0.01,
+              -0.01
+            ],
+            [
+              68.01,
+              68.01,
+              6.806694430741528
+            ]
+          ],
+          "radial_centre_print_mm": [
+            34.0,
+            34.0,
+            21.0
+          ],
+          "radial_axes": [
+            0,
+            1
+          ],
+          "radial_interval_mm": [
+            17.95,
+            18.84
+          ],
+          "reason": "Short normal chord at radial tooth termination edge only, not a separate thin wall. Tip/root flats and loaded middle annulus are checked independently; verify edge fidelity on Hirth coupon before production."
+        },
+        {
+          "part": "hirth_fixed",
+          "kind": "thin_wall",
+          "bounds_print_mm": [
+            [
+              -0.01,
+              -0.01,
+              -0.01
+            ],
+            [
+              68.01,
+              68.01,
+              6.806694430741528
+            ]
+          ],
+          "radial_centre_print_mm": [
+            34.0,
+            34.0,
+            21.0
+          ],
+          "radial_axes": [
+            0,
+            1
+          ],
+          "radial_interval_mm": [
+            29.16,
+            30.05
+          ],
+          "reason": "Short normal chord at radial tooth termination edge only, not a separate thin wall. Tip/root flats and loaded middle annulus are checked independently; verify edge fidelity on Hirth coupon before production."
+        },
+        {
+          "part": "hirth_fixed",
+          "kind": "thin_wall",
+          "bounds_print_mm": [
+            [
+              37.8082388326835,
+              63.31920747729251,
+              2.1999999999999993
+            ],
+            [
+              41.44308406454748,
+              68.49021551642205,
+              4.899999999999999
+            ]
+          ],
+          "reason": "Open end of engraved alignment groove at circular rim has a short corner chord; groove is >=1.2 mm wide and >=.8 mm deep, no projecting pointer or tiny text."
+        },
+        {
+          "part": "hirth_fixed",
+          "kind": "thin_wall",
+          "bounds_print_mm": [
+            [
+              32.44999999999999,
+              63.9,
+              2.200000000000003
+            ],
+            [
+              35.55000000000001,
+              68.9,
+              4.899999999999999
+            ]
+          ],
+          "reason": "Open end of engraved alignment groove at circular rim has a short corner chord; groove is >=1.2 mm wide and >=.8 mm deep, no projecting pointer or tiny text."
+        },
+        {
+          "part": "hirth_fixed",
+          "kind": "thin_wall",
+          "bounds_print_mm": [
+            [
+              26.556915935452523,
+              63.31920747729251,
+              2.200000000000003
+            ],
+            [
+              30.1917611673165,
+              68.49021551642205,
+              4.899999999999999
+            ]
+          ],
+          "reason": "Open end of engraved alignment groove at circular rim has a short corner chord; groove is >=1.2 mm wide and >=.8 mm deep, no projecting pointer or tiny text."
+        },
+        {
+          "part": "hirth_moving",
+          "kind": "thin_wall",
+          "bounds_print_mm": [
+            [
+              -0.01,
+              -0.01,
+              -0.01
+            ],
+            [
+              68.01,
+              68.01,
+              7.810000000000023
+            ]
+          ],
+          "radial_centre_print_mm": [
+            34.0,
+            34.0,
+            -8.999999999999986
+          ],
+          "radial_axes": [
+            0,
+            1
+          ],
+          "radial_interval_mm": [
+            17.95,
+            18.84
+          ],
+          "reason": "Short normal chord at radial tooth termination edge only, not a separate thin wall. Tip/root flats and loaded middle annulus are checked independently; verify edge fidelity on Hirth coupon before production."
+        },
+        {
+          "part": "hirth_moving",
+          "kind": "thin_wall",
+          "bounds_print_mm": [
+            [
+              -0.01,
+              -0.01,
+              -0.01
+            ],
+            [
+              68.01,
+              68.01,
+              7.810000000000023
+            ]
+          ],
+          "radial_centre_print_mm": [
+            34.0,
+            34.0,
+            -8.999999999999986
+          ],
+          "radial_axes": [
+            0,
+            1
+          ],
+          "radial_interval_mm": [
+            29.16,
+            30.05
+          ],
+          "reason": "Short normal chord at radial tooth termination edge only, not a separate thin wall. Tip/root flats and loaded middle annulus are checked independently; verify edge fidelity on Hirth coupon before production."
+        },
+        {
+          "part": "hirth_moving",
+          "kind": "thin_wall",
+          "bounds_print_mm": [
+            [
+              32.44999999999999,
+              63.9,
+              1.2000000000000135
+            ],
+            [
+              35.55000000000001,
+              68.9,
+              3.9000000000000146
+            ]
+          ],
+          "reason": "Open end of engraved alignment groove at circular rim has a short corner chord; groove is >=1.2 mm wide and >=.8 mm deep, no projecting pointer or tiny text."
+        }
+      ],
+      "required_support_regions": [
+        {
+          "part": "column",
+          "kind": "unsupported_overhang",
+          "bounds_print_mm": [
+            [
+              15.899999999999999,
+              -0.09999999999999432,
+              78.90000000000009
+            ],
+            [
+              24.1,
+              68.10000000000001,
+              147.10000000000008
+            ]
+          ],
+          "reason": "Paint removable support under circular fork head, horizontal axis hole roof and M3/nut pocket roofs on this ear; detach before metal-axis fit."
+        },
+        {
+          "part": "column",
+          "kind": "unsupported_overhang",
+          "bounds_print_mm": [
+            [
+              15.899999999999999,
+              17.9,
+              47.90000000000009
+            ],
+            [
+              27.1,
+              50.1,
+              77.10000000000008
+            ]
+          ],
+          "reason": "Paint removable support under the widened fork cross-member lateral ledge; upright and gussets remain self supporting."
+        },
+        {
+          "part": "column",
+          "kind": "unsupported_overhang",
+          "bounds_print_mm": [
+            [
+              65.9,
+              -0.09999999999999432,
+              78.90000000000009
+            ],
+            [
+              74.1,
+              68.10000000000001,
+              147.10000000000008
+            ]
+          ],
+          "reason": "Paint removable support under circular fork head, horizontal axis hole roof and M3/nut pocket roofs on this ear; detach before metal-axis fit."
+        },
+        {
+          "part": "column",
+          "kind": "unsupported_overhang",
+          "bounds_print_mm": [
+            [
+              62.9,
+              17.9,
+              47.90000000000009
+            ],
+            [
+              74.1,
+              50.1,
+              77.10000000000008
+            ]
+          ],
+          "reason": "Paint removable support under the widened fork cross-member lateral ledge; upright and gussets remain self supporting."
+        },
+        {
+          "part": "cradle_lower_jaw",
+          "kind": "unsupported_overhang",
+          "bounds_print_mm": [
+            [
+              81.8567006253561,
+              47.710678118654755,
+              -0.2500000000000071
+            ],
+            [
+              139.85670062535613,
+              63.710678118654755,
+              65.75
+            ]
+          ],
+          "reason": "Side-down print: support lower-jaw lateral steps, front lip and guide-socket underside; keep planar contact seat free from support."
+        },
+        {
+          "part": "cradle_lower_jaw",
+          "kind": "unsupported_overhang",
+          "bounds_print_mm": [
+            [
+              81.8567006253561,
+              47.710678118654755,
+              1.749999999999993
+            ],
+            [
+              104.85670062535613,
+              155.71067811865476,
+              63.75
+            ]
+          ],
+          "reason": "Side-down print: support frame, rear block and cap-insert roofs; remove support before installing pads/inserts."
+        },
+        {
+          "part": "cradle_lower_jaw",
+          "kind": "unsupported_overhang",
+          "bounds_print_mm": [
+            [
+              -1.0,
+              -1.0,
+              22.749999999999975
+            ],
+            [
+              89.85670062535611,
+              65.0,
+              42.74999999999999
+            ]
+          ],
+          "reason": "Side-down print: support centered pivot hub/web and horizontal M8/M3 bore ceilings; metal bolt, not a printed hinge pin."
+        },
+        {
+          "part": "cradle_lower_jaw",
+          "kind": "unsupported_overhang",
+          "bounds_print_mm": [
+            [
+              62.856700625356105,
+              47.710678118654755,
+              13.74999999999999
+            ],
+            [
+              89.85670062535611,
+              79.71067811865476,
+              51.75
+            ]
+          ],
+          "reason": "Side-down print: support lower rail seats and mechanical-stop collar underside; ream/coupon-check guide fit after cleanup."
+        },
+        {
+          "part": "slider_upper_jaw",
+          "kind": "unsupported_overhang",
+          "bounds_print_mm": [
+            [
+              -1.0,
+              14.000000000000007,
+              -0.10000000000000142
+            ],
+            [
+              41.0,
+              77.00000000000001,
+              31.623380108945014
+            ]
+          ],
+          "reason": "Jaw-down print: support neck step and Pair/USB channel roofs; protect planar pad seats from support scars."
+        },
+        {
+          "part": "slider_upper_jaw",
+          "kind": "unsupported_overhang",
+          "bounds_print_mm": [
+            [
+              1.0,
+              -1.0,
+              23.52338010894499
+            ],
+            [
+              39.0,
+              17.000000000000007,
+              63.723380108945
+            ]
+          ],
+          "reason": "Jaw-down print: support slider guide-bore/set-screw roofs and rear-body ledge; clear both guide bores after printing."
+        },
+        {
+          "part": "guide_cap",
+          "kind": "unsupported_overhang",
+          "bounds_print_mm": [
+            [
+              -1.0,
+              -1.000000000000007,
+              -0.09999999999999432
+            ],
+            [
+              61.0,
+              21.000000000000004,
+              45.00000000000001
+            ]
+          ],
+          "reason": "Cap-down print: support annular stop-tube/bore roofs and cap notch underside; clear sockets and screw holes after printing."
+        }
+      ],
+      "contact_offset_chain": {
+        "pass": true,
+        "contacts": [
+          {
+            "name": "upper",
+            "pad": "pad_upper_jaw",
+            "offsets_mm": [
+              48.62337875366211,
+              50.47338104248047
+            ],
+            "expected_fit_mm": 48.623380108945,
+            "expected_seat_mm": 50.473380108945,
+            "front_surface_to_fit_mm": 1.3552828903584668e-06,
+            "compressed_thickness_error_mm": 2.288818359286182e-06,
+            "rigid_seat_offset_error_mm": 9.335354675954477e-07,
+            "backend_ray_count": 10,
+            "backend_hit_count": 10,
+            "declared_groove_depth_mm": 1.5,
+            "pass": true,
+            "rim_declared_clearance_mm": 0.3500000000000014,
+            "scope": "Compressed pad and rigid seat STL plane coincidence. Actual shell residuals and rigid clearance are checked separately."
+          },
+          {
+            "name": "lower",
+            "pad": "pad_lower_jaw",
+            "offsets_mm": [
+              23.93141746520996,
+              25.781417846679688
+            ],
+            "expected_fit_mm": 23.931418015458547,
+            "expected_seat_mm": 25.78141801545855,
+            "front_surface_to_fit_mm": 5.502485862507456e-07,
+            "compressed_thickness_error_mm": 3.8146972647368216e-07,
+            "rigid_seat_offset_error_mm": 1.6877886110933105e-07,
+            "backend_ray_count": 2,
+            "backend_hit_count": 2,
+            "declared_groove_depth_mm": 1.5,
+            "pass": true,
+            "rim_declared_clearance_mm": 0.3500000000000014,
+            "scope": "Compressed pad and rigid seat STL plane coincidence. Actual shell residuals and rigid clearance are checked separately."
+          },
+          {
+            "name": "back",
+            "pad": "pad_back",
+            "offsets_mm": [
+              10.599062046856332,
+              12.44906237049591
+            ],
+            "expected_fit_mm": 10.59906236248381,
+            "expected_seat_mm": 12.44906236248381,
+            "front_surface_to_fit_mm": 2.2978988489796848e-07,
+            "compressed_thickness_error_mm": 3.236395769157241e-07,
+            "rigid_seat_offset_error_mm": 1.8881938856907254e-07,
+            "backend_ray_count": 2,
+            "backend_hit_count": 2,
+            "declared_groove_depth_mm": 1.5,
+            "pass": true,
+            "rim_declared_clearance_mm": 0.34999999999999964,
+            "scope": "Compressed pad and rigid seat STL plane coincidence. Actual shell residuals and rigid clearance are checked separately."
+          }
+        ],
+        "rear_frame_junction": {
+          "bounds_pad_mm": [
+            [
+              -20,
+              11.7719835835463,
+              -24.5
+            ],
+            [
+              20,
+              12.7719835835463,
+              -23.5
+            ]
+          ],
+          "local_material_volume_mm3": 30.098937856387238,
+          "connected_components": 1,
+          "pass": true,
+          "scope": "Actual exported solid clipped around the waived open concave edge; positive connected material excludes a detached thin fin or two disconnected parts at this junction."
+        }
+      },
+      "visual_contact_clearance": {
+        "pass": true,
+        "contacts": [
+          {
+            "contact": "upper",
+            "visual_samples": 1863,
+            "rigid_ray_hits": 1064,
+            "minimum_normal_clearance_mm": 0.333398878409362,
+            "pass": true,
+            "note": "Measured against upstream visual triangles, not merely against the fitted plane. Ports/unsupported samples with no fixture hit do not create false rigid contact."
+          },
+          {
+            "contact": "lower",
+            "visual_samples": 5085,
+            "rigid_ray_hits": 5085,
+            "minimum_normal_clearance_mm": 0.34999486469877183,
+            "pass": true,
+            "note": "Measured against upstream visual triangles, not merely against the fitted plane. Ports/unsupported samples with no fixture hit do not create false rigid contact."
+          },
+          {
+            "contact": "back",
+            "visual_samples": 4005,
+            "rigid_ray_hits": 3918,
+            "minimum_normal_clearance_mm": 0.27965040476127745,
+            "pass": true,
+            "note": "Measured against upstream visual triangles, not merely against the fitted plane. Ports/unsupported samples with no fixture hit do not create false rigid contact."
+          }
+        ],
+        "minimum_requested_clearance_mm": 0.25
+      },
+      "mechanics": {
+        "pass": true,
+        "pivot_separation_safety_factor": 7.7942286340599445,
+        "pivot_shear_capacity_Nm": 12.911573684677208,
+        "preload_N": 749.9999999999999,
+        "anti_twist_friction_capacity_Nm": 0.46269315135240024,
+        "anti_twist_safety_factor_at_0_4Nm": 1.1567328783810005,
+        "anti_twist_backpad_stiffness_Nm_per_rad": 34.59459539957825,
+        "anti_twist_rotation_deg_at_0_4Nm": 0.6624824352046715,
+        "actual_pad_moments": [
+          {
+            "pad": "pad_upper_jaw",
+            "width_mm": 36.0,
+            "contact_area_mm2": 201.7013168334961,
+            "mean_abs_x_mm": 6.278881306350011,
+            "area_second_moment_mm4": 11606.4361396613
+          },
+          {
+            "pad": "pad_lower_jaw",
+            "width_mm": 52.0,
+            "contact_area_mm2": 1144.0,
+            "mean_abs_x_mm": 13.0,
+            "area_second_moment_mm4": 257781.33333333334
+          },
+          {
+            "pad": "pad_back",
+            "width_mm": 40.0,
+            "contact_area_mm2": 800.0000186152472,
+            "mean_abs_x_mm": 10.0,
+            "area_second_moment_mm4": 106666.66914869963
+          }
+        ],
+        "assumptions": "Uniform pad pressure, nominal spring preload, dry mu=.6, pad effective E=.6 MPa; bench test required. Back stiffness applies only with continuous preloaded contact."
+      },
+      "derived_pose": {
+        "pass": true,
+        "depth_from_edge_mm": 53.43777728385044,
+        "height_above_table_mm": 220.66086534926922,
+        "root_world_mm": [
+          664.9622227161495,
+          625.2,
+          987.6608653492692
+        ],
+        "tilt_deg": 45.0,
+        "exported_base_registration_errors": {
+          "base_far_edge_mm": 2.894743488468521e-06,
+          "base_lateral_midline_mm": 0.0,
+          "base_underside_mm": 1.764933358572307e-06
+        },
+        "scene_root_position_error_mm": 0.0,
+        "scene_root_rotation_error_deg": 5.4295464646609885e-15,
+        "pose_source": "Actual base/post/support geometry; exported base edge/underside/midline registration and scene root cross-check; no v1/v2 root equality requirement"
+      },
+      "cap_M3_installation_access": {
+        "pass": true,
+        "channels": [
+          {
+            "side": -1,
+            "axis_pad_xy_mm": [
+              -25.0,
+              71.0
+            ],
+            "frame_probe_rays": 17,
+            "frame_blocking_hits": [],
+            "actual_frame_thickness_mm": 6.0,
+            "cap_probe_rays": 9,
+            "cap_blocking_hits": [],
+            "cap_thickness_mm": 20.0,
+            "cap_bolt_length_mm": 25.0,
+            "cap_insert_engagement_mm": 4.0,
+            "cap_tip_to_frame_front_mm": 1.0,
+            "marker_chain_mm": {
+              "bolt": 30.0,
+              "anchor": 4.0,
+              "cap": 20.0,
+              "spacer": 2.0,
+              "penetration": 4.0,
+              "insert_engagement": 4.0
+            },
+            "pass": true
+          },
+          {
+            "side": 1,
+            "axis_pad_xy_mm": [
+              25.0,
+              71.0
+            ],
+            "frame_probe_rays": 17,
+            "frame_blocking_hits": [],
+            "actual_frame_thickness_mm": 6.0,
+            "cap_probe_rays": 9,
+            "cap_blocking_hits": [],
+            "cap_thickness_mm": 20.0,
+            "cap_bolt_length_mm": 25.0,
+            "cap_insert_engagement_mm": 4.0,
+            "cap_tip_to_frame_front_mm": 1.0,
+            "marker_chain_mm": {
+              "bolt": 30.0,
+              "anchor": 4.0,
+              "cap": 20.0,
+              "spacer": 2.0,
+              "penetration": 4.0,
+              "insert_engagement": 4.0
+            },
+            "pass": true
+          }
+        ],
+        "scope": "17 axial frame rays including off-axis witnesses must see no closed skin; nine cap rays verify the M3 shaft path. Length chain uses M3x25 or marker M3x30 + 4mm anchor + 2mm spacer; insert retention still requires a physical coupon."
+      },
+      "clamp_pressure_cases": [
+        {
+          "force_N": 1000.0,
+          "foot_diameter_mm": 15.0,
+          "pressure_MPa": 5.6588424210451675
+        },
+        {
+          "force_N": 1000.0,
+          "foot_diameter_mm": 20.0,
+          "pressure_MPa": 3.1830988618379066
+        },
+        {
+          "force_N": 2000.0,
+          "foot_diameter_mm": 15.0,
+          "pressure_MPa": 11.317684842090335
+        },
+        {
+          "force_N": 2000.0,
+          "foot_diameter_mm": 20.0,
+          "pressure_MPa": 6.366197723675813
+        }
+      ],
+      "clamp_pressure_limit_scope": "Foot diameter and actual force unmeasured. At2kN/15mm pressure11.3MPa exceeds the v2 provisional10MPa short-term assumption; no pad/shoe/spreader is modelled. Measure foot/force and creep; do not infer allowable clamp torque from this estimate.",
+      "usable_clamp_edge_length_mm": 150,
+      "base_fastener_geometry": [
+        {
+          "part": "hardware_base_M5_0",
+          "pilot_diameter_mm": 6.397349038282968,
+          "pilot_depth_mm": 9.000004490300492,
+          "nominal_thread_engagement_mm": 8.000008629630344,
+          "bolt_tip_to_hole_bottom_mm": 0.9999958606701487,
+          "remaining_base_floor_mm": 7.000001979366962,
+          "pass": true,
+          "scope": "Actual STL pilot and bolt-tip rays. Nominal M5 thread crests/heat-set insert pull-out strength are not modelled; machining/insert fit requires physical verification."
+        },
+        {
+          "part": "hardware_base_M5_1",
+          "pilot_diameter_mm": 6.397348946981918,
+          "pilot_depth_mm": 8.999998949460002,
+          "nominal_thread_engagement_mm": 8.000008629630344,
+          "bolt_tip_to_hole_bottom_mm": 0.9999903198296582,
+          "remaining_base_floor_mm": 7.000007520207452,
+          "pass": true,
+          "scope": "Actual STL pilot and bolt-tip rays. Nominal M5 thread crests/heat-set insert pull-out strength are not modelled; machining/insert fit requires physical verification."
+        },
+        {
+          "part": "hardware_base_M5_2",
+          "pilot_diameter_mm": 6.397349038282972,
+          "pilot_depth_mm": 9.000004318153419,
+          "nominal_thread_engagement_mm": 8.000008629630344,
+          "bolt_tip_to_hole_bottom_mm": 0.9999956885230752,
+          "remaining_base_floor_mm": 7.000002151514035,
+          "pass": true,
+          "scope": "Actual STL pilot and bolt-tip rays. Nominal M5 thread crests/heat-set insert pull-out strength are not modelled; machining/insert fit requires physical verification."
+        },
+        {
+          "part": "hardware_base_M5_3",
+          "pilot_diameter_mm": 6.397348946981914,
+          "pilot_depth_mm": 9.000004313537517,
+          "nominal_thread_engagement_mm": 8.000008629630344,
+          "bolt_tip_to_hole_bottom_mm": 0.9999956839071729,
+          "remaining_base_floor_mm": 7.000002156129938,
+          "pass": true,
+          "scope": "Actual STL pilot and bolt-tip rays. Nominal M5 thread crests/heat-set insert pull-out strength are not modelled; machining/insert fit requires physical verification."
+        }
+      ],
+      "audited_cuts": 63,
+      "actual_hirth_sections": [
+        {
+          "part": "hirth_fixed",
+          "radius_mm": 18.5,
+          "ray_count": 7200,
+          "hit_count": 7200,
+          "measured_teeth": 36,
+          "tip_flat_min_lower_bound_mm": 1.081667803923486,
+          "root_flat_min_lower_bound_mm": 0.8556476657902201,
+          "section_sampling_step_mm": 0.01614429558094755,
+          "flank_angle_max_error_deg": 0.0014533727847094724,
+          "pass": true
+        },
+        {
+          "part": "hirth_fixed",
+          "radius_mm": 24.0,
+          "ray_count": 7200,
+          "hit_count": 7200,
+          "measured_teeth": 36,
+          "tip_flat_min_lower_bound_mm": 1.0681415022205296,
+          "root_flat_min_lower_bound_mm": 0.8587019919812101,
+          "section_sampling_step_mm": 0.020943951023931952,
+          "flank_angle_max_error_deg": 0.0014533727847094724,
+          "pass": true
+        },
+        {
+          "part": "hirth_fixed",
+          "radius_mm": 29.5,
+          "ray_count": 7200,
+          "hit_count": 7200,
+          "measured_teeth": 36,
+          "tip_flat_min_lower_bound_mm": 1.0554878651435708,
+          "root_flat_min_lower_bound_mm": 0.8495390134082398,
+          "section_sampling_step_mm": 0.02574360646691636,
+          "flank_angle_max_error_deg": 0.0012237554865421885,
+          "pass": true
+        },
+        {
+          "part": "hirth_moving",
+          "radius_mm": 18.5,
+          "ray_count": 7200,
+          "hit_count": 7200,
+          "measured_teeth": 36,
+          "tip_flat_min_lower_bound_mm": 1.113956395085381,
+          "root_flat_min_lower_bound_mm": 0.8556476657902201,
+          "section_sampling_step_mm": 0.01614429558094755,
+          "flank_angle_max_error_deg": 0.0012553473765279932,
+          "pass": true
+        },
+        {
+          "part": "hirth_moving",
+          "radius_mm": 24.0,
+          "ray_count": 7200,
+          "hit_count": 7200,
+          "measured_teeth": 36,
+          "tip_flat_min_lower_bound_mm": 1.1100294042683934,
+          "root_flat_min_lower_bound_mm": 0.8168140899333461,
+          "section_sampling_step_mm": 0.020943951023931952,
+          "flank_angle_max_error_deg": 0.0012553473765279932,
+          "pass": true
+        },
+        {
+          "part": "hirth_moving",
+          "radius_mm": 29.5,
+          "ray_count": 7200,
+          "hit_count": 7200,
+          "measured_teeth": 36,
+          "tip_flat_min_lower_bound_mm": 1.1069750780774035,
+          "root_flat_min_lower_bound_mm": 0.798051800474407,
+          "section_sampling_step_mm": 0.02574360646691636,
+          "flank_angle_max_error_deg": 0.001048520618354587,
+          "pass": true
+        }
+      ]
+    },
+    "out_aluminum": {
+      "summary": {
+        "build_volume_pass": true,
+        "exported_mesh_validity_pass": true,
+        "assembly_interference_pass": true,
+        "control_full_travel_clearance_pass": true,
+        "shell_clearance_pass": true,
+        "openings_pass": true,
+        "grip_back_keepout_pass": true,
+        "contact_offset_chain_pass": true,
+        "visual_contact_clearance_pass": true,
+        "cut_audit_pass": true,
+        "structural_symmetry_and_ribs_pass": true,
+        "mounting_band_pass": true,
+        "mechanics_pass": true,
+        "hirth_actual_sections_pass": true,
+        "slider_motion_pass": true,
+        "derived_pose_pass": true,
+        "simulation_export_pass": true,
+        "printability_pass": true,
+        "all_hard_gates_pass": true
+      },
+      "artifact_type": "assembly",
+      "assembly_parts": 37,
+      "printed_parts": 10,
+      "wall_threshold_mm": 0.84,
+      "gap_threshold_mm": 0.63,
+      "parts": {
+        "column": {
+          "samples": 65608,
+          "raw_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 2130
+          },
+          "unwaived_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          }
+        },
+        "hirth_fixed": {
+          "samples": 64888,
+          "raw_flags": {
+            "thin_wall": 161,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          },
+          "unwaived_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          }
+        },
+        "hirth_moving": {
+          "samples": 65430,
+          "raw_flags": {
+            "thin_wall": 93,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          },
+          "unwaived_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          }
+        },
+        "cradle_lower_jaw": {
+          "samples": 65708,
+          "raw_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 4,
+            "unsupported_overhang": 11431
+          },
+          "unwaived_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          }
+        },
+        "slider_upper_jaw": {
+          "samples": 62172,
+          "raw_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 2374
+          },
+          "unwaived_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          }
+        },
+        "guide_cap": {
+          "samples": 63060,
+          "raw_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 1138
+          },
+          "unwaived_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          }
+        },
+        "guide_rod_1": {
+          "samples": 60500,
+          "raw_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          },
+          "unwaived_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          }
+        },
+        "guide_rod_2": {
+          "samples": 60500,
+          "raw_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          },
+          "unwaived_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          }
+        },
+        "lock_screw_spacer": {
+          "samples": 61008,
+          "raw_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          },
+          "unwaived_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          }
+        },
+        "M8_hand_knob": {
+          "samples": 61032,
+          "raw_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          },
+          "unwaived_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          }
+        }
+      },
+      "local_ray_exemptions": [
+        {
+          "part": "cradle_lower_jaw",
+          "kind": "narrow_gap",
+          "bounds_print_mm": [
+            [
+              88.79670062535611,
+              91.86266170220105,
+              10.699999999999992
+            ],
+            [
+              88.91670062535611,
+              92.10266170220106,
+              54.8
+            ]
+          ],
+          "normal_print": [
+            1.0,
+            0.0,
+            2.220446049250313e-16
+          ],
+          "normal_tolerance_deg": 0.2,
+          "reason": "Strictly local open concave rear-block/frame junction, not a separate narrow slot. Tilted block and frame overlap into one solid; checker records the connected local material volume. Contact seats and actual slots are not waived."
+        },
+        {
+          "part": "cradle_lower_jaw",
+          "kind": "narrow_gap",
+          "bounds_print_mm": [
+            [
+              88.79670062535611,
+              91.86266170220105,
+              10.699999999999992
+            ],
+            [
+              88.91670062535611,
+              92.10266170220106,
+              54.8
+            ]
+          ],
+          "normal_print": [
+            -0.019783721941801013,
+            -0.9998042830204967,
+            -4.392868722513879e-18
+          ],
+          "normal_tolerance_deg": 0.2,
+          "reason": "Strictly local open concave rear-block/frame junction, not a separate narrow slot. Tilted block and frame overlap into one solid; checker records the connected local material volume. Contact seats and actual slots are not waived."
+        },
+        {
+          "part": "hirth_fixed",
+          "kind": "thin_wall",
+          "bounds_print_mm": [
+            [
+              -0.01,
+              -0.01,
+              -0.01
+            ],
+            [
+              68.01,
+              68.01,
+              6.806694430741528
+            ]
+          ],
+          "radial_centre_print_mm": [
+            34.0,
+            34.0,
+            21.0
+          ],
+          "radial_axes": [
+            0,
+            1
+          ],
+          "radial_interval_mm": [
+            17.95,
+            18.84
+          ],
+          "reason": "Short normal chord at radial tooth termination edge only, not a separate thin wall. Tip/root flats and loaded middle annulus are checked independently; verify edge fidelity on Hirth coupon before production."
+        },
+        {
+          "part": "hirth_fixed",
+          "kind": "thin_wall",
+          "bounds_print_mm": [
+            [
+              -0.01,
+              -0.01,
+              -0.01
+            ],
+            [
+              68.01,
+              68.01,
+              6.806694430741528
+            ]
+          ],
+          "radial_centre_print_mm": [
+            34.0,
+            34.0,
+            21.0
+          ],
+          "radial_axes": [
+            0,
+            1
+          ],
+          "radial_interval_mm": [
+            29.16,
+            30.05
+          ],
+          "reason": "Short normal chord at radial tooth termination edge only, not a separate thin wall. Tip/root flats and loaded middle annulus are checked independently; verify edge fidelity on Hirth coupon before production."
+        },
+        {
+          "part": "hirth_fixed",
+          "kind": "thin_wall",
+          "bounds_print_mm": [
+            [
+              37.8082388326835,
+              63.31920747729251,
+              2.1999999999999993
+            ],
+            [
+              41.44308406454748,
+              68.49021551642205,
+              4.899999999999999
+            ]
+          ],
+          "reason": "Open end of engraved alignment groove at circular rim has a short corner chord; groove is >=1.2 mm wide and >=.8 mm deep, no projecting pointer or tiny text."
+        },
+        {
+          "part": "hirth_fixed",
+          "kind": "thin_wall",
+          "bounds_print_mm": [
+            [
+              32.44999999999999,
+              63.9,
+              2.200000000000003
+            ],
+            [
+              35.55000000000001,
+              68.9,
+              4.899999999999999
+            ]
+          ],
+          "reason": "Open end of engraved alignment groove at circular rim has a short corner chord; groove is >=1.2 mm wide and >=.8 mm deep, no projecting pointer or tiny text."
+        },
+        {
+          "part": "hirth_fixed",
+          "kind": "thin_wall",
+          "bounds_print_mm": [
+            [
+              26.556915935452523,
+              63.31920747729251,
+              2.200000000000003
+            ],
+            [
+              30.1917611673165,
+              68.49021551642205,
+              4.899999999999999
+            ]
+          ],
+          "reason": "Open end of engraved alignment groove at circular rim has a short corner chord; groove is >=1.2 mm wide and >=.8 mm deep, no projecting pointer or tiny text."
+        },
+        {
+          "part": "hirth_moving",
+          "kind": "thin_wall",
+          "bounds_print_mm": [
+            [
+              -0.01,
+              -0.01,
+              -0.01
+            ],
+            [
+              68.01,
+              68.01,
+              7.810000000000023
+            ]
+          ],
+          "radial_centre_print_mm": [
+            34.0,
+            34.0,
+            -8.999999999999986
+          ],
+          "radial_axes": [
+            0,
+            1
+          ],
+          "radial_interval_mm": [
+            17.95,
+            18.84
+          ],
+          "reason": "Short normal chord at radial tooth termination edge only, not a separate thin wall. Tip/root flats and loaded middle annulus are checked independently; verify edge fidelity on Hirth coupon before production."
+        },
+        {
+          "part": "hirth_moving",
+          "kind": "thin_wall",
+          "bounds_print_mm": [
+            [
+              -0.01,
+              -0.01,
+              -0.01
+            ],
+            [
+              68.01,
+              68.01,
+              7.810000000000023
+            ]
+          ],
+          "radial_centre_print_mm": [
+            34.0,
+            34.0,
+            -8.999999999999986
+          ],
+          "radial_axes": [
+            0,
+            1
+          ],
+          "radial_interval_mm": [
+            29.16,
+            30.05
+          ],
+          "reason": "Short normal chord at radial tooth termination edge only, not a separate thin wall. Tip/root flats and loaded middle annulus are checked independently; verify edge fidelity on Hirth coupon before production."
+        },
+        {
+          "part": "hirth_moving",
+          "kind": "thin_wall",
+          "bounds_print_mm": [
+            [
+              32.44999999999999,
+              63.9,
+              1.2000000000000135
+            ],
+            [
+              35.55000000000001,
+              68.9,
+              3.9000000000000146
+            ]
+          ],
+          "reason": "Open end of engraved alignment groove at circular rim has a short corner chord; groove is >=1.2 mm wide and >=.8 mm deep, no projecting pointer or tiny text."
+        }
+      ],
+      "required_support_regions": [
+        {
+          "part": "column",
+          "kind": "unsupported_overhang",
+          "bounds_print_mm": [
+            [
+              15.899999999999999,
+              -0.10000000000014353,
+              78.89999999999998
+            ],
+            [
+              24.1,
+              68.09999999999985,
+              147.09999999999997
+            ]
+          ],
+          "reason": "Paint removable support under circular fork head, horizontal axis hole roof and M3/nut pocket roofs on this ear; detach before metal-axis fit."
+        },
+        {
+          "part": "column",
+          "kind": "unsupported_overhang",
+          "bounds_print_mm": [
+            [
+              15.899999999999999,
+              17.89999999999985,
+              47.89999999999998
+            ],
+            [
+              27.1,
+              50.09999999999985,
+              77.09999999999997
+            ]
+          ],
+          "reason": "Paint removable support under the widened fork cross-member lateral ledge; upright and gussets remain self supporting."
+        },
+        {
+          "part": "column",
+          "kind": "unsupported_overhang",
+          "bounds_print_mm": [
+            [
+              65.9,
+              -0.10000000000014353,
+              78.89999999999998
+            ],
+            [
+              74.1,
+              68.09999999999985,
+              147.09999999999997
+            ]
+          ],
+          "reason": "Paint removable support under circular fork head, horizontal axis hole roof and M3/nut pocket roofs on this ear; detach before metal-axis fit."
+        },
+        {
+          "part": "column",
+          "kind": "unsupported_overhang",
+          "bounds_print_mm": [
+            [
+              62.9,
+              17.89999999999985,
+              47.89999999999998
+            ],
+            [
+              74.1,
+              50.09999999999985,
+              77.09999999999997
+            ]
+          ],
+          "reason": "Paint removable support under the widened fork cross-member lateral ledge; upright and gussets remain self supporting."
+        },
+        {
+          "part": "cradle_lower_jaw",
+          "kind": "unsupported_overhang",
+          "bounds_print_mm": [
+            [
+              81.8567006253561,
+              47.710678118654755,
+              -0.2500000000000071
+            ],
+            [
+              139.85670062535613,
+              63.710678118654755,
+              65.75
+            ]
+          ],
+          "reason": "Side-down print: support lower-jaw lateral steps, front lip and guide-socket underside; keep planar contact seat free from support."
+        },
+        {
+          "part": "cradle_lower_jaw",
+          "kind": "unsupported_overhang",
+          "bounds_print_mm": [
+            [
+              81.8567006253561,
+              47.710678118654755,
+              1.749999999999993
+            ],
+            [
+              104.85670062535613,
+              155.71067811865476,
+              63.75
+            ]
+          ],
+          "reason": "Side-down print: support frame, rear block and cap-insert roofs; remove support before installing pads/inserts."
+        },
+        {
+          "part": "cradle_lower_jaw",
+          "kind": "unsupported_overhang",
+          "bounds_print_mm": [
+            [
+              -1.0,
+              -1.0,
+              22.749999999999975
+            ],
+            [
+              89.85670062535611,
+              65.0,
+              42.74999999999999
+            ]
+          ],
+          "reason": "Side-down print: support centered pivot hub/web and horizontal M8/M3 bore ceilings; metal bolt, not a printed hinge pin."
+        },
+        {
+          "part": "cradle_lower_jaw",
+          "kind": "unsupported_overhang",
+          "bounds_print_mm": [
+            [
+              62.856700625356105,
+              47.710678118654755,
+              13.74999999999999
+            ],
+            [
+              89.85670062535611,
+              79.71067811865476,
+              51.75
+            ]
+          ],
+          "reason": "Side-down print: support lower rail seats and mechanical-stop collar underside; ream/coupon-check guide fit after cleanup."
+        },
+        {
+          "part": "slider_upper_jaw",
+          "kind": "unsupported_overhang",
+          "bounds_print_mm": [
+            [
+              -1.0,
+              14.000000000000007,
+              -0.10000000000000142
+            ],
+            [
+              41.0,
+              77.00000000000001,
+              31.623380108945014
+            ]
+          ],
+          "reason": "Jaw-down print: support neck step and Pair/USB channel roofs; protect planar pad seats from support scars."
+        },
+        {
+          "part": "slider_upper_jaw",
+          "kind": "unsupported_overhang",
+          "bounds_print_mm": [
+            [
+              1.0,
+              -1.0,
+              23.52338010894499
+            ],
+            [
+              39.0,
+              17.000000000000007,
+              63.723380108945
+            ]
+          ],
+          "reason": "Jaw-down print: support slider guide-bore/set-screw roofs and rear-body ledge; clear both guide bores after printing."
+        },
+        {
+          "part": "guide_cap",
+          "kind": "unsupported_overhang",
+          "bounds_print_mm": [
+            [
+              -1.0,
+              -1.000000000000007,
+              -0.09999999999999432
+            ],
+            [
+              61.0,
+              21.000000000000004,
+              45.00000000000001
+            ]
+          ],
+          "reason": "Cap-down print: support annular stop-tube/bore roofs and cap notch underside; clear sockets and screw holes after printing."
+        }
+      ],
+      "contact_offset_chain": {
+        "pass": true,
+        "contacts": [
+          {
+            "name": "upper",
+            "pad": "pad_upper_jaw",
+            "offsets_mm": [
+              48.62337875366211,
+              50.47338104248047
+            ],
+            "expected_fit_mm": 48.623380108945,
+            "expected_seat_mm": 50.473380108945,
+            "front_surface_to_fit_mm": 1.3552828903584668e-06,
+            "compressed_thickness_error_mm": 2.288818359286182e-06,
+            "rigid_seat_offset_error_mm": 9.335354675954477e-07,
+            "backend_ray_count": 10,
+            "backend_hit_count": 10,
+            "declared_groove_depth_mm": 1.5,
+            "pass": true,
+            "rim_declared_clearance_mm": 0.3500000000000014,
+            "scope": "Compressed pad and rigid seat STL plane coincidence. Actual shell residuals and rigid clearance are checked separately."
+          },
+          {
+            "name": "lower",
+            "pad": "pad_lower_jaw",
+            "offsets_mm": [
+              23.93141746520996,
+              25.781417846679688
+            ],
+            "expected_fit_mm": 23.931418015458547,
+            "expected_seat_mm": 25.78141801545855,
+            "front_surface_to_fit_mm": 5.502485862507456e-07,
+            "compressed_thickness_error_mm": 3.8146972647368216e-07,
+            "rigid_seat_offset_error_mm": 1.6877886110933105e-07,
+            "backend_ray_count": 2,
+            "backend_hit_count": 2,
+            "declared_groove_depth_mm": 1.5,
+            "pass": true,
+            "rim_declared_clearance_mm": 0.3500000000000014,
+            "scope": "Compressed pad and rigid seat STL plane coincidence. Actual shell residuals and rigid clearance are checked separately."
+          },
+          {
+            "name": "back",
+            "pad": "pad_back",
+            "offsets_mm": [
+              10.599062046856332,
+              12.44906237049591
+            ],
+            "expected_fit_mm": 10.59906236248381,
+            "expected_seat_mm": 12.44906236248381,
+            "front_surface_to_fit_mm": 2.2978988489796848e-07,
+            "compressed_thickness_error_mm": 3.236395769157241e-07,
+            "rigid_seat_offset_error_mm": 1.8881938856907254e-07,
+            "backend_ray_count": 2,
+            "backend_hit_count": 2,
+            "declared_groove_depth_mm": 1.5,
+            "pass": true,
+            "rim_declared_clearance_mm": 0.34999999999999964,
+            "scope": "Compressed pad and rigid seat STL plane coincidence. Actual shell residuals and rigid clearance are checked separately."
+          }
+        ],
+        "rear_frame_junction": {
+          "bounds_pad_mm": [
+            [
+              -20,
+              11.7719835835463,
+              -24.5
+            ],
+            [
+              20,
+              12.7719835835463,
+              -23.5
+            ]
+          ],
+          "local_material_volume_mm3": 30.098937856387238,
+          "connected_components": 1,
+          "pass": true,
+          "scope": "Actual exported solid clipped around the waived open concave edge; positive connected material excludes a detached thin fin or two disconnected parts at this junction."
+        }
+      },
+      "visual_contact_clearance": {
+        "pass": true,
+        "contacts": [
+          {
+            "contact": "upper",
+            "visual_samples": 1863,
+            "rigid_ray_hits": 1064,
+            "minimum_normal_clearance_mm": 0.333398878409362,
+            "pass": true,
+            "note": "Measured against upstream visual triangles, not merely against the fitted plane. Ports/unsupported samples with no fixture hit do not create false rigid contact."
+          },
+          {
+            "contact": "lower",
+            "visual_samples": 5085,
+            "rigid_ray_hits": 5085,
+            "minimum_normal_clearance_mm": 0.34999486469877183,
+            "pass": true,
+            "note": "Measured against upstream visual triangles, not merely against the fitted plane. Ports/unsupported samples with no fixture hit do not create false rigid contact."
+          },
+          {
+            "contact": "back",
+            "visual_samples": 4005,
+            "rigid_ray_hits": 3918,
+            "minimum_normal_clearance_mm": 0.27965040476127745,
+            "pass": true,
+            "note": "Measured against upstream visual triangles, not merely against the fitted plane. Ports/unsupported samples with no fixture hit do not create false rigid contact."
+          }
+        ],
+        "minimum_requested_clearance_mm": 0.25
+      },
+      "mechanics": {
+        "pass": true,
+        "pivot_separation_safety_factor": 7.7942286340599445,
+        "pivot_shear_capacity_Nm": 12.911573684677208,
+        "preload_N": 749.9999999999999,
+        "anti_twist_friction_capacity_Nm": 0.46269315135240024,
+        "anti_twist_safety_factor_at_0_4Nm": 1.1567328783810005,
+        "anti_twist_backpad_stiffness_Nm_per_rad": 34.59459539957825,
+        "anti_twist_rotation_deg_at_0_4Nm": 0.6624824352046715,
+        "actual_pad_moments": [
+          {
+            "pad": "pad_upper_jaw",
+            "width_mm": 36.0,
+            "contact_area_mm2": 201.7013168334961,
+            "mean_abs_x_mm": 6.278881306350011,
+            "area_second_moment_mm4": 11606.4361396613
+          },
+          {
+            "pad": "pad_lower_jaw",
+            "width_mm": 52.0,
+            "contact_area_mm2": 1144.0,
+            "mean_abs_x_mm": 13.0,
+            "area_second_moment_mm4": 257781.33333333334
+          },
+          {
+            "pad": "pad_back",
+            "width_mm": 40.0,
+            "contact_area_mm2": 800.0000186152472,
+            "mean_abs_x_mm": 10.0,
+            "area_second_moment_mm4": 106666.66914869963
+          }
+        ],
+        "assumptions": "Uniform pad pressure, nominal spring preload, dry mu=.6, pad effective E=.6 MPa; bench test required. Back stiffness applies only with continuous preloaded contact."
+      },
+      "derived_pose": {
+        "pass": true,
+        "depth_from_edge_mm": 53.43777728385044,
+        "height_above_table_mm": 212.66086534926922,
+        "root_world_mm": [
+          664.9622227161495,
+          625.2,
+          979.6608653492692
+        ],
+        "tilt_deg": 45.0,
+        "exported_base_registration_errors": {
+          "base_far_edge_mm": 2.894743488468521e-06,
+          "base_lateral_midline_mm": 0.0,
+          "base_underside_mm": 1.4699003259011079e-06
+        },
+        "scene_root_position_error_mm": 0.0,
+        "scene_root_rotation_error_deg": 5.4295464646609885e-15,
+        "pose_source": "Actual base/post/support geometry; exported base edge/underside/midline registration and scene root cross-check; no v1/v2 root equality requirement"
+      },
+      "cap_M3_installation_access": {
+        "pass": true,
+        "channels": [
+          {
+            "side": -1,
+            "axis_pad_xy_mm": [
+              -25.0,
+              71.0
+            ],
+            "frame_probe_rays": 17,
+            "frame_blocking_hits": [],
+            "actual_frame_thickness_mm": 6.0,
+            "cap_probe_rays": 9,
+            "cap_blocking_hits": [],
+            "cap_thickness_mm": 20.0,
+            "cap_bolt_length_mm": 25.0,
+            "cap_insert_engagement_mm": 4.0,
+            "cap_tip_to_frame_front_mm": 1.0,
+            "marker_chain_mm": {
+              "bolt": 30.0,
+              "anchor": 4.0,
+              "cap": 20.0,
+              "spacer": 2.0,
+              "penetration": 4.0,
+              "insert_engagement": 4.0
+            },
+            "pass": true
+          },
+          {
+            "side": 1,
+            "axis_pad_xy_mm": [
+              25.0,
+              71.0
+            ],
+            "frame_probe_rays": 17,
+            "frame_blocking_hits": [],
+            "actual_frame_thickness_mm": 6.0,
+            "cap_probe_rays": 9,
+            "cap_blocking_hits": [],
+            "cap_thickness_mm": 20.0,
+            "cap_bolt_length_mm": 25.0,
+            "cap_insert_engagement_mm": 4.0,
+            "cap_tip_to_frame_front_mm": 1.0,
+            "marker_chain_mm": {
+              "bolt": 30.0,
+              "anchor": 4.0,
+              "cap": 20.0,
+              "spacer": 2.0,
+              "penetration": 4.0,
+              "insert_engagement": 4.0
+            },
+            "pass": true
+          }
+        ],
+        "scope": "17 axial frame rays including off-axis witnesses must see no closed skin; nine cap rays verify the M3 shaft path. Length chain uses M3x25 or marker M3x30 + 4mm anchor + 2mm spacer; insert retention still requires a physical coupon."
+      },
+      "clamp_pressure_cases": [
+        {
+          "force_N": 1000.0,
+          "foot_diameter_mm": 15.0,
+          "pressure_MPa": 5.6588424210451675
+        },
+        {
+          "force_N": 1000.0,
+          "foot_diameter_mm": 20.0,
+          "pressure_MPa": 3.1830988618379066
+        },
+        {
+          "force_N": 2000.0,
+          "foot_diameter_mm": 15.0,
+          "pressure_MPa": 11.317684842090335
+        },
+        {
+          "force_N": 2000.0,
+          "foot_diameter_mm": 20.0,
+          "pressure_MPa": 6.366197723675813
+        }
+      ],
+      "clamp_pressure_limit_scope": "Foot diameter and actual force unmeasured. At2kN/15mm pressure11.3MPa exceeds the v2 provisional10MPa short-term assumption; no pad/shoe/spreader is modelled. Measure foot/force and creep; do not infer allowable clamp torque from this estimate.",
+      "usable_clamp_edge_length_mm": 150,
+      "base_fastener_geometry": [
+        {
+          "part": "hardware_base_M5_0",
+          "pilot_diameter_mm": 4.198591963430353,
+          "pilot_depth_mm": 6.500001616424951,
+          "nominal_thread_engagement_mm": 4.000015104408419,
+          "bolt_tip_to_hole_bottom_mm": 2.499986512016532,
+          "remaining_base_floor_mm": 1.50000161840879,
+          "pass": true,
+          "scope": "Actual STL pilot and bolt-tip rays. Nominal M5 thread crests/heat-set insert pull-out strength are not modelled; machining/insert fit requires physical verification."
+        },
+        {
+          "part": "hardware_base_M5_1",
+          "pilot_diameter_mm": 4.198591768479908,
+          "pilot_depth_mm": 6.500001616778039,
+          "nominal_thread_engagement_mm": 4.000009709611788,
+          "bolt_tip_to_hole_bottom_mm": 2.49999190716625,
+          "remaining_base_floor_mm": 1.5000016180557028,
+          "pass": true,
+          "scope": "Actual STL pilot and bolt-tip rays. Nominal M5 thread crests/heat-set insert pull-out strength are not modelled; machining/insert fit requires physical verification."
+        },
+        {
+          "part": "hardware_base_M5_2",
+          "pilot_diameter_mm": 4.198591963430353,
+          "pilot_depth_mm": 6.500001616424951,
+          "nominal_thread_engagement_mm": 4.000015104408419,
+          "bolt_tip_to_hole_bottom_mm": 2.499986512016532,
+          "remaining_base_floor_mm": 1.50000161840879,
+          "pass": true,
+          "scope": "Actual STL pilot and bolt-tip rays. Nominal M5 thread crests/heat-set insert pull-out strength are not modelled; machining/insert fit requires physical verification."
+        },
+        {
+          "part": "hardware_base_M5_3",
+          "pilot_diameter_mm": 4.198591768479908,
+          "pilot_depth_mm": 6.500001616778039,
+          "nominal_thread_engagement_mm": 4.000009709611788,
+          "bolt_tip_to_hole_bottom_mm": 2.49999190716625,
+          "remaining_base_floor_mm": 1.5000016180557028,
+          "pass": true,
+          "scope": "Actual STL pilot and bolt-tip rays. Nominal M5 thread crests/heat-set insert pull-out strength are not modelled; machining/insert fit requires physical verification."
+        }
+      ],
+      "audited_cuts": 63,
+      "actual_hirth_sections": [
+        {
+          "part": "hirth_fixed",
+          "radius_mm": 18.5,
+          "ray_count": 7200,
+          "hit_count": 7200,
+          "measured_teeth": 36,
+          "tip_flat_min_lower_bound_mm": 1.081667803923486,
+          "root_flat_min_lower_bound_mm": 0.8556476657902201,
+          "section_sampling_step_mm": 0.01614429558094755,
+          "flank_angle_max_error_deg": 0.0014533727847094724,
+          "pass": true
+        },
+        {
+          "part": "hirth_fixed",
+          "radius_mm": 24.0,
+          "ray_count": 7200,
+          "hit_count": 7200,
+          "measured_teeth": 36,
+          "tip_flat_min_lower_bound_mm": 1.0681415022205296,
+          "root_flat_min_lower_bound_mm": 0.8587019919812101,
+          "section_sampling_step_mm": 0.020943951023931952,
+          "flank_angle_max_error_deg": 0.0014533727847094724,
+          "pass": true
+        },
+        {
+          "part": "hirth_fixed",
+          "radius_mm": 29.5,
+          "ray_count": 7200,
+          "hit_count": 7200,
+          "measured_teeth": 36,
+          "tip_flat_min_lower_bound_mm": 1.0554878651435708,
+          "root_flat_min_lower_bound_mm": 0.8495390134082398,
+          "section_sampling_step_mm": 0.02574360646691636,
+          "flank_angle_max_error_deg": 0.0012237554865421885,
+          "pass": true
+        },
+        {
+          "part": "hirth_moving",
+          "radius_mm": 18.5,
+          "ray_count": 7200,
+          "hit_count": 7200,
+          "measured_teeth": 36,
+          "tip_flat_min_lower_bound_mm": 1.113956395085381,
+          "root_flat_min_lower_bound_mm": 0.8556476657902201,
+          "section_sampling_step_mm": 0.01614429558094755,
+          "flank_angle_max_error_deg": 0.0012553473765279932,
+          "pass": true
+        },
+        {
+          "part": "hirth_moving",
+          "radius_mm": 24.0,
+          "ray_count": 7200,
+          "hit_count": 7200,
+          "measured_teeth": 36,
+          "tip_flat_min_lower_bound_mm": 1.1100294042683934,
+          "root_flat_min_lower_bound_mm": 0.8168140899333461,
+          "section_sampling_step_mm": 0.020943951023931952,
+          "flank_angle_max_error_deg": 0.0012553473765279932,
+          "pass": true
+        },
+        {
+          "part": "hirth_moving",
+          "radius_mm": 29.5,
+          "ray_count": 7200,
+          "hit_count": 7200,
+          "measured_teeth": 36,
+          "tip_flat_min_lower_bound_mm": 1.1069750780774035,
+          "root_flat_min_lower_bound_mm": 0.798051800474407,
+          "section_sampling_step_mm": 0.02574360646691636,
+          "flank_angle_max_error_deg": 0.001048520618354587,
+          "pass": true
+        }
+      ]
+    },
+    "out_tpu": {
+      "summary": {
+        "build_volume_pass": true,
+        "exported_mesh_validity_pass": true,
+        "assembly_interference_pass": true,
+        "control_full_travel_clearance_pass": true,
+        "shell_clearance_pass": true,
+        "openings_pass": true,
+        "grip_back_keepout_pass": true,
+        "contact_offset_chain_pass": true,
+        "visual_contact_clearance_pass": true,
+        "cut_audit_pass": true,
+        "structural_symmetry_and_ribs_pass": true,
+        "mounting_band_pass": true,
+        "mechanics_pass": true,
+        "hirth_actual_sections_pass": true,
+        "slider_motion_pass": true,
+        "derived_pose_pass": true,
+        "simulation_export_pass": true,
+        "printability_pass": true,
+        "all_hard_gates_pass": true
+      },
+      "artifact_type": "assembly",
+      "assembly_parts": 37,
+      "printed_parts": 14,
+      "wall_threshold_mm": 0.84,
+      "gap_threshold_mm": 0.63,
+      "parts": {
+        "base_printed": {
+          "samples": 62028,
+          "raw_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          },
+          "unwaived_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          }
+        },
+        "column": {
+          "samples": 65608,
+          "raw_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 2130
+          },
+          "unwaived_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          }
+        },
+        "hirth_fixed": {
+          "samples": 64888,
+          "raw_flags": {
+            "thin_wall": 161,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          },
+          "unwaived_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          }
+        },
+        "hirth_moving": {
+          "samples": 65430,
+          "raw_flags": {
+            "thin_wall": 93,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          },
+          "unwaived_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          }
+        },
+        "cradle_lower_jaw": {
+          "samples": 65708,
+          "raw_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 4,
+            "unsupported_overhang": 11431
+          },
+          "unwaived_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          }
+        },
+        "slider_upper_jaw": {
+          "samples": 62172,
+          "raw_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 2374
+          },
+          "unwaived_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          }
+        },
+        "guide_cap": {
+          "samples": 63060,
+          "raw_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 1138
+          },
+          "unwaived_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          }
+        },
+        "guide_rod_1": {
+          "samples": 60500,
+          "raw_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          },
+          "unwaived_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          }
+        },
+        "guide_rod_2": {
+          "samples": 60500,
+          "raw_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          },
+          "unwaived_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          }
+        },
+        "lock_screw_spacer": {
+          "samples": 61008,
+          "raw_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          },
+          "unwaived_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          }
+        },
+        "M8_hand_knob": {
+          "samples": 61032,
+          "raw_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          },
+          "unwaived_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          }
+        },
+        "pad_back": {
+          "samples": 60012,
+          "raw_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          },
+          "unwaived_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          }
+        },
+        "pad_lower_jaw": {
+          "samples": 60012,
+          "raw_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          },
+          "unwaived_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          }
+        },
+        "pad_upper_jaw": {
+          "samples": 60044,
+          "raw_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          },
+          "unwaived_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          }
+        }
+      },
+      "local_ray_exemptions": [
+        {
+          "part": "cradle_lower_jaw",
+          "kind": "narrow_gap",
+          "bounds_print_mm": [
+            [
+              88.79670062535611,
+              91.86266170220105,
+              10.699999999999992
+            ],
+            [
+              88.91670062535611,
+              92.10266170220106,
+              54.8
+            ]
+          ],
+          "normal_print": [
+            1.0,
+            0.0,
+            2.220446049250313e-16
+          ],
+          "normal_tolerance_deg": 0.2,
+          "reason": "Strictly local open concave rear-block/frame junction, not a separate narrow slot. Tilted block and frame overlap into one solid; checker records the connected local material volume. Contact seats and actual slots are not waived."
+        },
+        {
+          "part": "cradle_lower_jaw",
+          "kind": "narrow_gap",
+          "bounds_print_mm": [
+            [
+              88.79670062535611,
+              91.86266170220105,
+              10.699999999999992
+            ],
+            [
+              88.91670062535611,
+              92.10266170220106,
+              54.8
+            ]
+          ],
+          "normal_print": [
+            -0.019783721941801013,
+            -0.9998042830204967,
+            -4.392868722513879e-18
+          ],
+          "normal_tolerance_deg": 0.2,
+          "reason": "Strictly local open concave rear-block/frame junction, not a separate narrow slot. Tilted block and frame overlap into one solid; checker records the connected local material volume. Contact seats and actual slots are not waived."
+        },
+        {
+          "part": "hirth_fixed",
+          "kind": "thin_wall",
+          "bounds_print_mm": [
+            [
+              -0.01,
+              -0.01,
+              -0.01
+            ],
+            [
+              68.01,
+              68.01,
+              6.806694430741528
+            ]
+          ],
+          "radial_centre_print_mm": [
+            34.0,
+            34.0,
+            21.0
+          ],
+          "radial_axes": [
+            0,
+            1
+          ],
+          "radial_interval_mm": [
+            17.95,
+            18.84
+          ],
+          "reason": "Short normal chord at radial tooth termination edge only, not a separate thin wall. Tip/root flats and loaded middle annulus are checked independently; verify edge fidelity on Hirth coupon before production."
+        },
+        {
+          "part": "hirth_fixed",
+          "kind": "thin_wall",
+          "bounds_print_mm": [
+            [
+              -0.01,
+              -0.01,
+              -0.01
+            ],
+            [
+              68.01,
+              68.01,
+              6.806694430741528
+            ]
+          ],
+          "radial_centre_print_mm": [
+            34.0,
+            34.0,
+            21.0
+          ],
+          "radial_axes": [
+            0,
+            1
+          ],
+          "radial_interval_mm": [
+            29.16,
+            30.05
+          ],
+          "reason": "Short normal chord at radial tooth termination edge only, not a separate thin wall. Tip/root flats and loaded middle annulus are checked independently; verify edge fidelity on Hirth coupon before production."
+        },
+        {
+          "part": "hirth_fixed",
+          "kind": "thin_wall",
+          "bounds_print_mm": [
+            [
+              37.8082388326835,
+              63.31920747729251,
+              2.1999999999999993
+            ],
+            [
+              41.44308406454748,
+              68.49021551642205,
+              4.899999999999999
+            ]
+          ],
+          "reason": "Open end of engraved alignment groove at circular rim has a short corner chord; groove is >=1.2 mm wide and >=.8 mm deep, no projecting pointer or tiny text."
+        },
+        {
+          "part": "hirth_fixed",
+          "kind": "thin_wall",
+          "bounds_print_mm": [
+            [
+              32.44999999999999,
+              63.9,
+              2.200000000000003
+            ],
+            [
+              35.55000000000001,
+              68.9,
+              4.899999999999999
+            ]
+          ],
+          "reason": "Open end of engraved alignment groove at circular rim has a short corner chord; groove is >=1.2 mm wide and >=.8 mm deep, no projecting pointer or tiny text."
+        },
+        {
+          "part": "hirth_fixed",
+          "kind": "thin_wall",
+          "bounds_print_mm": [
+            [
+              26.556915935452523,
+              63.31920747729251,
+              2.200000000000003
+            ],
+            [
+              30.1917611673165,
+              68.49021551642205,
+              4.899999999999999
+            ]
+          ],
+          "reason": "Open end of engraved alignment groove at circular rim has a short corner chord; groove is >=1.2 mm wide and >=.8 mm deep, no projecting pointer or tiny text."
+        },
+        {
+          "part": "hirth_moving",
+          "kind": "thin_wall",
+          "bounds_print_mm": [
+            [
+              -0.01,
+              -0.01,
+              -0.01
+            ],
+            [
+              68.01,
+              68.01,
+              7.810000000000023
+            ]
+          ],
+          "radial_centre_print_mm": [
+            34.0,
+            34.0,
+            -8.999999999999986
+          ],
+          "radial_axes": [
+            0,
+            1
+          ],
+          "radial_interval_mm": [
+            17.95,
+            18.84
+          ],
+          "reason": "Short normal chord at radial tooth termination edge only, not a separate thin wall. Tip/root flats and loaded middle annulus are checked independently; verify edge fidelity on Hirth coupon before production."
+        },
+        {
+          "part": "hirth_moving",
+          "kind": "thin_wall",
+          "bounds_print_mm": [
+            [
+              -0.01,
+              -0.01,
+              -0.01
+            ],
+            [
+              68.01,
+              68.01,
+              7.810000000000023
+            ]
+          ],
+          "radial_centre_print_mm": [
+            34.0,
+            34.0,
+            -8.999999999999986
+          ],
+          "radial_axes": [
+            0,
+            1
+          ],
+          "radial_interval_mm": [
+            29.16,
+            30.05
+          ],
+          "reason": "Short normal chord at radial tooth termination edge only, not a separate thin wall. Tip/root flats and loaded middle annulus are checked independently; verify edge fidelity on Hirth coupon before production."
+        },
+        {
+          "part": "hirth_moving",
+          "kind": "thin_wall",
+          "bounds_print_mm": [
+            [
+              32.44999999999999,
+              63.9,
+              1.2000000000000135
+            ],
+            [
+              35.55000000000001,
+              68.9,
+              3.9000000000000146
+            ]
+          ],
+          "reason": "Open end of engraved alignment groove at circular rim has a short corner chord; groove is >=1.2 mm wide and >=.8 mm deep, no projecting pointer or tiny text."
+        }
+      ],
+      "required_support_regions": [
+        {
+          "part": "column",
+          "kind": "unsupported_overhang",
+          "bounds_print_mm": [
+            [
+              15.899999999999999,
+              -0.09999999999999432,
+              78.90000000000009
+            ],
+            [
+              24.1,
+              68.10000000000001,
+              147.10000000000008
+            ]
+          ],
+          "reason": "Paint removable support under circular fork head, horizontal axis hole roof and M3/nut pocket roofs on this ear; detach before metal-axis fit."
+        },
+        {
+          "part": "column",
+          "kind": "unsupported_overhang",
+          "bounds_print_mm": [
+            [
+              15.899999999999999,
+              17.9,
+              47.90000000000009
+            ],
+            [
+              27.1,
+              50.1,
+              77.10000000000008
+            ]
+          ],
+          "reason": "Paint removable support under the widened fork cross-member lateral ledge; upright and gussets remain self supporting."
+        },
+        {
+          "part": "column",
+          "kind": "unsupported_overhang",
+          "bounds_print_mm": [
+            [
+              65.9,
+              -0.09999999999999432,
+              78.90000000000009
+            ],
+            [
+              74.1,
+              68.10000000000001,
+              147.10000000000008
+            ]
+          ],
+          "reason": "Paint removable support under circular fork head, horizontal axis hole roof and M3/nut pocket roofs on this ear; detach before metal-axis fit."
+        },
+        {
+          "part": "column",
+          "kind": "unsupported_overhang",
+          "bounds_print_mm": [
+            [
+              62.9,
+              17.9,
+              47.90000000000009
+            ],
+            [
+              74.1,
+              50.1,
+              77.10000000000008
+            ]
+          ],
+          "reason": "Paint removable support under the widened fork cross-member lateral ledge; upright and gussets remain self supporting."
+        },
+        {
+          "part": "cradle_lower_jaw",
+          "kind": "unsupported_overhang",
+          "bounds_print_mm": [
+            [
+              81.8567006253561,
+              47.710678118654755,
+              -0.2500000000000071
+            ],
+            [
+              139.85670062535613,
+              63.710678118654755,
+              65.75
+            ]
+          ],
+          "reason": "Side-down print: support lower-jaw lateral steps, front lip and guide-socket underside; keep planar contact seat free from support."
+        },
+        {
+          "part": "cradle_lower_jaw",
+          "kind": "unsupported_overhang",
+          "bounds_print_mm": [
+            [
+              81.8567006253561,
+              47.710678118654755,
+              1.749999999999993
+            ],
+            [
+              104.85670062535613,
+              155.71067811865476,
+              63.75
+            ]
+          ],
+          "reason": "Side-down print: support frame, rear block and cap-insert roofs; remove support before installing pads/inserts."
+        },
+        {
+          "part": "cradle_lower_jaw",
+          "kind": "unsupported_overhang",
+          "bounds_print_mm": [
+            [
+              -1.0,
+              -1.0,
+              22.749999999999975
+            ],
+            [
+              89.85670062535611,
+              65.0,
+              42.74999999999999
+            ]
+          ],
+          "reason": "Side-down print: support centered pivot hub/web and horizontal M8/M3 bore ceilings; metal bolt, not a printed hinge pin."
+        },
+        {
+          "part": "cradle_lower_jaw",
+          "kind": "unsupported_overhang",
+          "bounds_print_mm": [
+            [
+              62.856700625356105,
+              47.710678118654755,
+              13.74999999999999
+            ],
+            [
+              89.85670062535611,
+              79.71067811865476,
+              51.75
+            ]
+          ],
+          "reason": "Side-down print: support lower rail seats and mechanical-stop collar underside; ream/coupon-check guide fit after cleanup."
+        },
+        {
+          "part": "slider_upper_jaw",
+          "kind": "unsupported_overhang",
+          "bounds_print_mm": [
+            [
+              -1.0,
+              14.000000000000007,
+              -0.10000000000000142
+            ],
+            [
+              41.0,
+              77.00000000000001,
+              31.623380108945014
+            ]
+          ],
+          "reason": "Jaw-down print: support neck step and Pair/USB channel roofs; protect planar pad seats from support scars."
+        },
+        {
+          "part": "slider_upper_jaw",
+          "kind": "unsupported_overhang",
+          "bounds_print_mm": [
+            [
+              1.0,
+              -1.0,
+              23.52338010894499
+            ],
+            [
+              39.0,
+              17.000000000000007,
+              63.723380108945
+            ]
+          ],
+          "reason": "Jaw-down print: support slider guide-bore/set-screw roofs and rear-body ledge; clear both guide bores after printing."
+        },
+        {
+          "part": "guide_cap",
+          "kind": "unsupported_overhang",
+          "bounds_print_mm": [
+            [
+              -1.0,
+              -1.000000000000007,
+              -0.09999999999999432
+            ],
+            [
+              61.0,
+              21.000000000000004,
+              45.00000000000001
+            ]
+          ],
+          "reason": "Cap-down print: support annular stop-tube/bore roofs and cap notch underside; clear sockets and screw holes after printing."
+        }
+      ],
+      "contact_offset_chain": {
+        "pass": true,
+        "contacts": [
+          {
+            "name": "upper",
+            "pad": "pad_upper_jaw",
+            "offsets_mm": [
+              48.62337875366211,
+              50.47338104248047
+            ],
+            "expected_fit_mm": 48.623380108945,
+            "expected_seat_mm": 50.473380108945,
+            "front_surface_to_fit_mm": 1.3552828903584668e-06,
+            "compressed_thickness_error_mm": 2.288818359286182e-06,
+            "rigid_seat_offset_error_mm": 9.335354675954477e-07,
+            "backend_ray_count": 10,
+            "backend_hit_count": 10,
+            "declared_groove_depth_mm": 1.5,
+            "pass": true,
+            "rim_declared_clearance_mm": 0.3500000000000014,
+            "scope": "Compressed pad and rigid seat STL plane coincidence. Actual shell residuals and rigid clearance are checked separately."
+          },
+          {
+            "name": "lower",
+            "pad": "pad_lower_jaw",
+            "offsets_mm": [
+              23.93141746520996,
+              25.781417846679688
+            ],
+            "expected_fit_mm": 23.931418015458547,
+            "expected_seat_mm": 25.78141801545855,
+            "front_surface_to_fit_mm": 5.502485862507456e-07,
+            "compressed_thickness_error_mm": 3.8146972647368216e-07,
+            "rigid_seat_offset_error_mm": 1.6877886110933105e-07,
+            "backend_ray_count": 2,
+            "backend_hit_count": 2,
+            "declared_groove_depth_mm": 1.5,
+            "pass": true,
+            "rim_declared_clearance_mm": 0.3500000000000014,
+            "scope": "Compressed pad and rigid seat STL plane coincidence. Actual shell residuals and rigid clearance are checked separately."
+          },
+          {
+            "name": "back",
+            "pad": "pad_back",
+            "offsets_mm": [
+              10.599062046856332,
+              12.44906237049591
+            ],
+            "expected_fit_mm": 10.59906236248381,
+            "expected_seat_mm": 12.44906236248381,
+            "front_surface_to_fit_mm": 2.2978988489796848e-07,
+            "compressed_thickness_error_mm": 3.236395769157241e-07,
+            "rigid_seat_offset_error_mm": 1.8881938856907254e-07,
+            "backend_ray_count": 2,
+            "backend_hit_count": 2,
+            "declared_groove_depth_mm": 1.5,
+            "pass": true,
+            "rim_declared_clearance_mm": 0.34999999999999964,
+            "scope": "Compressed pad and rigid seat STL plane coincidence. Actual shell residuals and rigid clearance are checked separately."
+          }
+        ],
+        "rear_frame_junction": {
+          "bounds_pad_mm": [
+            [
+              -20,
+              11.7719835835463,
+              -24.5
+            ],
+            [
+              20,
+              12.7719835835463,
+              -23.5
+            ]
+          ],
+          "local_material_volume_mm3": 30.098937856387238,
+          "connected_components": 1,
+          "pass": true,
+          "scope": "Actual exported solid clipped around the waived open concave edge; positive connected material excludes a detached thin fin or two disconnected parts at this junction."
+        }
+      },
+      "visual_contact_clearance": {
+        "pass": true,
+        "contacts": [
+          {
+            "contact": "upper",
+            "visual_samples": 1863,
+            "rigid_ray_hits": 1064,
+            "minimum_normal_clearance_mm": 0.333398878409362,
+            "pass": true,
+            "note": "Measured against upstream visual triangles, not merely against the fitted plane. Ports/unsupported samples with no fixture hit do not create false rigid contact."
+          },
+          {
+            "contact": "lower",
+            "visual_samples": 5085,
+            "rigid_ray_hits": 5085,
+            "minimum_normal_clearance_mm": 0.34999486469877183,
+            "pass": true,
+            "note": "Measured against upstream visual triangles, not merely against the fitted plane. Ports/unsupported samples with no fixture hit do not create false rigid contact."
+          },
+          {
+            "contact": "back",
+            "visual_samples": 4005,
+            "rigid_ray_hits": 3918,
+            "minimum_normal_clearance_mm": 0.27965040476127745,
+            "pass": true,
+            "note": "Measured against upstream visual triangles, not merely against the fitted plane. Ports/unsupported samples with no fixture hit do not create false rigid contact."
+          }
+        ],
+        "minimum_requested_clearance_mm": 0.25
+      },
+      "mechanics": {
+        "pass": true,
+        "pivot_separation_safety_factor": 7.7942286340599445,
+        "pivot_shear_capacity_Nm": 12.911573684677208,
+        "preload_N": 749.9999999999999,
+        "anti_twist_friction_capacity_Nm": 0.46269315135240024,
+        "anti_twist_safety_factor_at_0_4Nm": 1.1567328783810005,
+        "anti_twist_backpad_stiffness_Nm_per_rad": 34.59459539957825,
+        "anti_twist_rotation_deg_at_0_4Nm": 0.6624824352046715,
+        "actual_pad_moments": [
+          {
+            "pad": "pad_upper_jaw",
+            "width_mm": 36.0,
+            "contact_area_mm2": 201.7013168334961,
+            "mean_abs_x_mm": 6.278881306350011,
+            "area_second_moment_mm4": 11606.4361396613
+          },
+          {
+            "pad": "pad_lower_jaw",
+            "width_mm": 52.0,
+            "contact_area_mm2": 1144.0,
+            "mean_abs_x_mm": 13.0,
+            "area_second_moment_mm4": 257781.33333333334
+          },
+          {
+            "pad": "pad_back",
+            "width_mm": 40.0,
+            "contact_area_mm2": 800.0000186152472,
+            "mean_abs_x_mm": 10.0,
+            "area_second_moment_mm4": 106666.66914869963
+          }
+        ],
+        "assumptions": "Uniform pad pressure, nominal spring preload, dry mu=.6, pad effective E=.6 MPa; bench test required. Back stiffness applies only with continuous preloaded contact."
+      },
+      "derived_pose": {
+        "pass": true,
+        "depth_from_edge_mm": 53.43777728385044,
+        "height_above_table_mm": 220.66086534926922,
+        "root_world_mm": [
+          664.9622227161495,
+          625.2,
+          987.6608653492692
+        ],
+        "tilt_deg": 45.0,
+        "exported_base_registration_errors": {
+          "base_far_edge_mm": 2.894743488468521e-06,
+          "base_lateral_midline_mm": 0.0,
+          "base_underside_mm": 1.764933358572307e-06
+        },
+        "scene_root_position_error_mm": 0.0,
+        "scene_root_rotation_error_deg": 5.4295464646609885e-15,
+        "pose_source": "Actual base/post/support geometry; exported base edge/underside/midline registration and scene root cross-check; no v1/v2 root equality requirement"
+      },
+      "cap_M3_installation_access": {
+        "pass": true,
+        "channels": [
+          {
+            "side": -1,
+            "axis_pad_xy_mm": [
+              -25.0,
+              71.0
+            ],
+            "frame_probe_rays": 17,
+            "frame_blocking_hits": [],
+            "actual_frame_thickness_mm": 6.0,
+            "cap_probe_rays": 9,
+            "cap_blocking_hits": [],
+            "cap_thickness_mm": 20.0,
+            "cap_bolt_length_mm": 25.0,
+            "cap_insert_engagement_mm": 4.0,
+            "cap_tip_to_frame_front_mm": 1.0,
+            "marker_chain_mm": {
+              "bolt": 30.0,
+              "anchor": 4.0,
+              "cap": 20.0,
+              "spacer": 2.0,
+              "penetration": 4.0,
+              "insert_engagement": 4.0
+            },
+            "pass": true
+          },
+          {
+            "side": 1,
+            "axis_pad_xy_mm": [
+              25.0,
+              71.0
+            ],
+            "frame_probe_rays": 17,
+            "frame_blocking_hits": [],
+            "actual_frame_thickness_mm": 6.0,
+            "cap_probe_rays": 9,
+            "cap_blocking_hits": [],
+            "cap_thickness_mm": 20.0,
+            "cap_bolt_length_mm": 25.0,
+            "cap_insert_engagement_mm": 4.0,
+            "cap_tip_to_frame_front_mm": 1.0,
+            "marker_chain_mm": {
+              "bolt": 30.0,
+              "anchor": 4.0,
+              "cap": 20.0,
+              "spacer": 2.0,
+              "penetration": 4.0,
+              "insert_engagement": 4.0
+            },
+            "pass": true
+          }
+        ],
+        "scope": "17 axial frame rays including off-axis witnesses must see no closed skin; nine cap rays verify the M3 shaft path. Length chain uses M3x25 or marker M3x30 + 4mm anchor + 2mm spacer; insert retention still requires a physical coupon."
+      },
+      "clamp_pressure_cases": [
+        {
+          "force_N": 1000.0,
+          "foot_diameter_mm": 15.0,
+          "pressure_MPa": 5.6588424210451675
+        },
+        {
+          "force_N": 1000.0,
+          "foot_diameter_mm": 20.0,
+          "pressure_MPa": 3.1830988618379066
+        },
+        {
+          "force_N": 2000.0,
+          "foot_diameter_mm": 15.0,
+          "pressure_MPa": 11.317684842090335
+        },
+        {
+          "force_N": 2000.0,
+          "foot_diameter_mm": 20.0,
+          "pressure_MPa": 6.366197723675813
+        }
+      ],
+      "clamp_pressure_limit_scope": "Foot diameter and actual force unmeasured. At2kN/15mm pressure11.3MPa exceeds the v2 provisional10MPa short-term assumption; no pad/shoe/spreader is modelled. Measure foot/force and creep; do not infer allowable clamp torque from this estimate.",
+      "usable_clamp_edge_length_mm": 150,
+      "base_fastener_geometry": [
+        {
+          "part": "hardware_base_M5_0",
+          "pilot_diameter_mm": 6.397349038282968,
+          "pilot_depth_mm": 9.000004490300492,
+          "nominal_thread_engagement_mm": 8.000008629630344,
+          "bolt_tip_to_hole_bottom_mm": 0.9999958606701487,
+          "remaining_base_floor_mm": 7.000001979366962,
+          "pass": true,
+          "scope": "Actual STL pilot and bolt-tip rays. Nominal M5 thread crests/heat-set insert pull-out strength are not modelled; machining/insert fit requires physical verification."
+        },
+        {
+          "part": "hardware_base_M5_1",
+          "pilot_diameter_mm": 6.397348946981918,
+          "pilot_depth_mm": 8.999998949460002,
+          "nominal_thread_engagement_mm": 8.000008629630344,
+          "bolt_tip_to_hole_bottom_mm": 0.9999903198296582,
+          "remaining_base_floor_mm": 7.000007520207452,
+          "pass": true,
+          "scope": "Actual STL pilot and bolt-tip rays. Nominal M5 thread crests/heat-set insert pull-out strength are not modelled; machining/insert fit requires physical verification."
+        },
+        {
+          "part": "hardware_base_M5_2",
+          "pilot_diameter_mm": 6.397349038282972,
+          "pilot_depth_mm": 9.000004318153419,
+          "nominal_thread_engagement_mm": 8.000008629630344,
+          "bolt_tip_to_hole_bottom_mm": 0.9999956885230752,
+          "remaining_base_floor_mm": 7.000002151514035,
+          "pass": true,
+          "scope": "Actual STL pilot and bolt-tip rays. Nominal M5 thread crests/heat-set insert pull-out strength are not modelled; machining/insert fit requires physical verification."
+        },
+        {
+          "part": "hardware_base_M5_3",
+          "pilot_diameter_mm": 6.397348946981914,
+          "pilot_depth_mm": 9.000004313537517,
+          "nominal_thread_engagement_mm": 8.000008629630344,
+          "bolt_tip_to_hole_bottom_mm": 0.9999956839071729,
+          "remaining_base_floor_mm": 7.000002156129938,
+          "pass": true,
+          "scope": "Actual STL pilot and bolt-tip rays. Nominal M5 thread crests/heat-set insert pull-out strength are not modelled; machining/insert fit requires physical verification."
+        }
+      ],
+      "audited_cuts": 63,
+      "actual_hirth_sections": [
+        {
+          "part": "hirth_fixed",
+          "radius_mm": 18.5,
+          "ray_count": 7200,
+          "hit_count": 7200,
+          "measured_teeth": 36,
+          "tip_flat_min_lower_bound_mm": 1.081667803923486,
+          "root_flat_min_lower_bound_mm": 0.8556476657902201,
+          "section_sampling_step_mm": 0.01614429558094755,
+          "flank_angle_max_error_deg": 0.0014533727847094724,
+          "pass": true
+        },
+        {
+          "part": "hirth_fixed",
+          "radius_mm": 24.0,
+          "ray_count": 7200,
+          "hit_count": 7200,
+          "measured_teeth": 36,
+          "tip_flat_min_lower_bound_mm": 1.0681415022205296,
+          "root_flat_min_lower_bound_mm": 0.8587019919812101,
+          "section_sampling_step_mm": 0.020943951023931952,
+          "flank_angle_max_error_deg": 0.0014533727847094724,
+          "pass": true
+        },
+        {
+          "part": "hirth_fixed",
+          "radius_mm": 29.5,
+          "ray_count": 7200,
+          "hit_count": 7200,
+          "measured_teeth": 36,
+          "tip_flat_min_lower_bound_mm": 1.0554878651435708,
+          "root_flat_min_lower_bound_mm": 0.8495390134082398,
+          "section_sampling_step_mm": 0.02574360646691636,
+          "flank_angle_max_error_deg": 0.0012237554865421885,
+          "pass": true
+        },
+        {
+          "part": "hirth_moving",
+          "radius_mm": 18.5,
+          "ray_count": 7200,
+          "hit_count": 7200,
+          "measured_teeth": 36,
+          "tip_flat_min_lower_bound_mm": 1.113956395085381,
+          "root_flat_min_lower_bound_mm": 0.8556476657902201,
+          "section_sampling_step_mm": 0.01614429558094755,
+          "flank_angle_max_error_deg": 0.0012553473765279932,
+          "pass": true
+        },
+        {
+          "part": "hirth_moving",
+          "radius_mm": 24.0,
+          "ray_count": 7200,
+          "hit_count": 7200,
+          "measured_teeth": 36,
+          "tip_flat_min_lower_bound_mm": 1.1100294042683934,
+          "root_flat_min_lower_bound_mm": 0.8168140899333461,
+          "section_sampling_step_mm": 0.020943951023931952,
+          "flank_angle_max_error_deg": 0.0012553473765279932,
+          "pass": true
+        },
+        {
+          "part": "hirth_moving",
+          "radius_mm": 29.5,
+          "ray_count": 7200,
+          "hit_count": 7200,
+          "measured_teeth": 36,
+          "tip_flat_min_lower_bound_mm": 1.1069750780774035,
+          "root_flat_min_lower_bound_mm": 0.798051800474407,
+          "section_sampling_step_mm": 0.02574360646691636,
+          "flank_angle_max_error_deg": 0.001048520618354587,
+          "pass": true
+        }
+      ]
+    },
+    "out_coupons": {
+      "summary": {
+        "build_volume_pass": true,
+        "printability_pass": true,
+        "all_hard_gates_pass": true
+      },
+      "artifact_type": "coupons",
+      "assembly_parts": 11,
+      "printed_parts": 11,
+      "wall_threshold_mm": 0.84,
+      "gap_threshold_mm": 0.63,
+      "parts": {
+        "upper_jaw_section": {
+          "samples": 60076,
+          "raw_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          },
+          "unwaived_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          }
+        },
+        "lower_jaw_section": {
+          "samples": 60052,
+          "raw_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          },
+          "unwaived_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          }
+        },
+        "backrest_section": {
+          "samples": 60012,
+          "raw_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          },
+          "unwaived_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          }
+        },
+        "hirth_fixed": {
+          "samples": 64888,
+          "raw_flags": {
+            "thin_wall": 161,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          },
+          "unwaived_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          }
+        },
+        "hirth_moving": {
+          "samples": 65430,
+          "raw_flags": {
+            "thin_wall": 93,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          },
+          "unwaived_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          }
+        },
+        "guide_rod_segment": {
+          "samples": 60500,
+          "raw_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          },
+          "unwaived_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          }
+        },
+        "slider_segment": {
+          "samples": 61028,
+          "raw_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          },
+          "unwaived_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          }
+        },
+        "insert_M3": {
+          "samples": 60520,
+          "raw_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 3354
+          },
+          "unwaived_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          }
+        },
+        "insert_M4": {
+          "samples": 61328,
+          "raw_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 2109
+          },
+          "unwaived_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          }
+        },
+        "clamp_band_block": {
+          "samples": 60012,
+          "raw_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          },
+          "unwaived_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          }
+        },
+        "insert_M5": {
+          "samples": 60516,
+          "raw_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          },
+          "unwaived_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          }
+        }
+      },
+      "local_ray_exemptions": [
+        {
+          "part": "hirth_fixed",
+          "kind": "thin_wall",
+          "bounds_print_mm": [
+            [
+              -0.01,
+              -0.01,
+              -0.01
+            ],
+            [
+              68.01,
+              68.01,
+              6.806694430741528
+            ]
+          ],
+          "radial_centre_print_mm": [
+            34.0,
+            34.0,
+            21.0
+          ],
+          "radial_axes": [
+            0,
+            1
+          ],
+          "radial_interval_mm": [
+            17.95,
+            18.84
+          ],
+          "reason": "Short normal chord at radial tooth termination edge only, not a separate thin wall. Tip/root flats and loaded middle annulus are checked independently; verify edge fidelity on Hirth coupon before production."
+        },
+        {
+          "part": "hirth_fixed",
+          "kind": "thin_wall",
+          "bounds_print_mm": [
+            [
+              -0.01,
+              -0.01,
+              -0.01
+            ],
+            [
+              68.01,
+              68.01,
+              6.806694430741528
+            ]
+          ],
+          "radial_centre_print_mm": [
+            34.0,
+            34.0,
+            21.0
+          ],
+          "radial_axes": [
+            0,
+            1
+          ],
+          "radial_interval_mm": [
+            29.16,
+            30.05
+          ],
+          "reason": "Short normal chord at radial tooth termination edge only, not a separate thin wall. Tip/root flats and loaded middle annulus are checked independently; verify edge fidelity on Hirth coupon before production."
+        },
+        {
+          "part": "hirth_fixed",
+          "kind": "thin_wall",
+          "bounds_print_mm": [
+            [
+              37.8082388326835,
+              63.31920747729251,
+              2.1999999999999993
+            ],
+            [
+              41.44308406454748,
+              68.49021551642205,
+              4.899999999999999
+            ]
+          ],
+          "reason": "Open end of engraved alignment groove at circular rim has a short corner chord; groove is >=1.2 mm wide and >=.8 mm deep, no projecting pointer or tiny text."
+        },
+        {
+          "part": "hirth_fixed",
+          "kind": "thin_wall",
+          "bounds_print_mm": [
+            [
+              32.44999999999999,
+              63.9,
+              2.200000000000003
+            ],
+            [
+              35.55000000000001,
+              68.9,
+              4.899999999999999
+            ]
+          ],
+          "reason": "Open end of engraved alignment groove at circular rim has a short corner chord; groove is >=1.2 mm wide and >=.8 mm deep, no projecting pointer or tiny text."
+        },
+        {
+          "part": "hirth_fixed",
+          "kind": "thin_wall",
+          "bounds_print_mm": [
+            [
+              26.556915935452523,
+              63.31920747729251,
+              2.200000000000003
+            ],
+            [
+              30.1917611673165,
+              68.49021551642205,
+              4.899999999999999
+            ]
+          ],
+          "reason": "Open end of engraved alignment groove at circular rim has a short corner chord; groove is >=1.2 mm wide and >=.8 mm deep, no projecting pointer or tiny text."
+        },
+        {
+          "part": "hirth_moving",
+          "kind": "thin_wall",
+          "bounds_print_mm": [
+            [
+              -0.01,
+              -0.01,
+              -0.01
+            ],
+            [
+              68.01,
+              68.01,
+              7.810000000000023
+            ]
+          ],
+          "radial_centre_print_mm": [
+            34.0,
+            34.0,
+            -8.999999999999986
+          ],
+          "radial_axes": [
+            0,
+            1
+          ],
+          "radial_interval_mm": [
+            17.95,
+            18.84
+          ],
+          "reason": "Short normal chord at radial tooth termination edge only, not a separate thin wall. Tip/root flats and loaded middle annulus are checked independently; verify edge fidelity on Hirth coupon before production."
+        },
+        {
+          "part": "hirth_moving",
+          "kind": "thin_wall",
+          "bounds_print_mm": [
+            [
+              -0.01,
+              -0.01,
+              -0.01
+            ],
+            [
+              68.01,
+              68.01,
+              7.810000000000023
+            ]
+          ],
+          "radial_centre_print_mm": [
+            34.0,
+            34.0,
+            -8.999999999999986
+          ],
+          "radial_axes": [
+            0,
+            1
+          ],
+          "radial_interval_mm": [
+            29.16,
+            30.05
+          ],
+          "reason": "Short normal chord at radial tooth termination edge only, not a separate thin wall. Tip/root flats and loaded middle annulus are checked independently; verify edge fidelity on Hirth coupon before production."
+        },
+        {
+          "part": "hirth_moving",
+          "kind": "thin_wall",
+          "bounds_print_mm": [
+            [
+              32.44999999999999,
+              63.9,
+              1.2000000000000135
+            ],
+            [
+              35.55000000000001,
+              68.9,
+              3.9000000000000146
+            ]
+          ],
+          "reason": "Open end of engraved alignment groove at circular rim has a short corner chord; groove is >=1.2 mm wide and >=.8 mm deep, no projecting pointer or tiny text."
+        }
+      ],
+      "required_support_regions": [
+        {
+          "part": "upper_jaw_section",
+          "kind": "unsupported_overhang",
+          "bounds_print_mm": [
+            [
+              -0.01,
+              -0.01,
+              -0.01
+            ],
+            [
+              6.01,
+              56.01,
+              10.01
+            ]
+          ],
+          "reason": "Production-profile coupon: paint removable support only under downward jaw ledges and horizontal bore roofs; match production orientation, clean before fit testing."
+        },
+        {
+          "part": "lower_jaw_section",
+          "kind": "unsupported_overhang",
+          "bounds_print_mm": [
+            [
+              -0.01,
+              -0.01,
+              -0.01
+            ],
+            [
+              56.01,
+              12.01,
+              6.010000000000014
+            ]
+          ],
+          "reason": "Production-profile coupon: paint removable support only under downward jaw ledges and horizontal bore roofs; match production orientation, clean before fit testing."
+        },
+        {
+          "part": "backrest_section",
+          "kind": "unsupported_overhang",
+          "bounds_print_mm": [
+            [
+              -0.01,
+              -0.01,
+              -0.01
+            ],
+            [
+              12.367735106034036,
+              18.243960447292,
+              6.010000000000003
+            ]
+          ],
+          "reason": "Production-profile coupon: paint removable support only under downward jaw ledges and horizontal bore roofs; match production orientation, clean before fit testing."
+        },
+        {
+          "part": "slider_segment",
+          "kind": "unsupported_overhang",
+          "bounds_print_mm": [
+            [
+              -0.01,
+              -0.01,
+              -0.01
+            ],
+            [
+              36.01,
+              16.01,
+              12.010000000000003
+            ]
+          ],
+          "reason": "Production-profile coupon: paint removable support only under downward jaw ledges and horizontal bore roofs; match production orientation, clean before fit testing."
+        },
+        {
+          "part": "insert_M3",
+          "kind": "unsupported_overhang",
+          "bounds_print_mm": [
+            [
+              -0.01,
+              -0.01,
+              -0.01
+            ],
+            [
+              6.010000000000005,
+              10.01,
+              6.010000000000002
+            ]
+          ],
+          "reason": "Production-profile coupon: paint removable support only under downward jaw ledges and horizontal bore roofs; match production orientation, clean before fit testing."
+        },
+        {
+          "part": "insert_M4",
+          "kind": "unsupported_overhang",
+          "bounds_print_mm": [
+            [
+              -0.01,
+              -0.01,
+              -0.01
+            ],
+            [
+              16.01000000000006,
+              16.01,
+              16.010000000000005
+            ]
+          ],
+          "reason": "Production-profile coupon: paint removable support only under downward jaw ledges and horizontal bore roofs; match production orientation, clean before fit testing."
+        }
+      ]
+    },
+    "out_marker": {
+      "summary": {
+        "build_volume_pass": true,
+        "local_waiver_junctions_pass": true,
+        "printability_pass": true,
+        "all_hard_gates_pass": true
+      },
+      "artifact_type": "marker",
+      "assembly_parts": 1,
+      "printed_parts": 1,
+      "wall_threshold_mm": 0.84,
+      "gap_threshold_mm": 0.63,
+      "parts": {
+        "marker_bracket": {
+          "samples": 61112,
+          "raw_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 19,
+            "unsupported_overhang": 28109
+          },
+          "unwaived_flags": {
+            "thin_wall": 0,
+            "narrow_gap": 0,
+            "unsupported_overhang": 0
+          }
+        }
+      },
+      "local_ray_exemptions": [
+        {
+          "part": "marker_bracket",
+          "kind": "narrow_gap",
+          "bounds_print_mm": [
+            [
+              78.9,
+              8.465697813320347,
+              25.376451367763977
+            ],
+            [
+              91.1,
+              9.13643781924916,
+              25.987424125946745
+            ]
+          ],
+          "reason": "Marker neck_anchor: normal short chord at the open concave intersection of overlapping regular solids, not a separate gap or thin wall; local connected-material evidence is recorded."
+        },
+        {
+          "part": "marker_bracket",
+          "kind": "narrow_gap",
+          "bounds_print_mm": [
+            [
+              78.9,
+              42.15540833887568,
+              4.357751521031901
+            ],
+            [
+              91.1,
+              43.33883345044911,
+              5.481409384859305
+            ]
+          ],
+          "reason": "Marker neck_board: normal short chord at the open concave intersection of overlapping regular solids, not a separate gap or thin wall; local connected-material evidence is recorded."
+        }
+      ],
+      "required_support_regions": [
+        {
+          "part": "marker_bracket",
+          "kind": "unsupported_overhang",
+          "bounds_print_mm": [
+            [
+              -0.01,
+              -0.01,
+              -0.01
+            ],
+            [
+              170.01,
+              165.9025816608566,
+              38.31879511391224
+            ]
+          ],
+          "reason": "Marker neck/anchor underside and keyed slot roof require painted removable support; keep board registration/card face clean."
+        }
+      ],
+      "local_waiver_junctions": {
+        "pass": true,
+        "applicable": true,
+        "junctions": [
+          {
+            "part": "marker_bracket",
+            "name": "neck_anchor",
+            "bounds_print_mm": [
+              [
+                79.0,
+                8.03204015781781,
+                24.912910088388415
+              ],
+              [
+                91.0,
+                9.570095474751696,
+                26.450965405322307
+              ]
+            ],
+            "local_material_volume_mm3": 21.908744735479157,
+            "connected_components": 1,
+            "pass": true
+          },
+          {
+            "part": "marker_bracket",
+            "name": "neck_board",
+            "bounds_print_mm": [
+              [
+                79.0,
+                41.978093236195456,
+                4.150552794478656
+              ],
+              [
+                91.0,
+                43.516148553129334,
+                5.688608111412549
+              ]
+            ],
+            "local_material_volume_mm3": 21.45340017793413,
+            "connected_components": 1,
+            "pass": true
+          }
+        ],
+        "scope": "Actual print STL clipped at each locally waived ordinary open corner must contain positive, connected material; no independent narrow channel is waived."
+      }
+    }
+  },
+  "total_printed_part_check_instances": 47,
+  "physical_pose_certified": false,
+  "full_control_motion_certified": false,
+  "slicer_cross_check": {
+    "executed": false,
+    "reason": "No Bambu Studio/OrcaSlicer command found in PATH, standard Linux locations or standard Windows Program Files paths."
+  },
+  "independent_screen_controls": {
+    "executed": true,
+    "random_samples_per_control": 3000,
+    "cube": "PASS",
+    "pointer_0_8mm": "FAIL: thin-wall",
+    "slit_0_6mm": "FAIL: narrow-gap",
+    "unsupported_roof": "FAIL: overhang",
+    "observed": {
+      "cube": {
+        "passed": true,
+        "raw_flag_points": {
+          "thin_wall": 0,
+          "narrow_gap": 0,
+          "unsupported_overhang": 0
+        },
+        "samples": 3012
+      },
+      "pointer_0_8": {
+        "passed": false,
+        "raw_flag_points": {
+          "thin_wall": 1981,
+          "narrow_gap": 0,
+          "unsupported_overhang": 0
+        },
+        "samples": 3012
+      },
+      "slit_0_6": {
+        "passed": false,
+        "raw_flag_points": {
+          "thin_wall": 0,
+          "narrow_gap": 675,
+          "unsupported_overhang": 0
+        },
+        "samples": 3036
+      },
+      "roof": {
+        "passed": false,
+        "raw_flag_points": {
+          "thin_wall": 0,
+          "narrow_gap": 0,
+          "unsupported_overhang": 278
+        },
+        "samples": 3036
+      }
+    }
+  }
+}

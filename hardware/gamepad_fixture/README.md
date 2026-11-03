@@ -1,35 +1,49 @@
-# Xbox One S 1708 夹具
+# Xbox One S 1708 夹具 V3
 
-参数化实体源代码为 [fixture.py](fixture.py)，设计、BOM、打印和装配说明见[任务 V 报告](../../docs/reports/2026-10-29-gamepad-fixture-cad/README.md)。STEP/STL 使用 mm，仿真 GLB 使用 m；均位于手柄局部坐标系，`manifest.json` 分别给出两种单位的世界变换。
+当前版采用竖直柱、对称叉耳与 M8 双剪金属轴、独立打印的恒定齿侧角 Hirth 盘，以及规则平面的两爪和背托。默认底板 240×90×16 mm；桌边 30 mm 带内除柱脚外，两侧各有 75 mm 可夹长度，不限定 C 夹中心。压力鞋和夹持带上的分压圈已取消，底部软垫由使用者粘贴，不画入装配。
 
-当前为 **v2 Z 形布局**：立柱脚在靠相机的内侧，外沿留下连续 220 × 60 mm 平整夹持带；打印底板厚 20 mm，配两把 C 型夹、压力鞋和背胶软垫。转轴轴心伸出桌边 14.62 mm，导轨端盖仍使夹具最外端伸出 80.01 mm。手柄目标位姿不变。
+[设计总图 PNG](design_sheet.png) · [A3 PDF](design_sheet.pdf) · [材料与五金](materials.md) · [实物验证单](VALIDATION.md) · [逐条要求、检查和场景报告](../../docs/reports/2026-11-04-gamepad-fixture-v3/README.md)
+
+默认装配结果为手柄中心向桌内 **53.44 mm**、台面以上 **220.66 mm**、倾角 **45°**。这些数值由夹具几何和名义受压软垫厚度推出，位于 X/Z 的可行区域内。三处接触面来自视觉网格的稳健测量，保留平面拟合残差及 CoACD 对照；不再以网格作随形布尔切刀。尺寸是资产推得，须用卡尺核对；CAD 与打印筛查不认证实物强度、片材压缩或完整操作轨迹。
 
 ```bash
+# 依赖只进入这个隔离环境；已有环境可直接使用。
 /usr/bin/python3.10 -m venv .local/cad-env
 .local/cad-env/bin/pip install -r hardware/gamepad_fixture/requirements-cad.txt
-XDG_CACHE_HOME="$PWD/.local/cad-env/.cache" .local/cad-env/bin/python hardware/gamepad_fixture/fixture.py
+.local/cad-env/bin/python hardware/gamepad_fixture/fixture.py
 .local/cad-env/bin/python hardware/gamepad_fixture/check_fixture.py
 .local/cad-env/bin/python hardware/gamepad_fixture/render.py
 .local/cad-env/bin/python hardware/gamepad_fixture/design_sheet.py
 ```
 
-默认 `out/` 含打印方向的 STEP/STL、装配 STEP、独立材质网格 GLB、完整夹持带切片修改器 `base_clamp_band.stl`、A4 软垫模板、`checks.json` 与七张 PNG。新增 `07_world_z_layout.png` 用世界 X/Z 标注相机方向和桌子外沿。`envelopes/` 单独保存 C 型夹及操作手包络，供复核，未混入物理装配。生成物不纳入 git；超过 5 MB 的文件存到 `.local/gamepad_fixture_large/`，输出目录保留相对符号链接。
-
-铝板方案：`fixture.py --aluminum --out hardware/gamepad_fixture/out_aluminum`。可选 TPU：`--tpu-pads --out hardware/gamepad_fixture/out_tpu`；装配网格使用压缩后厚度，TPU 打印件使用未压缩厚度。两个开关可组合。`check_fixture.py` 和 `render.py` 均接受 `--out`。
+`out/` 包含装配 STEP、打印方向 STEP/STL、以米为单位的分件 GLB、整条夹持带修改器、真实切除体审计、软垫 1:1 模板、检查 JSON 和预览图。`printability/` 对每个打印件执行 60k 随机表面点加全部三角形中心的壁厚、缝宽与悬垂筛查；**任何未豁免标记均失败**。局部支撑和边缘豁免由 [print_policy.py](print_policy.py) 明列，支撑计划必须在切片时落实。当前没有执行 Orca/Bambu CLI 切片。
 
 ```bash
 .local/cad-env/bin/python hardware/gamepad_fixture/fixture.py --aluminum --out hardware/gamepad_fixture/out_aluminum
-.local/cad-env/bin/python hardware/gamepad_fixture/check_fixture.py --out hardware/gamepad_fixture/out_aluminum
-.local/cad-env/bin/python hardware/gamepad_fixture/render.py --out hardware/gamepad_fixture/out_aluminum
 .local/cad-env/bin/python hardware/gamepad_fixture/fixture.py --tpu-pads --out hardware/gamepad_fixture/out_tpu
+.local/cad-env/bin/python hardware/gamepad_fixture/fixture.py --coupons
+.local/cad-env/bin/python hardware/gamepad_fixture/fixture.py --marker-card
+# 对替代版、小样和标记卡同样运行 checker：
 .local/cad-env/bin/python hardware/gamepad_fixture/check_fixture.py --out hardware/gamepad_fixture/out_tpu
-.local/cad-env/bin/python hardware/gamepad_fixture/render.py --out hardware/gamepad_fixture/out_tpu
 ```
 
-手部复核使用 `.local/two-hand-k0/{left,right}/{witnesses.json,kinematics.npz}` 和原有手部 URDF 碰撞网格，来源及覆盖范围记录于 `hand_states.json` 和报告。79 个离散状态包含抓握、已保存状态和诊断 IK 端点，不能证明全部控件的连续动作安全；缺失输入时检查明确失败。v1 世界包围盒的可追溯对照保存在 [reference/v1_fixture_world_bounds.json](reference/v1_fixture_world_bounds.json)。
+卡尺数据用 `--parameters measurements.json` 覆盖 `Parameters().measured / installation / hardware / printing` 的对应字段。例如：
 
-CAD 验证不能确认实体 1708 的局部尺寸或打印材料性能。先核对报告中的卡尺项目，再按实测更新参数、重新导出并复测安装位姿。
+```json
+{
+  "installation": {"table_thickness": 25, "table_edge_to_apron": 30},
+  "measured": {"jaw_pad_thickness": 2, "back_pad_thickness": 2, "pad_compression": 0.15}
+}
+```
 
-[单页设计总图 PNG](design_sheet.png)（4960 × 3507，300 dpi）及 [A3 PDF](design_sheet.pdf)包含装配、爆炸、三视图、尺寸和剖面，按[材料表](materials.md)与[统一材料色](materials_palette.json)着色。`design_sheet.py`复用既有CPU渲染，不需要重新构建CAD。
+上沿位置、上下跨度、背面平面和 Pair 边界的 `null` 表示重新从资产测量；卡尺值覆盖后实际参与 CAD。端口、肩键净距、前唇与软垫参数的核对清单见报告和验证单。改变尺寸后须重新生成并重跑检查。
 
-实物验证使用 [VALIDATION.md](VALIDATION.md)。`fixture.py --coupons` 导出11个原实体小样到 `out_coupons/`；`--marker-card` 导出可拆ChArUco支架、CAD变换和两套1:1 PDF/SVG到 `out_marker/`，均不改默认 `out/` 或v2主体。[camera_3工具与精度](../../docs/reports/2026-10-30-fixture-validation/README.md)以标记卡作为验收主方案，轮廓仅粗调；临时ID90贴纸只测面内滑移，正式采集前须撕除；划线法作为独立低成本对照。
+`scene_export.py` 把默认版实际外观网格与接触区精确盒体、其余结构简化盒体导入新试验 spec：
+
+```bash
+.local/cad-env/bin/python hardware/gamepad_fixture/scene_export.py --evidence docs/reports/2026-11-04-gamepad-fixture-v3
+```
+
+运行资产位于 `assets/derived/gamepad_fixture_v3/`；迁移到计算工作目录同路径后，由 `workspace://assets/derived/gamepad_fixture_v3/...` 解析。场景为 `configs/workcell/placement_trials/gamepad_fixture_v3.json`，手柄使用压缩软垫后的装配位姿。默认采集场景和 8780 服务未切换。
+
+Hirth 适配参考 [Voith 原厂资料](https://www.voith.com/corp-en/products-services/connection-components-couplings/hirth-serrations.html)；基准职责参考 [Carr Lane 定位原则](https://www.carrlane.com/engineering-resources/fixture-design-principles/locating-clamping-principles/ctl)。这里采用塑料可制造的平顶、根部间隙及柔顺垫片，不能沿用工业硬化钢齿盘的精度和承载声明。齿盘先按验证单做小样扭矩与蠕变试验，再决定整机放行。

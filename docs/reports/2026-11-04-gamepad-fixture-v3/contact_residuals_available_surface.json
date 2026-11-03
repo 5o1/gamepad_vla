@@ -1,0 +1,19 @@
+{
+  "upper": {
+    "pad_footprint_samples": 3391,
+    "available_surface_samples": 2803,
+    "mean_abs_x_mm": 5.255083838744203,
+    "criterion": "Asset shell no more than nominal .15mm pad relaxation below the fitted plane; holes and .57mm top slope excluded",
+    "max_gap_raw_mm": 0.5743510955590239
+  },
+  "lower": {
+    "pad_footprint_samples": 18601,
+    "available_surface_samples": 17170,
+    "mean_abs_x_mm": 13.444569015725103,
+    "criterion": "Asset shell no more than nominal .15mm pad relaxation below the fitted plane; holes and .57mm top slope excluded",
+    "max_gap_raw_mm": 9.31210799239581
+  },
+  "conditional_available_surface_friction_capacity_Nm": 0.4487916685072634,
+  "sampling_step_mm": 0.25,
+  "not_a_contact_pressure_or_force_closure_solution": true
+}

@@ -1,0 +1,260 @@
+{
+  "upstream_version": "0.4.1",
+  "upstream_head": "73c867636804ef80217c54564bcee01c18c7c695",
+  "baseline_head": "76ae32a",
+  "collision_resources": [
+    {
+      "path": "common/xbox_one_s/collision/README.md",
+      "sha256": "2a977b0cd0acc744c33c0355e66ddb07aa8e197fd118f31131c75f4a1f5950f7",
+      "Z_sha256": "2a977b0cd0acc744c33c0355e66ddb07aa8e197fd118f31131c75f4a1f5950f7",
+      "matches_Z": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/coacd/README.md",
+      "sha256": "2a977b0cd0acc744c33c0355e66ddb07aa8e197fd118f31131c75f4a1f5950f7",
+      "Z_sha256": "2a977b0cd0acc744c33c0355e66ddb07aa8e197fd118f31131c75f4a1f5950f7",
+      "matches_Z": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/coacd/a.obj",
+      "sha256": "98ec8dedc3c21f8a92b38748e2caab5b6ae6a5dffdc30b1b65a060fe959ad8bc",
+      "Z_sha256": "98ec8dedc3c21f8a92b38748e2caab5b6ae6a5dffdc30b1b65a060fe959ad8bc",
+      "matches_Z": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/coacd/b.obj",
+      "sha256": "0d6c9239b4c7490fb88589dffe318fb8aa9831bcf5768772fcff551bdb81a0c9",
+      "Z_sha256": "0d6c9239b4c7490fb88589dffe318fb8aa9831bcf5768772fcff551bdb81a0c9",
+      "matches_Z": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/coacd/dpad.obj",
+      "sha256": "5cf3103134acc3dc4144fd51ffaf1abed4fef5e33356e02d8426384bc75d3505",
+      "Z_sha256": "5cf3103134acc3dc4144fd51ffaf1abed4fef5e33356e02d8426384bc75d3505",
+      "matches_Z": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/coacd/guide.obj",
+      "sha256": "39fe67d3963185afb9ff2657a20ef4fbfff00280d9cf4d4acd9d5d5033137ee3",
+      "Z_sha256": "39fe67d3963185afb9ff2657a20ef4fbfff00280d9cf4d4acd9d5d5033137ee3",
+      "matches_Z": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/coacd/left_shoulder.obj",
+      "sha256": "a7980252d030660c3215e7d7e8e9a4e90a1aa27318c90cacbc1ac2051b8126cb",
+      "Z_sha256": "a7980252d030660c3215e7d7e8e9a4e90a1aa27318c90cacbc1ac2051b8126cb",
+      "matches_Z": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/coacd/left_stick.obj",
+      "sha256": "e1095d928294a7ad3e7e2d8a0132462b9c7f621e4aee939a25cc3d00d9b944c5",
+      "Z_sha256": "e1095d928294a7ad3e7e2d8a0132462b9c7f621e4aee939a25cc3d00d9b944c5",
+      "matches_Z": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/coacd/left_trigger.obj",
+      "sha256": "7a1d5d980883d0fc9a581ba09be2f567fd971b0a2e148229e6dbb21e4ccffca6",
+      "Z_sha256": "7a1d5d980883d0fc9a581ba09be2f567fd971b0a2e148229e6dbb21e4ccffca6",
+      "matches_Z": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/coacd/menu.obj",
+      "sha256": "442834691faf827a46e0f64d67ddb06f07c1e81f1ac736817fa9a15346bade23",
+      "Z_sha256": "442834691faf827a46e0f64d67ddb06f07c1e81f1ac736817fa9a15346bade23",
+      "matches_Z": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/coacd/pair.obj",
+      "sha256": "80747a04d30c43937648ec2df8bb8b095ba9f31d2fec6028a5fd293b737a6f39",
+      "Z_sha256": "80747a04d30c43937648ec2df8bb8b095ba9f31d2fec6028a5fd293b737a6f39",
+      "matches_Z": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/coacd/right_shoulder.obj",
+      "sha256": "422d5198c33c04fd258a72823e74959a1b85b7eeec79ac796db65ae542a3f444",
+      "Z_sha256": "422d5198c33c04fd258a72823e74959a1b85b7eeec79ac796db65ae542a3f444",
+      "matches_Z": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/coacd/right_stick.obj",
+      "sha256": "db5d93c6a929813b09898312a56a28a1e883ed2593a196cadf491c1a88fbd6f4",
+      "Z_sha256": "db5d93c6a929813b09898312a56a28a1e883ed2593a196cadf491c1a88fbd6f4",
+      "matches_Z": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/coacd/right_trigger.obj",
+      "sha256": "8616be9aacbe1537b8f49c01dc1cd9cde04beaeeebcc26e8a304e83284cb97a6",
+      "Z_sha256": "8616be9aacbe1537b8f49c01dc1cd9cde04beaeeebcc26e8a304e83284cb97a6",
+      "matches_Z": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/coacd/shell.obj",
+      "sha256": "5dadf9cda1554d1f9535c9c208a18b5d380d27dbd770d110c7c707a71bbdecd8",
+      "Z_sha256": "5dadf9cda1554d1f9535c9c208a18b5d380d27dbd770d110c7c707a71bbdecd8",
+      "matches_Z": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/coacd/shell_front_plate.obj",
+      "sha256": "b3b9b6f1cab394d58770bd00a3be80fdc3839101e8a2cc69879a3c7c94ac47f2",
+      "Z_sha256": "b3b9b6f1cab394d58770bd00a3be80fdc3839101e8a2cc69879a3c7c94ac47f2",
+      "matches_Z": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/coacd/view.obj",
+      "sha256": "c5d19a00ef67bad8aaf75c084578f8f23bd10dadd330e27f2c4864ccd517e228",
+      "Z_sha256": "c5d19a00ef67bad8aaf75c084578f8f23bd10dadd330e27f2c4864ccd517e228",
+      "matches_Z": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/coacd/x.obj",
+      "sha256": "b7a2e72505e6542f60db35a458676bc2bf365a5811f1f91bcabf6df66e8f97bf",
+      "Z_sha256": "b7a2e72505e6542f60db35a458676bc2bf365a5811f1f91bcabf6df66e8f97bf",
+      "matches_Z": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/coacd/y.obj",
+      "sha256": "a801d5bc9892160f119e328192e2fd169e9b9ace065d2b26ace0c1330b018471",
+      "Z_sha256": "a801d5bc9892160f119e328192e2fd169e9b9ace065d2b26ace0c1330b018471",
+      "matches_Z": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/manifest.json",
+      "sha256": "39de1a9a07fda842e1973ad4a55b5ae35ed7a2a667dbc04b711cabbe8bf53d33",
+      "Z_sha256": "39de1a9a07fda842e1973ad4a55b5ae35ed7a2a667dbc04b711cabbe8bf53d33",
+      "matches_Z": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/sdf/README.md",
+      "sha256": "2a977b0cd0acc744c33c0355e66ddb07aa8e197fd118f31131c75f4a1f5950f7",
+      "Z_sha256": "2a977b0cd0acc744c33c0355e66ddb07aa8e197fd118f31131c75f4a1f5950f7",
+      "matches_Z": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/sdf/a_0.obj",
+      "sha256": "9c682071b5ac459e85fb9987df43cbb6266467531b9cf0ba33f0013eb6385f11",
+      "Z_sha256": "9c682071b5ac459e85fb9987df43cbb6266467531b9cf0ba33f0013eb6385f11",
+      "matches_Z": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/sdf/b_0.obj",
+      "sha256": "12e4b326617c8ab9bf56ae6de30d8e369464d971483c48e20c96233ee54d577d",
+      "Z_sha256": "12e4b326617c8ab9bf56ae6de30d8e369464d971483c48e20c96233ee54d577d",
+      "matches_Z": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/sdf/dpad_0.obj",
+      "sha256": "153383d59dfd41dc559be1bec226167aac6133fe22a1878e2316a62981c2ed22",
+      "Z_sha256": "153383d59dfd41dc559be1bec226167aac6133fe22a1878e2316a62981c2ed22",
+      "matches_Z": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/sdf/guide_0.obj",
+      "sha256": "130b4b2308e449ee1e7d3a24033a5d8affe4034483c2153643564d066ad0bb04",
+      "Z_sha256": "130b4b2308e449ee1e7d3a24033a5d8affe4034483c2153643564d066ad0bb04",
+      "matches_Z": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/sdf/left_shoulder_0.obj",
+      "sha256": "9a545511771554b595e753c53d82812905daa07821a219b018df0cb770d73627",
+      "Z_sha256": "9a545511771554b595e753c53d82812905daa07821a219b018df0cb770d73627",
+      "matches_Z": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/sdf/left_stick_0.obj",
+      "sha256": "bcf2e1a4911bc2e46fc8f9bebc2fa5ad180c22986e4c4b47cd8fd4a8c0684da3",
+      "Z_sha256": "bcf2e1a4911bc2e46fc8f9bebc2fa5ad180c22986e4c4b47cd8fd4a8c0684da3",
+      "matches_Z": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/sdf/left_stick_1.obj",
+      "sha256": "237c4e29523c0f0d29b36a6e1b5dc02b7a1e0cfcd64528a8b81c8e1e73327f74",
+      "Z_sha256": "237c4e29523c0f0d29b36a6e1b5dc02b7a1e0cfcd64528a8b81c8e1e73327f74",
+      "matches_Z": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/sdf/left_trigger_0.obj",
+      "sha256": "4ca621bd446ad9a2cdf511a10f158dac332de1de65c475cb444e1758967adb24",
+      "Z_sha256": "4ca621bd446ad9a2cdf511a10f158dac332de1de65c475cb444e1758967adb24",
+      "matches_Z": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/sdf/menu_0.obj",
+      "sha256": "d75890bc69b1a43333c79539e4aa8f2adec45c84b89544c2e9eea575ee3e1337",
+      "Z_sha256": "d75890bc69b1a43333c79539e4aa8f2adec45c84b89544c2e9eea575ee3e1337",
+      "matches_Z": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/sdf/pair_0.obj",
+      "sha256": "646d1561e254983908169fa658a550002f4463fe266dcf8d21029287a6cae216",
+      "Z_sha256": "646d1561e254983908169fa658a550002f4463fe266dcf8d21029287a6cae216",
+      "matches_Z": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/sdf/right_shoulder_0.obj",
+      "sha256": "73a2d72a4d96efc5dcc97980180227194501934004cc0c6c081d35865cb5714c",
+      "Z_sha256": "73a2d72a4d96efc5dcc97980180227194501934004cc0c6c081d35865cb5714c",
+      "matches_Z": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/sdf/right_stick_0.obj",
+      "sha256": "8265dd6f324f8badbb3f00a23e7f0880a69df4940dccfb0b85cfb67bad3e1cf0",
+      "Z_sha256": "8265dd6f324f8badbb3f00a23e7f0880a69df4940dccfb0b85cfb67bad3e1cf0",
+      "matches_Z": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/sdf/right_stick_1.obj",
+      "sha256": "fa4ec72329ce1d213557e78d4286b4acdc444340ae77fbbd14aa58caf9165cb4",
+      "Z_sha256": "fa4ec72329ce1d213557e78d4286b4acdc444340ae77fbbd14aa58caf9165cb4",
+      "matches_Z": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/sdf/right_trigger_0.obj",
+      "sha256": "890b1f91bac2fe25669cb46b465df3f5c9e895f5adde473339d72fb4aa46c5df",
+      "Z_sha256": "890b1f91bac2fe25669cb46b465df3f5c9e895f5adde473339d72fb4aa46c5df",
+      "matches_Z": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/sdf/shell_0.obj",
+      "sha256": "3f5de933570ef044b2689f8fbae50bde7a63f1ffcf132b55fbe67bec8ae16af5",
+      "Z_sha256": "3f5de933570ef044b2689f8fbae50bde7a63f1ffcf132b55fbe67bec8ae16af5",
+      "matches_Z": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/sdf/shell_front_plate_0.obj",
+      "sha256": "094a383c0f6005eb16af64f1b988fb23f50b26fefd3a19ddde40f51f3d6a589d",
+      "Z_sha256": "094a383c0f6005eb16af64f1b988fb23f50b26fefd3a19ddde40f51f3d6a589d",
+      "matches_Z": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/sdf/view_0.obj",
+      "sha256": "ff30232634b3becf5e05e992ceb10dc017d26cba1eeddfa067bb9ec9f63c8a93",
+      "Z_sha256": "ff30232634b3becf5e05e992ceb10dc017d26cba1eeddfa067bb9ec9f63c8a93",
+      "matches_Z": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/sdf/x_0.obj",
+      "sha256": "c159d19c3c44515662c46785b4b5c36ef1144b4314f5d106a27ff7d51b79795e",
+      "Z_sha256": "c159d19c3c44515662c46785b4b5c36ef1144b4314f5d106a27ff7d51b79795e",
+      "matches_Z": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/sdf/y_0.obj",
+      "sha256": "543688e35b427a5b9a584dd9ce7c72d7eaff7aa86ee45ae4e9e541f963bb3a81",
+      "Z_sha256": "543688e35b427a5b9a584dd9ce7c72d7eaff7aa86ee45ae4e9e541f963bb3a81",
+      "matches_Z": true
+    }
+  ],
+  "all_collision_resources_match_Z": true,
+  "visual_geometry_manifest_sha256": "51a49ad599eda299918cb403f9b0263288f5630211b0790f487216e99d891081",
+  "calibration": {
+    "asset_id": "xbox_one_s",
+    "profile": "full_controls",
+    "configuration_id": "default:full_controls",
+    "motion_revision": "motion-v1",
+    "physical": {},
+    "signal_policy": {},
+    "spawn": {},
+    "backend_options": {},
+    "source_chain": {}
+  }
+}

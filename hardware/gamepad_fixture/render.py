@@ -7,6 +7,7 @@ Camera_3 uses its calibrated optical pose and pinhole intrinsics from the scene.
 from __future__ import annotations
 import argparse
 import json
+import math
 import os
 from pathlib import Path
 
@@ -24,17 +25,17 @@ from asset_geometry import ControllerAsset, COLORS
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 PALETTE = {"base_printed": "#23506b", "base_aluminum": "#9daab7", "column": "#356f89", "cradle_lower_jaw": "#1b8895",
-           "slider_upper_jaw": "#dc9146", "guide_cap": "#dc9146", "M6_hand_knob": "#ad5539"}
+           "slider_upper_jaw": "#dc9146", "guide_cap": "#dc9146", "M8_hand_knob": "#ad5539", "hirth_fixed": "#466b9c", "hirth_moving": "#458fa5"}
 
+
+MATERIAL_PALETTE=json.loads((HERE/'materials_palette.json').read_text())
+
+def material_color(material):
+    key={'PETG':'PETG','Steel':'steel','Spring_steel':'steel','Aluminum_6061':'aluminum','TPU95A':'TPU','adhesive_silicone_sheet':'silicone'}.get(material,'EVA' if 'eva' in material.lower() else 'silicone')
+    return MATERIAL_PALETTE[key]['color']
 
 def color(name):
-    if name.startswith("pad_"):
-        return "#5d4e68"
-    if name.startswith("hardware_"):
-        return "#a3b1bf"
-    if name.startswith("guide_rod"):
-        return "#597b89"
-    return PALETTE.get(name, "#3a7187")
+    return material_color('Steel' if name.startswith('hardware_') else 'adhesive_silicone_sheet' if name.startswith('pad_') else 'PETG')
 
 
 def spring_mesh(x, z, y0, y1, outer_diameter, wire_diameter, coils):
@@ -172,8 +173,8 @@ def world_side(ax,items_world,manifest,title="WORLD X / Z · Z LAYOUT",resolutio
     ax.plot([edge-190,edge],[-table,-table],color="#8295A2",lw=1,zorder=4)
     ax.text(edge+3,-(table-113),f"桌子外沿 X={edge:g}",rotation=90,fontsize=6.4,color="#526979",va="bottom")
     ax.annotate("相机方向（−X）",xy=(edge-190,-(table+280)),xytext=(edge-108,-(table+280)),fontsize=7,color="#17394a",arrowprops={"arrowstyle":"->","color":"#526979","lw":.7},ha="center")
-    ax.text(edge+34,-(table-87),"R50 手柄 / R75 操作手\n桌下操作，依次调整双夹",fontsize=6.3,color="#A2574B")
-    ax.text(edge+54,-(table+83),"C1/C2 包络投影\n离中线 ±70 mm",fontsize=6.3,color="#526979")
+    ax.text(edge+34,-(table-87),"C夹可沿剩余平带自由放置\n接触深度 ≤30 mm（待测裙板）",fontsize=6.3,color="#A2574B")
+
     ax.axis("on");ax.set_facecolor("#f3f6f8")
     ax.set_xticks(np.arange(550,901,100));ax.set_yticks(-np.arange(650,1051,100))
     ax.yaxis.set_major_formatter(FuncFormatter(lambda value,_:f"{-value:.0f}"))
@@ -181,114 +182,62 @@ def world_side(ax,items_world,manifest,title="WORLD X / Z · Z LAYOUT",resolutio
     for spine in ax.spines.values():spine.set_color("#CCD7DC")
     return camera
 
-
-def main(out=HERE / "out"):
-    out = Path(out); dest=out/"previews"; dest.mkdir(exist_ok=True)
-    manifest=json.loads((out/"manifest.json").read_text())
-    world=np.array(manifest["world_from_pad"])
-    target=world[:3, 3]
-    meshes={p.stem:trimesh.load(p, force="mesh") for p in sorted((out/"assembly_mesh").glob("*.stl"))}
-    pad=ControllerAsset().meshes()
-    measured=manifest["parameters"]["measured"]
-    asset_scale=[measured["width"]/153.,measured["height"]/104.6,measured["depth"]/50.2]
-    for mesh in pad.values():mesh.apply_scale(asset_scale)
-    local=[(n,m,color(n)) for n,m in meshes.items()]+[("controller_"+n,m,COLORS.get(n,"#67727d")) for n,m in pad.items()]
-    if not any("spring" in n for n in meshes):
-        installation=manifest["parameters"]["installation"];hardware=manifest["parameters"]["hardware"]
-        for index,x in enumerate([-installation["guide_x"],installation["guide_x"]],1):
-            local.append((f"visual_standard_spring_{index}",spring_mesh(x,installation["guide_z"],installation["slider_spring_seat_y"],installation["cap_spring_seat_y"],hardware["spring_od"],hardware["spring_wire"],hardware["spring_active_coils"]+2),"#b9c4ce"))
-    items=[]
+def main(out=HERE/'out'):
+    out=Path(out);dest=out/'previews';dest.mkdir(exist_ok=True)
+    from matplotlib import font_manager
+    f=Path('/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc')
+    if f.exists():font_manager.fontManager.addfont(str(f));plt.rcParams['font.family']=[font_manager.FontProperties(fname=f).get_name(),'DejaVu Sans']
+    mf=json.loads((out/'manifest.json').read_text());W=np.asarray(mf['world_from_pad'])
+    meshes={p.stem:trimesh.load(p,force='mesh') for p in sorted((out/'assembly_mesh').glob('*.stl'))}
+    visual=ControllerAsset().visual_meshes();metas={r['name']:r for r in mf['parts']};local=[(n,m,material_color(metas[n]['material'])) for n,m in meshes.items()]+[('controller_'+n,m,COLORS.get(n,'#67727d')) for n,m in visual.items()]
+    world=[]
     for n,m,c in local:
-        transformed=m.copy();transformed.apply_transform(world);items.append((n,transformed,c))
-    foot=target.copy();foot[2]-=105
-    eye=foot+np.array([-400,-480,310])
-    fig,ax=plt.subplots(figsize=(11,10),facecolor="#f3f6f8")
-    draw(ax,items,lookat(eye,foot),title="01 / COMPLETE ASSEMBLY")
-    save(fig,dest/"01_assembly_isometric.png","Xbox One S 1708 source mesh + exported fixture solids | mm | CAD preview, not a physical fit certificate")
-    scene=json.loads((ROOT/manifest["source_scene"]).read_text())
-    camera=next(c for c in scene["cameras"] if c["name"]=="camera_3")
-    pose=camera["pose_optical"];optical=np.eye(4)
-    optical[:3,:3]=Rotation.from_quat([pose[4],pose[5],pose[6],pose[3]]).as_matrix();optical[:3,3]=np.array(pose[:3])*1000
-    k=camera["intrinsics"]
-    fig,axes=plt.subplots(1,2,figsize=(16,8),facecolor="#f3f6f8",gridspec_kw={"width_ratios":[1.5,1]})
-    camera_inverse=np.linalg.inv(optical);intrinsics=[k[s] for s in ("fx","fy","cx","cy")]
-    draw(axes[0],items,camera_inverse,True,intrinsics,"02 / CAMERA 3 - FULL FRAME",[0,k["width"],0,k["height"]])
-    reference_vertices=np.vstack([m.vertices for n,m,c in items if n.startswith("controller_")])
-    reference_view=trimesh.transform_points(reference_vertices,camera_inverse)
-    pixel_xy=reference_view[:,:2]/reference_view[:,2,None]*[k["fx"],k["fy"]]+[k["cx"],k["cy"]]
-    lo,hi=pixel_xy.min(0)-40,pixel_xy.max(0)+40
-    draw(axes[1],items,camera_inverse,True,intrinsics,"SAME CAMERA - DETAIL CROP",[lo[0],hi[0],lo[1],hi[1]])
-    save(fig,dest/"02_camera_3.png","Recorded optical pose and pinhole intrinsics | full 1280 x 720 field at left, controller crop at right")
-    # Explode by assembly role; controller remains intact and visible.
-    offsets={"base_printed":[0,0,-65],"base_aluminum":[0,0,-65],"aluminum_pad_recess_tray":[0,0,-70],"pad_base_bottom":[0,0,-75],"column":[-80,0,-15],
-             "cradle_lower_jaw":[0,0,0],"slider_upper_jaw":[0,45,15],"guide_cap":[0,80,-10],
-             "M6_hand_knob":[85,0,0],"guide_rod_1":[-45,35,-15],"guide_rod_2":[45,35,-15],
-             "pad_back":[0,0,25],"pad_upper_jaw":[0,55,35],"pad_lower_jaw":[0,-35,25]}
+        m=m.copy();m.apply_transform(W);world.append((n,m,c))
+    target=W[:3,3]-[0,0,80]
+    fig,ax=plt.subplots(figsize=(11,10),facecolor='#f3f6f8');draw(ax,world,lookat(target+[-420,-500,300],target),title='V3 / VERTICAL POST + SYMMETRIC FORK')
+    save(fig,dest/'01_assembly_isometric.png','Actual CAD bodies + complete upstream visual mesh | 240 x 90 mm base | no pressure shoes')
+    scene=json.loads((ROOT/mf['source_scene']).read_text());cam=next(c for c in scene['cameras'] if c['name']=='camera_3');p=cam['pose_optical'];C=np.eye(4);C[:3,:3]=Rotation.from_quat(p[4:]+p[3:4]).as_matrix();C[:3,3]=np.asarray(p[:3])*1000;k=cam['intrinsics']
+    fig,ax=plt.subplots(figsize=(12.8,7.2),facecolor='#f3f6f8');draw(ax,world,np.linalg.inv(C),True,[k[s] for s in ('fx','fy','cx','cy')],title='V3 / CALIBRATED CAMERA 3 - CAD CROSS-CHECK',bounds=[0,1280,0,720],resolution=1600)
+    save(fig,dest/'02_camera_3.png','Software CAD preview. Actual SAPIEN operator_view render and segmentation are in the V3 report.')
+    offsets={'base_printed':[0,0,-65],'base_aluminum':[0,0,-65],'column':[-85,0,-20],'hirth_fixed':[-60,0,0],'hirth_moving':[-30,0,0], 'slider_upper_jaw':[0,45,10],'guide_cap':[0,80,0],'M8_hand_knob':[85,0,0], 'pad_back':[0,0,25],'pad_upper_jaw':[0,65,20],'pad_lower_jaw':[0,-40,20]}
     exploded=[]
     for n,m,c in local:
-        copy=m.copy()
-        offset=offsets.get(n,[0,0,0])
-        if n.startswith("controller_"):offset=[0,0,75]
-        if n.startswith("visual_standard_spring_"):offset=[-45 if n.endswith("1") else 45,35,-15]
-        if n.startswith("hardware_compression_spring_"):offset=[-45 if n.endswith("1") else 45,35,-15]
-        if n.startswith("hardware_M6"):offset=[-110 if "bolt" in n else 110,0,-10]
-        copy.apply_translation(offset);copy.apply_transform(world);exploded.append((n,copy,c))
-    fig,ax=plt.subplots(figsize=(12,11),facecolor="#f3f6f8")
-    draw(ax,exploded,lookat(foot+[-450,-550,350],foot),title="03 / EXPLODED ASSEMBLY")
-    save(fig,dest/"03_exploded.png","Assembly-role offsets for identification; spring and clamp hardware are specified in the BOM | same controller mesh")
-    # Section outlines cut the actual exported triangles. Two true cut planes.
-    fig,axes=plt.subplots(1,2,figsize=(14,8),facecolor="#f3f6f8")
-    pivot=np.array(manifest["pivot_pad_mm"])
-    for ax,axis,origin,cols,title in [(axes[0],0,[0,0,0],[2,1],"JAW / BACKREST: x = 0 mm"),
-                                      (axes[1],1,[0,pivot[1],0],[0,2],"PIVOT AXIS: y = 0 mm")]:
-        normal=np.eye(3)[axis]
+        m=m.copy();m.apply_translation(offsets.get(n,[0,0,0]));exploded.append((n,m,c))
+    fig,ax=plt.subplots(figsize=(12,10),facecolor='#f3f6f8');draw(ax,exploded,lookat([-430,-400,260],[0,5,-40],up=(0,1,0)),title='V3 / EXPLODED ASSEMBLY')
+    save(fig,dest/'03_exploded.png','M8 double shear axis; left removable Hirth pair; right sliding metal sleeve; 2 mm sheet pads')
+    # Plot exact CAD sections, without triangulated mesh-fit interfaces.
+    fig,axs=plt.subplots(1,3,figsize=(17,7),facecolor='#f3f6f8')
+    for ax,(axis,origin,cols,title) in zip(axs,[(0,[0,0,0],[2,1],'CENTRE SECTION / Z-Y'),(1,[0,mf['nominal_span_mm']*0+mf['parameters']['measured']['top_center_y']+.8,0],[0,2],'UPPER PAD / PAIR + USB RELIEF'),(2,[0,0,-10.9],[0,1],'BACKREST / REGULAR PLANE')]):
         for n,m,c in local:
-            section=m.section(plane_origin=origin,plane_normal=normal)
-            if section is None:continue
-            for line in section.discrete:
-                xy=line[:,cols]
-                ax.fill(xy[:,0],xy[:,1],color=c,alpha=.8,linewidth=0)
-                ax.plot(xy[:,0],xy[:,1],color=c,linewidth=.8)
-        ax.set_aspect("equal");ax.grid(alpha=.15);ax.set_title(title,fontsize=12,fontweight="bold",color="#17394a")
-        ax.set_xlabel((["x","y","z"])[cols[0]]+" / mm");ax.set_ylabel((["x","y","z"])[cols[1]]+" / mm")
-    axes[0].set_xlim(-62,32);axes[0].set_ylim(-38,86)
-    axes[1].set_xlim(-58,43);axes[1].set_ylim(-125,30)
-    fig.tight_layout(rect=(0,.05,1,1));save(fig,dest/"04_sections.png","True triangle / plane sections | teal: cradle, amber: slider, purple: compressed sheet pads, grey: controller")
-    # Rear view uses pad local x horizontally and y vertically.
-    rear=lookat([0,0,-600],[0,0,-30],up=(0,1,0))
-    fig,ax=plt.subplots(figsize=(11,10),facecolor="#f3f6f8")
-    draw(ax,local,rear,title="05 / REAR VIEW - FREE GRIP BACKS")
-    save(fig,dest/"05_back.png","Only the narrow central spine supports the shell | both handle backs remain open for ring and little fingers")
-    prints=[]
-    x,y,rowheight=0.,0.,0.
-    labels=[]
-    for part in manifest["parts"]:
-        if not part["is_printed"]:continue
-        name=part["name"];mesh=trimesh.load(out/"print"/(name+".stl"),force="mesh")
-        size=mesh.extents
-        if x+size[0]>470:x=0;y+=rowheight+35;rowheight=0
-        mesh.apply_translation([x,y,0]);prints.append((name,mesh,color(name)))
-        labels.append((np.array([x+size[0]/2,y-8,0]),name));x+=size[0]+28;rowheight=max(rowheight,size[1])
-    # Keep the measured controller visible as a size reference on this sheet.
-    for name,mesh in pad.items():
-        ref=mesh.copy();ref.apply_translation([90,y+rowheight+95,35])
-        prints.append(("reference_"+name,ref,COLORS.get(name,"#67727d")))
-    allvertices=np.vstack([m.vertices for _,m,_ in prints]);center=(allvertices.min(axis=0)+allvertices.max(axis=0))/2
-    fig,ax=plt.subplots(figsize=(14,11),facecolor="#f3f6f8")
-    printcam=lookat(center+[450,-650,900],center)
-    draw(ax,prints,printcam,title="06 / RECOMMENDED PRINT ORIENTATIONS")
-    for index,(position,name) in enumerate(labels,1):
-        point=trimesh.transform_points([position],printcam)[0]
-        ax.text(point[0],point[1],f"P{index:02}",fontsize=9,color="#17394a",ha="center",fontweight="bold")
-    fig.text(.04,.075,"   |   ".join(f"P{k:02} {name}" for k,(_,name) in enumerate(labels,1) if k<=5),fontsize=8,color="#526979")
-    fig.text(.04,.052,"   |   ".join(f"P{k:02} {name}" for k,(_,name) in enumerate(labels,1) if k>5),fontsize=8,color="#526979")
-    save(fig,dest/"06_print_layout.png","Multi-plate overview | STLs rest at z = 0 | controller is a size reference, not a print part")
-    fig,ax=plt.subplots(figsize=(13,10),facecolor="#f3f6f8")
-    world_side(ax,items,manifest,title="07 / V2 Z LAYOUT - WORLD X / Z",resolution=2200)
-    save(fig,dest/"07_world_z_layout.png","World side projection; C-clamp geometry is a procurement keepout, operator access is dashed red; clamps are +/-70 mm off the table centreline")
-    print("\n".join(str(p) for p in sorted(dest.glob("*.png"))))
+            sec=m.section(plane_origin=origin,plane_normal=np.eye(3)[axis])
+            if sec:
+                for loop in sec.discrete:ax.plot(loop[:,cols[0]],loop[:,cols[1]],color=c,lw=.7)
+        ax.set_aspect('equal');ax.grid(alpha=.15);ax.set_title(title,fontsize=10)
+    axs[0].set_xlim(-70,32);axs[0].set_ylim(-65,82);axs[1].set_xlim(-25,25);axs[1].set_ylim(-12,28);axs[2].set_xlim(-32,32);axs[2].set_ylim(5,42)
+    save(fig,dest/'04_sections.png','Contact faces are planes. Openings are bridged/relieved; front lips intentionally remain at z=22..26 mm.')
+    printed=[r for r in mf['parts'] if r['is_printed']]
+    fig,axs=plt.subplots(math.ceil(len(printed)/4),4,figsize=(16,4*math.ceil(len(printed)/4)),facecolor='#f3f6f8')
+    for ax,r in zip(axs.ravel(),printed):
+        m=trimesh.load(out/'print'/(r['name']+'.stl'),force='mesh');b=m.bounds;ctr=b.mean(0);draw(ax,[(r['name'],m,material_color(r['material']))],lookat(ctr+[250,-350,300],ctr),title=r['name'],resolution=450);ax.set_title(r['name']+'\n'+' x '.join(f'{x:.1f}' for x in r['print_bounds_mm'])+' mm',fontsize=9)
+    for ax in axs.ravel()[len(printed):]:ax.axis('off')
+    save(fig,dest/'05_print_layout.png','Individual recommended orientations, not a shared plate packing. H2D dual-nozzle limit 300 x 320 x 325 mm.')
+    fig,axs=plt.subplots(1,2,figsize=(14,7),facecolor='#f3f6f8')
+    for ax,name in zip(axs,['hirth_fixed','hirth_moving']):
+        m=meshes[name];ctr=m.centroid;draw(ax,[(name,m,color(name))],lookat(ctr+([-120,120,90] if name=='hirth_fixed' else [120,120,90]),ctr,up=(0,1,0)),title=name+' / 36 TEETH / 10 DEG')
+    save(fig,dest/'06_hirth_detail.png','r=18..30 mm; constant 60 deg loaded flanks; fixed tip/root flats 1.1/.9 mm; .2 mm tip/root relief; no pointer or numbers.')
+    fig,ax=plt.subplots(figsize=(11,9),facecolor='#f3f6f8');world_side(ax,world,mf,title='V3 / WORLD X-Z / VERTICAL POST')
+    ax.text(750,-1020,f"root depth = {718.4-W[0,3]:.2f} mm\nheight = {W[2,3]-767:.2f} mm\ntilt = {mf['key_angle_deg']:.1f} deg",fontsize=8)
+    save(fig,dest/'07_world_z_layout.png','Base / vertical post / cradle form the Z silhouette. Pose is derived from these dimensions, not a target root input.')
+    # One shared offset chain for all three analytic contact seats.
+    fig,axs=plt.subplots(1,3,figsize=(15,5),facecolor='#f3f6f8')
+    for ax,c in zip(axs,mf['contact_planes']):
+        for y,txt,col in [(0,'fitted shell / compressed pad face','#3c5969'),(c['rim_offset_mm']-c['fit_offset_mm'],'rigid rim','#267c92'),(c['compressed_thickness_mm'],'pad seat','#dc9146')]:ax.axhline(y,color=col,lw=3);ax.text(.05,y+.06,txt,color=col,fontsize=9)
+        ax.fill_between([.2,.8],0,c['compressed_thickness_mm'],color='#bd9fc9',alpha=.6)
+        ax.set_ylim(-.25,2.5);ax.set_xlim(0,1);ax.set_xticks([]);ax.set_ylabel('offset toward fixture / mm');ax.set_title(c['name']+f" / free {c['free_thickness_mm']:.2f} - compression {c['compression_mm']:.2f} = {c['compressed_thickness_mm']:.2f} mm",fontsize=9)
+        ax.text(.05,2.25,'recess 1.50 mm; free protrusion 0.50 mm',fontsize=9)
+    save(fig,dest/'08_pad_offsets.png','Nominal plane-chain check is distinct from artist-shell fit residual and real silicone compressibility.')
+    return dest
 
-
-if __name__=="__main__":
-    parser=argparse.ArgumentParser();parser.add_argument("--out",type=Path,default=HERE/"out")
-    main(parser.parse_args().out)
+if __name__=='__main__':
+    import math
+    p=argparse.ArgumentParser();p.add_argument('--out',type=Path,default=HERE/'out');a=p.parse_args();main(a.out)

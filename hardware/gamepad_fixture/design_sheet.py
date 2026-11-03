@@ -77,155 +77,66 @@ def copper_insert(center,od,length,thread):
     mesh.apply_translation(center)
     return mesh
 
-
-def main(out=HERE/"out",destination=HERE):
-    out,destination=Path(out),Path(destination)
-    manifest=json.loads((out/"manifest.json").read_text())
-    palette=json.loads((HERE/"materials_palette.json").read_text())
-    font_path=Path("/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc")
-    if font_path.exists():
-        font_manager.fontManager.addfont(str(font_path))
-        plt.rcParams["font.family"]=[font_manager.FontProperties(fname=font_path).get_name(),"DejaVu Sans"]
-    plt.rcParams.update({"axes.unicode_minus":False,"pdf.fonttype":42,"font.size":8})
-    color=lambda key:palette[key]["color"]
-    metadata={part["name"]:part for part in manifest["parts"]}
-    local=[]
-    for name,part in metadata.items():
-        material=part["material"]
-        key={"Steel":"steel","Spring_steel":"steel","Aluminum_6061":"aluminum","TPU95A":"TPU","adhesive_silicone_sheet":"silicone","adhesive_silicone_or_EVA_sheet":"silicone","adhesive_eva_sheet":"EVA","adhesive_EVA_sheet":"EVA","PETG":"PETG"}[material]
-        local.append((name,trimesh.load(out/"assembly_mesh"/(name+".stl"),force="mesh"),color(key)))
-    p=manifest["parameters"];m,i,h=[p[k] for k in ("measured","installation","hardware")]
-    asset=ControllerAsset().meshes()
-    for name,mesh in asset.items():
-        mesh.apply_scale([m["width"]/153,m["height"]/104.6,m["depth"]/50.2])
-        local.append(("reference_"+name,mesh,color("reference")))
-    # Copper inserts are BOM reference envelopes, not extra printed CAD parts.
-    for n,x in enumerate((-i["cap_bolt_x"],i["cap_bolt_x"]),1):
-        local.append((f"bom_copper_M3_{n}",copper_insert([x,71,-27],h["cap_insert_od"],h["cap_insert_length"],3),color("copper")))
-    local.append(("bom_copper_M4",copper_insert([0,i["lock_center_y"],-47],h["lock_insert_od"],h["lock_insert_length"],4),color("copper")))
-    world=np.asarray(manifest["world_from_pad"])
-    Fworld=np.asarray(manifest["fixed_frame_world_axes"])
-    datum=np.asarray(manifest["fixed_frame_world_origin_mm"])
-    Fpad=np.eye(4);Fpad[:3,:3]=Fworld.T@world[:3,:3];Fpad[:3,3]=Fworld.T@(world[:3,3]-datum)
-    def in_F(items):
-        result=[]
-        for name,mesh,c in items:
-            mesh=mesh.copy();mesh.apply_transform(Fpad);result.append((name,mesh,c))
-        return result
-    assembled=in_F(local)
-    root=Fpad[:3,3]
-    target=np.array([0,-30,125])
-    iso=lookat(target+[-450,-550,300],target)
+def main(out=HERE/'out',destination=HERE):
+    out,destination=Path(out),Path(destination);mf=json.loads((out/'manifest.json').read_text());p=mf['parameters'];m,i,h=[p[k] for k in ('measured','installation','hardware')]
+    font=Path('/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc')
+    if font.exists():font_manager.fontManager.addfont(str(font));plt.rcParams['font.family']=[font_manager.FontProperties(fname=font).get_name(),'DejaVu Sans']
+    plt.rcParams.update({'axes.unicode_minus':False,'pdf.fonttype':42,'font.size':8})
+    from render import material_color
+    local=[(r['name'],trimesh.load(out/'assembly_mesh'/(r['name']+'.stl'),force='mesh'),material_color(r['material'])) for r in mf['parts']]
+    local += [('reference_'+n,v,'#d0d6dc') for n,v in ControllerAsset().visual_meshes().items()]
+    W=np.asarray(mf['world_from_pad']);F=np.eye(4);F[:3,:3]=mf['fixed_frame_world_axes'];F[:3,3]=mf['fixed_frame_world_origin_mm'];Fpad=np.linalg.inv(F)@W
+    def transform(items,T):
+        res=[]
+        for n,v,c in items:v=v.copy();v.apply_transform(T);res.append((n,v,c))
+        return res
+    assembled=transform(local,Fpad);target=np.array([0,-35,135]);iso=lookat(target+[-480,-520,270],target)
     fig=plt.figure(figsize=(420/25.4,297/25.4),facecolor=BG)
-    fig.text(.035,.965,"Xbox One S 1708 · 手柄夹具设计总图",fontsize=20,color=INK,fontweight="bold")
-    fig.text(.965,.969,"任务 V · v2 Z 布局  |  2026-10-30  |  A3 单页",fontsize=8.5,color=MUTED,ha="right")
-    fig.text(.035,.939,"讲台式底座 / M6 端面齿锁紧转轴 / 双压簧滑动夹 / 背胶片材接触面",fontsize=10,color=MUTED)
-    # The same material ID has one colour everywhere, including alternatives.
-    legend_keys=["PETG","silicone","steel","copper","aluminum","TPU","PLA-CF","ASA","EVA","reference"]
-    for k,key in enumerate(legend_keys):
-        x=.035+k*.094
-        fig.add_artist(Rectangle((x,.910),.011,.011,transform=fig.transFigure,facecolor=color(key),edgecolor="#9BABBA",lw=.4))
-        fig.text(x+.014,.911,palette[key]["label"],fontsize=6.9,color=INK,va="bottom")
-    ax=fig.add_axes([.035,.535,.445,.345])
-    draw(ax,assembled,iso,title="",resolution=2200)
-    clamp_wireframe(ax,manifest,iso)
-    pad_label="TPU" if m["use_printed_tpu_pads"] else "EVA片" if "eva" in m["pad_material"].lower() else "硅胶片"
-    ax.set_title(f"01  装配等轴测 · PETG + {pad_label}",loc="left",fontsize=10.5,color=INK,fontweight="bold",pad=5)
-    # Explode the same exported parts; no replacement fixture drawing.
-    offsets={"base_printed":[0,0,-60],"base_aluminum":[0,0,-60],"aluminum_pad_recess_tray":[0,0,-65],"pad_base_bottom":[0,0,-72],
-             "column":[-75,0,-12],"slider_upper_jaw":[0,45,15],"guide_cap":[0,82,-10],"M6_hand_knob":[88,0,0],
-             "guide_rod_1":[-45,35,-15],"guide_rod_2":[45,35,-15],"pad_back":[0,0,27],"pad_upper_jaw":[0,55,35],"pad_lower_jaw":[0,-35,25]}
+    fig.text(.03,.965,'Xbox One S 1708 · V3 竖直立柱 / 对称叉轴 / 平面夹爪',fontsize=19,color=INK,fontweight='bold')
+    fig.text(.03,.935,'单位 mm  |  H2D 双喷头 300×320×325  |  PETG 主体 + 2 mm 硅胶片（TPU 可选）  |  资产推得，待卡尺与实物试验',fontsize=9,color=MUTED)
+    ax=fig.add_axes([.025,.515,.35,.355]);draw(ax,assembled,iso,title='01 / 实际装配',resolution=1700)
     exploded=[]
-    for name,mesh,c in local:
-        offset=offsets.get(name,[0,0,0])
-        if name.startswith("reference_"):offset=[0,0,75]
-        elif name.startswith("hardware_compression_spring_"):offset=[-45 if name.endswith("1") else 45,35,-15]
-        elif name.startswith("hardware_M6"):offset=[-110 if "bolt" in name else 110,0,-10]
-        elif name.startswith("bom_copper_M3"):offset=[-55 if name.endswith("1") else 55,82,5]
-        elif name=="bom_copper_M4":offset=[-48,45,-15]
-        copy=mesh.copy();copy.apply_translation(offset);exploded.append((name,copy,c))
-    ax=fig.add_axes([.515,.535,.45,.345])
-    draw(ax,in_F(exploded),iso,title="",resolution=2200)
-    ax.set_title("02  爆炸装配 · 同材料同色",loc="left",fontsize=10.5,color=INK,fontweight="bold",pad=5)
-    fig.text(.52,.526,"铜套为 BOM 参考外形，不含螺纹；采购 C 型夹外框未画。",fontsize=6.7,color=MUTED)
-    # Three orthographic views in the installation/table datum frame.
-    front=lookat([0,-700,140],[0,-30,140])
-    side=lookat([700,-35,140],[0,-35,140])
-    top=lookat([0,-70,800],[0,-70,0],up=(0,1,0))
-    views=[([.035,.235,.285,.255],front,[-180,180,-155,175],"03  正视 · 桌面基准"),
-           ([.35,.235,.295,.255],side,None,"04  世界坐标侧视 · X / Z"),
-           ([.675,.235,.29,.255],top,[-180,180,-170,160],"05  俯视 · 桌面基准")]
-    axes=[]
-    for rect,cam,bounds,title in views:
-        ax=fig.add_axes(rect)
-        if bounds is None:
-            world_items=[]
-            Fworld=np.eye(4);Fworld[:3,:3]=np.asarray(manifest["fixed_frame_world_axes"]);Fworld[:3,3]=datum
-            for name,mesh,c in assembled:
-                copy=mesh.copy();copy.apply_transform(Fworld);world_items.append((name,copy,c))
-            side=world_side(ax,world_items,manifest,title="",resolution=1700)
-        else:draw(ax,assembled,cam,bounds=bounds,title="",resolution=1700)
-        ax.set_title(title,loc="left",fontsize=9.5,color=INK,fontweight="bold",pad=5);axes.append(ax)
-    ax=axes[0]
-    q=project([[-i["base_width"]/2,-i["base_depth"],0],[i["base_width"]/2,-i["base_depth"],0]],front);dimension(ax,*q,f"{i['base_width']:g} 底板宽",(0,18))
-    points=np.array([[-m["upper_jaw_width"]/2,m["top_center_y"]+3,6],[m["upper_jaw_width"]/2,m["top_center_y"]+3,6]])
-    points=trimesh.transform_points(points,Fpad);dimension(ax,*project(points,front),f"上爪 {m['upper_jaw_width']:g}",(0,-23))
-    ax=axes[1]
-    dimpoints=project([[world[0,3],world[1,3],i["tabletop_z"]],world[:3,3]],side)
-    dimension(ax,*dimpoints,f"{root[2]:.0f} mm 中心高",(i["table_edge_x"]-187-world[0,3],0),True)
-    q=project([[i["table_edge_x"]-i["base_depth"],i["table_center_y"],i["tabletop_z"]],[i["table_edge_x"],i["table_center_y"],i["tabletop_z"]]],side);dimension(ax,*q,f"{i['base_depth']:g} 底板深",(0,22))
-    pivot=np.asarray(manifest["pivot_base_mm"])
-    pivot_world=datum+np.asarray(manifest["fixed_frame_world_axes"])@pivot
-    center=project(pivot_world,side)[0]
-    angle=manifest["key_angle_deg"];r=39
-    ax.add_patch(Arc(center,2*r,2*r,theta1=-angle,theta2=0,color=INK,lw=1,zorder=10))
-    for a in (0,-np.deg2rad(angle)):
-        end=center+43*np.array([np.cos(a),np.sin(a)])
-        ax.plot([center[0],end[0]],[center[1],end[1]],lw=.7,color=MUTED,zorder=9)
-    leader(ax,center+[r*.94,-r*.34],center+[56,-31],f"{manifest['mark_label_deg']:g}° 主刻线\n几何 {angle:.3f}°")
-    contactpoint=trimesh.transform_points([[0,m["top_center_y"],0]],world)
-    leader(ax,project(contactpoint,side)[0],[i["table_edge_x"]+50,-(i["tabletop_z"]+260)],f"夹持开口 {i['slider_min_span']:g}–{i['slider_max_span']:g}\n图示名义 {m['center_span']:g}")
-    # Ground reference establishes height unambiguously.
-    ax=axes[2]
-    thickness=i["aluminum_thickness"] if i["aluminum_base"] else i["printed_base_thickness"]
-    q=project([[-i["base_width"]/2,-i["base_depth"],0],[i["base_width"]/2,-i["base_depth"],0]],top)
-    dimension(ax,*q,f"{i['base_width']:g} × {i['base_depth']:g} × {thickness:g} 底板",(0,18))
-    for sign in (-1,1):
-        x=sign*i["clamp_center_x"];y=i["clamp_center_y"]
-        rectangle=project([[x-22,y-20,0],[x+22,y-20,0],[x+22,y+20,0],[x-22,y+20,0],[x-22,y-20,0]],top)
-        ax.plot(rectangle[:,0],rectangle[:,1],color=INK,lw=.75,ls="--",zorder=8)
-    band=project([[-i["base_width"]/2,-i["clamp_band_depth"],0],[i["base_width"]/2,-i["clamp_band_depth"],0]],top)
-    ax.plot(band[:,0],band[:,1],color=INK,lw=.8,ls="--",zorder=8)
-    leader(ax,project([[-i["clamp_center_x"],-26,0]],top)[0],[-142,-127],f"连续夹持带 {i['base_width']:g} × {i['clamp_band_depth']:g}\n承压厚 {thickness:g} / 整带实心修改器")
-    # True section planes of the same meshes, not an illustrative redraw.
-    a=fig.add_axes([.045,.055,.205,.142])
-    section(a,local,0,[0,0,0],[2,1],[-56,30,-36,80],"A–A 夹爪 / 背托剖面")
-    a.set_xlabel("Z / mm",fontsize=6);a.set_ylabel("Y / mm",fontsize=6)
-    b=fig.add_axes([.295,.055,.205,.142])
-    section(b,local,1,[0,i["pivot_pad_y"],0],[0,2],[-43,31,-121,-48],"B–B 转轴剖面")
-    b.axhline(i["pivot_pad_z"],color=MUTED,lw=.6,ls="--")
-    b.text(-39,-51,"M6 × 60 / 36 齿端面咬合",fontsize=6.5,color=INK)
-    b.set_xlabel("X / mm",fontsize=6);b.set_ylabel("Z / mm",fontsize=6)
-    # Compact fabrication data complements the external full material table.
-    fig.text(.54,.190,"材料与制造要点",fontsize=10.5,color=INK,fontweight="bold")
-    notes=["PETG 结构件：11 件；同色不代表合并为一个打印件。",
-           f"连续 {i['base_width']:g}×{i['clamp_band_depth']:g} 夹持带 + 压力鞋：100% / ≥6 壁 / 各≥8 层。",
-           "硅胶片：爪/背托 2 mm；底板/压力鞋 1 mm；槽深 = 厚度 −0.5。",
-           "铝板可选：220 × 160 × 6；软垫可整套改 EVA 或独立打印 TPU。",
-           "精确中心高 219.859 mm；40 刻线已按目标四元数校准。",
-           "完整逐件材料与切片参数：materials.md（颜色代码见本页图例）。"]
-    for k,note in enumerate(notes):fig.text(.54,.169-k*.021,note,fontsize=7.4,color=INK)
-    fig.text(.035,.014,"单位 mm · 世界侧视包含桌下操作区，各视窗独立缩放；灰虚线=C夹包络，红虚线=操作空间。尺寸暂定，打印前实测。",fontsize=6.6,color=MUTED)
-    fig.text(.965,.014,"CAD 几何检查通过 / 未实物试装或加载认证",fontsize=7,color=MUTED,ha="right")
-    destination.mkdir(parents=True,exist_ok=True)
-    fig.savefig(destination/"design_sheet.png",dpi=300,facecolor=BG)
-    fig.savefig(destination/"design_sheet.pdf",dpi=300,facecolor=BG,metadata={"Title":"Xbox One S 1708 fixture — task V design sheet"})
-    plt.close(fig)
-    print(json.dumps({"png":str(destination/"design_sheet.png"),"pdf":str(destination/"design_sheet.pdf"),"size_mm":[420,297],"dpi":300,"material_palette":str(HERE/"materials_palette.json")},ensure_ascii=False))
+    for n,v,c in local:
+        v=v.copy();d={'column':[-65,0,-15],'hirth_fixed':[-60,0,0],'hirth_moving':[-30,0,0],'slider_upper_jaw':[0,40,15],'guide_cap':[0,75,0],'M8_hand_knob':[70,0,0],'pad_back':[0,0,25],'pad_lower_jaw':[0,-25,20],'pad_upper_jaw':[0,50,20]}.get(n,[0,0,0])
+        if n.startswith('base_'):d=[0,0,-55]
+        if n.startswith('reference_'):d=[0,0,25]
+        v.apply_translation(d);exploded.append((n,v,c))
+    ax=fig.add_axes([.385,.515,.36,.355]);draw(ax,transform(exploded,Fpad),iso,title='02 / 爆炸装配',resolution=1700)
+    ax=fig.add_axes([.76,.55,.22,.33]);ax.axis('off')
+    depth=i['table_edge_x']-W[0,3];height=W[2,3]-i['tabletop_z'];mech=mf['mechanics']
+    notes=[('结构尺寸',f"底板 {i['base_width']:g}×{i['base_depth']:g}×{i['printed_base_thickness']:g}",f"柱身 {i['column_width']:g}×{i['column_depth']:g}，柱脚→轴 {i['column_height_to_axis']:g}",f"叉耳 X=±{i['ear_inner_x']:g}…±{i['ear_outer_x']:g}，金属 M8 双剪"),
+        ('夹持与接触',f"上爪 {m['upper_jaw_width']:g} / 下爪 {m['lower_jaw_width']:g} / 背托 {m['rear_support_width']:g}",f"平行开口 {m['center_span']:.3f}，行程 66–80",'软垫自由 2.00 / 压缩后 1.85 / 槽 1.50'),
+        ('装配结果',f"内距 {depth:.2f} / 高度 {height:.2f} / 倾角 {mf['key_angle_deg']:.1f}°",'位姿来自竖直柱与托架的几何尺寸',f"4 N·m 分离安全系数 {mech['pivot_separation_safety_factor']:.2f}（粗算）")]
+    y=1.
+    for group in notes:
+        ax.text(0,y,group[0],fontweight='bold',color=INK,fontsize=10,va='top');y-=.09
+        for line in group[1:]:ax.text(0,y,line,color=INK,fontsize=7.9,va='top');y-=.075
+        y-=.04
+    front=lookat([0,-700,140],[0,-30,140]);side=lookat([700,-30,140],[0,-30,140]);top=lookat([0,-45,800],[0,-45,0],up=(0,1,0))
+    for rect,cam,title in [([.025,.255,.30,.235],front,'03 / 正视'),([.355,.255,.30,.235],side,'04 / 侧视'),([.685,.255,.29,.235],top,'05 / 俯视与可夹区')]:
+        ax=fig.add_axes(rect);draw(ax,assembled,cam,title=title,resolution=1300)
+        if title.startswith('03'):
+            q=project([[-120,-90,0],[120,-90,0]],cam);dimension(ax,*q,'240 底板宽',(0,15))
+        elif title.startswith('04'):
+            q=project([[0,-30,0],[0,-30,mf['pivot_base_mm'][2]]],cam);dimension(ax,*q,f"轴高 {mf['pivot_base_mm'][2]:.2f}",(22,0),True)
+        else:
+            for a,b in mf['clamp_usable_segments_base_x_mm']:
+                q=project([[a,-15,18],[b,-15,18]],cam);ax.plot(q[:,0],q[:,1],color='#d59736',lw=5,zorder=10)
+            q=project([[-120,-30,18],[120,-30,18]],cam);ax.plot(q[:,0],q[:,1],ls='--',color=INK,lw=.7)
+            ax.text(0,90,'两侧各 75 mm 可夹；不限定 C 夹中心\n接触深度 ≤ min(30, 桌边到裙板)',ha='center',fontsize=7,color=INK)
+    ax=fig.add_axes([.03,.055,.22,.16]);section(ax,local,0,[0,0,0],[2,1],[-64,30,-62,80],'A-A / 平面接触与前唇')
+    ax=fig.add_axes([.29,.055,.23,.16]);pv=mf['pivot_pad_mm'];section(ax,local,1,[0,pv[1],0],[0,2],[-39,53,pv[2]-36,pv[2]+36],'B-B / 双剪轴与单侧齿盘')
+    ax=fig.add_axes([.56,.055,.41,.16]);ax.axis('off')
+    text=['制造与装配：','齿盘 r=18–30，36齿=10°；60°恒定齿侧，齿顶/根平带1.1/0.9，根隙0.2。',
+        '齿面朝上，0.08–0.12层高；先小样测扭矩。锁紧：松→拉开→转→咬合→拧紧。',
+        '柱脚四M5自上而下入底板热熔铜套；无根部螺母通道、无底板斜筋、无压力鞋。',
+        '夹持带整体100%实心修改器；用户自行粘底部软垫，桌板25、裙板距离30均待测。',
+        '刻线仅主线与±10°，无数字/薄指针；实际倾角用可拆标记卡测量。',
+        '可打印性逐件硬门与局部支撑/豁免详见检查JSON；本图不表示已实打或已做强度试验。']
+    for n,line in enumerate(text):ax.text(0,1-n*.135,line,fontsize=8 if n==0 else 7.1,fontweight='bold' if n==0 else 'normal',color=INK,va='top')
+    fig.text(.03,.018,'V2→V3：取消随形网格布尔面、斜柱/单边悬臂与压力鞋；接触与场景使用同一组规则几何。完整BOM见 materials.md；实物放行见 VALIDATION.md。',fontsize=7,color=MUTED)
+    destination.mkdir(parents=True,exist_ok=True);fig.savefig(destination/'design_sheet.png',dpi=300,facecolor=BG);fig.savefig(destination/'design_sheet.pdf',dpi=300,facecolor=BG,metadata={'Title':'Xbox 1708 fixture V3'});plt.close(fig)
+    return destination/'design_sheet.png'
 
-
-if __name__=="__main__":
-    parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--out",type=Path,default=HERE/"out")
-    parser.add_argument("--destination",type=Path,default=HERE)
-    args=parser.parse_args();main(args.out,args.destination)
+if __name__=='__main__':
+    a=argparse.ArgumentParser();a.add_argument('--out',type=Path,default=HERE/'out');a.add_argument('--destination',type=Path,default=HERE);v=a.parse_args();print(main(v.out,v.destination))
