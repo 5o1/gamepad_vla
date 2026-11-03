@@ -1,0 +1,3260 @@
+[
+  {
+    "point": "d050-h220-t+10",
+    "rank": 1,
+    "side": "left",
+    "completed": true,
+    "candidates": 8,
+    "elapsed_seconds": 643.8082814216614,
+    "search_status": {
+      "completed": true,
+      "stage2_completed": true,
+      "stage3_completed": false,
+      "stage4_completed": true,
+      "elapsed_seconds": 643.8082814216614,
+      "stage2_elapsed_seconds": 667.492645740509,
+      "stage3_elapsed_seconds": 1000.0276327133179,
+      "stage4_elapsed_seconds": 676.6813418865204
+    },
+    "X_selected_controls": [],
+    "X_maximum_count": 4,
+    "strict": {
+      "count": 6,
+      "controls": [
+        "Dpad_up",
+        "Dpad_down",
+        "Dpad_left",
+        "Dpad_right",
+        "LS",
+        "L3"
+      ],
+      "label": "explicit-shared-thumb",
+      "natural": {
+        "upper_tilt_deg": 23.55302418005863,
+        "forearm_pitch_deg": 10.122901042198443,
+        "forearm_heading_deg": 3.3161196983929324,
+        "elbow_angle_deg": 94.5974007878265,
+        "wrist_deviation_deg": 31.266006303767014,
+        "deviation": 0.23686827867057544,
+        "natural": true,
+        "upper_forward": true,
+        "shoulder_axis_gap_m": 2.0816681711721685e-17
+      },
+      "elbow_forward_mm": 126.00469916760603,
+      "grips": [
+        "pinky",
+        "ring"
+      ],
+      "grip_point_error_mm": [
+        0.35322269942088336,
+        1.0691968198940198
+      ],
+      "operations": [
+        {
+          "control": "Dpad_up",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              23.55302418005863,
+              23.55302418005863
+            ],
+            "elbow_angle_deg": [
+              94.5974007878265,
+              94.5974007878265
+            ],
+            "forearm_pitch_deg": [
+              10.122901042198443,
+              10.122901042198443
+            ],
+            "forearm_heading_deg": [
+              3.316200870767324,
+              3.316200870767324
+            ],
+            "wrist_deviation_deg": [
+              31.266006303767014,
+              31.266006303767014
+            ]
+          },
+          "maximum_point_error_mm": 1.2457440499560003e-13
+        },
+        {
+          "control": "Dpad_down",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              23.55302418005863,
+              23.55302418005863
+            ],
+            "elbow_angle_deg": [
+              94.5974007878265,
+              94.5974007878265
+            ],
+            "forearm_pitch_deg": [
+              10.122901042198443,
+              10.122901042198443
+            ],
+            "forearm_heading_deg": [
+              3.3160430412824073,
+              3.3160430412824073
+            ],
+            "wrist_deviation_deg": [
+              31.266006303767014,
+              31.266006303767014
+            ]
+          },
+          "maximum_point_error_mm": 0.19999999999994025
+        },
+        {
+          "control": "Dpad_left",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              23.55302418005863,
+              23.55302418005863
+            ],
+            "elbow_angle_deg": [
+              94.5974007878265,
+              94.5974007878265
+            ],
+            "forearm_pitch_deg": [
+              10.122901042198443,
+              10.122901042198443
+            ],
+            "forearm_heading_deg": [
+              3.316355933604643,
+              3.316355933604643
+            ],
+            "wrist_deviation_deg": [
+              31.266006303767014,
+              31.266006303767014
+            ]
+          },
+          "maximum_point_error_mm": 1.2467118161021273e-13
+        },
+        {
+          "control": "Dpad_right",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              23.55302418005863,
+              23.55302418005863
+            ],
+            "elbow_angle_deg": [
+              94.5974007878265,
+              94.5974007878265
+            ],
+            "forearm_pitch_deg": [
+              10.122901042198443,
+              10.122901042198443
+            ],
+            "forearm_heading_deg": [
+              3.315888014947097,
+              3.315888014947097
+            ],
+            "wrist_deviation_deg": [
+              31.266006303767014,
+              31.266006303767014
+            ]
+          },
+          "maximum_point_error_mm": 0.049999999999938885
+        },
+        {
+          "control": "LS",
+          "states": 8,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              23.55302418005863,
+              23.55302418005863
+            ],
+            "elbow_angle_deg": [
+              94.5974007878265,
+              94.5974007878265
+            ],
+            "forearm_pitch_deg": [
+              10.122901042198443,
+              10.122901042198443
+            ],
+            "forearm_heading_deg": [
+              3.305627207665242,
+              3.327917672330828
+            ],
+            "wrist_deviation_deg": [
+              31.266006303767014,
+              31.266006303767014
+            ]
+          },
+          "maximum_point_error_mm": 0.09999999999996817
+        },
+        {
+          "control": "L3",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              23.55302418005863,
+              23.55302418005863
+            ],
+            "elbow_angle_deg": [
+              94.5974007878265,
+              94.5974007878265
+            ],
+            "forearm_pitch_deg": [
+              10.122901042198443,
+              10.122901042198443
+            ],
+            "forearm_heading_deg": [
+              3.3162960721151125,
+              3.3162960721151125
+            ],
+            "wrist_deviation_deg": [
+              31.266006303767014,
+              31.266006303767014
+            ]
+          },
+          "maximum_point_error_mm": 1.0910845278319916e-13
+        }
+      ]
+    },
+    "realistic": {
+      "count": 6,
+      "controls": [
+        "Dpad_up",
+        "Dpad_down",
+        "Dpad_left",
+        "Dpad_right",
+        "LS",
+        "L3"
+      ],
+      "label": "explicit-shared-thumb",
+      "natural": {
+        "upper_tilt_deg": 23.55302418005863,
+        "forearm_pitch_deg": 10.122901042198443,
+        "forearm_heading_deg": 3.3161196983929324,
+        "elbow_angle_deg": 94.5974007878265,
+        "wrist_deviation_deg": 31.266006303767014,
+        "deviation": 0.23686827867057544,
+        "natural": true,
+        "upper_forward": true,
+        "shoulder_axis_gap_m": 2.0816681711721685e-17
+      },
+      "elbow_forward_mm": 126.00469916760603,
+      "grips": [
+        "pinky",
+        "ring"
+      ],
+      "grip_point_error_mm": [
+        0.35322269942088336,
+        1.0691968198940198
+      ],
+      "operations": [
+        {
+          "control": "Dpad_up",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              23.55302418005863,
+              23.55302418005863
+            ],
+            "elbow_angle_deg": [
+              94.5974007878265,
+              94.5974007878265
+            ],
+            "forearm_pitch_deg": [
+              10.122901042198443,
+              10.122901042198443
+            ],
+            "forearm_heading_deg": [
+              3.316200870767324,
+              3.316200870767324
+            ],
+            "wrist_deviation_deg": [
+              31.266006303767014,
+              31.266006303767014
+            ]
+          },
+          "maximum_point_error_mm": 1.2457440499560003e-13
+        },
+        {
+          "control": "Dpad_down",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              23.55302418005863,
+              23.55302418005863
+            ],
+            "elbow_angle_deg": [
+              94.5974007878265,
+              94.5974007878265
+            ],
+            "forearm_pitch_deg": [
+              10.122901042198443,
+              10.122901042198443
+            ],
+            "forearm_heading_deg": [
+              3.3160430412824073,
+              3.3160430412824073
+            ],
+            "wrist_deviation_deg": [
+              31.266006303767014,
+              31.266006303767014
+            ]
+          },
+          "maximum_point_error_mm": 0.19999999999994025
+        },
+        {
+          "control": "Dpad_left",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              23.55302418005863,
+              23.55302418005863
+            ],
+            "elbow_angle_deg": [
+              94.5974007878265,
+              94.5974007878265
+            ],
+            "forearm_pitch_deg": [
+              10.122901042198443,
+              10.122901042198443
+            ],
+            "forearm_heading_deg": [
+              3.316355933604643,
+              3.316355933604643
+            ],
+            "wrist_deviation_deg": [
+              31.266006303767014,
+              31.266006303767014
+            ]
+          },
+          "maximum_point_error_mm": 1.2467118161021273e-13
+        },
+        {
+          "control": "Dpad_right",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              23.55302418005863,
+              23.55302418005863
+            ],
+            "elbow_angle_deg": [
+              94.5974007878265,
+              94.5974007878265
+            ],
+            "forearm_pitch_deg": [
+              10.122901042198443,
+              10.122901042198443
+            ],
+            "forearm_heading_deg": [
+              3.315888014947097,
+              3.315888014947097
+            ],
+            "wrist_deviation_deg": [
+              31.266006303767014,
+              31.266006303767014
+            ]
+          },
+          "maximum_point_error_mm": 0.049999999999938885
+        },
+        {
+          "control": "LS",
+          "states": 8,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              23.55302418005863,
+              23.55302418005863
+            ],
+            "elbow_angle_deg": [
+              94.5974007878265,
+              94.5974007878265
+            ],
+            "forearm_pitch_deg": [
+              10.122901042198443,
+              10.122901042198443
+            ],
+            "forearm_heading_deg": [
+              3.305627207665242,
+              3.327917672330828
+            ],
+            "wrist_deviation_deg": [
+              31.266006303767014,
+              31.266006303767014
+            ]
+          },
+          "maximum_point_error_mm": 0.09999999999996817
+        },
+        {
+          "control": "L3",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              23.55302418005863,
+              23.55302418005863
+            ],
+            "elbow_angle_deg": [
+              94.5974007878265,
+              94.5974007878265
+            ],
+            "forearm_pitch_deg": [
+              10.122901042198443,
+              10.122901042198443
+            ],
+            "forearm_heading_deg": [
+              3.3162960721151125,
+              3.3162960721151125
+            ],
+            "wrist_deviation_deg": [
+              31.266006303767014,
+              31.266006303767014
+            ]
+          },
+          "maximum_point_error_mm": 1.0910845278319916e-13
+        }
+      ]
+    }
+  },
+  {
+    "point": "d050-h220-t+10",
+    "rank": 1,
+    "side": "right",
+    "completed": true,
+    "candidates": 9,
+    "elapsed_seconds": 794.2853891849518,
+    "search_status": {
+      "completed": true,
+      "stage2_completed": true,
+      "stage3_completed": false,
+      "stage4_completed": true,
+      "elapsed_seconds": 794.2853891849518,
+      "stage2_elapsed_seconds": 950.1176598072052,
+      "stage3_elapsed_seconds": 1000.017834186554,
+      "stage4_elapsed_seconds": 817.906824350357
+    },
+    "X_selected_controls": [],
+    "X_maximum_count": 0,
+    "strict": {
+      "count": 4,
+      "controls": [
+        "A",
+        "B",
+        "Y",
+        "RB"
+      ],
+      "label": "explicit-shared-all",
+      "natural": {
+        "upper_tilt_deg": 21.66617420093087,
+        "forearm_pitch_deg": 24.074395173465554,
+        "forearm_heading_deg": 8.747961142695717,
+        "elbow_angle_deg": 87.58967178607264,
+        "wrist_deviation_deg": 31.561773003896317,
+        "deviation": 0.9382930115643703,
+        "natural": true,
+        "upper_forward": true,
+        "shoulder_axis_gap_m": 6.938893903907228e-18
+      },
+      "elbow_forward_mm": 117.62715244288147,
+      "grips": [
+        "pinky",
+        "ring"
+      ],
+      "grip_point_error_mm": [
+        3.606559305485844,
+        5.609323383233719
+      ],
+      "operations": [
+        {
+          "control": "A",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              21.66617420093087,
+              21.66617420093087
+            ],
+            "elbow_angle_deg": [
+              87.58967178607264,
+              87.58967178607264
+            ],
+            "forearm_pitch_deg": [
+              24.074395173465554,
+              24.074395173465554
+            ],
+            "forearm_heading_deg": [
+              8.74791043823713,
+              8.74791043823713
+            ],
+            "wrist_deviation_deg": [
+              31.561773003896317,
+              31.561773003896317
+            ]
+          },
+          "maximum_point_error_mm": 0.11254525150891016
+        },
+        {
+          "control": "B",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              21.66617420093087,
+              21.66617420093087
+            ],
+            "elbow_angle_deg": [
+              87.58967178607264,
+              87.58967178607264
+            ],
+            "forearm_pitch_deg": [
+              24.074395173465554,
+              24.074395173465554
+            ],
+            "forearm_heading_deg": [
+              8.747868122424068,
+              8.747868122424068
+            ],
+            "wrist_deviation_deg": [
+              31.561773003896317,
+              31.561773003896317
+            ]
+          },
+          "maximum_point_error_mm": 0.23995410093254
+        },
+        {
+          "control": "Y",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              21.66617420093087,
+              21.66617420093087
+            ],
+            "elbow_angle_deg": [
+              87.58967178607264,
+              87.58967178607264
+            ],
+            "forearm_pitch_deg": [
+              24.074395173465554,
+              24.074395173465554
+            ],
+            "forearm_heading_deg": [
+              8.74789087767954,
+              8.74789087767954
+            ],
+            "wrist_deviation_deg": [
+              31.561773003896317,
+              31.561773003896317
+            ]
+          },
+          "maximum_point_error_mm": 0.13606612314705024
+        },
+        {
+          "control": "RB",
+          "states": 1,
+          "finger": "index",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              21.66617420093087,
+              21.66617420093087
+            ],
+            "elbow_angle_deg": [
+              87.58967178607264,
+              87.58967178607264
+            ],
+            "forearm_pitch_deg": [
+              24.074395173465554,
+              24.074395173465554
+            ],
+            "forearm_heading_deg": [
+              8.748500148488715,
+              8.748500148488715
+            ],
+            "wrist_deviation_deg": [
+              31.561773003896317,
+              31.561773003896317
+            ]
+          },
+          "maximum_point_error_mm": 0.20000000000008375
+        }
+      ]
+    },
+    "realistic": {
+      "count": 6,
+      "controls": [
+        "A",
+        "B",
+        "Y",
+        "R3",
+        "RB",
+        "X"
+      ],
+      "label": "explicit-shared-all",
+      "natural": {
+        "upper_tilt_deg": 21.66617420093087,
+        "forearm_pitch_deg": 24.074395173465554,
+        "forearm_heading_deg": 8.747961142695717,
+        "elbow_angle_deg": 87.58967178607264,
+        "wrist_deviation_deg": 31.561773003896317,
+        "deviation": 0.9382930115643703,
+        "natural": true,
+        "upper_forward": true,
+        "shoulder_axis_gap_m": 6.938893903907228e-18
+      },
+      "elbow_forward_mm": 117.62715244288147,
+      "grips": [
+        "pinky",
+        "ring"
+      ],
+      "grip_point_error_mm": [
+        3.606559305485844,
+        5.609323383233719
+      ],
+      "operations": [
+        {
+          "control": "A",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              21.66617420093087,
+              21.66617420093087
+            ],
+            "elbow_angle_deg": [
+              87.58967178607264,
+              87.58967178607264
+            ],
+            "forearm_pitch_deg": [
+              24.074395173465554,
+              24.074395173465554
+            ],
+            "forearm_heading_deg": [
+              8.74791043823713,
+              8.74791043823713
+            ],
+            "wrist_deviation_deg": [
+              31.561773003896317,
+              31.561773003896317
+            ]
+          },
+          "maximum_point_error_mm": 0.11254525150891016
+        },
+        {
+          "control": "B",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              21.66617420093087,
+              21.66617420093087
+            ],
+            "elbow_angle_deg": [
+              87.58967178607264,
+              87.58967178607264
+            ],
+            "forearm_pitch_deg": [
+              24.074395173465554,
+              24.074395173465554
+            ],
+            "forearm_heading_deg": [
+              8.747868122424068,
+              8.747868122424068
+            ],
+            "wrist_deviation_deg": [
+              31.561773003896317,
+              31.561773003896317
+            ]
+          },
+          "maximum_point_error_mm": 0.23995410093254
+        },
+        {
+          "control": "Y",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              21.66617420093087,
+              21.66617420093087
+            ],
+            "elbow_angle_deg": [
+              87.58967178607264,
+              87.58967178607264
+            ],
+            "forearm_pitch_deg": [
+              24.074395173465554,
+              24.074395173465554
+            ],
+            "forearm_heading_deg": [
+              8.74789087767954,
+              8.74789087767954
+            ],
+            "wrist_deviation_deg": [
+              31.561773003896317,
+              31.561773003896317
+            ]
+          },
+          "maximum_point_error_mm": 0.13606612314705024
+        },
+        {
+          "control": "R3",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 1.7776461115627158,
+          "root_displacement_mm": 1.46527304629007,
+          "rotation_deg": 0.2780931195062775,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              21.595801591887177,
+              21.595801591887177
+            ],
+            "elbow_angle_deg": [
+              87.33252463424476,
+              87.33252463424476
+            ],
+            "forearm_pitch_deg": [
+              24.26149411323702,
+              24.26149411323702
+            ],
+            "forearm_heading_deg": [
+              8.800088191861798,
+              8.800088191861798
+            ],
+            "wrist_deviation_deg": [
+              31.570215106778413,
+              31.570215106778413
+            ]
+          },
+          "maximum_point_error_mm": 0.10764749126593048
+        },
+        {
+          "control": "RB",
+          "states": 1,
+          "finger": "index",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              21.66617420093087,
+              21.66617420093087
+            ],
+            "elbow_angle_deg": [
+              87.58967178607264,
+              87.58967178607264
+            ],
+            "forearm_pitch_deg": [
+              24.074395173465554,
+              24.074395173465554
+            ],
+            "forearm_heading_deg": [
+              8.748500148488715,
+              8.748500148488715
+            ],
+            "wrist_deviation_deg": [
+              31.561773003896317,
+              31.561773003896317
+            ]
+          },
+          "maximum_point_error_mm": 0.20000000000008375
+        },
+        {
+          "control": "X",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 2.49324817810159,
+          "root_displacement_mm": 2.4932481783223337,
+          "rotation_deg": 3.5856697796499117e-10,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              21.717011558526345,
+              21.717011558526345
+            ],
+            "elbow_angle_deg": [
+              87.44969522440059,
+              87.44969522440059
+            ],
+            "forearm_pitch_deg": [
+              24.264874289042,
+              24.264874289042
+            ],
+            "forearm_heading_deg": [
+              8.339476387441291,
+              8.339476387441291
+            ],
+            "wrist_deviation_deg": [
+              31.814919908731092,
+              31.814919908731092
+            ]
+          },
+          "maximum_point_error_mm": 0.15245494214698094
+        }
+      ]
+    }
+  },
+  {
+    "point": "d075-h190-t+10",
+    "rank": 2,
+    "side": "left",
+    "completed": true,
+    "candidates": 13,
+    "elapsed_seconds": 747.1742463111877,
+    "search_status": {
+      "completed": true,
+      "stage2_completed": true,
+      "stage3_completed": false,
+      "stage4_completed": true,
+      "elapsed_seconds": 747.1742463111877,
+      "stage2_elapsed_seconds": 855.7227168083191,
+      "stage3_elapsed_seconds": 1000.0245127677917,
+      "stage4_elapsed_seconds": 817.8329405784607
+    },
+    "X_selected_controls": [],
+    "X_maximum_count": 4,
+    "strict": {
+      "count": 5,
+      "controls": [
+        "Dpad_up",
+        "Dpad_right",
+        "L3",
+        "LB",
+        "LT"
+      ],
+      "label": "explicit-shared-all",
+      "natural": {
+        "upper_tilt_deg": 32.9277366812878,
+        "forearm_pitch_deg": 11.29577110108006,
+        "forearm_heading_deg": 4.590901793951915,
+        "elbow_angle_deg": 87.9881314605579,
+        "wrist_deviation_deg": 34.26350119202938,
+        "deviation": 0.8618491120858531,
+        "natural": true,
+        "upper_forward": true,
+        "shoulder_axis_gap_m": 2.7755575615628914e-17
+      },
+      "elbow_forward_mm": 150.5364410975047,
+      "grips": [
+        "pinky",
+        "ring"
+      ],
+      "grip_point_error_mm": [
+        4.187144469886727,
+        8.24247202059016
+      ],
+      "operations": [
+        {
+          "control": "Dpad_up",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              32.9277366812878,
+              32.9277366812878
+            ],
+            "elbow_angle_deg": [
+              87.9881314605579,
+              87.9881314605579
+            ],
+            "forearm_pitch_deg": [
+              11.29577110108006,
+              11.29577110108006
+            ],
+            "forearm_heading_deg": [
+              4.591010101851284,
+              4.591010101851284
+            ],
+            "wrist_deviation_deg": [
+              34.26350119202938,
+              34.26350119202938
+            ]
+          },
+          "maximum_point_error_mm": 0.09999999999998867
+        },
+        {
+          "control": "Dpad_right",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              32.9277366812878,
+              32.9277366812878
+            ],
+            "elbow_angle_deg": [
+              87.9881314605579,
+              87.9881314605579
+            ],
+            "forearm_pitch_deg": [
+              11.29577110108006,
+              11.29577110108006
+            ],
+            "forearm_heading_deg": [
+              4.590683342735524,
+              4.590683342735524
+            ],
+            "wrist_deviation_deg": [
+              34.26350119202938,
+              34.26350119202938
+            ]
+          },
+          "maximum_point_error_mm": 1.301636975408188e-13
+        },
+        {
+          "control": "L3",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              32.9277366812878,
+              32.9277366812878
+            ],
+            "elbow_angle_deg": [
+              87.9881314605579,
+              87.9881314605579
+            ],
+            "forearm_pitch_deg": [
+              11.29577110108006,
+              11.29577110108006
+            ],
+            "forearm_heading_deg": [
+              4.59110980566285,
+              4.59110980566285
+            ],
+            "wrist_deviation_deg": [
+              34.26350119202938,
+              34.26350119202938
+            ]
+          },
+          "maximum_point_error_mm": 0.14999999999999736
+        },
+        {
+          "control": "LB",
+          "states": 1,
+          "finger": "index",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              32.9277366812878,
+              32.9277366812878
+            ],
+            "elbow_angle_deg": [
+              87.9881314605579,
+              87.9881314605579
+            ],
+            "forearm_pitch_deg": [
+              11.29577110108006,
+              11.29577110108006
+            ],
+            "forearm_heading_deg": [
+              4.5902651295643695,
+              4.5902651295643695
+            ],
+            "wrist_deviation_deg": [
+              34.26350119202938,
+              34.26350119202938
+            ]
+          },
+          "maximum_point_error_mm": 0.14171323319697843
+        },
+        {
+          "control": "LT",
+          "states": 1,
+          "finger": "middle",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              32.9277366812878,
+              32.9277366812878
+            ],
+            "elbow_angle_deg": [
+              87.9881314605579,
+              87.9881314605579
+            ],
+            "forearm_pitch_deg": [
+              11.29577110108006,
+              11.29577110108006
+            ],
+            "forearm_heading_deg": [
+              4.588678406651809,
+              4.588678406651809
+            ],
+            "wrist_deviation_deg": [
+              34.26350119202938,
+              34.26350119202938
+            ]
+          },
+          "maximum_point_error_mm": 0.23818410264041898
+        }
+      ]
+    },
+    "realistic": {
+      "count": 8,
+      "controls": [
+        "Dpad_up",
+        "Dpad_down",
+        "Dpad_left",
+        "Dpad_right",
+        "L3",
+        "LB",
+        "LT",
+        "LS"
+      ],
+      "label": "explicit-shared-all",
+      "natural": {
+        "upper_tilt_deg": 32.9277366812878,
+        "forearm_pitch_deg": 11.29577110108006,
+        "forearm_heading_deg": 4.590901793951915,
+        "elbow_angle_deg": 87.9881314605579,
+        "wrist_deviation_deg": 34.26350119202938,
+        "deviation": 0.8618491120858531,
+        "natural": true,
+        "upper_forward": true,
+        "shoulder_axis_gap_m": 2.7755575615628914e-17
+      },
+      "elbow_forward_mm": 150.5364410975047,
+      "grips": [
+        "pinky",
+        "ring"
+      ],
+      "grip_point_error_mm": [
+        4.187144469886727,
+        8.24247202059016
+      ],
+      "operations": [
+        {
+          "control": "Dpad_up",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              32.9277366812878,
+              32.9277366812878
+            ],
+            "elbow_angle_deg": [
+              87.9881314605579,
+              87.9881314605579
+            ],
+            "forearm_pitch_deg": [
+              11.29577110108006,
+              11.29577110108006
+            ],
+            "forearm_heading_deg": [
+              4.591010101851284,
+              4.591010101851284
+            ],
+            "wrist_deviation_deg": [
+              34.26350119202938,
+              34.26350119202938
+            ]
+          },
+          "maximum_point_error_mm": 0.09999999999998867
+        },
+        {
+          "control": "Dpad_down",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 1,
+          "all_states_both_rear_contacts": false,
+          "centroid_displacement_mm": 8.459517509540015,
+          "root_displacement_mm": 7.213614860350371,
+          "rotation_deg": 3.742382996139735,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              32.965721079477845,
+              32.965721079477845
+            ],
+            "elbow_angle_deg": [
+              88.16105781478991,
+              88.16105781478991
+            ],
+            "forearm_pitch_deg": [
+              11.547892406692483,
+              11.547892406692483
+            ],
+            "forearm_heading_deg": [
+              3.312258355476635,
+              3.312258355476635
+            ],
+            "wrist_deviation_deg": [
+              34.585041099173075,
+              34.585041099173075
+            ]
+          },
+          "maximum_point_error_mm": 0.04500816138333027
+        },
+        {
+          "control": "Dpad_left",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 0,
+          "all_states_both_rear_contacts": false,
+          "centroid_displacement_mm": 16.974738612081726,
+          "root_displacement_mm": 15.087384779841061,
+          "rotation_deg": 3.5203908604072396,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              33.59091409057186,
+              33.59091409057186
+            ],
+            "elbow_angle_deg": [
+              88.93148457335258,
+              88.93148457335258
+            ],
+            "forearm_pitch_deg": [
+              10.948812627824761,
+              10.948812627824761
+            ],
+            "forearm_heading_deg": [
+              2.276448935263229,
+              2.276448935263229
+            ],
+            "wrist_deviation_deg": [
+              34.37887892140763,
+              34.37887892140763
+            ]
+          },
+          "maximum_point_error_mm": 0.046342175502382864
+        },
+        {
+          "control": "Dpad_right",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              32.9277366812878,
+              32.9277366812878
+            ],
+            "elbow_angle_deg": [
+              87.9881314605579,
+              87.9881314605579
+            ],
+            "forearm_pitch_deg": [
+              11.29577110108006,
+              11.29577110108006
+            ],
+            "forearm_heading_deg": [
+              4.590683342735524,
+              4.590683342735524
+            ],
+            "wrist_deviation_deg": [
+              34.26350119202938,
+              34.26350119202938
+            ]
+          },
+          "maximum_point_error_mm": 1.301636975408188e-13
+        },
+        {
+          "control": "L3",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              32.9277366812878,
+              32.9277366812878
+            ],
+            "elbow_angle_deg": [
+              87.9881314605579,
+              87.9881314605579
+            ],
+            "forearm_pitch_deg": [
+              11.29577110108006,
+              11.29577110108006
+            ],
+            "forearm_heading_deg": [
+              4.59110980566285,
+              4.59110980566285
+            ],
+            "wrist_deviation_deg": [
+              34.26350119202938,
+              34.26350119202938
+            ]
+          },
+          "maximum_point_error_mm": 0.14999999999999736
+        },
+        {
+          "control": "LB",
+          "states": 1,
+          "finger": "index",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              32.9277366812878,
+              32.9277366812878
+            ],
+            "elbow_angle_deg": [
+              87.9881314605579,
+              87.9881314605579
+            ],
+            "forearm_pitch_deg": [
+              11.29577110108006,
+              11.29577110108006
+            ],
+            "forearm_heading_deg": [
+              4.5902651295643695,
+              4.5902651295643695
+            ],
+            "wrist_deviation_deg": [
+              34.26350119202938,
+              34.26350119202938
+            ]
+          },
+          "maximum_point_error_mm": 0.14171323319697843
+        },
+        {
+          "control": "LT",
+          "states": 1,
+          "finger": "middle",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              32.9277366812878,
+              32.9277366812878
+            ],
+            "elbow_angle_deg": [
+              87.9881314605579,
+              87.9881314605579
+            ],
+            "forearm_pitch_deg": [
+              11.29577110108006,
+              11.29577110108006
+            ],
+            "forearm_heading_deg": [
+              4.588678406651809,
+              4.588678406651809
+            ],
+            "wrist_deviation_deg": [
+              34.26350119202938,
+              34.26350119202938
+            ]
+          },
+          "maximum_point_error_mm": 0.23818410264041898
+        },
+        {
+          "control": "LS",
+          "states": 8,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 0,
+          "all_states_both_rear_contacts": false,
+          "centroid_displacement_mm": 1.2131134130274897,
+          "root_displacement_mm": 14.940860138938227,
+          "rotation_deg": 9.999999999971198,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              27.69828428170079,
+              34.999999997478795
+            ],
+            "elbow_angle_deg": [
+              87.85200174183191,
+              91.44146576757448
+            ],
+            "forearm_pitch_deg": [
+              9.78623413996053,
+              11.443686411405547
+            ],
+            "forearm_heading_deg": [
+              4.477194588585726,
+              6.0325495908805316
+            ],
+            "wrist_deviation_deg": [
+              34.170584999278645,
+              36.72490030115549
+            ]
+          },
+          "maximum_point_error_mm": 0.2475663549828489
+        }
+      ]
+    }
+  },
+  {
+    "point": "d075-h190-t+10",
+    "rank": 2,
+    "side": "right",
+    "completed": true,
+    "candidates": 9,
+    "elapsed_seconds": 514.2776229381561,
+    "search_status": {
+      "completed": true,
+      "stage2_completed": true,
+      "stage3_completed": false,
+      "stage4_completed": true,
+      "elapsed_seconds": 514.2776229381561,
+      "stage2_elapsed_seconds": 621.5454440116882,
+      "stage3_elapsed_seconds": 1000.024317741394,
+      "stage4_elapsed_seconds": 834.339316368103
+    },
+    "X_selected_controls": [],
+    "X_maximum_count": 0,
+    "strict": {
+      "count": 3,
+      "controls": [
+        "A",
+        "B",
+        "R3"
+      ],
+      "label": "explicit-shared-thumb",
+      "natural": {
+        "upper_tilt_deg": 14.819097789930543,
+        "forearm_pitch_deg": 9.245467707408542,
+        "forearm_heading_deg": 14.487875066941385,
+        "elbow_angle_deg": 95.0944091508411,
+        "wrist_deviation_deg": 9.243765311328282,
+        "deviation": 0.5180902210069457,
+        "natural": true,
+        "upper_forward": true,
+        "shoulder_axis_gap_m": 6.938893903907228e-18
+      },
+      "elbow_forward_mm": 77.62543761351168,
+      "grips": [
+        "ring"
+      ],
+      "grip_point_error_mm": [
+        23.69943424871518,
+        23.53430402369956
+      ],
+      "operations": [
+        {
+          "control": "A",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 1,
+          "all_states_both_rear_contacts": false,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              14.819097789930543,
+              14.819097789930543
+            ],
+            "elbow_angle_deg": [
+              95.0944091508411,
+              95.0944091508411
+            ],
+            "forearm_pitch_deg": [
+              9.245467707408542,
+              9.245467707408542
+            ],
+            "forearm_heading_deg": [
+              14.487829079421239,
+              14.487829079421239
+            ],
+            "wrist_deviation_deg": [
+              9.243765311328282,
+              9.243765311328282
+            ]
+          },
+          "maximum_point_error_mm": 2.647940464546886e-14
+        },
+        {
+          "control": "B",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 1,
+          "all_states_both_rear_contacts": false,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              14.819097789930543,
+              14.819097789930543
+            ],
+            "elbow_angle_deg": [
+              95.0944091508411,
+              95.0944091508411
+            ],
+            "forearm_pitch_deg": [
+              9.245467707408542,
+              9.245467707408542
+            ],
+            "forearm_heading_deg": [
+              14.487790700194168,
+              14.487790700194168
+            ],
+            "wrist_deviation_deg": [
+              9.243765311328282,
+              9.243765311328282
+            ]
+          },
+          "maximum_point_error_mm": 8.498374721940739e-15
+        },
+        {
+          "control": "R3",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 1,
+          "all_states_both_rear_contacts": false,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              14.819097789930543,
+              14.819097789930543
+            ],
+            "elbow_angle_deg": [
+              95.0944091508411,
+              95.0944091508411
+            ],
+            "forearm_pitch_deg": [
+              9.245467707408542,
+              9.245467707408542
+            ],
+            "forearm_heading_deg": [
+              14.487710134585285,
+              14.487710134585285
+            ],
+            "wrist_deviation_deg": [
+              9.243765311328282,
+              9.243765311328282
+            ]
+          },
+          "maximum_point_error_mm": 8.439608621589261e-14
+        }
+      ]
+    },
+    "realistic": {
+      "count": 5,
+      "controls": [
+        "A",
+        "B",
+        "X",
+        "Y",
+        "R3"
+      ],
+      "label": "explicit-shared-all",
+      "natural": {
+        "upper_tilt_deg": 14.041612605303621,
+        "forearm_pitch_deg": 4.14621473009384,
+        "forearm_heading_deg": 6.711420624122661,
+        "elbow_angle_deg": 97.46023580480197,
+        "wrist_deviation_deg": 10.048420728853692,
+        "deviation": 0.5958387394696378,
+        "natural": true,
+        "upper_forward": true,
+        "shoulder_axis_gap_m": 0.0
+      },
+      "elbow_forward_mm": 53.804490154992415,
+      "grips": [
+        "pinky",
+        "ring"
+      ],
+      "grip_point_error_mm": [
+        21.728063067766573,
+        19.8164524108116
+      ],
+      "operations": [
+        {
+          "control": "A",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 1.5448125134589181,
+          "root_displacement_mm": 1.3881248966416868,
+          "rotation_deg": 0.25265632342723865,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              14.074471078793374,
+              14.074471078793374
+            ],
+            "elbow_angle_deg": [
+              97.43319283517866,
+              97.43319283517866
+            ],
+            "forearm_pitch_deg": [
+              4.320136503982063,
+              4.320136503982063
+            ],
+            "forearm_heading_deg": [
+              6.739092831240181,
+              6.739092831240181
+            ],
+            "wrist_deviation_deg": [
+              9.927209648647468,
+              9.927209648647468
+            ]
+          },
+          "maximum_point_error_mm": 0.15201789310138566
+        },
+        {
+          "control": "B",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 1,
+          "all_states_both_rear_contacts": false,
+          "centroid_displacement_mm": 1.697155212105317,
+          "root_displacement_mm": 1.6971552121048368,
+          "rotation_deg": 8.591794764227762e-13,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              13.911571348906097,
+              13.911571348906097
+            ],
+            "elbow_angle_deg": [
+              97.3462187781496,
+              97.3462187781496
+            ],
+            "forearm_pitch_deg": [
+              4.239047136969047,
+              4.239047136969047
+            ],
+            "forearm_heading_deg": [
+              6.917869836578422,
+              6.917869836578422
+            ],
+            "wrist_deviation_deg": [
+              9.951788549989518,
+              9.951788549989518
+            ]
+          },
+          "maximum_point_error_mm": 0.06873964822554898
+        },
+        {
+          "control": "X",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 4.38233121735557,
+          "root_displacement_mm": 4.382331217358585,
+          "rotation_deg": 1.0752340419563446e-11,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              14.641668056339425,
+              14.641668056339425
+            ],
+            "elbow_angle_deg": [
+              98.10606125590276,
+              98.10606125590276
+            ],
+            "forearm_pitch_deg": [
+              4.250224805677964,
+              4.250224805677964
+            ],
+            "forearm_heading_deg": [
+              6.720859238966722,
+              6.720859238966722
+            ],
+            "wrist_deviation_deg": [
+              10.100474474129197,
+              10.100474474129197
+            ]
+          },
+          "maximum_point_error_mm": 0.17910051252638776
+        },
+        {
+          "control": "Y",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 8.30684339862105,
+          "root_displacement_mm": 8.306843398647567,
+          "rotation_deg": 1.5387002965144448e-10,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              15.197061049590799,
+              15.197061049590799
+            ],
+            "elbow_angle_deg": [
+              98.8713135752642,
+              98.8713135752642
+            ],
+            "forearm_pitch_deg": [
+              4.197056551187696,
+              4.197056551187696
+            ],
+            "forearm_heading_deg": [
+              6.53650174208238,
+              6.53650174208238
+            ],
+            "wrist_deviation_deg": [
+              10.359391280976867,
+              10.359391280976867
+            ]
+          },
+          "maximum_point_error_mm": 0.08904679311541945
+        },
+        {
+          "control": "R3",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 5.020923115713226,
+          "root_displacement_mm": 5.04716210548026,
+          "rotation_deg": 9.999999999780647,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              14.863733278490438,
+              14.863733278490438
+            ],
+            "elbow_angle_deg": [
+              96.32624016509891,
+              96.32624016509891
+            ],
+            "forearm_pitch_deg": [
+              3.9548417082063447,
+              3.9548417082063447
+            ],
+            "forearm_heading_deg": [
+              8.28555153992085,
+              8.28555153992085
+            ],
+            "wrist_deviation_deg": [
+              7.2277363187042285,
+              7.2277363187042285
+            ]
+          },
+          "maximum_point_error_mm": 0.04500000001651794
+        }
+      ]
+    }
+  },
+  {
+    "point": "d025-h250-t+10",
+    "rank": 3,
+    "side": "left",
+    "completed": true,
+    "candidates": 10,
+    "elapsed_seconds": 505.01542711257935,
+    "search_status": {
+      "completed": true,
+      "stage2_completed": true,
+      "stage3_completed": false,
+      "stage4_completed": true,
+      "elapsed_seconds": 505.01542711257935,
+      "stage2_elapsed_seconds": 482.16285729408264,
+      "stage3_elapsed_seconds": 1000.0066869258881,
+      "stage4_elapsed_seconds": 678.9633674621582
+    },
+    "X_selected_controls": [],
+    "X_maximum_count": 4,
+    "strict": {
+      "count": 5,
+      "controls": [
+        "Dpad_up",
+        "Dpad_left",
+        "Dpad_right",
+        "LS",
+        "L3"
+      ],
+      "label": "explicit-shared-thumb",
+      "natural": {
+        "upper_tilt_deg": 24.991630264619307,
+        "forearm_pitch_deg": 12.049036436062968,
+        "forearm_heading_deg": 1.870234582539013,
+        "elbow_angle_deg": 97.73630934135811,
+        "wrist_deviation_deg": 28.315909040248023,
+        "deviation": 0.33277535097462047,
+        "natural": true,
+        "upper_forward": true,
+        "shoulder_axis_gap_m": 2.7755575615628914e-17
+      },
+      "elbow_forward_mm": 138.85220789495676,
+      "grips": [
+        "pinky",
+        "ring"
+      ],
+      "grip_point_error_mm": [
+        1.4513065865885275,
+        2.0689211184780816
+      ],
+      "operations": [
+        {
+          "control": "Dpad_up",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              24.991630264619307,
+              24.991630264619307
+            ],
+            "elbow_angle_deg": [
+              97.73630934135811,
+              97.73630934135811
+            ],
+            "forearm_pitch_deg": [
+              12.049036436062968,
+              12.049036436062968
+            ],
+            "forearm_heading_deg": [
+              1.8703047586171242,
+              1.8703047586171242
+            ],
+            "wrist_deviation_deg": [
+              28.315909040248023,
+              28.315909040248023
+            ]
+          },
+          "maximum_point_error_mm": 7.044344449510711e-14
+        },
+        {
+          "control": "Dpad_left",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              24.991630264619307,
+              24.991630264619307
+            ],
+            "elbow_angle_deg": [
+              97.73630934135811,
+              97.73630934135811
+            ],
+            "forearm_pitch_deg": [
+              12.049036436062968,
+              12.049036436062968
+            ],
+            "forearm_heading_deg": [
+              1.870474950611854,
+              1.870474950611854
+            ],
+            "wrist_deviation_deg": [
+              28.315909040248023,
+              28.315909040248023
+            ]
+          },
+          "maximum_point_error_mm": 4.6239705511204546e-12
+        },
+        {
+          "control": "Dpad_right",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              24.991630264619307,
+              24.991630264619307
+            ],
+            "elbow_angle_deg": [
+              97.73630934135811,
+              97.73630934135811
+            ],
+            "forearm_pitch_deg": [
+              12.049036436062968,
+              12.049036436062968
+            ],
+            "forearm_heading_deg": [
+              1.8699986872986274,
+              1.8699986872986274
+            ],
+            "wrist_deviation_deg": [
+              28.315909040248023,
+              28.315909040248023
+            ]
+          },
+          "maximum_point_error_mm": 0.049999999999987395
+        },
+        {
+          "control": "LS",
+          "states": 8,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              24.991630264619307,
+              24.991630264619307
+            ],
+            "elbow_angle_deg": [
+              97.73630934135811,
+              97.73630934135811
+            ],
+            "forearm_pitch_deg": [
+              12.049036436062968,
+              12.049036436062968
+            ],
+            "forearm_heading_deg": [
+              1.8595318946534896,
+              1.8822202200784206
+            ],
+            "wrist_deviation_deg": [
+              28.315909040248023,
+              28.315909040248023
+            ]
+          },
+          "maximum_point_error_mm": 0.15505048544304414
+        },
+        {
+          "control": "L3",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              24.991630264619307,
+              24.991630264619307
+            ],
+            "elbow_angle_deg": [
+              97.73630934135811,
+              97.73630934135811
+            ],
+            "forearm_pitch_deg": [
+              12.049036436062968,
+              12.049036436062968
+            ],
+            "forearm_heading_deg": [
+              1.870407858649793,
+              1.870407858649793
+            ],
+            "wrist_deviation_deg": [
+              28.315909040248023,
+              28.315909040248023
+            ]
+          },
+          "maximum_point_error_mm": 3.198672041575564e-14
+        }
+      ]
+    },
+    "realistic": {
+      "count": 6,
+      "controls": [
+        "Dpad_up",
+        "Dpad_left",
+        "Dpad_right",
+        "LS",
+        "L3",
+        "Dpad_down"
+      ],
+      "label": "explicit-shared-thumb",
+      "natural": {
+        "upper_tilt_deg": 24.991630264619307,
+        "forearm_pitch_deg": 12.049036436062968,
+        "forearm_heading_deg": 1.870234582539013,
+        "elbow_angle_deg": 97.73630934135811,
+        "wrist_deviation_deg": 28.315909040248023,
+        "deviation": 0.33277535097462047,
+        "natural": true,
+        "upper_forward": true,
+        "shoulder_axis_gap_m": 2.7755575615628914e-17
+      },
+      "elbow_forward_mm": 138.85220789495676,
+      "grips": [
+        "pinky",
+        "ring"
+      ],
+      "grip_point_error_mm": [
+        1.4513065865885275,
+        2.0689211184780816
+      ],
+      "operations": [
+        {
+          "control": "Dpad_up",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              24.991630264619307,
+              24.991630264619307
+            ],
+            "elbow_angle_deg": [
+              97.73630934135811,
+              97.73630934135811
+            ],
+            "forearm_pitch_deg": [
+              12.049036436062968,
+              12.049036436062968
+            ],
+            "forearm_heading_deg": [
+              1.8703047586171242,
+              1.8703047586171242
+            ],
+            "wrist_deviation_deg": [
+              28.315909040248023,
+              28.315909040248023
+            ]
+          },
+          "maximum_point_error_mm": 7.044344449510711e-14
+        },
+        {
+          "control": "Dpad_left",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              24.991630264619307,
+              24.991630264619307
+            ],
+            "elbow_angle_deg": [
+              97.73630934135811,
+              97.73630934135811
+            ],
+            "forearm_pitch_deg": [
+              12.049036436062968,
+              12.049036436062968
+            ],
+            "forearm_heading_deg": [
+              1.870474950611854,
+              1.870474950611854
+            ],
+            "wrist_deviation_deg": [
+              28.315909040248023,
+              28.315909040248023
+            ]
+          },
+          "maximum_point_error_mm": 4.6239705511204546e-12
+        },
+        {
+          "control": "Dpad_right",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              24.991630264619307,
+              24.991630264619307
+            ],
+            "elbow_angle_deg": [
+              97.73630934135811,
+              97.73630934135811
+            ],
+            "forearm_pitch_deg": [
+              12.049036436062968,
+              12.049036436062968
+            ],
+            "forearm_heading_deg": [
+              1.8699986872986274,
+              1.8699986872986274
+            ],
+            "wrist_deviation_deg": [
+              28.315909040248023,
+              28.315909040248023
+            ]
+          },
+          "maximum_point_error_mm": 0.049999999999987395
+        },
+        {
+          "control": "LS",
+          "states": 8,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              24.991630264619307,
+              24.991630264619307
+            ],
+            "elbow_angle_deg": [
+              97.73630934135811,
+              97.73630934135811
+            ],
+            "forearm_pitch_deg": [
+              12.049036436062968,
+              12.049036436062968
+            ],
+            "forearm_heading_deg": [
+              1.8595318946534896,
+              1.8822202200784206
+            ],
+            "wrist_deviation_deg": [
+              28.315909040248023,
+              28.315909040248023
+            ]
+          },
+          "maximum_point_error_mm": 0.15505048544304414
+        },
+        {
+          "control": "L3",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              24.991630264619307,
+              24.991630264619307
+            ],
+            "elbow_angle_deg": [
+              97.73630934135811,
+              97.73630934135811
+            ],
+            "forearm_pitch_deg": [
+              12.049036436062968,
+              12.049036436062968
+            ],
+            "forearm_heading_deg": [
+              1.870407858649793,
+              1.870407858649793
+            ],
+            "wrist_deviation_deg": [
+              28.315909040248023,
+              28.315909040248023
+            ]
+          },
+          "maximum_point_error_mm": 3.198672041575564e-14
+        },
+        {
+          "control": "Dpad_down",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 0,
+          "all_states_both_rear_contacts": false,
+          "centroid_displacement_mm": 3.173081279848179,
+          "root_displacement_mm": 3.2327441979554816,
+          "rotation_deg": 10.000000000107033,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              26.384877263378957,
+              26.384877263378957
+            ],
+            "elbow_angle_deg": [
+              96.98044461463884,
+              96.98044461463884
+            ],
+            "forearm_pitch_deg": [
+              11.853855206438936,
+              11.853855206438936
+            ],
+            "forearm_heading_deg": [
+              3.6149825982747243,
+              3.6149825982747243
+            ],
+            "wrist_deviation_deg": [
+              31.00334566904813,
+              31.00334566904813
+            ]
+          },
+          "maximum_point_error_mm": 0.20000000000001664
+        }
+      ]
+    }
+  },
+  {
+    "point": "d025-h250-t+10",
+    "rank": 3,
+    "side": "right",
+    "completed": true,
+    "candidates": 10,
+    "elapsed_seconds": 818.1490919589996,
+    "search_status": {
+      "completed": true,
+      "stage2_completed": true,
+      "stage3_completed": false,
+      "stage4_completed": true,
+      "elapsed_seconds": 818.1490919589996,
+      "stage2_elapsed_seconds": 1055.8539769649506,
+      "stage3_elapsed_seconds": 1000.0014050006866,
+      "stage4_elapsed_seconds": 865.2973883152008
+    },
+    "X_selected_controls": [],
+    "X_maximum_count": 0,
+    "strict": {
+      "count": 1,
+      "controls": [
+        "Y"
+      ],
+      "label": "realistic-witness-Y",
+      "natural": {
+        "upper_tilt_deg": 29.393763297583902,
+        "forearm_pitch_deg": 7.042468188988254,
+        "forearm_heading_deg": 8.378915104887371,
+        "elbow_angle_deg": 101.33793259731262,
+        "wrist_deviation_deg": 8.075057025227686,
+        "deviation": 0.6262508865055935,
+        "natural": true,
+        "upper_forward": true,
+        "shoulder_axis_gap_m": 6.938893903907228e-18
+      },
+      "elbow_forward_mm": 90.38058377984345,
+      "grips": [
+        "pinky",
+        "ring"
+      ],
+      "grip_point_error_mm": [
+        19.915498510776867,
+        6.00775737917793
+      ],
+      "operations": [
+        {
+          "control": "Y",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              29.393763297583902,
+              29.393763297583902
+            ],
+            "elbow_angle_deg": [
+              101.33793259731262,
+              101.33793259731262
+            ],
+            "forearm_pitch_deg": [
+              7.042468188988254,
+              7.042468188988254
+            ],
+            "forearm_heading_deg": [
+              8.37887021288131,
+              8.37887021288131
+            ],
+            "wrist_deviation_deg": [
+              8.075057025227686,
+              8.075057025227686
+            ]
+          },
+          "maximum_point_error_mm": 0.1074989543353324
+        }
+      ]
+    },
+    "realistic": {
+      "count": 3,
+      "controls": [
+        "A",
+        "X",
+        "Y"
+      ],
+      "label": "explicit-shared-thumb",
+      "natural": {
+        "upper_tilt_deg": 29.175736479190206,
+        "forearm_pitch_deg": 7.087610421807765,
+        "forearm_heading_deg": 8.281212737986033,
+        "elbow_angle_deg": 100.93594639640804,
+        "wrist_deviation_deg": 8.098806935646754,
+        "deviation": 0.6117157652793471,
+        "natural": true,
+        "upper_forward": true,
+        "shoulder_axis_gap_m": 6.938893903907228e-18
+      },
+      "elbow_forward_mm": 88.2780845977502,
+      "grips": [
+        "pinky",
+        "ring"
+      ],
+      "grip_point_error_mm": [
+        20.621575181198413,
+        4.573772452467824
+      ],
+      "operations": [
+        {
+          "control": "A",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              29.175736479190206,
+              29.175736479190206
+            ],
+            "elbow_angle_deg": [
+              100.93594639640804,
+              100.93594639640804
+            ],
+            "forearm_pitch_deg": [
+              7.087610421807765,
+              7.087610421807765
+            ],
+            "forearm_heading_deg": [
+              8.281180549695256,
+              8.281180549695256
+            ],
+            "wrist_deviation_deg": [
+              8.098806935646754,
+              8.098806935646754
+            ]
+          },
+          "maximum_point_error_mm": 0.20045546071655843
+        },
+        {
+          "control": "X",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 0,
+          "all_states_both_rear_contacts": false,
+          "centroid_displacement_mm": 8.287225870660945,
+          "root_displacement_mm": 7.544950200962953,
+          "rotation_deg": 1.6460097562030098,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              29.775424612198968,
+              29.775424612198968
+            ],
+            "elbow_angle_deg": [
+              101.80925487678913,
+              101.80925487678913
+            ],
+            "forearm_pitch_deg": [
+              6.972095822642203,
+              6.972095822642203
+            ],
+            "forearm_heading_deg": [
+              9.047202401964588,
+              9.047202401964588
+            ],
+            "wrist_deviation_deg": [
+              8.27973799241995,
+              8.27973799241995
+            ]
+          },
+          "maximum_point_error_mm": 0.02510442311471101
+        },
+        {
+          "control": "Y",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 2.2149815157650146,
+          "root_displacement_mm": 2.202139330861205,
+          "rotation_deg": 0.25975894690464585,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              29.393763297583902,
+              29.393763297583902
+            ],
+            "elbow_angle_deg": [
+              101.33793259731262,
+              101.33793259731262
+            ],
+            "forearm_pitch_deg": [
+              7.042468188988254,
+              7.042468188988254
+            ],
+            "forearm_heading_deg": [
+              8.37887021288131,
+              8.37887021288131
+            ],
+            "wrist_deviation_deg": [
+              8.075057025227686,
+              8.075057025227686
+            ]
+          },
+          "maximum_point_error_mm": 0.1074989543353324
+        }
+      ]
+    }
+  },
+  {
+    "point": "d050-h190-t+10",
+    "rank": 4,
+    "side": "left",
+    "completed": true,
+    "candidates": 9,
+    "elapsed_seconds": 594.3527412414551,
+    "search_status": {
+      "completed": true,
+      "stage2_completed": true,
+      "stage3_completed": false,
+      "stage4_completed": true,
+      "elapsed_seconds": 594.3527412414551,
+      "stage2_elapsed_seconds": 592.5359876155853,
+      "stage3_elapsed_seconds": 1000.0088016986847,
+      "stage4_elapsed_seconds": 741.9465327262878
+    },
+    "X_selected_controls": [],
+    "X_maximum_count": 4,
+    "strict": {
+      "count": 6,
+      "controls": [
+        "Dpad_up",
+        "Dpad_down",
+        "Dpad_left",
+        "Dpad_right",
+        "LS",
+        "L3"
+      ],
+      "label": "joint-cloud-0",
+      "natural": {
+        "upper_tilt_deg": 22.13290458568177,
+        "forearm_pitch_deg": 3.9518251827282196,
+        "forearm_heading_deg": 1.9876765181635456,
+        "elbow_angle_deg": 100.39656814057916,
+        "wrist_deviation_deg": 27.244656554972206,
+        "deviation": 0.30240874086358904,
+        "natural": true,
+        "upper_forward": true,
+        "shoulder_axis_gap_m": 2.0816681711721685e-17
+      },
+      "elbow_forward_mm": 119.28826005313127,
+      "grips": [
+        "pinky",
+        "ring"
+      ],
+      "grip_point_error_mm": [
+        1.8633219176792803,
+        1.2347305978178158
+      ],
+      "operations": [
+        {
+          "control": "Dpad_up",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              22.13290458568177,
+              22.13290458568177
+            ],
+            "elbow_angle_deg": [
+              100.39656814057916,
+              100.39656814057916
+            ],
+            "forearm_pitch_deg": [
+              3.9518251827282196,
+              3.9518251827282196
+            ],
+            "forearm_heading_deg": [
+              1.9877575127995686,
+              1.9877575127995686
+            ],
+            "wrist_deviation_deg": [
+              27.244656554972206,
+              27.244656554972206
+            ]
+          },
+          "maximum_point_error_mm": 1.508311886450353e-13
+        },
+        {
+          "control": "Dpad_down",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              22.13290458568177,
+              22.13290458568177
+            ],
+            "elbow_angle_deg": [
+              100.39656814057916,
+              100.39656814057916
+            ],
+            "forearm_pitch_deg": [
+              3.9518251827282196,
+              3.9518251827282196
+            ],
+            "forearm_heading_deg": [
+              1.9875997792689681,
+              1.9875997792689681
+            ],
+            "wrist_deviation_deg": [
+              27.244656554972206,
+              27.244656554972206
+            ]
+          },
+          "maximum_point_error_mm": 0.19999999999995657
+        },
+        {
+          "control": "Dpad_left",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              22.13290458568177,
+              22.13290458568177
+            ],
+            "elbow_angle_deg": [
+              100.39656814057916,
+              100.39656814057916
+            ],
+            "forearm_pitch_deg": [
+              3.9518251827282196,
+              3.9518251827282196
+            ],
+            "forearm_heading_deg": [
+              1.9879123216411856,
+              1.9879123216411856
+            ],
+            "wrist_deviation_deg": [
+              27.244656554972206,
+              27.244656554972206
+            ]
+          },
+          "maximum_point_error_mm": 1.6642965981237246e-13
+        },
+        {
+          "control": "Dpad_right",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              22.13290458568177,
+              22.13290458568177
+            ],
+            "elbow_angle_deg": [
+              100.39656814057916,
+              100.39656814057916
+            ],
+            "forearm_pitch_deg": [
+              3.9518251827282196,
+              3.9518251827282196
+            ],
+            "forearm_heading_deg": [
+              1.9874450068697433,
+              1.9874450068697433
+            ],
+            "wrist_deviation_deg": [
+              27.244656554972206,
+              27.244656554972206
+            ]
+          },
+          "maximum_point_error_mm": 0.14999999999996472
+        },
+        {
+          "control": "LS",
+          "states": 8,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              22.13290458568177,
+              22.13290458568177
+            ],
+            "elbow_angle_deg": [
+              100.39656814057916,
+              100.39656814057916
+            ],
+            "forearm_pitch_deg": [
+              3.9518251827282196,
+              3.9518251827282196
+            ],
+            "forearm_heading_deg": [
+              1.977161035666832,
+              1.9994233654750917
+            ],
+            "wrist_deviation_deg": [
+              27.244656554972206,
+              27.244656554972206
+            ]
+          },
+          "maximum_point_error_mm": 0.024999999999948674
+        },
+        {
+          "control": "L3",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              22.13290458568177,
+              22.13290458568177
+            ],
+            "elbow_angle_deg": [
+              100.39656814057916,
+              100.39656814057916
+            ],
+            "forearm_pitch_deg": [
+              3.9518251827282196,
+              3.9518251827282196
+            ],
+            "forearm_heading_deg": [
+              1.9878427685838211,
+              1.9878427685838211
+            ],
+            "wrist_deviation_deg": [
+              27.244656554972206,
+              27.244656554972206
+            ]
+          },
+          "maximum_point_error_mm": 1.821707450559023e-13
+        }
+      ]
+    },
+    "realistic": {
+      "count": 7,
+      "controls": [
+        "Dpad_up",
+        "Dpad_right",
+        "L3",
+        "LB",
+        "Dpad_down",
+        "Dpad_left",
+        "LS"
+      ],
+      "label": "explicit-shared-all",
+      "natural": {
+        "upper_tilt_deg": 28.825049151344384,
+        "forearm_pitch_deg": 13.107829887937338,
+        "forearm_heading_deg": 1.2011413893036513,
+        "elbow_angle_deg": 93.18125783915421,
+        "wrist_deviation_deg": 29.429907799151025,
+        "deviation": 0.5883366100896256,
+        "natural": true,
+        "upper_forward": true,
+        "shoulder_axis_gap_m": 2.7755575615628914e-17
+      },
+      "elbow_forward_mm": 147.7033496922384,
+      "grips": [
+        "pinky",
+        "ring"
+      ],
+      "grip_point_error_mm": [
+        8.06156220342044,
+        11.656678212935955
+      ],
+      "operations": [
+        {
+          "control": "Dpad_up",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              28.825049151344384,
+              28.825049151344384
+            ],
+            "elbow_angle_deg": [
+              93.18125783915421,
+              93.18125783915421
+            ],
+            "forearm_pitch_deg": [
+              13.107829887937338,
+              13.107829887937338
+            ],
+            "forearm_heading_deg": [
+              1.2012341685697538,
+              1.2012341685697538
+            ],
+            "wrist_deviation_deg": [
+              29.429907799151025,
+              29.429907799151025
+            ]
+          },
+          "maximum_point_error_mm": 0.09999999999995028
+        },
+        {
+          "control": "Dpad_right",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              28.825049151344384,
+              28.825049151344384
+            ],
+            "elbow_angle_deg": [
+              93.18125783915421,
+              93.18125783915421
+            ],
+            "forearm_pitch_deg": [
+              13.107829887937338,
+              13.107829887937338
+            ],
+            "forearm_heading_deg": [
+              1.200912785601764,
+              1.200912785601764
+            ],
+            "wrist_deviation_deg": [
+              29.429907799151025,
+              29.429907799151025
+            ]
+          },
+          "maximum_point_error_mm": 1.7877451671144588e-13
+        },
+        {
+          "control": "L3",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              28.825049151344384,
+              28.825049151344384
+            ],
+            "elbow_angle_deg": [
+              93.18125783915421,
+              93.18125783915421
+            ],
+            "forearm_pitch_deg": [
+              13.107829887937338,
+              13.107829887937338
+            ],
+            "forearm_heading_deg": [
+              1.201331828983614,
+              1.201331828983614
+            ],
+            "wrist_deviation_deg": [
+              29.429907799151025,
+              29.429907799151025
+            ]
+          },
+          "maximum_point_error_mm": 0.0499999999999598
+        },
+        {
+          "control": "LB",
+          "states": 1,
+          "finger": "index",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              28.825049151344384,
+              28.825049151344384
+            ],
+            "elbow_angle_deg": [
+              93.18125783915421,
+              93.18125783915421
+            ],
+            "forearm_pitch_deg": [
+              13.107829887937338,
+              13.107829887937338
+            ],
+            "forearm_heading_deg": [
+              1.200597000807644,
+              1.200597000807644
+            ],
+            "wrist_deviation_deg": [
+              29.429907799151025,
+              29.429907799151025
+            ]
+          },
+          "maximum_point_error_mm": 0.07972209527833314
+        },
+        {
+          "control": "Dpad_down",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 4.256194599978064,
+          "root_displacement_mm": 4.2561945999809065,
+          "rotation_deg": 2.5572938538982746e-11,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              28.56195077465369,
+              28.56195077465369
+            ],
+            "elbow_angle_deg": [
+              92.05645899230674,
+              92.05645899230674
+            ],
+            "forearm_pitch_deg": [
+              13.58517514392528,
+              13.58517514392528
+            ],
+            "forearm_heading_deg": [
+              1.3575304661041225,
+              1.3575304661041225
+            ],
+            "wrist_deviation_deg": [
+              29.892963712255415,
+              29.892963712255415
+            ]
+          },
+          "maximum_point_error_mm": 0.09999999999994688
+        },
+        {
+          "control": "Dpad_left",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 4.814874542502866,
+          "root_displacement_mm": 4.814874542544334,
+          "rotation_deg": 1.2224676616256206e-10,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              28.424469484272077,
+              28.424469484272077
+            ],
+            "elbow_angle_deg": [
+              91.87149748721379,
+              91.87149748721379
+            ],
+            "forearm_pitch_deg": [
+              13.74574228689576,
+              13.74574228689576
+            ],
+            "forearm_heading_deg": [
+              1.5310274574655633,
+              1.5310274574655633
+            ],
+            "wrist_deviation_deg": [
+              30.06082830194417,
+              30.06082830194417
+            ]
+          },
+          "maximum_point_error_mm": 0.06834589096517968
+        },
+        {
+          "control": "LS",
+          "states": 8,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 1.1253580597257542,
+          "root_displacement_mm": 1.0811260288142102,
+          "rotation_deg": 0.10066808758389355,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              28.794991622428412,
+              28.96098251974532
+            ],
+            "elbow_angle_deg": [
+              92.97941019212887,
+              93.3528257683268
+            ],
+            "forearm_pitch_deg": [
+              13.045960366032483,
+              13.176719917335426
+            ],
+            "forearm_heading_deg": [
+              1.1513236837554766,
+              1.2359907160453862
+            ],
+            "wrist_deviation_deg": [
+              29.3517437800676,
+              29.471964636948304
+            ]
+          },
+          "maximum_point_error_mm": 0.1674245621359673
+        }
+      ]
+    }
+  },
+  {
+    "point": "d050-h190-t+10",
+    "rank": 4,
+    "side": "right",
+    "completed": true,
+    "candidates": 8,
+    "elapsed_seconds": 549.0783858299255,
+    "search_status": {
+      "completed": true,
+      "stage2_completed": true,
+      "stage3_completed": false,
+      "stage4_completed": true,
+      "elapsed_seconds": 549.0783858299255,
+      "stage2_elapsed_seconds": 588.3089666366577,
+      "stage3_elapsed_seconds": 1000.0086853504181,
+      "stage4_elapsed_seconds": 723.4011812210083
+    },
+    "X_selected_controls": [],
+    "X_maximum_count": 0,
+    "strict": {
+      "count": 3,
+      "controls": [
+        "B",
+        "X",
+        "Y"
+      ],
+      "label": "joint-cloud-0",
+      "natural": {
+        "upper_tilt_deg": 22.38320007566312,
+        "forearm_pitch_deg": 12.503378103635638,
+        "forearm_heading_deg": 10.084161852699951,
+        "elbow_angle_deg": 94.4373599727938,
+        "wrist_deviation_deg": 18.74873789219173,
+        "deviation": 0.3361387284233317,
+        "natural": true,
+        "upper_forward": true,
+        "shoulder_axis_gap_m": 6.938893903907228e-18
+      },
+      "elbow_forward_mm": 82.8770043305269,
+      "grips": [
+        "ring"
+      ],
+      "grip_point_error_mm": [
+        24.77469488433046,
+        17.115408980201895
+      ],
+      "operations": [
+        {
+          "control": "B",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 1,
+          "all_states_both_rear_contacts": false,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              22.38320007566312,
+              22.38320007566312
+            ],
+            "elbow_angle_deg": [
+              94.4373599727938,
+              94.4373599727938
+            ],
+            "forearm_pitch_deg": [
+              12.503378103635638,
+              12.503378103635638
+            ],
+            "forearm_heading_deg": [
+              10.084093196976921,
+              10.084093196976921
+            ],
+            "wrist_deviation_deg": [
+              18.74873789219173,
+              18.74873789219173
+            ]
+          },
+          "maximum_point_error_mm": 0.14784875183240342
+        },
+        {
+          "control": "X",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 1,
+          "all_states_both_rear_contacts": false,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              22.38320007566312,
+              22.38320007566312
+            ],
+            "elbow_angle_deg": [
+              94.4373599727938,
+              94.4373599727938
+            ],
+            "forearm_pitch_deg": [
+              12.503378103635638,
+              12.503378103635638
+            ],
+            "forearm_heading_deg": [
+              10.084128570418295,
+              10.084128570418295
+            ],
+            "wrist_deviation_deg": [
+              18.74873789219173,
+              18.74873789219173
+            ]
+          },
+          "maximum_point_error_mm": 0.09999999999985368
+        },
+        {
+          "control": "Y",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 1,
+          "all_states_both_rear_contacts": false,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              22.38320007566312,
+              22.38320007566312
+            ],
+            "elbow_angle_deg": [
+              94.4373599727938,
+              94.4373599727938
+            ],
+            "forearm_pitch_deg": [
+              12.503378103635638,
+              12.503378103635638
+            ],
+            "forearm_heading_deg": [
+              10.084109992035398,
+              10.084109992035398
+            ],
+            "wrist_deviation_deg": [
+              18.74873789219173,
+              18.74873789219173
+            ]
+          },
+          "maximum_point_error_mm": 0.20996665083796556
+        }
+      ]
+    },
+    "realistic": {
+      "count": 4,
+      "controls": [
+        "A",
+        "B",
+        "X",
+        "Y"
+      ],
+      "label": "joint-cloud-1",
+      "natural": {
+        "upper_tilt_deg": 18.60727407382011,
+        "forearm_pitch_deg": 4.31525029494005,
+        "forearm_heading_deg": 3.6941176450376956,
+        "elbow_angle_deg": 101.25046047149729,
+        "wrist_deviation_deg": 16.491165695456967,
+        "deviation": 0.2842374852529975,
+        "natural": true,
+        "upper_forward": true,
+        "shoulder_axis_gap_m": 0.0
+      },
+      "elbow_forward_mm": 70.82256442229806,
+      "grips": [
+        "pinky",
+        "ring"
+      ],
+      "grip_point_error_mm": [
+        19.259963631162766,
+        19.59006709867871
+      ],
+      "operations": [
+        {
+          "control": "A",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 0.0,
+          "root_displacement_mm": 0.0,
+          "rotation_deg": 0.0,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              18.60727407382011,
+              18.60727407382011
+            ],
+            "elbow_angle_deg": [
+              101.25046047149729,
+              101.25046047149729
+            ],
+            "forearm_pitch_deg": [
+              4.31525029494005,
+              4.31525029494005
+            ],
+            "forearm_heading_deg": [
+              3.69407940235128,
+              3.69407940235128
+            ],
+            "wrist_deviation_deg": [
+              16.491165695456967,
+              16.491165695456967
+            ]
+          },
+          "maximum_point_error_mm": 0.0873762709123081
+        },
+        {
+          "control": "B",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 1.068215627874767,
+          "root_displacement_mm": 1.070166755347828,
+          "rotation_deg": 0.40000148938657426,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              18.498442387825172,
+              18.498442387825172
+            ],
+            "elbow_angle_deg": [
+              101.1453012597842,
+              101.1453012597842
+            ],
+            "forearm_pitch_deg": [
+              4.270432442824601,
+              4.270432442824601
+            ],
+            "forearm_heading_deg": [
+              3.6147660328861995,
+              3.6147660328861995
+            ],
+            "wrist_deviation_deg": [
+              16.602928340199906,
+              16.602928340199906
+            ]
+          },
+          "maximum_point_error_mm": 0.03626145889461614
+        },
+        {
+          "control": "X",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 2.475275351070443,
+          "root_displacement_mm": 2.2431068399876013,
+          "rotation_deg": 0.5641292958494616,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              18.81927860069796,
+              18.81927860069796
+            ],
+            "elbow_angle_deg": [
+              101.35256228162736,
+              101.35256228162736
+            ],
+            "forearm_pitch_deg": [
+              4.492977609995469,
+              4.492977609995469
+            ],
+            "forearm_heading_deg": [
+              3.5125482306017157,
+              3.5125482306017157
+            ],
+            "wrist_deviation_deg": [
+              16.810137172594814,
+              16.810137172594814
+            ]
+          },
+          "maximum_point_error_mm": 0.21071093344753877
+        },
+        {
+          "control": "Y",
+          "states": 1,
+          "finger": "thumb",
+          "minimum_rear_contact_fingers": 2,
+          "all_states_both_rear_contacts": true,
+          "centroid_displacement_mm": 4.405611583635404,
+          "root_displacement_mm": 4.420656487524204,
+          "rotation_deg": 0.19330018541322003,
+          "natural_ranges": {
+            "upper_tilt_deg": [
+              19.16841347332853,
+              19.16841347332853
+            ],
+            "elbow_angle_deg": [
+              101.92707079588084,
+              101.92707079588084
+            ],
+            "forearm_pitch_deg": [
+              4.350565289200582,
+              4.350565289200582
+            ],
+            "forearm_heading_deg": [
+              3.9117916223559717,
+              3.9117916223559717
+            ],
+            "wrist_deviation_deg": [
+              16.49582155273181,
+              16.49582155273181
+            ]
+          },
+          "maximum_point_error_mm": 0.14199008352158907
+        }
+      ]
+    }
+  }
+]

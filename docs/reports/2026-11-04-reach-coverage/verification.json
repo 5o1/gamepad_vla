@@ -1,0 +1,241 @@
+{
+  "task_started_epoch": 1793715873.603,
+  "compute_started_epoch": 1793716029.0,
+  "compute_ended_epoch": 1793718874.5683177,
+  "post_compute_ended_epoch": 1793718642.5469308,
+  "compute_elapsed_minutes": 47.42613862752914,
+  "task_elapsed_minutes": 52.6491769750913,
+  "render_max_fk_error_mm": 0.00020512155483937535,
+  "render_images": [
+    "strict_hold_camera_3.png",
+    "strict_hold_side.png",
+    "realistic_hold_camera_3.png",
+    "realistic_hold_side.png",
+    "realistic_press_X_camera_3.png",
+    "realistic_press_X_side.png"
+  ],
+  "hidden_left_render_bodies_per_state": [
+    31,
+    31,
+    31,
+    31,
+    31,
+    31
+  ],
+  "native_witness_entries": 127,
+  "task_processes_remaining": [],
+  "phase_process_exits": {
+    "exit.json": [
+      {
+        "point": "d050-h220-t+10",
+        "side": "left",
+        "returncode": 0
+      },
+      {
+        "point": "d050-h220-t+10",
+        "side": "right",
+        "returncode": 0
+      },
+      {
+        "point": "d075-h190-t+10",
+        "side": "left",
+        "returncode": 0
+      },
+      {
+        "point": "d075-h190-t+10",
+        "side": "right",
+        "returncode": 0
+      },
+      {
+        "point": "d025-h250-t+10",
+        "side": "left",
+        "returncode": 0
+      },
+      {
+        "point": "d025-h250-t+10",
+        "side": "right",
+        "returncode": 0
+      },
+      {
+        "point": "d050-h190-t+10",
+        "side": "left",
+        "returncode": 0
+      },
+      {
+        "point": "d050-h190-t+10",
+        "side": "right",
+        "returncode": 0
+      }
+    ],
+    "refine-exit.json": [
+      {
+        "point": "d050-h220-t+10",
+        "side": "left",
+        "returncode": 0
+      },
+      {
+        "point": "d050-h220-t+10",
+        "side": "right",
+        "returncode": 0
+      },
+      {
+        "point": "d075-h190-t+10",
+        "side": "left",
+        "returncode": 0
+      },
+      {
+        "point": "d075-h190-t+10",
+        "side": "right",
+        "returncode": 0
+      },
+      {
+        "point": "d025-h250-t+10",
+        "side": "left",
+        "returncode": 0
+      },
+      {
+        "point": "d025-h250-t+10",
+        "side": "right",
+        "returncode": 0
+      },
+      {
+        "point": "d050-h190-t+10",
+        "side": "left",
+        "returncode": 0
+      },
+      {
+        "point": "d050-h190-t+10",
+        "side": "right",
+        "returncode": 0
+      }
+    ],
+    "adjust-exit.json": [
+      {
+        "point": "d050-h220-t+10",
+        "side": "left",
+        "returncode": 0
+      },
+      {
+        "point": "d050-h220-t+10",
+        "side": "right",
+        "returncode": 0
+      },
+      {
+        "point": "d075-h190-t+10",
+        "side": "left",
+        "returncode": 0
+      },
+      {
+        "point": "d075-h190-t+10",
+        "side": "right",
+        "returncode": 0
+      },
+      {
+        "point": "d025-h250-t+10",
+        "side": "left",
+        "returncode": 0
+      },
+      {
+        "point": "d025-h250-t+10",
+        "side": "right",
+        "returncode": 0
+      },
+      {
+        "point": "d050-h190-t+10",
+        "side": "left",
+        "returncode": 0
+      },
+      {
+        "point": "d050-h190-t+10",
+        "side": "right",
+        "returncode": 0
+      }
+    ],
+    "rebase-exit.json": [
+      {
+        "point": "d050-h220-t+10",
+        "side": "left",
+        "returncode": 0
+      },
+      {
+        "point": "d050-h220-t+10",
+        "side": "right",
+        "returncode": 0
+      },
+      {
+        "point": "d075-h190-t+10",
+        "side": "left",
+        "returncode": 0
+      },
+      {
+        "point": "d075-h190-t+10",
+        "side": "right",
+        "returncode": 0
+      },
+      {
+        "point": "d025-h250-t+10",
+        "side": "left",
+        "returncode": 0
+      },
+      {
+        "point": "d025-h250-t+10",
+        "side": "right",
+        "returncode": 0
+      },
+      {
+        "point": "d050-h190-t+10",
+        "side": "left",
+        "returncode": 0
+      },
+      {
+        "point": "d050-h190-t+10",
+        "side": "right",
+        "returncode": 0
+      }
+    ]
+  },
+  "postprocess": [
+    {
+      "stage": "finalize",
+      "returncode": 0,
+      "elapsed_seconds": 14.002786636352539
+    },
+    {
+      "stage": "render-final",
+      "returncode": 0,
+      "elapsed_seconds": 45.01223158836365
+    },
+    {
+      "stage": "annotate",
+      "returncode": 0,
+      "elapsed_seconds": 0.9682040214538574
+    }
+  ],
+  "cpu_render_device": {
+    "name": "llvmpipe (LLVM 15.0.7, 256 bits)",
+    "type": "PHYSICAL_DEVICE_TYPE_CPU",
+    "icd": "/usr/share/vulkan/icd.d/lvp_icd.x86_64.json",
+    "library": "/usr/lib/x86_64-linux-gnu/libvulkan_lvp.so"
+  },
+  "visual_inspection": {
+    "performed": true,
+    "views": [
+      "camera_3",
+      "side"
+    ],
+    "states": [
+      "strict_hold",
+      "realistic_hold",
+      "realistic_press_X"
+    ],
+    "findings": "Only right arm shown; side S/E/W align with the arm; camera_3 out-of-view centres labeled without misleading segments."
+  },
+  "local_source_hashes_matching_node": 17,
+  "baseline_head_current": "37f44eff2e05732aa6151c44a2a5d032aa0146af",
+  "concurrent_tracked_document_changes_preserved": [
+    "AGENTS.md",
+    "README.md",
+    "docs/architecture.md"
+  ],
+  "report_finalized_epoch": 1793719032.5536184
+}

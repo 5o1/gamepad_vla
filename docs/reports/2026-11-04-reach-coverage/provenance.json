@@ -1,0 +1,383 @@
+{
+  "baseline_head": "37f44eff2e05732aa6151c44a2a5d032aa0146af",
+  "source_run": "$GAMEPAD_VLA_WORKSPACE/runs/gamepad-placement-x-20261103",
+  "run": "$GAMEPAD_VLA_WORKSPACE/runs/reach-coverage-z-20261104",
+  "sha256": {
+    "$GAMEPAD_VLA_WORKSPACE/runs/gamepad-placement-x-20261103/code/scripts/natural_grip_fixed.py": "c4d53e97fa9c7d378bb144830b2705b331b1670ffaa1cf94d6a3b78a28c15efd",
+    "$GAMEPAD_VLA_WORKSPACE/runs/gamepad-placement-x-20261103/code/scripts/check_natural_grip_fixed.py": "111c65b38625a4fa33b5aa8e9a0d87e37dfa3c5572a63df2928658ac4d81268e",
+    "$GAMEPAD_VLA_WORKSPACE/runs/gamepad-placement-x-20261103/code/scripts/k1_natural_reference.py": "51ac88f61285e031315973f65c25dac2def30fde44dddf198dbbfbb6f2f24b89",
+    "$GAMEPAD_VLA_WORKSPACE/runs/gamepad-placement-x-20261103/code/scripts/gamepad_placement.py": "715ee05ee25ae7559138e34b7eb883275bea58246827e481998181640205985e",
+    "$GAMEPAD_VLA_WORKSPACE/runs/gamepad-placement-x-20261103/code/scripts/k1b_native.py": "88dcd34283dd1229487cca5ffcbf21db64e8f5eae05466020f187bf50c04c691",
+    "$GAMEPAD_VLA_WORKSPACE/runs/gamepad-placement-x-20261103/code/scripts/k1b_contact_fit.py": "1b06eb0ae9a02cba58c39f706d00d4e745584e2e10692ac2a105c248bfbb9ba4",
+    "$GAMEPAD_VLA_WORKSPACE/runs/gamepad-placement-x-20261103/code/src/gamepad_vla/feasibility.py": "06b1c5d85032d55ecd1d28194a847a0e37500eec782e70d11aa552961a7745db",
+    "$GAMEPAD_VLA_WORKSPACE/runs/gamepad-placement-x-20261103/code/src/gamepad_vla/workstation/operator_view.py": "3865f54c7fa82974f8ea2b87240c46448aa7d3fc2eb019e10a10ee3f3c34dda3",
+    "$GAMEPAD_VLA_WORKSPACE/runs/gamepad-placement-x-20261103/final/rank-1/spec.json": "9d21edd9fb0623317327f92f5cd0d059367c8743a34c564abba5f62dc1dbd83e",
+    "$GAMEPAD_VLA_WORKSPACE/runs/gamepad-placement-x-20261103/final/rank-2/spec.json": "61edcdc269fa6e79c76d1c97e465fb1a63fa5a621af9a84e9b818e0bacb8ce41",
+    "$GAMEPAD_VLA_WORKSPACE/runs/gamepad-placement-x-20261103/final/rank-3/spec.json": "3f6f4585c9f957391b6c18cc2268ac030238d98fa0925ace0df3c7614379dec7",
+    "$GAMEPAD_VLA_WORKSPACE/runs/gamepad-placement-x-20261103/final/rank-4/spec.json": "7825c3fc5bf9dfa6cca4e2cb7ee2e2d6117076df3b07d96d41418bf428267fde",
+    "$GAMEPAD_VLA_WORKSPACE/assets/derived/ar5_08r_e6bcf44f/left_arm.urdf": "2bb4656ac016c76e545798accbbdcfdc8aa39b2dd39c105b5132b9189eabcf81",
+    "$GAMEPAD_VLA_WORKSPACE/assets/linkerhand_station_20261014/linkerhand_g20_l20_l25_urdf_mesh/g20_left/linkerhand_g20_left.urdf": "51578cb1ece676324983d4076aae6de8d9c623cf437df786f4322134d0c7d305",
+    "$GAMEPAD_VLA_WORKSPACE/assets/derived/ar5_08r_e6bcf44f/right_arm.urdf": "b6a0466ebfca79e5fdbdc53cf4ffde72bd5469ca7493770283a1f4365ff1d690",
+    "$GAMEPAD_VLA_WORKSPACE/assets/linkerhand_station_20261014/linkerhand_g20_l20_l25_urdf_mesh/g20_right/linkerhand_g20_right.urdf": "eeb6ffb0e95d2a6acd4c26331ae68062e0d74160de4b552b4f6d395cce5ca4e8",
+    "$GAMEPAD_VLA_WORKSPACE/runs/reach-coverage-z-20261104/solve-stage1.py": "fa7065a4e0775d636568704197671ca5cee6ebd951d456a6841150d39ec513d9",
+    "$GAMEPAD_VLA_WORKSPACE/runs/reach-coverage-z-20261104/solve-stage2.py": "8f202ab397420cf36a3ae7c4524a5591da586c5c1a8ea19249dcd718fd3afd39",
+    "$GAMEPAD_VLA_WORKSPACE/runs/reach-coverage-z-20261104/solve.py": "d3ca3e7d1654b0f8ef14a4ba416ee43f0d8570458ce3333c23738f69f5d57ea5",
+    "$GAMEPAD_VLA_WORKSPACE/runs/reach-coverage-z-20261104/launch.py": "b23a09502b1c9141d4a94f1b23ee1e1ce868d66f86261982a1578b70c2dc003c",
+    "$GAMEPAD_VLA_WORKSPACE/runs/reach-coverage-z-20261104/refine.py": "6a2b1a3f43baf9fc09d856fb2e79ee14cd0c6f9dc066fcc7359ddc1aa8f674d9",
+    "$GAMEPAD_VLA_WORKSPACE/runs/reach-coverage-z-20261104/launch_refine.py": "a82418b72902b22b4ef233d5e6e754caa7290a588622680fed3b25f813ff9897",
+    "$GAMEPAD_VLA_WORKSPACE/runs/reach-coverage-z-20261104/adjust.py": "eba6098987cf05cbca26a7e7a38b16bbd478c83cc977618ad6e853fc3835ed50",
+    "$GAMEPAD_VLA_WORKSPACE/runs/reach-coverage-z-20261104/launch_adjust.py": "1b3c556126f7dcddf8296c9d9cfd6b033a741f308aac9a9da312dfa1353a47a6",
+    "$GAMEPAD_VLA_WORKSPACE/runs/reach-coverage-z-20261104/rebase.py": "4267cd11d665bdd3cd3b66a1b312665060634b08961fef716261880df1285f54",
+    "$GAMEPAD_VLA_WORKSPACE/runs/reach-coverage-z-20261104/render.py": "1f4652135c6e3eca084727f0360d0d9f9f2bd7f891223085884ec2b5a2842334",
+    "$GAMEPAD_VLA_WORKSPACE/runs/reach-coverage-z-20261104/finalize.py": "3c3a41617fc9fb82f07d9958227f981e6da135f31f06898d8a300af0c1b9853d"
+  },
+  "budget": {
+    "compute_started_epoch": 1793716029.0,
+    "supervisor_started_epoch": 1793716130.50564,
+    "solve_deadline_epoch": 1793718530.50564,
+    "compute_deadline_epoch": 1793719629.0,
+    "per_point_side_seconds": 2100,
+    "workers": 8,
+    "threads_per_compile": 4,
+    "gpu": false
+  },
+  "asserted_native_witnesses": 127,
+  "exported_epoch": 1793718594.959008,
+  "collision_resources": [
+    {
+      "path": "common/xbox_one_s/collision/README.md",
+      "sha256": [
+        "2a977b0cd0acc744c33c0355e66ddb07aa8e197fd118f31131c75f4a1f5950f7",
+        "2a977b0cd0acc744c33c0355e66ddb07aa8e197fd118f31131c75f4a1f5950f7"
+      ],
+      "identical_to_X": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/coacd/README.md",
+      "sha256": [
+        "2a977b0cd0acc744c33c0355e66ddb07aa8e197fd118f31131c75f4a1f5950f7",
+        "2a977b0cd0acc744c33c0355e66ddb07aa8e197fd118f31131c75f4a1f5950f7"
+      ],
+      "identical_to_X": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/coacd/a.obj",
+      "sha256": [
+        "98ec8dedc3c21f8a92b38748e2caab5b6ae6a5dffdc30b1b65a060fe959ad8bc",
+        "98ec8dedc3c21f8a92b38748e2caab5b6ae6a5dffdc30b1b65a060fe959ad8bc"
+      ],
+      "identical_to_X": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/coacd/b.obj",
+      "sha256": [
+        "0d6c9239b4c7490fb88589dffe318fb8aa9831bcf5768772fcff551bdb81a0c9",
+        "0d6c9239b4c7490fb88589dffe318fb8aa9831bcf5768772fcff551bdb81a0c9"
+      ],
+      "identical_to_X": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/coacd/dpad.obj",
+      "sha256": [
+        "5cf3103134acc3dc4144fd51ffaf1abed4fef5e33356e02d8426384bc75d3505",
+        "5cf3103134acc3dc4144fd51ffaf1abed4fef5e33356e02d8426384bc75d3505"
+      ],
+      "identical_to_X": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/coacd/guide.obj",
+      "sha256": [
+        "39fe67d3963185afb9ff2657a20ef4fbfff00280d9cf4d4acd9d5d5033137ee3",
+        "39fe67d3963185afb9ff2657a20ef4fbfff00280d9cf4d4acd9d5d5033137ee3"
+      ],
+      "identical_to_X": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/coacd/left_shoulder.obj",
+      "sha256": [
+        "a7980252d030660c3215e7d7e8e9a4e90a1aa27318c90cacbc1ac2051b8126cb",
+        "a7980252d030660c3215e7d7e8e9a4e90a1aa27318c90cacbc1ac2051b8126cb"
+      ],
+      "identical_to_X": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/coacd/left_stick.obj",
+      "sha256": [
+        "e1095d928294a7ad3e7e2d8a0132462b9c7f621e4aee939a25cc3d00d9b944c5",
+        "e1095d928294a7ad3e7e2d8a0132462b9c7f621e4aee939a25cc3d00d9b944c5"
+      ],
+      "identical_to_X": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/coacd/left_trigger.obj",
+      "sha256": [
+        "7a1d5d980883d0fc9a581ba09be2f567fd971b0a2e148229e6dbb21e4ccffca6",
+        "7a1d5d980883d0fc9a581ba09be2f567fd971b0a2e148229e6dbb21e4ccffca6"
+      ],
+      "identical_to_X": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/coacd/menu.obj",
+      "sha256": [
+        "442834691faf827a46e0f64d67ddb06f07c1e81f1ac736817fa9a15346bade23",
+        "442834691faf827a46e0f64d67ddb06f07c1e81f1ac736817fa9a15346bade23"
+      ],
+      "identical_to_X": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/coacd/pair.obj",
+      "sha256": [
+        "80747a04d30c43937648ec2df8bb8b095ba9f31d2fec6028a5fd293b737a6f39",
+        "80747a04d30c43937648ec2df8bb8b095ba9f31d2fec6028a5fd293b737a6f39"
+      ],
+      "identical_to_X": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/coacd/right_shoulder.obj",
+      "sha256": [
+        "422d5198c33c04fd258a72823e74959a1b85b7eeec79ac796db65ae542a3f444",
+        "422d5198c33c04fd258a72823e74959a1b85b7eeec79ac796db65ae542a3f444"
+      ],
+      "identical_to_X": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/coacd/right_stick.obj",
+      "sha256": [
+        "db5d93c6a929813b09898312a56a28a1e883ed2593a196cadf491c1a88fbd6f4",
+        "db5d93c6a929813b09898312a56a28a1e883ed2593a196cadf491c1a88fbd6f4"
+      ],
+      "identical_to_X": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/coacd/right_trigger.obj",
+      "sha256": [
+        "8616be9aacbe1537b8f49c01dc1cd9cde04beaeeebcc26e8a304e83284cb97a6",
+        "8616be9aacbe1537b8f49c01dc1cd9cde04beaeeebcc26e8a304e83284cb97a6"
+      ],
+      "identical_to_X": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/coacd/shell.obj",
+      "sha256": [
+        "5dadf9cda1554d1f9535c9c208a18b5d380d27dbd770d110c7c707a71bbdecd8",
+        "5dadf9cda1554d1f9535c9c208a18b5d380d27dbd770d110c7c707a71bbdecd8"
+      ],
+      "identical_to_X": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/coacd/shell_front_plate.obj",
+      "sha256": [
+        "b3b9b6f1cab394d58770bd00a3be80fdc3839101e8a2cc69879a3c7c94ac47f2",
+        "b3b9b6f1cab394d58770bd00a3be80fdc3839101e8a2cc69879a3c7c94ac47f2"
+      ],
+      "identical_to_X": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/coacd/view.obj",
+      "sha256": [
+        "c5d19a00ef67bad8aaf75c084578f8f23bd10dadd330e27f2c4864ccd517e228",
+        "c5d19a00ef67bad8aaf75c084578f8f23bd10dadd330e27f2c4864ccd517e228"
+      ],
+      "identical_to_X": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/coacd/x.obj",
+      "sha256": [
+        "b7a2e72505e6542f60db35a458676bc2bf365a5811f1f91bcabf6df66e8f97bf",
+        "b7a2e72505e6542f60db35a458676bc2bf365a5811f1f91bcabf6df66e8f97bf"
+      ],
+      "identical_to_X": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/coacd/y.obj",
+      "sha256": [
+        "a801d5bc9892160f119e328192e2fd169e9b9ace065d2b26ace0c1330b018471",
+        "a801d5bc9892160f119e328192e2fd169e9b9ace065d2b26ace0c1330b018471"
+      ],
+      "identical_to_X": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/manifest.json",
+      "sha256": [
+        "39de1a9a07fda842e1973ad4a55b5ae35ed7a2a667dbc04b711cabbe8bf53d33",
+        "39de1a9a07fda842e1973ad4a55b5ae35ed7a2a667dbc04b711cabbe8bf53d33"
+      ],
+      "identical_to_X": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/sdf/README.md",
+      "sha256": [
+        "2a977b0cd0acc744c33c0355e66ddb07aa8e197fd118f31131c75f4a1f5950f7",
+        "2a977b0cd0acc744c33c0355e66ddb07aa8e197fd118f31131c75f4a1f5950f7"
+      ],
+      "identical_to_X": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/sdf/a_0.obj",
+      "sha256": [
+        "9c682071b5ac459e85fb9987df43cbb6266467531b9cf0ba33f0013eb6385f11",
+        "9c682071b5ac459e85fb9987df43cbb6266467531b9cf0ba33f0013eb6385f11"
+      ],
+      "identical_to_X": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/sdf/b_0.obj",
+      "sha256": [
+        "12e4b326617c8ab9bf56ae6de30d8e369464d971483c48e20c96233ee54d577d",
+        "12e4b326617c8ab9bf56ae6de30d8e369464d971483c48e20c96233ee54d577d"
+      ],
+      "identical_to_X": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/sdf/dpad_0.obj",
+      "sha256": [
+        "153383d59dfd41dc559be1bec226167aac6133fe22a1878e2316a62981c2ed22",
+        "153383d59dfd41dc559be1bec226167aac6133fe22a1878e2316a62981c2ed22"
+      ],
+      "identical_to_X": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/sdf/guide_0.obj",
+      "sha256": [
+        "130b4b2308e449ee1e7d3a24033a5d8affe4034483c2153643564d066ad0bb04",
+        "130b4b2308e449ee1e7d3a24033a5d8affe4034483c2153643564d066ad0bb04"
+      ],
+      "identical_to_X": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/sdf/left_shoulder_0.obj",
+      "sha256": [
+        "9a545511771554b595e753c53d82812905daa07821a219b018df0cb770d73627",
+        "9a545511771554b595e753c53d82812905daa07821a219b018df0cb770d73627"
+      ],
+      "identical_to_X": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/sdf/left_stick_0.obj",
+      "sha256": [
+        "bcf2e1a4911bc2e46fc8f9bebc2fa5ad180c22986e4c4b47cd8fd4a8c0684da3",
+        "bcf2e1a4911bc2e46fc8f9bebc2fa5ad180c22986e4c4b47cd8fd4a8c0684da3"
+      ],
+      "identical_to_X": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/sdf/left_stick_1.obj",
+      "sha256": [
+        "237c4e29523c0f0d29b36a6e1b5dc02b7a1e0cfcd64528a8b81c8e1e73327f74",
+        "237c4e29523c0f0d29b36a6e1b5dc02b7a1e0cfcd64528a8b81c8e1e73327f74"
+      ],
+      "identical_to_X": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/sdf/left_trigger_0.obj",
+      "sha256": [
+        "4ca621bd446ad9a2cdf511a10f158dac332de1de65c475cb444e1758967adb24",
+        "4ca621bd446ad9a2cdf511a10f158dac332de1de65c475cb444e1758967adb24"
+      ],
+      "identical_to_X": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/sdf/menu_0.obj",
+      "sha256": [
+        "d75890bc69b1a43333c79539e4aa8f2adec45c84b89544c2e9eea575ee3e1337",
+        "d75890bc69b1a43333c79539e4aa8f2adec45c84b89544c2e9eea575ee3e1337"
+      ],
+      "identical_to_X": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/sdf/pair_0.obj",
+      "sha256": [
+        "646d1561e254983908169fa658a550002f4463fe266dcf8d21029287a6cae216",
+        "646d1561e254983908169fa658a550002f4463fe266dcf8d21029287a6cae216"
+      ],
+      "identical_to_X": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/sdf/right_shoulder_0.obj",
+      "sha256": [
+        "73a2d72a4d96efc5dcc97980180227194501934004cc0c6c081d35865cb5714c",
+        "73a2d72a4d96efc5dcc97980180227194501934004cc0c6c081d35865cb5714c"
+      ],
+      "identical_to_X": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/sdf/right_stick_0.obj",
+      "sha256": [
+        "8265dd6f324f8badbb3f00a23e7f0880a69df4940dccfb0b85cfb67bad3e1cf0",
+        "8265dd6f324f8badbb3f00a23e7f0880a69df4940dccfb0b85cfb67bad3e1cf0"
+      ],
+      "identical_to_X": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/sdf/right_stick_1.obj",
+      "sha256": [
+        "fa4ec72329ce1d213557e78d4286b4acdc444340ae77fbbd14aa58caf9165cb4",
+        "fa4ec72329ce1d213557e78d4286b4acdc444340ae77fbbd14aa58caf9165cb4"
+      ],
+      "identical_to_X": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/sdf/right_trigger_0.obj",
+      "sha256": [
+        "890b1f91bac2fe25669cb46b465df3f5c9e895f5adde473339d72fb4aa46c5df",
+        "890b1f91bac2fe25669cb46b465df3f5c9e895f5adde473339d72fb4aa46c5df"
+      ],
+      "identical_to_X": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/sdf/shell_0.obj",
+      "sha256": [
+        "3f5de933570ef044b2689f8fbae50bde7a63f1ffcf132b55fbe67bec8ae16af5",
+        "3f5de933570ef044b2689f8fbae50bde7a63f1ffcf132b55fbe67bec8ae16af5"
+      ],
+      "identical_to_X": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/sdf/shell_front_plate_0.obj",
+      "sha256": [
+        "094a383c0f6005eb16af64f1b988fb23f50b26fefd3a19ddde40f51f3d6a589d",
+        "094a383c0f6005eb16af64f1b988fb23f50b26fefd3a19ddde40f51f3d6a589d"
+      ],
+      "identical_to_X": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/sdf/view_0.obj",
+      "sha256": [
+        "ff30232634b3becf5e05e992ceb10dc017d26cba1eeddfa067bb9ec9f63c8a93",
+        "ff30232634b3becf5e05e992ceb10dc017d26cba1eeddfa067bb9ec9f63c8a93"
+      ],
+      "identical_to_X": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/sdf/x_0.obj",
+      "sha256": [
+        "c159d19c3c44515662c46785b4b5c36ef1144b4314f5d106a27ff7d51b79795e",
+        "c159d19c3c44515662c46785b4b5c36ef1144b4314f5d106a27ff7d51b79795e"
+      ],
+      "identical_to_X": true
+    },
+    {
+      "path": "common/xbox_one_s/collision/sdf/y_0.obj",
+      "sha256": [
+        "543688e35b427a5b9a584dd9ce7c72d7eaff7aa86ee45ae4e9e541f963bb3a81",
+        "543688e35b427a5b9a584dd9ce7c72d7eaff7aa86ee45ae4e9e541f963bb3a81"
+      ],
+      "identical_to_X": true
+    }
+  ],
+  "interface_source": "$GAMEPAD_VLA_WORKSPACE/envs/sapien-3.0.3-py310/lib/python3.10/site-packages/xbox_gamepad_physics/__init__.py",
+  "package_metadata": {
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "trimesh": "5.1.1",
+    "mujoco": "3.16.0+concon.sdf3689.2",
+    "xbox-gamepad-physics": "0.4.0"
+  },
+  "annotation_revision": {
+    "purpose": "omit segments whose joints are outside or behind the camera",
+    "attempts": 2,
+    "first_failure": "TypeError from loop variable shadowing; corrected",
+    "final_returncode": 0,
+    "raw_renders_unchanged": true
+  }
+}

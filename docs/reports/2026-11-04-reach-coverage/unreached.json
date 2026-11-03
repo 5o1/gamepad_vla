@@ -1,0 +1,327 @@
+[
+  {
+    "point": "d050-h220-t+10",
+    "side": "left",
+    "control": "LB",
+    "finger": "index",
+    "radius_mm": 106.70183360643401,
+    "strict_chain_deficit_mm": 0.0,
+    "realistic_base_chain_deficit_mm": 0.0,
+    "realistic_region_certified_deficit_mm": 0.0,
+    "alternate_valid_holds": [],
+    "final_attempt_reasons": [
+      "control_point_or_cone",
+      "native_collision",
+      "palm_adjustment_limit"
+    ],
+    "scope": "selected hold only; enlarged sphere covers all allowed centroid translations and rotations"
+  },
+  {
+    "point": "d050-h220-t+10",
+    "side": "left",
+    "control": "LT",
+    "finger": "middle",
+    "radius_mm": 106.70226284705095,
+    "strict_chain_deficit_mm": 1.4850968932683535,
+    "realistic_base_chain_deficit_mm": 1.4850968932683535,
+    "realistic_region_certified_deficit_mm": 0.0,
+    "alternate_valid_holds": [
+      "joint-cloud-2"
+    ],
+    "final_attempt_reasons": [
+      "control_point_or_cone",
+      "native_active_contact_missing",
+      "native_collision",
+      "palm_adjustment_limit"
+    ],
+    "scope": "selected hold only; enlarged sphere covers all allowed centroid translations and rotations"
+  },
+  {
+    "point": "d050-h220-t+10",
+    "side": "right",
+    "control": "RS",
+    "finger": "thumb",
+    "radius_mm": 176.27106683069715,
+    "strict_chain_deficit_mm": 0.0,
+    "realistic_base_chain_deficit_mm": 0.0,
+    "realistic_region_certified_deficit_mm": 0.0,
+    "alternate_valid_holds": [],
+    "final_attempt_reasons": [
+      "control_point_or_cone",
+      "native_active_contact_missing",
+      "native_collision"
+    ],
+    "scope": "selected hold only; enlarged sphere covers all allowed centroid translations and rotations"
+  },
+  {
+    "point": "d050-h220-t+10",
+    "side": "right",
+    "control": "RT",
+    "finger": "middle",
+    "radius_mm": 106.71142771850961,
+    "strict_chain_deficit_mm": 0.0,
+    "realistic_base_chain_deficit_mm": 0.0,
+    "realistic_region_certified_deficit_mm": 0.0,
+    "alternate_valid_holds": [],
+    "final_attempt_reasons": [
+      "control_point_or_cone",
+      "native_active_contact_missing",
+      "native_collision"
+    ],
+    "scope": "selected hold only; enlarged sphere covers all allowed centroid translations and rotations"
+  },
+  {
+    "point": "d075-h190-t+10",
+    "side": "right",
+    "control": "RB",
+    "finger": "index",
+    "radius_mm": 106.71142771850961,
+    "strict_chain_deficit_mm": 0.0,
+    "realistic_base_chain_deficit_mm": 0.0,
+    "realistic_region_certified_deficit_mm": 0.0,
+    "alternate_valid_holds": [],
+    "final_attempt_reasons": [
+      "control_point_or_cone",
+      "native_active_contact_missing",
+      "native_collision"
+    ],
+    "scope": "selected hold only; enlarged sphere covers all allowed centroid translations and rotations"
+  },
+  {
+    "point": "d075-h190-t+10",
+    "side": "right",
+    "control": "RS",
+    "finger": "thumb",
+    "radius_mm": 176.27106683069715,
+    "strict_chain_deficit_mm": 0.0,
+    "realistic_base_chain_deficit_mm": 0.0,
+    "realistic_region_certified_deficit_mm": 0.0,
+    "alternate_valid_holds": [],
+    "final_attempt_reasons": [
+      "control_point_or_cone",
+      "native_active_contact_missing",
+      "native_collision"
+    ],
+    "scope": "selected hold only; enlarged sphere covers all allowed centroid translations and rotations"
+  },
+  {
+    "point": "d075-h190-t+10",
+    "side": "right",
+    "control": "RT",
+    "finger": "middle",
+    "radius_mm": 106.71142771850961,
+    "strict_chain_deficit_mm": 0.0,
+    "realistic_base_chain_deficit_mm": 0.0,
+    "realistic_region_certified_deficit_mm": 0.0,
+    "alternate_valid_holds": [],
+    "final_attempt_reasons": [
+      "control_point_or_cone",
+      "native_active_contact_missing",
+      "native_collision"
+    ],
+    "scope": "selected hold only; enlarged sphere covers all allowed centroid translations and rotations"
+  },
+  {
+    "point": "d025-h250-t+10",
+    "side": "left",
+    "control": "LB",
+    "finger": "index",
+    "radius_mm": 106.70183360643401,
+    "strict_chain_deficit_mm": 0.0,
+    "realistic_base_chain_deficit_mm": 0.0,
+    "realistic_region_certified_deficit_mm": 0.0,
+    "alternate_valid_holds": [],
+    "final_attempt_reasons": [
+      "control_point_or_cone",
+      "native_active_contact_missing",
+      "native_collision",
+      "palm_adjustment_limit"
+    ],
+    "scope": "selected hold only; enlarged sphere covers all allowed centroid translations and rotations"
+  },
+  {
+    "point": "d025-h250-t+10",
+    "side": "left",
+    "control": "LT",
+    "finger": "middle",
+    "radius_mm": 106.70226284705095,
+    "strict_chain_deficit_mm": 2.8076744397793894,
+    "realistic_base_chain_deficit_mm": 2.8076744397793894,
+    "realistic_region_certified_deficit_mm": 0.0,
+    "alternate_valid_holds": [],
+    "final_attempt_reasons": [
+      "control_point_or_cone",
+      "native_active_contact_missing",
+      "native_collision"
+    ],
+    "scope": "selected hold only; enlarged sphere covers all allowed centroid translations and rotations"
+  },
+  {
+    "point": "d025-h250-t+10",
+    "side": "right",
+    "control": "B",
+    "finger": "thumb",
+    "radius_mm": 176.27106683069715,
+    "strict_chain_deficit_mm": 0.0,
+    "realistic_base_chain_deficit_mm": 0.0,
+    "realistic_region_certified_deficit_mm": 0.0,
+    "alternate_valid_holds": [],
+    "final_attempt_reasons": [
+      "control_point_or_cone",
+      "native_active_contact_missing",
+      "native_collision"
+    ],
+    "scope": "selected hold only; enlarged sphere covers all allowed centroid translations and rotations"
+  },
+  {
+    "point": "d025-h250-t+10",
+    "side": "right",
+    "control": "R3",
+    "finger": "thumb",
+    "radius_mm": 176.27106683069715,
+    "strict_chain_deficit_mm": 0.0,
+    "realistic_base_chain_deficit_mm": 0.0,
+    "realistic_region_certified_deficit_mm": 0.0,
+    "alternate_valid_holds": [],
+    "final_attempt_reasons": [
+      "control_point_or_cone",
+      "native_collision"
+    ],
+    "scope": "selected hold only; enlarged sphere covers all allowed centroid translations and rotations"
+  },
+  {
+    "point": "d025-h250-t+10",
+    "side": "right",
+    "control": "RB",
+    "finger": "index",
+    "radius_mm": 106.71142771850961,
+    "strict_chain_deficit_mm": 0.0,
+    "realistic_base_chain_deficit_mm": 0.0,
+    "realistic_region_certified_deficit_mm": 0.0,
+    "alternate_valid_holds": [],
+    "final_attempt_reasons": [
+      "control_point_or_cone",
+      "native_collision"
+    ],
+    "scope": "selected hold only; enlarged sphere covers all allowed centroid translations and rotations"
+  },
+  {
+    "point": "d025-h250-t+10",
+    "side": "right",
+    "control": "RS",
+    "finger": "thumb",
+    "radius_mm": 176.27106683069715,
+    "strict_chain_deficit_mm": 0.0,
+    "realistic_base_chain_deficit_mm": 0.0,
+    "realistic_region_certified_deficit_mm": 0.0,
+    "alternate_valid_holds": [],
+    "final_attempt_reasons": [
+      "control_point_or_cone",
+      "native_active_contact_missing",
+      "native_collision"
+    ],
+    "scope": "selected hold only; enlarged sphere covers all allowed centroid translations and rotations"
+  },
+  {
+    "point": "d025-h250-t+10",
+    "side": "right",
+    "control": "RT",
+    "finger": "middle",
+    "radius_mm": 106.71142771850961,
+    "strict_chain_deficit_mm": 0.0,
+    "realistic_base_chain_deficit_mm": 0.0,
+    "realistic_region_certified_deficit_mm": 0.0,
+    "alternate_valid_holds": [],
+    "final_attempt_reasons": [
+      "control_point_or_cone",
+      "native_active_contact_missing",
+      "native_collision"
+    ],
+    "scope": "selected hold only; enlarged sphere covers all allowed centroid translations and rotations"
+  },
+  {
+    "point": "d050-h190-t+10",
+    "side": "left",
+    "control": "LT",
+    "finger": "middle",
+    "radius_mm": 106.70226284705095,
+    "strict_chain_deficit_mm": 0.1961631477703646,
+    "realistic_base_chain_deficit_mm": 0.0,
+    "realistic_region_certified_deficit_mm": 0.0,
+    "alternate_valid_holds": [],
+    "final_attempt_reasons": [
+      "control_point_or_cone",
+      "native_active_contact_missing",
+      "native_collision"
+    ],
+    "scope": "selected hold only; enlarged sphere covers all allowed centroid translations and rotations"
+  },
+  {
+    "point": "d050-h190-t+10",
+    "side": "right",
+    "control": "R3",
+    "finger": "thumb",
+    "radius_mm": 176.27106683069715,
+    "strict_chain_deficit_mm": 0.0,
+    "realistic_base_chain_deficit_mm": 0.0,
+    "realistic_region_certified_deficit_mm": 0.0,
+    "alternate_valid_holds": [],
+    "final_attempt_reasons": [
+      "control_point_or_cone",
+      "native_collision"
+    ],
+    "scope": "selected hold only; enlarged sphere covers all allowed centroid translations and rotations"
+  },
+  {
+    "point": "d050-h190-t+10",
+    "side": "right",
+    "control": "RB",
+    "finger": "index",
+    "radius_mm": 106.71142771850961,
+    "strict_chain_deficit_mm": 0.0,
+    "realistic_base_chain_deficit_mm": 0.0,
+    "realistic_region_certified_deficit_mm": 0.0,
+    "alternate_valid_holds": [
+      "explicit-shared-all"
+    ],
+    "final_attempt_reasons": [
+      "control_point_or_cone",
+      "native_collision"
+    ],
+    "scope": "selected hold only; enlarged sphere covers all allowed centroid translations and rotations"
+  },
+  {
+    "point": "d050-h190-t+10",
+    "side": "right",
+    "control": "RS",
+    "finger": "thumb",
+    "radius_mm": 176.27106683069715,
+    "strict_chain_deficit_mm": 0.0,
+    "realistic_base_chain_deficit_mm": 0.0,
+    "realistic_region_certified_deficit_mm": 0.0,
+    "alternate_valid_holds": [],
+    "final_attempt_reasons": [
+      "control_point_or_cone",
+      "native_active_contact_missing",
+      "native_collision"
+    ],
+    "scope": "selected hold only; enlarged sphere covers all allowed centroid translations and rotations"
+  },
+  {
+    "point": "d050-h190-t+10",
+    "side": "right",
+    "control": "RT",
+    "finger": "middle",
+    "radius_mm": 106.71142771850961,
+    "strict_chain_deficit_mm": 0.0,
+    "realistic_base_chain_deficit_mm": 0.0,
+    "realistic_region_certified_deficit_mm": 0.0,
+    "alternate_valid_holds": [],
+    "final_attempt_reasons": [
+      "control_point_or_cone",
+      "native_active_contact_missing",
+      "native_collision"
+    ],
+    "scope": "selected hold only; enlarged sphere covers all allowed centroid translations and rotations"
+  }
+]

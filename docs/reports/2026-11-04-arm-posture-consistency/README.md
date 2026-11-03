@@ -93,13 +93,13 @@
 
 ## 已执行验证与复现
 
-计算节点运行目录：`/data/lyy/gamepad_vla/runs/arm-posture-y-20261104`。复用任务 X 的只读代码快照；7 个相关源码/场景文件哈希与本地 HEAD 工作树一致，见 [provenance.json](provenance.json)。SAPIEN 3.0.3、xbox-gamepad-physics 0.4.1；`CUDA_VISIBLE_DEVICES` 为空，Vulkan 只加载 lavapipe ICD，全部为 CPU。未安装依赖、修改共享环境或执行物理 step。
+计算节点运行目录：`$GAMEPAD_VLA_WORKSPACE/runs/arm-posture-y-20261104`。复用任务 X 的只读代码快照；7 个相关源码/场景文件哈希与本地 HEAD 工作树一致，见 [provenance.json](provenance.json)。SAPIEN 3.0.3、xbox-gamepad-physics 0.4.1；`CUDA_VISIBLE_DEVICES` 为空，Vulkan 只加载 lavapipe ICD，全部为 CPU。未安装依赖、修改共享环境或执行物理 step。
 
 审计工具 [audit.py](audit.py) 的 `native` 使用既有 fixed-gamepad Python 3.11 环境；`fk`、`render`、`compare` 使用既有 SAPIEN Python 3.10 环境。之所以分阶段，是现有两个环境分别提供原生求解依赖与渲染依赖，无需安装包。
 
 ```bash
-# 在计算节点；W 指向已配置的 /data/lyy/gamepad_vla 工作区。
-W=/data/lyy/gamepad_vla
+# 在计算节点；W 指向站点配置中的计算节点工作区（GAMEPAD_VLA_WORKSPACE）。
+W=$GAMEPAD_VLA_WORKSPACE
 cd "$W/runs/gamepad-placement-x-20261103/code"
 export GAMEPAD_VLA_WORKSPACE="$W"
 export PYTHONPATH="$PWD/src:$PWD/scripts"
