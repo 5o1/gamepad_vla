@@ -1,0 +1,1042 @@
+[
+  {
+    "row": {
+      "id": "d050-h220-t+10",
+      "d_mm": 50,
+      "h_mm": 220,
+      "tilt_delta_deg": 10,
+      "tilt_from_vertical_deg": 46.67315199102678,
+      "pose": [
+        0.6684,
+        0.6252,
+        0.987,
+        0.6238288268455032,
+        0.2691353649334968,
+        -0.2906656230321082,
+        -0.6737338092496422
+      ],
+      "visibility": {
+        "passed": true,
+        "margin_px": 110.94184209780917,
+        "margins_lrtb_px": [
+          597.0861182367186,
+          445.1487761371882,
+          432.9650375126116,
+          110.94184209780917
+        ],
+        "bbox_px": [
+          [
+            597.0861182367186,
+            432.9650375126116
+          ],
+          [
+            833.8512238628118,
+            608.0581579021908
+          ]
+        ],
+        "minimum_depth_m": 0.5453958404533586
+      },
+      "native_mesh_visibility": {
+        "passed": true,
+        "margin_px": 110.94184002926613,
+        "margins_lrtb_px": [
+          597.0861136376523,
+          445.1487742634441,
+          432.96503718266337,
+          110.94184002926613
+        ],
+        "bbox_px": [
+          [
+            597.0861136376523,
+            432.96503718266337
+          ],
+          [
+            833.8512257365559,
+            608.0581599707339
+          ]
+        ],
+        "minimum_depth_m": 0.5453958408421035
+      },
+      "sides": {
+        "left": {
+          "status": "found",
+          "found": true,
+          "arm_score": 0.04709007005927219,
+          "natural": {
+            "upper_tilt_deg": 21.819701631539658,
+            "forearm_pitch_deg": 5.081206718225417,
+            "forearm_heading_deg": 7.257325070613618,
+            "elbow_angle_deg": 94.47609975758225,
+            "wrist_deviation_deg": 38.546240228951326,
+            "deviation": 0.24593966408872917,
+            "natural": true,
+            "upper_forward": true,
+            "shoulder_axis_gap_m": 2.0816681711721685e-17
+          },
+          "method": "rigid-grasp-arm-IK",
+          "seed": "control-left-10022",
+          "rejection_reasons": [],
+          "grip_errors_m": [
+            0.00012034897749621388,
+            0.00011847406072719384
+          ],
+          "fixture_distances_m": {
+            "table": 0.1,
+            "station_column": 0.030999829170078264,
+            "station_column_top_mount": -1.8579221352670304e-07,
+            "station_floor": 0.1,
+            "station_table_frame_panel": 0.1,
+            "station_table_frame_leg00": 0.1,
+            "station_table_frame_leg01": 0.1,
+            "station_table_frame_leg10": 0.1,
+            "station_table_frame_leg11": 0.1,
+            "gamepad_support_post": 0.04546202497250529,
+            "gamepad_clamp_base": 0.1
+          },
+          "elbow_forward_mm": 110.73051607508118,
+          "controls": [],
+          "controls_status": "checked",
+          "maximum_controls_found": 4,
+          "chain_length_excluded": [
+            "Dpad_right",
+            "Dpad_up",
+            "L3",
+            "LB",
+            "LS",
+            "LT"
+          ],
+          "control_summaries": [
+            {
+              "method": "rigid-grasp-arm-IK",
+              "seed": "control-left-10022",
+              "arm_score": 0.04709007005927219,
+              "controls": [],
+              "found": true
+            },
+            {
+              "method": "rigid-grasp-arm-IK",
+              "seed": "control-left-20022",
+              "arm_score": 0.07433683405628125,
+              "controls": [
+                "Dpad_up",
+                "Dpad_down",
+                "Dpad_left",
+                "L3"
+              ],
+              "found": true
+            },
+            {
+              "method": "rigid-grasp-arm-IK",
+              "seed": "control-left-0024",
+              "arm_score": 0.07486332464911225,
+              "controls": [],
+              "found": true
+            }
+          ],
+          "ideal_deviations_deg": {
+            "upper_from_20": 1.8197016315396581,
+            "elbow_from_95": -0.5239002424177528,
+            "elbow_outside_90_100": 0,
+            "forearm_from_horizontal": 5.081206718225417,
+            "heading_from_target": 7.257325070613618,
+            "wrist": 38.546240228951326
+          }
+        },
+        "right": {
+          "status": "found",
+          "found": true,
+          "arm_score": 0.014999514609781958,
+          "natural": {
+            "upper_tilt_deg": 17.851100101602352,
+            "forearm_pitch_deg": 0.10688705350560795,
+            "forearm_heading_deg": 2.211001286556431,
+            "elbow_angle_deg": 98.69859675921946,
+            "wrist_deviation_deg": 15.67736188298434,
+            "deviation": 0.4946556473247196,
+            "natural": true,
+            "upper_forward": true,
+            "shoulder_axis_gap_m": 0.0
+          },
+          "method": "rigid-grasp-arm-IK",
+          "seed": "control-right-0042",
+          "rejection_reasons": [],
+          "grip_errors_m": [
+            0.00011984028286090312,
+            0.00012008647190285173
+          ],
+          "fixture_distances_m": {
+            "table": 0.1,
+            "station_column": 0.030999837609852275,
+            "station_column_top_mount": -2.0326081207056035e-07,
+            "station_floor": 0.1,
+            "station_table_frame_panel": 0.1,
+            "station_table_frame_leg00": 0.1,
+            "station_table_frame_leg01": 0.1,
+            "station_table_frame_leg10": 0.1,
+            "station_table_frame_leg11": 0.1,
+            "gamepad_support_post": 0.0402206800312102,
+            "gamepad_clamp_base": 0.1
+          },
+          "elbow_forward_mm": 28.673041269621518,
+          "controls": [],
+          "controls_status": "checked",
+          "maximum_controls_found": 0,
+          "chain_length_excluded": [
+            "A",
+            "B",
+            "RB",
+            "RS",
+            "RT",
+            "X",
+            "Y"
+          ],
+          "control_summaries": [
+            {
+              "method": "rigid-grasp-arm-IK",
+              "seed": "control-right-0042",
+              "arm_score": 0.014999514609781958,
+              "controls": [],
+              "found": true
+            }
+          ],
+          "ideal_deviations_deg": {
+            "upper_from_20": -2.148899898397648,
+            "elbow_from_95": 3.6985967592194555,
+            "elbow_outside_90_100": 0,
+            "forearm_from_horizontal": 0.10688705350560795,
+            "heading_from_target": 2.211001286556431,
+            "wrist": 15.67736188298434
+          }
+        }
+      },
+      "both_found": true,
+      "arm_score_mean": 0.031044792334527074,
+      "controls_total": 0,
+      "controls_complete": true
+    },
+    "fixtures": [
+      {
+        "name": "gamepad_support_post",
+        "type": "box",
+        "pose": [
+          0.6759056929243532,
+          0.6248654760981275,
+          0.8831538046945673,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "collision": true,
+        "status": "design",
+        "source": "Task X vertical 30x40 mm post, ending at K0 rear-shell support sample.",
+        "half_extents": [
+          0.015,
+          0.02,
+          0.09615380469456732
+        ]
+      },
+      {
+        "name": "gamepad_clamp_base",
+        "type": "box",
+        "pose": [
+          0.6884000000000001,
+          0.6252,
+          0.777,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "collision": true,
+        "status": "design",
+        "source": "Task X 220x60x20 mm edge band extended to contain the complete post foot, inboard or outboard.",
+        "half_extents": [
+          0.02999999999999997,
+          0.11,
+          0.01
+        ]
+      }
+    ]
+  },
+  {
+    "row": {
+      "id": "d075-h190-t+10",
+      "d_mm": 75,
+      "h_mm": 190,
+      "tilt_delta_deg": 10,
+      "tilt_from_vertical_deg": 43.04013742715264,
+      "pose": [
+        0.6434000000000001,
+        0.6252,
+        0.9570000000000001,
+        0.6300344424327159,
+        0.2484321229288391,
+        -0.2698955343050542,
+        -0.6844665676333332
+      ],
+      "visibility": {
+        "passed": true,
+        "margin_px": 48.477103697845905,
+        "margins_lrtb_px": [
+          597.5465477888463,
+          444.94503471639746,
+          492.2259042688775,
+          48.477103697845905
+        ],
+        "bbox_px": [
+          [
+            597.5465477888463,
+            492.2259042688775
+          ],
+          [
+            834.0549652836025,
+            670.5228963021541
+          ]
+        ],
+        "minimum_depth_m": 0.547626813082073
+      },
+      "native_mesh_visibility": {
+        "passed": true,
+        "margin_px": 48.47710155414529,
+        "margins_lrtb_px": [
+          597.5465431944508,
+          444.9450328461546,
+          492.2259039246467,
+          48.47710155414529
+        ],
+        "bbox_px": [
+          [
+            597.5465431944508,
+            492.2259039246467
+          ],
+          [
+            834.0549671538454,
+            670.5228984458547
+          ]
+        ],
+        "minimum_depth_m": 0.5476268134900958
+      },
+      "sides": {
+        "left": {
+          "status": "found",
+          "found": true,
+          "arm_score": 0.05345391787519702,
+          "natural": {
+            "upper_tilt_deg": 20.741766056312713,
+            "forearm_pitch_deg": 3.4517944845045956,
+            "forearm_heading_deg": 8.800706491769004,
+            "elbow_angle_deg": 91.43607770981541,
+            "wrist_deviation_deg": 41.71325692741239,
+            "deviation": 0.3274102757747702,
+            "natural": true,
+            "upper_forward": true,
+            "shoulder_axis_gap_m": 2.0816681711721685e-17
+          },
+          "method": "rigid-grasp-arm-IK",
+          "seed": "control-left-10022",
+          "rejection_reasons": [],
+          "grip_errors_m": [
+            0.00012036155693398495,
+            0.00011849069615197943
+          ],
+          "fixture_distances_m": {
+            "table": 0.1,
+            "station_column": 0.030999829170078264,
+            "station_column_top_mount": -1.8579221352670304e-07,
+            "station_floor": 0.1,
+            "station_table_frame_panel": 0.1,
+            "station_table_frame_leg00": 0.1,
+            "station_table_frame_leg01": 0.1,
+            "station_table_frame_leg10": 0.1,
+            "station_table_frame_leg11": 0.1,
+            "gamepad_support_post": 0.04555997604862072,
+            "gamepad_clamp_base": 0.1
+          },
+          "elbow_forward_mm": 95.77884191173182,
+          "controls": [],
+          "controls_status": "checked",
+          "maximum_controls_found": 4,
+          "chain_length_excluded": [
+            "Dpad_right",
+            "Dpad_up",
+            "L3",
+            "LB",
+            "LS",
+            "LT"
+          ],
+          "control_summaries": [
+            {
+              "method": "rigid-grasp-arm-IK",
+              "seed": "control-left-10022",
+              "arm_score": 0.05345391787519702,
+              "controls": [],
+              "found": true
+            },
+            {
+              "method": "rigid-grasp-arm-IK",
+              "seed": "control-left-20022",
+              "arm_score": 0.07922663028173324,
+              "controls": [
+                "Dpad_up",
+                "Dpad_down",
+                "Dpad_left",
+                "L3"
+              ],
+              "found": true
+            },
+            {
+              "method": "rigid-grasp-arm-IK",
+              "seed": "control-left-0024",
+              "arm_score": 0.09300628451636686,
+              "controls": [],
+              "found": true
+            }
+          ],
+          "ideal_deviations_deg": {
+            "upper_from_20": 0.7417660563127129,
+            "elbow_from_95": -3.5639222901845926,
+            "elbow_outside_90_100": 0,
+            "forearm_from_horizontal": 3.4517944845045956,
+            "heading_from_target": 8.800706491769004,
+            "wrist": 41.71325692741239
+          }
+        },
+        "right": {
+          "status": "found",
+          "found": true,
+          "arm_score": 0.01413619730820086,
+          "natural": {
+            "upper_tilt_deg": 17.167073645148065,
+            "forearm_pitch_deg": -1.5919130083815942,
+            "forearm_heading_deg": 1.7243982022901074,
+            "elbow_angle_deg": 95.89338090340057,
+            "wrist_deviation_deg": 15.743812007311039,
+            "deviation": 0.5795956504190797,
+            "natural": true,
+            "upper_forward": true,
+            "shoulder_axis_gap_m": 6.938893903907228e-18
+          },
+          "method": "rigid-grasp-arm-IK",
+          "seed": "control-right-0042",
+          "rejection_reasons": [],
+          "grip_errors_m": [
+            0.00011984329022117072,
+            0.00012008762098915863
+          ],
+          "fixture_distances_m": {
+            "table": 0.1,
+            "station_column": 0.030999837609852275,
+            "station_column_top_mount": -2.0326081207056035e-07,
+            "station_floor": 0.1,
+            "station_table_frame_panel": 0.1,
+            "station_table_frame_leg00": 0.1,
+            "station_table_frame_leg01": 0.1,
+            "station_table_frame_leg10": 0.1,
+            "station_table_frame_leg11": 0.1,
+            "gamepad_support_post": 0.04079919306113614,
+            "gamepad_clamp_base": 0.1
+          },
+          "elbow_forward_mm": 1.6762195584097763,
+          "controls": [],
+          "controls_status": "checked",
+          "maximum_controls_found": 0,
+          "chain_length_excluded": [
+            "A",
+            "B",
+            "RB",
+            "RS",
+            "RT",
+            "X",
+            "Y"
+          ],
+          "control_summaries": [
+            {
+              "method": "rigid-grasp-arm-IK",
+              "seed": "control-right-0042",
+              "arm_score": 0.01413619730820086,
+              "controls": [],
+              "found": true
+            }
+          ],
+          "ideal_deviations_deg": {
+            "upper_from_20": -2.832926354851935,
+            "elbow_from_95": 0.8933809034005691,
+            "elbow_outside_90_100": 0,
+            "forearm_from_horizontal": -1.5919130083815942,
+            "heading_from_target": 1.7243982022901074,
+            "wrist": 15.743812007311039
+          }
+        }
+      },
+      "both_found": true,
+      "arm_score_mean": 0.03379505759169894,
+      "controls_total": 0,
+      "controls_complete": true
+    },
+    "fixtures": [
+      {
+        "name": "gamepad_support_post",
+        "type": "box",
+        "pose": [
+          0.6504027902969609,
+          0.624862839699,
+          0.867923621189893,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "collision": true,
+        "status": "design",
+        "source": "Task X vertical 30x40 mm post, ending at K0 rear-shell support sample.",
+        "half_extents": [
+          0.015,
+          0.02,
+          0.08092362118989295
+        ]
+      },
+      {
+        "name": "gamepad_clamp_base",
+        "type": "box",
+        "pose": [
+          0.6769013951484805,
+          0.6252,
+          0.777,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "collision": true,
+        "status": "design",
+        "source": "Task X 220x60x20 mm edge band extended to contain the complete post foot, inboard or outboard.",
+        "half_extents": [
+          0.04149860485151957,
+          0.11,
+          0.01
+        ]
+      }
+    ]
+  },
+  {
+    "row": {
+      "id": "d025-h250-t+10",
+      "d_mm": 25,
+      "h_mm": 250,
+      "tilt_delta_deg": 10,
+      "tilt_from_vertical_deg": 50.421885127811414,
+      "pose": [
+        0.6934,
+        0.6252,
+        1.017,
+        0.6163852832955142,
+        0.29019269702819844,
+        -0.31180664278760567,
+        -0.6622944954034657
+      ],
+      "visibility": {
+        "passed": true,
+        "margin_px": 173.4845681301672,
+        "margins_lrtb_px": [
+          596.6047981954744,
+          445.38699946168697,
+          372.7660930934466,
+          173.4845681301672
+        ],
+        "bbox_px": [
+          [
+            596.6047981954744,
+            372.7660930934466
+          ],
+          [
+            833.613000538313,
+            545.5154318698328
+          ]
+        ],
+        "minimum_depth_m": 0.5428820157503449
+      },
+      "native_mesh_visibility": {
+        "passed": true,
+        "margin_px": 173.48456612531527,
+        "margins_lrtb_px": [
+          596.6047935923348,
+          445.3869975823586,
+          372.7660927753032,
+          173.48456612531527
+        ],
+        "bbox_px": [
+          [
+            596.6047935923348,
+            372.7660927753032
+          ],
+          [
+            833.6130024176414,
+            545.5154338746847
+          ]
+        ],
+        "minimum_depth_m": 0.5428820148663421
+      },
+      "sides": {
+        "left": {
+          "status": "found",
+          "found": true,
+          "arm_score": 0.049539407085837,
+          "natural": {
+            "upper_tilt_deg": 22.532096008262847,
+            "forearm_pitch_deg": 6.738562155912756,
+            "forearm_heading_deg": 4.604572712912083,
+            "elbow_angle_deg": 98.3673447902229,
+            "wrist_deviation_deg": 33.466382450440726,
+            "deviation": 0.1688064005508565,
+            "natural": true,
+            "upper_forward": true,
+            "shoulder_axis_gap_m": 2.0816681711721685e-17
+          },
+          "method": "rigid-grasp-arm-IK",
+          "seed": "control-left-10022",
+          "rejection_reasons": [],
+          "grip_errors_m": [
+            0.00012035224851700823,
+            0.00011847701235293273
+          ],
+          "fixture_distances_m": {
+            "table": 0.1,
+            "station_column": 0.030999829170078264,
+            "station_column_top_mount": -1.8579221352670304e-07,
+            "station_floor": 0.1,
+            "station_table_frame_panel": 0.1,
+            "station_table_frame_leg00": 0.1,
+            "station_table_frame_leg01": 0.1,
+            "station_table_frame_leg10": 0.1,
+            "station_table_frame_leg11": 0.1,
+            "gamepad_support_post": 0.04537236204704209,
+            "gamepad_clamp_base": 0.1
+          },
+          "elbow_forward_mm": 122.93856576042774,
+          "controls": [],
+          "controls_status": "checked",
+          "maximum_controls_found": 4,
+          "chain_length_excluded": [
+            "Dpad_right",
+            "Dpad_up",
+            "L3",
+            "LB",
+            "LS",
+            "LT"
+          ],
+          "control_summaries": [
+            {
+              "method": "rigid-grasp-arm-IK",
+              "seed": "control-left-10022",
+              "arm_score": 0.049539407085837,
+              "controls": [],
+              "found": true
+            },
+            {
+              "method": "rigid-grasp-arm-IK",
+              "seed": "control-left-0024",
+              "arm_score": 0.06175018573203252,
+              "controls": [],
+              "found": true
+            },
+            {
+              "method": "rigid-grasp-arm-IK",
+              "seed": "control-left-20022",
+              "arm_score": 0.08917517209765352,
+              "controls": [
+                "Dpad_up",
+                "Dpad_down",
+                "Dpad_left",
+                "L3"
+              ],
+              "found": true
+            }
+          ],
+          "ideal_deviations_deg": {
+            "upper_from_20": 2.5320960082628474,
+            "elbow_from_95": 3.3673447902229015,
+            "elbow_outside_90_100": 0,
+            "forearm_from_horizontal": 6.738562155912756,
+            "heading_from_target": 4.604572712912083,
+            "wrist": 33.466382450440726
+          }
+        },
+        "right": {
+          "status": "found",
+          "found": true,
+          "arm_score": 0.029761837367116777,
+          "natural": {
+            "upper_tilt_deg": 18.709358809141442,
+            "forearm_pitch_deg": 1.6305871266551915,
+            "forearm_heading_deg": 1.6137219137369578,
+            "elbow_angle_deg": 102.45712507555083,
+            "wrist_deviation_deg": 17.72937558783072,
+            "deviation": 0.4184706436672404,
+            "natural": true,
+            "upper_forward": true,
+            "shoulder_axis_gap_m": 0.0
+          },
+          "method": "rigid-grasp-arm-IK",
+          "seed": "control-right-0042",
+          "rejection_reasons": [],
+          "grip_errors_m": [
+            0.0001198395772007689,
+            0.00012008648454415486
+          ],
+          "fixture_distances_m": {
+            "table": 0.1,
+            "station_column": 0.030999837609852275,
+            "station_column_top_mount": -2.0326081207056035e-07,
+            "station_floor": 0.1,
+            "station_table_frame_panel": 0.1,
+            "station_table_frame_leg00": 0.1,
+            "station_table_frame_leg01": 0.1,
+            "station_table_frame_leg10": 0.1,
+            "station_table_frame_leg11": 0.1,
+            "gamepad_support_post": 0.03961422518927127,
+            "gamepad_clamp_base": 0.1
+          },
+          "elbow_forward_mm": 59.59091330735821,
+          "controls": [],
+          "controls_status": "checked",
+          "maximum_controls_found": 0,
+          "chain_length_excluded": [
+            "A",
+            "B",
+            "RB",
+            "RS",
+            "RT",
+            "X",
+            "Y"
+          ],
+          "control_summaries": [
+            {
+              "method": "rigid-grasp-arm-IK",
+              "seed": "control-right-0042",
+              "arm_score": 0.029761837367116777,
+              "controls": [],
+              "found": true
+            }
+          ],
+          "ideal_deviations_deg": {
+            "upper_from_20": -1.2906411908585582,
+            "elbow_from_95": 7.4571250755508345,
+            "elbow_outside_90_100": 2.4571250755508345,
+            "forearm_from_horizontal": 1.6305871266551915,
+            "heading_from_target": 1.6137219137369578,
+            "wrist": 17.72937558783072
+          }
+        }
+      },
+      "both_found": true,
+      "arm_score_mean": 0.03965062222647689,
+      "controls_total": 0,
+      "controls_complete": true
+    },
+    "fixtures": [
+      {
+        "name": "gamepad_support_post",
+        "type": "box",
+        "pose": [
+          0.7013929195516365,
+          0.6248688949521818,
+          0.8984075143593149,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "collision": true,
+        "status": "design",
+        "source": "Task X vertical 30x40 mm post, ending at K0 rear-shell support sample.",
+        "half_extents": [
+          0.015,
+          0.02,
+          0.1114075143593148
+        ]
+      },
+      {
+        "name": "gamepad_clamp_base",
+        "type": "box",
+        "pose": [
+          0.6884000000000001,
+          0.6252,
+          0.777,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "collision": true,
+        "status": "design",
+        "source": "Task X 220x60x20 mm edge band extended to contain the complete post foot, inboard or outboard.",
+        "half_extents": [
+          0.02999999999999997,
+          0.11,
+          0.01
+        ]
+      }
+    ]
+  },
+  {
+    "row": {
+      "id": "d050-h190-t+10",
+      "d_mm": 50,
+      "h_mm": 190,
+      "tilt_delta_deg": 10,
+      "tilt_from_vertical_deg": 44.99585402473028,
+      "pose": [
+        0.6684,
+        0.6252,
+        0.9570000000000001,
+        0.6277012449810823,
+        0.2599757621597115,
+        -0.2807732714727849,
+        -0.677916012618928
+      ],
+      "visibility": {
+        "passed": true,
+        "margin_px": 85.454685521388,
+        "margins_lrtb_px": [
+          599.7443592873957,
+          450.2232241486802,
+          463.01333059757053,
+          85.454685521388
+        ],
+        "bbox_px": [
+          [
+            599.7443592873957,
+            463.01333059757053
+          ],
+          [
+            828.7767758513198,
+            633.545314478612
+          ]
+        ],
+        "minimum_depth_m": 0.5659786626744631
+      },
+      "native_mesh_visibility": {
+        "passed": true,
+        "margin_px": 85.45468349804298,
+        "margins_lrtb_px": [
+          599.7443548301087,
+          450.223222337485,
+          463.0133302745816,
+          85.45468349804298
+        ],
+        "bbox_px": [
+          [
+            599.7443548301087,
+            463.0133302745816
+          ],
+          [
+            828.776777662515,
+            633.545316501957
+          ]
+        ],
+        "minimum_depth_m": 0.5659786630981276
+      },
+      "sides": {
+        "left": {
+          "status": "found",
+          "found": true,
+          "arm_score": 0.030980830232371838,
+          "natural": {
+            "upper_tilt_deg": 19.819760510551628,
+            "forearm_pitch_deg": 1.6316930171276038,
+            "forearm_heading_deg": 5.937777351993647,
+            "elbow_angle_deg": 98.27549919987486,
+            "wrist_deviation_deg": 35.76811167058525,
+            "deviation": 0.4184153491436198,
+            "natural": true,
+            "upper_forward": true,
+            "shoulder_axis_gap_m": 2.0816681711721685e-17
+          },
+          "method": "rigid-grasp-arm-IK",
+          "seed": "control-left-10022",
+          "rejection_reasons": [],
+          "grip_errors_m": [
+            0.00012036548540108679,
+            0.0001184950608896802
+          ],
+          "fixture_distances_m": {
+            "table": 0.1,
+            "station_column": 0.030999829170078264,
+            "station_column_top_mount": -1.8579221352670304e-07,
+            "station_floor": 0.1,
+            "station_table_frame_panel": 0.1,
+            "station_table_frame_leg00": 0.1,
+            "station_table_frame_leg01": 0.1,
+            "station_table_frame_leg10": 0.1,
+            "station_table_frame_leg11": 0.1,
+            "gamepad_support_post": 0.04552997706686023,
+            "gamepad_clamp_base": 0.1
+          },
+          "elbow_forward_mm": 102.84519873230192,
+          "controls": [],
+          "controls_status": "checked",
+          "maximum_controls_found": 4,
+          "chain_length_excluded": [
+            "Dpad_right",
+            "Dpad_up",
+            "L3",
+            "LB",
+            "LS",
+            "LT"
+          ],
+          "control_summaries": [
+            {
+              "method": "rigid-grasp-arm-IK",
+              "seed": "control-left-10022",
+              "arm_score": 0.030980830232371838,
+              "controls": [],
+              "found": true
+            },
+            {
+              "method": "rigid-grasp-arm-IK",
+              "seed": "control-left-0024",
+              "arm_score": 0.05818815142912253,
+              "controls": [],
+              "found": true
+            },
+            {
+              "method": "rigid-grasp-arm-IK",
+              "seed": "control-left-20022",
+              "arm_score": 0.062330804767682435,
+              "controls": [
+                "Dpad_up",
+                "Dpad_down",
+                "Dpad_left",
+                "L3"
+              ],
+              "found": true
+            }
+          ],
+          "ideal_deviations_deg": {
+            "upper_from_20": -0.18023948944837187,
+            "elbow_from_95": 3.275499199874858,
+            "elbow_outside_90_100": 0,
+            "forearm_from_horizontal": 1.6316930171276038,
+            "heading_from_target": 5.937777351993647,
+            "wrist": 35.76811167058525
+          }
+        },
+        "right": {
+          "status": "found",
+          "found": true,
+          "arm_score": 0.055126297375652125,
+          "natural": {
+            "upper_tilt_deg": 15.536710978659125,
+            "forearm_pitch_deg": -3.328092852562555,
+            "forearm_heading_deg": 0.3748247951435564,
+            "elbow_angle_deg": 102.7311462570888,
+            "wrist_deviation_deg": 19.33252357098715,
+            "deviation": 0.6664046426281278,
+            "natural": true,
+            "upper_forward": true,
+            "shoulder_axis_gap_m": 0.0
+          },
+          "method": "rigid-grasp-arm-IK",
+          "seed": "control-right-0042",
+          "rejection_reasons": [],
+          "grip_errors_m": [
+            0.0001198416288402295,
+            0.00012008681746370105
+          ],
+          "fixture_distances_m": {
+            "table": 0.1,
+            "station_column": 0.030999837609852275,
+            "station_column_top_mount": -2.0326081207056035e-07,
+            "station_floor": 0.1,
+            "station_table_frame_panel": 0.1,
+            "station_table_frame_leg00": 0.1,
+            "station_table_frame_leg01": 0.1,
+            "station_table_frame_leg10": 0.1,
+            "station_table_frame_leg11": 0.1,
+            "gamepad_support_post": 0.04051365237916977,
+            "gamepad_clamp_base": 0.1
+          },
+          "elbow_forward_mm": 32.13101628249414,
+          "controls": [],
+          "controls_status": "checked",
+          "maximum_controls_found": 0,
+          "chain_length_excluded": [
+            "A",
+            "B",
+            "RB",
+            "RS",
+            "RT",
+            "X",
+            "Y"
+          ],
+          "control_summaries": [
+            {
+              "method": "rigid-grasp-arm-IK",
+              "seed": "control-right-0042",
+              "arm_score": 0.055126297375652125,
+              "controls": [],
+              "found": true
+            }
+          ],
+          "ideal_deviations_deg": {
+            "upper_from_20": -4.463289021340875,
+            "elbow_from_95": 7.731146257088795,
+            "elbow_outside_90_100": 2.7311462570887954,
+            "forearm_from_horizontal": -3.328092852562555,
+            "heading_from_target": 0.3748247951435564,
+            "wrist": 19.33252357098715
+          }
+        }
+      },
+      "both_found": true,
+      "arm_score_mean": 0.043053563804011985,
+      "controls_total": 0,
+      "controls_complete": true
+    },
+    "fixtures": [
+      {
+        "name": "gamepad_support_post",
+        "type": "box",
+        "pose": [
+          0.675677992389437,
+          0.624883017023961,
+          0.868045554577506,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "collision": true,
+        "status": "design",
+        "source": "Task X vertical 30x40 mm post, ending at K0 rear-shell support sample.",
+        "half_extents": [
+          0.015,
+          0.02,
+          0.08104555457750597
+        ]
+      },
+      {
+        "name": "gamepad_clamp_base",
+        "type": "box",
+        "pose": [
+          0.6884000000000001,
+          0.6252,
+          0.777,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "collision": true,
+        "status": "design",
+        "source": "Task X 220x60x20 mm edge band extended to contain the complete post foot, inboard or outboard.",
+        "half_extents": [
+          0.02999999999999997,
+          0.11,
+          0.01
+        ]
+      }
+    ]
+  }
+]

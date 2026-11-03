@@ -187,7 +187,7 @@ def render(run):
         os.environ['XBOX_GAMEPAD_PHYSICS_RESOURCES'] = cfg['resources']
     backend = SapienBackend(spec, render=True, work_dir=run/'render_work')
     camera = None
-    if not cfg.get('collection'):
+    if not cfg.get('collection') or cfg.get('review_camera'):
         c = cfg['camera']
         camera = backend.scene.add_camera('operator_only', cfg['width'],cfg['height'],
                                          math.radians(c['fovy_degrees']), .001, 20.)

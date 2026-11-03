@@ -25,6 +25,8 @@ def main():
     parser.add_argument('--spec', type=Path, default=Path(
         'configs/workcell/station_g20_v4_4_raised_interim.json'))
     parser.add_argument('--timeout', type=float, default=150.)
+    parser.add_argument('--together', action='store_true', help='also capture both supplied grasps together')
+    parser.add_argument('--placement-only', action='store_true', help='also capture the placement with robots at home')
     args = parser.parse_args()
 
     import numpy as np
@@ -49,7 +51,7 @@ def main():
     config = load_config(Path(__file__).resolve().parents[1] /
                          'configs/render/operator_view.yaml')
     intr = next(c.intrinsics for c in spec.cameras if c.name == 'camera_3')
-    config.update(collection=True, view='camera_3', width=intr.width,
+    config.update(collection=True, review_camera=True, view='camera_3', width=intr.width,
                   height=intr.height, resources=os.environ['XBOX_GAMEPAD_PHYSICS_RESOURCES'])
     config['pip'] = dict(enabled=False)
     config['overview'] = dict(enabled=False)
@@ -77,16 +79,23 @@ def main():
                 'gamepad_vla.workstation.operator_view', 'render', '--run', str(run)],
                 env=env, stdout=log, stderr=subprocess.STDOUT)
             last_frame = -1
-            for side in ('left', 'right'):
-                check = candidates[side]['check']
+            captures = ['left', 'right']
+            if args.together:
+                captures.append('both')
+            if args.placement_only:
+                captures.append('placement')
+            for side in captures:
                 arms = [list(getattr(spec, s + '_arm').home_q) for s in ('left', 'right')]
                 hands = [list(getattr(spec, s + '_hand').home_q) for s in ('left', 'right')]
-                index = ('left', 'right').index(side)
-                arms[index] = check['arm_q']
-                hand = dict(check['hand_q'])
-                for name, (parent, multiplier) in G20_MIMIC_JOINTS[side].items():
-                    hand[name] = hand[parent] * multiplier
-                hands[index] = [hand[name] for name in G20_JOINT_NAMES]
+                active = ('left', 'right') if side == 'both' else (() if side == 'placement' else (side,))
+                for active_side in active:
+                    check = candidates[active_side]['check']
+                    index = ('left', 'right').index(active_side)
+                    arms[index] = check['arm_q']
+                    hand = dict(check['hand_q'])
+                    for name, (parent, multiplier) in G20_MIMIC_JOINTS[active_side].items():
+                        hand[name] = hand[parent] * multiplier
+                    hands[index] = [hand[name] for name in G20_JOINT_NAMES]
                 state = dict(arm_q=arms, hand_q=hands,
                     control_joint_positions={name: 0. for name in pad_joints},
                     command_id=0, command_applied_ns=None, candidate_side=side)

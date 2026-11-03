@@ -1,0 +1,110 @@
+[
+  {
+    "rank": 1,
+    "id": "d050-h220-t+10",
+    "passed": true,
+    "automatic_violations": {
+      "left": [],
+      "right": []
+    },
+    "grips": {
+      "left": [
+        "pinky",
+        "ring"
+      ],
+      "right": [
+        "pinky",
+        "ring"
+      ]
+    },
+    "cross_robot_min_distances_m": {
+      "HL_HR": 0.01536562122508806,
+      "AL_AR": 0.1545143256856483,
+      "HL_AR": 0.18669184807158964,
+      "HR_AL": 0.12945820306474
+    },
+    "checked_epoch": 1793705996.2931142,
+    "scope": "Combined static state: original K0 native contacts and explicit cross-robot convex-mesh distances; not force closure or dynamics."
+  },
+  {
+    "rank": 2,
+    "id": "d075-h190-t+10",
+    "passed": true,
+    "automatic_violations": {
+      "left": [],
+      "right": []
+    },
+    "grips": {
+      "left": [
+        "pinky",
+        "ring"
+      ],
+      "right": [
+        "pinky",
+        "ring"
+      ]
+    },
+    "cross_robot_min_distances_m": {
+      "HL_HR": 0.015365621984632209,
+      "AL_AR": 0.15466607999681606,
+      "HL_AR": 0.18669184987338727,
+      "HR_AL": 0.12945818579754678
+    },
+    "checked_epoch": 1793706031.3985307,
+    "scope": "Combined static state: original K0 native contacts and explicit cross-robot convex-mesh distances; not force closure or dynamics."
+  },
+  {
+    "rank": 3,
+    "id": "d025-h250-t+10",
+    "passed": true,
+    "automatic_violations": {
+      "left": [],
+      "right": []
+    },
+    "grips": {
+      "left": [
+        "pinky",
+        "ring"
+      ],
+      "right": [
+        "pinky",
+        "ring"
+      ]
+    },
+    "cross_robot_min_distances_m": {
+      "HL_HR": 0.015365615715690503,
+      "AL_AR": 0.15480991940384342,
+      "HL_AR": 0.18669184239405356,
+      "HR_AL": 0.129458204900062
+    },
+    "checked_epoch": 1793706068.9394107,
+    "scope": "Combined static state: original K0 native contacts and explicit cross-robot convex-mesh distances; not force closure or dynamics."
+  },
+  {
+    "rank": 4,
+    "id": "d050-h190-t+10",
+    "passed": true,
+    "automatic_violations": {
+      "left": [],
+      "right": []
+    },
+    "grips": {
+      "left": [
+        "pinky",
+        "ring"
+      ],
+      "right": [
+        "pinky",
+        "ring"
+      ]
+    },
+    "cross_robot_min_distances_m": {
+      "HL_HR": 0.01536561691550143,
+      "AL_AR": 0.15528728779736248,
+      "HL_AR": 0.18669184451194368,
+      "HR_AL": 0.129458187265723
+    },
+    "checked_epoch": 1793706105.0561144,
+    "scope": "Combined static state: original K0 native contacts and explicit cross-robot convex-mesh distances; not force closure or dynamics."
+  }
+]
