@@ -1,0 +1,26 @@
+{
+  "sides": {
+    "left": {
+      "retarget_urdf_sha256": "61515d7b515910aced4148779fc28884b9c36f5a1a89828db11109d0d27c8d60",
+      "sim_urdf_sha256": "6f5f70d01604edddcf8e9cd4d2f8baf03edb365905b13b676ac1368efb1f3c05",
+      "kinematic_or_visual_differences": [],
+      "different_visual_meshes": [],
+      "movable_joints": 21
+    },
+    "right": {
+      "retarget_urdf_sha256": "82f8eeac55e38f2bf45d02459e0cc32adf30047958e76c0870a4f58e9aa84674",
+      "sim_urdf_sha256": "74b9935afe01f742f42cf22f5aed1b50d27ff9cde1448a1bafcaa3583292ff83",
+      "kinematic_or_visual_differences": [],
+      "different_visual_meshes": [],
+      "movable_joints": 21
+    }
+  },
+  "nice": 19,
+  "threads": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1"
+  },
+  "cuda_visible_devices": "",
+  "renderer_sha256": "4800672a9fdf004f03eeacf28a3b15458e955b9c1ff24c48bf1aa75223db9be2"
+}

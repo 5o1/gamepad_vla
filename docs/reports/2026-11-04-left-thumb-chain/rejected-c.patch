@@ -1,0 +1,14 @@
+--- a/motion/manus_dex/retarget.py
++++ b/motion/manus_dex/retarget.py
+@@ -1087,6 +1087,11 @@
+             retargeting.optimizer.target_joint_names,
+             getattr(retargeting.optimizer, "joint_range_inversions", None),
+         )
++        if hand == "left":
++            robot_qpos = invert_joint_ranges(
++                robot_qpos, retargeting.joint_names, retargeting.joint_limits,
++                retargeting.optimizer.target_joint_names, ["thumb_cmc_roll"],
++            )
+         return logical_qpos_from_dex(robot_qpos, retargeting.joint_names, hand)
+ 
+     def _publish_latest(self):
