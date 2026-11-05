@@ -1,0 +1,39 @@
+{
+  "cad": {
+    "build_volume_pass": true,
+    "exported_mesh_validity_pass": true,
+    "assembly_interference_pass": true,
+    "control_full_travel_clearance_pass": true,
+    "shell_clearance_pass": true,
+    "openings_pass": true,
+    "grip_back_keepout_pass": true,
+    "contact_offset_chain_pass": true,
+    "visual_contact_clearance_pass": true,
+    "cut_audit_pass": true,
+    "structural_symmetry_and_ribs_pass": true,
+    "mounting_band_pass": true,
+    "mechanics_pass": true,
+    "forward_capture_pass": true,
+    "hirth_actual_sections_pass": true,
+    "slider_motion_pass": true,
+    "derived_pose_pass": true,
+    "simulation_export_pass": true,
+    "printability_pass": true,
+    "all_hard_gates_pass": true
+  },
+  "convex": {
+    "outward": true,
+    "contacts": true,
+    "vertices": true,
+    "protected_zero": true
+  },
+  "convex_hulls": 386,
+  "hand_states": 34,
+  "hold_states": 4,
+  "hand_pass": true,
+  "formal_user_overrides": [],
+  "mujoco_native_compile": true,
+  "mujoco_fixture_mesh_geoms": 386,
+  "step_override_end_to_end_pass": true,
+  "test_override_removed": true
+}

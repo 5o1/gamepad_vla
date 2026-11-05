@@ -1,0 +1,302 @@
+{
+  "executed": true,
+  "density_points_per_mm2": 4,
+  "method": "Area samples plus all vertices/face centres; outward only outside CAD solid, exact point-to-triangle distance. Inward only CAD samples not contained in any hull (10 nm tolerance in mm coordinates). Sample maxima are not continuous certificates.",
+  "parts": {
+    "M8_hand_knob": {
+      "hulls": 14,
+      "vertices_max": 62,
+      "outward": {
+        "max_mm": 0.783716682453251,
+        "p95_mm": 0.6979339533433788,
+        "samples": 8662
+      },
+      "inward": {
+        "max_mm": 0.036150092918406464,
+        "p95_mm": 0.03010308796564955,
+        "samples": 6229
+      },
+      "protected_intersections": [],
+      "source_samples": 37223,
+      "hull_samples": 79272
+    },
+    "base_printed": {
+      "hulls": 14,
+      "vertices_max": 13,
+      "outward": {
+        "max_mm": 0.9367183017453109,
+        "p95_mm": 4.894159484380265e-05,
+        "samples": 106552
+      },
+      "inward": {
+        "max_mm": 0.001853205541236545,
+        "p95_mm": 5.65288730606507e-05,
+        "samples": 30465
+      },
+      "protected_intersections": [],
+      "source_samples": 220224,
+      "hull_samples": 378755
+    },
+    "column": {
+      "hulls": 56,
+      "vertices_max": 62,
+      "outward": {
+        "max_mm": 1.2519205561628044,
+        "p95_mm": 0.6819505379169967,
+        "samples": 50067
+      },
+      "inward": {
+        "max_mm": 0.0014466177132401972,
+        "p95_mm": 0.0008052381032554765,
+        "samples": 15053
+      },
+      "protected_intersections": [],
+      "source_samples": 176376,
+      "hull_samples": 329899
+    },
+    "cradle_lower_jaw": {
+      "hulls": 123,
+      "vertices_max": 52,
+      "outward": {
+        "max_mm": 0.9147914647921754,
+        "p95_mm": 0.7518726872264513,
+        "samples": 28714
+      },
+      "inward": {
+        "max_mm": 0.03855863266165703,
+        "p95_mm": 0.031335922140360094,
+        "samples": 27509
+      },
+      "protected_intersections": [],
+      "source_samples": 146702,
+      "hull_samples": 339093
+    },
+    "guide_cap": {
+      "hulls": 25,
+      "vertices_max": 46,
+      "outward": {
+        "max_mm": 0.914791806140535,
+        "p95_mm": 0.9016382010694561,
+        "samples": 8830
+      },
+      "inward": {
+        "max_mm": 0.004915227372169899,
+        "p95_mm": 0.004363832834126793,
+        "samples": 2292
+      },
+      "protected_intersections": [],
+      "source_samples": 29882,
+      "hull_samples": 45497
+    },
+    "guide_rod_1": {
+      "hulls": 1,
+      "vertices_max": 128,
+      "outward": {
+        "max_mm": 0.0037757552974973688,
+        "p95_mm": 0.0031884209463583124,
+        "samples": 3814
+      },
+      "inward": {
+        "max_mm": 0.0036011612256240267,
+        "p95_mm": 0.0031075029709432857,
+        "samples": 3242
+      },
+      "protected_intersections": [],
+      "source_samples": 7308,
+      "hull_samples": 7314
+    },
+    "guide_rod_2": {
+      "hulls": 1,
+      "vertices_max": 128,
+      "outward": {
+        "max_mm": 0.003775999878404079,
+        "p95_mm": 0.0031994822860515987,
+        "samples": 3887
+      },
+      "inward": {
+        "max_mm": 0.0036016101618740514,
+        "p95_mm": 0.0031074973521777035,
+        "samples": 3242
+      },
+      "protected_intersections": [],
+      "source_samples": 7308,
+      "hull_samples": 7314
+    },
+    "hirth_fixed": {
+      "hulls": 50,
+      "vertices_max": 52,
+      "outward": {
+        "max_mm": 0.7881330567418944,
+        "p95_mm": 0.4190490259065867,
+        "samples": 14655
+      },
+      "inward": {
+        "max_mm": 0.0409367446925389,
+        "p95_mm": 0.027582956563709484,
+        "samples": 3042
+      },
+      "protected_intersections": [],
+      "source_samples": 43333,
+      "hull_samples": 84815
+    },
+    "hirth_moving": {
+      "hulls": 51,
+      "vertices_max": 54,
+      "outward": {
+        "max_mm": 1.0561375388280407,
+        "p95_mm": 0.3308888662630657,
+        "samples": 14581
+      },
+      "inward": {
+        "max_mm": 0.0409367446925389,
+        "p95_mm": 0.032165783070240435,
+        "samples": 2666
+      },
+      "protected_intersections": [],
+      "source_samples": 46243,
+      "hull_samples": 89722
+    },
+    "lock_screw_spacer": {
+      "hulls": 4,
+      "vertices_max": 54,
+      "outward": {
+        "max_mm": 0.6576303881335156,
+        "p95_mm": 0.6222772859786907,
+        "samples": 583
+      },
+      "inward": {
+        "max_mm": 0.006032567747518211,
+        "p95_mm": 0.005892004193878772,
+        "samples": 351
+      },
+      "protected_intersections": [],
+      "source_samples": 1803,
+      "hull_samples": 1820
+    },
+    "pad_back": {
+      "hulls": 1,
+      "vertices_max": 8,
+      "outward": {
+        "max_mm": 0.0,
+        "p95_mm": 0.0,
+        "samples": 0
+      },
+      "inward": {
+        "max_mm": 5.8703282915162635e-05,
+        "p95_mm": 4.2232906431924926e-05,
+        "samples": 5454
+      },
+      "protected_intersections": [],
+      "source_samples": 7308,
+      "hull_samples": 7308
+    },
+    "pad_lower_jaw": {
+      "hulls": 1,
+      "vertices_max": 8,
+      "outward": {
+        "max_mm": 1.7465209960931816e-05,
+        "p95_mm": 1.7465209960931816e-05,
+        "samples": 4629
+      },
+      "inward": {
+        "max_mm": 1.71661376953125e-05,
+        "p95_mm": 1.71661376953125e-05,
+        "samples": 4550
+      },
+      "protected_intersections": [],
+      "source_samples": 10268,
+      "hull_samples": 10268
+    },
+    "pad_upper_jaw": {
+      "hulls": 3,
+      "vertices_max": 8,
+      "outward": {
+        "max_mm": 0.5,
+        "p95_mm": 0.5,
+        "samples": 943
+      },
+      "inward": {
+        "max_mm": 2.288818359375e-05,
+        "p95_mm": 2.288818359375e-05,
+        "samples": 831
+      },
+      "protected_intersections": [],
+      "source_samples": 2415,
+      "hull_samples": 2534
+    },
+    "slider_upper_jaw": {
+      "hulls": 42,
+      "vertices_max": 12,
+      "outward": {
+        "max_mm": 0.9651304435232839,
+        "p95_mm": 0.9386141364620721,
+        "samples": 17268
+      },
+      "inward": {
+        "max_mm": 0.0022009509947525526,
+        "p95_mm": 4.38690185546875e-05,
+        "samples": 6686
+      },
+      "protected_intersections": [],
+      "source_samples": 62591,
+      "hull_samples": 108248
+    }
+  },
+  "hulls": 386,
+  "outward": {
+    "max_mm": 1.2519205561628044,
+    "p95_mm": 0.6537026243383416,
+    "samples": 263185
+  },
+  "inward": {
+    "max_mm": 0.0409367446925389,
+    "p95_mm": 0.02631569384545113,
+    "samples": 111612
+  },
+  "contacts": {
+    "back": {
+      "source_samples": 3237,
+      "max_mm": 5.8703282915162635e-05,
+      "p95_mm": 3.9661433619699716e-05,
+      "samples": 3237
+    },
+    "lower": {
+      "source_samples": 4573,
+      "max_mm": 1.71661376953125e-05,
+      "p95_mm": 1.71661376953125e-05,
+      "samples": 4573
+    },
+    "upper": {
+      "source_samples": 831,
+      "max_mm": 2.288818359375e-05,
+      "p95_mm": 2.288818359375e-05,
+      "samples": 831
+    }
+  },
+  "protected_intersections": [],
+  "control_sweep_samples": 17,
+  "control_sweep_sagitta_bounds_mm": {
+    "a": 0.0,
+    "b": 0.0,
+    "left_shoulder": 0.0,
+    "right_shoulder": 0.0,
+    "pair": 0.0,
+    "dpad": 0.0016429397995612696,
+    "view": 0.0,
+    "menu": 0.0,
+    "left_stick": 0.01259921671034401,
+    "right_stick": 0.012631508041287815,
+    "left_trigger": 0.0013239327561446097,
+    "right_trigger": 0.001323924945647015,
+    "x": 0.0,
+    "guide": 0.0,
+    "y": 0.0
+  },
+  "elapsed_seconds": 258.9515819089993,
+  "gates": {
+    "outward": true,
+    "contacts": true,
+    "vertices": true,
+    "protected_zero": true
+  }
+}

@@ -1,0 +1,17 @@
+[
+  {
+    "case": "translation_10mm",
+    "rejected": true,
+    "error": "base_printed: coordinate/large-edit mismatch (centre 10.00mm, extents 0.00mm, retained 0.955); export mm in original table-up assembly origin/axes; do not centre part or use print orientation"
+  },
+  {
+    "case": "rotation_90deg",
+    "rejected": true,
+    "error": "base_printed: coordinate/large-edit mismatch (centre 63.64mm, extents 150.00mm, retained 0.002); export mm in original table-up assembly origin/axes; do not centre part or use print orientation"
+  },
+  {
+    "case": "units_0_001",
+    "rejected": true,
+    "error": "base_printed: coordinate/large-edit mismatch (centre 45.80mm, extents 239.76mm, retained 0.000); export mm in original table-up assembly origin/axes; do not centre part or use print orientation"
+  }
+]

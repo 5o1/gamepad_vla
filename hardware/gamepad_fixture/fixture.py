@@ -74,7 +74,7 @@ class ControllerMeasurements:
 
 @dataclasses.dataclass
 class Installation:
-    layout_revision:str='v3-vertical-fork-planar'
+    layout_revision:str='v3.1-local-jaw-relief'
     table_edge_x:float=718.4
     table_center_y:float=625.2
     tabletop_z:float=767.
@@ -140,6 +140,9 @@ class Installation:
     lower_pad_z_max:float=14.
     jaw_front_lip_z:float=22.
     jaw_front_end_z:float=26.
+    lower_lip_retreat_mm:float=2.
+    lower_lip_channel_inner_x:float=10.
+    upper_outer_chamfer_mm:float=2.
     keep_USB_cable:bool=True
     USB_cable_back_z:float=-10.
     pair_slot_extra_z:float=1.
@@ -430,6 +433,11 @@ def build(p=None,asset=None):
     lower=box(-lw,lw,lower_y-7,lower_y-proud,-30,i.jaw_front_end_z)
     lower=cut('cradle_lower_jaw',lower,box(-lw+2,lw-2,lower_y-tc,lower_y+1,i.lower_pad_z_min,i.lower_pad_z_max),'lower_pad_pocket')
     lower+=box(-lw,lw,lower_y-7,lower_y+3,i.jaw_front_lip_z,i.jaw_front_end_z)
+    if not 0 <= i.lower_lip_retreat_mm < 3:
+        raise ValueError('lower_lip_retreat_mm must be >=0 and <3: retain positive capture height')
+    for x0,x1 in ((-lw,-i.lower_lip_channel_inner_x),(i.lower_lip_channel_inner_x,lw)):
+        if i.lower_lip_retreat_mm:
+            lower=cut('cradle_lower_jaw',lower,box(x0,x1,lower_y+3-i.lower_lip_retreat_mm,lower_y+3.1,i.jaw_front_lip_z,i.jaw_front_end_z),'thumb_channel_retreat')
     lowerpad=box(-lw+2,lw-2,lower_y-tc,lower_y,i.lower_pad_z_min,i.lower_pad_z_max)
     # Coarse lateral registration at the inner grip arcs, with clearance.
     # These are stops, not extra preloaded locating planes. No grip-back rib.
@@ -456,6 +464,13 @@ def build(p=None,asset=None):
     upperjaw=box(-uw,uw,upper+proud,upper+7,-30,i.jaw_front_end_z)
     upperjaw=cut('slider_upper_jaw',upperjaw,box(-uw+2,uw-2,upper-1,upper+tc,i.top_pad_z_min,i.top_pad_z_max),'upper_pad_pocket')
     upperjaw+=box(-uw,uw,m.top_lip_y_min,upper+7,i.jaw_front_lip_z,i.jaw_front_end_z)
+    d=i.upper_outer_chamfer_mm
+    if not 0 <= d <= 2:
+        raise ValueError('upper_outer_chamfer_mm must be in [0,2] to preserve pad pocket')
+    for sign in (-1,1):
+        if d:
+            tool=prism([(sign*uw,upper+7,i.jaw_front_lip_z),(sign*(uw-d),upper+7,i.jaw_front_lip_z),(sign*uw,upper+7-d,i.jaw_front_lip_z)],(0,0,i.jaw_front_end_z-i.jaw_front_lip_z))
+            upperjaw=cut('slider_upper_jaw',upperjaw,tool,'outer_corner_chamfer')
     upperpad=box(-uw+2,uw-2,upper,upper+tc,i.top_pad_z_min,i.top_pad_z_max)
     # Pair button and its mirror clear full travel. USB channel stays open to
     # rear edge; preserve an intact rear load path outside the cable envelope.
@@ -578,9 +593,20 @@ def export_simulation(out,manifest):
     W=np.asarray(manifest['world_from_pad']);W[:3,3]/=1000;manifest['world_from_simulation_m']=W.tolist()
 
 
-def export_all(p,out):
+def export_all(p,out,overrides=HERE/'user_overrides'):
     out=Path(out);asset=ControllerAsset();parts,mods,mf=build(p,asset);cutshapes=mf.pop('_cut_shapes');collision_shapes=mf.pop('_collision_shapes')
-    for folder in ('print','assembly_mesh','modifiers','simulation','reference','cuts'):(out/folder).mkdir(parents=True,exist_ok=True)
+    from user_steps import apply_overrides
+    nominal_parts=parts.copy()
+    apply_overrides(parts,mf,overrides)
+    if mf['user_overrides']:
+        (out/'reference/nominal_steps').mkdir(parents=True,exist_ok=True)
+        for override in mf['user_overrides']:
+            export_step(nominal_parts[override['part']],out/'reference/nominal_steps'/(override['part']+'.step'))
+    if mf['user_overrides']:
+        # Regenerate collision geometry from the replacement, never stale nominal CSG.
+        mf['collision_overrides']={}
+        collision_shapes={}
+    for folder in ('print','assembly_mesh','assembly_parts','edit_table_up','modifiers','simulation','reference','cuts'):(out/folder).mkdir(parents=True,exist_ok=True)
     # Remove stale v2 solids by file role, without erasing unrelated reports.
     for folder,valid in (('print',{n for n,v in zip(parts,mf['parts']) if v['is_printed']}),('assembly_mesh',set(parts)),('modifiers',set(mods)),('cuts',set(cutshapes))):
         for old in (out/folder).iterdir():
@@ -591,6 +617,10 @@ def export_all(p,out):
         name=row['name'];shape=parts[name]
         print(name,round(shape.volume,2),len(shape.solids()),flush=True)
         if not shape.is_valid or len(shape.solids())!=1:raise RuntimeError(f'{name}: expected 1 valid solid, got {len(shape.solids())}')
+        export_step(shape,out/'assembly_parts'/(name+'.step'))
+        F=np.eye(4);F[:3,:3]=mf['fixed_frame_world_axes'];F[:3,3]=mf['fixed_frame_world_origin_mm']
+        table_from_pad=np.linalg.inv(F)@np.asarray(mf['world_from_pad'])
+        export_step(shape.moved(location(table_from_pad)),out/'edit_table_up'/(name+'.step'))
         export_stl(shape,out/'assembly_mesh'/(name+'.stl'),tolerance=.1 if 'spring' in name else p.printing.tooth_mesh_tolerance if 'hirth' in name else p.printing.mesh_tolerance,angular_tolerance=.2)
         row.update(solid_volume_mm3=shape.volume,valid_solid=shape.is_valid,solid_count=len(shape.solids()))
         if row['is_printed']:
@@ -612,12 +642,13 @@ def export_all(p,out):
         elif name=='base_aluminum':export_step(shape,out/'aluminum_plate.step')
     # Build123d Compound preserves all material bodies in STEP.
     export_step(Compound(label='Xbox1708_fixture_v3',children=list(parts.values())),out/'assembly.step')
+    export_step(Compound(children=[v.moved(location(table_from_pad)) for v in parts.values()]),out/'assembly_table_up.step')
     basemeta=next(r for r in mf['parts'] if r['name'] in ('base_printed','base_aluminum'))
     if basemeta['is_printed']:
         for name,shape in mods.items():export_stl(shape.moved(location(np.asarray(basemeta['print_transform']))),out/'modifiers'/(name+'.stl'),tolerance=.05)
     export_simulation(out,mf)
     # Copy local asset evidence with provenance. Source is never modified.
-    neutral=trimesh.util.concatenate(list(asset.visual_meshes().values()));neutral.export(out/'reference/controller_neutral_mm.stl')
+    neutral=trimesh.util.concatenate(list(asset.visual_meshes().values()));neutral.export(out/'reference/controller_neutral_mm.stl');neutral.apply_transform(table_from_pad);neutral.export(out/'reference/controller_table_up.stl')
     refs=[]
     sources=[asset.urdf]+[g[-1] for g in asset.geometry]
     vis=asset.urdf.parents[2]/'common/xbox_one_s'
@@ -631,6 +662,10 @@ def export_all(p,out):
     apply_policy(mf)
     (out/'manifest.json').write_text(json.dumps(mf,indent=2)+'\n');(out/'asset_measurements.json').write_text(json.dumps(mf['contact_fit'],indent=2)+'\n')
     templates(out,p,parts)
+    rows=['# V3.1 材料表','', '| 零件 | 材料 | 打印 | 装配体积 mm³ |','|---|---|---|---:|']
+    for row in mf['parts']:
+        rows.append(f"| {row['name']} | {row['material']} | {row['is_printed']} | {row['solid_volume_mm3']:.2f} |")
+    (out/'materials.md').write_text('\n'.join(rows)+'\n\n五金规格及打印设置见 hardware/gamepad_fixture/materials.md。\n')
     return mf
 
 
@@ -821,14 +856,14 @@ def export_marker_card(p, out, card=None):
 
 
 def main():
-    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--out',type=Path,default=HERE/'out');ap.add_argument('--aluminum',action='store_true');ap.add_argument('--tpu-pads',action='store_true');ap.add_argument('--coupons',action='store_true');ap.add_argument('--marker-card',action='store_true');ap.add_argument('--parameters',type=Path)
+    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--out',type=Path,default=HERE/'out_v3_1');ap.add_argument('--aluminum',action='store_true');ap.add_argument('--tpu-pads',action='store_true');ap.add_argument('--coupons',action='store_true');ap.add_argument('--marker-card',action='store_true');ap.add_argument('--parameters',type=Path);ap.add_argument('--overrides',type=Path,default=HERE/'user_overrides')
     a=ap.parse_args();p=Parameters();p.installation.aluminum_base=a.aluminum;p.measured.use_printed_tpu_pads=a.tpu_pads
     if a.parameters:
         overrides=json.loads(a.parameters.read_text())
         for group,fields in overrides.items():
             for k,v in fields.items():setattr(getattr(p,group),k,v)
-    if a.coupons:export_coupons(p,HERE/'out_coupons' if a.out==HERE/'out' else a.out)
-    elif a.marker_card:export_marker_card(p,HERE/'out_marker' if a.out==HERE/'out' else a.out)
-    else:export_all(p,a.out)
+    if a.coupons:export_coupons(p,HERE/'out_coupons' if a.out==HERE/'out_v3_1' else a.out)
+    elif a.marker_card:export_marker_card(p,HERE/'out_marker' if a.out==HERE/'out_v3_1' else a.out)
+    else:export_all(p,a.out,a.overrides)
 
 if __name__=='__main__':main()

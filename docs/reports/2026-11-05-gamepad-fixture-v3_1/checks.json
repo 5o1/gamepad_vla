@@ -1,0 +1,3859 @@
+{
+  "executed": true,
+  "completed": true,
+  "design_revision": "v3.1-local-jaw-relief",
+  "units": "mm,N,N m,deg",
+  "build_volume": {
+    "pass": true,
+    "printer": "Bambu H2D dual-nozzle envelope",
+    "parts": [
+      {
+        "part": "base_printed",
+        "dimensions_mm": [
+          240.0,
+          90.0,
+          16.0
+        ],
+        "limits_mm": [
+          300.0,
+          320.0,
+          325.0
+        ],
+        "watertight": true,
+        "pass": true
+      },
+      {
+        "part": "column",
+        "dimensions_mm": [
+          90.0,
+          67.9968997965334,
+          146.98956298828125
+        ],
+        "limits_mm": [
+          300.0,
+          320.0,
+          325.0
+        ],
+        "watertight": true,
+        "pass": true
+      },
+      {
+        "part": "hirth_fixed",
+        "dimensions_mm": [
+          68.0,
+          67.9936761315912,
+          6.796694278717041
+        ],
+        "limits_mm": [
+          300.0,
+          320.0,
+          325.0
+        ],
+        "watertight": true,
+        "pass": true
+      },
+      {
+        "part": "hirth_moving",
+        "dimensions_mm": [
+          68.0,
+          67.99030843935907,
+          7.800000190734865
+        ],
+        "limits_mm": [
+          300.0,
+          320.0,
+          325.0
+        ],
+        "watertight": true,
+        "pass": true
+      },
+      {
+        "part": "cradle_lower_jaw",
+        "dimensions_mm": [
+          138.8566695076479,
+          154.70263490546495,
+          65.5
+        ],
+        "limits_mm": [
+          300.0,
+          320.0,
+          325.0
+        ],
+        "watertight": true,
+        "pass": true
+      },
+      {
+        "part": "slider_upper_jaw",
+        "dimensions_mm": [
+          40.0,
+          76.0,
+          63.6233787536621
+        ],
+        "limits_mm": [
+          300.0,
+          320.0,
+          325.0
+        ],
+        "watertight": true,
+        "pass": true
+      },
+      {
+        "part": "guide_cap",
+        "dimensions_mm": [
+          60.0,
+          20.0,
+          35.5547981262207
+        ],
+        "limits_mm": [
+          300.0,
+          320.0,
+          325.0
+        ],
+        "watertight": true,
+        "pass": true
+      },
+      {
+        "part": "guide_rod_1",
+        "dimensions_mm": [
+          6.0,
+          5.998135329340585,
+          89.0
+        ],
+        "limits_mm": [
+          300.0,
+          320.0,
+          325.0
+        ],
+        "watertight": true,
+        "pass": true
+      },
+      {
+        "part": "guide_rod_2",
+        "dimensions_mm": [
+          6.0,
+          5.998135329340585,
+          89.0
+        ],
+        "limits_mm": [
+          300.0,
+          320.0,
+          325.0
+        ],
+        "watertight": true,
+        "pass": true
+      },
+      {
+        "part": "lock_screw_spacer",
+        "dimensions_mm": [
+          10.0,
+          9.996891420916654,
+          3.0
+        ],
+        "limits_mm": [
+          300.0,
+          320.0,
+          325.0
+        ],
+        "watertight": true,
+        "pass": true
+      },
+      {
+        "part": "M8_hand_knob",
+        "dimensions_mm": [
+          60.0,
+          59.9813523394987,
+          16.0
+        ],
+        "limits_mm": [
+          300.0,
+          320.0,
+          325.0
+        ],
+        "watertight": true,
+        "pass": true
+      }
+    ]
+  },
+  "exported_mesh_validity": {
+    "pass": true,
+    "parts": {
+      "hardware_fixed_ring_nut_240": {
+        "watertight": true,
+        "volume_mm3": 45.93692604086524,
+        "connected_components": 1
+      },
+      "hardware_moving_ring_nut_300": {
+        "watertight": true,
+        "volume_mm3": 45.93693516771386,
+        "connected_components": 1
+      },
+      "slider_upper_jaw": {
+        "watertight": true,
+        "volume_mm3": 41236.53035825616,
+        "connected_components": 1
+      },
+      "hardware_M8_washer_2": {
+        "watertight": true,
+        "volume_mm3": 413.3001234234022,
+        "connected_components": 1
+      },
+      "pad_back": {
+        "watertight": true,
+        "volume_mm3": 1480.0000016877675,
+        "connected_components": 1
+      },
+      "hardware_moving_ring_M3_60": {
+        "watertight": true,
+        "volume_mm3": 226.40790205053054,
+        "connected_components": 1
+      },
+      "guide_cap": {
+        "watertight": true,
+        "volume_mm3": 12405.311139417463,
+        "connected_components": 1
+      },
+      "hardware_fixed_ring_nut_0": {
+        "watertight": true,
+        "volume_mm3": 45.936927297731394,
+        "connected_components": 1
+      },
+      "hardware_moving_ring_nut_180": {
+        "watertight": true,
+        "volume_mm3": 45.9369364245803,
+        "connected_components": 1
+      },
+      "hirth_moving": {
+        "watertight": true,
+        "volume_mm3": 17629.00359295795,
+        "connected_components": 1
+      },
+      "hardware_base_M5_0": {
+        "watertight": true,
+        "volume_mm3": 596.8936681123126,
+        "connected_components": 1
+      },
+      "hardware_moving_ring_M3_180": {
+        "watertight": true,
+        "volume_mm3": 226.40792287906515,
+        "connected_components": 1
+      },
+      "hardware_base_M5_1": {
+        "watertight": true,
+        "volume_mm3": 596.8936136665629,
+        "connected_components": 1
+      },
+      "hardware_M8_nut": {
+        "watertight": true,
+        "volume_mm3": 625.1440702429536,
+        "connected_components": 1
+      },
+      "pad_upper_jaw": {
+        "watertight": true,
+        "volume_mm3": 373.14789779964485,
+        "connected_components": 1
+      },
+      "hardware_M8_sliding_sleeve": {
+        "watertight": true,
+        "volume_mm3": 1266.849110355426,
+        "connected_components": 1
+      },
+      "guide_rod_2": {
+        "watertight": true,
+        "volume_mm3": 2512.2463246445914,
+        "connected_components": 1
+      },
+      "hardware_moving_ring_nut_60": {
+        "watertight": true,
+        "volume_mm3": 45.93693567740345,
+        "connected_components": 1
+      },
+      "hardware_M8_axis_bolt": {
+        "watertight": true,
+        "volume_mm3": 4790.274515714874,
+        "connected_components": 1
+      },
+      "hardware_fixed_ring_M3_240": {
+        "watertight": true,
+        "volume_mm3": 169.95294054748956,
+        "connected_components": 1
+      },
+      "M8_hand_knob": {
+        "watertight": true,
+        "volume_mm3": 43591.432691963295,
+        "connected_components": 1
+      },
+      "base_printed": {
+        "watertight": true,
+        "volume_mm3": 344442.8868690979,
+        "connected_components": 1
+      },
+      "hardware_compression_spring_1": {
+        "watertight": true,
+        "volume_mm3": 220.0887169258042,
+        "connected_components": 1
+      },
+      "hardware_base_M5_3": {
+        "watertight": true,
+        "volume_mm3": 596.8936228933304,
+        "connected_components": 1
+      },
+      "guide_rod_1": {
+        "watertight": true,
+        "volume_mm3": 2512.246367718355,
+        "connected_components": 1
+      },
+      "hardware_compression_spring_2": {
+        "watertight": true,
+        "volume_mm3": 220.08775162601728,
+        "connected_components": 1
+      },
+      "hardware_fixed_ring_M3_120": {
+        "watertight": true,
+        "volume_mm3": 169.9529509257991,
+        "connected_components": 1
+      },
+      "hirth_fixed": {
+        "watertight": true,
+        "volume_mm3": 16016.077451912619,
+        "connected_components": 1
+      },
+      "hardware_fixed_ring_nut_120": {
+        "watertight": true,
+        "volume_mm3": 45.93692655055471,
+        "connected_components": 1
+      },
+      "column": {
+        "watertight": true,
+        "volume_mm3": 208306.48657337864,
+        "connected_components": 1
+      },
+      "hardware_base_M5_2": {
+        "watertight": true,
+        "volume_mm3": 596.8936773390006,
+        "connected_components": 1
+      },
+      "pad_lower_jaw": {
+        "watertight": true,
+        "volume_mm3": 2116.400436401367,
+        "connected_components": 1
+      },
+      "cradle_lower_jaw": {
+        "watertight": true,
+        "volume_mm3": 128802.49939141277,
+        "connected_components": 1
+      },
+      "hardware_moving_ring_M3_300": {
+        "watertight": true,
+        "volume_mm3": 226.40789337118622,
+        "connected_components": 1
+      },
+      "hardware_fixed_ring_M3_0": {
+        "watertight": true,
+        "volume_mm3": 169.9529742449231,
+        "connected_components": 1
+      },
+      "lock_screw_spacer": {
+        "watertight": true,
+        "volume_mm3": 187.5951548146169,
+        "connected_components": 1
+      },
+      "hardware_M8_washer_1": {
+        "watertight": true,
+        "volume_mm3": 413.3006161160144,
+        "connected_components": 1
+      }
+    }
+  },
+  "assembly_interference": {
+    "pass": true,
+    "intersections": [],
+    "ignore_below_mm3": 0.05,
+    "cap_M3_installation_access": {
+      "pass": true,
+      "channels": [
+        {
+          "side": -1,
+          "axis_pad_xy_mm": [
+            -25.0,
+            71.0
+          ],
+          "frame_probe_rays": 17,
+          "frame_blocking_hits": [],
+          "actual_frame_thickness_mm": 6.0,
+          "cap_probe_rays": 9,
+          "cap_blocking_hits": [],
+          "cap_thickness_mm": 20.0,
+          "cap_bolt_length_mm": 25.0,
+          "cap_insert_engagement_mm": 4.0,
+          "cap_tip_to_frame_front_mm": 1.0,
+          "marker_chain_mm": {
+            "bolt": 30.0,
+            "anchor": 4.0,
+            "cap": 20.0,
+            "spacer": 2.0,
+            "penetration": 4.0,
+            "insert_engagement": 4.0
+          },
+          "pass": true
+        },
+        {
+          "side": 1,
+          "axis_pad_xy_mm": [
+            25.0,
+            71.0
+          ],
+          "frame_probe_rays": 17,
+          "frame_blocking_hits": [],
+          "actual_frame_thickness_mm": 6.0,
+          "cap_probe_rays": 9,
+          "cap_blocking_hits": [],
+          "cap_thickness_mm": 20.0,
+          "cap_bolt_length_mm": 25.0,
+          "cap_insert_engagement_mm": 4.0,
+          "cap_tip_to_frame_front_mm": 1.0,
+          "marker_chain_mm": {
+            "bolt": 30.0,
+            "anchor": 4.0,
+            "cap": 20.0,
+            "spacer": 2.0,
+            "penetration": 4.0,
+            "insert_engagement": 4.0
+          },
+          "pass": true
+        }
+      ],
+      "scope": "17 axial frame rays including off-axis witnesses must see no closed skin; nine cap rays verify the M3 shaft path. Length chain uses M3x25 or marker M3x30 + 4mm anchor + 2mm spacer; insert retention still requires a physical coupon."
+    }
+  },
+  "control_full_travel_clearance": {
+    "pass": true,
+    "controls": {
+      "a": {
+        "minimum_gap_mm": 27.81627467550086,
+        "nearest_part": "cradle_lower_jaw",
+        "sampling_allowance_mm": 0.35,
+        "required_geometric_gap_mm": 0.35,
+        "overlaps": [],
+        "pass": true
+      },
+      "b": {
+        "minimum_gap_mm": 32.20461074099515,
+        "nearest_part": "cradle_lower_jaw",
+        "sampling_allowance_mm": 0.35,
+        "required_geometric_gap_mm": 0.35,
+        "overlaps": [],
+        "pass": true
+      },
+      "left_shoulder": {
+        "minimum_gap_mm": 3.088712158693645,
+        "nearest_part": "slider_upper_jaw",
+        "sampling_allowance_mm": 0.35,
+        "required_geometric_gap_mm": 0.35,
+        "overlaps": [],
+        "pass": true
+      },
+      "right_shoulder": {
+        "minimum_gap_mm": 3.0884438188148837,
+        "nearest_part": "slider_upper_jaw",
+        "sampling_allowance_mm": 0.35,
+        "required_geometric_gap_mm": 0.35,
+        "overlaps": [],
+        "pass": true
+      },
+      "pair": {
+        "minimum_gap_mm": 2.1000003814697266,
+        "nearest_part": "slider_upper_jaw",
+        "sampling_allowance_mm": 0.35,
+        "required_geometric_gap_mm": 2.0,
+        "overlaps": [],
+        "pass": true
+      },
+      "dpad": {
+        "minimum_gap_mm": 9.703564403388674,
+        "nearest_part": "pad_lower_jaw",
+        "sampling_allowance_mm": 0.35,
+        "required_geometric_gap_mm": 0.35,
+        "overlaps": [],
+        "pass": true
+      },
+      "view": {
+        "minimum_gap_mm": 20.61870929401807,
+        "nearest_part": "slider_upper_jaw",
+        "sampling_allowance_mm": 0.35,
+        "required_geometric_gap_mm": 0.35,
+        "overlaps": [],
+        "pass": true
+      },
+      "menu": {
+        "minimum_gap_mm": 20.6298876458049,
+        "nearest_part": "slider_upper_jaw",
+        "sampling_allowance_mm": 0.35,
+        "required_geometric_gap_mm": 0.35,
+        "overlaps": [],
+        "pass": true
+      },
+      "left_stick": {
+        "minimum_gap_mm": 12.26542327115547,
+        "nearest_part": "slider_upper_jaw",
+        "sampling_allowance_mm": 0.35,
+        "required_geometric_gap_mm": 0.35,
+        "overlaps": [],
+        "pass": true
+      },
+      "right_stick": {
+        "minimum_gap_mm": 6.905566560346293,
+        "nearest_part": "cradle_lower_jaw",
+        "sampling_allowance_mm": 0.35,
+        "required_geometric_gap_mm": 0.35,
+        "overlaps": [],
+        "pass": true
+      },
+      "left_trigger": {
+        "minimum_gap_mm": 11.047660399875669,
+        "nearest_part": "cradle_lower_jaw",
+        "sampling_allowance_mm": 0.35,
+        "required_geometric_gap_mm": 0.35,
+        "overlaps": [],
+        "pass": true
+      },
+      "right_trigger": {
+        "minimum_gap_mm": 11.0477037288864,
+        "nearest_part": "cradle_lower_jaw",
+        "sampling_allowance_mm": 0.35,
+        "required_geometric_gap_mm": 0.35,
+        "overlaps": [],
+        "pass": true
+      },
+      "x": {
+        "minimum_gap_mm": 20.596259735356202,
+        "nearest_part": "slider_upper_jaw",
+        "sampling_allowance_mm": 0.35,
+        "required_geometric_gap_mm": 0.35,
+        "overlaps": [],
+        "pass": true
+      },
+      "guide": {
+        "minimum_gap_mm": 2.9253616333007812,
+        "nearest_part": "pad_upper_jaw",
+        "sampling_allowance_mm": 0.35,
+        "required_geometric_gap_mm": 0.35,
+        "overlaps": [],
+        "pass": true
+      },
+      "y": {
+        "minimum_gap_mm": 19.444069770268605,
+        "nearest_part": "slider_upper_jaw",
+        "sampling_allowance_mm": 0.35,
+        "required_geometric_gap_mm": 0.35,
+        "overlaps": [],
+        "pass": true
+      }
+    }
+  },
+  "shell_clearance": {
+    "pass": true,
+    "parts": [
+      {
+        "part": "hardware_fixed_ring_nut_240",
+        "soft": false,
+        "summed_hull_overlap_mm3": 0,
+        "minimum_collision_shell_gap_mm": 65.40924152989702,
+        "pass": true
+      },
+      {
+        "part": "hardware_moving_ring_nut_300",
+        "soft": false,
+        "summed_hull_overlap_mm3": 0,
+        "minimum_collision_shell_gap_mm": 72.52718181781536,
+        "pass": true
+      },
+      {
+        "part": "slider_upper_jaw",
+        "soft": false,
+        "summed_hull_overlap_mm3": 0.0,
+        "minimum_collision_shell_gap_mm": 0.3328742980957031,
+        "pass": true
+      },
+      {
+        "part": "hardware_M8_washer_2",
+        "soft": false,
+        "summed_hull_overlap_mm3": 0,
+        "minimum_collision_shell_gap_mm": 47.39207551068426,
+        "pass": true
+      },
+      {
+        "part": "pad_back",
+        "soft": true,
+        "summed_hull_overlap_mm3": 42.70400582838534,
+        "minimum_collision_shell_gap_mm": 0.0,
+        "pass": true
+      },
+      {
+        "part": "hardware_moving_ring_M3_60",
+        "soft": false,
+        "summed_hull_overlap_mm3": 0,
+        "minimum_collision_shell_gap_mm": 52.32883852034492,
+        "pass": true
+      },
+      {
+        "part": "guide_cap",
+        "soft": false,
+        "summed_hull_overlap_mm3": 0,
+        "minimum_collision_shell_gap_mm": 20.043862895404548,
+        "pass": true
+      },
+      {
+        "part": "hardware_fixed_ring_nut_0",
+        "soft": false,
+        "summed_hull_overlap_mm3": 0,
+        "minimum_collision_shell_gap_mm": 53.78876646821294,
+        "pass": true
+      },
+      {
+        "part": "hardware_moving_ring_nut_180",
+        "soft": false,
+        "summed_hull_overlap_mm3": 0,
+        "minimum_collision_shell_gap_mm": 67.40611822614552,
+        "pass": true
+      },
+      {
+        "part": "hirth_moving",
+        "soft": false,
+        "summed_hull_overlap_mm3": 0,
+        "minimum_collision_shell_gap_mm": 38.68403301653936,
+        "pass": true
+      },
+      {
+        "part": "hardware_base_M5_0",
+        "soft": false,
+        "summed_hull_overlap_mm3": 0,
+        "minimum_collision_shell_gap_mm": 139.5479332028856,
+        "pass": true
+      },
+      {
+        "part": "hardware_moving_ring_M3_180",
+        "soft": false,
+        "summed_hull_overlap_mm3": 0,
+        "minimum_collision_shell_gap_mm": 64.3727121228808,
+        "pass": true
+      },
+      {
+        "part": "hardware_base_M5_1",
+        "soft": false,
+        "summed_hull_overlap_mm3": 0,
+        "minimum_collision_shell_gap_mm": 147.12153101395106,
+        "pass": true
+      },
+      {
+        "part": "hardware_M8_nut",
+        "soft": false,
+        "summed_hull_overlap_mm3": 0,
+        "minimum_collision_shell_gap_mm": 45.622046521582476,
+        "pass": true
+      },
+      {
+        "part": "pad_upper_jaw",
+        "soft": true,
+        "summed_hull_overlap_mm3": 0.9428528302024777,
+        "minimum_collision_shell_gap_mm": 0.0,
+        "pass": true
+      },
+      {
+        "part": "hardware_M8_sliding_sleeve",
+        "soft": false,
+        "summed_hull_overlap_mm3": 0,
+        "minimum_collision_shell_gap_mm": 51.696327817860606,
+        "pass": true
+      },
+      {
+        "part": "guide_rod_2",
+        "soft": false,
+        "summed_hull_overlap_mm3": 0,
+        "minimum_collision_shell_gap_mm": 27.88054337296895,
+        "pass": true
+      },
+      {
+        "part": "hardware_moving_ring_nut_60",
+        "soft": false,
+        "summed_hull_overlap_mm3": 0,
+        "minimum_collision_shell_gap_mm": 55.53252027953115,
+        "pass": true
+      },
+      {
+        "part": "hardware_M8_axis_bolt",
+        "soft": false,
+        "summed_hull_overlap_mm3": 0,
+        "minimum_collision_shell_gap_mm": 48.49029516145447,
+        "pass": true
+      },
+      {
+        "part": "hardware_fixed_ring_M3_240",
+        "soft": false,
+        "summed_hull_overlap_mm3": 0,
+        "minimum_collision_shell_gap_mm": 66.20186204063259,
+        "pass": true
+      },
+      {
+        "part": "M8_hand_knob",
+        "soft": false,
+        "summed_hull_overlap_mm3": 0,
+        "minimum_collision_shell_gap_mm": 23.74218014991856,
+        "pass": true
+      },
+      {
+        "part": "base_printed",
+        "soft": false,
+        "summed_hull_overlap_mm3": 0,
+        "minimum_collision_shell_gap_mm": 148.82862850180194,
+        "pass": true
+      },
+      {
+        "part": "hardware_compression_spring_1",
+        "soft": false,
+        "summed_hull_overlap_mm3": 0,
+        "minimum_collision_shell_gap_mm": 26.55398348387441,
+        "pass": true
+      },
+      {
+        "part": "hardware_base_M5_3",
+        "soft": false,
+        "summed_hull_overlap_mm3": 0,
+        "minimum_collision_shell_gap_mm": 147.24812927568277,
+        "pass": true
+      },
+      {
+        "part": "guide_rod_1",
+        "soft": false,
+        "summed_hull_overlap_mm3": 0,
+        "minimum_collision_shell_gap_mm": 27.89028866588707,
+        "pass": true
+      },
+      {
+        "part": "hardware_compression_spring_2",
+        "soft": false,
+        "summed_hull_overlap_mm3": 0,
+        "minimum_collision_shell_gap_mm": 26.53995179840356,
+        "pass": true
+      },
+      {
+        "part": "hardware_fixed_ring_M3_120",
+        "soft": false,
+        "summed_hull_overlap_mm3": 0,
+        "minimum_collision_shell_gap_mm": 47.31975458790845,
+        "pass": true
+      },
+      {
+        "part": "hirth_fixed",
+        "soft": false,
+        "summed_hull_overlap_mm3": 0,
+        "minimum_collision_shell_gap_mm": 32.855816949138266,
+        "pass": true
+      },
+      {
+        "part": "hardware_fixed_ring_nut_120",
+        "soft": false,
+        "summed_hull_overlap_mm3": 0,
+        "minimum_collision_shell_gap_mm": 46.93998050067989,
+        "pass": true
+      },
+      {
+        "part": "column",
+        "soft": false,
+        "summed_hull_overlap_mm3": 0,
+        "minimum_collision_shell_gap_mm": 27.664773252415948,
+        "pass": true
+      },
+      {
+        "part": "hardware_base_M5_2",
+        "soft": false,
+        "summed_hull_overlap_mm3": 0,
+        "minimum_collision_shell_gap_mm": 139.66041139194033,
+        "pass": true
+      },
+      {
+        "part": "pad_lower_jaw",
+        "soft": true,
+        "summed_hull_overlap_mm3": 8.715746785577618,
+        "minimum_collision_shell_gap_mm": 0.0,
+        "pass": true
+      },
+      {
+        "part": "cradle_lower_jaw",
+        "soft": false,
+        "summed_hull_overlap_mm3": 0.0,
+        "minimum_collision_shell_gap_mm": 0.15324391952243516,
+        "pass": true
+      },
+      {
+        "part": "hardware_moving_ring_M3_300",
+        "soft": false,
+        "summed_hull_overlap_mm3": 0,
+        "minimum_collision_shell_gap_mm": 69.88111022753709,
+        "pass": true
+      },
+      {
+        "part": "hardware_fixed_ring_M3_0",
+        "soft": false,
+        "summed_hull_overlap_mm3": 0,
+        "minimum_collision_shell_gap_mm": 54.63585702102275,
+        "pass": true
+      },
+      {
+        "part": "lock_screw_spacer",
+        "soft": false,
+        "summed_hull_overlap_mm3": 0,
+        "minimum_collision_shell_gap_mm": 39.093958804409425,
+        "pass": true
+      },
+      {
+        "part": "hardware_M8_washer_1",
+        "soft": false,
+        "summed_hull_overlap_mm3": 0,
+        "minimum_collision_shell_gap_mm": 48.043333804393214,
+        "pass": true
+      }
+    ],
+    "scope": "Collision shell comparison; visual shell residuals retained in contact_fit, soft pad overlap represents compliant contact."
+  },
+  "openings": {
+    "pass": true,
+    "ports": [
+      {
+        "name": "pair_button",
+        "bounds_pad_mm": [
+          [
+            -17.93305648530385,
+            48.323380108945,
+            8.102989818541111
+          ],
+          [
+            -8.972295131169949,
+            55.623380108945,
+            17.063751172675012
+          ]
+        ],
+        "intersections": [],
+        "pass": true
+      },
+      {
+        "name": "USB",
+        "bounds_pad_mm": [
+          [
+            -6.0,
+            42.623380108945,
+            -6.0
+          ],
+          [
+            6.0,
+            55.623380108945,
+            8.0
+          ]
+        ],
+        "intersections": [],
+        "pass": true
+      },
+      {
+        "name": "headphone",
+        "bounds_pad_mm": [
+          [
+            -23.0,
+            -23.931418015458547,
+            -4.0
+          ],
+          [
+            -16.0,
+            -18.0,
+            4.0
+          ]
+        ],
+        "intersections": [],
+        "pass": true
+      },
+      {
+        "name": "extension",
+        "bounds_pad_mm": [
+          [
+            -10.0,
+            -23.931418015458547,
+            -4.0
+          ],
+          [
+            10.0,
+            -17.0,
+            3.0
+          ]
+        ],
+        "intersections": [],
+        "pass": true
+      }
+    ]
+  },
+  "grip_back_keepout": {
+    "pass": true,
+    "sides": [
+      {
+        "side": "left",
+        "intersections": [],
+        "pass": true
+      },
+      {
+        "side": "right",
+        "intersections": [],
+        "pass": true
+      }
+    ]
+  },
+  "contact_offset_chain": {
+    "pass": true,
+    "contacts": [
+      {
+        "name": "upper",
+        "pad": "pad_upper_jaw",
+        "offsets_mm": [
+          48.62337875366211,
+          50.47338104248047
+        ],
+        "expected_fit_mm": 48.623380108945,
+        "expected_seat_mm": 50.473380108945,
+        "front_surface_to_fit_mm": 1.3552828903584668e-06,
+        "compressed_thickness_error_mm": 2.288818359286182e-06,
+        "rigid_seat_offset_error_mm": 9.335354675954477e-07,
+        "backend_ray_count": 10,
+        "backend_hit_count": 10,
+        "declared_groove_depth_mm": 1.5,
+        "pass": true,
+        "rim_declared_clearance_mm": 0.3500000000000014,
+        "scope": "Compressed pad and rigid seat STL plane coincidence. Actual shell residuals and rigid clearance are checked separately."
+      },
+      {
+        "name": "lower",
+        "pad": "pad_lower_jaw",
+        "offsets_mm": [
+          23.93141746520996,
+          25.781417846679688
+        ],
+        "expected_fit_mm": 23.931418015458547,
+        "expected_seat_mm": 25.78141801545855,
+        "front_surface_to_fit_mm": 5.502485862507456e-07,
+        "compressed_thickness_error_mm": 3.8146972647368216e-07,
+        "rigid_seat_offset_error_mm": 1.6877886110933105e-07,
+        "backend_ray_count": 2,
+        "backend_hit_count": 2,
+        "declared_groove_depth_mm": 1.5,
+        "pass": true,
+        "rim_declared_clearance_mm": 0.3500000000000014,
+        "scope": "Compressed pad and rigid seat STL plane coincidence. Actual shell residuals and rigid clearance are checked separately."
+      },
+      {
+        "name": "back",
+        "pad": "pad_back",
+        "offsets_mm": [
+          10.599062046856332,
+          12.44906237049591
+        ],
+        "expected_fit_mm": 10.59906236248381,
+        "expected_seat_mm": 12.44906236248381,
+        "front_surface_to_fit_mm": 2.2978988489796848e-07,
+        "compressed_thickness_error_mm": 3.236395769157241e-07,
+        "rigid_seat_offset_error_mm": 1.8881938856907254e-07,
+        "backend_ray_count": 2,
+        "backend_hit_count": 2,
+        "declared_groove_depth_mm": 1.5,
+        "pass": true,
+        "rim_declared_clearance_mm": 0.34999999999999964,
+        "scope": "Compressed pad and rigid seat STL plane coincidence. Actual shell residuals and rigid clearance are checked separately."
+      }
+    ],
+    "rear_frame_junction": {
+      "bounds_pad_mm": [
+        [
+          -20,
+          11.7719835835463,
+          -24.5
+        ],
+        [
+          20,
+          12.7719835835463,
+          -23.5
+        ]
+      ],
+      "local_material_volume_mm3": 30.098937856387238,
+      "connected_components": 1,
+      "pass": true,
+      "scope": "Actual exported solid clipped around the waived open concave edge; positive connected material excludes a detached thin fin or two disconnected parts at this junction."
+    }
+  },
+  "visual_contact_clearance": {
+    "pass": true,
+    "contacts": [
+      {
+        "contact": "upper",
+        "visual_samples": 1863,
+        "rigid_ray_hits": 1064,
+        "minimum_normal_clearance_mm": 0.333398878409362,
+        "pass": true,
+        "note": "Measured against upstream visual triangles, not merely against the fitted plane. Ports/unsupported samples with no fixture hit do not create false rigid contact."
+      },
+      {
+        "contact": "lower",
+        "visual_samples": 5085,
+        "rigid_ray_hits": 5085,
+        "minimum_normal_clearance_mm": 0.34999486469877183,
+        "pass": true,
+        "note": "Measured against upstream visual triangles, not merely against the fitted plane. Ports/unsupported samples with no fixture hit do not create false rigid contact."
+      },
+      {
+        "contact": "back",
+        "visual_samples": 4005,
+        "rigid_ray_hits": 3918,
+        "minimum_normal_clearance_mm": 0.27965040476127745,
+        "pass": true,
+        "note": "Measured against upstream visual triangles, not merely against the fitted plane. Ports/unsupported samples with no fixture hit do not create false rigid contact."
+      }
+    ],
+    "minimum_requested_clearance_mm": 0.25
+  },
+  "cut_audit": {
+    "pass": true,
+    "cuts": [
+      {
+        "part": "base_printed",
+        "name": "top_insert",
+        "removed_mesh": "cuts/base_printed_000_top_insert.stl",
+        "measured_removed_volume_mm3": 289.4092648531479,
+        "before_minus_after_mm3": 289.5291789547773,
+        "volume_error_mm3": 0.11991410162943339,
+        "allowed_bounds_error_mm": 7.629394538355427e-07,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "base_printed",
+        "name": "top_insert",
+        "removed_mesh": "cuts/base_printed_001_top_insert.stl",
+        "measured_removed_volume_mm3": 289.40901972448324,
+        "before_minus_after_mm3": 289.5291789548355,
+        "volume_error_mm3": 0.1201592303522716,
+        "allowed_bounds_error_mm": 7.629394538355427e-07,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "base_printed",
+        "name": "top_insert",
+        "removed_mesh": "cuts/base_printed_002_top_insert.stl",
+        "measured_removed_volume_mm3": 289.40921457310196,
+        "before_minus_after_mm3": 289.52917895495193,
+        "volume_error_mm3": 0.11996438184996805,
+        "allowed_bounds_error_mm": 7.629394538355427e-07,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "base_printed",
+        "name": "top_insert",
+        "removed_mesh": "cuts/base_printed_003_top_insert.stl",
+        "measured_removed_volume_mm3": 289.40919978661634,
+        "before_minus_after_mm3": 289.5291789546027,
+        "volume_error_mm3": 0.11997916798634378,
+        "allowed_bounds_error_mm": 7.629394538355427e-07,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "column",
+        "name": "top_down_M5",
+        "removed_mesh": "cuts/column_004_top_down_M5.stl",
+        "measured_removed_volume_mm3": 189.9875045908693,
+        "before_minus_after_mm3": 190.06635554219247,
+        "volume_error_mm3": 0.07885095132317588,
+        "allowed_bounds_error_mm": 0.0,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "column",
+        "name": "top_down_M5",
+        "removed_mesh": "cuts/column_005_top_down_M5.stl",
+        "measured_removed_volume_mm3": 189.98759581411844,
+        "before_minus_after_mm3": 190.06635554219247,
+        "volume_error_mm3": 0.07875972807403286,
+        "allowed_bounds_error_mm": 0.0,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "column",
+        "name": "top_down_M5",
+        "removed_mesh": "cuts/column_006_top_down_M5.stl",
+        "measured_removed_volume_mm3": 189.98750307134216,
+        "before_minus_after_mm3": 190.06635554219247,
+        "volume_error_mm3": 0.07885247085030755,
+        "allowed_bounds_error_mm": 0.0,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "column",
+        "name": "top_down_M5",
+        "removed_mesh": "cuts/column_007_top_down_M5.stl",
+        "measured_removed_volume_mm3": 189.98764575708512,
+        "before_minus_after_mm3": 190.06635554222157,
+        "volume_error_mm3": 0.07870978513645355,
+        "allowed_bounds_error_mm": 0.0,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "column",
+        "name": "left_axis",
+        "removed_mesh": "cuts/column_008_left_axis.stl",
+        "measured_removed_volume_mm3": 464.5117739724228,
+        "before_minus_after_mm3": 464.7043853189971,
+        "volume_error_mm3": 0.19261134657426737,
+        "allowed_bounds_error_mm": 0.0,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "column",
+        "name": "right_sliding_sleeve",
+        "removed_mesh": "cuts/column_009_right_sliding_sleeve.stl",
+        "measured_removed_volume_mm3": 981.3410006321501,
+        "before_minus_after_mm3": 981.7477042466926,
+        "volume_error_mm3": 0.4067036145424936,
+        "allowed_bounds_error_mm": 0.0,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "column",
+        "name": "fixed_ring_M3",
+        "removed_mesh": "cuts/column_010_fixed_ring_M3.stl",
+        "measured_removed_volume_mm3": 64.31317794776987,
+        "before_minus_after_mm3": 64.33981754555134,
+        "volume_error_mm3": 0.026639597781468183,
+        "allowed_bounds_error_mm": 0.0,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "column",
+        "name": "fixed_ring_nut",
+        "removed_mesh": "cuts/column_011_fixed_ring_nut.stl",
+        "measured_removed_volume_mm3": 61.17238693372051,
+        "before_minus_after_mm3": 61.16279043123359,
+        "volume_error_mm3": 0.009596502486921565,
+        "allowed_bounds_error_mm": 1.5439477465406526e-06,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "column",
+        "name": "fixed_ring_M3",
+        "removed_mesh": "cuts/column_012_fixed_ring_M3.stl",
+        "measured_removed_volume_mm3": 64.31314422958532,
+        "before_minus_after_mm3": 64.33981754546403,
+        "volume_error_mm3": 0.02667331587871047,
+        "allowed_bounds_error_mm": 0.0,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "column",
+        "name": "fixed_ring_nut",
+        "removed_mesh": "cuts/column_013_fixed_ring_nut.stl",
+        "measured_removed_volume_mm3": 61.17252748302753,
+        "before_minus_after_mm3": 61.16279043126269,
+        "volume_error_mm3": 0.00973705176483719,
+        "allowed_bounds_error_mm": 3.4154203092384705e-06,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "column",
+        "name": "fixed_ring_M3",
+        "removed_mesh": "cuts/column_014_fixed_ring_M3.stl",
+        "measured_removed_volume_mm3": 64.31315955612808,
+        "before_minus_after_mm3": 64.33981754546403,
+        "volume_error_mm3": 0.026657989335944876,
+        "allowed_bounds_error_mm": 0.0,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "column",
+        "name": "fixed_ring_nut",
+        "removed_mesh": "cuts/column_015_fixed_ring_nut.stl",
+        "measured_removed_volume_mm3": 61.17245776392317,
+        "before_minus_after_mm3": 61.1627904313209,
+        "volume_error_mm3": 0.009667332602269596,
+        "allowed_bounds_error_mm": 1.5439477678569347e-06,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "hirth_fixed",
+        "name": "M8_axis",
+        "removed_mesh": "cuts/hirth_fixed_016_M8_axis.stl",
+        "measured_removed_volume_mm3": 232.25588657229673,
+        "before_minus_after_mm3": 232.35219265953128,
+        "volume_error_mm3": 0.09630608723455225,
+        "allowed_bounds_error_mm": 0.0,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "hirth_fixed",
+        "name": "M3_mount",
+        "removed_mesh": "cuts/hirth_fixed_017_M3_mount.stl",
+        "measured_removed_volume_mm3": 36.301768055476714,
+        "before_minus_after_mm3": 36.31681107552504,
+        "volume_error_mm3": 0.015043020048324252,
+        "allowed_bounds_error_mm": 1.0348001353577274e-06,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "hirth_fixed",
+        "name": "M3_mount",
+        "removed_mesh": "cuts/hirth_fixed_018_M3_mount.stl",
+        "measured_removed_volume_mm3": 36.30175719381078,
+        "before_minus_after_mm3": 36.31681107550321,
+        "volume_error_mm3": 0.015053881692431048,
+        "allowed_bounds_error_mm": 2.4134165244049655e-06,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "hirth_fixed",
+        "name": "M3_mount",
+        "removed_mesh": "cuts/hirth_fixed_019_M3_mount.stl",
+        "measured_removed_volume_mm3": 36.3017662234488,
+        "before_minus_after_mm3": 36.3168110754832,
+        "volume_error_mm3": 0.01504485203439998,
+        "allowed_bounds_error_mm": 1.8696951542551687e-06,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "hirth_fixed",
+        "name": "index_groove",
+        "removed_mesh": "cuts/hirth_fixed_020_index_groove.stl",
+        "measured_removed_volume_mm3": 3.7410377407171085,
+        "before_minus_after_mm3": 3.741576705375337,
+        "volume_error_mm3": 0.0005389646582285579,
+        "allowed_bounds_error_mm": 0.0,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "hirth_fixed",
+        "name": "index_groove",
+        "removed_mesh": "cuts/hirth_fixed_021_index_groove.stl",
+        "measured_removed_volume_mm3": 3.7410241227528456,
+        "before_minus_after_mm3": 3.741576705393527,
+        "volume_error_mm3": 0.000552582640681365,
+        "allowed_bounds_error_mm": 7.44870632729544e-07,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "hirth_fixed",
+        "name": "index_groove",
+        "removed_mesh": "cuts/hirth_fixed_022_index_groove.stl",
+        "measured_removed_volume_mm3": 3.7410377407171103,
+        "before_minus_after_mm3": 3.74157670535169,
+        "volume_error_mm3": 0.0005389646345799193,
+        "allowed_bounds_error_mm": 0.0,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "hirth_moving",
+        "name": "M8_axis",
+        "removed_mesh": "cuts/hirth_moving_023_M8_axis.stl",
+        "measured_removed_volume_mm3": 174.19191492922255,
+        "before_minus_after_mm3": 174.26414449460935,
+        "volume_error_mm3": 0.07222956538680592,
+        "allowed_bounds_error_mm": 0.0,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "hirth_moving",
+        "name": "M3_mount",
+        "removed_mesh": "cuts/hirth_moving_024_M3_mount.stl",
+        "measured_removed_volume_mm3": 27.22631789535808,
+        "before_minus_after_mm3": 27.237608306564653,
+        "volume_error_mm3": 0.01129041120657348,
+        "allowed_bounds_error_mm": 2.4134165244049655e-06,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "hirth_moving",
+        "name": "M3_mount",
+        "removed_mesh": "cuts/hirth_moving_025_M3_mount.stl",
+        "measured_removed_volume_mm3": 27.226326041607535,
+        "before_minus_after_mm3": 27.237608306619222,
+        "volume_error_mm3": 0.011282265011686832,
+        "allowed_bounds_error_mm": 1.0348001353577274e-06,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "hirth_moving",
+        "name": "M3_mount",
+        "removed_mesh": "cuts/hirth_moving_026_M3_mount.stl",
+        "measured_removed_volume_mm3": 27.226324667586596,
+        "before_minus_after_mm3": 27.237608306651964,
+        "volume_error_mm3": 0.011283639065368334,
+        "allowed_bounds_error_mm": 1.8696951542551687e-06,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "hirth_moving",
+        "name": "alignment_groove",
+        "removed_mesh": "cuts/hirth_moving_027_alignment_groove.stl",
+        "measured_removed_volume_mm3": 3.741024122752843,
+        "before_minus_after_mm3": 3.741576705378975,
+        "volume_error_mm3": 0.0005525826261321143,
+        "allowed_bounds_error_mm": 7.44870632729544e-07,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "cradle_lower_jaw",
+        "name": "frame_window",
+        "removed_mesh": "cuts/cradle_lower_jaw_028_frame_window.stl",
+        "measured_removed_volume_mm3": 15840.0,
+        "before_minus_after_mm3": 15840.0,
+        "volume_error_mm3": 0.0,
+        "allowed_bounds_error_mm": 0.0,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "cradle_lower_jaw",
+        "name": "back_pad_pocket",
+        "removed_mesh": "cuts/cradle_lower_jaw_029_back_pad_pocket.stl",
+        "measured_removed_volume_mm3": 1199.9998080402113,
+        "before_minus_after_mm3": 1199.9999999999982,
+        "volume_error_mm3": 0.00019195978688912874,
+        "allowed_bounds_error_mm": 1.0238057335243411e-07,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "cradle_lower_jaw",
+        "name": "lower_pad_pocket",
+        "removed_mesh": "cuts/cradle_lower_jaw_030_lower_pad_pocket.stl",
+        "measured_removed_volume_mm3": 1716.0,
+        "before_minus_after_mm3": 1716.0,
+        "volume_error_mm3": 0.0,
+        "allowed_bounds_error_mm": 0.0,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "cradle_lower_jaw",
+        "name": "thumb_channel_retreat",
+        "removed_mesh": "cuts/cradle_lower_jaw_031_thumb_channel_retreat.stl",
+        "measured_removed_volume_mm3": 143.99999999999997,
+        "before_minus_after_mm3": 144.0,
+        "volume_error_mm3": 2.842170943040401e-14,
+        "allowed_bounds_error_mm": 0.0,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "cradle_lower_jaw",
+        "name": "thumb_channel_retreat",
+        "removed_mesh": "cuts/cradle_lower_jaw_032_thumb_channel_retreat.stl",
+        "measured_removed_volume_mm3": 144.00000000000006,
+        "before_minus_after_mm3": 143.99999999999636,
+        "volume_error_mm3": 3.694822225952521e-12,
+        "allowed_bounds_error_mm": 0.0,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "cradle_lower_jaw",
+        "name": "M8_axis",
+        "removed_mesh": "cuts/cradle_lower_jaw_033_M8_axis.stl",
+        "measured_removed_volume_mm3": 1045.1514895753353,
+        "before_minus_after_mm3": 1045.5848669677653,
+        "volume_error_mm3": 0.43337739242997486,
+        "allowed_bounds_error_mm": 0.0,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "cradle_lower_jaw",
+        "name": "moving_ring_M3",
+        "removed_mesh": "cuts/cradle_lower_jaw_034_moving_ring_M3.stl",
+        "measured_removed_volume_mm3": 144.70459419570398,
+        "before_minus_after_mm3": 144.76458947738865,
+        "volume_error_mm3": 0.05999528168467805,
+        "allowed_bounds_error_mm": 6.383412909372055e-07,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "cradle_lower_jaw",
+        "name": "moving_ring_nut",
+        "removed_mesh": "cuts/cradle_lower_jaw_035_moving_ring_nut.stl",
+        "measured_removed_volume_mm3": 61.17253437089213,
+        "before_minus_after_mm3": 61.162790431350004,
+        "volume_error_mm3": 0.009743939542126157,
+        "allowed_bounds_error_mm": 3.4154203518710347e-06,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "cradle_lower_jaw",
+        "name": "moving_ring_M3",
+        "removed_mesh": "cuts/cradle_lower_jaw_036_moving_ring_M3.stl",
+        "measured_removed_volume_mm3": 144.70461778552271,
+        "before_minus_after_mm3": 144.7645894774323,
+        "volume_error_mm3": 0.05997169190959539,
+        "allowed_bounds_error_mm": 2.5606790501342402e-06,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "cradle_lower_jaw",
+        "name": "moving_ring_nut",
+        "removed_mesh": "cuts/cradle_lower_jaw_037_moving_ring_nut.stl",
+        "measured_removed_volume_mm3": 61.17240224382243,
+        "before_minus_after_mm3": 61.16279043133545,
+        "volume_error_mm3": 0.009611812486980398,
+        "allowed_bounds_error_mm": 1.5439477252243705e-06,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "cradle_lower_jaw",
+        "name": "moving_ring_M3",
+        "removed_mesh": "cuts/cradle_lower_jaw_038_moving_ring_M3.stl",
+        "measured_removed_volume_mm3": 144.70456501829904,
+        "before_minus_after_mm3": 144.7645894774323,
+        "volume_error_mm3": 0.06002445913327392,
+        "allowed_bounds_error_mm": 3.3955740690316816e-06,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "cradle_lower_jaw",
+        "name": "moving_ring_nut",
+        "removed_mesh": "cuts/cradle_lower_jaw_039_moving_ring_nut.stl",
+        "measured_removed_volume_mm3": 61.17247490845259,
+        "before_minus_after_mm3": 61.16279043130635,
+        "volume_error_mm3": 0.009684477146244319,
+        "allowed_bounds_error_mm": 1.5439477252243705e-06,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "cradle_lower_jaw",
+        "name": "guide_socket",
+        "removed_mesh": "cuts/cradle_lower_jaw_040_guide_socket.stl",
+        "measured_removed_volume_mm3": 187.0681367056247,
+        "before_minus_after_mm3": 187.145656122113,
+        "volume_error_mm3": 0.0775194164882862,
+        "allowed_bounds_error_mm": 3.814697286941282e-07,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "cradle_lower_jaw",
+        "name": "guide_socket",
+        "removed_mesh": "cuts/cradle_lower_jaw_041_guide_socket.stl",
+        "measured_removed_volume_mm3": 187.0681367056247,
+        "before_minus_after_mm3": 187.14565612204024,
+        "volume_error_mm3": 0.07751941641552662,
+        "allowed_bounds_error_mm": 3.814697286941282e-07,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "cradle_lower_jaw",
+        "name": "cap_insert",
+        "removed_mesh": "cuts/cradle_lower_jaw_042_cap_insert.stl",
+        "measured_removed_volume_mm3": 79.18241501168814,
+        "before_minus_after_mm3": 79.2152587602759,
+        "volume_error_mm3": 0.03284374858776573,
+        "allowed_bounds_error_mm": 0.0,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "cradle_lower_jaw",
+        "name": "cap_insert",
+        "removed_mesh": "cuts/cradle_lower_jaw_043_cap_insert.stl",
+        "measured_removed_volume_mm3": 79.18241501168814,
+        "before_minus_after_mm3": 79.21525876018859,
+        "volume_error_mm3": 0.03284374850045424,
+        "allowed_bounds_error_mm": 0.0,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "cradle_lower_jaw",
+        "name": "minimum_travel_collar",
+        "removed_mesh": "cuts/cradle_lower_jaw_044_minimum_travel_collar.stl",
+        "measured_removed_volume_mm3": 74.98677537570664,
+        "before_minus_after_mm3": 75.0178539933379,
+        "volume_error_mm3": 0.03107861763125186,
+        "allowed_bounds_error_mm": 0.0,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "cradle_lower_jaw",
+        "name": "minimum_travel_collar",
+        "removed_mesh": "cuts/cradle_lower_jaw_045_minimum_travel_collar.stl",
+        "measured_removed_volume_mm3": 74.98677537570664,
+        "before_minus_after_mm3": 75.01785399333788,
+        "volume_error_mm3": 0.03107861763123765,
+        "allowed_bounds_error_mm": 0.0,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "slider_upper_jaw",
+        "name": "upper_pad_pocket",
+        "removed_mesh": "cuts/slider_upper_jaw_046_upper_pad_pocket.stl",
+        "measured_removed_volume_mm3": 594.0,
+        "before_minus_after_mm3": 594.0000000000018,
+        "volume_error_mm3": 1.8189894035458565e-12,
+        "allowed_bounds_error_mm": 9.335354675954477e-07,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "slider_upper_jaw",
+        "name": "outer_corner_chamfer",
+        "removed_mesh": "cuts/slider_upper_jaw_047_outer_corner_chamfer.stl",
+        "measured_removed_volume_mm3": 8.000000000000005,
+        "before_minus_after_mm3": 7.999999999994543,
+        "volume_error_mm3": 5.46229728115577e-12,
+        "allowed_bounds_error_mm": 1.3552828903584668e-06,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "slider_upper_jaw",
+        "name": "outer_corner_chamfer",
+        "removed_mesh": "cuts/slider_upper_jaw_048_outer_corner_chamfer.stl",
+        "measured_removed_volume_mm3": 8.000000000000005,
+        "before_minus_after_mm3": 7.999999999996362,
+        "volume_error_mm3": 3.643307877609914e-12,
+        "allowed_bounds_error_mm": 1.3552828903584668e-06,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "slider_upper_jaw",
+        "name": "pair_clearance",
+        "removed_mesh": "cuts/slider_upper_jaw_049_pair_clearance.stl",
+        "measured_removed_volume_mm3": 546.8854153212669,
+        "before_minus_after_mm3": 546.8856773256884,
+        "volume_error_mm3": 0.0002620044215291273,
+        "allowed_bounds_error_mm": 0.0,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "pad_upper_jaw",
+        "name": "pair_clearance",
+        "removed_mesh": "cuts/pad_upper_jaw_050_pair_clearance.stl",
+        "measured_removed_volume_mm3": 151.97646995393734,
+        "before_minus_after_mm3": 151.97628606602052,
+        "volume_error_mm3": 0.0001838879168190033,
+        "allowed_bounds_error_mm": 0.0,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "slider_upper_jaw",
+        "name": "pair_clearance",
+        "removed_mesh": "cuts/slider_upper_jaw_051_pair_clearance.stl",
+        "measured_removed_volume_mm3": 546.8854153212669,
+        "before_minus_after_mm3": 546.8856773256903,
+        "volume_error_mm3": 0.0002620044233481167,
+        "allowed_bounds_error_mm": 0.0,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "pad_upper_jaw",
+        "name": "pair_clearance",
+        "removed_mesh": "cuts/pad_upper_jaw_052_pair_clearance.stl",
+        "measured_removed_volume_mm3": 151.97646995393734,
+        "before_minus_after_mm3": 151.97628606602046,
+        "volume_error_mm3": 0.0001838879168758467,
+        "allowed_bounds_error_mm": 0.0,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "slider_upper_jaw",
+        "name": "USB_cable_clearance",
+        "removed_mesh": "cuts/slider_upper_jaw_053_USB_cable_clearance.stl",
+        "measured_removed_volume_mm3": 1431.2994918823242,
+        "before_minus_after_mm3": 1431.2999999999938,
+        "volume_error_mm3": 0.000508117669596686,
+        "allowed_bounds_error_mm": 0.0,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "pad_upper_jaw",
+        "name": "USB_cable_clearance",
+        "removed_mesh": "cuts/pad_upper_jaw_054_USB_cable_clearance.stl",
+        "measured_removed_volume_mm3": 55.50006866455078,
+        "before_minus_after_mm3": 55.49999999999994,
+        "volume_error_mm3": 6.866455083809342e-05,
+        "allowed_bounds_error_mm": 0.0,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "slider_upper_jaw",
+        "name": "guide_slide",
+        "removed_mesh": "cuts/slider_upper_jaw_055_guide_slide.stl",
+        "measured_removed_volume_mm3": 1367.9106506604876,
+        "before_minus_after_mm3": 1368.477759903726,
+        "volume_error_mm3": 0.5671092432385194,
+        "allowed_bounds_error_mm": 1.9073486345888568e-07,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "slider_upper_jaw",
+        "name": "guide_slide",
+        "removed_mesh": "cuts/slider_upper_jaw_056_guide_slide.stl",
+        "measured_removed_volume_mm3": 1367.9106506604876,
+        "before_minus_after_mm3": 1368.4777599037043,
+        "volume_error_mm3": 0.5671092432166915,
+        "allowed_bounds_error_mm": 1.9073486345888568e-07,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "slider_upper_jaw",
+        "name": "lock_insert",
+        "removed_mesh": "cuts/slider_upper_jaw_057_lock_insert.stl",
+        "measured_removed_volume_mm3": 139.6455572419574,
+        "before_minus_after_mm3": 139.70348371247383,
+        "volume_error_mm3": 0.05792647051643485,
+        "allowed_bounds_error_mm": 4.7683715642676816e-08,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "slider_upper_jaw",
+        "name": "lock_screw",
+        "removed_mesh": "cuts/slider_upper_jaw_058_lock_screw.stl",
+        "measured_removed_volume_mm3": 157.38747404624274,
+        "before_minus_after_mm3": 157.45269680710044,
+        "volume_error_mm3": 0.06522276085769363,
+        "allowed_bounds_error_mm": 0.0,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "guide_cap",
+        "name": "frame_window",
+        "removed_mesh": "cuts/guide_cap_059_frame_window.stl",
+        "measured_removed_volume_mm3": 3432.0,
+        "before_minus_after_mm3": 3432.0,
+        "volume_error_mm3": 0.0,
+        "allowed_bounds_error_mm": 0.0,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "guide_cap",
+        "name": "guide_socket",
+        "removed_mesh": "cuts/guide_cap_060_guide_socket.stl",
+        "measured_removed_volume_mm3": 878.7539463092759,
+        "before_minus_after_mm3": 879.1181960715276,
+        "volume_error_mm3": 0.3642497622516885,
+        "allowed_bounds_error_mm": 0.0,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "guide_cap",
+        "name": "guide_socket",
+        "removed_mesh": "cuts/guide_cap_061_guide_socket.stl",
+        "measured_removed_volume_mm3": 878.7539463092759,
+        "before_minus_after_mm3": 879.1181960715294,
+        "volume_error_mm3": 0.36424976225350747,
+        "allowed_bounds_error_mm": 0.0,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "guide_cap",
+        "name": "M3_cap_screw",
+        "removed_mesh": "cuts/guide_cap_062_M3_cap_screw.stl",
+        "measured_removed_volume_mm3": 192.3428359063109,
+        "before_minus_after_mm3": 192.4225500323755,
+        "volume_error_mm3": 0.07971412606460149,
+        "allowed_bounds_error_mm": 0.0,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "guide_cap",
+        "name": "M3_cap_screw",
+        "removed_mesh": "cuts/guide_cap_063_M3_cap_screw.stl",
+        "measured_removed_volume_mm3": 192.3428359063109,
+        "before_minus_after_mm3": 192.4225500323755,
+        "volume_error_mm3": 0.07971412606460149,
+        "allowed_bounds_error_mm": 0.0,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "lock_screw_spacer",
+        "name": "M4_clearance",
+        "removed_mesh": "cuts/lock_screw_spacer_064_M4_clearance.stl",
+        "measured_removed_volume_mm3": 47.6931666024981,
+        "before_minus_after_mm3": 47.712938426395,
+        "volume_error_mm3": 0.019771823896896024,
+        "allowed_bounds_error_mm": 0.0,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "M8_hand_knob",
+        "name": "M8_axis",
+        "removed_mesh": "cuts/M8_hand_knob_065_M8_axis.stl",
+        "measured_removed_volume_mm3": 907.5440134257078,
+        "before_minus_after_mm3": 907.9202768874457,
+        "volume_error_mm3": 0.3762634617378353,
+        "allowed_bounds_error_mm": 3.5428365805501016e-06,
+        "unexpected_parts": [],
+        "pass": true
+      },
+      {
+        "part": "M8_hand_knob",
+        "name": "M8_nut",
+        "removed_mesh": "cuts/M8_hand_knob_066_M8_nut.stl",
+        "measured_removed_volume_mm3": 665.6416215441801,
+        "before_minus_after_mm3": 665.4788929527567,
+        "volume_error_mm3": 0.16272859142338802,
+        "allowed_bounds_error_mm": 2.2202031146889567e-06,
+        "unexpected_parts": [],
+        "pass": true
+      }
+    ],
+    "protected_upright_root_cut_intersections": [],
+    "scope": "Removed STL bounds and volume versus per-cut intention, plus independently defined root keepout. Tool-envelope agreement alone cannot certify design intention."
+  },
+  "structural_symmetry_and_ribs": {
+    "pass": true,
+    "parts": [
+      {
+        "part": "base_printed",
+        "raw_asymmetry_volume_mm3": 0.7244387688401305,
+        "unwaived_asymmetry_volume_mm3": 0.7244387688401305,
+        "maximum_mirrored_surface_distance_mm": 0.0026561487229234096,
+        "mesh_tessellation_tolerance_mm": 0.06,
+        "checked_points": 2288,
+        "waivers": [],
+        "pass": true
+      },
+      {
+        "part": "column",
+        "raw_asymmetry_volume_mm3": 1785.9312749878577,
+        "unwaived_asymmetry_volume_mm3": 0.9498973874438137,
+        "maximum_mirrored_surface_distance_mm": 0.0011438868426157614,
+        "mesh_tessellation_tolerance_mm": 0.06,
+        "checked_points": 2703,
+        "waivers": [
+          {
+            "reason": "Functional single-side fastener/axis fit: left toothed-ring locator versus right sliding double-shear sleeve; outer structural load path remains mirror symmetric.",
+            "volume_mm3": 136.03039137017922,
+            "bounds_pad_mm": [
+              [
+                -29.03,
+                -52.040678118654796,
+                -85.18670062535608
+              ],
+              [
+                -20.97,
+                -43.3806781186548,
+                -76.52670062535609
+              ]
+            ]
+          },
+          {
+            "reason": "Functional single-side fastener/axis fit: left toothed-ring locator versus right sliding double-shear sleeve; outer structural load path remains mirror symmetric.",
+            "volume_mm3": 136.03039137017905,
+            "bounds_pad_mm": [
+              [
+                20.97,
+                -52.040678118654796,
+                -85.18670062535608
+              ],
+              [
+                29.03,
+                -43.3806781186548,
+                -76.52670062535609
+              ]
+            ]
+          },
+          {
+            "reason": "Functional single-side fastener/axis fit: left toothed-ring locator versus right sliding double-shear sleeve; outer structural load path remains mirror symmetric.",
+            "volume_mm3": 380.15635150321765,
+            "bounds_pad_mm": [
+              [
+                20.97,
+                -53.9906781186548,
+                -87.13670062535608
+              ],
+              [
+                29.03,
+                -41.4306781186548,
+                -74.57670062535608
+              ]
+            ]
+          },
+          {
+            "reason": "Functional single-side fastener/axis fit: left toothed-ring locator versus right sliding double-shear sleeve; outer structural load path remains mirror symmetric.",
+            "volume_mm3": 380.1563515032176,
+            "bounds_pad_mm": [
+              [
+                -29.03,
+                -53.9906781186548,
+                -87.13670062535608
+              ],
+              [
+                -20.97,
+                -41.4306781186548,
+                -74.57670062535608
+              ]
+            ]
+          },
+          {
+            "reason": "Functional single-side fastener/axis fit: left toothed-ring locator versus right sliding double-shear sleeve; outer structural load path remains mirror symmetric.",
+            "volume_mm3": 71.76876367569531,
+            "bounds_pad_mm": [
+              [
+                -29.03,
+                -37.340678118654786,
+                -82.48670062535606
+              ],
+              [
+                -20.97,
+                -34.08067811865478,
+                -79.22670062535607
+              ]
+            ]
+          },
+          {
+            "reason": "Functional single-side fastener/axis fit: left toothed-ring locator versus right sliding double-shear sleeve; outer structural load path remains mirror symmetric.",
+            "volume_mm3": 71.76876367569533,
+            "bounds_pad_mm": [
+              [
+                20.97,
+                -37.340678118654786,
+                -82.48670062535606
+              ],
+              [
+                29.03,
+                -34.08067811865478,
+                -79.22670062535607
+              ]
+            ]
+          },
+          {
+            "reason": "Functional single-side fastener/axis fit: left toothed-ring locator versus right sliding double-shear sleeve; outer structural load path remains mirror symmetric.",
+            "volume_mm3": 53.665834535349845,
+            "bounds_pad_mm": [
+              [
+                -29.03,
+                -38.64067811865478,
+                -84.23533218665591
+              ],
+              [
+                -26.07,
+                -32.78067811865478,
+                -77.47806906405623
+              ]
+            ]
+          },
+          {
+            "reason": "Functional single-side fastener/axis fit: left toothed-ring locator versus right sliding double-shear sleeve; outer structural load path remains mirror symmetric.",
+            "volume_mm3": 53.66583453534986,
+            "bounds_pad_mm": [
+              [
+                26.07,
+                -38.64067811865478,
+                -84.23533218665591
+              ],
+              [
+                29.03,
+                -32.78067811865478,
+                -77.47806906405623
+              ]
+            ]
+          },
+          {
+            "reason": "Functional single-side fastener/axis fit: left toothed-ring locator versus right sliding double-shear sleeve; outer structural load path remains mirror symmetric.",
+            "volume_mm3": 71.76871923447904,
+            "bounds_pad_mm": [
+              [
+                -29.03,
+                -55.340678118654786,
+                -72.0943957799428
+              ],
+              [
+                -20.97,
+                -52.08067811865478,
+                -68.83439577994281
+              ]
+            ]
+          },
+          {
+            "reason": "Functional single-side fastener/axis fit: left toothed-ring locator versus right sliding double-shear sleeve; outer structural load path remains mirror symmetric.",
+            "volume_mm3": 71.76871923447902,
+            "bounds_pad_mm": [
+              [
+                20.97,
+                -55.340678118654786,
+                -72.0943957799428
+              ],
+              [
+                29.03,
+                -52.08067811865478,
+                -68.83439577994281
+              ]
+            ]
+          },
+          {
+            "reason": "Functional single-side fastener/axis fit: left toothed-ring locator versus right sliding double-shear sleeve; outer structural load path remains mirror symmetric.",
+            "volume_mm3": 53.66596286181657,
+            "bounds_pad_mm": [
+              [
+                -29.03,
+                -56.64067811865478,
+                -73.84302734124265
+              ],
+              [
+                -26.07,
+                -50.780678118654755,
+                -67.08576421864296
+              ]
+            ]
+          },
+          {
+            "reason": "Functional single-side fastener/axis fit: left toothed-ring locator versus right sliding double-shear sleeve; outer structural load path remains mirror symmetric.",
+            "volume_mm3": 53.665962861816546,
+            "bounds_pad_mm": [
+              [
+                26.07,
+                -56.64067811865478,
+                -73.84302734124265
+              ],
+              [
+                29.03,
+                -50.780678118654755,
+                -67.08576421864296
+              ]
+            ]
+          },
+          {
+            "reason": "Functional single-side fastener/axis fit: left toothed-ring locator versus right sliding double-shear sleeve; outer structural load path remains mirror symmetric.",
+            "volume_mm3": 71.76876692088473,
+            "bounds_pad_mm": [
+              [
+                -29.03,
+                -55.3406781186548,
+                -92.87900547076934
+              ],
+              [
+                -20.97,
+                -52.080678118654795,
+                -89.61900547076935
+              ]
+            ]
+          },
+          {
+            "reason": "Functional single-side fastener/axis fit: left toothed-ring locator versus right sliding double-shear sleeve; outer structural load path remains mirror symmetric.",
+            "volume_mm3": 71.76876692088472,
+            "bounds_pad_mm": [
+              [
+                20.97,
+                -55.3406781186548,
+                -92.87900547076934
+              ],
+              [
+                29.03,
+                -52.080678118654795,
+                -89.61900547076935
+              ]
+            ]
+          },
+          {
+            "reason": "Functional single-side fastener/axis fit: left toothed-ring locator versus right sliding double-shear sleeve; outer structural load path remains mirror symmetric.",
+            "volume_mm3": 53.66589869858321,
+            "bounds_pad_mm": [
+              [
+                -29.03,
+                -56.6406781186548,
+                -94.62763703206917
+              ],
+              [
+                -26.07,
+                -50.78067811865478,
+                -87.87037390946949
+              ]
+            ]
+          },
+          {
+            "reason": "Functional single-side fastener/axis fit: left toothed-ring locator versus right sliding double-shear sleeve; outer structural load path remains mirror symmetric.",
+            "volume_mm3": 53.6658986985832,
+            "bounds_pad_mm": [
+              [
+                26.07,
+                -56.6406781186548,
+                -94.62763703206917
+              ],
+              [
+                29.03,
+                -50.78067811865478,
+                -87.87037390946949
+              ]
+            ]
+          }
+        ],
+        "pass": true
+      },
+      {
+        "part": "cradle_lower_jaw",
+        "raw_asymmetry_volume_mm3": 367.03482902557374,
+        "unwaived_asymmetry_volume_mm3": 5.979239489306565e-06,
+        "maximum_mirrored_surface_distance_mm": 1.3589180177024955e-07,
+        "mesh_tessellation_tolerance_mm": 0.06,
+        "checked_points": 6560,
+        "waivers": [
+          {
+            "reason": "Functional single-side fastener/axis fit: left toothed-ring locator versus right sliding double-shear sleeve; outer structural load path remains mirror symmetric.",
+            "volume_mm3": 15.013125369924662,
+            "bounds_pad_mm": [
+              [
+                -9.030000000000001,
+                -43.34067811865476,
+                -72.09439577994284
+              ],
+              [
+                9.03,
+                -40.08067811865475,
+                -68.83439577994285
+              ]
+            ]
+          },
+          {
+            "reason": "Functional single-side fastener/axis fit: left toothed-ring locator versus right sliding double-shear sleeve; outer structural load path remains mirror symmetric.",
+            "volume_mm3": 0.0,
+            "bounds_pad_mm": [
+              [
+                -9.03,
+                -43.34067811865476,
+                -72.09439577994284
+              ],
+              [
+                9.030000000000001,
+                -40.08067811865475,
+                -68.83439577994285
+              ]
+            ]
+          },
+          {
+            "reason": "Functional single-side fastener/axis fit: left toothed-ring locator versus right sliding double-shear sleeve; outer structural load path remains mirror symmetric.",
+            "volume_mm3": 53.665971685929804,
+            "bounds_pad_mm": [
+              [
+                6.0699999999999985,
+                -44.64067811865476,
+                -73.84302734124269
+              ],
+              [
+                9.03,
+                -38.78067811865475,
+                -67.085764218643
+              ]
+            ]
+          },
+          {
+            "reason": "Functional single-side fastener/axis fit: left toothed-ring locator versus right sliding double-shear sleeve; outer structural load path remains mirror symmetric.",
+            "volume_mm3": 53.66597168592981,
+            "bounds_pad_mm": [
+              [
+                -9.03,
+                -44.64067811865476,
+                -73.84302734124269
+              ],
+              [
+                -6.0699999999999985,
+                -38.78067811865475,
+                -67.085764218643
+              ]
+            ]
+          },
+          {
+            "reason": "Functional single-side fastener/axis fit: left toothed-ring locator versus right sliding double-shear sleeve; outer structural load path remains mirror symmetric.",
+            "volume_mm3": 15.013117768760635,
+            "bounds_pad_mm": [
+              [
+                -9.03,
+                -61.34067811865476,
+                -82.48670062535611
+              ],
+              [
+                9.03,
+                -58.08067811865475,
+                -79.22670062535612
+              ]
+            ]
+          },
+          {
+            "reason": "Functional single-side fastener/axis fit: left toothed-ring locator versus right sliding double-shear sleeve; outer structural load path remains mirror symmetric.",
+            "volume_mm3": 0.0,
+            "bounds_pad_mm": [
+              [
+                -9.03,
+                -61.34067811865476,
+                -82.48670062535611
+              ],
+              [
+                9.03,
+                -58.08067811865475,
+                -79.22670062535612
+              ]
+            ]
+          },
+          {
+            "reason": "Functional single-side fastener/axis fit: left toothed-ring locator versus right sliding double-shear sleeve; outer structural load path remains mirror symmetric.",
+            "volume_mm3": 53.66584335944214,
+            "bounds_pad_mm": [
+              [
+                6.0699999999999985,
+                -62.64067811865476,
+                -84.23533218665595
+              ],
+              [
+                9.03,
+                -56.780678118654755,
+                -77.47806906405627
+              ]
+            ]
+          },
+          {
+            "reason": "Functional single-side fastener/axis fit: left toothed-ring locator versus right sliding double-shear sleeve; outer structural load path remains mirror symmetric.",
+            "volume_mm3": 53.665843359442086,
+            "bounds_pad_mm": [
+              [
+                -9.03,
+                -62.64067811865476,
+                -84.23533218665595
+              ],
+              [
+                -6.0699999999999985,
+                -56.780678118654755,
+                -77.47806906405627
+              ]
+            ]
+          },
+          {
+            "reason": "Functional single-side fastener/axis fit: left toothed-ring locator versus right sliding double-shear sleeve; outer structural load path remains mirror symmetric.",
+            "volume_mm3": 15.013134771533347,
+            "bounds_pad_mm": [
+              [
+                -9.029999999999998,
+                -43.34067811865476,
+                -92.87900547076937
+              ],
+              [
+                9.03,
+                -40.08067811865475,
+                -89.61900547076938
+              ]
+            ]
+          },
+          {
+            "reason": "Functional single-side fastener/axis fit: left toothed-ring locator versus right sliding double-shear sleeve; outer structural load path remains mirror symmetric.",
+            "volume_mm3": 0.0,
+            "bounds_pad_mm": [
+              [
+                -9.03,
+                -43.34067811865476,
+                -92.87900547076937
+              ],
+              [
+                9.029999999999998,
+                -40.08067811865475,
+                -89.61900547076938
+              ]
+            ]
+          },
+          {
+            "reason": "Functional single-side fastener/axis fit: left toothed-ring locator versus right sliding double-shear sleeve; outer structural load path remains mirror symmetric.",
+            "volume_mm3": 53.66590752268595,
+            "bounds_pad_mm": [
+              [
+                6.069999999999998,
+                -44.64067811865476,
+                -94.62763703206922
+              ],
+              [
+                9.030000000000003,
+                -38.78067811865475,
+                -87.87037390946954
+              ]
+            ]
+          },
+          {
+            "reason": "Functional single-side fastener/axis fit: left toothed-ring locator versus right sliding double-shear sleeve; outer structural load path remains mirror symmetric.",
+            "volume_mm3": 53.665907522685956,
+            "bounds_pad_mm": [
+              [
+                -9.030000000000003,
+                -44.64067811865476,
+                -94.62763703206922
+              ],
+              [
+                -6.069999999999998,
+                -38.78067811865475,
+                -87.87037390946954
+              ]
+            ]
+          }
+        ],
+        "pass": true
+      },
+      {
+        "part": "slider_upper_jaw",
+        "raw_asymmetry_volume_mm3": 3.767732280448255,
+        "unwaived_asymmetry_volume_mm3": 3.767732280448255,
+        "maximum_mirrored_surface_distance_mm": 0.003356456756591797,
+        "mesh_tessellation_tolerance_mm": 0.06,
+        "checked_points": 1760,
+        "waivers": [],
+        "pass": true
+      },
+      {
+        "part": "guide_cap",
+        "raw_asymmetry_volume_mm3": 4.5282821956562564,
+        "unwaived_asymmetry_volume_mm3": 4.5282821956562564,
+        "maximum_mirrored_surface_distance_mm": 0.005097637505418792,
+        "mesh_tessellation_tolerance_mm": 0.06,
+        "checked_points": 2698,
+        "waivers": [],
+        "pass": true
+      }
+    ],
+    "ribs": [
+      {
+        "side": -1,
+        "bounds_base_mm": [
+          [
+            -24.0,
+            -54.0,
+            23.75
+          ],
+          [
+            -18.0,
+            -6.0,
+            59.75
+          ]
+        ],
+        "actual_material_mm3": 7919.999510447029,
+        "load_plane_mismatch_deg": 0.0,
+        "thin_axis": 0,
+        "actual_volume_principal_plane_normal_base": [
+          1.0,
+          6.777485969041236e-11,
+          -1.5056320226703359e-09
+        ],
+        "actual_load_plane_mismatch_deg": 0.0,
+        "actual_thickness_to_in_plane_variance_ratio": 0.028972120142912224,
+        "pass": true
+      },
+      {
+        "side": 1,
+        "bounds_base_mm": [
+          [
+            18.0,
+            -54.0,
+            23.75
+          ],
+          [
+            24.0,
+            -6.0,
+            59.75
+          ]
+        ],
+        "actual_material_mm3": 7919.999510447029,
+        "load_plane_mismatch_deg": 0.0,
+        "thin_axis": 0,
+        "actual_volume_principal_plane_normal_base": [
+          1.0,
+          -6.777774568738309e-11,
+          1.5056367006929445e-09
+        ],
+        "actual_load_plane_mismatch_deg": 0.0,
+        "actual_thickness_to_in_plane_variance_ratio": 0.0289721201429079,
+        "pass": true
+      }
+    ]
+  },
+  "mounting_band": {
+    "pass": true,
+    "segments": [
+      {
+        "segment_base_x_mm": [
+          -120,
+          -45
+        ],
+        "depth_mm": 30.0,
+        "probe_count": 3000,
+        "hit_count": 3000,
+        "top_deviation_mm": 1.0789593233084815e-05,
+        "intrusions": [],
+        "pass": true
+      },
+      {
+        "segment_base_x_mm": [
+          45,
+          120
+        ],
+        "depth_mm": 30.0,
+        "probe_count": 3000,
+        "hit_count": 3000,
+        "top_deviation_mm": 1.0789593233084815e-05,
+        "intrusions": [],
+        "pass": true
+      }
+    ],
+    "free_edge_length_mm": 150,
+    "apron_limit_mm": 30.0,
+    "modifiers": [
+      {
+        "name": "base_clamp_band",
+        "covered_mm3": 114621.18165128189,
+        "expected_mm3": 114620.94164209036,
+        "pass": true
+      }
+    ],
+    "base_fastener_geometry": [
+      {
+        "part": "hardware_base_M5_0",
+        "pilot_diameter_mm": 6.397349038282968,
+        "pilot_depth_mm": 9.000004490300492,
+        "nominal_thread_engagement_mm": 8.000008629630344,
+        "bolt_tip_to_hole_bottom_mm": 0.9999958606701487,
+        "remaining_base_floor_mm": 7.000001979366962,
+        "pass": true,
+        "scope": "Actual STL pilot and bolt-tip rays. Nominal M5 thread crests/heat-set insert pull-out strength are not modelled; machining/insert fit requires physical verification."
+      },
+      {
+        "part": "hardware_base_M5_1",
+        "pilot_diameter_mm": 6.397348946981918,
+        "pilot_depth_mm": 8.999998949460002,
+        "nominal_thread_engagement_mm": 8.000008629630344,
+        "bolt_tip_to_hole_bottom_mm": 0.9999903198296582,
+        "remaining_base_floor_mm": 7.000007520207452,
+        "pass": true,
+        "scope": "Actual STL pilot and bolt-tip rays. Nominal M5 thread crests/heat-set insert pull-out strength are not modelled; machining/insert fit requires physical verification."
+      },
+      {
+        "part": "hardware_base_M5_2",
+        "pilot_diameter_mm": 6.397349038282972,
+        "pilot_depth_mm": 9.000004318153419,
+        "nominal_thread_engagement_mm": 8.000008629630344,
+        "bolt_tip_to_hole_bottom_mm": 0.9999956885230752,
+        "remaining_base_floor_mm": 7.000002151514035,
+        "pass": true,
+        "scope": "Actual STL pilot and bolt-tip rays. Nominal M5 thread crests/heat-set insert pull-out strength are not modelled; machining/insert fit requires physical verification."
+      },
+      {
+        "part": "hardware_base_M5_3",
+        "pilot_diameter_mm": 6.397348946981914,
+        "pilot_depth_mm": 9.000004313537517,
+        "nominal_thread_engagement_mm": 8.000008629630344,
+        "bolt_tip_to_hole_bottom_mm": 0.9999956839071729,
+        "remaining_base_floor_mm": 7.000002156129938,
+        "pass": true,
+        "scope": "Actual STL pilot and bolt-tip rays. Nominal M5 thread crests/heat-set insert pull-out strength are not modelled; machining/insert fit requires physical verification."
+      }
+    ],
+    "scope": "Unobstructed upper C-arm envelope 60 mm above the allowed edge segments. Clamp contact centre must also be >= its foot radius from either edge; base M5 bolts need positive blind-hole bottom clearance."
+  },
+  "mechanics": {
+    "pass": true,
+    "pivot_separation_safety_factor": 7.7942286340599445,
+    "pivot_shear_capacity_Nm": 12.911573684677208,
+    "preload_N": 749.9999999999999,
+    "anti_twist_friction_capacity_Nm": 0.46269315135240024,
+    "anti_twist_safety_factor_at_0_4Nm": 1.1567328783810005,
+    "anti_twist_backpad_stiffness_Nm_per_rad": 34.59459539957825,
+    "anti_twist_rotation_deg_at_0_4Nm": 0.6624824352046715,
+    "actual_pad_moments": [
+      {
+        "pad": "pad_upper_jaw",
+        "width_mm": 36.0,
+        "contact_area_mm2": 201.7013168334961,
+        "mean_abs_x_mm": 6.278881306350011,
+        "area_second_moment_mm4": 11606.4361396613
+      },
+      {
+        "pad": "pad_lower_jaw",
+        "width_mm": 52.0,
+        "contact_area_mm2": 1144.0,
+        "mean_abs_x_mm": 13.0,
+        "area_second_moment_mm4": 257781.33333333334
+      },
+      {
+        "pad": "pad_back",
+        "width_mm": 40.0,
+        "contact_area_mm2": 800.0000186152472,
+        "mean_abs_x_mm": 10.0,
+        "area_second_moment_mm4": 106666.66914869963
+      }
+    ],
+    "assumptions": "Uniform pad pressure, nominal spring preload, dry mu=.6, pad effective E=.6 MPa; bench test required. Back stiffness applies only with continuous preloaded contact."
+  },
+  "forward_capture": {
+    "pass": true,
+    "lip_probes": [
+      {
+        "x_mm": -24.0,
+        "remaining_height_above_lower_datum_mm": 1.0000005502485863,
+        "pass": true
+      },
+      {
+        "x_mm": -16.0,
+        "remaining_height_above_lower_datum_mm": 1.0000005502485863,
+        "pass": true
+      },
+      {
+        "x_mm": 16.0,
+        "remaining_height_above_lower_datum_mm": 1.0000005502485863,
+        "pass": true
+      },
+      {
+        "x_mm": 24.0,
+        "remaining_height_above_lower_datum_mm": 1.0000005502485863,
+        "pass": true
+      }
+    ],
+    "forward_sweep": [
+      {
+        "forward_mm": 0.0,
+        "surface_intersection": false,
+        "parts": []
+      },
+      {
+        "forward_mm": 0.5,
+        "surface_intersection": false,
+        "parts": []
+      },
+      {
+        "forward_mm": 1.0,
+        "surface_intersection": false,
+        "parts": []
+      },
+      {
+        "forward_mm": 1.5,
+        "surface_intersection": false,
+        "parts": []
+      },
+      {
+        "forward_mm": 2.0,
+        "surface_intersection": false,
+        "parts": []
+      },
+      {
+        "forward_mm": 2.5,
+        "surface_intersection": false,
+        "parts": []
+      },
+      {
+        "forward_mm": 3.0,
+        "surface_intersection": false,
+        "parts": []
+      },
+      {
+        "forward_mm": 3.5,
+        "surface_intersection": false,
+        "parts": []
+      },
+      {
+        "forward_mm": 4.0,
+        "surface_intersection": false,
+        "parts": []
+      },
+      {
+        "forward_mm": 4.5,
+        "surface_intersection": true,
+        "parts": [
+          "slider_upper_jaw"
+        ]
+      },
+      {
+        "forward_mm": 5.0,
+        "surface_intersection": true,
+        "parts": [
+          "slider_upper_jaw"
+        ]
+      },
+      {
+        "forward_mm": 5.5,
+        "surface_intersection": true,
+        "parts": [
+          "slider_upper_jaw"
+        ]
+      },
+      {
+        "forward_mm": 6.0,
+        "surface_intersection": true,
+        "parts": [
+          "slider_upper_jaw"
+        ]
+      },
+      {
+        "forward_mm": 6.5,
+        "surface_intersection": true,
+        "parts": [
+          "slider_upper_jaw"
+        ]
+      },
+      {
+        "forward_mm": 7.0,
+        "surface_intersection": true,
+        "parts": [
+          "cradle_lower_jaw",
+          "slider_upper_jaw"
+        ]
+      },
+      {
+        "forward_mm": 7.5,
+        "surface_intersection": true,
+        "parts": [
+          "cradle_lower_jaw",
+          "slider_upper_jaw"
+        ]
+      },
+      {
+        "forward_mm": 8.0,
+        "surface_intersection": true,
+        "parts": [
+          "cradle_lower_jaw",
+          "slider_upper_jaw"
+        ]
+      },
+      {
+        "forward_mm": 8.5,
+        "surface_intersection": true,
+        "parts": [
+          "cradle_lower_jaw",
+          "slider_upper_jaw"
+        ]
+      },
+      {
+        "forward_mm": 9.0,
+        "surface_intersection": true,
+        "parts": [
+          "cradle_lower_jaw",
+          "slider_upper_jaw"
+        ]
+      },
+      {
+        "forward_mm": 9.5,
+        "surface_intersection": true,
+        "parts": [
+          "cradle_lower_jaw",
+          "slider_upper_jaw"
+        ]
+      },
+      {
+        "forward_mm": 10.0,
+        "surface_intersection": true,
+        "parts": [
+          "cradle_lower_jaw",
+          "slider_upper_jaw"
+        ]
+      },
+      {
+        "forward_mm": 10.5,
+        "surface_intersection": true,
+        "parts": [
+          "cradle_lower_jaw",
+          "slider_upper_jaw"
+        ]
+      },
+      {
+        "forward_mm": 11.0,
+        "surface_intersection": true,
+        "parts": [
+          "cradle_lower_jaw",
+          "slider_upper_jaw"
+        ]
+      },
+      {
+        "forward_mm": 11.5,
+        "surface_intersection": true,
+        "parts": [
+          "cradle_lower_jaw",
+          "slider_upper_jaw"
+        ]
+      },
+      {
+        "forward_mm": 12.0,
+        "surface_intersection": true,
+        "parts": [
+          "cradle_lower_jaw",
+          "slider_upper_jaw"
+        ]
+      }
+    ],
+    "scope": "Fixed orientation and locked jaws; +controller Z forward translation. Positive lip overlap blocks this escape path; does not certify arbitrary 6D extraction or physical strength."
+  },
+  "user_overrides": [],
+  "hirth_actual_sections": {
+    "pass": true,
+    "sections": [
+      {
+        "part": "hirth_fixed",
+        "radius_mm": 18.5,
+        "ray_count": 7200,
+        "hit_count": 7200,
+        "measured_teeth": 36,
+        "tip_flat_min_lower_bound_mm": 1.081667803923486,
+        "root_flat_min_lower_bound_mm": 0.8556476657902201,
+        "section_sampling_step_mm": 0.01614429558094755,
+        "flank_angle_max_error_deg": 0.0014533727847094724,
+        "pass": true
+      },
+      {
+        "part": "hirth_fixed",
+        "radius_mm": 24.0,
+        "ray_count": 7200,
+        "hit_count": 7200,
+        "measured_teeth": 36,
+        "tip_flat_min_lower_bound_mm": 1.0681415022205296,
+        "root_flat_min_lower_bound_mm": 0.8587019919812101,
+        "section_sampling_step_mm": 0.020943951023931952,
+        "flank_angle_max_error_deg": 0.0014533727847094724,
+        "pass": true
+      },
+      {
+        "part": "hirth_fixed",
+        "radius_mm": 29.5,
+        "ray_count": 7200,
+        "hit_count": 7200,
+        "measured_teeth": 36,
+        "tip_flat_min_lower_bound_mm": 1.0554878651435708,
+        "root_flat_min_lower_bound_mm": 0.8495390134082398,
+        "section_sampling_step_mm": 0.02574360646691636,
+        "flank_angle_max_error_deg": 0.0012237554865421885,
+        "pass": true
+      },
+      {
+        "part": "hirth_moving",
+        "radius_mm": 18.5,
+        "ray_count": 7200,
+        "hit_count": 7200,
+        "measured_teeth": 36,
+        "tip_flat_min_lower_bound_mm": 1.113956395085381,
+        "root_flat_min_lower_bound_mm": 0.8556476657902201,
+        "section_sampling_step_mm": 0.01614429558094755,
+        "flank_angle_max_error_deg": 0.0012553473765279932,
+        "pass": true
+      },
+      {
+        "part": "hirth_moving",
+        "radius_mm": 24.0,
+        "ray_count": 7200,
+        "hit_count": 7200,
+        "measured_teeth": 36,
+        "tip_flat_min_lower_bound_mm": 1.1100294042683934,
+        "root_flat_min_lower_bound_mm": 0.8168140899333461,
+        "section_sampling_step_mm": 0.020943951023931952,
+        "flank_angle_max_error_deg": 0.0012553473765279932,
+        "pass": true
+      },
+      {
+        "part": "hirth_moving",
+        "radius_mm": 29.5,
+        "ray_count": 7200,
+        "hit_count": 7200,
+        "measured_teeth": 36,
+        "tip_flat_min_lower_bound_mm": 1.1069750780774035,
+        "root_flat_min_lower_bound_mm": 0.798051800474407,
+        "section_sampling_step_mm": 0.02574360646691636,
+        "flank_angle_max_error_deg": 0.001048520618354587,
+        "pass": true
+      }
+    ],
+    "scope": "First-hit ray sections of actual STL; lower bounds subtract two angular sample intervals. Top/root radial-edge short-chord waivers do not waive these interior sections."
+  },
+  "slider_motion": {
+    "pass": true,
+    "sampled_spans_mm": [
+      66.0,
+      66.5,
+      67.0,
+      67.5,
+      68.0,
+      68.5,
+      69.0,
+      69.5,
+      70.0,
+      70.5,
+      71.0,
+      71.5,
+      72.0,
+      72.5,
+      73.0,
+      73.5,
+      74.0,
+      74.5,
+      75.0,
+      75.5,
+      76.0,
+      76.5,
+      77.0,
+      77.5,
+      78.0,
+      78.5,
+      79.0,
+      79.5,
+      80.0
+    ],
+    "intersections": [],
+    "locking_backing": [
+      {
+        "span_mm": 66.0,
+        "supported_rays": 9,
+        "pass": true
+      },
+      {
+        "span_mm": 66.5,
+        "supported_rays": 9,
+        "pass": true
+      },
+      {
+        "span_mm": 67.0,
+        "supported_rays": 9,
+        "pass": true
+      },
+      {
+        "span_mm": 67.5,
+        "supported_rays": 9,
+        "pass": true
+      },
+      {
+        "span_mm": 68.0,
+        "supported_rays": 9,
+        "pass": true
+      },
+      {
+        "span_mm": 68.5,
+        "supported_rays": 9,
+        "pass": true
+      },
+      {
+        "span_mm": 69.0,
+        "supported_rays": 9,
+        "pass": true
+      },
+      {
+        "span_mm": 69.5,
+        "supported_rays": 9,
+        "pass": true
+      },
+      {
+        "span_mm": 70.0,
+        "supported_rays": 9,
+        "pass": true
+      },
+      {
+        "span_mm": 70.5,
+        "supported_rays": 9,
+        "pass": true
+      },
+      {
+        "span_mm": 71.0,
+        "supported_rays": 9,
+        "pass": true
+      },
+      {
+        "span_mm": 71.5,
+        "supported_rays": 9,
+        "pass": true
+      },
+      {
+        "span_mm": 72.0,
+        "supported_rays": 9,
+        "pass": true
+      },
+      {
+        "span_mm": 72.5,
+        "supported_rays": 9,
+        "pass": true
+      },
+      {
+        "span_mm": 73.0,
+        "supported_rays": 9,
+        "pass": true
+      },
+      {
+        "span_mm": 73.5,
+        "supported_rays": 9,
+        "pass": true
+      },
+      {
+        "span_mm": 74.0,
+        "supported_rays": 9,
+        "pass": true
+      },
+      {
+        "span_mm": 74.5,
+        "supported_rays": 9,
+        "pass": true
+      },
+      {
+        "span_mm": 75.0,
+        "supported_rays": 9,
+        "pass": true
+      },
+      {
+        "span_mm": 75.5,
+        "supported_rays": 9,
+        "pass": true
+      },
+      {
+        "span_mm": 76.0,
+        "supported_rays": 9,
+        "pass": true
+      },
+      {
+        "span_mm": 76.5,
+        "supported_rays": 9,
+        "pass": true
+      },
+      {
+        "span_mm": 77.0,
+        "supported_rays": 9,
+        "pass": true
+      },
+      {
+        "span_mm": 77.5,
+        "supported_rays": 9,
+        "pass": true
+      },
+      {
+        "span_mm": 78.0,
+        "supported_rays": 9,
+        "pass": true
+      },
+      {
+        "span_mm": 78.5,
+        "supported_rays": 9,
+        "pass": true
+      },
+      {
+        "span_mm": 79.0,
+        "supported_rays": 9,
+        "pass": true
+      },
+      {
+        "span_mm": 79.5,
+        "supported_rays": 9,
+        "pass": true
+      },
+      {
+        "span_mm": 80.0,
+        "supported_rays": 9,
+        "pass": true
+      }
+    ],
+    "spring_lengths_mm": [
+      36.55479812440355,
+      30.0,
+      22.554798124403547
+    ],
+    "spring_coil_bind_margin_mm": 9.554798124403547,
+    "scope": "29 actual rigid-STL translations, excluding deforming metal springs; continuous stroke between samples is not a motion proof."
+  },
+  "derived_pose": {
+    "pass": true,
+    "depth_from_edge_mm": 53.43777728385044,
+    "height_above_table_mm": 220.66086534926922,
+    "root_world_mm": [
+      664.9622227161495,
+      625.2,
+      987.6608653492692
+    ],
+    "tilt_deg": 45.0,
+    "exported_base_registration_errors": {
+      "base_far_edge_mm": 2.894743488468521e-06,
+      "base_lateral_midline_mm": 0.0,
+      "base_underside_mm": 1.764933358572307e-06
+    },
+    "scene_root_position_error_mm": 0.0,
+    "scene_root_rotation_error_deg": 5.4295464646609885e-15,
+    "pose_source": "Actual base/post/support geometry; exported base edge/underside/midline registration and scene root cross-check; no v1/v2 root equality requirement"
+  },
+  "simulation_export": {
+    "pass": true,
+    "units": "m",
+    "bounds_scale_error_mm": 5.0067901611328125e-06
+  },
+  "hand_space": {
+    "executed": false,
+    "scope": "Legacy v2 witnesses are not a v3 reach-coverage certification; new scene/reach check is a separate task result."
+  },
+  "printability": {
+    "pass": true,
+    "parts": {
+      "base_printed": {
+        "pass": true,
+        "sha256": "ccac10dca45f74ee042f73296947d9ba338878eae882d0c480e9638553daa5f6",
+        "samples": 62028,
+        "random_area_samples": 60000,
+        "face_centres": 2028,
+        "min_wall_mm": 0.84,
+        "min_gap_mm": 0.63,
+        "minimum_feature_mm": 0.84,
+        "overhang_limit_deg": 45,
+        "bed_layer_tolerance_mm": 0.21,
+        "cluster_grid_mm": 2.0,
+        "bounds_print_mm": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            240.0,
+            90.0,
+            16.0
+          ]
+        ],
+        "dimensions_mm": [
+          240.0,
+          90.0,
+          16.0
+        ],
+        "raw_flag_points": {
+          "thin_wall": 0,
+          "narrow_gap": 0,
+          "unsupported_overhang": 0
+        },
+        "unwaived_flag_points": {
+          "thin_wall": 0,
+          "narrow_gap": 0,
+          "unsupported_overhang": 0
+        },
+        "unwaived_clusters": [],
+        "applied_exemptions": [],
+        "method_limits": "Normal-direction distance and sampled overhang screening; an edge can be flagged by a short chord. Local waivers must explain it. No slicer or material certification."
+      },
+      "column": {
+        "pass": true,
+        "sha256": "fa510279dde20588da12743e0aa9e50a17af16a7e138f3a19584a771a4b9d36b",
+        "samples": 65608,
+        "random_area_samples": 60000,
+        "face_centres": 5608,
+        "min_wall_mm": 0.84,
+        "min_gap_mm": 0.63,
+        "minimum_feature_mm": 0.84,
+        "overhang_limit_deg": 45,
+        "bed_layer_tolerance_mm": 0.21,
+        "cluster_grid_mm": 2.0,
+        "bounds_print_mm": [
+          [
+            0.0,
+            0.0015514363767579198,
+            0.0
+          ],
+          [
+            90.0,
+            67.99845123291016,
+            146.98956298828125
+          ]
+        ],
+        "dimensions_mm": [
+          90.0,
+          67.9968997965334,
+          146.98956298828125
+        ],
+        "raw_flag_points": {
+          "thin_wall": 0,
+          "narrow_gap": 0,
+          "unsupported_overhang": 2130
+        },
+        "unwaived_flag_points": {
+          "thin_wall": 0,
+          "narrow_gap": 0,
+          "unsupported_overhang": 0
+        },
+        "unwaived_clusters": [],
+        "applied_exemptions": [
+          {
+            "kind": "unsupported_overhang",
+            "region": {
+              "part": "column",
+              "kind": "unsupported_overhang",
+              "bounds_print_mm": [
+                [
+                  15.899999999999999,
+                  -0.09999999999999432,
+                  78.90000000000009
+                ],
+                [
+                  24.1,
+                  68.10000000000001,
+                  147.10000000000008
+                ]
+              ],
+              "reason": "Paint removable support under circular fork head, horizontal axis hole roof and M3/nut pocket roofs on this ear; detach before metal-axis fit."
+            },
+            "waived_points": 667
+          },
+          {
+            "kind": "unsupported_overhang",
+            "region": {
+              "part": "column",
+              "kind": "unsupported_overhang",
+              "bounds_print_mm": [
+                [
+                  15.899999999999999,
+                  17.9,
+                  47.90000000000009
+                ],
+                [
+                  27.1,
+                  50.1,
+                  77.10000000000008
+                ]
+              ],
+              "reason": "Paint removable support under the widened fork cross-member lateral ledge; upright and gussets remain self supporting."
+            },
+            "waived_points": 486
+          },
+          {
+            "kind": "unsupported_overhang",
+            "region": {
+              "part": "column",
+              "kind": "unsupported_overhang",
+              "bounds_print_mm": [
+                [
+                  65.9,
+                  -0.09999999999999432,
+                  78.90000000000009
+                ],
+                [
+                  74.1,
+                  68.10000000000001,
+                  147.10000000000008
+                ]
+              ],
+              "reason": "Paint removable support under circular fork head, horizontal axis hole roof and M3/nut pocket roofs on this ear; detach before metal-axis fit."
+            },
+            "waived_points": 457
+          },
+          {
+            "kind": "unsupported_overhang",
+            "region": {
+              "part": "column",
+              "kind": "unsupported_overhang",
+              "bounds_print_mm": [
+                [
+                  62.9,
+                  17.9,
+                  47.90000000000009
+                ],
+                [
+                  74.1,
+                  50.1,
+                  77.10000000000008
+                ]
+              ],
+              "reason": "Paint removable support under the widened fork cross-member lateral ledge; upright and gussets remain self supporting."
+            },
+            "waived_points": 520
+          }
+        ],
+        "method_limits": "Normal-direction distance and sampled overhang screening; an edge can be flagged by a short chord. Local waivers must explain it. No slicer or material certification."
+      },
+      "hirth_fixed": {
+        "pass": true,
+        "sha256": "87660cf6e677ffa199b4fe7ef6867eb5be52c2a5dfde5c6c692a16c205460835",
+        "samples": 64888,
+        "random_area_samples": 60000,
+        "face_centres": 4888,
+        "min_wall_mm": 0.84,
+        "min_gap_mm": 0.63,
+        "minimum_feature_mm": 0.84,
+        "overhang_limit_deg": 45,
+        "bed_layer_tolerance_mm": 0.21,
+        "cluster_grid_mm": 2.0,
+        "bounds_print_mm": [
+          [
+            -7.105427357601002e-15,
+            0.0056372229009866714,
+            0.0
+          ],
+          [
+            68.0,
+            67.99931335449219,
+            6.796694278717041
+          ]
+        ],
+        "dimensions_mm": [
+          68.0,
+          67.9936761315912,
+          6.796694278717041
+        ],
+        "raw_flag_points": {
+          "thin_wall": 161,
+          "narrow_gap": 0,
+          "unsupported_overhang": 0
+        },
+        "unwaived_flag_points": {
+          "thin_wall": 0,
+          "narrow_gap": 0,
+          "unsupported_overhang": 0
+        },
+        "unwaived_clusters": [],
+        "applied_exemptions": [
+          {
+            "kind": "thin_wall",
+            "region": {
+              "part": "hirth_fixed",
+              "kind": "thin_wall",
+              "bounds_print_mm": [
+                [
+                  -0.01,
+                  -0.01,
+                  -0.01
+                ],
+                [
+                  68.01,
+                  68.01,
+                  6.806694430741528
+                ]
+              ],
+              "radial_centre_print_mm": [
+                34.0,
+                34.0,
+                21.0
+              ],
+              "radial_axes": [
+                0,
+                1
+              ],
+              "radial_interval_mm": [
+                29.16,
+                30.05
+              ],
+              "reason": "Short normal chord at radial tooth termination edge only, not a separate thin wall. Tip/root flats and loaded middle annulus are checked independently; verify edge fidelity on Hirth coupon before production."
+            },
+            "waived_points": 160
+          },
+          {
+            "kind": "thin_wall",
+            "region": {
+              "part": "hirth_fixed",
+              "kind": "thin_wall",
+              "bounds_print_mm": [
+                [
+                  37.8082388326835,
+                  63.31920747729251,
+                  2.1999999999999993
+                ],
+                [
+                  41.44308406454748,
+                  68.49021551642205,
+                  4.899999999999999
+                ]
+              ],
+              "reason": "Open end of engraved alignment groove at circular rim has a short corner chord; groove is >=1.2 mm wide and >=.8 mm deep, no projecting pointer or tiny text."
+            },
+            "waived_points": 1
+          },
+          {
+            "kind": "thin_wall",
+            "region": {
+              "part": "hirth_fixed",
+              "kind": "thin_wall",
+              "bounds_print_mm": [
+                [
+                  32.44999999999999,
+                  63.9,
+                  2.200000000000003
+                ],
+                [
+                  35.55000000000001,
+                  68.9,
+                  4.899999999999999
+                ]
+              ],
+              "reason": "Open end of engraved alignment groove at circular rim has a short corner chord; groove is >=1.2 mm wide and >=.8 mm deep, no projecting pointer or tiny text."
+            },
+            "waived_points": 1
+          }
+        ],
+        "method_limits": "Normal-direction distance and sampled overhang screening; an edge can be flagged by a short chord. Local waivers must explain it. No slicer or material certification."
+      },
+      "hirth_moving": {
+        "pass": true,
+        "sha256": "b280f1c199817f2866fab270c015ee1641df64d9c31c7c9e3d5ed2179762cb0b",
+        "samples": 65430,
+        "random_area_samples": 60000,
+        "face_centres": 5430,
+        "min_wall_mm": 0.84,
+        "min_gap_mm": 0.63,
+        "minimum_feature_mm": 0.84,
+        "overhang_limit_deg": 45,
+        "bed_layer_tolerance_mm": 0.21,
+        "cluster_grid_mm": 2.0,
+        "bounds_print_mm": [
+          [
+            0.0,
+            0.00900491513311863,
+            -1.7763568394002505e-15
+          ],
+          [
+            68.0,
+            67.99931335449219,
+            7.800000190734863
+          ]
+        ],
+        "dimensions_mm": [
+          68.0,
+          67.99030843935907,
+          7.800000190734865
+        ],
+        "raw_flag_points": {
+          "thin_wall": 93,
+          "narrow_gap": 0,
+          "unsupported_overhang": 0
+        },
+        "unwaived_flag_points": {
+          "thin_wall": 0,
+          "narrow_gap": 0,
+          "unsupported_overhang": 0
+        },
+        "unwaived_clusters": [],
+        "applied_exemptions": [
+          {
+            "kind": "thin_wall",
+            "region": {
+              "part": "hirth_moving",
+              "kind": "thin_wall",
+              "bounds_print_mm": [
+                [
+                  -0.01,
+                  -0.01,
+                  -0.01
+                ],
+                [
+                  68.01,
+                  68.01,
+                  7.810000000000023
+                ]
+              ],
+              "radial_centre_print_mm": [
+                34.0,
+                34.0,
+                -8.999999999999986
+              ],
+              "radial_axes": [
+                0,
+                1
+              ],
+              "radial_interval_mm": [
+                17.95,
+                18.84
+              ],
+              "reason": "Short normal chord at radial tooth termination edge only, not a separate thin wall. Tip/root flats and loaded middle annulus are checked independently; verify edge fidelity on Hirth coupon before production."
+            },
+            "waived_points": 91
+          },
+          {
+            "kind": "thin_wall",
+            "region": {
+              "part": "hirth_moving",
+              "kind": "thin_wall",
+              "bounds_print_mm": [
+                [
+                  32.44999999999999,
+                  63.9,
+                  1.2000000000000135
+                ],
+                [
+                  35.55000000000001,
+                  68.9,
+                  3.9000000000000146
+                ]
+              ],
+              "reason": "Open end of engraved alignment groove at circular rim has a short corner chord; groove is >=1.2 mm wide and >=.8 mm deep, no projecting pointer or tiny text."
+            },
+            "waived_points": 2
+          }
+        ],
+        "method_limits": "Normal-direction distance and sampled overhang screening; an edge can be flagged by a short chord. Local waivers must explain it. No slicer or material certification."
+      },
+      "cradle_lower_jaw": {
+        "pass": true,
+        "sha256": "1b22eb2bf345f47d13525ea98c23942a57605fe47597958af274c51ab7759d74",
+        "samples": 65724,
+        "random_area_samples": 60000,
+        "face_centres": 5724,
+        "min_wall_mm": 0.84,
+        "min_gap_mm": 0.63,
+        "minimum_feature_mm": 0.84,
+        "overhang_limit_deg": 45,
+        "bed_layer_tolerance_mm": 0.21,
+        "cluster_grid_mm": 2.0,
+        "bounds_print_mm": [
+          [
+            3.520426616887562e-05,
+            0.008043195120990276,
+            0.0
+          ],
+          [
+            138.85670471191406,
+            154.71067810058594,
+            65.5
+          ]
+        ],
+        "dimensions_mm": [
+          138.8566695076479,
+          154.70263490546495,
+          65.5
+        ],
+        "raw_flag_points": {
+          "thin_wall": 0,
+          "narrow_gap": 3,
+          "unsupported_overhang": 11397
+        },
+        "unwaived_flag_points": {
+          "thin_wall": 0,
+          "narrow_gap": 0,
+          "unsupported_overhang": 0
+        },
+        "unwaived_clusters": [],
+        "applied_exemptions": [
+          {
+            "kind": "narrow_gap",
+            "region": {
+              "part": "cradle_lower_jaw",
+              "kind": "narrow_gap",
+              "bounds_print_mm": [
+                [
+                  88.79670062535611,
+                  91.86266170220105,
+                  10.699999999999992
+                ],
+                [
+                  88.91670062535611,
+                  92.10266170220106,
+                  54.8
+                ]
+              ],
+              "normal_print": [
+                1.0,
+                0.0,
+                2.220446049250313e-16
+              ],
+              "normal_tolerance_deg": 0.2,
+              "reason": "Strictly local open concave rear-block/frame junction, not a separate narrow slot. Tilted block and frame overlap into one solid; checker records the connected local material volume. Contact seats and actual slots are not waived."
+            },
+            "waived_points": 2
+          },
+          {
+            "kind": "narrow_gap",
+            "region": {
+              "part": "cradle_lower_jaw",
+              "kind": "narrow_gap",
+              "bounds_print_mm": [
+                [
+                  88.79670062535611,
+                  91.86266170220105,
+                  10.699999999999992
+                ],
+                [
+                  88.91670062535611,
+                  92.10266170220106,
+                  54.8
+                ]
+              ],
+              "normal_print": [
+                -0.019783721941801013,
+                -0.9998042830204967,
+                -4.392868722513879e-18
+              ],
+              "normal_tolerance_deg": 0.2,
+              "reason": "Strictly local open concave rear-block/frame junction, not a separate narrow slot. Tilted block and frame overlap into one solid; checker records the connected local material volume. Contact seats and actual slots are not waived."
+            },
+            "waived_points": 1
+          },
+          {
+            "kind": "unsupported_overhang",
+            "region": {
+              "part": "cradle_lower_jaw",
+              "kind": "unsupported_overhang",
+              "bounds_print_mm": [
+                [
+                  81.8567006253561,
+                  47.710678118654755,
+                  -0.2500000000000071
+                ],
+                [
+                  139.85670062535613,
+                  63.710678118654755,
+                  65.75
+                ]
+              ],
+              "reason": "Side-down print: support lower-jaw lateral steps, front lip and guide-socket underside; keep planar contact seat free from support."
+            },
+            "waived_points": 840
+          },
+          {
+            "kind": "unsupported_overhang",
+            "region": {
+              "part": "cradle_lower_jaw",
+              "kind": "unsupported_overhang",
+              "bounds_print_mm": [
+                [
+                  81.8567006253561,
+                  47.710678118654755,
+                  1.749999999999993
+                ],
+                [
+                  104.85670062535613,
+                  155.71067811865476,
+                  63.75
+                ]
+              ],
+              "reason": "Side-down print: support frame, rear block and cap-insert roofs; remove support before installing pads/inserts."
+            },
+            "waived_points": 2624
+          },
+          {
+            "kind": "unsupported_overhang",
+            "region": {
+              "part": "cradle_lower_jaw",
+              "kind": "unsupported_overhang",
+              "bounds_print_mm": [
+                [
+                  -1.0,
+                  -1.0,
+                  22.749999999999975
+                ],
+                [
+                  89.85670062535611,
+                  65.0,
+                  42.74999999999999
+                ]
+              ],
+              "reason": "Side-down print: support centered pivot hub/web and horizontal M8/M3 bore ceilings; metal bolt, not a printed hinge pin."
+            },
+            "waived_points": 7686
+          },
+          {
+            "kind": "unsupported_overhang",
+            "region": {
+              "part": "cradle_lower_jaw",
+              "kind": "unsupported_overhang",
+              "bounds_print_mm": [
+                [
+                  62.856700625356105,
+                  47.710678118654755,
+                  13.74999999999999
+                ],
+                [
+                  89.85670062535611,
+                  79.71067811865476,
+                  51.75
+                ]
+              ],
+              "reason": "Side-down print: support lower rail seats and mechanical-stop collar underside; ream/coupon-check guide fit after cleanup."
+            },
+            "waived_points": 960
+          }
+        ],
+        "method_limits": "Normal-direction distance and sampled overhang screening; an edge can be flagged by a short chord. Local waivers must explain it. No slicer or material certification."
+      },
+      "slider_upper_jaw": {
+        "pass": true,
+        "sha256": "e7c7b1a967afa62763171dc7c6d3e5fe7b092fde185db70bba3aab176c0a725c",
+        "samples": 62188,
+        "random_area_samples": 60000,
+        "face_centres": 2188,
+        "min_wall_mm": 0.84,
+        "min_gap_mm": 0.63,
+        "minimum_feature_mm": 0.84,
+        "overhang_limit_deg": 45,
+        "bed_layer_tolerance_mm": 0.21,
+        "cluster_grid_mm": 2.0,
+        "bounds_print_mm": [
+          [
+            0.0,
+            -7.105427357601002e-15,
+            7.105427357601002e-15
+          ],
+          [
+            40.0,
+            76.0,
+            63.62337875366211
+          ]
+        ],
+        "dimensions_mm": [
+          40.0,
+          76.0,
+          63.6233787536621
+        ],
+        "raw_flag_points": {
+          "thin_wall": 0,
+          "narrow_gap": 0,
+          "unsupported_overhang": 2376
+        },
+        "unwaived_flag_points": {
+          "thin_wall": 0,
+          "narrow_gap": 0,
+          "unsupported_overhang": 0
+        },
+        "unwaived_clusters": [],
+        "applied_exemptions": [
+          {
+            "kind": "unsupported_overhang",
+            "region": {
+              "part": "slider_upper_jaw",
+              "kind": "unsupported_overhang",
+              "bounds_print_mm": [
+                [
+                  -1.0,
+                  14.000000000000007,
+                  -0.10000000000000142
+                ],
+                [
+                  41.0,
+                  77.00000000000001,
+                  31.623380108945014
+                ]
+              ],
+              "reason": "Jaw-down print: support neck step and Pair/USB channel roofs; protect planar pad seats from support scars."
+            },
+            "waived_points": 156
+          },
+          {
+            "kind": "unsupported_overhang",
+            "region": {
+              "part": "slider_upper_jaw",
+              "kind": "unsupported_overhang",
+              "bounds_print_mm": [
+                [
+                  1.0,
+                  -1.0,
+                  23.52338010894499
+                ],
+                [
+                  39.0,
+                  17.000000000000007,
+                  63.723380108945
+                ]
+              ],
+              "reason": "Jaw-down print: support slider guide-bore/set-screw roofs and rear-body ledge; clear both guide bores after printing."
+            },
+            "waived_points": 2376
+          }
+        ],
+        "method_limits": "Normal-direction distance and sampled overhang screening; an edge can be flagged by a short chord. Local waivers must explain it. No slicer or material certification."
+      },
+      "guide_cap": {
+        "pass": true,
+        "sha256": "3074a667b08a45ec7cc28fdddbab7263f910c8d588f2db61ecdbdca89c7bae07",
+        "samples": 63060,
+        "random_area_samples": 60000,
+        "face_centres": 3060,
+        "min_wall_mm": 0.84,
+        "min_gap_mm": 0.63,
+        "minimum_feature_mm": 0.84,
+        "overhang_limit_deg": 45,
+        "bed_layer_tolerance_mm": 0.21,
+        "cluster_grid_mm": 2.0,
+        "bounds_print_mm": [
+          [
+            0.0,
+            -1.7763568394002505e-15,
+            -1.7763568394002505e-15
+          ],
+          [
+            60.0,
+            20.0,
+            35.5547981262207
+          ]
+        ],
+        "dimensions_mm": [
+          60.0,
+          20.0,
+          35.5547981262207
+        ],
+        "raw_flag_points": {
+          "thin_wall": 0,
+          "narrow_gap": 0,
+          "unsupported_overhang": 1138
+        },
+        "unwaived_flag_points": {
+          "thin_wall": 0,
+          "narrow_gap": 0,
+          "unsupported_overhang": 0
+        },
+        "unwaived_clusters": [],
+        "applied_exemptions": [
+          {
+            "kind": "unsupported_overhang",
+            "region": {
+              "part": "guide_cap",
+              "kind": "unsupported_overhang",
+              "bounds_print_mm": [
+                [
+                  -1.0,
+                  -1.000000000000007,
+                  -0.09999999999999432
+                ],
+                [
+                  61.0,
+                  21.000000000000004,
+                  45.00000000000001
+                ]
+              ],
+              "reason": "Cap-down print: support annular stop-tube/bore roofs and cap notch underside; clear sockets and screw holes after printing."
+            },
+            "waived_points": 1138
+          }
+        ],
+        "method_limits": "Normal-direction distance and sampled overhang screening; an edge can be flagged by a short chord. Local waivers must explain it. No slicer or material certification."
+      },
+      "guide_rod_1": {
+        "pass": true,
+        "sha256": "d51a27873e2a84b8febbbfc3896b39bb745ab85881ec576f255ada5548870bff",
+        "samples": 60500,
+        "random_area_samples": 60000,
+        "face_centres": 500,
+        "min_wall_mm": 0.84,
+        "min_gap_mm": 0.63,
+        "minimum_feature_mm": 0.84,
+        "overhang_limit_deg": 45,
+        "bed_layer_tolerance_mm": 0.21,
+        "cluster_grid_mm": 2.0,
+        "bounds_print_mm": [
+          [
+            0.0,
+            0.0009324540151283145,
+            0.0
+          ],
+          [
+            6.0,
+            5.999067783355713,
+            89.0
+          ]
+        ],
+        "dimensions_mm": [
+          6.0,
+          5.998135329340585,
+          89.0
+        ],
+        "raw_flag_points": {
+          "thin_wall": 0,
+          "narrow_gap": 0,
+          "unsupported_overhang": 0
+        },
+        "unwaived_flag_points": {
+          "thin_wall": 0,
+          "narrow_gap": 0,
+          "unsupported_overhang": 0
+        },
+        "unwaived_clusters": [],
+        "applied_exemptions": [],
+        "method_limits": "Normal-direction distance and sampled overhang screening; an edge can be flagged by a short chord. Local waivers must explain it. No slicer or material certification."
+      },
+      "guide_rod_2": {
+        "pass": true,
+        "sha256": "d51a27873e2a84b8febbbfc3896b39bb745ab85881ec576f255ada5548870bff",
+        "samples": 60500,
+        "random_area_samples": 60000,
+        "face_centres": 500,
+        "min_wall_mm": 0.84,
+        "min_gap_mm": 0.63,
+        "minimum_feature_mm": 0.84,
+        "overhang_limit_deg": 45,
+        "bed_layer_tolerance_mm": 0.21,
+        "cluster_grid_mm": 2.0,
+        "bounds_print_mm": [
+          [
+            0.0,
+            0.0009324540151283145,
+            0.0
+          ],
+          [
+            6.0,
+            5.999067783355713,
+            89.0
+          ]
+        ],
+        "dimensions_mm": [
+          6.0,
+          5.998135329340585,
+          89.0
+        ],
+        "raw_flag_points": {
+          "thin_wall": 0,
+          "narrow_gap": 0,
+          "unsupported_overhang": 0
+        },
+        "unwaived_flag_points": {
+          "thin_wall": 0,
+          "narrow_gap": 0,
+          "unsupported_overhang": 0
+        },
+        "unwaived_clusters": [],
+        "applied_exemptions": [],
+        "method_limits": "Normal-direction distance and sampled overhang screening; an edge can be flagged by a short chord. Local waivers must explain it. No slicer or material certification."
+      },
+      "lock_screw_spacer": {
+        "pass": true,
+        "sha256": "c39794ce97b7f7be5a49a413a807705580c3588a4fb8b38bdefe2db07fa54b4d",
+        "samples": 61008,
+        "random_area_samples": 60000,
+        "face_centres": 1008,
+        "min_wall_mm": 0.84,
+        "min_gap_mm": 0.63,
+        "minimum_feature_mm": 0.84,
+        "overhang_limit_deg": 45,
+        "bed_layer_tolerance_mm": 0.21,
+        "cluster_grid_mm": 2.0,
+        "bounds_print_mm": [
+          [
+            0.0,
+            0.001554089947603643,
+            0.0
+          ],
+          [
+            10.0,
+            9.998445510864258,
+            3.0
+          ]
+        ],
+        "dimensions_mm": [
+          10.0,
+          9.996891420916654,
+          3.0
+        ],
+        "raw_flag_points": {
+          "thin_wall": 0,
+          "narrow_gap": 0,
+          "unsupported_overhang": 0
+        },
+        "unwaived_flag_points": {
+          "thin_wall": 0,
+          "narrow_gap": 0,
+          "unsupported_overhang": 0
+        },
+        "unwaived_clusters": [],
+        "applied_exemptions": [],
+        "method_limits": "Normal-direction distance and sampled overhang screening; an edge can be flagged by a short chord. Local waivers must explain it. No slicer or material certification."
+      },
+      "M8_hand_knob": {
+        "pass": true,
+        "sha256": "118af149911aba23b21478a4dbd5342824c67e1c23772b90bb0a084306931c51",
+        "samples": 61032,
+        "random_area_samples": 60000,
+        "face_centres": 1032,
+        "min_wall_mm": 0.84,
+        "min_gap_mm": 0.63,
+        "minimum_feature_mm": 0.84,
+        "overhang_limit_deg": 45,
+        "bed_layer_tolerance_mm": 0.21,
+        "cluster_grid_mm": 2.0,
+        "bounds_print_mm": [
+          [
+            0.0,
+            0.009324540384113789,
+            0.0
+          ],
+          [
+            60.0,
+            59.99067687988281,
+            16.0
+          ]
+        ],
+        "dimensions_mm": [
+          60.0,
+          59.9813523394987,
+          16.0
+        ],
+        "raw_flag_points": {
+          "thin_wall": 0,
+          "narrow_gap": 0,
+          "unsupported_overhang": 0
+        },
+        "unwaived_flag_points": {
+          "thin_wall": 0,
+          "narrow_gap": 0,
+          "unsupported_overhang": 0
+        },
+        "unwaived_clusters": [],
+        "applied_exemptions": [],
+        "method_limits": "Normal-direction distance and sampled overhang screening; an edge can be flagged by a short chord. Local waivers must explain it. No slicer or material certification."
+      }
+    },
+    "part_count": 11,
+    "line_width_mm": 0.42,
+    "all_unwaived_flags_are_failures": true,
+    "sub_three_point_clusters_retained": true,
+    "slicer_cross_check": {
+      "executed": false,
+      "reason": "Not yet executed; normal rays do not replace slicer inspection"
+    }
+  },
+  "summary": {
+    "build_volume_pass": true,
+    "exported_mesh_validity_pass": true,
+    "assembly_interference_pass": true,
+    "control_full_travel_clearance_pass": true,
+    "shell_clearance_pass": true,
+    "openings_pass": true,
+    "grip_back_keepout_pass": true,
+    "contact_offset_chain_pass": true,
+    "visual_contact_clearance_pass": true,
+    "cut_audit_pass": true,
+    "structural_symmetry_and_ribs_pass": true,
+    "mounting_band_pass": true,
+    "mechanics_pass": true,
+    "forward_capture_pass": true,
+    "hirth_actual_sections_pass": true,
+    "slider_motion_pass": true,
+    "derived_pose_pass": true,
+    "simulation_export_pass": true,
+    "printability_pass": true,
+    "all_hard_gates_pass": true
+  },
+  "physical_pose_certified": false,
+  "full_control_motion_certified": false
+}

@@ -182,7 +182,7 @@ def world_side(ax,items_world,manifest,title="WORLD X / Z · Z LAYOUT",resolutio
     for spine in ax.spines.values():spine.set_color("#CCD7DC")
     return camera
 
-def main(out=HERE/'out'):
+def main(out=HERE/'out_v3_1'):
     out=Path(out);dest=out/'previews';dest.mkdir(exist_ok=True)
     from matplotlib import font_manager
     f=Path('/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc')
@@ -240,4 +240,4 @@ def main(out=HERE/'out'):
 
 if __name__=='__main__':
     import math
-    p=argparse.ArgumentParser();p.add_argument('--out',type=Path,default=HERE/'out');a=p.parse_args();main(a.out)
+    p=argparse.ArgumentParser();p.add_argument('--out',type=Path,default=HERE/'out_v3_1');a=p.parse_args();main(a.out)

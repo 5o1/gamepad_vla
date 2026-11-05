@@ -1,0 +1,228 @@
+{
+  "table_frame": "origin far table-edge midpoint, X along edge, Y out of tabletop, Z up",
+  "table_from_controller_mm": [
+    [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.7071067811865475,
+      -0.7071067811865476,
+      -53.43777728385044
+    ],
+    [
+      0.0,
+      0.7071067811865476,
+      0.7071067811865475,
+      220.66086534926922
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "base_bounds_table_mm": [
+    [
+      -120.0,
+      -90.00000787185186,
+      0.7499982350665846
+    ],
+    [
+      120.0,
+      2.894743509784803e-06,
+      16.75000470473404
+    ]
+  ],
+  "parts": {
+    "hardware_fixed_ring_nut_240": {
+      "volume_delta_mm3": 0.0,
+      "vertices_same": true,
+      "faces_same": true
+    },
+    "hardware_moving_ring_nut_300": {
+      "volume_delta_mm3": 0.0,
+      "vertices_same": true,
+      "faces_same": true
+    },
+    "slider_upper_jaw": {
+      "volume_delta_mm3": -16.0,
+      "vertices_same": false,
+      "faces_same": false
+    },
+    "hardware_M8_washer_2": {
+      "volume_delta_mm3": 0.0,
+      "vertices_same": true,
+      "faces_same": true
+    },
+    "pad_back": {
+      "volume_delta_mm3": 0.0,
+      "vertices_same": true,
+      "faces_same": true
+    },
+    "hardware_moving_ring_M3_60": {
+      "volume_delta_mm3": 0.0,
+      "vertices_same": true,
+      "faces_same": true
+    },
+    "guide_cap": {
+      "volume_delta_mm3": 0.0,
+      "vertices_same": true,
+      "faces_same": true
+    },
+    "hardware_fixed_ring_nut_0": {
+      "volume_delta_mm3": 0.0,
+      "vertices_same": true,
+      "faces_same": true
+    },
+    "hardware_moving_ring_nut_180": {
+      "volume_delta_mm3": 0.0,
+      "vertices_same": true,
+      "faces_same": true
+    },
+    "hirth_moving": {
+      "volume_delta_mm3": 0.0,
+      "vertices_same": true,
+      "faces_same": true
+    },
+    "hardware_base_M5_0": {
+      "volume_delta_mm3": 0.0,
+      "vertices_same": true,
+      "faces_same": true
+    },
+    "hardware_moving_ring_M3_180": {
+      "volume_delta_mm3": 0.0,
+      "vertices_same": true,
+      "faces_same": true
+    },
+    "hardware_base_M5_1": {
+      "volume_delta_mm3": 0.0,
+      "vertices_same": true,
+      "faces_same": true
+    },
+    "hardware_M8_nut": {
+      "volume_delta_mm3": 0.0,
+      "vertices_same": true,
+      "faces_same": true
+    },
+    "pad_upper_jaw": {
+      "volume_delta_mm3": 0.0,
+      "vertices_same": true,
+      "faces_same": true
+    },
+    "hardware_M8_sliding_sleeve": {
+      "volume_delta_mm3": 0.0,
+      "vertices_same": true,
+      "faces_same": true
+    },
+    "guide_rod_2": {
+      "volume_delta_mm3": 0.0,
+      "vertices_same": true,
+      "faces_same": true
+    },
+    "hardware_moving_ring_nut_60": {
+      "volume_delta_mm3": 0.0,
+      "vertices_same": true,
+      "faces_same": true
+    },
+    "hardware_M8_axis_bolt": {
+      "volume_delta_mm3": 0.0,
+      "vertices_same": true,
+      "faces_same": true
+    },
+    "hardware_fixed_ring_M3_240": {
+      "volume_delta_mm3": 0.0,
+      "vertices_same": true,
+      "faces_same": true
+    },
+    "M8_hand_knob": {
+      "volume_delta_mm3": 0.0,
+      "vertices_same": true,
+      "faces_same": true
+    },
+    "base_printed": {
+      "volume_delta_mm3": 0.0,
+      "vertices_same": true,
+      "faces_same": true
+    },
+    "hardware_compression_spring_1": {
+      "volume_delta_mm3": 0.0,
+      "vertices_same": true,
+      "faces_same": true
+    },
+    "hardware_base_M5_3": {
+      "volume_delta_mm3": 0.0,
+      "vertices_same": true,
+      "faces_same": true
+    },
+    "guide_rod_1": {
+      "volume_delta_mm3": 0.0,
+      "vertices_same": true,
+      "faces_same": true
+    },
+    "hardware_compression_spring_2": {
+      "volume_delta_mm3": 0.0,
+      "vertices_same": true,
+      "faces_same": true
+    },
+    "hardware_fixed_ring_M3_120": {
+      "volume_delta_mm3": 0.0,
+      "vertices_same": true,
+      "faces_same": true
+    },
+    "hirth_fixed": {
+      "volume_delta_mm3": 0.0,
+      "vertices_same": true,
+      "faces_same": true
+    },
+    "hardware_fixed_ring_nut_120": {
+      "volume_delta_mm3": 0.0,
+      "vertices_same": true,
+      "faces_same": true
+    },
+    "column": {
+      "volume_delta_mm3": 0.0,
+      "vertices_same": true,
+      "faces_same": true
+    },
+    "hardware_base_M5_2": {
+      "volume_delta_mm3": 0.0,
+      "vertices_same": true,
+      "faces_same": true
+    },
+    "pad_lower_jaw": {
+      "volume_delta_mm3": 0.0,
+      "vertices_same": true,
+      "faces_same": true
+    },
+    "cradle_lower_jaw": {
+      "volume_delta_mm3": -288.0,
+      "vertices_same": false,
+      "faces_same": false
+    },
+    "hardware_moving_ring_M3_300": {
+      "volume_delta_mm3": 0.0,
+      "vertices_same": true,
+      "faces_same": true
+    },
+    "hardware_fixed_ring_M3_0": {
+      "volume_delta_mm3": 0.0,
+      "vertices_same": true,
+      "faces_same": true
+    },
+    "lock_screw_spacer": {
+      "volume_delta_mm3": 0.0,
+      "vertices_same": true,
+      "faces_same": true
+    },
+    "hardware_M8_washer_1": {
+      "volume_delta_mm3": 0.0,
+      "vertices_same": true,
+      "faces_same": true
+    }
+  }
+}

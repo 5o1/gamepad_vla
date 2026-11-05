@@ -92,7 +92,7 @@ def main(out=HERE/'out',destination=HERE):
         return res
     assembled=transform(local,Fpad);target=np.array([0,-35,135]);iso=lookat(target+[-480,-520,270],target)
     fig=plt.figure(figsize=(420/25.4,297/25.4),facecolor=BG)
-    fig.text(.03,.965,'Xbox One S 1708 · V3 竖直立柱 / 对称叉轴 / 平面夹爪',fontsize=19,color=INK,fontweight='bold')
+    fig.text(.03,.965,'Xbox One S 1708 · V3.1 竖直立柱 / 对称叉轴 / 平面夹爪',fontsize=19,color=INK,fontweight='bold')
     fig.text(.03,.935,'单位 mm  |  H2D 双喷头 300×320×325  |  PETG 主体 + 2 mm 硅胶片（TPU 可选）  |  资产推得，待卡尺与实物试验',fontsize=9,color=MUTED)
     ax=fig.add_axes([.025,.515,.35,.355]);draw(ax,assembled,iso,title='01 / 实际装配',resolution=1700)
     exploded=[]
@@ -134,9 +134,9 @@ def main(out=HERE/'out',destination=HERE):
         '刻线仅主线与±10°，无数字/薄指针；实际倾角用可拆标记卡测量。',
         '可打印性逐件硬门与局部支撑/豁免详见检查JSON；本图不表示已实打或已做强度试验。']
     for n,line in enumerate(text):ax.text(0,1-n*.135,line,fontsize=8 if n==0 else 7.1,fontweight='bold' if n==0 else 'normal',color=INK,va='top')
-    fig.text(.03,.018,'V2→V3：取消随形网格布尔面、斜柱/单边悬臂与压力鞋；接触与场景使用同一组规则几何。完整BOM见 materials.md；实物放行见 VALIDATION.md。',fontsize=7,color=MUTED)
-    destination.mkdir(parents=True,exist_ok=True);fig.savefig(destination/'design_sheet.png',dpi=300,facecolor=BG);fig.savefig(destination/'design_sheet.pdf',dpi=300,facecolor=BG,metadata={'Title':'Xbox 1708 fixture V3'});plt.close(fig)
+    fig.text(.03,.018,'V3.1：左右拇指通道前唇退让2 mm，剩高1 mm；上爪前端外角2 mm倒角；保留承压垫全足迹。完整BOM见 materials.md；实物放行见 VALIDATION.md。',fontsize=7,color=MUTED)
+    destination.mkdir(parents=True,exist_ok=True);fig.savefig(destination/'design_sheet.png',dpi=300,facecolor=BG);fig.savefig(destination/'design_sheet.pdf',dpi=300,facecolor=BG,metadata={'Title':'Xbox 1708 fixture V3.1'});plt.close(fig)
     return destination/'design_sheet.png'
 
 if __name__=='__main__':
-    a=argparse.ArgumentParser();a.add_argument('--out',type=Path,default=HERE/'out');a.add_argument('--destination',type=Path,default=HERE);v=a.parse_args();print(main(v.out,v.destination))
+    a=argparse.ArgumentParser();a.add_argument('--out',type=Path,default=HERE/'out_v3_1');a.add_argument('--destination',type=Path,default=HERE);v=a.parse_args();print(main(v.out,v.destination))

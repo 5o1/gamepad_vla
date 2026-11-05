@@ -1,0 +1,5053 @@
+{
+  "fixture_meshes": 14,
+  "distance_cap_mm": 20.0,
+  "method": "Exact cooked SAPIEN triangle-pair vertex/face, edge/edge and edge/triangle intersection; AABB-pruned at 20 mm. Distances >=20 mm reported as lower bounds. PhysX contact manifolds measured separately at each saved pose.",
+  "states": [
+    {
+      "label": "left_strict_hold_-1",
+      "side": "left",
+      "mode": "strict",
+      "control": "hold",
+      "state": -1,
+      "minimum_distance_mm": 20.0,
+      "nearest": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "per_fixture": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_cap",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_1",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_2",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_lock_screw_spacer",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_M8_hand_knob",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_back",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "contacts": [],
+      "elapsed_seconds": 0.06537192896939814
+    },
+    {
+      "label": "left_strict_Dpad_up_0",
+      "side": "left",
+      "mode": "strict",
+      "control": "Dpad_up",
+      "state": 0,
+      "minimum_distance_mm": 12.66500144323435,
+      "nearest": [
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 12.66500144323435,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_pad_lower_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 19.6526677695957,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "per_fixture": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 12.66500144323435,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_cap",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_1",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_2",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_lock_screw_spacer",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_M8_hand_knob",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_back",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_lower_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 19.6526677695957,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_pad_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "contacts": [],
+      "elapsed_seconds": 0.22657228203024715
+    },
+    {
+      "label": "left_strict_Dpad_left_0",
+      "side": "left",
+      "mode": "strict",
+      "control": "Dpad_left",
+      "state": 0,
+      "minimum_distance_mm": 8.04229630559729,
+      "nearest": [
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 8.04229630559729,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_pad_lower_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 15.374166345888955,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "per_fixture": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 8.04229630559729,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_cap",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_1",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_2",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_lock_screw_spacer",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_M8_hand_knob",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_back",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_lower_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 15.374166345888955,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_pad_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "contacts": [],
+      "elapsed_seconds": 0.22316489997319877
+    },
+    {
+      "label": "left_strict_Dpad_right_0",
+      "side": "left",
+      "mode": "strict",
+      "control": "Dpad_right",
+      "state": 0,
+      "minimum_distance_mm": 6.385744901324569,
+      "nearest": [
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 6.385744901324569,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_pad_lower_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 14.268976584973318,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "per_fixture": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 6.385744901324569,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_cap",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_1",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_2",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_lock_screw_spacer",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_M8_hand_knob",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_back",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_lower_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 14.268976584973318,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_pad_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "contacts": [],
+      "elapsed_seconds": 0.2547202199930325
+    },
+    {
+      "label": "left_strict_LS_0",
+      "side": "left",
+      "mode": "strict",
+      "control": "LS",
+      "state": 0,
+      "minimum_distance_mm": 19.423953914375222,
+      "nearest": [
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 19.423953914375222,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "per_fixture": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 19.423953914375222,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_guide_cap",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_1",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_2",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_lock_screw_spacer",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_M8_hand_knob",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_back",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "contacts": [],
+      "elapsed_seconds": 0.12312924000434577
+    },
+    {
+      "label": "left_strict_LS_1",
+      "side": "left",
+      "mode": "strict",
+      "control": "LS",
+      "state": 1,
+      "minimum_distance_mm": 20.0,
+      "nearest": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "per_fixture": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_cap",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_1",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_2",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_lock_screw_spacer",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_M8_hand_knob",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_back",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "contacts": [],
+      "elapsed_seconds": 0.12315651902463287
+    },
+    {
+      "label": "left_strict_LS_2",
+      "side": "left",
+      "mode": "strict",
+      "control": "LS",
+      "state": 2,
+      "minimum_distance_mm": 18.896213528623882,
+      "nearest": [
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 18.896213528623882,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "per_fixture": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 18.896213528623882,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_guide_cap",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_1",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_2",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_lock_screw_spacer",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_M8_hand_knob",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_back",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "contacts": [],
+      "elapsed_seconds": 0.12359692598693073
+    },
+    {
+      "label": "left_strict_LS_3",
+      "side": "left",
+      "mode": "strict",
+      "control": "LS",
+      "state": 3,
+      "minimum_distance_mm": 17.7435273239139,
+      "nearest": [
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 17.7435273239139,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "per_fixture": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 17.7435273239139,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_guide_cap",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_1",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_2",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_lock_screw_spacer",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_M8_hand_knob",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_back",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "contacts": [],
+      "elapsed_seconds": 0.12665301596280187
+    },
+    {
+      "label": "left_strict_LS_4",
+      "side": "left",
+      "mode": "strict",
+      "control": "LS",
+      "state": 4,
+      "minimum_distance_mm": 18.249181744980262,
+      "nearest": [
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 18.249181744980262,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "per_fixture": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 18.249181744980262,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_guide_cap",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_1",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_2",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_lock_screw_spacer",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_M8_hand_knob",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_back",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "contacts": [],
+      "elapsed_seconds": 0.14088293502572924
+    },
+    {
+      "label": "left_strict_LS_5",
+      "side": "left",
+      "mode": "strict",
+      "control": "LS",
+      "state": 5,
+      "minimum_distance_mm": 17.740790889665583,
+      "nearest": [
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 17.740790889665583,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "per_fixture": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 17.740790889665583,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_guide_cap",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_1",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_2",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_lock_screw_spacer",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_M8_hand_knob",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_back",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "contacts": [],
+      "elapsed_seconds": 0.12545625702477992
+    },
+    {
+      "label": "left_strict_LS_6",
+      "side": "left",
+      "mode": "strict",
+      "control": "LS",
+      "state": 6,
+      "minimum_distance_mm": 20.0,
+      "nearest": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "per_fixture": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_cap",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_1",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_2",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_lock_screw_spacer",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_M8_hand_knob",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_back",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "contacts": [],
+      "elapsed_seconds": 0.11530991806648672
+    },
+    {
+      "label": "left_strict_LS_7",
+      "side": "left",
+      "mode": "strict",
+      "control": "LS",
+      "state": 7,
+      "minimum_distance_mm": 19.506876136517917,
+      "nearest": [
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 19.506876136517917,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "per_fixture": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 19.506876136517917,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_guide_cap",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_1",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_2",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_lock_screw_spacer",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_M8_hand_knob",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_back",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "contacts": [],
+      "elapsed_seconds": 0.13171621202491224
+    },
+    {
+      "label": "left_strict_L3_0",
+      "side": "left",
+      "mode": "strict",
+      "control": "L3",
+      "state": 0,
+      "minimum_distance_mm": 19.386892705144472,
+      "nearest": [
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 19.386892705144472,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "per_fixture": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 19.386892705144472,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_guide_cap",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_1",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_2",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_lock_screw_spacer",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_M8_hand_knob",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_back",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "contacts": [],
+      "elapsed_seconds": 0.12567243201192468
+    },
+    {
+      "label": "left_realistic_hold_-1",
+      "side": "left",
+      "mode": "realistic",
+      "control": "hold",
+      "state": -1,
+      "minimum_distance_mm": 20.0,
+      "nearest": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "per_fixture": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_cap",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_1",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_2",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_lock_screw_spacer",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_M8_hand_knob",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_back",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "contacts": [],
+      "elapsed_seconds": 0.05906266300007701
+    },
+    {
+      "label": "left_realistic_Dpad_up_0",
+      "side": "left",
+      "mode": "realistic",
+      "control": "Dpad_up",
+      "state": 0,
+      "minimum_distance_mm": 12.66500144323435,
+      "nearest": [
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 12.66500144323435,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_pad_lower_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 19.6526677695957,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "per_fixture": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 12.66500144323435,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_cap",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_1",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_2",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_lock_screw_spacer",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_M8_hand_knob",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_back",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_lower_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 19.6526677695957,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_pad_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "contacts": [],
+      "elapsed_seconds": 0.2257273739669472
+    },
+    {
+      "label": "left_realistic_Dpad_left_0",
+      "side": "left",
+      "mode": "realistic",
+      "control": "Dpad_left",
+      "state": 0,
+      "minimum_distance_mm": 8.04229630559729,
+      "nearest": [
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 8.04229630559729,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_pad_lower_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 15.374166345888955,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "per_fixture": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 8.04229630559729,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_cap",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_1",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_2",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_lock_screw_spacer",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_M8_hand_knob",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_back",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_lower_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 15.374166345888955,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_pad_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "contacts": [],
+      "elapsed_seconds": 0.22898925398476422
+    },
+    {
+      "label": "left_realistic_Dpad_right_0",
+      "side": "left",
+      "mode": "realistic",
+      "control": "Dpad_right",
+      "state": 0,
+      "minimum_distance_mm": 6.385744901324569,
+      "nearest": [
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 6.385744901324569,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_pad_lower_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 14.268976584973318,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "per_fixture": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 6.385744901324569,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_cap",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_1",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_2",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_lock_screw_spacer",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_M8_hand_knob",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_back",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_lower_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 14.268976584973318,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_pad_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "contacts": [],
+      "elapsed_seconds": 0.25865135504864156
+    },
+    {
+      "label": "left_realistic_LS_0",
+      "side": "left",
+      "mode": "realistic",
+      "control": "LS",
+      "state": 0,
+      "minimum_distance_mm": 19.423953914375222,
+      "nearest": [
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 19.423953914375222,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "per_fixture": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 19.423953914375222,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_guide_cap",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_1",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_2",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_lock_screw_spacer",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_M8_hand_knob",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_back",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "contacts": [],
+      "elapsed_seconds": 0.12453685607761145
+    },
+    {
+      "label": "left_realistic_LS_1",
+      "side": "left",
+      "mode": "realistic",
+      "control": "LS",
+      "state": 1,
+      "minimum_distance_mm": 20.0,
+      "nearest": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "per_fixture": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_cap",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_1",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_2",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_lock_screw_spacer",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_M8_hand_knob",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_back",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "contacts": [],
+      "elapsed_seconds": 0.1237105579348281
+    },
+    {
+      "label": "left_realistic_LS_2",
+      "side": "left",
+      "mode": "realistic",
+      "control": "LS",
+      "state": 2,
+      "minimum_distance_mm": 18.896213528623882,
+      "nearest": [
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 18.896213528623882,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "per_fixture": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 18.896213528623882,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_guide_cap",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_1",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_2",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_lock_screw_spacer",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_M8_hand_knob",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_back",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "contacts": [],
+      "elapsed_seconds": 0.12422420689836144
+    },
+    {
+      "label": "left_realistic_LS_3",
+      "side": "left",
+      "mode": "realistic",
+      "control": "LS",
+      "state": 3,
+      "minimum_distance_mm": 17.7435273239139,
+      "nearest": [
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 17.7435273239139,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "per_fixture": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 17.7435273239139,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_guide_cap",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_1",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_2",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_lock_screw_spacer",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_M8_hand_knob",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_back",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "contacts": [],
+      "elapsed_seconds": 0.12571587809361517
+    },
+    {
+      "label": "left_realistic_LS_4",
+      "side": "left",
+      "mode": "realistic",
+      "control": "LS",
+      "state": 4,
+      "minimum_distance_mm": 18.249181744980262,
+      "nearest": [
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 18.249181744980262,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "per_fixture": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 18.249181744980262,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_guide_cap",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_1",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_2",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_lock_screw_spacer",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_M8_hand_knob",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_back",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "contacts": [],
+      "elapsed_seconds": 0.12571806297637522
+    },
+    {
+      "label": "left_realistic_LS_5",
+      "side": "left",
+      "mode": "realistic",
+      "control": "LS",
+      "state": 5,
+      "minimum_distance_mm": 17.740790889665583,
+      "nearest": [
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 17.740790889665583,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "per_fixture": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 17.740790889665583,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_guide_cap",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_1",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_2",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_lock_screw_spacer",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_M8_hand_knob",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_back",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "contacts": [],
+      "elapsed_seconds": 0.12565006595104933
+    },
+    {
+      "label": "left_realistic_LS_6",
+      "side": "left",
+      "mode": "realistic",
+      "control": "LS",
+      "state": 6,
+      "minimum_distance_mm": 20.0,
+      "nearest": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "per_fixture": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_cap",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_1",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_2",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_lock_screw_spacer",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_M8_hand_knob",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_back",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "contacts": [],
+      "elapsed_seconds": 0.0975569860311225
+    },
+    {
+      "label": "left_realistic_LS_7",
+      "side": "left",
+      "mode": "realistic",
+      "control": "LS",
+      "state": 7,
+      "minimum_distance_mm": 19.506876136517917,
+      "nearest": [
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 19.506876136517917,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "per_fixture": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 19.506876136517917,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_guide_cap",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_1",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_2",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_lock_screw_spacer",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_M8_hand_knob",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_back",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "contacts": [],
+      "elapsed_seconds": 0.16687943798024207
+    },
+    {
+      "label": "left_realistic_L3_0",
+      "side": "left",
+      "mode": "realistic",
+      "control": "L3",
+      "state": 0,
+      "minimum_distance_mm": 19.386892705144472,
+      "nearest": [
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 19.386892705144472,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "per_fixture": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 19.386892705144472,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_guide_cap",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_1",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_2",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_lock_screw_spacer",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_M8_hand_knob",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_back",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "contacts": [],
+      "elapsed_seconds": 0.08774103003088385
+    },
+    {
+      "label": "right_strict_hold_-1",
+      "side": "right",
+      "mode": "strict",
+      "control": "hold",
+      "state": -1,
+      "minimum_distance_mm": 20.0,
+      "nearest": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "per_fixture": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_cap",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_1",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_2",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_lock_screw_spacer",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_M8_hand_knob",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_back",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "contacts": [],
+      "elapsed_seconds": 0.21912955702282488
+    },
+    {
+      "label": "right_strict_A_0",
+      "side": "right",
+      "mode": "strict",
+      "control": "A",
+      "state": 0,
+      "minimum_distance_mm": 20.0,
+      "nearest": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "per_fixture": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_cap",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_1",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_2",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_lock_screw_spacer",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_M8_hand_knob",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_back",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "contacts": [],
+      "elapsed_seconds": 0.27397960401140153
+    },
+    {
+      "label": "right_strict_B_0",
+      "side": "right",
+      "mode": "strict",
+      "control": "B",
+      "state": 0,
+      "minimum_distance_mm": 20.0,
+      "nearest": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "per_fixture": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_cap",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_1",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_2",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_lock_screw_spacer",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_M8_hand_knob",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_back",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "contacts": [],
+      "elapsed_seconds": 0.24317569704726338
+    },
+    {
+      "label": "right_strict_Y_0",
+      "side": "right",
+      "mode": "strict",
+      "control": "Y",
+      "state": 0,
+      "minimum_distance_mm": 20.0,
+      "nearest": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "per_fixture": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_cap",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_1",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_2",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_lock_screw_spacer",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_M8_hand_knob",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_back",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "contacts": [],
+      "elapsed_seconds": 0.27792699495330453
+    },
+    {
+      "label": "right_strict_RB_0",
+      "side": "right",
+      "mode": "strict",
+      "control": "RB",
+      "state": 0,
+      "minimum_distance_mm": 3.2695547240374387,
+      "nearest": [
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": "right_index_distal",
+          "distance_mm": 3.2695547240374387,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_pad_upper_jaw",
+          "robot_link": "right_index_distal",
+          "distance_mm": 7.4485738150077,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "per_fixture": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": "right_index_distal",
+          "distance_mm": 3.2695547240374387,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_guide_cap",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_1",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_2",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_lock_screw_spacer",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_M8_hand_knob",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_back",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_upper_jaw",
+          "robot_link": "right_index_distal",
+          "distance_mm": 7.4485738150077,
+          "capped": false
+        }
+      ],
+      "contacts": [],
+      "elapsed_seconds": 0.45812995498999953
+    },
+    {
+      "label": "right_realistic_hold_-1",
+      "side": "right",
+      "mode": "realistic",
+      "control": "hold",
+      "state": -1,
+      "minimum_distance_mm": 20.0,
+      "nearest": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "per_fixture": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_cap",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_1",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_2",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_lock_screw_spacer",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_M8_hand_knob",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_back",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "contacts": [],
+      "elapsed_seconds": 0.22586673800833523
+    },
+    {
+      "label": "right_realistic_A_0",
+      "side": "right",
+      "mode": "realistic",
+      "control": "A",
+      "state": 0,
+      "minimum_distance_mm": 20.0,
+      "nearest": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "per_fixture": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_cap",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_1",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_2",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_lock_screw_spacer",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_M8_hand_knob",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_back",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "contacts": [],
+      "elapsed_seconds": 0.25733732304070145
+    },
+    {
+      "label": "right_realistic_B_0",
+      "side": "right",
+      "mode": "realistic",
+      "control": "B",
+      "state": 0,
+      "minimum_distance_mm": 20.0,
+      "nearest": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "per_fixture": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_cap",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_1",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_2",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_lock_screw_spacer",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_M8_hand_knob",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_back",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "contacts": [],
+      "elapsed_seconds": 0.24498144700191915
+    },
+    {
+      "label": "right_realistic_Y_0",
+      "side": "right",
+      "mode": "realistic",
+      "control": "Y",
+      "state": 0,
+      "minimum_distance_mm": 20.0,
+      "nearest": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "per_fixture": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_cap",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_1",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_2",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_lock_screw_spacer",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_M8_hand_knob",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_back",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "contacts": [],
+      "elapsed_seconds": 0.2836174509720877
+    },
+    {
+      "label": "right_realistic_R3_0",
+      "side": "right",
+      "mode": "realistic",
+      "control": "R3",
+      "state": 0,
+      "minimum_distance_mm": 14.126987285814044,
+      "nearest": [
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": "right_thumb_distal",
+          "distance_mm": 14.126987285814044,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "per_fixture": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": "right_thumb_distal",
+          "distance_mm": 14.126987285814044,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_cap",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_1",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_2",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_lock_screw_spacer",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_M8_hand_knob",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_back",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "contacts": [],
+      "elapsed_seconds": 0.14944388496223837
+    },
+    {
+      "label": "right_realistic_RB_0",
+      "side": "right",
+      "mode": "realistic",
+      "control": "RB",
+      "state": 0,
+      "minimum_distance_mm": 3.2695547240374387,
+      "nearest": [
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": "right_index_distal",
+          "distance_mm": 3.2695547240374387,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_pad_upper_jaw",
+          "robot_link": "right_index_distal",
+          "distance_mm": 7.4485738150077,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "per_fixture": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": "right_index_distal",
+          "distance_mm": 3.2695547240374387,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_guide_cap",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_1",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_2",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_lock_screw_spacer",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_M8_hand_knob",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_back",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_upper_jaw",
+          "robot_link": "right_index_distal",
+          "distance_mm": 7.4485738150077,
+          "capped": false
+        }
+      ],
+      "contacts": [],
+      "elapsed_seconds": 0.46064617298543453
+    },
+    {
+      "label": "right_realistic_X_0",
+      "side": "right",
+      "mode": "realistic",
+      "control": "X",
+      "state": 0,
+      "minimum_distance_mm": 18.513535383916913,
+      "nearest": [
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": "right_index_distal",
+          "distance_mm": 18.513535383916913,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "per_fixture": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": "right_index_distal",
+          "distance_mm": 18.513535383916913,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_guide_cap",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_1",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_2",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_lock_screw_spacer",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_M8_hand_knob",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_back",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_lower_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "contacts": [],
+      "elapsed_seconds": 0.389928343007341
+    },
+    {
+      "label": "left_rejected_Dpad_down",
+      "side": "left",
+      "mode": "rejected",
+      "control": "Dpad_down",
+      "state": 0,
+      "minimum_distance_mm": 1.9111661623405976,
+      "nearest": [
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 1.9111661623405976,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_pad_lower_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 9.784830014117453,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "per_fixture": [
+        {
+          "fixture": "v3_visual_base_printed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_column",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_fixed",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_hirth_moving",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_cradle_lower_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 1.9111661623405976,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_slider_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_cap",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_1",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_guide_rod_2",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_lock_screw_spacer",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_M8_hand_knob",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_back",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        },
+        {
+          "fixture": "v3_visual_pad_lower_jaw",
+          "robot_link": "thumb_distal",
+          "distance_mm": 9.784830014117453,
+          "capped": false
+        },
+        {
+          "fixture": "v3_visual_pad_upper_jaw",
+          "robot_link": null,
+          "distance_mm": 20.0,
+          "capped": true
+        }
+      ],
+      "contacts": [],
+      "elapsed_seconds": 0.18728484900202602
+    }
+  ],
+  "pass": true,
+  "input_mesh_sha256": {
+    "hardware_moving_ring_M3_300.glb": "955f70f70abd7480535417e8a43ad4ff564d1bafd97dd4648c6700a0f981b527",
+    "column.glb": "b38ec5dde2c2e4bc3da4817f902d9b2078cd9882106d714f2d7b37519c5c1d15",
+    "hardware_moving_ring_nut_180.glb": "f36caed6bd8d4f31295aa922b0b4d95e6283c341df66cc6430ca35703582dd6c",
+    "hardware_base_M5_1.glb": "dd42ae9f02426d0929e14d340ce4d60f1e41dd07c352d1fc72458fd4ca6bd691",
+    "guide_cap.glb": "78530863de4f91e6e816b56f23e33e76e39db4c8533495b9c056880d59b64eda",
+    "hirth_moving.glb": "ce851aa33748bb9967dee4a530770414031d4bd4998403647f3ad171bb48f249",
+    "guide_cap.convex.obj": "ebcaed2498b8c5174600582000fb1fbc313ac92441d633dcfac2831e1bec208c",
+    "guide_rod_2.glb": "532db27a72e4671587848b41e76f949e180642ec314280b45278c977699c0980",
+    "base_printed.convex.obj": "48744125e75bd96d992a329619ff8571b3c6e7aaef310f6433fb2e51829157ed",
+    "pad_back.convex.obj": "83015db2b0db6d6372caba0e1cddc7e0cf4a9d2f7f2b1f530b49675df80bc653",
+    "base_printed.glb": "08712cf85fdc5fb6257cc69a67e2195a34b931f10db43d79cba203383891d0b9",
+    "guide_rod_1.convex.obj": "9ca79c94b9dd13de2718c71b0797985a5e1f5efcdcaa252596e11395bc26087e",
+    "slider_upper_jaw.convex.obj": "c2e362f70e1aee99d02c680eee20317bff37dbd91ec9b6c0dbb5acb4ce5f99e7",
+    "hardware_moving_ring_M3_60.glb": "130a10db84ae1d1a8dcd47896b71864b284640c775ae1802bda21600ddf9b1b8",
+    "hirth_fixed.convex.obj": "1bb0096c4de899d6700a14143169a2eb5ff32b24c29c74231e516d782c57e001",
+    "hardware_fixed_ring_M3_120.glb": "26ef629ac3a0bcbe15026d9ed334a4971a550d26f44839833e524ab93f6774d5",
+    "pad_upper_jaw.glb": "0b2d866cf3dbc17d8136d4c94e973ca4ea0717d03bdfa1db6d0c376aa357e6bc",
+    "cradle_lower_jaw.glb": "e4f0bd53cad388d2f6eb5206c9bc806615782170c5db64dbdb93b686b0bb9254",
+    "hardware_fixed_ring_M3_240.glb": "d445bdadc6f48987ef83ca97f30d9ba2aaad0f3ddebc6ea2cccd790e4247f38f",
+    "guide_rod_1.glb": "8887d5e078ff2d5833e5a1cd3c0e11b011aa55a515120393292ab718be62ead3",
+    "column.convex.obj": "fb4d3f15ce41cea0623da04ac4b05d18d8d4336f5152c11764465745cff77af9",
+    "hardware_M8_washer_2.glb": "9474b03df696df53d421655757c7a4fb4eb37a856f8f01c340103edea11adfc1",
+    "hardware_compression_spring_2.glb": "dd1ec8991eb39963e5ba9d4c22d97abaa1505fef5a7573b36829a5152a37c8a4",
+    "hardware_moving_ring_nut_300.glb": "9ed36a14a099ad70bf9098f6dc522efbabcd91b370345a7993b55d64e42ab4bf",
+    "hardware_fixed_ring_nut_240.glb": "993af2328d1b9fe22ae8799d3d2306532d788268cf26e30b897ee20e61ca9690",
+    "pad_lower_jaw.glb": "847d2ecae77a5b7266b198533b922e2f244055dd155dc759844546e6b06cf147",
+    "pad_back.glb": "8e836fb3d663e72717ff2add8b2b028f9bb712a12116d268faa8158e6b91b2f5",
+    "hardware_moving_ring_nut_60.glb": "e84116260d31552f34632b5f09719dda05d518a1834a6dc6e3c9e82cfc08853f",
+    "M8_hand_knob.convex.obj": "0b66cff334438711479ae4a8eaf5182741d7cdda186154ea9bf9258a405dcda0",
+    "slider_upper_jaw.glb": "c590baaf514e2e3dafc494775499ce3d1deaf3b1ce658888e314e35e4685713b",
+    "M8_hand_knob.glb": "4caef07b86d2735cad482285a114b89413e02f35a7c72b7072a5e8fa50bca712",
+    "hardware_M8_sliding_sleeve.glb": "d94a94005117d704686bd1cadbc2824faa4231f58b4a8d50436b5a3d7fce7784",
+    "hardware_base_M5_0.glb": "a99f54b5934837a2bfe99ffba9ac520a51cadd3df2515d405bf736891f00036c",
+    "hardware_M8_washer_1.glb": "52740973b03a491e90cb0afb2e5018ec9247a570876526c32c4a044999b83833",
+    "cradle_lower_jaw.convex.obj": "01e0b69700a1e91af8888400e8ed81f6965aa3cf94eeeb9900559a2114b419cf",
+    "hardware_M8_nut.glb": "c93bb7f6e135fb848f7cd8fd2722984c4b107b5a301235dbb85a2272681babd4",
+    "hardware_moving_ring_M3_180.glb": "b54e3b5050dd57c818f322d30d3b6a14544db7c2479e5ec786e7ed812940c74a",
+    "hardware_compression_spring_1.glb": "0e540ec92165adace57989b1324549fa05681dcc9e4e68f81d6ec62518a3a8b8",
+    "hardware_base_M5_3.glb": "6b42ea357bc6dfcccd26ee4ea0446c38703f8564a744de984d37361dc9d44efe",
+    "pad_lower_jaw.convex.obj": "840daa126e10b2810a4860bcb3ce22190ca9c479d8df5a7aeffcc3c3f67c3cb1",
+    "hardware_fixed_ring_M3_0.glb": "26dfb72d871e99e4ba16eab4c085750c5b04fc045a7d14b4fff46f97395ac980",
+    "hirth_fixed.glb": "299a59cc6c138f7e5a610096bbf0336c95c9abc92779b5574a69d576d9334e3c",
+    "pad_upper_jaw.convex.obj": "628e10af5b77ba2739fc7cd7783b081f0a1f434a77174f139531366a428cf391",
+    "lock_screw_spacer.convex.obj": "d0aae44ab6731e678c512d7f5310c1155fd4e32ed94832c26a7c395e0684d057",
+    "hirth_moving.convex.obj": "0cdbe8e5d545bc3284f74b3ba79634eb3eb6d06d0a47129478fb124c41f79e9a",
+    "hardware_fixed_ring_nut_0.glb": "5ae2e0a09e31d987f17ddbedb7a7959418976f73a10d3b6c1d1bc909e4177762",
+    "hardware_fixed_ring_nut_120.glb": "9b9e6c4c68166117ba56cc647a45550bc093a6af1e6bc62a96bd490f92c4136c",
+    "hardware_M8_axis_bolt.glb": "733258032dc887ffb732c10a3b72a3f9b72f22fa2f29f8cc6d4363ce58ba8518",
+    "lock_screw_spacer.glb": "8b8d9cfa8d65c97178b8576510d6c815633d4661d6e153b9417282aa8637c81f",
+    "hardware_base_M5_2.glb": "426522c6582e1b00f18b2a58e44fcdaf94d67068621fd71f27bd2463d5ad24b9",
+    "guide_rod_2.convex.obj": "c5e56bfbd2b986cf181032570fe2118ab671d90ae215ee15de37cfd03922b503"
+  }
+}

@@ -50,11 +50,11 @@ def protected():
                     q.apply_transform(T);shapes[f'approach_{side}_{group["name"]}_{index}']=solid(q)
     return shapes,asset
 
-def check(directory,density=4):
+def check(directory,density=4,cad_out=HERE/'out'):
     start=time.monotonic();keep,asset=protected();rows={};all_out=[];all_in=[];protected_rows=[];contacts={}
-    mf=json.loads((HERE/'out/manifest.json').read_text())
+    mf=json.loads((cad_out/'manifest.json').read_text())
     for src in sorted(directory.glob('*.obj')):
-        name=src.stem;cad=trimesh.load(HERE/'out/assembly_mesh'/(name+'.stl'),force='mesh')
+        name=src.stem;cad=trimesh.load(cad_out/'assembly_mesh'/(name+'.stl'),force='mesh')
         hulls=[trimesh.Trimesh(v*1000,f,process=False) for v,f in convex_objects(src)]
         proxy=mesh(union([solid(h) for h in hulls]));points=np.vstack([sample(h,density) for h in hulls]);out=outside_distances(cad,points)
         original=sample(cad,density);inside=np.zeros(len(original),bool)
@@ -82,4 +82,4 @@ def check(directory,density=4):
     (directory/'accuracy.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps({k:v for k,v in result.items() if k!='parts'}),flush=True)
     return result
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('directory',type=Path);p.add_argument('--density',type=float,default=4);a=p.parse_args();check(a.directory,a.density)
+    p=argparse.ArgumentParser();p.add_argument('directory',type=Path);p.add_argument('--density',type=float,default=4);p.add_argument('--out',type=Path,default=HERE/'out');a=p.parse_args();check(a.directory,a.density,a.out)

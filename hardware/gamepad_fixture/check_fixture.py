@@ -380,7 +380,33 @@ def waiver_junctions(out,manifest):
         scope='Actual print STL clipped at each locally waived ordinary open corner must contain positive, connected material; no independent narrow channel is waived.')
 
 
-def main(out=HERE/'out',samples=60000,plots=True):
+def forward_capture(manifest,meshes,asset):
+    """Test exported lip material and a fixed-orientation forward escape sweep."""
+    m=manifest['parameters']['measured'];i=manifest['parameters']['installation']
+    lower_y=m['top_center_y']-m['center_span'];rows=[]
+    for x in (-24.,-16.,16.,24.):
+        # Probe from above along -Y at the middle of the front lip.
+        hit,_,_=meshes['cradle_lower_jaw'].ray.intersects_location([[x,lower_y+5,24]],[[0,-1,0]],multiple_hits=True)
+        top=max(hit[:,1]) if len(hit) else -math.inf
+        rows.append(dict(x_mm=x,remaining_height_above_lower_datum_mm=float(top-lower_y),pass_=top-lower_y>=.95))
+    shell=trimesh.util.concatenate(list(asset.visual_meshes().values()))
+    # Visual shell only, excluding movable controls, to measure physical capture.
+    from asset_geometry import SHELL_NAMES
+    shell=trimesh.util.concatenate([v for n,v in asset.visual_meshes().items() if n in SHELL_NAMES]) if any(n in SHELL_NAMES for n in asset.visual_meshes()) else trimesh.util.concatenate([v for _,v in asset.components(SHELL_NAMES)])
+    from trimesh.collision import CollisionManager
+    manager=CollisionManager()
+    for n in ('cradle_lower_jaw','slider_upper_jaw'):manager.add_object(n,meshes[n])
+    samples=[]
+    for z in np.arange(0,12.01,.5):
+        T=np.eye(4);T[2,3]=z
+        collision,names=manager.in_collision_single(shell,transform=T,return_names=True)
+        samples.append(dict(forward_mm=float(z),surface_intersection=bool(collision),parts=sorted(names)))
+    blocked=any(r['surface_intersection'] for r in samples[1:])
+    return dict(pass_=all(r['pass_'] for r in rows) and blocked,lip_probes=rows,forward_sweep=samples,
+        scope='Fixed orientation and locked jaws; +controller Z forward translation. Positive lip overlap blocks this escape path; does not certify arbitrary 6D extraction or physical strength.')
+
+
+def main(out=HERE/'out_v3_1',samples=60000,plots=True):
     out=Path(out);m=json.loads((out/'manifest.json').read_text());r=dict(executed=True,completed=True,design_revision=m['design_revision'],units='mm,N,N m,deg')
     parts=[p for p in m['parts'] if p.get('is_printed')];build=[]
     for p in parts:
@@ -442,6 +468,9 @@ def main(out=HERE/'out',samples=60000,plots=True):
         r['structural_symmetry_and_ribs']=structural_symmetry(m,meshes,solids)
         r['mounting_band']=mounting(m,meshes,solids,out)
         r['mechanics']=measured_mechanics(m,meshes)
+        r['mechanics']['pass_'] &= r['mechanics']['anti_twist_safety_factor_at_0_4Nm']>=1.1567328783810005-1e-6
+        r['forward_capture']=forward_capture(m,meshes,asset)
+        r['user_overrides']=m.get('user_overrides',[])
         r['hirth_actual_sections']=tooth_sections(m,meshes)
         r['slider_motion']=slider_motion(m,meshes,solids)
         W=np.asarray(m['world_from_pad']);i=m['parameters']['installation'];depth=i['table_edge_x']-W[0,3];height=W[2,3]-i['tabletop_z'];region=m['feasible_region']
@@ -466,7 +495,7 @@ def main(out=HERE/'out',samples=60000,plots=True):
 
 
 if __name__=='__main__':
-    ap=argparse.ArgumentParser();ap.add_argument('--out',type=Path,default=HERE/'out');ap.add_argument('--samples',type=int,default=60000);ap.add_argument('--no-plots',action='store_true');a=ap.parse_args()
+    ap=argparse.ArgumentParser();ap.add_argument('--out',type=Path,default=HERE/'out_v3_1');ap.add_argument('--samples',type=int,default=60000);ap.add_argument('--no-plots',action='store_true');a=ap.parse_args()
     try:
         passed=main(a.out,a.samples,not a.no_plots)
     except Exception as error:

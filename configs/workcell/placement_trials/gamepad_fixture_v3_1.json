@@ -1,0 +1,1056 @@
+{
+  "name": "station-g20-v3.1-fixture-static-mesh",
+  "world_frame": "world",
+  "table": {
+    "pose": [
+      0.405915,
+      0.6252,
+      0.7545000000000001,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "half_extents": [
+      0.3125,
+      0.625,
+      0.0125
+    ]
+  },
+  "left_arm": {
+    "urdf": "workspace://assets/derived/ar5_08r_e6bcf44f/left_arm.urdf",
+    "base_link": "AR5_left_5_08R_W4C4A6_base",
+    "tip_link": "AR5_left_5_08R_W4C4A6_tcp",
+    "base_pose": [
+      0.036915,
+      0.7112,
+      1.262,
+      0.707106781187,
+      -0.707106781182,
+      0.0,
+      2.597348e-06
+    ],
+    "home_q": [
+      0.132566,
+      1.33764,
+      0.51476,
+      1.36853,
+      1.71606,
+      0.15145,
+      0.43553
+    ],
+    "joint_names": [
+      "AR5_left_5_08R_W4C4A6_joint_1",
+      "AR5_left_5_08R_W4C4A6_joint_2",
+      "AR5_left_5_08R_W4C4A6_joint_3",
+      "AR5_left_5_08R_W4C4A6_joint_4",
+      "AR5_left_5_08R_W4C4A6_joint_5",
+      "AR5_left_5_08R_W4C4A6_joint_6",
+      "AR5_left_5_08R_W4C4A6_joint_7"
+    ]
+  },
+  "left_hand": {
+    "urdf": "workspace://assets/linkerhand_station_20261014/linkerhand_g20_l20_l25_urdf_mesh/g20_left/linkerhand_g20_left.urdf",
+    "root_link": "hand_base_link",
+    "mount": [
+      0.0,
+      0.0,
+      0.02,
+      0.7071054825112364,
+      0.0,
+      0.0,
+      0.7071080798594737
+    ],
+    "mount_status": "unverified"
+  },
+  "gamepad": {
+    "release": "xbox_gamepad_physics==0.4.1",
+    "profile": "full_controls",
+    "collision": "sdf",
+    "root_pose": [
+      0.6649622227161496,
+      0.6252000000000001,
+      0.9876608653492692,
+      -0.6532814824381882,
+      -0.2705980500730985,
+      0.2705980500730985,
+      0.6532814824381882
+    ],
+    "fixed_root": true
+  },
+  "notes": [
+    "User adopted the rendered dual AR5_5_08R_W4C4A6 scene on 2026-10-21; upstream commit e6bcf44ff0203534e14500cb836f57e9f9492292.",
+    "Both arms use the R variant. Unique link and joint names; original mesh geometry and kinematics retained.",
+    "Upstream joint_1 rpy is zero; no additional station-candidate 90-degree rotation applied.",
+    "Base mounting poses, home joint angles and hand mounts inherited from v4.3, not independently verified for this model.",
+    "Static loading and three-view rendering verified. Existing 07-model home/IK/clearance certificates do not apply; dynamics and physical alignment remain unverified.",
+    "Archived camera extrinsics and retained driver intrinsics unchanged from v4.3.",
+    "v4.5 (2026-10-22): arm mounts rotated about each base z (J1) axis, left -90 deg and right +90 deg, relative to the vendor design value used through v4.4. Evidence: with the master arm hanging naturally, the station map_left/right gives slave J1 = +/-90 deg, and the station's real slave hangs in that pose, whereas the v4.4 mount hangs at J1 = 0 and folded the sim arm backward. home_q J1 shifted by +/-90 deg to keep the same physical home pose.",
+    "v4.5 right arm (2026-10-23): an extra +15 deg rotation about the right base z (J1) axis. LinkerTA adds offset_deg=-15 to right J1 (lta.yaml and main_ros2.cpp default, 2026-08-31, comment 'joint51 -15 deg'). Inferred to compensate the real right slave, so the right arm hangs vertically at slave J1 = -105 deg; before this change the sim right arm leaned back about 20 deg with the master hanging. This is an inference and has not been measured on the real slave. home_q J1 shifted by -15 deg.",
+    "camera_3 re-aimed and recalibrated on 2026-10-23 (tilted forward about 43 deg, position nearly unchanged); see references/calibration/2026-10-23-ego-upright/.",
+    "Collection placement (user decision 2026-10-23, revised): gamepad on the edge post, root [0.709415, 0.6252, 0.986859] (220 mm above the table), yaw -90 deg, tilted 39.8 deg about its left-right axis (bumper edge up) so the face normal points at camera_3 (2.7 deg residual; camera 29 mm off the table centre line). Back-shell support point 211.3 mm above the table.",
+    "2026-10-29: back to the edge-post placement. The real fixture is planned at the calibration-board position (far table edge, centre), which camera_3 sees; the elbow-90 trial placement is withdrawn.",
+    "2026-11-03 placement trial d050-h220-t+10 (task X): gamepad centre 50 mm in from the far edge, 220 mm above the table, tilt 46.67 deg; straight 30x40 mm post on a 20 mm edge base. For teleop trials only.",
+    "V3 vertical post axis from integer base/flange/post dimensions. Camera_3 calibration unchanged. This is a trial spec only; no service/default switch.",
+    "AB: fixed-root CAD assembly; fixture-gamepad collision disabled. Static CAD triangles in SAPIEN; per-object convex meshes in MuJoCo. gamepad-contact continues to disable robot/environment contact.",
+    "AF v3.1 local lip retreat and non-load-bearing upper corner chamfers; no collection default change."
+  ],
+  "right_arm": {
+    "urdf": "workspace://assets/derived/ar5_08r_e6bcf44f/right_arm.urdf",
+    "base_link": "AR5_right_5_08R_W4C4A6_base",
+    "tip_link": "AR5_right_5_08R_W4C4A6_tcp",
+    "base_pose": [
+      0.036915,
+      0.5292,
+      1.262,
+      0.701057723672,
+      0.701057384645,
+      -0.092295955641,
+      0.092293380514
+    ],
+    "home_q": [
+      -2.832595,
+      1,
+      0,
+      2,
+      0,
+      0,
+      0
+    ],
+    "joint_names": [
+      "AR5_right_5_08R_W4C4A6_joint_1",
+      "AR5_right_5_08R_W4C4A6_joint_2",
+      "AR5_right_5_08R_W4C4A6_joint_3",
+      "AR5_right_5_08R_W4C4A6_joint_4",
+      "AR5_right_5_08R_W4C4A6_joint_5",
+      "AR5_right_5_08R_W4C4A6_joint_6",
+      "AR5_right_5_08R_W4C4A6_joint_7"
+    ]
+  },
+  "right_hand": {
+    "urdf": "workspace://assets/linkerhand_station_20261014/linkerhand_g20_l20_l25_urdf_mesh/g20_right/linkerhand_g20_right.urdf",
+    "root_link": "hand_base_link",
+    "mount": [
+      0,
+      0,
+      0.02,
+      0.7071054825112364,
+      0.0,
+      0.0,
+      -0.7071080798594737
+    ],
+    "mount_status": "unverified",
+    "home_q": [
+      0.7195294117647059,
+      0.7203529411764705,
+      0.4654509803921569,
+      0.25,
+      0.2575,
+      0.23,
+      0.7272156862745098,
+      0.19215686274509805,
+      0.17101960784313727,
+      0.17047058823529412,
+      0.6937254901960784,
+      0.1784313725490196,
+      0.15880392156862747,
+      0.17227450980392153,
+      0.7941960784313725,
+      0.19215686274509805,
+      0.17101960784313727,
+      0.23,
+      0.6793725490196079,
+      0.7137254901960784,
+      0.6352156862745099
+    ]
+  },
+  "fixtures": [
+    {
+      "name": "station_column",
+      "type": "box",
+      "pose": [
+        0.036915,
+        0.6202,
+        0.6946549999999999,
+        1,
+        0,
+        0,
+        0
+      ],
+      "half_extents": [
+        0.0565,
+        0.06,
+        0.5375
+      ],
+      "collision": true,
+      "status": "assumed",
+      "source": "C1/C2/C3 measured, C5 unmeasured113mm per task/v3 (original mesh body60mm,113mm is top disc depth); vertical extent design adjusted -5mm"
+    },
+    {
+      "name": "station_column_top_mount",
+      "type": "box",
+      "pose": [
+        0.036915,
+        0.6202,
+        1.262,
+        1,
+        0,
+        0,
+        0
+      ],
+      "half_extents": [
+        0.0565,
+        0.091,
+        0.0564275
+      ],
+      "collision": true,
+      "status": "design",
+      "source": "URDF mounting discs113mm depth, measured mount faces182mm; simplified enclosing box; may overapproximate contacts"
+    },
+    {
+      "name": "station_floor",
+      "type": "box",
+      "pose": [
+        0.4,
+        0.62,
+        -0.025,
+        1,
+        0,
+        0,
+        0
+      ],
+      "half_extents": [
+        3,
+        3,
+        0.025
+      ],
+      "collision": true,
+      "status": "design",
+      "source": "world z=0; finite plane proxy5cm slab"
+    },
+    {
+      "name": "station_table_frame_leg00",
+      "type": "box",
+      "pose": [
+        0.113415,
+        0.0202,
+        0.3685,
+        1,
+        0,
+        0,
+        0
+      ],
+      "half_extents": [
+        0.02,
+        0.02,
+        0.3685
+      ],
+      "collision": true,
+      "status": "assumed",
+      "source": "photo0/4 frame footprint approximation; no leg measurement, omitted crossbars"
+    },
+    {
+      "name": "station_table_frame_leg01",
+      "type": "box",
+      "pose": [
+        0.113415,
+        1.2302,
+        0.3685,
+        1,
+        0,
+        0,
+        0
+      ],
+      "half_extents": [
+        0.02,
+        0.02,
+        0.3685
+      ],
+      "collision": true,
+      "status": "assumed",
+      "source": "photo0/4 frame footprint approximation; no leg measurement, omitted crossbars"
+    },
+    {
+      "name": "station_table_frame_leg10",
+      "type": "box",
+      "pose": [
+        0.698415,
+        0.0202,
+        0.3685,
+        1,
+        0,
+        0,
+        0
+      ],
+      "half_extents": [
+        0.02,
+        0.02,
+        0.3685
+      ],
+      "collision": true,
+      "status": "assumed",
+      "source": "photo0/4 frame footprint approximation; no leg measurement, omitted crossbars"
+    },
+    {
+      "name": "station_table_frame_leg11",
+      "type": "box",
+      "pose": [
+        0.698415,
+        1.2302,
+        0.3685,
+        1,
+        0,
+        0,
+        0
+      ],
+      "half_extents": [
+        0.02,
+        0.02,
+        0.3685
+      ],
+      "collision": true,
+      "status": "assumed",
+      "source": "photo0/4 frame footprint approximation; no leg measurement, omitted crossbars"
+    },
+    {
+      "name": "camera_3_body",
+      "type": "mesh",
+      "parent": "world",
+      "pose": [
+        0.321860546,
+        0.619791644,
+        1.454657384,
+        0.269642534,
+        0.64928106,
+        0.649380498,
+        0.289882696
+      ],
+      "collision": false,
+      "status": "estimated",
+      "mesh": "workspace://external/online_20261015/realsense_d435_d455/realsense2_description/meshes/d435.dae",
+      "source": "2026-10-23 ego optical pose with the existing nominal optical-to-D435-shell transform preserved; visual only."
+    },
+    {
+      "name": "station_backdrop_green",
+      "type": "box",
+      "parent": "world",
+      "pose": [
+        1.5,
+        0.62,
+        1.25,
+        1,
+        0,
+        0,
+        0
+      ],
+      "half_extents": [
+        0.01,
+        1.6,
+        1.25
+      ],
+      "collision": false,
+      "status": "design",
+      "source": "2026-10-23 visual-only green screen beyond the far table edge, so the re-aimed camera_3 no longer sees empty background past the floor; colour from the calibration photo (appearance backdrop_green)."
+    },
+    {
+      "name": "v3_table_apron",
+      "type": "box",
+      "pose": [
+        0.6834,
+        0.6252000000000001,
+        0.6819999999999999,
+        1,
+        0,
+        0,
+        0
+      ],
+      "half_extents": [
+        0.005,
+        0.625,
+        0.06
+      ],
+      "collision": true,
+      "status": "assumed",
+      "source": "V3 edge-to-apron default 30 mm, table thickness25 mm; apron thickness10/drop120 provisional, caliper required"
+    },
+    {
+      "name": "v3_visual_base_printed",
+      "type": "mesh",
+      "pose": [
+        0.6649622227161496,
+        0.6252000000000001,
+        0.9876608653492692,
+        -0.6532814824381882,
+        -0.2705980500730985,
+        0.2705980500730985,
+        0.6532814824381882
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/base_printed.glb",
+      "collision": true,
+      "status": "design",
+      "source": "AF v3.1 actual exported CAD; static triangle SAPIEN, multi-object convex MuJoCo",
+      "convex_mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/base_printed.convex.obj"
+    },
+    {
+      "name": "v3_visual_column",
+      "type": "mesh",
+      "pose": [
+        0.6649622227161496,
+        0.6252000000000001,
+        0.9876608653492692,
+        -0.6532814824381882,
+        -0.2705980500730985,
+        0.2705980500730985,
+        0.6532814824381882
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/column.glb",
+      "collision": true,
+      "status": "design",
+      "source": "AF v3.1 actual exported CAD; static triangle SAPIEN, multi-object convex MuJoCo",
+      "convex_mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/column.convex.obj"
+    },
+    {
+      "name": "v3_visual_hirth_fixed",
+      "type": "mesh",
+      "pose": [
+        0.6649622227161496,
+        0.6252000000000001,
+        0.9876608653492692,
+        -0.6532814824381882,
+        -0.2705980500730985,
+        0.2705980500730985,
+        0.6532814824381882
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/hirth_fixed.glb",
+      "collision": true,
+      "status": "design",
+      "source": "AF v3.1 actual exported CAD; static triangle SAPIEN, multi-object convex MuJoCo",
+      "convex_mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/hirth_fixed.convex.obj"
+    },
+    {
+      "name": "v3_visual_hirth_moving",
+      "type": "mesh",
+      "pose": [
+        0.6649622227161496,
+        0.6252000000000001,
+        0.9876608653492692,
+        -0.6532814824381882,
+        -0.2705980500730985,
+        0.2705980500730985,
+        0.6532814824381882
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/hirth_moving.glb",
+      "collision": true,
+      "status": "design",
+      "source": "AF v3.1 actual exported CAD; static triangle SAPIEN, multi-object convex MuJoCo",
+      "convex_mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/hirth_moving.convex.obj"
+    },
+    {
+      "name": "v3_visual_cradle_lower_jaw",
+      "type": "mesh",
+      "pose": [
+        0.6649622227161496,
+        0.6252000000000001,
+        0.9876608653492692,
+        -0.6532814824381882,
+        -0.2705980500730985,
+        0.2705980500730985,
+        0.6532814824381882
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/cradle_lower_jaw.glb",
+      "collision": true,
+      "status": "design",
+      "source": "AF v3.1 actual exported CAD; static triangle SAPIEN, multi-object convex MuJoCo",
+      "convex_mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/cradle_lower_jaw.convex.obj"
+    },
+    {
+      "name": "v3_visual_slider_upper_jaw",
+      "type": "mesh",
+      "pose": [
+        0.6649622227161496,
+        0.6252000000000001,
+        0.9876608653492692,
+        -0.6532814824381882,
+        -0.2705980500730985,
+        0.2705980500730985,
+        0.6532814824381882
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/slider_upper_jaw.glb",
+      "collision": true,
+      "status": "design",
+      "source": "AF v3.1 actual exported CAD; static triangle SAPIEN, multi-object convex MuJoCo",
+      "convex_mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/slider_upper_jaw.convex.obj"
+    },
+    {
+      "name": "v3_visual_guide_cap",
+      "type": "mesh",
+      "pose": [
+        0.6649622227161496,
+        0.6252000000000001,
+        0.9876608653492692,
+        -0.6532814824381882,
+        -0.2705980500730985,
+        0.2705980500730985,
+        0.6532814824381882
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/guide_cap.glb",
+      "collision": true,
+      "status": "design",
+      "source": "AF v3.1 actual exported CAD; static triangle SAPIEN, multi-object convex MuJoCo",
+      "convex_mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/guide_cap.convex.obj"
+    },
+    {
+      "name": "v3_visual_guide_rod_1",
+      "type": "mesh",
+      "pose": [
+        0.6649622227161496,
+        0.6252000000000001,
+        0.9876608653492692,
+        -0.6532814824381882,
+        -0.2705980500730985,
+        0.2705980500730985,
+        0.6532814824381882
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/guide_rod_1.glb",
+      "collision": true,
+      "status": "design",
+      "source": "AF v3.1 actual exported CAD; static triangle SAPIEN, multi-object convex MuJoCo",
+      "convex_mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/guide_rod_1.convex.obj"
+    },
+    {
+      "name": "v3_visual_hardware_compression_spring_1",
+      "type": "mesh",
+      "pose": [
+        0.6649622227161496,
+        0.6252000000000001,
+        0.9876608653492692,
+        -0.6532814824381882,
+        -0.2705980500730985,
+        0.2705980500730985,
+        0.6532814824381882
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/hardware_compression_spring_1.glb",
+      "collision": false,
+      "status": "design",
+      "source": "AF v3.1 actual exported CAD; static triangle SAPIEN, multi-object convex MuJoCo"
+    },
+    {
+      "name": "v3_visual_guide_rod_2",
+      "type": "mesh",
+      "pose": [
+        0.6649622227161496,
+        0.6252000000000001,
+        0.9876608653492692,
+        -0.6532814824381882,
+        -0.2705980500730985,
+        0.2705980500730985,
+        0.6532814824381882
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/guide_rod_2.glb",
+      "collision": true,
+      "status": "design",
+      "source": "AF v3.1 actual exported CAD; static triangle SAPIEN, multi-object convex MuJoCo",
+      "convex_mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/guide_rod_2.convex.obj"
+    },
+    {
+      "name": "v3_visual_hardware_compression_spring_2",
+      "type": "mesh",
+      "pose": [
+        0.6649622227161496,
+        0.6252000000000001,
+        0.9876608653492692,
+        -0.6532814824381882,
+        -0.2705980500730985,
+        0.2705980500730985,
+        0.6532814824381882
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/hardware_compression_spring_2.glb",
+      "collision": false,
+      "status": "design",
+      "source": "AF v3.1 actual exported CAD; static triangle SAPIEN, multi-object convex MuJoCo"
+    },
+    {
+      "name": "v3_visual_lock_screw_spacer",
+      "type": "mesh",
+      "pose": [
+        0.6649622227161496,
+        0.6252000000000001,
+        0.9876608653492692,
+        -0.6532814824381882,
+        -0.2705980500730985,
+        0.2705980500730985,
+        0.6532814824381882
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/lock_screw_spacer.glb",
+      "collision": true,
+      "status": "design",
+      "source": "AF v3.1 actual exported CAD; static triangle SAPIEN, multi-object convex MuJoCo",
+      "convex_mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/lock_screw_spacer.convex.obj"
+    },
+    {
+      "name": "v3_visual_hardware_M8_sliding_sleeve",
+      "type": "mesh",
+      "pose": [
+        0.6649622227161496,
+        0.6252000000000001,
+        0.9876608653492692,
+        -0.6532814824381882,
+        -0.2705980500730985,
+        0.2705980500730985,
+        0.6532814824381882
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/hardware_M8_sliding_sleeve.glb",
+      "collision": false,
+      "status": "design",
+      "source": "AF v3.1 actual exported CAD; static triangle SAPIEN, multi-object convex MuJoCo"
+    },
+    {
+      "name": "v3_visual_M8_hand_knob",
+      "type": "mesh",
+      "pose": [
+        0.6649622227161496,
+        0.6252000000000001,
+        0.9876608653492692,
+        -0.6532814824381882,
+        -0.2705980500730985,
+        0.2705980500730985,
+        0.6532814824381882
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/M8_hand_knob.glb",
+      "collision": true,
+      "status": "design",
+      "source": "AF v3.1 actual exported CAD; static triangle SAPIEN, multi-object convex MuJoCo",
+      "convex_mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/M8_hand_knob.convex.obj"
+    },
+    {
+      "name": "v3_visual_hardware_M8_axis_bolt",
+      "type": "mesh",
+      "pose": [
+        0.6649622227161496,
+        0.6252000000000001,
+        0.9876608653492692,
+        -0.6532814824381882,
+        -0.2705980500730985,
+        0.2705980500730985,
+        0.6532814824381882
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/hardware_M8_axis_bolt.glb",
+      "collision": false,
+      "status": "design",
+      "source": "AF v3.1 actual exported CAD; static triangle SAPIEN, multi-object convex MuJoCo"
+    },
+    {
+      "name": "v3_visual_hardware_M8_washer_1",
+      "type": "mesh",
+      "pose": [
+        0.6649622227161496,
+        0.6252000000000001,
+        0.9876608653492692,
+        -0.6532814824381882,
+        -0.2705980500730985,
+        0.2705980500730985,
+        0.6532814824381882
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/hardware_M8_washer_1.glb",
+      "collision": false,
+      "status": "design",
+      "source": "AF v3.1 actual exported CAD; static triangle SAPIEN, multi-object convex MuJoCo"
+    },
+    {
+      "name": "v3_visual_hardware_M8_washer_2",
+      "type": "mesh",
+      "pose": [
+        0.6649622227161496,
+        0.6252000000000001,
+        0.9876608653492692,
+        -0.6532814824381882,
+        -0.2705980500730985,
+        0.2705980500730985,
+        0.6532814824381882
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/hardware_M8_washer_2.glb",
+      "collision": false,
+      "status": "design",
+      "source": "AF v3.1 actual exported CAD; static triangle SAPIEN, multi-object convex MuJoCo"
+    },
+    {
+      "name": "v3_visual_hardware_M8_nut",
+      "type": "mesh",
+      "pose": [
+        0.6649622227161496,
+        0.6252000000000001,
+        0.9876608653492692,
+        -0.6532814824381882,
+        -0.2705980500730985,
+        0.2705980500730985,
+        0.6532814824381882
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/hardware_M8_nut.glb",
+      "collision": false,
+      "status": "design",
+      "source": "AF v3.1 actual exported CAD; static triangle SAPIEN, multi-object convex MuJoCo"
+    },
+    {
+      "name": "v3_visual_hardware_fixed_ring_M3_0",
+      "type": "mesh",
+      "pose": [
+        0.6649622227161496,
+        0.6252000000000001,
+        0.9876608653492692,
+        -0.6532814824381882,
+        -0.2705980500730985,
+        0.2705980500730985,
+        0.6532814824381882
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/hardware_fixed_ring_M3_0.glb",
+      "collision": false,
+      "status": "design",
+      "source": "AF v3.1 actual exported CAD; static triangle SAPIEN, multi-object convex MuJoCo"
+    },
+    {
+      "name": "v3_visual_hardware_fixed_ring_nut_0",
+      "type": "mesh",
+      "pose": [
+        0.6649622227161496,
+        0.6252000000000001,
+        0.9876608653492692,
+        -0.6532814824381882,
+        -0.2705980500730985,
+        0.2705980500730985,
+        0.6532814824381882
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/hardware_fixed_ring_nut_0.glb",
+      "collision": false,
+      "status": "design",
+      "source": "AF v3.1 actual exported CAD; static triangle SAPIEN, multi-object convex MuJoCo"
+    },
+    {
+      "name": "v3_visual_hardware_fixed_ring_M3_120",
+      "type": "mesh",
+      "pose": [
+        0.6649622227161496,
+        0.6252000000000001,
+        0.9876608653492692,
+        -0.6532814824381882,
+        -0.2705980500730985,
+        0.2705980500730985,
+        0.6532814824381882
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/hardware_fixed_ring_M3_120.glb",
+      "collision": false,
+      "status": "design",
+      "source": "AF v3.1 actual exported CAD; static triangle SAPIEN, multi-object convex MuJoCo"
+    },
+    {
+      "name": "v3_visual_hardware_fixed_ring_nut_120",
+      "type": "mesh",
+      "pose": [
+        0.6649622227161496,
+        0.6252000000000001,
+        0.9876608653492692,
+        -0.6532814824381882,
+        -0.2705980500730985,
+        0.2705980500730985,
+        0.6532814824381882
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/hardware_fixed_ring_nut_120.glb",
+      "collision": false,
+      "status": "design",
+      "source": "AF v3.1 actual exported CAD; static triangle SAPIEN, multi-object convex MuJoCo"
+    },
+    {
+      "name": "v3_visual_hardware_fixed_ring_M3_240",
+      "type": "mesh",
+      "pose": [
+        0.6649622227161496,
+        0.6252000000000001,
+        0.9876608653492692,
+        -0.6532814824381882,
+        -0.2705980500730985,
+        0.2705980500730985,
+        0.6532814824381882
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/hardware_fixed_ring_M3_240.glb",
+      "collision": false,
+      "status": "design",
+      "source": "AF v3.1 actual exported CAD; static triangle SAPIEN, multi-object convex MuJoCo"
+    },
+    {
+      "name": "v3_visual_hardware_fixed_ring_nut_240",
+      "type": "mesh",
+      "pose": [
+        0.6649622227161496,
+        0.6252000000000001,
+        0.9876608653492692,
+        -0.6532814824381882,
+        -0.2705980500730985,
+        0.2705980500730985,
+        0.6532814824381882
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/hardware_fixed_ring_nut_240.glb",
+      "collision": false,
+      "status": "design",
+      "source": "AF v3.1 actual exported CAD; static triangle SAPIEN, multi-object convex MuJoCo"
+    },
+    {
+      "name": "v3_visual_hardware_moving_ring_M3_60",
+      "type": "mesh",
+      "pose": [
+        0.6649622227161496,
+        0.6252000000000001,
+        0.9876608653492692,
+        -0.6532814824381882,
+        -0.2705980500730985,
+        0.2705980500730985,
+        0.6532814824381882
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/hardware_moving_ring_M3_60.glb",
+      "collision": false,
+      "status": "design",
+      "source": "AF v3.1 actual exported CAD; static triangle SAPIEN, multi-object convex MuJoCo"
+    },
+    {
+      "name": "v3_visual_hardware_moving_ring_nut_60",
+      "type": "mesh",
+      "pose": [
+        0.6649622227161496,
+        0.6252000000000001,
+        0.9876608653492692,
+        -0.6532814824381882,
+        -0.2705980500730985,
+        0.2705980500730985,
+        0.6532814824381882
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/hardware_moving_ring_nut_60.glb",
+      "collision": false,
+      "status": "design",
+      "source": "AF v3.1 actual exported CAD; static triangle SAPIEN, multi-object convex MuJoCo"
+    },
+    {
+      "name": "v3_visual_hardware_moving_ring_M3_180",
+      "type": "mesh",
+      "pose": [
+        0.6649622227161496,
+        0.6252000000000001,
+        0.9876608653492692,
+        -0.6532814824381882,
+        -0.2705980500730985,
+        0.2705980500730985,
+        0.6532814824381882
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/hardware_moving_ring_M3_180.glb",
+      "collision": false,
+      "status": "design",
+      "source": "AF v3.1 actual exported CAD; static triangle SAPIEN, multi-object convex MuJoCo"
+    },
+    {
+      "name": "v3_visual_hardware_moving_ring_nut_180",
+      "type": "mesh",
+      "pose": [
+        0.6649622227161496,
+        0.6252000000000001,
+        0.9876608653492692,
+        -0.6532814824381882,
+        -0.2705980500730985,
+        0.2705980500730985,
+        0.6532814824381882
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/hardware_moving_ring_nut_180.glb",
+      "collision": false,
+      "status": "design",
+      "source": "AF v3.1 actual exported CAD; static triangle SAPIEN, multi-object convex MuJoCo"
+    },
+    {
+      "name": "v3_visual_hardware_moving_ring_M3_300",
+      "type": "mesh",
+      "pose": [
+        0.6649622227161496,
+        0.6252000000000001,
+        0.9876608653492692,
+        -0.6532814824381882,
+        -0.2705980500730985,
+        0.2705980500730985,
+        0.6532814824381882
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/hardware_moving_ring_M3_300.glb",
+      "collision": false,
+      "status": "design",
+      "source": "AF v3.1 actual exported CAD; static triangle SAPIEN, multi-object convex MuJoCo"
+    },
+    {
+      "name": "v3_visual_hardware_moving_ring_nut_300",
+      "type": "mesh",
+      "pose": [
+        0.6649622227161496,
+        0.6252000000000001,
+        0.9876608653492692,
+        -0.6532814824381882,
+        -0.2705980500730985,
+        0.2705980500730985,
+        0.6532814824381882
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/hardware_moving_ring_nut_300.glb",
+      "collision": false,
+      "status": "design",
+      "source": "AF v3.1 actual exported CAD; static triangle SAPIEN, multi-object convex MuJoCo"
+    },
+    {
+      "name": "v3_visual_hardware_base_M5_0",
+      "type": "mesh",
+      "pose": [
+        0.6649622227161496,
+        0.6252000000000001,
+        0.9876608653492692,
+        -0.6532814824381882,
+        -0.2705980500730985,
+        0.2705980500730985,
+        0.6532814824381882
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/hardware_base_M5_0.glb",
+      "collision": false,
+      "status": "design",
+      "source": "AF v3.1 actual exported CAD; static triangle SAPIEN, multi-object convex MuJoCo"
+    },
+    {
+      "name": "v3_visual_hardware_base_M5_1",
+      "type": "mesh",
+      "pose": [
+        0.6649622227161496,
+        0.6252000000000001,
+        0.9876608653492692,
+        -0.6532814824381882,
+        -0.2705980500730985,
+        0.2705980500730985,
+        0.6532814824381882
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/hardware_base_M5_1.glb",
+      "collision": false,
+      "status": "design",
+      "source": "AF v3.1 actual exported CAD; static triangle SAPIEN, multi-object convex MuJoCo"
+    },
+    {
+      "name": "v3_visual_hardware_base_M5_2",
+      "type": "mesh",
+      "pose": [
+        0.6649622227161496,
+        0.6252000000000001,
+        0.9876608653492692,
+        -0.6532814824381882,
+        -0.2705980500730985,
+        0.2705980500730985,
+        0.6532814824381882
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/hardware_base_M5_2.glb",
+      "collision": false,
+      "status": "design",
+      "source": "AF v3.1 actual exported CAD; static triangle SAPIEN, multi-object convex MuJoCo"
+    },
+    {
+      "name": "v3_visual_hardware_base_M5_3",
+      "type": "mesh",
+      "pose": [
+        0.6649622227161496,
+        0.6252000000000001,
+        0.9876608653492692,
+        -0.6532814824381882,
+        -0.2705980500730985,
+        0.2705980500730985,
+        0.6532814824381882
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/hardware_base_M5_3.glb",
+      "collision": false,
+      "status": "design",
+      "source": "AF v3.1 actual exported CAD; static triangle SAPIEN, multi-object convex MuJoCo"
+    },
+    {
+      "name": "v3_visual_pad_back",
+      "type": "mesh",
+      "pose": [
+        0.6649622227161496,
+        0.6252000000000001,
+        0.9876608653492692,
+        -0.6532814824381882,
+        -0.2705980500730985,
+        0.2705980500730985,
+        0.6532814824381882
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/pad_back.glb",
+      "collision": true,
+      "status": "design",
+      "source": "AF v3.1 actual exported CAD; static triangle SAPIEN, multi-object convex MuJoCo",
+      "convex_mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/pad_back.convex.obj"
+    },
+    {
+      "name": "v3_visual_pad_lower_jaw",
+      "type": "mesh",
+      "pose": [
+        0.6649622227161496,
+        0.6252000000000001,
+        0.9876608653492692,
+        -0.6532814824381882,
+        -0.2705980500730985,
+        0.2705980500730985,
+        0.6532814824381882
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/pad_lower_jaw.glb",
+      "collision": true,
+      "status": "design",
+      "source": "AF v3.1 actual exported CAD; static triangle SAPIEN, multi-object convex MuJoCo",
+      "convex_mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/pad_lower_jaw.convex.obj"
+    },
+    {
+      "name": "v3_visual_pad_upper_jaw",
+      "type": "mesh",
+      "pose": [
+        0.6649622227161496,
+        0.6252000000000001,
+        0.9876608653492692,
+        -0.6532814824381882,
+        -0.2705980500730985,
+        0.2705980500730985,
+        0.6532814824381882
+      ],
+      "mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/pad_upper_jaw.glb",
+      "collision": true,
+      "status": "design",
+      "source": "AF v3.1 actual exported CAD; static triangle SAPIEN, multi-object convex MuJoCo",
+      "convex_mesh": "workspace://assets/derived/gamepad_fixture_out_v3_1/pad_upper_jaw.convex.obj"
+    }
+  ],
+  "cameras": [
+    {
+      "name": "camera_3",
+      "serial": "camera_3",
+      "model": "D435 (recorded, physical model unverified)",
+      "parent": "world",
+      "pose_optical": [
+        0.318363773,
+        0.652165064,
+        1.458461886,
+        0.289882696,
+        -0.649380498,
+        0.64928106,
+        -0.269642534
+      ],
+      "intrinsics": {
+        "width": 1280,
+        "height": 720,
+        "fx": 906.561,
+        "fy": 905.986,
+        "cx": 647.896,
+        "cy": 362.233,
+        "distortion": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "model": "none"
+      },
+      "status": "estimated",
+      "source": "references/calibration/2026-10-23-ego-upright/ (second photo, position_mid_2, after a small camera adjustment): single upright ChArUco image, 20 corners, reprojection median 0.24 px. K/D unchanged."
+    }
+  ],
+  "appearance": "../../appearance/station_v3_fixture.json"
+}
