@@ -20,7 +20,7 @@ def test_default_short_view_session_has_no_frame_files(tmp_path, monkeypatch):
     monkeypatch.setitem(sys.modules, 'xbox_gamepad_physics.teleop.stream.ipc',
                         SimpleNamespace(Latest=Latest, SNAPSHOT_CAPACITY=1, FRAME_CAPACITY=1))
     # A config cannot silently turn on diagnostics.
-    monkeypatch.setattr(module, 'load_config', lambda _: dict(diagnostics=True))
+    monkeypatch.setattr(module, 'load_config', lambda _: dict(diagnostics=True,width=960,height=540))
     monkeypatch.setattr(module.subprocess, 'Popen', lambda *a, **kw:
         SimpleNamespace(pid=1, poll=lambda: None, wait=lambda **kw: None, returncode=0))
     backend=SimpleNamespace(apply=lambda _:None, observe=lambda:SimpleNamespace(gamepad_signal=SimpleNamespace(tolist=lambda:[])),

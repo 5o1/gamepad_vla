@@ -6,6 +6,8 @@ def color_to_rgb8(picture):
     """Preserve clip/scale/round pixels using contiguous RGB ufunc inputs."""
     import cv2
     rgb = cv2.cvtColor(picture, cv2.COLOR_RGBA2RGB)
+    if rgb.dtype == np.uint8:
+        return rgb
     np.clip(rgb, 0., 1., out=rgb)
     np.multiply(rgb, 255, out=rgb)
     np.rint(rgb, out=rgb)

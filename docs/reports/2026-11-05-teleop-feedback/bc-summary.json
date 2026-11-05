@@ -1,0 +1,2843 @@
+{
+  "original_image_count": 133,
+  "reviewed_groups": 19,
+  "static_states": 39,
+  "clearance": {
+    "fixture_meshes": 14,
+    "distance_cap_mm": 20.0,
+    "method": "Exact cooked SAPIEN triangle-pair vertex/face, edge/edge and edge/triangle intersection; AABB-pruned at 20 mm. Distances >=20 mm reported as lower bounds. PhysX contact manifolds measured separately at each saved pose.",
+    "states": [
+      {
+        "label": "left_strict_hold_-1",
+        "side": "left",
+        "mode": "strict",
+        "control": "hold",
+        "state": -1,
+        "minimum_distance_mm": 20.0,
+        "nearest": [
+          {
+            "fixture": "v3_visual_base_printed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_column",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_fixed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_moving",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_cradle_lower_jaw",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          }
+        ],
+        "contacts": []
+      },
+      {
+        "label": "left_strict_Dpad_up_0",
+        "side": "left",
+        "mode": "strict",
+        "control": "Dpad_up",
+        "state": 0,
+        "minimum_distance_mm": 10.874084074902134,
+        "nearest": [
+          {
+            "fixture": "v3_visual_cradle_lower_jaw",
+            "robot_link": "thumb_distal",
+            "distance_mm": 10.874084074902134,
+            "capped": false
+          },
+          {
+            "fixture": "v3_visual_pad_lower_jaw",
+            "robot_link": "thumb_distal",
+            "distance_mm": 19.6526677695957,
+            "capped": false
+          },
+          {
+            "fixture": "v3_visual_base_printed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_column",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_fixed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          }
+        ],
+        "contacts": []
+      },
+      {
+        "label": "left_strict_Dpad_left_0",
+        "side": "left",
+        "mode": "strict",
+        "control": "Dpad_left",
+        "state": 0,
+        "minimum_distance_mm": 6.278183039899928,
+        "nearest": [
+          {
+            "fixture": "v3_visual_cradle_lower_jaw",
+            "robot_link": "thumb_distal",
+            "distance_mm": 6.278183039899928,
+            "capped": false
+          },
+          {
+            "fixture": "v3_visual_pad_lower_jaw",
+            "robot_link": "thumb_distal",
+            "distance_mm": 15.374166345888955,
+            "capped": false
+          },
+          {
+            "fixture": "v3_visual_base_printed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_column",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_fixed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          }
+        ],
+        "contacts": []
+      },
+      {
+        "label": "left_strict_Dpad_right_0",
+        "side": "left",
+        "mode": "strict",
+        "control": "Dpad_right",
+        "state": 0,
+        "minimum_distance_mm": 4.565254499154913,
+        "nearest": [
+          {
+            "fixture": "v3_visual_cradle_lower_jaw",
+            "robot_link": "thumb_distal",
+            "distance_mm": 4.565254499154913,
+            "capped": false
+          },
+          {
+            "fixture": "v3_visual_pad_lower_jaw",
+            "robot_link": "thumb_distal",
+            "distance_mm": 14.268976584973318,
+            "capped": false
+          },
+          {
+            "fixture": "v3_visual_base_printed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_column",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_fixed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          }
+        ],
+        "contacts": []
+      },
+      {
+        "label": "left_strict_LS_0",
+        "side": "left",
+        "mode": "strict",
+        "control": "LS",
+        "state": 0,
+        "minimum_distance_mm": 19.423953914375222,
+        "nearest": [
+          {
+            "fixture": "v3_visual_slider_upper_jaw",
+            "robot_link": "thumb_distal",
+            "distance_mm": 19.423953914375222,
+            "capped": false
+          },
+          {
+            "fixture": "v3_visual_base_printed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_column",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_fixed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_moving",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          }
+        ],
+        "contacts": []
+      },
+      {
+        "label": "left_strict_LS_1",
+        "side": "left",
+        "mode": "strict",
+        "control": "LS",
+        "state": 1,
+        "minimum_distance_mm": 20.0,
+        "nearest": [
+          {
+            "fixture": "v3_visual_base_printed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_column",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_fixed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_moving",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_cradle_lower_jaw",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          }
+        ],
+        "contacts": []
+      },
+      {
+        "label": "left_strict_LS_2",
+        "side": "left",
+        "mode": "strict",
+        "control": "LS",
+        "state": 2,
+        "minimum_distance_mm": 18.896213528623882,
+        "nearest": [
+          {
+            "fixture": "v3_visual_slider_upper_jaw",
+            "robot_link": "thumb_distal",
+            "distance_mm": 18.896213528623882,
+            "capped": false
+          },
+          {
+            "fixture": "v3_visual_base_printed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_column",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_fixed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_moving",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          }
+        ],
+        "contacts": []
+      },
+      {
+        "label": "left_strict_LS_3",
+        "side": "left",
+        "mode": "strict",
+        "control": "LS",
+        "state": 3,
+        "minimum_distance_mm": 17.7435273239139,
+        "nearest": [
+          {
+            "fixture": "v3_visual_slider_upper_jaw",
+            "robot_link": "thumb_distal",
+            "distance_mm": 17.7435273239139,
+            "capped": false
+          },
+          {
+            "fixture": "v3_visual_base_printed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_column",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_fixed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_moving",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          }
+        ],
+        "contacts": []
+      },
+      {
+        "label": "left_strict_LS_4",
+        "side": "left",
+        "mode": "strict",
+        "control": "LS",
+        "state": 4,
+        "minimum_distance_mm": 18.249181744980262,
+        "nearest": [
+          {
+            "fixture": "v3_visual_slider_upper_jaw",
+            "robot_link": "thumb_distal",
+            "distance_mm": 18.249181744980262,
+            "capped": false
+          },
+          {
+            "fixture": "v3_visual_base_printed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_column",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_fixed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_moving",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          }
+        ],
+        "contacts": []
+      },
+      {
+        "label": "left_strict_LS_5",
+        "side": "left",
+        "mode": "strict",
+        "control": "LS",
+        "state": 5,
+        "minimum_distance_mm": 17.740790889665583,
+        "nearest": [
+          {
+            "fixture": "v3_visual_slider_upper_jaw",
+            "robot_link": "thumb_distal",
+            "distance_mm": 17.740790889665583,
+            "capped": false
+          },
+          {
+            "fixture": "v3_visual_base_printed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_column",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_fixed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_moving",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          }
+        ],
+        "contacts": []
+      },
+      {
+        "label": "left_strict_LS_6",
+        "side": "left",
+        "mode": "strict",
+        "control": "LS",
+        "state": 6,
+        "minimum_distance_mm": 20.0,
+        "nearest": [
+          {
+            "fixture": "v3_visual_base_printed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_column",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_fixed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_moving",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_cradle_lower_jaw",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          }
+        ],
+        "contacts": []
+      },
+      {
+        "label": "left_strict_LS_7",
+        "side": "left",
+        "mode": "strict",
+        "control": "LS",
+        "state": 7,
+        "minimum_distance_mm": 19.506876136517917,
+        "nearest": [
+          {
+            "fixture": "v3_visual_slider_upper_jaw",
+            "robot_link": "thumb_distal",
+            "distance_mm": 19.506876136517917,
+            "capped": false
+          },
+          {
+            "fixture": "v3_visual_base_printed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_column",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_fixed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_moving",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          }
+        ],
+        "contacts": []
+      },
+      {
+        "label": "left_strict_L3_0",
+        "side": "left",
+        "mode": "strict",
+        "control": "L3",
+        "state": 0,
+        "minimum_distance_mm": 19.386892705144472,
+        "nearest": [
+          {
+            "fixture": "v3_visual_slider_upper_jaw",
+            "robot_link": "thumb_distal",
+            "distance_mm": 19.386892705144472,
+            "capped": false
+          },
+          {
+            "fixture": "v3_visual_base_printed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_column",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_fixed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_moving",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          }
+        ],
+        "contacts": []
+      },
+      {
+        "label": "left_realistic_hold_-1",
+        "side": "left",
+        "mode": "realistic",
+        "control": "hold",
+        "state": -1,
+        "minimum_distance_mm": 20.0,
+        "nearest": [
+          {
+            "fixture": "v3_visual_base_printed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_column",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_fixed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_moving",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_cradle_lower_jaw",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          }
+        ],
+        "contacts": []
+      },
+      {
+        "label": "left_realistic_Dpad_up_0",
+        "side": "left",
+        "mode": "realistic",
+        "control": "Dpad_up",
+        "state": 0,
+        "minimum_distance_mm": 10.874084074902134,
+        "nearest": [
+          {
+            "fixture": "v3_visual_cradle_lower_jaw",
+            "robot_link": "thumb_distal",
+            "distance_mm": 10.874084074902134,
+            "capped": false
+          },
+          {
+            "fixture": "v3_visual_pad_lower_jaw",
+            "robot_link": "thumb_distal",
+            "distance_mm": 19.6526677695957,
+            "capped": false
+          },
+          {
+            "fixture": "v3_visual_base_printed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_column",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_fixed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          }
+        ],
+        "contacts": []
+      },
+      {
+        "label": "left_realistic_Dpad_left_0",
+        "side": "left",
+        "mode": "realistic",
+        "control": "Dpad_left",
+        "state": 0,
+        "minimum_distance_mm": 6.278183039899928,
+        "nearest": [
+          {
+            "fixture": "v3_visual_cradle_lower_jaw",
+            "robot_link": "thumb_distal",
+            "distance_mm": 6.278183039899928,
+            "capped": false
+          },
+          {
+            "fixture": "v3_visual_pad_lower_jaw",
+            "robot_link": "thumb_distal",
+            "distance_mm": 15.374166345888955,
+            "capped": false
+          },
+          {
+            "fixture": "v3_visual_base_printed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_column",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_fixed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          }
+        ],
+        "contacts": []
+      },
+      {
+        "label": "left_realistic_Dpad_right_0",
+        "side": "left",
+        "mode": "realistic",
+        "control": "Dpad_right",
+        "state": 0,
+        "minimum_distance_mm": 4.565254499154913,
+        "nearest": [
+          {
+            "fixture": "v3_visual_cradle_lower_jaw",
+            "robot_link": "thumb_distal",
+            "distance_mm": 4.565254499154913,
+            "capped": false
+          },
+          {
+            "fixture": "v3_visual_pad_lower_jaw",
+            "robot_link": "thumb_distal",
+            "distance_mm": 14.268976584973318,
+            "capped": false
+          },
+          {
+            "fixture": "v3_visual_base_printed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_column",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_fixed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          }
+        ],
+        "contacts": []
+      },
+      {
+        "label": "left_realistic_LS_0",
+        "side": "left",
+        "mode": "realistic",
+        "control": "LS",
+        "state": 0,
+        "minimum_distance_mm": 19.423953914375222,
+        "nearest": [
+          {
+            "fixture": "v3_visual_slider_upper_jaw",
+            "robot_link": "thumb_distal",
+            "distance_mm": 19.423953914375222,
+            "capped": false
+          },
+          {
+            "fixture": "v3_visual_base_printed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_column",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_fixed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_moving",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          }
+        ],
+        "contacts": []
+      },
+      {
+        "label": "left_realistic_LS_1",
+        "side": "left",
+        "mode": "realistic",
+        "control": "LS",
+        "state": 1,
+        "minimum_distance_mm": 20.0,
+        "nearest": [
+          {
+            "fixture": "v3_visual_base_printed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_column",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_fixed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_moving",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_cradle_lower_jaw",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          }
+        ],
+        "contacts": []
+      },
+      {
+        "label": "left_realistic_LS_2",
+        "side": "left",
+        "mode": "realistic",
+        "control": "LS",
+        "state": 2,
+        "minimum_distance_mm": 18.896213528623882,
+        "nearest": [
+          {
+            "fixture": "v3_visual_slider_upper_jaw",
+            "robot_link": "thumb_distal",
+            "distance_mm": 18.896213528623882,
+            "capped": false
+          },
+          {
+            "fixture": "v3_visual_base_printed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_column",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_fixed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_moving",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          }
+        ],
+        "contacts": []
+      },
+      {
+        "label": "left_realistic_LS_3",
+        "side": "left",
+        "mode": "realistic",
+        "control": "LS",
+        "state": 3,
+        "minimum_distance_mm": 17.7435273239139,
+        "nearest": [
+          {
+            "fixture": "v3_visual_slider_upper_jaw",
+            "robot_link": "thumb_distal",
+            "distance_mm": 17.7435273239139,
+            "capped": false
+          },
+          {
+            "fixture": "v3_visual_base_printed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_column",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_fixed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_moving",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          }
+        ],
+        "contacts": []
+      },
+      {
+        "label": "left_realistic_LS_4",
+        "side": "left",
+        "mode": "realistic",
+        "control": "LS",
+        "state": 4,
+        "minimum_distance_mm": 18.249181744980262,
+        "nearest": [
+          {
+            "fixture": "v3_visual_slider_upper_jaw",
+            "robot_link": "thumb_distal",
+            "distance_mm": 18.249181744980262,
+            "capped": false
+          },
+          {
+            "fixture": "v3_visual_base_printed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_column",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_fixed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_moving",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          }
+        ],
+        "contacts": []
+      },
+      {
+        "label": "left_realistic_LS_5",
+        "side": "left",
+        "mode": "realistic",
+        "control": "LS",
+        "state": 5,
+        "minimum_distance_mm": 17.740790889665583,
+        "nearest": [
+          {
+            "fixture": "v3_visual_slider_upper_jaw",
+            "robot_link": "thumb_distal",
+            "distance_mm": 17.740790889665583,
+            "capped": false
+          },
+          {
+            "fixture": "v3_visual_base_printed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_column",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_fixed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_moving",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          }
+        ],
+        "contacts": []
+      },
+      {
+        "label": "left_realistic_LS_6",
+        "side": "left",
+        "mode": "realistic",
+        "control": "LS",
+        "state": 6,
+        "minimum_distance_mm": 20.0,
+        "nearest": [
+          {
+            "fixture": "v3_visual_base_printed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_column",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_fixed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_moving",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_cradle_lower_jaw",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          }
+        ],
+        "contacts": []
+      },
+      {
+        "label": "left_realistic_LS_7",
+        "side": "left",
+        "mode": "realistic",
+        "control": "LS",
+        "state": 7,
+        "minimum_distance_mm": 19.506876136517917,
+        "nearest": [
+          {
+            "fixture": "v3_visual_slider_upper_jaw",
+            "robot_link": "thumb_distal",
+            "distance_mm": 19.506876136517917,
+            "capped": false
+          },
+          {
+            "fixture": "v3_visual_base_printed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_column",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_fixed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_moving",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          }
+        ],
+        "contacts": []
+      },
+      {
+        "label": "left_realistic_L3_0",
+        "side": "left",
+        "mode": "realistic",
+        "control": "L3",
+        "state": 0,
+        "minimum_distance_mm": 19.386892705144472,
+        "nearest": [
+          {
+            "fixture": "v3_visual_slider_upper_jaw",
+            "robot_link": "thumb_distal",
+            "distance_mm": 19.386892705144472,
+            "capped": false
+          },
+          {
+            "fixture": "v3_visual_base_printed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_column",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_fixed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_moving",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          }
+        ],
+        "contacts": []
+      },
+      {
+        "label": "right_strict_hold_-1",
+        "side": "right",
+        "mode": "strict",
+        "control": "hold",
+        "state": -1,
+        "minimum_distance_mm": 20.0,
+        "nearest": [
+          {
+            "fixture": "v3_visual_base_printed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_column",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_fixed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_moving",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_cradle_lower_jaw",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          }
+        ],
+        "contacts": []
+      },
+      {
+        "label": "right_strict_A_0",
+        "side": "right",
+        "mode": "strict",
+        "control": "A",
+        "state": 0,
+        "minimum_distance_mm": 20.0,
+        "nearest": [
+          {
+            "fixture": "v3_visual_base_printed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_column",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_fixed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_moving",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_cradle_lower_jaw",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          }
+        ],
+        "contacts": []
+      },
+      {
+        "label": "right_strict_B_0",
+        "side": "right",
+        "mode": "strict",
+        "control": "B",
+        "state": 0,
+        "minimum_distance_mm": 20.0,
+        "nearest": [
+          {
+            "fixture": "v3_visual_base_printed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_column",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_fixed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_moving",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_cradle_lower_jaw",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          }
+        ],
+        "contacts": []
+      },
+      {
+        "label": "right_strict_Y_0",
+        "side": "right",
+        "mode": "strict",
+        "control": "Y",
+        "state": 0,
+        "minimum_distance_mm": 20.0,
+        "nearest": [
+          {
+            "fixture": "v3_visual_base_printed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_column",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_fixed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_moving",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_cradle_lower_jaw",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          }
+        ],
+        "contacts": []
+      },
+      {
+        "label": "right_strict_RB_0",
+        "side": "right",
+        "mode": "strict",
+        "control": "RB",
+        "state": 0,
+        "minimum_distance_mm": 3.2695452829057574,
+        "nearest": [
+          {
+            "fixture": "v3_visual_slider_upper_jaw",
+            "robot_link": "right_index_distal",
+            "distance_mm": 3.2695452829057574,
+            "capped": false
+          },
+          {
+            "fixture": "v3_visual_pad_upper_jaw",
+            "robot_link": "right_index_distal",
+            "distance_mm": 7.4485738150077,
+            "capped": false
+          },
+          {
+            "fixture": "v3_visual_base_printed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_column",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_fixed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          }
+        ],
+        "contacts": []
+      },
+      {
+        "label": "right_realistic_hold_-1",
+        "side": "right",
+        "mode": "realistic",
+        "control": "hold",
+        "state": -1,
+        "minimum_distance_mm": 20.0,
+        "nearest": [
+          {
+            "fixture": "v3_visual_base_printed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_column",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_fixed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_moving",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_cradle_lower_jaw",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          }
+        ],
+        "contacts": []
+      },
+      {
+        "label": "right_realistic_A_0",
+        "side": "right",
+        "mode": "realistic",
+        "control": "A",
+        "state": 0,
+        "minimum_distance_mm": 20.0,
+        "nearest": [
+          {
+            "fixture": "v3_visual_base_printed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_column",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_fixed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_moving",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_cradle_lower_jaw",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          }
+        ],
+        "contacts": []
+      },
+      {
+        "label": "right_realistic_B_0",
+        "side": "right",
+        "mode": "realistic",
+        "control": "B",
+        "state": 0,
+        "minimum_distance_mm": 20.0,
+        "nearest": [
+          {
+            "fixture": "v3_visual_base_printed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_column",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_fixed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_moving",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_cradle_lower_jaw",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          }
+        ],
+        "contacts": []
+      },
+      {
+        "label": "right_realistic_Y_0",
+        "side": "right",
+        "mode": "realistic",
+        "control": "Y",
+        "state": 0,
+        "minimum_distance_mm": 20.0,
+        "nearest": [
+          {
+            "fixture": "v3_visual_base_printed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_column",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_fixed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_moving",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_cradle_lower_jaw",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          }
+        ],
+        "contacts": []
+      },
+      {
+        "label": "right_realistic_R3_0",
+        "side": "right",
+        "mode": "realistic",
+        "control": "R3",
+        "state": 0,
+        "minimum_distance_mm": 12.445612607702136,
+        "nearest": [
+          {
+            "fixture": "v3_visual_cradle_lower_jaw",
+            "robot_link": "right_thumb_distal",
+            "distance_mm": 12.445612607702136,
+            "capped": false
+          },
+          {
+            "fixture": "v3_visual_base_printed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_column",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_fixed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_moving",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          }
+        ],
+        "contacts": []
+      },
+      {
+        "label": "right_realistic_RB_0",
+        "side": "right",
+        "mode": "realistic",
+        "control": "RB",
+        "state": 0,
+        "minimum_distance_mm": 3.2695452829057574,
+        "nearest": [
+          {
+            "fixture": "v3_visual_slider_upper_jaw",
+            "robot_link": "right_index_distal",
+            "distance_mm": 3.2695452829057574,
+            "capped": false
+          },
+          {
+            "fixture": "v3_visual_pad_upper_jaw",
+            "robot_link": "right_index_distal",
+            "distance_mm": 7.4485738150077,
+            "capped": false
+          },
+          {
+            "fixture": "v3_visual_base_printed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_column",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_fixed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          }
+        ],
+        "contacts": []
+      },
+      {
+        "label": "right_realistic_X_0",
+        "side": "right",
+        "mode": "realistic",
+        "control": "X",
+        "state": 0,
+        "minimum_distance_mm": 18.513535383916913,
+        "nearest": [
+          {
+            "fixture": "v3_visual_slider_upper_jaw",
+            "robot_link": "right_index_distal",
+            "distance_mm": 18.513535383916913,
+            "capped": false
+          },
+          {
+            "fixture": "v3_visual_base_printed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_column",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_fixed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_moving",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          }
+        ],
+        "contacts": []
+      },
+      {
+        "label": "left_rejected_Dpad_down",
+        "side": "left",
+        "mode": "rejected",
+        "control": "Dpad_down",
+        "state": 0,
+        "minimum_distance_mm": 0.21357549451980568,
+        "nearest": [
+          {
+            "fixture": "v3_visual_cradle_lower_jaw",
+            "robot_link": "thumb_distal",
+            "distance_mm": 0.21357549451980568,
+            "capped": false
+          },
+          {
+            "fixture": "v3_visual_pad_lower_jaw",
+            "robot_link": "thumb_distal",
+            "distance_mm": 9.784830014117453,
+            "capped": false
+          },
+          {
+            "fixture": "v3_visual_base_printed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_column",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          },
+          {
+            "fixture": "v3_visual_hirth_fixed",
+            "robot_link": null,
+            "distance_mm": 20.0,
+            "capped": true
+          }
+        ],
+        "contacts": [
+          {
+            "bodies": [
+              "thumb_distal",
+              "v3_visual_cradle_lower_jaw"
+            ],
+            "minimum_separation_mm": 0.1711137592792511,
+            "point_count": 1
+          }
+        ]
+      }
+    ],
+    "accepted_per_fixture_min_mm": {
+      "v3_visual_base_printed": 20.0,
+      "v3_visual_column": 20.0,
+      "v3_visual_hirth_fixed": 20.0,
+      "v3_visual_hirth_moving": 20.0,
+      "v3_visual_cradle_lower_jaw": 4.565254499154913,
+      "v3_visual_slider_upper_jaw": 3.2695452829057574,
+      "v3_visual_guide_cap": 20.0,
+      "v3_visual_guide_rod_1": 20.0,
+      "v3_visual_guide_rod_2": 20.0,
+      "v3_visual_lock_screw_spacer": 20.0,
+      "v3_visual_M8_hand_knob": 20.0,
+      "v3_visual_pad_back": 20.0,
+      "v3_visual_pad_lower_jaw": 14.268976584973318,
+      "v3_visual_pad_upper_jaw": 7.4485738150077
+    }
+  },
+  "force": {
+    "method": "CPU 1ms SAPIEN, exact accepted Z->v3 LS states. Start in accepted hold with neutral gamepad, interpolate robot drive targets hold->push over 1s then 0.5s settle. Contact force = impulse / 0.001 s; sum all robot->stick contact vectors then absolute projection onto current click joint axis. No gamepad qpos assignment after reset.",
+    "hand_gains_production": {
+      "stiffness": 240.0,
+      "damping": 8.0,
+      "force_limit": 60.0,
+      "armature": 0.0001
+    },
+    "cases": [
+      {
+        "label": "left_realistic_LS_0",
+        "stiffness": 240.0,
+        "force_limit_nm": 60.0,
+        "peak_estimated_hand_drive_torque_nm": 60.0,
+        "peak_hand_joint_error_rad": 0.027766762366997155,
+        "stick_contact_robot_links": [],
+        "goal_gamepad_q": {
+          "left_stick_x": 0.32114058236695664,
+          "left_stick_y": 0.0
+        },
+        "settled_lx_rad": -2.7423666324466467e-06,
+        "settled_ly_rad": -1.3751946994489117e-06,
+        "peak_axial_n": 0.0,
+        "settled_axial_p50_n": 0.0,
+        "peak_click_fraction": 0.0,
+        "settled_click_fraction": 0.0
+      },
+      {
+        "label": "left_realistic_LS_1",
+        "stiffness": 240.0,
+        "force_limit_nm": 60.0,
+        "peak_estimated_hand_drive_torque_nm": 60.0,
+        "peak_hand_joint_error_rad": 0.027766762366997155,
+        "stick_contact_robot_links": [],
+        "goal_gamepad_q": {
+          "left_stick_x": 0.22708068350587207,
+          "left_stick_y": 0.22708068350587204
+        },
+        "settled_lx_rad": -2.7423666324466467e-06,
+        "settled_ly_rad": -1.3751946994489117e-06,
+        "peak_axial_n": 0.0,
+        "settled_axial_p50_n": 0.0,
+        "peak_click_fraction": 0.0,
+        "settled_click_fraction": 0.0
+      },
+      {
+        "label": "left_realistic_LS_2",
+        "stiffness": 240.0,
+        "force_limit_nm": 60.0,
+        "peak_estimated_hand_drive_torque_nm": 60.0,
+        "peak_hand_joint_error_rad": 0.027766762366997155,
+        "stick_contact_robot_links": [],
+        "goal_gamepad_q": {
+          "left_stick_x": 1.966418931360052e-17,
+          "left_stick_y": 0.32114058236695664
+        },
+        "settled_lx_rad": -2.7423666324466467e-06,
+        "settled_ly_rad": -1.3751946994489117e-06,
+        "peak_axial_n": 0.0,
+        "settled_axial_p50_n": 0.0,
+        "peak_click_fraction": 0.0,
+        "settled_click_fraction": 0.0
+      },
+      {
+        "label": "left_realistic_LS_3",
+        "stiffness": 240.0,
+        "force_limit_nm": 60.0,
+        "peak_estimated_hand_drive_torque_nm": 60.0,
+        "peak_hand_joint_error_rad": 0.027766762366997155,
+        "stick_contact_robot_links": [],
+        "goal_gamepad_q": {
+          "left_stick_x": -0.22708068350587204,
+          "left_stick_y": 0.22708068350587207
+        },
+        "settled_lx_rad": -2.7423666324466467e-06,
+        "settled_ly_rad": -1.3751946994489117e-06,
+        "peak_axial_n": 0.0,
+        "settled_axial_p50_n": 0.0,
+        "peak_click_fraction": 0.0,
+        "settled_click_fraction": 0.0
+      },
+      {
+        "label": "left_realistic_LS_4",
+        "stiffness": 240.0,
+        "force_limit_nm": 60.0,
+        "peak_estimated_hand_drive_torque_nm": 60.0,
+        "peak_hand_joint_error_rad": 0.027766762366997155,
+        "stick_contact_robot_links": [],
+        "goal_gamepad_q": {
+          "left_stick_x": -0.32114058236695664,
+          "left_stick_y": 3.932837862720104e-17
+        },
+        "settled_lx_rad": -2.7423666324466467e-06,
+        "settled_ly_rad": -1.3751946994489117e-06,
+        "peak_axial_n": 0.0,
+        "settled_axial_p50_n": 0.0,
+        "peak_click_fraction": 0.0,
+        "settled_click_fraction": 0.0
+      },
+      {
+        "label": "left_realistic_LS_5",
+        "stiffness": 240.0,
+        "force_limit_nm": 60.0,
+        "peak_estimated_hand_drive_torque_nm": 60.0,
+        "peak_hand_joint_error_rad": 0.027766762366997155,
+        "stick_contact_robot_links": [
+          "thumb_distal"
+        ],
+        "goal_gamepad_q": {
+          "left_stick_x": -0.2270806835058721,
+          "left_stick_y": -0.22708068350587204
+        },
+        "settled_lx_rad": -0.037912385538220406,
+        "settled_ly_rad": -0.026330179534852505,
+        "peak_axial_n": 3.498109057545662,
+        "settled_axial_p50_n": 3.060284536331892,
+        "peak_click_fraction": 0.4019646075903438,
+        "settled_click_fraction": 0.37767587855341844
+      },
+      {
+        "label": "left_realistic_LS_6",
+        "stiffness": 240.0,
+        "force_limit_nm": 60.0,
+        "peak_estimated_hand_drive_torque_nm": 60.0,
+        "peak_hand_joint_error_rad": 0.027766762366997155,
+        "stick_contact_robot_links": [
+          "thumb_distal"
+        ],
+        "goal_gamepad_q": {
+          "left_stick_x": -5.899256794080155e-17,
+          "left_stick_y": -0.32114058236695664
+        },
+        "settled_lx_rad": -0.40142688155174255,
+        "settled_ly_rad": -0.1776832863688469,
+        "peak_axial_n": 21.632425487041473,
+        "settled_axial_p50_n": 10.80684456974268,
+        "peak_click_fraction": 0.9999999747378752,
+        "settled_click_fraction": 0.9999999747378752
+      },
+      {
+        "label": "left_realistic_LS_7",
+        "stiffness": 240.0,
+        "force_limit_nm": 60.0,
+        "peak_estimated_hand_drive_torque_nm": 60.0,
+        "peak_hand_joint_error_rad": 0.027766762366997155,
+        "stick_contact_robot_links": [
+          "thumb_distal"
+        ],
+        "goal_gamepad_q": {
+          "left_stick_x": 0.227080683505872,
+          "left_stick_y": -0.2270806835058721
+        },
+        "settled_lx_rad": 0.001647156139370054,
+        "settled_ly_rad": -0.08194989338517189,
+        "peak_axial_n": 2.8108078986406326,
+        "settled_axial_p50_n": 2.4565228959545493,
+        "peak_click_fraction": 0.3677712447824888,
+        "settled_click_fraction": 0.3243170249334071
+      },
+      {
+        "label": "left_realistic_LS_0",
+        "stiffness": 240.0,
+        "force_limit_nm": 1.0,
+        "peak_estimated_hand_drive_torque_nm": 1.0,
+        "peak_hand_joint_error_rad": 0.027850303326281245,
+        "stick_contact_robot_links": [],
+        "goal_gamepad_q": {
+          "left_stick_x": 0.32114058236695664,
+          "left_stick_y": 0.0
+        },
+        "settled_lx_rad": -2.7423666324466467e-06,
+        "settled_ly_rad": -1.3751946994489117e-06,
+        "peak_axial_n": 0.0,
+        "settled_axial_p50_n": 0.0,
+        "peak_click_fraction": 0.0,
+        "settled_click_fraction": 0.0
+      },
+      {
+        "label": "left_realistic_LS_1",
+        "stiffness": 240.0,
+        "force_limit_nm": 1.0,
+        "peak_estimated_hand_drive_torque_nm": 1.0,
+        "peak_hand_joint_error_rad": 0.027850303326281245,
+        "stick_contact_robot_links": [],
+        "goal_gamepad_q": {
+          "left_stick_x": 0.22708068350587207,
+          "left_stick_y": 0.22708068350587204
+        },
+        "settled_lx_rad": -2.7423666324466467e-06,
+        "settled_ly_rad": -1.3751946994489117e-06,
+        "peak_axial_n": 0.0,
+        "settled_axial_p50_n": 0.0,
+        "peak_click_fraction": 0.0,
+        "settled_click_fraction": 0.0
+      },
+      {
+        "label": "left_realistic_LS_2",
+        "stiffness": 240.0,
+        "force_limit_nm": 1.0,
+        "peak_estimated_hand_drive_torque_nm": 1.0,
+        "peak_hand_joint_error_rad": 0.027850303326281245,
+        "stick_contact_robot_links": [],
+        "goal_gamepad_q": {
+          "left_stick_x": 1.966418931360052e-17,
+          "left_stick_y": 0.32114058236695664
+        },
+        "settled_lx_rad": -2.7423666324466467e-06,
+        "settled_ly_rad": -1.3751946994489117e-06,
+        "peak_axial_n": 0.0,
+        "settled_axial_p50_n": 0.0,
+        "peak_click_fraction": 0.0,
+        "settled_click_fraction": 0.0
+      },
+      {
+        "label": "left_realistic_LS_3",
+        "stiffness": 240.0,
+        "force_limit_nm": 1.0,
+        "peak_estimated_hand_drive_torque_nm": 1.0,
+        "peak_hand_joint_error_rad": 0.027850303326281245,
+        "stick_contact_robot_links": [],
+        "goal_gamepad_q": {
+          "left_stick_x": -0.22708068350587204,
+          "left_stick_y": 0.22708068350587207
+        },
+        "settled_lx_rad": -2.7423666324466467e-06,
+        "settled_ly_rad": -1.3751946994489117e-06,
+        "peak_axial_n": 0.0,
+        "settled_axial_p50_n": 0.0,
+        "peak_click_fraction": 0.0,
+        "settled_click_fraction": 0.0
+      },
+      {
+        "label": "left_realistic_LS_4",
+        "stiffness": 240.0,
+        "force_limit_nm": 1.0,
+        "peak_estimated_hand_drive_torque_nm": 1.0,
+        "peak_hand_joint_error_rad": 0.027850303326281245,
+        "stick_contact_robot_links": [],
+        "goal_gamepad_q": {
+          "left_stick_x": -0.32114058236695664,
+          "left_stick_y": 3.932837862720104e-17
+        },
+        "settled_lx_rad": -2.7423666324466467e-06,
+        "settled_ly_rad": -1.3751946994489117e-06,
+        "peak_axial_n": 0.0,
+        "settled_axial_p50_n": 0.0,
+        "peak_click_fraction": 0.0,
+        "settled_click_fraction": 0.0
+      },
+      {
+        "label": "left_realistic_LS_5",
+        "stiffness": 240.0,
+        "force_limit_nm": 1.0,
+        "peak_estimated_hand_drive_torque_nm": 1.0,
+        "peak_hand_joint_error_rad": 0.027850303326281245,
+        "stick_contact_robot_links": [
+          "thumb_distal"
+        ],
+        "goal_gamepad_q": {
+          "left_stick_x": -0.2270806835058721,
+          "left_stick_y": -0.22708068350587204
+        },
+        "settled_lx_rad": -0.029842058196663857,
+        "settled_ly_rad": -0.023124813102185726,
+        "peak_axial_n": 3.211759962141514,
+        "settled_axial_p50_n": 3.163815592415631,
+        "peak_click_fraction": 0.3559275864972733,
+        "settled_click_fraction": 0.35533126720110886
+      },
+      {
+        "label": "left_realistic_LS_6",
+        "stiffness": 240.0,
+        "force_limit_nm": 1.0,
+        "peak_estimated_hand_drive_torque_nm": 1.0,
+        "peak_hand_joint_error_rad": 0.027850303326281245,
+        "stick_contact_robot_links": [
+          "thumb_distal"
+        ],
+        "goal_gamepad_q": {
+          "left_stick_x": -5.899256794080155e-17,
+          "left_stick_y": -0.32114058236695664
+        },
+        "settled_lx_rad": -0.3768831342458725,
+        "settled_ly_rad": -0.18035173416137695,
+        "peak_axial_n": 13.299376703798771,
+        "settled_axial_p50_n": 8.410321082919836,
+        "peak_click_fraction": 0.9999999747378752,
+        "settled_click_fraction": 0.9999999747378752
+      },
+      {
+        "label": "left_realistic_LS_7",
+        "stiffness": 240.0,
+        "force_limit_nm": 1.0,
+        "peak_estimated_hand_drive_torque_nm": 1.0,
+        "peak_hand_joint_error_rad": 0.027850303326281245,
+        "stick_contact_robot_links": [
+          "thumb_distal"
+        ],
+        "goal_gamepad_q": {
+          "left_stick_x": 0.227080683505872,
+          "left_stick_y": -0.2270806835058721
+        },
+        "settled_lx_rad": -0.0010418500751256943,
+        "settled_ly_rad": -0.08029010519385338,
+        "peak_axial_n": 2.6074969209730625,
+        "settled_axial_p50_n": 2.244991366751492,
+        "peak_click_fraction": 0.34120115742553025,
+        "settled_click_fraction": 0.2955124364234507
+      },
+      {
+        "label": "left_realistic_LS_0",
+        "stiffness": 240.0,
+        "force_limit_nm": 0.3,
+        "peak_estimated_hand_drive_torque_nm": 0.3,
+        "peak_hand_joint_error_rad": 0.080842021380099,
+        "stick_contact_robot_links": [],
+        "goal_gamepad_q": {
+          "left_stick_x": 0.32114058236695664,
+          "left_stick_y": 0.0
+        },
+        "settled_lx_rad": -2.7423666324466467e-06,
+        "settled_ly_rad": -1.3751946994489117e-06,
+        "peak_axial_n": 0.0,
+        "settled_axial_p50_n": 0.0,
+        "peak_click_fraction": 0.0,
+        "settled_click_fraction": 0.0
+      },
+      {
+        "label": "left_realistic_LS_1",
+        "stiffness": 240.0,
+        "force_limit_nm": 0.3,
+        "peak_estimated_hand_drive_torque_nm": 0.3,
+        "peak_hand_joint_error_rad": 0.080842021380099,
+        "stick_contact_robot_links": [],
+        "goal_gamepad_q": {
+          "left_stick_x": 0.22708068350587207,
+          "left_stick_y": 0.22708068350587204
+        },
+        "settled_lx_rad": -2.7423666324466467e-06,
+        "settled_ly_rad": -1.3751946994489117e-06,
+        "peak_axial_n": 0.0,
+        "settled_axial_p50_n": 0.0,
+        "peak_click_fraction": 0.0,
+        "settled_click_fraction": 0.0
+      },
+      {
+        "label": "left_realistic_LS_2",
+        "stiffness": 240.0,
+        "force_limit_nm": 0.3,
+        "peak_estimated_hand_drive_torque_nm": 0.3,
+        "peak_hand_joint_error_rad": 0.080842021380099,
+        "stick_contact_robot_links": [],
+        "goal_gamepad_q": {
+          "left_stick_x": 1.966418931360052e-17,
+          "left_stick_y": 0.32114058236695664
+        },
+        "settled_lx_rad": -2.7423666324466467e-06,
+        "settled_ly_rad": -1.3751946994489117e-06,
+        "peak_axial_n": 0.0,
+        "settled_axial_p50_n": 0.0,
+        "peak_click_fraction": 0.0,
+        "settled_click_fraction": 0.0
+      },
+      {
+        "label": "left_realistic_LS_3",
+        "stiffness": 240.0,
+        "force_limit_nm": 0.3,
+        "peak_estimated_hand_drive_torque_nm": 0.3,
+        "peak_hand_joint_error_rad": 0.080842021380099,
+        "stick_contact_robot_links": [],
+        "goal_gamepad_q": {
+          "left_stick_x": -0.22708068350587204,
+          "left_stick_y": 0.22708068350587207
+        },
+        "settled_lx_rad": -2.7423666324466467e-06,
+        "settled_ly_rad": -1.3751946994489117e-06,
+        "peak_axial_n": 0.0,
+        "settled_axial_p50_n": 0.0,
+        "peak_click_fraction": 0.0,
+        "settled_click_fraction": 0.0
+      },
+      {
+        "label": "left_realistic_LS_4",
+        "stiffness": 240.0,
+        "force_limit_nm": 0.3,
+        "peak_estimated_hand_drive_torque_nm": 0.3,
+        "peak_hand_joint_error_rad": 0.080842021380099,
+        "stick_contact_robot_links": [],
+        "goal_gamepad_q": {
+          "left_stick_x": -0.32114058236695664,
+          "left_stick_y": 3.932837862720104e-17
+        },
+        "settled_lx_rad": -2.7423666324466467e-06,
+        "settled_ly_rad": -1.3751946994489117e-06,
+        "peak_axial_n": 0.0,
+        "settled_axial_p50_n": 0.0,
+        "peak_click_fraction": 0.0,
+        "settled_click_fraction": 0.0
+      },
+      {
+        "label": "left_realistic_LS_5",
+        "stiffness": 240.0,
+        "force_limit_nm": 0.3,
+        "peak_estimated_hand_drive_torque_nm": 0.3,
+        "peak_hand_joint_error_rad": 0.080842021380099,
+        "stick_contact_robot_links": [
+          "thumb_distal"
+        ],
+        "goal_gamepad_q": {
+          "left_stick_x": -0.2270806835058721,
+          "left_stick_y": -0.22708068350587204
+        },
+        "settled_lx_rad": -0.019853784702718258,
+        "settled_ly_rad": -0.01433865912258625,
+        "peak_axial_n": 2.1525651682168245,
+        "settled_axial_p50_n": 2.073409268632531,
+        "peak_click_fraction": 0.24544226107536815,
+        "settled_click_fraction": 0.22794366486778017
+      },
+      {
+        "label": "left_realistic_LS_6",
+        "stiffness": 240.0,
+        "force_limit_nm": 0.3,
+        "peak_estimated_hand_drive_torque_nm": 0.3,
+        "peak_hand_joint_error_rad": 0.080842021380099,
+        "stick_contact_robot_links": [
+          "thumb_distal"
+        ],
+        "goal_gamepad_q": {
+          "left_stick_x": -5.899256794080155e-17,
+          "left_stick_y": -0.32114058236695664
+        },
+        "settled_lx_rad": -0.2709110230207443,
+        "settled_ly_rad": -0.11498517170548439,
+        "peak_axial_n": 5.427844822406769,
+        "settled_axial_p50_n": 2.905671950429678,
+        "peak_click_fraction": 0.6731439498253167,
+        "settled_click_fraction": 0.40768853068584576
+      },
+      {
+        "label": "left_realistic_LS_7",
+        "stiffness": 240.0,
+        "force_limit_nm": 0.3,
+        "peak_estimated_hand_drive_torque_nm": 0.3,
+        "peak_hand_joint_error_rad": 0.080842021380099,
+        "stick_contact_robot_links": [
+          "thumb_distal"
+        ],
+        "goal_gamepad_q": {
+          "left_stick_x": 0.227080683505872,
+          "left_stick_y": -0.2270806835058721
+        },
+        "settled_lx_rad": -0.022900919429957867,
+        "settled_ly_rad": -0.06050596013665199,
+        "peak_axial_n": 2.3606806062161922,
+        "settled_axial_p50_n": 2.331981551833451,
+        "peak_click_fraction": 0.3051683961530216,
+        "settled_click_fraction": 0.30076568691583816
+      },
+      {
+        "label": "left_realistic_LS_0",
+        "stiffness": 120.0,
+        "force_limit_nm": 60.0,
+        "peak_estimated_hand_drive_torque_nm": 60.0,
+        "peak_hand_joint_error_rad": 0.03922724991408266,
+        "stick_contact_robot_links": [],
+        "goal_gamepad_q": {
+          "left_stick_x": 0.32114058236695664,
+          "left_stick_y": 0.0
+        },
+        "settled_lx_rad": -2.7423666324466467e-06,
+        "settled_ly_rad": -1.3751946994489117e-06,
+        "peak_axial_n": 0.0,
+        "settled_axial_p50_n": 0.0,
+        "peak_click_fraction": 0.0,
+        "settled_click_fraction": 0.0
+      },
+      {
+        "label": "left_realistic_LS_1",
+        "stiffness": 120.0,
+        "force_limit_nm": 60.0,
+        "peak_estimated_hand_drive_torque_nm": 60.0,
+        "peak_hand_joint_error_rad": 0.04107590799733929,
+        "stick_contact_robot_links": [],
+        "goal_gamepad_q": {
+          "left_stick_x": 0.22708068350587207,
+          "left_stick_y": 0.22708068350587204
+        },
+        "settled_lx_rad": -2.7423666324466467e-06,
+        "settled_ly_rad": -1.3751946994489117e-06,
+        "peak_axial_n": 0.0,
+        "settled_axial_p50_n": 0.0,
+        "peak_click_fraction": 0.0,
+        "settled_click_fraction": 0.0
+      },
+      {
+        "label": "left_realistic_LS_2",
+        "stiffness": 120.0,
+        "force_limit_nm": 60.0,
+        "peak_estimated_hand_drive_torque_nm": 60.0,
+        "peak_hand_joint_error_rad": 0.04306559176710012,
+        "stick_contact_robot_links": [],
+        "goal_gamepad_q": {
+          "left_stick_x": 1.966418931360052e-17,
+          "left_stick_y": 0.32114058236695664
+        },
+        "settled_lx_rad": -2.7423666324466467e-06,
+        "settled_ly_rad": -1.3751946994489117e-06,
+        "peak_axial_n": 0.0,
+        "settled_axial_p50_n": 0.0,
+        "peak_click_fraction": 0.0,
+        "settled_click_fraction": 0.0
+      },
+      {
+        "label": "left_realistic_LS_3",
+        "stiffness": 120.0,
+        "force_limit_nm": 60.0,
+        "peak_estimated_hand_drive_torque_nm": 60.0,
+        "peak_hand_joint_error_rad": 0.04272423658637048,
+        "stick_contact_robot_links": [],
+        "goal_gamepad_q": {
+          "left_stick_x": -0.22708068350587204,
+          "left_stick_y": 0.22708068350587207
+        },
+        "settled_lx_rad": -2.7423666324466467e-06,
+        "settled_ly_rad": -1.3751946994489117e-06,
+        "peak_axial_n": 0.0,
+        "settled_axial_p50_n": 0.0,
+        "peak_click_fraction": 0.0,
+        "settled_click_fraction": 0.0
+      },
+      {
+        "label": "left_realistic_LS_4",
+        "stiffness": 120.0,
+        "force_limit_nm": 60.0,
+        "peak_estimated_hand_drive_torque_nm": 60.0,
+        "peak_hand_joint_error_rad": 0.03865778027445721,
+        "stick_contact_robot_links": [],
+        "goal_gamepad_q": {
+          "left_stick_x": -0.32114058236695664,
+          "left_stick_y": 3.932837862720104e-17
+        },
+        "settled_lx_rad": -2.7423666324466467e-06,
+        "settled_ly_rad": -1.3751946994489117e-06,
+        "peak_axial_n": 0.0,
+        "settled_axial_p50_n": 0.0,
+        "peak_click_fraction": 0.0,
+        "settled_click_fraction": 0.0
+      },
+      {
+        "label": "left_realistic_LS_5",
+        "stiffness": 120.0,
+        "force_limit_nm": 60.0,
+        "peak_estimated_hand_drive_torque_nm": 60.0,
+        "peak_hand_joint_error_rad": 0.0426392497503123,
+        "stick_contact_robot_links": [
+          "thumb_distal"
+        ],
+        "goal_gamepad_q": {
+          "left_stick_x": -0.2270806835058721,
+          "left_stick_y": -0.22708068350587204
+        },
+        "settled_lx_rad": -0.014644458889961243,
+        "settled_ly_rad": -0.01283642603084445,
+        "peak_axial_n": 1.3257998507469893,
+        "settled_axial_p50_n": 1.2725222622975707,
+        "peak_click_fraction": 0.14110853044257965,
+        "settled_click_fraction": 0.1388821237924276
+      },
+      {
+        "label": "left_realistic_LS_6",
+        "stiffness": 120.0,
+        "force_limit_nm": 60.0,
+        "peak_estimated_hand_drive_torque_nm": 60.0,
+        "peak_hand_joint_error_rad": 0.03805931319045919,
+        "stick_contact_robot_links": [
+          "thumb_distal"
+        ],
+        "goal_gamepad_q": {
+          "left_stick_x": -5.899256794080155e-17,
+          "left_stick_y": -0.32114058236695664
+        },
+        "settled_lx_rad": -0.29211510717868805,
+        "settled_ly_rad": -0.17511703073978424,
+        "peak_axial_n": 14.995953068137169,
+        "settled_axial_p50_n": 8.182492107152939,
+        "peak_click_fraction": 0.9999999747378752,
+        "settled_click_fraction": 0.9999999747378752
+      },
+      {
+        "label": "left_realistic_LS_7",
+        "stiffness": 120.0,
+        "force_limit_nm": 60.0,
+        "peak_estimated_hand_drive_torque_nm": 60.0,
+        "peak_hand_joint_error_rad": 0.044224520852798266,
+        "stick_contact_robot_links": [
+          "thumb_distal"
+        ],
+        "goal_gamepad_q": {
+          "left_stick_x": 0.227080683505872,
+          "left_stick_y": -0.2270806835058721
+        },
+        "settled_lx_rad": -0.01847673486918211,
+        "settled_ly_rad": -0.0515617486089468,
+        "peak_axial_n": 1.7111538909375668,
+        "settled_axial_p50_n": 1.6643312410451472,
+        "peak_click_fraction": 0.21537298380280845,
+        "settled_click_fraction": 0.2094399769703159
+      },
+      {
+        "label": "left_realistic_LS_0",
+        "stiffness": 60.0,
+        "force_limit_nm": 60.0,
+        "peak_estimated_hand_drive_torque_nm": 60.0,
+        "peak_hand_joint_error_rad": 0.07795816927519716,
+        "stick_contact_robot_links": [],
+        "goal_gamepad_q": {
+          "left_stick_x": 0.32114058236695664,
+          "left_stick_y": 0.0
+        },
+        "settled_lx_rad": -2.7423666324466467e-06,
+        "settled_ly_rad": -1.3751946994489117e-06,
+        "peak_axial_n": 0.0,
+        "settled_axial_p50_n": 0.0,
+        "peak_click_fraction": 0.0,
+        "settled_click_fraction": 0.0
+      },
+      {
+        "label": "left_realistic_LS_1",
+        "stiffness": 60.0,
+        "force_limit_nm": 60.0,
+        "peak_estimated_hand_drive_torque_nm": 60.0,
+        "peak_hand_joint_error_rad": 0.08163707738324932,
+        "stick_contact_robot_links": [],
+        "goal_gamepad_q": {
+          "left_stick_x": 0.22708068350587207,
+          "left_stick_y": 0.22708068350587204
+        },
+        "settled_lx_rad": -2.7423666324466467e-06,
+        "settled_ly_rad": -1.3751946994489117e-06,
+        "peak_axial_n": 0.0,
+        "settled_axial_p50_n": 0.0,
+        "peak_click_fraction": 0.0,
+        "settled_click_fraction": 0.0
+      },
+      {
+        "label": "left_realistic_LS_2",
+        "stiffness": 60.0,
+        "force_limit_nm": 60.0,
+        "peak_estimated_hand_drive_torque_nm": 60.0,
+        "peak_hand_joint_error_rad": 0.08585503400553662,
+        "stick_contact_robot_links": [],
+        "goal_gamepad_q": {
+          "left_stick_x": 1.966418931360052e-17,
+          "left_stick_y": 0.32114058236695664
+        },
+        "settled_lx_rad": -2.7423666324466467e-06,
+        "settled_ly_rad": -1.3751946994489117e-06,
+        "peak_axial_n": 0.0,
+        "settled_axial_p50_n": 0.0,
+        "peak_click_fraction": 0.0,
+        "settled_click_fraction": 0.0
+      },
+      {
+        "label": "left_realistic_LS_3",
+        "stiffness": 60.0,
+        "force_limit_nm": 60.0,
+        "peak_estimated_hand_drive_torque_nm": 60.0,
+        "peak_hand_joint_error_rad": 0.08517323408392907,
+        "stick_contact_robot_links": [],
+        "goal_gamepad_q": {
+          "left_stick_x": -0.22708068350587204,
+          "left_stick_y": 0.22708068350587207
+        },
+        "settled_lx_rad": -2.7423666324466467e-06,
+        "settled_ly_rad": -1.3751946994489117e-06,
+        "peak_axial_n": 0.0,
+        "settled_axial_p50_n": 0.0,
+        "peak_click_fraction": 0.0,
+        "settled_click_fraction": 0.0
+      },
+      {
+        "label": "left_realistic_LS_4",
+        "stiffness": 60.0,
+        "force_limit_nm": 60.0,
+        "peak_estimated_hand_drive_torque_nm": 60.0,
+        "peak_hand_joint_error_rad": 0.07702461596674848,
+        "stick_contact_robot_links": [],
+        "goal_gamepad_q": {
+          "left_stick_x": -0.32114058236695664,
+          "left_stick_y": 3.932837862720104e-17
+        },
+        "settled_lx_rad": -2.7423666324466467e-06,
+        "settled_ly_rad": -1.3751946994489117e-06,
+        "peak_axial_n": 0.0,
+        "settled_axial_p50_n": 0.0,
+        "peak_click_fraction": 0.0,
+        "settled_click_fraction": 0.0
+      },
+      {
+        "label": "left_realistic_LS_5",
+        "stiffness": 60.0,
+        "force_limit_nm": 60.0,
+        "peak_estimated_hand_drive_torque_nm": 60.0,
+        "peak_hand_joint_error_rad": 0.08499168772333476,
+        "stick_contact_robot_links": [
+          "thumb_distal"
+        ],
+        "goal_gamepad_q": {
+          "left_stick_x": -0.2270806835058721,
+          "left_stick_y": -0.22708068350587204
+        },
+        "settled_lx_rad": -2.7423666324466467e-06,
+        "settled_ly_rad": -1.3751946994489117e-06,
+        "peak_axial_n": 0.6974285934120417,
+        "settled_axial_p50_n": 0.0,
+        "peak_click_fraction": 0.06514002961921506,
+        "settled_click_fraction": 0.0
+      },
+      {
+        "label": "left_realistic_LS_6",
+        "stiffness": 60.0,
+        "force_limit_nm": 60.0,
+        "peak_estimated_hand_drive_torque_nm": 60.0,
+        "peak_hand_joint_error_rad": 0.07317157496261495,
+        "stick_contact_robot_links": [
+          "thumb_distal"
+        ],
+        "goal_gamepad_q": {
+          "left_stick_x": -5.899256794080155e-17,
+          "left_stick_y": -0.32114058236695664
+        },
+        "settled_lx_rad": -0.17499259859323502,
+        "settled_ly_rad": -0.05709502287209034,
+        "peak_axial_n": 6.474807392805815,
+        "settled_axial_p50_n": 4.772763000801206,
+        "peak_click_fraction": 0.9482902532909065,
+        "settled_click_fraction": 0.7913643639767542
+      },
+      {
+        "label": "left_realistic_LS_7",
+        "stiffness": 60.0,
+        "force_limit_nm": 60.0,
+        "peak_estimated_hand_drive_torque_nm": 60.0,
+        "peak_hand_joint_error_rad": 0.08816351526045207,
+        "stick_contact_robot_links": [
+          "thumb_distal"
+        ],
+        "goal_gamepad_q": {
+          "left_stick_x": 0.227080683505872,
+          "left_stick_y": -0.2270806835058721
+        },
+        "settled_lx_rad": -1.0567024219199084e-05,
+        "settled_ly_rad": -0.006283071357756853,
+        "peak_axial_n": 1.040856121107936,
+        "settled_axial_p50_n": 0.534501567017287,
+        "peak_click_fraction": 0.11974273547821213,
+        "settled_click_fraction": 0.05730675866288948
+      },
+      {
+        "label": "left_realistic_LS_0",
+        "stiffness": 60.0,
+        "force_limit_nm": 0.3,
+        "peak_estimated_hand_drive_torque_nm": 0.3,
+        "peak_hand_joint_error_rad": 0.0808228882891261,
+        "stick_contact_robot_links": [],
+        "goal_gamepad_q": {
+          "left_stick_x": 0.32114058236695664,
+          "left_stick_y": 0.0
+        },
+        "settled_lx_rad": -2.7423666324466467e-06,
+        "settled_ly_rad": -1.3751946994489117e-06,
+        "peak_axial_n": 0.0,
+        "settled_axial_p50_n": 0.0,
+        "peak_click_fraction": 0.0,
+        "settled_click_fraction": 0.0
+      },
+      {
+        "label": "left_realistic_LS_1",
+        "stiffness": 60.0,
+        "force_limit_nm": 0.3,
+        "peak_estimated_hand_drive_torque_nm": 0.3,
+        "peak_hand_joint_error_rad": 0.08165790920659832,
+        "stick_contact_robot_links": [],
+        "goal_gamepad_q": {
+          "left_stick_x": 0.22708068350587207,
+          "left_stick_y": 0.22708068350587204
+        },
+        "settled_lx_rad": -2.7423666324466467e-06,
+        "settled_ly_rad": -1.3751946994489117e-06,
+        "peak_axial_n": 0.0,
+        "settled_axial_p50_n": 0.0,
+        "peak_click_fraction": 0.0,
+        "settled_click_fraction": 0.0
+      },
+      {
+        "label": "left_realistic_LS_2",
+        "stiffness": 60.0,
+        "force_limit_nm": 0.3,
+        "peak_estimated_hand_drive_torque_nm": 0.3,
+        "peak_hand_joint_error_rad": 0.08558085263956983,
+        "stick_contact_robot_links": [],
+        "goal_gamepad_q": {
+          "left_stick_x": 1.966418931360052e-17,
+          "left_stick_y": 0.32114058236695664
+        },
+        "settled_lx_rad": -2.7423666324466467e-06,
+        "settled_ly_rad": -1.3751946994489117e-06,
+        "peak_axial_n": 0.0,
+        "settled_axial_p50_n": 0.0,
+        "peak_click_fraction": 0.0,
+        "settled_click_fraction": 0.0
+      },
+      {
+        "label": "left_realistic_LS_3",
+        "stiffness": 60.0,
+        "force_limit_nm": 0.3,
+        "peak_estimated_hand_drive_torque_nm": 0.3,
+        "peak_hand_joint_error_rad": 0.08489881429938317,
+        "stick_contact_robot_links": [],
+        "goal_gamepad_q": {
+          "left_stick_x": -0.22708068350587204,
+          "left_stick_y": 0.22708068350587207
+        },
+        "settled_lx_rad": -2.7423666324466467e-06,
+        "settled_ly_rad": -1.3751946994489117e-06,
+        "peak_axial_n": 0.0,
+        "settled_axial_p50_n": 0.0,
+        "peak_click_fraction": 0.0,
+        "settled_click_fraction": 0.0
+      },
+      {
+        "label": "left_realistic_LS_4",
+        "stiffness": 60.0,
+        "force_limit_nm": 0.3,
+        "peak_estimated_hand_drive_torque_nm": 0.3,
+        "peak_hand_joint_error_rad": 0.0808228882891261,
+        "stick_contact_robot_links": [],
+        "goal_gamepad_q": {
+          "left_stick_x": -0.32114058236695664,
+          "left_stick_y": 3.932837862720104e-17
+        },
+        "settled_lx_rad": -2.7423666324466467e-06,
+        "settled_ly_rad": -1.3751946994489117e-06,
+        "peak_axial_n": 0.0,
+        "settled_axial_p50_n": 0.0,
+        "peak_click_fraction": 0.0,
+        "settled_click_fraction": 0.0
+      },
+      {
+        "label": "left_realistic_LS_5",
+        "stiffness": 60.0,
+        "force_limit_nm": 0.3,
+        "peak_estimated_hand_drive_torque_nm": 0.3,
+        "peak_hand_joint_error_rad": 0.08472334761255595,
+        "stick_contact_robot_links": [
+          "thumb_distal"
+        ],
+        "goal_gamepad_q": {
+          "left_stick_x": -0.2270806835058721,
+          "left_stick_y": -0.22708068350587204
+        },
+        "settled_lx_rad": -2.7423666324466467e-06,
+        "settled_ly_rad": -1.3751946994489117e-06,
+        "peak_axial_n": 0.538776395842433,
+        "settled_axial_p50_n": 0.0,
+        "peak_click_fraction": 0.04554688530333806,
+        "settled_click_fraction": 0.0
+      },
+      {
+        "label": "left_realistic_LS_6",
+        "stiffness": 60.0,
+        "force_limit_nm": 0.3,
+        "peak_estimated_hand_drive_torque_nm": 0.3,
+        "peak_hand_joint_error_rad": 0.0808228882891261,
+        "stick_contact_robot_links": [
+          "thumb_distal"
+        ],
+        "goal_gamepad_q": {
+          "left_stick_x": -5.899256794080155e-17,
+          "left_stick_y": -0.32114058236695664
+        },
+        "settled_lx_rad": -0.06920362263917923,
+        "settled_ly_rad": 0.0333260353654623,
+        "peak_axial_n": 4.053084645420313,
+        "settled_axial_p50_n": 1.1196683626621962,
+        "peak_click_fraction": 0.5055875226389617,
+        "settled_click_fraction": 0.15055825770105002
+      },
+      {
+        "label": "left_realistic_LS_7",
+        "stiffness": 60.0,
+        "force_limit_nm": 0.3,
+        "peak_estimated_hand_drive_torque_nm": 0.3,
+        "peak_hand_joint_error_rad": 0.08789517514967327,
+        "stick_contact_robot_links": [
+          "thumb_distal"
+        ],
+        "goal_gamepad_q": {
+          "left_stick_x": 0.227080683505872,
+          "left_stick_y": -0.2270806835058721
+        },
+        "settled_lx_rad": -6.826843446106068e-06,
+        "settled_ly_rad": -0.003752833465114236,
+        "peak_axial_n": 0.9740490349940956,
+        "settled_axial_p50_n": 0.3760720865102485,
+        "peak_click_fraction": 0.11313425602565985,
+        "settled_click_fraction": 0.03588854042391176
+      }
+    ]
+  },
+  "comparisons": {
+    "forces-gamepad-contact": {
+      "environment_collisions": false,
+      "hand_gains_production": {
+        "stiffness": 240.0,
+        "damping": 8.0,
+        "force_limit": 60.0,
+        "armature": 0.0001
+      },
+      "force_limit_unit": "Nm per revolute joint, not N at fingertip",
+      "method": "CPU 1ms SAPIEN, exact accepted Z->v3 LS states. Start in accepted hold with neutral gamepad, interpolate robot drive targets hold->push over 1s then 0.5s settle. Contact force = impulse / 0.001 s; sum all robot->stick contact vectors then absolute projection onto current click joint axis. No gamepad qpos assignment after reset.",
+      "cases": [
+        {
+          "label": "left_realistic_LS_6",
+          "stiffness": 240.0,
+          "force_limit_nm": 60.0,
+          "peak_estimated_hand_drive_torque_nm": 60.0,
+          "peak_hand_joint_error_rad": 0.027766762366997155,
+          "stick_contact_robot_links": [
+            "thumb_distal"
+          ],
+          "goal_gamepad_q": {
+            "left_stick_x": -5.899256794080155e-17,
+            "left_stick_y": -0.32114058236695664
+          },
+          "settled_lx_rad": -0.40142688155174255,
+          "settled_ly_rad": -0.1776832863688469,
+          "peak_axial_n": 21.632425487041473,
+          "settled_axial_p50_n": 10.80684456974268,
+          "peak_click_fraction": 0.9999999747378752,
+          "settled_click_fraction": 0.9999999747378752,
+          "initial_gamepad_q": {
+            "a_press": 0.0,
+            "b_press": 0.0,
+            "left_shoulder_press": 0.0,
+            "right_shoulder_press": 0.0,
+            "pair_press": 0.0,
+            "dpad_horizontal": 0.0,
+            "view_press": 0.0,
+            "menu_press": 0.0,
+            "left_stick_x": 0.0,
+            "right_stick_x": 0.0,
+            "left_trigger_hinge": 0.0,
+            "right_trigger_hinge": 0.0,
+            "x_press": 0.0,
+            "guide_press": 0.0,
+            "y_press": 0.0,
+            "dpad_vertical": 0.0,
+            "left_stick_y": 0.0,
+            "right_stick_y": 0.0,
+            "left_stick_click": 0.0,
+            "right_stick_click": 0.0
+          },
+          "robot_environment_geometric_contact_steps": {}
+        },
+        {
+          "label": "left_realistic_LS_6",
+          "stiffness": 60.0,
+          "force_limit_nm": 0.3,
+          "peak_estimated_hand_drive_torque_nm": 0.3,
+          "peak_hand_joint_error_rad": 0.0808228882891261,
+          "stick_contact_robot_links": [
+            "thumb_distal"
+          ],
+          "goal_gamepad_q": {
+            "left_stick_x": -5.899256794080155e-17,
+            "left_stick_y": -0.32114058236695664
+          },
+          "settled_lx_rad": -0.06920362263917923,
+          "settled_ly_rad": 0.0333260353654623,
+          "peak_axial_n": 4.053084645420313,
+          "settled_axial_p50_n": 1.1196683626621962,
+          "peak_click_fraction": 0.5055875226389617,
+          "settled_click_fraction": 0.15055825770105002,
+          "initial_gamepad_q": {
+            "a_press": 0.0,
+            "b_press": 0.0,
+            "left_shoulder_press": 0.0,
+            "right_shoulder_press": 0.0,
+            "pair_press": 0.0,
+            "dpad_horizontal": 0.0,
+            "view_press": 0.0,
+            "menu_press": 0.0,
+            "left_stick_x": 0.0,
+            "right_stick_x": 0.0,
+            "left_trigger_hinge": 0.0,
+            "right_trigger_hinge": 0.0,
+            "x_press": 0.0,
+            "guide_press": 0.0,
+            "y_press": 0.0,
+            "dpad_vertical": 0.0,
+            "left_stick_y": 0.0,
+            "right_stick_y": 0.0,
+            "left_stick_click": 0.0,
+            "right_stick_click": 0.0
+          },
+          "robot_environment_geometric_contact_steps": {}
+        }
+      ]
+    },
+    "forces-full-control": {
+      "environment_collisions": true,
+      "hand_gains_production": {
+        "stiffness": 240.0,
+        "damping": 8.0,
+        "force_limit": 60.0,
+        "armature": 0.0001
+      },
+      "force_limit_unit": "Nm per revolute joint, not N at fingertip",
+      "method": "CPU 1ms SAPIEN, exact accepted Z->v3 LS states. Start in accepted hold with neutral gamepad, interpolate robot drive targets hold->push over 1s then 0.5s settle. Contact force = impulse / 0.001 s; sum all robot->stick contact vectors then absolute projection onto current click joint axis. No gamepad qpos assignment after reset.",
+      "cases": [
+        {
+          "label": "left_realistic_LS_6",
+          "stiffness": 240.0,
+          "force_limit_nm": 60.0,
+          "peak_estimated_hand_drive_torque_nm": 60.0,
+          "peak_hand_joint_error_rad": 0.027766762366997155,
+          "stick_contact_robot_links": [
+            "thumb_distal"
+          ],
+          "goal_gamepad_q": {
+            "left_stick_x": -5.899256794080155e-17,
+            "left_stick_y": -0.32114058236695664
+          },
+          "settled_lx_rad": -0.40142688155174255,
+          "settled_ly_rad": -0.1776832863688469,
+          "peak_axial_n": 21.632425487041473,
+          "settled_axial_p50_n": 10.80684456974268,
+          "peak_click_fraction": 0.9999999747378752,
+          "settled_click_fraction": 0.9999999747378752,
+          "initial_gamepad_q": {
+            "a_press": 0.0,
+            "b_press": 0.0,
+            "left_shoulder_press": 0.0,
+            "right_shoulder_press": 0.0,
+            "pair_press": 0.0,
+            "dpad_horizontal": 0.0,
+            "view_press": 0.0,
+            "menu_press": 0.0,
+            "left_stick_x": 0.0,
+            "right_stick_x": 0.0,
+            "left_trigger_hinge": 0.0,
+            "right_trigger_hinge": 0.0,
+            "x_press": 0.0,
+            "guide_press": 0.0,
+            "y_press": 0.0,
+            "dpad_vertical": 0.0,
+            "left_stick_y": 0.0,
+            "right_stick_y": 0.0,
+            "left_stick_click": 0.0,
+            "right_stick_click": 0.0
+          },
+          "robot_environment_geometric_contact_steps": {}
+        },
+        {
+          "label": "left_realistic_LS_6",
+          "stiffness": 60.0,
+          "force_limit_nm": 0.3,
+          "peak_estimated_hand_drive_torque_nm": 0.3,
+          "peak_hand_joint_error_rad": 0.0808228882891261,
+          "stick_contact_robot_links": [
+            "thumb_distal"
+          ],
+          "goal_gamepad_q": {
+            "left_stick_x": -5.899256794080155e-17,
+            "left_stick_y": -0.32114058236695664
+          },
+          "settled_lx_rad": -0.06920362263917923,
+          "settled_ly_rad": 0.0333260353654623,
+          "peak_axial_n": 4.053084645420313,
+          "settled_axial_p50_n": 1.1196683626621962,
+          "peak_click_fraction": 0.5055875226389617,
+          "settled_click_fraction": 0.15055825770105002,
+          "initial_gamepad_q": {
+            "a_press": 0.0,
+            "b_press": 0.0,
+            "left_shoulder_press": 0.0,
+            "right_shoulder_press": 0.0,
+            "pair_press": 0.0,
+            "dpad_horizontal": 0.0,
+            "view_press": 0.0,
+            "menu_press": 0.0,
+            "left_stick_x": 0.0,
+            "right_stick_x": 0.0,
+            "left_trigger_hinge": 0.0,
+            "right_trigger_hinge": 0.0,
+            "x_press": 0.0,
+            "guide_press": 0.0,
+            "y_press": 0.0,
+            "dpad_vertical": 0.0,
+            "left_stick_y": 0.0,
+            "right_stick_y": 0.0,
+            "left_stick_click": 0.0,
+            "right_stick_click": 0.0
+          },
+          "robot_environment_geometric_contact_steps": {}
+        }
+      ]
+    },
+    "forces-initial-state": {
+      "hand_gains_production": {
+        "stiffness": 240.0,
+        "damping": 8.0,
+        "force_limit": 60.0,
+        "armature": 0.0001
+      },
+      "force_limit_unit": "Nm per revolute joint, not N at fingertip",
+      "method": "CPU 1ms SAPIEN, exact accepted Z->v3 LS states. Start in accepted hold with neutral gamepad, interpolate robot drive targets hold->push over 1s then 0.5s settle. Contact force = impulse / 0.001 s; sum all robot->stick contact vectors then absolute projection onto current click joint axis. No gamepad qpos assignment after reset.",
+      "cases": [
+        {
+          "label": "left_realistic_LS_6",
+          "stiffness": 240.0,
+          "force_limit_nm": 60.0,
+          "peak_estimated_hand_drive_torque_nm": 60.0,
+          "peak_hand_joint_error_rad": 0.027766762366997155,
+          "stick_contact_robot_links": [
+            "thumb_distal"
+          ],
+          "goal_gamepad_q": {
+            "left_stick_x": -5.899256794080155e-17,
+            "left_stick_y": -0.32114058236695664
+          },
+          "settled_lx_rad": -0.40142688155174255,
+          "settled_ly_rad": -0.1776832863688469,
+          "peak_axial_n": 21.632425487041473,
+          "settled_axial_p50_n": 10.80684456974268,
+          "peak_click_fraction": 0.9999999747378752,
+          "settled_click_fraction": 0.9999999747378752,
+          "initial_gamepad_q": {
+            "a_press": 0.0,
+            "b_press": 0.0,
+            "left_shoulder_press": 0.0,
+            "right_shoulder_press": 0.0,
+            "pair_press": 0.0,
+            "dpad_horizontal": 0.0,
+            "view_press": 0.0,
+            "menu_press": 0.0,
+            "left_stick_x": 0.0,
+            "right_stick_x": 0.0,
+            "left_trigger_hinge": 0.0,
+            "right_trigger_hinge": 0.0,
+            "x_press": 0.0,
+            "guide_press": 0.0,
+            "y_press": 0.0,
+            "dpad_vertical": 0.0,
+            "left_stick_y": 0.0,
+            "right_stick_y": 0.0,
+            "left_stick_click": 0.0,
+            "right_stick_click": 0.0
+          }
+        },
+        {
+          "label": "left_realistic_LS_6",
+          "stiffness": 60.0,
+          "force_limit_nm": 0.3,
+          "peak_estimated_hand_drive_torque_nm": 0.3,
+          "peak_hand_joint_error_rad": 0.0808228882891261,
+          "stick_contact_robot_links": [
+            "thumb_distal"
+          ],
+          "goal_gamepad_q": {
+            "left_stick_x": -5.899256794080155e-17,
+            "left_stick_y": -0.32114058236695664
+          },
+          "settled_lx_rad": -0.06920362263917923,
+          "settled_ly_rad": 0.0333260353654623,
+          "peak_axial_n": 4.053084645420313,
+          "settled_axial_p50_n": 1.1196683626621962,
+          "peak_click_fraction": 0.5055875226389617,
+          "settled_click_fraction": 0.15055825770105002,
+          "initial_gamepad_q": {
+            "a_press": 0.0,
+            "b_press": 0.0,
+            "left_shoulder_press": 0.0,
+            "right_shoulder_press": 0.0,
+            "pair_press": 0.0,
+            "dpad_horizontal": 0.0,
+            "view_press": 0.0,
+            "menu_press": 0.0,
+            "left_stick_x": 0.0,
+            "right_stick_x": 0.0,
+            "left_trigger_hinge": 0.0,
+            "right_trigger_hinge": 0.0,
+            "x_press": 0.0,
+            "guide_press": 0.0,
+            "y_press": 0.0,
+            "dpad_vertical": 0.0,
+            "left_stick_y": 0.0,
+            "right_stick_y": 0.0,
+            "left_stick_click": 0.0,
+            "right_stick_click": 0.0
+          }
+        }
+      ]
+    }
+  }
+}

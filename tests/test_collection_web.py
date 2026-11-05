@@ -217,7 +217,7 @@ def test_stop_closes_only_owned_operator_children(tmp_path):
     import io
     calls=[]
     view=OperatorView.__new__(OperatorView)
-    view.run=tmp_path;view.collection=True;view.backend=None
+    view.run=tmp_path;view.collection=True;view.backend=None;view.roles=('render',)
     view.children=[SimpleNamespace(wait=lambda **kw:calls.append('wait'),returncode=0)]
     view.logs=[];view.timing=io.StringIO();view.snapshot=SimpleNamespace(close=lambda:calls.append('close'))
     view.close(cancelled=True)
@@ -267,6 +267,8 @@ def test_color_conversion_preserves_clipping_and_rounding():
     picture.reshape(-1)[:8]=[-1,0,1,2,.5,.1,127.5/255,128.5/255]
     expected=np.rint(np.clip(picture[...,:3],0.,1.)*255).astype(np.uint8)
     assert np.array_equal(color_to_rgb8(picture),expected)
+    rgba8=np.random.default_rng(4).integers(0,256,(48,64,4),dtype=np.uint8)
+    assert np.array_equal(color_to_rgb8(rgba8),rgba8[...,:3])
 
 
 def test_two_recordings_never_reuse_previous_integrity(tmp_path):

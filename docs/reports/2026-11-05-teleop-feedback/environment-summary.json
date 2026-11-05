@@ -1,0 +1,27 @@
+{
+  "baseline_git": "c6165ef",
+  "versions": {
+    "sapien": "3.0.3",
+    "xbox-gamepad-physics": "0.4.1",
+    "trimesh": "5.1.1"
+  },
+  "cpu_only": true,
+  "renderer": "lavapipe",
+  "spec_sha256": "3180e6a377d8574e63fda28953de29aa23a3f0fdae6dda173a779ed21ea37d10",
+  "fixture_mesh_sha256": {
+    "v3_visual_base_printed": "08712cf85fdc5fb6257cc69a67e2195a34b931f10db43d79cba203383891d0b9",
+    "v3_visual_column": "b38ec5dde2c2e4bc3da4817f902d9b2078cd9882106d714f2d7b37519c5c1d15",
+    "v3_visual_hirth_fixed": "299a59cc6c138f7e5a610096bbf0336c95c9abc92779b5574a69d576d9334e3c",
+    "v3_visual_hirth_moving": "ce851aa33748bb9967dee4a530770414031d4bd4998403647f3ad171bb48f249",
+    "v3_visual_cradle_lower_jaw": "b992bab106769076abc1b90d9e87c092cea451c327c4b38c153d82058a66be7d",
+    "v3_visual_slider_upper_jaw": "e6584b40af267470d237c841e87159dd7bc81328a3236a56dfc337e803b9331e",
+    "v3_visual_guide_cap": "78530863de4f91e6e816b56f23e33e76e39db4c8533495b9c056880d59b64eda",
+    "v3_visual_guide_rod_1": "8887d5e078ff2d5833e5a1cd3c0e11b011aa55a515120393292ab718be62ead3",
+    "v3_visual_guide_rod_2": "532db27a72e4671587848b41e76f949e180642ec314280b45278c977699c0980",
+    "v3_visual_lock_screw_spacer": "8b8d9cfa8d65c97178b8576510d6c815633d4661d6e153b9417282aa8637c81f",
+    "v3_visual_M8_hand_knob": "4caef07b86d2735cad482285a114b89413e02f35a7c72b7072a5e8fa50bca712",
+    "v3_visual_pad_back": "8e836fb3d663e72717ff2add8b2b028f9bb712a12116d268faa8158e6b91b2f5",
+    "v3_visual_pad_lower_jaw": "847d2ecae77a5b7266b198533b922e2f244055dd155dc759844546e6b06cf147",
+    "v3_visual_pad_upper_jaw": "0b2d866cf3dbc17d8136d4c94e973ca4ea0717d03bdfa1db6d0c376aa357e6bc"
+  }
+}

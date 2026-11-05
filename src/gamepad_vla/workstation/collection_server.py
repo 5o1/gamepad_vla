@@ -210,11 +210,16 @@ class ApiError(Exception):
         self.status,self.code,self.message=status,code,message
 
 
-def make_app(manager=None, *, enable_remote_control=False, video_handler=None, frame_provider=None, managed=True, camera=None, idle_timeout_s=None, clock=time.monotonic):
+def make_app(manager=None, *, enable_remote_control=False, video_handler=None, auxiliary_video_handler=None, frame_provider=None, managed=True, camera=None, idle_timeout_s=None, clock=time.monotonic, snapshots=None):
     from aiohttp import web, ClientSession, ClientTimeout, ClientError, WSMsgType
     manager=manager or SessionManager()
     root=Path(__file__).with_name('collection_web')
     camera=camera or CameraPanel(site_value('station.data_root') or manager.root.parent)
+    from .collection_snapshots import SceneSnapshots, SnapshotConflict
+    snapshots = snapshots or SceneSnapshots(
+        Path(site_value('station.data_root') or manager.root.parent)/'snapshots',
+        delay_s=site_value('snapshots.delay_s',30), max_bytes=site_value('snapshots.max_bytes',64*1024*1024),
+        width=site_value('snapshots.width',1280), height=site_value('snapshots.height',720))
     cookie=secrets.token_urlsafe(32)
     remote_enabled=bool(enable_remote_control)
     safety={}
@@ -240,6 +245,7 @@ def make_app(manager=None, *, enable_remote_control=False, video_handler=None, f
         current.update(server_wall_time_ns=time.time_ns(), safety=safety, stream=current.get('stream') if frame_provider else stream, remote_control_enabled=remote_enabled,
             disk=dict(free_bytes=free,warning=free<DISK_MIN_BYTES),
             integrity=status.get('integrity') or dict(episode_id=None,state='pending',phase='idle',passed=None), recent_control_events=list(recent), revision=revision,
+            scene_snapshot=snapshots.status(),
             session_id=manager.output.name if manager.output else None,
             episode_id=(manager.output.name+'~'+status['episode']) if manager.output and status.get('episode') else None)
         return current
@@ -257,7 +263,7 @@ def make_app(manager=None, *, enable_remote_control=False, video_handler=None, f
     @web.middleware
     async def presence(request, handler):
         browser = secrets.compare_digest(request.cookies.get('collection_web_session',''),cookie)
-        connected = request.path in ('/api/v1/events','/video') or (request.method in ('GET','HEAD') and (browser or request.path=='/'))
+        connected = request.path in ('/api/v1/events','/video','/aux-video') or (request.method in ('GET','HEAD') and (browser or request.path=='/'))
         if connected:
             idle.connections += 1
             idle.touch()
@@ -303,6 +309,8 @@ def make_app(manager=None, *, enable_remote_control=False, video_handler=None, f
             result=web.json_response(dict(error_code=exc.code,message=exc.message,state=snapshot(),safety=safety),status=exc.status)
         except (ValueError,KeyError,TypeError,queue.Full) as exc:
             result=web.json_response(dict(error_code='invalid_request',message=f'Invalid parameters or data. Check and retry: {exc}',state=snapshot(),safety=safety),status=400)
+        except SnapshotConflict as exc:
+            result=web.json_response(dict(error_code='snapshot_busy',message=str(exc),state=snapshot(),safety=safety),status=409)
         except CameraConflict as exc:
             result=web.json_response(dict(error_code='camera_busy',message=str(exc),state=snapshot(),safety=safety),status=409)
         except RuntimeError as exc:
@@ -328,6 +336,7 @@ def make_app(manager=None, *, enable_remote_control=False, video_handler=None, f
         if default['replay'] and default['replay'] not in files:files=[default['replay'],*files]
         return response(dict(managed=managed,defaults=default,replay_files=files,
             backends=['sapien','mujoco'],scene_variants=['full','free-space','gamepad-contact'],sources=['ros2','replay','udp'],
+            snapshot_defaults=dict(delay_s=snapshots.default_delay,width=snapshots.width,height=snapshots.height,max_bytes=snapshots.max_bytes),
             estop_hint='~/gamepad_vla_estop/estop.sh (does not cut motor power)'))
 
     async def status(request):
@@ -411,6 +420,35 @@ def make_app(manager=None, *, enable_remote_control=False, video_handler=None, f
         event('episodes/export',request['client'],dict(id=identifier))
         return response(await manager.export(identifier))
 
+    async def scene_snapshot_start(request):
+        running()
+        run = getattr(manager,'view_run',None) or (manager.output/'view' if manager.output else None)
+        if run is None or not (run/'snapshot.mmap').is_file():
+            raise ApiError(409,'session_not_running','Wait until the simulation view is ready before taking a snapshot.')
+        values=request['values']
+        result=snapshots.start(run,delay_s=values.get('delay_s'),label=values.get('label',''))
+        event('snapshot',request['client'],dict(delay_s=result['delay_s'],label=result['label']))
+        return response(dict(snapshot=result))
+
+    async def scene_snapshot_cancel(request):
+        result=await snapshots.cancel()
+        event('snapshot/cancel',request['client'],{})
+        return response(dict(snapshot=result))
+
+    async def scene_snapshots(request):
+        return web.json_response(await asyncio.to_thread(snapshots.list))
+
+    async def scene_snapshot_file(request):
+        name=request.match_info['name']
+        try:
+            if name.endswith(('.png','.json')):
+                return web.FileResponse(snapshots.file(name))
+            meta=snapshots.file(name+'/meta.json')
+            return web.json_response(dict(name=name,meta=json.loads(meta.read_text()),
+                files=sorted(p.name for p in meta.parent.iterdir() if p.is_file())))
+        except FileNotFoundError:
+            raise web.HTTPNotFound()
+
     async def remote(request):
         nonlocal remote_enabled
         value=request['values'].get('enabled')
@@ -433,7 +471,7 @@ def make_app(manager=None, *, enable_remote_control=False, video_handler=None, f
     async def video(request):
         if not manager.worker or not manager.worker.is_alive():raise web.HTTPServiceUnavailable(text='no active simulation')
         try:
-            upstream=await client.ws_connect(f'http://127.0.0.1:{manager.port}/video')
+            upstream=await client.ws_connect(f'http://127.0.0.1:{manager.port}{request.path}')
         except (ClientError,OSError,asyncio.TimeoutError):return web.Response(status=503,text='stream unavailable')
         result=web.WebSocketResponse()
         await result.prepare(request)
@@ -441,7 +479,9 @@ def make_app(manager=None, *, enable_remote_control=False, video_handler=None, f
             async for message in upstream:
                 if message.type==WSMsgType.BINARY:await result.send_bytes(message.data)
         async def closed():
-            async for _ in result:pass
+            async for message in result:
+                if request.path=='/aux-video' and message.type==WSMsgType.TEXT:
+                    await upstream.send_str(message.data)
         tasks=[asyncio.create_task(forward()),asyncio.create_task(closed())]
         try:await asyncio.wait(tasks,return_when=asyncio.FIRST_COMPLETED)
         finally:
@@ -453,7 +493,7 @@ def make_app(manager=None, *, enable_remote_control=False, video_handler=None, f
     async def view(request):
         running()
         value=request['values'].get('view')
-        if value not in ('camera_3','operator'):raise ApiError(400,'invalid_request','View must be camera_3 or operator.')
+        if value != 'camera_3':raise ApiError(400,'invalid_request','Collection main view is fixed to camera_3. Use the positioning panes.')
         await manager.command(dict(action='view',view=value,client=request['client']))
         event('view',request['client'],dict(view=value))
         return response()
@@ -534,6 +574,7 @@ def make_app(manager=None, *, enable_remote_control=False, video_handler=None, f
         yield
         for task in tasks:task.cancel()
         await asyncio.gather(*tasks,return_exceptions=True)
+        await snapshots.close()
         await asyncio.to_thread(camera.stop)
         if managed:await manager.stop()
         if manager.export_process and manager.export_process.returncode is None:
@@ -541,12 +582,19 @@ def make_app(manager=None, *, enable_remote_control=False, video_handler=None, f
         await client.close();audit.close()
 
     app=web.Application(middlewares=[presence,contract])
+    app['scene_snapshots']=snapshots
     app['idle_session']=idle
     app['stop_idle']=stop_idle
     app.cleanup_ctx.append(lifecycle)
     app.router.add_get('/',index)
     app.router.add_get('/video',video_handler or video)
+    app.router.add_get('/aux-video',auxiliary_video_handler or video)
+    app.router.add_get('/auxiliary-panel.mjs',lambda request:web.FileResponse(root/'auxiliary-panel.mjs'))
     app.router.add_get('/camera-panel.mjs',camera_module)
+    app.router.add_post('/api/v1/snapshot',scene_snapshot_start)
+    app.router.add_post('/api/v1/snapshot/cancel',scene_snapshot_cancel)
+    app.router.add_get('/api/v1/snapshots',scene_snapshots)
+    app.router.add_get('/api/v1/snapshots/{name:.+}',scene_snapshot_file)
     app.router.add_get('/api/v1/camera/status',camera_status)
     app.router.add_get('/api/v1/camera/preview.jpg',camera_preview)
     app.router.add_get('/api/v1/camera/photos',camera_photos)

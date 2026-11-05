@@ -1,0 +1,237 @@
+{
+  "gaps": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "main": {
+    "x": 0,
+    "y": 732.546875,
+    "width": 1280,
+    "height": 720,
+    "right": 1280,
+    "bottom": 1452.546875
+  },
+  "grid": {
+    "x": 0,
+    "y": 1452.546875,
+    "width": 1920,
+    "height": 1080,
+    "right": 1920,
+    "bottom": 2532.546875
+  },
+  "rects": [
+    {
+      "x": 0,
+      "y": 1452.546875,
+      "width": 640,
+      "height": 540,
+      "right": 640,
+      "bottom": 1992.546875
+    },
+    {
+      "x": 640,
+      "y": 1452.546875,
+      "width": 640,
+      "height": 540,
+      "right": 1280,
+      "bottom": 1992.546875
+    },
+    {
+      "x": 1280,
+      "y": 1452.546875,
+      "width": 640,
+      "height": 540,
+      "right": 1920,
+      "bottom": 1992.546875
+    },
+    {
+      "x": 0,
+      "y": 1992.546875,
+      "width": 640,
+      "height": 540,
+      "right": 640,
+      "bottom": 2532.546875
+    },
+    {
+      "x": 640,
+      "y": 1992.546875,
+      "width": 640,
+      "height": 540,
+      "right": 1280,
+      "bottom": 2532.546875
+    },
+    {
+      "x": 1280,
+      "y": 1992.546875,
+      "width": 640,
+      "height": 540,
+      "right": 1920,
+      "bottom": 2532.546875
+    }
+  ],
+  "native": [
+    {
+      "name": "face",
+      "width": 640,
+      "height": 540,
+      "css": {
+        "x": 0,
+        "y": 1452.546875,
+        "width": 640,
+        "height": 540,
+        "right": 640,
+        "bottom": 1992.546875
+      }
+    },
+    {
+      "name": "front",
+      "width": 640,
+      "height": 540,
+      "css": {
+        "x": 640,
+        "y": 1452.546875,
+        "width": 640,
+        "height": 540,
+        "right": 1280,
+        "bottom": 1992.546875
+      }
+    },
+    {
+      "name": "back",
+      "width": 640,
+      "height": 540,
+      "css": {
+        "x": 1280,
+        "y": 1452.546875,
+        "width": 640,
+        "height": 540,
+        "right": 1920,
+        "bottom": 1992.546875
+      }
+    },
+    {
+      "name": "left",
+      "width": 640,
+      "height": 540,
+      "css": {
+        "x": 0,
+        "y": 1992.546875,
+        "width": 640,
+        "height": 540,
+        "right": 640,
+        "bottom": 2532.546875
+      }
+    },
+    {
+      "name": "right",
+      "width": 640,
+      "height": 540,
+      "css": {
+        "x": 640,
+        "y": 1992.546875,
+        "width": 640,
+        "height": 540,
+        "right": 1280,
+        "bottom": 2532.546875
+      }
+    },
+    {
+      "name": "overview",
+      "width": 640,
+      "height": 540,
+      "css": {
+        "x": 1280,
+        "y": 1992.546875,
+        "width": 640,
+        "height": 540,
+        "right": 1920,
+        "bottom": 2532.546875
+      }
+    }
+  ],
+  "styles": [
+    {
+      "margin": "0px",
+      "padding": "0px",
+      "gap": "0px",
+      "border": "0px",
+      "borderRadius": "0px",
+      "boxShadow": "none"
+    },
+    {
+      "margin": "0px",
+      "padding": "0px",
+      "gap": "0px",
+      "border": "0px",
+      "borderRadius": "0px",
+      "boxShadow": "none"
+    },
+    {
+      "margin": "0px",
+      "padding": "0px",
+      "gap": "0px",
+      "border": "0px",
+      "borderRadius": "0px",
+      "boxShadow": "none"
+    },
+    {
+      "margin": "0px",
+      "padding": "0px",
+      "gap": "0px",
+      "border": "0px",
+      "borderRadius": "0px",
+      "boxShadow": "none"
+    },
+    {
+      "margin": "0px",
+      "padding": "0px",
+      "gap": "0px",
+      "border": "0px",
+      "borderRadius": "0px",
+      "boxShadow": "none"
+    },
+    {
+      "margin": "0px",
+      "padding": "0px",
+      "gap": "0px",
+      "border": "0px",
+      "borderRadius": "0px",
+      "boxShadow": "none"
+    },
+    {
+      "margin": "0px",
+      "padding": "0px",
+      "gap": "0px",
+      "border": "0px",
+      "borderRadius": "0px",
+      "boxShadow": "none"
+    },
+    {
+      "margin": "0px",
+      "padding": "0px",
+      "gap": "0px",
+      "border": "0px",
+      "borderRadius": "0px",
+      "boxShadow": "none"
+    },
+    {
+      "margin": "0px",
+      "padding": "0px",
+      "gap": "0px",
+      "border": "0px",
+      "borderRadius": "0px",
+      "boxShadow": "none"
+    }
+  ],
+  "controls_inside_panes": 0,
+  "passed": true,
+  "zoom_restore": true,
+  "closed_panes_hidden": true,
+  "mode": "Real Chrome, current HTML/CSS/JS with idle API fixture; no rendering/GPU use"
+}

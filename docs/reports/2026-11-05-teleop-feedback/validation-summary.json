@@ -1,0 +1,57 @@
+{
+  "phase": "after WSL restart",
+  "verified_utc": "2026-11-05T09:12:59.937517+00:00",
+  "local_tests": {
+    "passed": 84,
+    "skipped": 4,
+    "reason": "minimal local environment lacks PIL, aiohttp and cv2"
+  },
+  "compute_targeted_tests": {
+    "passed": 91,
+    "failed": 0,
+    "skipped": 0
+  },
+  "dom": {
+    "passed": true,
+    "details": "dom-layout-summary.json",
+    "mode": "current full HTML/CSS/JS with idle API fixture; no H264/GPU",
+    "gaps_px": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "prior_native_validation": {
+    "recorded_before_restart": true,
+    "source": "real SAPIEN/NVENC/WebCodecs and native snapshot/CLI download",
+    "snapshot_file": "snapshot-summary.json",
+    "camera_count": 7,
+    "native_dimensions": [
+      1280,
+      720
+    ],
+    "snapshot_bytes": 966643,
+    "state_age_ms": 4.95226,
+    "render_span_ms": 668.87504
+  },
+  "report": {
+    "bytes": 12865078,
+    "png_count": 87,
+    "png_hashes_checked": 87,
+    "broken_markdown_links": 0,
+    "raw_data_in_report": false
+  },
+  "local_task_processes": [],
+  "cleanup": {
+    "compute_task_processes": 0,
+    "gpu_0_compute_processes": 0,
+    "gpu_0_utilization_percent": 0,
+    "gpu_0_memory_mib": 16
+  },
+  "public_tree_findings": 0
+}

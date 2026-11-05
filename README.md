@@ -82,6 +82,7 @@ python scripts/render_workcell.py configs/render/workcell_multiview_preview.yaml
 - [夹具实物验证清单](hardware/gamepad_fixture/VALIDATION.md)与[camera_3标记卡工具](docs/reports/2026-10-30-fixture-validation/README.md)：可拆ChArUco支架、1:1模板、小样、绝对与两图相对测量，适配[OpenCV ChArUco](https://docs.opencv.org/4.11.0/df/d4a/tutorial_charuco_detection.html)和[SciPy最小二乘](https://docs.scipy.org/doc/scipy-1.15.3/reference/generated/scipy.optimize.least_squares.html)。较好合成成像条件下相对误差最大0.46mm/0.20°；轮廓法只做粗调，临时ID90只测面内滑移（合成最大0.311mm），配合划线法；法向/倾角依背托接触和托架卡保证，实物验收仍待执行。
 
 - [操作者画面](docs/usage/operator-view.md)：`run_workstation.py --operator-view configs/render/operator_view.yaml --operator-run <新目录>`，配合 `--backend sapien` 和输入源参数。
+- [采集辅助视角与场景快照](docs/reports/2026-11-05-teleop-feedback/README.md)：沿用 `operator_view` 的独立 SAPIEN 副本与 teleop mmap/NVENC 管线，以原生六格辅助流和独立窗格辅助定位；30 秒倒计时快照保存冻结状态、最近输入和七个相机的独立原生 PNG/内外参，episode 格式不变。适配 [SAPIEN 相机接口](https://sapien-sim.github.io/docs/api/sapien.sensor.html)与 [WebCodecs VideoFrame](https://www.w3.org/TR/webcodecs/)，证据限于计算节点仿真和浏览器验证，尚未部署到采集台。
 - [相机面板](docs/usage/collection.md#调整并重新标定-ego-相机)：在采集网站预览、对正网格、拍标定照片及录 RGB-D；PNG 与同帧内参 JSON 保存在站点数据目录。旧的独立拍照入口已并入网站。
 - [资产来源](references/robot_assets.md)记录当前模型依据；[模块边界](docs/architecture.md)说明采集与配置分工。
 

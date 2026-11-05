@@ -1,0 +1,483 @@
+[
+  {
+    "tag": "m1280_a1920_20fps_0views",
+    "main_resolution": [
+      1280,
+      720
+    ],
+    "auxiliary_resolution": [
+      1920,
+      1080
+    ],
+    "auxiliary_target_fps": 20,
+    "views": [],
+    "window_seconds": 20.098729208,
+    "metrics": {
+      "main": {
+        "frames": 1206,
+        "fps": 60.040477155146924,
+        "encode_p50_ms": 24.885727,
+        "encode_p95_ms": 31.418684,
+        "render_p50_ms": 8.8172535
+      },
+      "auxiliary": {
+        "frames": 0,
+        "fps": 0,
+        "encode_p50_ms": null,
+        "encode_p95_ms": null,
+        "render_p50_ms": null
+      }
+    },
+    "pipeline": "real operator_view + SAPIEN 3.0.3 + mmap + NVENC + drained WebSockets",
+    "input": "synthetic completed states at 60 Hz; no physics stepping, hardware, ROS or episode"
+  },
+  {
+    "tag": "m1280_a1920_20fps_6views",
+    "main_resolution": [
+      1280,
+      720
+    ],
+    "auxiliary_resolution": [
+      1920,
+      1080
+    ],
+    "auxiliary_target_fps": 20,
+    "views": [
+      "face",
+      "front",
+      "back",
+      "left",
+      "right",
+      "overview"
+    ],
+    "window_seconds": 20.11321211,
+    "metrics": {
+      "main": {
+        "frames": 1183,
+        "fps": 58.796103607284365,
+        "encode_p50_ms": 32.867219,
+        "encode_p95_ms": 46.12490489999999,
+        "render_p50_ms": 11.115358
+      },
+      "auxiliary": {
+        "frames": 393,
+        "fps": 19.594062105692743,
+        "encode_p50_ms": 81.118076,
+        "encode_p95_ms": 99.613078,
+        "render_p50_ms": 44.96441
+      }
+    },
+    "pipeline": "real operator_view + SAPIEN 3.0.3 + mmap + NVENC + drained WebSockets",
+    "input": "synthetic completed states at 60 Hz; no physics stepping, hardware, ROS or episode"
+  },
+  {
+    "tag": "m1280_a1920_30fps_6views",
+    "main_resolution": [
+      1280,
+      720
+    ],
+    "auxiliary_resolution": [
+      1920,
+      1080
+    ],
+    "auxiliary_target_fps": 30,
+    "views": [
+      "face",
+      "front",
+      "back",
+      "left",
+      "right",
+      "overview"
+    ],
+    "window_seconds": 20.124362415,
+    "metrics": {
+      "main": {
+        "frames": 1178,
+        "fps": 58.58323834774653,
+        "encode_p50_ms": 32.3066885,
+        "encode_p95_ms": 46.14820169999998,
+        "render_p50_ms": 10.874602
+      },
+      "auxiliary": {
+        "frames": 385,
+        "fps": 19.14878346980501,
+        "encode_p50_ms": 79.565849,
+        "encode_p95_ms": 101.307171,
+        "render_p50_ms": 45.896996
+      }
+    },
+    "pipeline": "real operator_view + SAPIEN 3.0.3 + mmap + NVENC + drained WebSockets",
+    "input": "synthetic completed states at 60 Hz; no physics stepping, hardware, ROS or episode"
+  },
+  {
+    "tag": "m1280_a2560_20fps_6views",
+    "main_resolution": [
+      1280,
+      720
+    ],
+    "auxiliary_resolution": [
+      2560,
+      1440
+    ],
+    "auxiliary_target_fps": 20,
+    "views": [
+      "face",
+      "front",
+      "back",
+      "left",
+      "right",
+      "overview"
+    ],
+    "window_seconds": 20.139331063,
+    "metrics": {
+      "main": {
+        "frames": 1129,
+        "fps": 56.02580182635291,
+        "encode_p50_ms": 35.666596,
+        "encode_p95_ms": 53.406718399999995,
+        "render_p50_ms": 10.919835
+      },
+      "auxiliary": {
+        "frames": 327,
+        "fps": 16.2344927462338,
+        "encode_p50_ms": 113.553692,
+        "encode_p95_ms": 139.29111890000001,
+        "render_p50_ms": 52.348526
+      }
+    },
+    "pipeline": "real operator_view + SAPIEN 3.0.3 + mmap + NVENC + drained WebSockets",
+    "input": "synthetic completed states at 60 Hz; no physics stepping, hardware, ROS or episode"
+  },
+  {
+    "tag": "m1280_a2560_30fps_6views",
+    "main_resolution": [
+      1280,
+      720
+    ],
+    "auxiliary_resolution": [
+      2560,
+      1440
+    ],
+    "auxiliary_target_fps": 30,
+    "views": [
+      "face",
+      "front",
+      "back",
+      "left",
+      "right",
+      "overview"
+    ],
+    "window_seconds": 20.108516196,
+    "metrics": {
+      "main": {
+        "frames": 1133,
+        "fps": 56.32467937698088,
+        "encode_p50_ms": 34.508705,
+        "encode_p95_ms": 52.9765288,
+        "render_p50_ms": 10.521847
+      },
+      "auxiliary": {
+        "frames": 330,
+        "fps": 16.364901071046287,
+        "encode_p50_ms": 108.81340349999999,
+        "encode_p95_ms": 137.4648237,
+        "render_p50_ms": 51.9952145
+      }
+    },
+    "pipeline": "real operator_view + SAPIEN 3.0.3 + mmap + NVENC + drained WebSockets",
+    "input": "synthetic completed states at 60 Hz; no physics stepping, hardware, ROS or episode"
+  },
+  {
+    "tag": "m1920_a1920_20fps_0views",
+    "main_resolution": [
+      1920,
+      1080
+    ],
+    "auxiliary_resolution": [
+      1920,
+      1080
+    ],
+    "auxiliary_target_fps": 20,
+    "views": [],
+    "window_seconds": 20.123602772,
+    "metrics": {
+      "main": {
+        "frames": 1027,
+        "fps": 51.061700372649284,
+        "encode_p50_ms": 39.294331,
+        "encode_p95_ms": 56.132181799999984,
+        "render_p50_ms": 10.951645
+      },
+      "auxiliary": {
+        "frames": 0,
+        "fps": 0,
+        "encode_p50_ms": null,
+        "encode_p95_ms": null,
+        "render_p50_ms": null
+      }
+    },
+    "pipeline": "real operator_view + SAPIEN 3.0.3 + mmap + NVENC + drained WebSockets",
+    "input": "synthetic completed states at 60 Hz; no physics stepping, hardware, ROS or episode"
+  },
+  {
+    "tag": "m1920_a1920_20fps_6views",
+    "main_resolution": [
+      1920,
+      1080
+    ],
+    "auxiliary_resolution": [
+      1920,
+      1080
+    ],
+    "auxiliary_target_fps": 20,
+    "views": [
+      "face",
+      "front",
+      "back",
+      "left",
+      "right",
+      "overview"
+    ],
+    "window_seconds": 20.187241666,
+    "metrics": {
+      "main": {
+        "frames": 476,
+        "fps": 23.551274876032412,
+        "encode_p50_ms": 90.809481,
+        "encode_p95_ms": 125.21382975,
+        "render_p50_ms": 13.885911
+      },
+      "auxiliary": {
+        "frames": 324,
+        "fps": 16.041631434995654,
+        "encode_p50_ms": 106.51871650000001,
+        "encode_p95_ms": 136.431545,
+        "render_p50_ms": 55.003302500000004
+      }
+    },
+    "pipeline": "real operator_view + SAPIEN 3.0.3 + mmap + NVENC + drained WebSockets",
+    "input": "synthetic completed states at 60 Hz; no physics stepping, hardware, ROS or episode"
+  },
+  {
+    "tag": "m1920_a1920_30fps_6views",
+    "main_resolution": [
+      1920,
+      1080
+    ],
+    "auxiliary_resolution": [
+      1920,
+      1080
+    ],
+    "auxiliary_target_fps": 30,
+    "views": [
+      "face",
+      "front",
+      "back",
+      "left",
+      "right",
+      "overview"
+    ],
+    "window_seconds": 20.125024718,
+    "metrics": {
+      "main": {
+        "frames": 484,
+        "fps": 24.108905219852538,
+        "encode_p50_ms": 85.277355,
+        "encode_p95_ms": 135.8267189,
+        "render_p50_ms": 13.3907795
+      },
+      "auxiliary": {
+        "frames": 328,
+        "fps": 16.32487165154389,
+        "encode_p50_ms": 100.198973,
+        "encode_p95_ms": 136.10383699999994,
+        "render_p50_ms": 55.091936000000004
+      }
+    },
+    "pipeline": "real operator_view + SAPIEN 3.0.3 + mmap + NVENC + drained WebSockets",
+    "input": "synthetic completed states at 60 Hz; no physics stepping, hardware, ROS or episode"
+  },
+  {
+    "tag": "m1920_a2560_20fps_6views",
+    "main_resolution": [
+      1920,
+      1080
+    ],
+    "auxiliary_resolution": [
+      2560,
+      1440
+    ],
+    "auxiliary_target_fps": 20,
+    "views": [
+      "face",
+      "front",
+      "back",
+      "left",
+      "right",
+      "overview"
+    ],
+    "window_seconds": 20.158151935,
+    "metrics": {
+      "main": {
+        "frames": 480,
+        "fps": 23.789538369463145,
+        "encode_p50_ms": 90.17986250000001,
+        "encode_p95_ms": 128.8927828,
+        "render_p50_ms": 13.696176999999999
+      },
+      "auxiliary": {
+        "frames": 270,
+        "fps": 13.390705373441184,
+        "encode_p50_ms": 137.8796605,
+        "encode_p95_ms": 177.98584445,
+        "render_p50_ms": 63.284848
+      }
+    },
+    "pipeline": "real operator_view + SAPIEN 3.0.3 + mmap + NVENC + drained WebSockets",
+    "input": "synthetic completed states at 60 Hz; no physics stepping, hardware, ROS or episode"
+  },
+  {
+    "tag": "m1920_a2560_30fps_6views",
+    "main_resolution": [
+      1920,
+      1080
+    ],
+    "auxiliary_resolution": [
+      2560,
+      1440
+    ],
+    "auxiliary_target_fps": 30,
+    "views": [
+      "face",
+      "front",
+      "back",
+      "left",
+      "right",
+      "overview"
+    ],
+    "window_seconds": 20.136812275,
+    "metrics": {
+      "main": {
+        "frames": 532,
+        "fps": 26.473174890149526,
+        "encode_p50_ms": 80.94171499999999,
+        "encode_p95_ms": 113.71199775,
+        "render_p50_ms": 13.2342365
+      },
+      "auxiliary": {
+        "frames": 285,
+        "fps": 14.13098859134646,
+        "encode_p50_ms": 125.604932,
+        "encode_p95_ms": 155.8665488,
+        "render_p50_ms": 61.753977
+      }
+    },
+    "pipeline": "real operator_view + SAPIEN 3.0.3 + mmap + NVENC + drained WebSockets",
+    "input": "synthetic completed states at 60 Hz; no physics stepping, hardware, ROS or episode"
+  },
+  {
+    "tag": "m1280_a1920_20fps_1views",
+    "main_resolution": [
+      1280,
+      720
+    ],
+    "auxiliary_resolution": [
+      1920,
+      1080
+    ],
+    "auxiliary_target_fps": 20,
+    "views": [
+      "overview"
+    ],
+    "window_seconds": 20.139769709,
+    "metrics": {
+      "main": {
+        "frames": 1184,
+        "fps": 58.79381527011461,
+        "encode_p50_ms": 31.5076555,
+        "encode_p95_ms": 44.81815525,
+        "render_p50_ms": 9.504828
+      },
+      "auxiliary": {
+        "frames": 402,
+        "fps": 19.94872232663274,
+        "encode_p50_ms": 79.1115645,
+        "encode_p95_ms": 95.51850905,
+        "render_p50_ms": 11.144225500000001
+      }
+    },
+    "pipeline": "real operator_view + SAPIEN 3.0.3 + mmap + NVENC + drained WebSockets",
+    "input": "synthetic completed states at 60 Hz; no physics stepping, hardware, ROS or episode"
+  },
+  {
+    "tag": "m1280_a1920_20fps_2views",
+    "main_resolution": [
+      1280,
+      720
+    ],
+    "auxiliary_resolution": [
+      1920,
+      1080
+    ],
+    "auxiliary_target_fps": 20,
+    "views": [
+      "face",
+      "overview"
+    ],
+    "window_seconds": 20.09856154,
+    "metrics": {
+      "main": {
+        "frames": 1196,
+        "fps": 59.55279099218218,
+        "encode_p50_ms": 28.082711500000002,
+        "encode_p95_ms": 40.75331,
+        "render_p50_ms": 9.397973499999999
+      },
+      "auxiliary": {
+        "frames": 402,
+        "fps": 20.01273606230997,
+        "encode_p50_ms": 74.82796450000001,
+        "encode_p95_ms": 91.03879675,
+        "render_p50_ms": 17.8146495
+      }
+    },
+    "pipeline": "real operator_view + SAPIEN 3.0.3 + mmap + NVENC + drained WebSockets",
+    "input": "synthetic completed states at 60 Hz; no physics stepping, hardware, ROS or episode"
+  },
+  {
+    "tag": "m1280_a1920_20fps_3views",
+    "main_resolution": [
+      1280,
+      720
+    ],
+    "auxiliary_resolution": [
+      1920,
+      1080
+    ],
+    "auxiliary_target_fps": 20,
+    "views": [
+      "face",
+      "front",
+      "back"
+    ],
+    "window_seconds": 20.1034341,
+    "metrics": {
+      "main": {
+        "frames": 1198,
+        "fps": 59.616653223552966,
+        "encode_p50_ms": 29.309171,
+        "encode_p95_ms": 41.61171689999995,
+        "render_p50_ms": 9.5789455
+      },
+      "auxiliary": {
+        "frames": 403,
+        "fps": 20.042745329488504,
+        "encode_p50_ms": 74.344583,
+        "encode_p95_ms": 90.63769789999999,
+        "render_p50_ms": 24.605308
+      }
+    },
+    "pipeline": "real operator_view + SAPIEN 3.0.3 + mmap + NVENC + drained WebSockets",
+    "input": "synthetic completed states at 60 Hz; no physics stepping, hardware, ROS or episode"
+  }
+]

@@ -72,3 +72,37 @@ def test_wait_never_reports_passed_while_same_episode_status_checks(monkeypatch,
     monkeypatch.setitem(m['main'].__globals__,'request',request)
     monkeypatch.setattr(m['time'],'sleep',lambda _:None)
     assert m['main'](['record-stop','--wait'])==0 and len(calls)==2
+
+
+def test_snapshot_commands_use_shared_api(monkeypatch,capsys):
+    m=module();calls=[]
+    def request(base,path,data=None):
+        calls.append((path,data))
+        if path=='snapshots':return 200,[dict(name='2026-11-05/071500_reference')]
+        if path.startswith('snapshots/'):return 200,dict(name='2026-11-05/071500_reference',files=['camera_3.png'])
+        return 200,dict(snapshot=dict(state='countdown' if path=='snapshot' else 'cancelled',remaining_s=30))
+    monkeypatch.setitem(m['main'].__globals__,'request',request)
+    assert m['main'](['snapshot','--label','reference'])==0
+    assert calls[-1]==('snapshot',dict(delay_s=None,label='reference'))
+    assert m['main'](['snapshot','--delay-s','5'])==0 and calls[-1][1]['delay_s']==5
+    assert m['main'](['snapshot-cancel'])==0 and calls[-1]==('snapshot/cancel',{})
+    assert m['main'](['snapshots'])==0
+    assert m['main'](['snapshots','2026-11-05/071500_reference'])==0
+    assert calls[-1]==('snapshots/2026-11-05/071500_reference',None)
+
+
+def test_snapshot_get_downloads_original_files(monkeypatch,tmp_path,capsys):
+    import io
+    m=module();received=[]
+    monkeypatch.setitem(m['main'].__globals__,'request',lambda *args:(200,dict(name='2026-11-05/reference',files=['camera_3.png','meta.json'])))
+    def open_url(request,timeout):
+        received.append(request.full_url)
+        return io.BytesIO(b'original bytes')
+    monkeypatch.setitem(m['main'].__globals__,'urlopen',open_url)
+    output=tmp_path/'reference'
+    assert m['main'](['snapshot-get','2026-11-05/reference','--output',str(output)])==0
+    assert (output/'camera_3.png').read_bytes()==(output/'meta.json').read_bytes()==b'original bytes'
+    assert len(received)==2 and received[0].endswith('/snapshots/2026-11-05/reference/camera_3.png')
+    assert m['main'](['snapshot-get','2026-11-05/reference','--output',str(output)])==1
+    assert len(received)==2 and (output/'camera_3.png').read_bytes()==b'original bytes'
+    assert 'Snapshot download failed' in capsys.readouterr().out

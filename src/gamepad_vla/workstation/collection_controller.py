@@ -69,19 +69,26 @@ class CollectionController:
         self.last_publish = 0.
         self.control_result = None
 
-    def status(self):
-        return dict(self.last_row, session_state=self.state, error=self.error,
+    def status(self, *, include_inputs=False):
+        result = dict(self.last_row, session_state=self.state, error=self.error,
                     backend=self.options.backend, scene_variant=self.options.scene_variant, source=self.options.source,
                     control_result=self.control_result,
                     recording_status=self.session.status() if self.session else dict(state='idle'),
                     input_health=self.source.health.snapshot() if self.source else {},
                     output=str(self.options.output))
+        if include_inputs:
+            from .collection_sources import snapshot_input_events, ros_command_topics
+            result['input_topics'] = ros_command_topics(self.options.ros_topic_prefix) if self.options.source == 'ros2' else {}
+            result['snapshot_inputs'] = snapshot_input_events(self.source) if self.source else {}
+            result['mapping_versions'] = self.session.meta.get('mapping_versions', {}) if self.session else {}
+            result['arm_mapping'] = self.session.meta.get('arm_mapping') if self.session else None
+        return result
 
     def emit(self, force=False):
         if force or time.monotonic()-self.last_publish >= .1:
             self.publish(self.status())
             if force and self.view and self.last_row:
-                self.view.publish(self.status())
+                self.view.publish(self.status(include_inputs=True))
             self.last_publish = time.monotonic()
 
     def boundary(self):
@@ -186,7 +193,7 @@ class CollectionController:
                 self.last_row = self.session.record(self.backend.observe(), commands,
                     applied_monotonic_ns=applied_ns, input_sequences=getattr(self.source, 'polled_sequences', None))
                 if self.view:
-                    self.view.publish(self.status())
+                    self.view.publish(self.status(include_inputs=True))
                 ticks += 1
                 self.emit()
             success = True

@@ -61,6 +61,12 @@
   "network": {
     "proxy_url": ""
   },
+  "snapshots": {
+    "delay_s": 30,
+    "width": 1280,
+    "height": 720,
+    "max_bytes": 67108864
+  },
   "collection": {
     "backend": "sapien",
     "source": "ros2",

@@ -271,7 +271,7 @@ L1/L2 使用 `scripts/check_collection.py`。按审阅者裁决 2，门槛回放
 
 远程控制每次服务启动默认关闭，助手在网页明确开启后，Codex/CLI 才可执行写操作。SSE 同步各客户端状态和最近 10 条控制事件；断线自动重连并先拉完整状态。GET 始终允许，所有 API 操作追加审计。现场硬件输入启动步骤仍按上面的 M2 手册执行，网页与 API 不提供硬件启动、急停或下电。
 
-任务 P 将采集画面统一回 `operator_view` 的 teleop mmap/独立孪生渲染/NVENC 管线，移除 MJPEG 自建场景。主画面可在标定 camera_3 与原操作者虚拟视角之间切换，手柄资产固定 v0.4.1；现场域 88、临时抬高场景及 gamepad-contact 的确切服务命令见 [API 现场启动说明](collection-api.md#采集画面与现场启动)。输入节点由现场授权的 `scripts/station/start_input_chain.sh` 启动，站上 `~/gamepad_vla/m2/start.sh` 仅作兼容入口。
+任务 P 将采集画面统一回 `operator_view` 的 teleop mmap/独立孪生渲染/NVENC 管线，移除 MJPEG 自建场景。AE 起主画面固定为标定 camera_3，俯视和手柄正面、接近、背面、左右侧面分别显示在零间隙独立窗格，详见[操作者画面](operator-view.md)。快照按钮可在录制期间使用，倒计时结束后另存同一冻结状态的七张独立原生 PNG，不进入 episode。手柄资产固定 v0.4.1；现场域 88、临时抬高场景及 gamepad-contact 的确切服务命令见 [API 现场启动说明](collection-api.md#采集画面与现场启动)。输入节点由现场授权的 `scripts/station/start_input_chain.sh` 启动，站上 `~/gamepad_vla/m2/start.sh` 仅作兼容入口。
 
 ## 调整并重新标定 ego 相机
 

@@ -1,5 +1,7 @@
 """Subscriber-only ROS input and timed dual-arm/dual-hand replay."""
 import importlib
+import copy
+from contextlib import nullcontext
 import json
 from dataclasses import asdict
 import queue
@@ -22,6 +24,12 @@ def ros_command_topics(prefix=""):
                                 ("arm", f"/{side}_arm_joint_control"))}
 
 
+def snapshot_input_events(source):
+    """Copy at most the four latest raw command events; never drain the recorder."""
+    with getattr(source, '_lock', nullcontext()):
+        return copy.deepcopy(getattr(source, 'latest_events', {}))
+
+
 class Ros2Source:
     """Continuous ROS reception; lossless event FIFO and separate latest targets.
 
@@ -38,6 +46,7 @@ class Ros2Source:
         self.packet_sink, self.stale_after_s = packet_sink, stale_after_s
         self.decode_errors = self.received_packets = 0
         self.latest, self.polled_sequences = {}, {}
+        self.latest_events = {}
         self._lock, self._events = threading.Lock(), queue.Queue()
         self._rclpy = self._executor = self._thread = None
         self._owns_context, self._closing = False, False
@@ -122,6 +131,7 @@ class Ros2Source:
             event["error"] = str(exc)
         self.health.receive(event["channel"], error=event["error"] is not None)
         self._events.put_nowait(event)
+        self.latest_events[event['channel']] = event
         if command is not None:
             self.latest[(kind, side)] = (received_clock, command, event["sequence"])
             if self.packet_sink:
@@ -172,6 +182,7 @@ class CollectionReplay:
         self.last_index = None
         self.events = []
         self._input_events = []
+        self.latest_events = {}
         self.received_packets = 0
         self.health = InputHealth()
         self.uniform_grid = path.is_dir()
@@ -235,7 +246,9 @@ class CollectionReplay:
         self.last_index = marker
         commands = self.events[index]
         for command in commands:
-            self._input_events.append(command_event(command, self.received_packets))
+            event = command_event(command, self.received_packets)
+            self._input_events.append(event)
+            self.latest_events[event['channel']] = event
             self.received_packets += 1
             self.health.receive(command.side + ("_hand" if isinstance(command, HandCommand) else "_arm"))
         return commands
@@ -267,6 +280,7 @@ class CollectionUdpSource:
         self.source.event_sink = self._receive
         self.health = InputHealth()
         self._events = []
+        self.latest_events = {}
         self.received_packets = 0
 
     @property
@@ -291,6 +305,8 @@ class CollectionUdpSource:
         event.update(raw=dict(datagram_hex=data.hex()), error=error)
         self.received_packets += 1
         self._events.append(event)
+        if event['channel'] in ('left_arm','right_arm','left_hand','right_hand'):
+            self.latest_events[event['channel']] = event
         self.health.receive(event['channel'], error=error is not None)
 
     def poll(self, now):

@@ -152,7 +152,7 @@ Stopped recording session-example~episode-000012; integrity: passed.
 
 ## 采集画面与现场启动
 
-画面通过 `operator_view` 的 teleop mmap、独立孪生渲染和 NVENC H.264 提供，浏览器使用 WebCodecs；需支持 H.264 的 Chrome/Edge。`POST /api/v1/view` 接受 `{"view":"camera_3"}` 或 `{"view":"operator"}`，遵守同一 JSON、客户端标识、同源和远程开关规则。status 的 `view` 来自实际编码帧。
+画面通过 `operator_view` 的 teleop mmap、独立孪生渲染和 NVENC H.264 提供，浏览器使用 WebCodecs；需支持 H.264 的 Chrome/Edge。`POST /api/v1/view` 保留 `{"view":"camera_3"}`；采集主图固定为该相机，`operator` 请求返回 400，请使用独立辅助窗格。该接口遵守同一 JSON、客户端标识、同源和远程开关规则。status 的 `view` 来自实际编码帧。
 
 现场采用临时抬高场景、gamepad-contact 和不做启动姿态限幅时：
 
@@ -185,3 +185,45 @@ ROS_DOMAIN_ID=88 bash scripts/station/start_collection_server.sh \
 | GET `/api/v1/camera/record/state` | 站点 ego 网页的原始 state；结束后为最近一次原始录像结果 |
 
 `camera_busy` 为 409，含英文占用进程提示；不会结束其他进程。录像三个代理端点直接返回上游 JSON，不包装成仿真 state；失败仍使用统一错误格式。原有“接口不启动硬件节点”的说明对相机端点有例外：这些端点按现场授权仅启动 RealSense，不启动手、臂或 CAN 节点。
+
+## 场景倒计时快照
+
+采集网页的 **Snapshot in 30 s** 与可选 Label 保存单帧参考位姿；Delay 可改，默认来自站点配置 `snapshots.delay_s`（30）。所有页面通过现有 SSE 同步倒计时。倒计时可取消，进入 Capturing 后等待结果；同一服务只接受一个待拍/正在拍的快照，重复申请返回 409 `snapshot_busy`。可在录制期间拍照，episode、执行器目标和录制状态均不改变。
+
+| 方法 / 端点 | 参数或结果 |
+|---|---|
+| POST `/api/v1/snapshot` | `{"delay_s":30,"label":"left_stick"}`；delay_s 省略或 null 使用站点默认值，允许 0–3600 s |
+| POST `/api/v1/snapshot/cancel` | `{}`；取消尚在倒计时的快照；没有待拍快照时幂等 |
+| GET `/api/v1/snapshots` | 已完成快照列表，含 name、meta 和文件名 |
+| GET `/api/v1/snapshots/{name}` | 单份快照元数据与文件名；name 含日期/目录部分 |
+| GET `/api/v1/snapshots/{name}/{file}` | 下载该份快照的单个 PNG/JSON |
+
+写操作遵循本文原有 cookie、JSON、客户端标识、同源、远程控制和审计规则。`status.scene_snapshot` / SSE 显示 `idle/countdown/capturing/saved/cancelled/failed`、deadline、remaining_s、label，以及完成后的 name/path；失败附 error。倒计时冻结的是期限到达时最新一份完成状态，超过 1 s 的陈旧状态拒绝保存；图像渲染使用该冻结状态，不继续步进物理。各相机实际出图时间逐一记录，因此顺序出图的时间不同，但几何状态一致。
+
+存储位置为私有配置 `station.data_root` 下的 `snapshots/<YYYY-MM-DD>/<HHMMSS_纳秒>_<label>/`（目录时间按站点本地时区；meta 中 wall_time_ns 为 Unix epoch）。未配置 data_root 时使用采集运行根目录的上级。`snapshots.width/height` 默认 1280×720，可在站点配置中提高；每张图都不低于主视角尺寸，取两者较大值。`snapshots.max_bytes` 默认 64 MiB，限制单份快照的全部文件。超限或出图失败不发布残缺快照。
+
+| 文件 / 字段 | 内容 |
+|---|---|
+| `state.json` | 同一完成帧的 `arm_q[2][7]`、`hand_q[2][21]`、手柄各关节、32 路信号/掩码、当前执行目标与输入序号 |
+| `inputs.json` | 最近左右手电机和主臂消息的原始字段、转换值、header、接收时钟和相对冻结时刻的 age_s；没有收到的通道不伪造 |
+| `camera_3.png` | 独立相机原生渲染的标定主视角 |
+| `aux_face/front/back/left/right/overview.png` | 六个辅助相机各自独立、原生分辨率拍照；关闭的窗格也拍，不从拼接图裁剪 |
+| `scene-spec.json` | 本次仿真加载的原始场景 spec，SHA-256 位于 meta |
+| `meta.json` | 时间/标签、映射版本、代码 Git revision/工作区修改标志（无 .git 时为 null）与相关源文件哈希、spec 名称/哈希、手柄/夹具世界矩阵、关节名/单位、每个相机的尺寸/K/外参/出图时钟 |
+| `render-result.json` | 独立渲染进程完成该份快照的结果，供复核 |
+
+`meta.cameras.*.world_from_camera_optical` 与 `camera_optical_from_world` 互逆，光学轴为 x 向右、y 向下、z 向前；另保留 SAPIEN 返回的 OpenGL 相机世界矩阵。快照不是物理 RealSense 照片。当前输入源只订阅指令话题，未取得的手套 `raw_nodes`/`ergonomics` 在 `meta.raw_glove` 明确标为 unavailable。
+
+在采集台本机取回：
+
+```bash
+python scripts/collection_ctl.py status --json
+# 先确认 remote_control_enabled 为 true，再按用户要求发起：
+python scripts/collection_ctl.py snapshot --label "left_stick"
+python scripts/collection_ctl.py snapshot-cancel
+python scripts/collection_ctl.py snapshots --json
+python scripts/collection_ctl.py snapshots "$SNAPSHOT_NAME" --json
+python scripts/collection_ctl.py snapshot-get "$SNAPSHOT_NAME" --output /tmp/reference-pose
+```
+
+读取列表或下载文件无需开启远程控制。网页 Saved scene snapshots 也提供每张 PNG 与 JSON 的原始下载链接。审阅者可按返回的 path 从站点复制整目录，或用最后一条命令下载该 name 的全部文件；不要用网页拼接截图替代独立 PNG。当前任务仅在本地及计算节点验证；采集台恢复后按整树同步流程部署，再复测。

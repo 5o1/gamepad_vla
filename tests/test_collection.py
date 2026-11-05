@@ -195,6 +195,11 @@ def test_raw_input_events_roundtrip_separate_from_protocol_values(tmp_path):
     for _ in range(3):
         callbacks["/cb_left_hand_control_cmd"](message)
     assert len(source.poll(source.clock())) == 1  # latest control, all three events retained
+    from gamepad_vla.workstation.collection_sources import snapshot_input_events
+    latest=snapshot_input_events(source)
+    assert latest['left_hand']['sequence']==2 and latest['left_hand']['raw']['position']==raw
+    latest['left_hand']['raw']['position'][0]=999
+    assert snapshot_input_events(source)['left_hand']['raw']['position'][0]==127.125
     events=source.drain_events()
     assert len(events)==3 and source.drain_events()==[]
     assert events[0]["raw"]["position"] == raw

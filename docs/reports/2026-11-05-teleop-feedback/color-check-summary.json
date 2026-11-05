@@ -1,0 +1,11 @@
+{
+  "dtypes": {
+    "float": "float32",
+    "unorm": "uint8"
+  },
+  "max_absolute_channel_error": 0,
+  "mean_absolute_channel_error": 0.0,
+  "fraction_channels_different": 0.0,
+  "render_device": "pci:0000:00:00.0",
+  "pass_8bit_equivalence": true
+}

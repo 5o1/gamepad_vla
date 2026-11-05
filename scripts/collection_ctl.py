@@ -2,6 +2,7 @@
 """Local REST client for people and Codex; Python standard library only."""
 import argparse
 import json
+from pathlib import Path
 import sys
 import time
 from urllib.error import HTTPError, URLError
@@ -26,10 +27,13 @@ def parser():
     p.add_argument('--url',default='http://127.0.0.1:8780')
     p.add_argument('--json',action='store_true')
     sub=p.add_subparsers(dest='command',required=True)
-    for name in ('status','session-stop','record-start','record-stop','note','episodes','void','export','session-start'):
+    for name in ('status','session-stop','record-start','record-stop','note','episodes','void','export','session-start','snapshot','snapshot-cancel','snapshots','snapshot-get'):
         s=sub.add_parser(name)
         s.add_argument('--json',action='store_true',default=argparse.SUPPRESS)
         s.add_argument('--url',default=argparse.SUPPRESS)
+        if name=='snapshot':s.add_argument('--delay-s',type=float);s.add_argument('--label',default='')
+        if name=='snapshots':s.add_argument('name',nargs='?')
+        if name=='snapshot-get':s.add_argument('name');s.add_argument('--output',type=Path,required=True)
         if name=='session-start':
             s.add_argument('--backend',choices=['sapien','mujoco'],required=True)
             s.add_argument('--scene-variant',choices=['full','free-space','gamepad-contact'],required=True)
@@ -63,9 +67,26 @@ def main(argv=None):
     elif a.command=='note':path='notes';data=dict(text=a.text)
     elif a.command=='episodes':path='episodes'+('/'+quote(a.id,safe='') if a.id else '')
     elif a.command=='void':path='episodes/'+quote(a.id,safe='')+'/void';data=dict(reason=a.reason)
+    elif a.command=='snapshot':path='snapshot';data=dict(delay_s=a.delay_s,label=a.label)
+    elif a.command=='snapshot-cancel':path='snapshot/cancel';data={}
+    elif a.command in ('snapshots','snapshot-get'):path='snapshots'+('/'+quote(a.name,safe='/') if a.name else '')
     elif a.command=='export':path='episodes/'+quote(a.id,safe='')+'/export';data={}
     try:
         status,result=request(a.url,path,data)
+        if status==200 and a.command=='snapshot-get':
+            try:
+                a.output.mkdir(parents=True,exist_ok=True)
+                for filename in result['files']:
+                    if Path(filename).name!=filename:raise ValueError('Invalid snapshot filename')
+                    if (a.output/filename).exists():raise FileExistsError(f'Refusing to overwrite {a.output/filename}')
+                for filename in result['files']:
+                    req=Request(a.url.rstrip('/')+'/api/v1/'+path+'/'+quote(filename,safe=''),headers={'X-Gamepad-VLA-Client':'cli'})
+                    with urlopen(req,timeout=60) as response, (a.output/filename).open('xb') as output:
+                        import shutil
+                        shutil.copyfileobj(response,output)
+                result=dict(result,output=str(a.output))
+            except (OSError,ValueError) as exc:
+                status=500;result=dict(error_code='snapshot_download_failed',message=f'Snapshot download failed: {exc}')
         if status==200 and a.command=='record-stop' and a.wait and result.get('episode_id'):
             target=result['episode_id']
             deadline=time.monotonic()+a.wait_timeout
@@ -90,11 +111,16 @@ def main(argv=None):
     if a.json:print(json.dumps(result,ensure_ascii=False))
     elif status!=200:print(result.get('message','Operation failed. Check the service log.'))
     elif isinstance(result,list):
-        print('\n'.join(f"{e['id']} · {e.get('rows',0)} rows · {'Void' if e.get('discarded') else 'Valid'}" for e in result) or 'No episodes yet.')
+        if a.command=='snapshots':print('\n'.join(e['name'] for e in result) or 'No snapshots yet.')
+        else:print('\n'.join(f"{e['id']} · {e.get('rows',0)} rows · {'Void' if e.get('discarded') else 'Valid'}" for e in result) or 'No episodes yet.')
     else:
         state=result.get('state',result);rec=state.get('recording_status',{})
         if a.command=='record-stop' and a.wait and result.get('integrity'):
             print('Stopped recording '+result.get('id','')+'; integrity: passed.')
+        elif a.command=='snapshot-get':print('Snapshot downloaded: '+result['output'])
+        elif a.command=='snapshots':print(result['name']+' · '+', '.join(result['files']))
+        elif a.command in ('snapshot','snapshot-cancel'):
+            snap=result.get('snapshot',{});print(f"Snapshot {snap.get('state','unknown')}"+(f" · {snap.get('remaining_s',0):.1f} s remaining" if snap.get('state')=='countdown' else ''))
         elif a.command=='export':print('Exported: '+result['output'])
         elif a.command=='void':print('Marked as void. Original data retained.')
         else:
