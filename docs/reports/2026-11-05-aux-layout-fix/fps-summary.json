@@ -1,0 +1,39 @@
+{
+  "tag": "m1280_a1920_20fps_6views",
+  "main_resolution": [
+    1280,
+    720
+  ],
+  "auxiliary_resolution": [
+    1920,
+    1080
+  ],
+  "auxiliary_target_fps": 20,
+  "views": [
+    "face",
+    "front",
+    "back",
+    "left",
+    "right",
+    "overview"
+  ],
+  "window_seconds": 30.154901398,
+  "metrics": {
+    "main": {
+      "frames": 1775,
+      "fps": 58.871582533812514,
+      "encode_p50_ms": 30.119082,
+      "encode_p95_ms": 44.0494404,
+      "render_p50_ms": 10.908875
+    },
+    "auxiliary": {
+      "frames": 565,
+      "fps": 18.72482611469109,
+      "encode_p50_ms": 79.750546,
+      "encode_p95_ms": 100.10023759999999,
+      "render_p50_ms": 47.029057
+    }
+  },
+  "pipeline": "real operator_view + SAPIEN 3.0.3 + mmap + NVENC + drained WebSockets",
+  "input": "synthetic completed states at 60 Hz; no physics stepping, hardware, ROS or episode"
+}

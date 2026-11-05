@@ -1,10 +1,14 @@
 <!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width">
 <base href="/overlay/"><title>Simulation Collection Station</title>
 <link rel="stylesheet" href="overlay-shell.css"><link rel="stylesheet" href="overlay-theme-research.css">
-<style>
-*{box-sizing:border-box}html,body{height:auto;overflow:auto}body{margin:0;background:#142027;color:#f2f6f7;font:18px system-ui}main{max-width:1280px;margin:auto;padding:16px}button,input,select{font:inherit;padding:10px;margin:5px;border-radius:4px}button{cursor:pointer}button:disabled{opacity:.4;cursor:default}label{display:inline-block}#safety{position:sticky;top:0;z-index:3;background:#22634e;padding:16px;font-size:24px;font-weight:bold}#safety.warn,.warn{background:#91332d!important;color:white}#recording{font-size:48px;font-weight:800;padding:12px;border:2px solid #82959c}#recording.active{background:#b7222e}#recordDetails{font-size:24px;padding:8px}.view{position:relative;background:#0b1216;min-height:160px}.view canvas{width:100%;display:block}#overlayRoot{display:block;width:480px;height:270px;pointer-events:none}.signal-pane{width:480px}#videoWorkspace,#auxiliaryViews,.video-pane,.video-pane canvas{margin:0;gap:0;padding:0;border:0;border-radius:0;box-shadow:none}#videoWorkspace{width:max-content}#auxiliaryViews[hidden]{display:none}#auxiliaryViews{display:grid;width:1920px;grid-template-columns:640px 640px 640px}.video-pane{position:relative;width:max-content;cursor:zoom-in;background:#000;line-height:0}.video-pane canvas{display:block;width:auto;height:auto;max-width:none}.pane-label{position:absolute;left:4px;top:4px;font-size:12px;line-height:1.2;color:#fff;background:#0008;pointer-events:none}.video-pane.enlarged{position:fixed;inset:0;z-index:10;width:100vw;height:100vh;cursor:zoom-out}.video-pane.enlarged canvas{width:100%;height:100%;object-fit:contain}main{max-width:none;margin:0;padding:0}#health{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0}.channel{padding:10px;background:#25404b}#message{white-space:pre-wrap;color:#ffd591;min-height:26px}table{width:100%;border-collapse:collapse;font-size:16px}td,th{border-bottom:1px solid #50606a;padding:8px;text-align:left}small{display:block}#clamps{min-height:24px}fieldset{border:1px solid #50606a;margin:12px 0}#note{min-width:45%}#snapshotStatus{font-size:18px;font-weight:700;padding:12px}#snapshotStatus.countdown{font-size:36px;background:#7b5415;color:#fff}#snapshotList a{color:#bce2ff}#metrics{padding:8px;font-variant-numeric:tabular-nums}
-</style>
-<div id="safety">Checking simulation mode…</div><main>
+<link rel="stylesheet" href="/overlay/collection.css">
+<main>
+<header id="controls">
+<div class="control-row"><div id="safety">Checking simulation mode…</div><div id="recording" role="status">Loading recording status…</div>
+<button id="startRecord" data-action="start">Record (R)</button><button id="stopRecord" data-action="stop">Stop (S)</button>
+<input id="note" placeholder="Note (N)" aria-label="Note"><button id="addNote" data-action="note">Add note</button>
+<label><input type="checkbox" id="remoteToggle">Remote: <strong id="remoteState">Waiting</strong></label>
+<details class="drawer"><summary>Session / camera</summary><div class="drawer-body">
 <details id="cameraPanel"><summary>Camera</summary>
 <style>
 #cameraPanel{border:1px solid #50606a;padding:12px;margin:16px 0}#cameraMode{font-size:22px}#cameraMessage{color:#ffd591;white-space:pre-wrap}.cameraPreview{position:relative;background:#090d10;max-width:100%;aspect-ratio:16/9}.cameraPreview img{display:block;width:100%;height:100%;object-fit:contain}.cameraGuide{position:absolute;inset:0;pointer-events:none}.cameraGuide.grid{background-image:linear-gradient(to right,transparent calc(100% - 1px),#ffffff80 0),linear-gradient(to bottom,transparent calc(100% - 1px),#ffffff80 0);background-size:33.333% 33.333%}.cameraGuide.cross:before,.cameraGuide.cross:after{content:"";position:absolute;background:#ffde59}.cameraGuide.cross:before{left:50%;top:0;width:1px;height:100%}.cameraGuide.cross:after{top:50%;left:0;height:1px;width:100%}#cameraPhotos{display:flex;gap:12px;flex-wrap:wrap}#cameraPhotos figure{margin:0;width:220px;overflow-wrap:anywhere}#cameraPhotos img{width:220px}#cameraLastPhoto{max-width:240px}#cameraInfo,#cameraReport{white-space:pre-wrap;overflow-wrap:anywhere}#cameraReport{max-height:300px;overflow:auto}#cameraPanel summary{cursor:pointer;font-size:24px}
@@ -27,23 +31,27 @@
 <label id="replayLabel">Replay file<select id="replay"></select></label>
 <label>Duration (s; blank for unlimited)<input id="duration" type="number" min="0.1" step="any" style="width:130px"></label>
 <button id="launch" type="submit">Start simulation</button><button id="endSession" type="button">Stop collection and simulation</button><small id="sessionStatus">Loading session status…</small>
-</fieldset></form>
-<p><label><input type="checkbox" id="remoteToggle">Remote control: <strong id="remoteState">Waiting for server</strong></label></p><div id="recording" role="status">Loading recording status…</div><div id="recordDetails"></div><div id="disk"></div>
-<button id="startRecord" data-action="start">Start recording (R)</button><button id="stopRecord" data-action="stop">Stop recording (S)</button>
-<input id="note" placeholder="Note (N to focus)" aria-label="Note"><button id="addNote" data-action="note">Add note</button>
-<fieldset id="snapshotPanel"><legend>Scene snapshot</legend>
-<label>Delay (s)<input id="snapshotDelay" type="number" min="0" max="3600" step="1" value="30" style="width:100px"></label>
-<label>Label<input id="snapshotLabel" maxlength="120" placeholder="Optional label"></label>
+</fieldset></form></div></details></div>
+<div id="recordDetails"></div>
+<div class="control-row" id="snapshotPanel">
+<label>Delay (s)<input id="snapshotDelay" type="number" min="0" max="3600" step="1" value="30" style="width:60px"></label>
+<label>Label<input id="snapshotLabel" maxlength="120" placeholder="Snapshot label"></label>
 <button id="snapshotStart" type="button">Snapshot in 30 s</button><button id="snapshotCancel" type="button" hidden>Cancel snapshot</button>
 <div id="snapshotStatus" role="status" aria-live="polite">No scene snapshot scheduled</div>
-<details><summary>Saved scene snapshots</summary><div id="snapshotList"></div></details></fieldset>
-<div id="integrity"></div><div id="message" role="alert"></div>
-<div id="health"></div><div id="clamps"></div>
-<span>View: camera_3 calibrated ego view</span><span id="videoStatus"></span><div id="metrics">Waiting for stream metrics</div><details class="signal-pane"><summary>Actual gamepad signals</summary><svg id="overlayRoot" aria-label="Actual gamepad signals"></svg></details>
+<details class="drawer"><summary>Saved snapshots</summary><div class="drawer-body" id="snapshotList"></div></details></div>
+<div class="control-row status-row"><span id="videoStatus"></span><div id="metrics">Waiting for stream metrics</div><div id="disk"></div><div id="integrity"></div></div>
+<div id="message" role="alert"></div>
 <div id="viewToolbar" aria-label="Positioning view controls"><span id="auxiliaryStatus">Waiting for simulation</span></div>
-<div id="videoWorkspace"><section class="view video-pane" aria-label="camera_3"><canvas id="video" width="1280" height="720" aria-label="Simulation video"></canvas><span class="pane-label">camera_3</span></section><div id="auxiliaryViews"></div></div>
+</header>
+<div id="videoWorkspace"><section class="view video-pane" aria-label="camera_3"><canvas id="video" width="1280" height="720" aria-label="Simulation video"></canvas><span class="pane-label">camera_3</span></section><div id="auxiliaryViews"></div>
+<section id="signalTile" class="info-pane" aria-label="Actual gamepad signals"><svg id="overlayRoot" aria-label="Actual gamepad signals"></svg><span class="pane-label">Actual gamepad signals</span></section>
+<section id="statusTile" class="info-pane" aria-label="Key status"><div class="status-content"><strong id="gridRecording">Loading recording status…</strong><div id="gridDetails"></div><div id="gridStream">Waiting for stream metrics</div><div id="gridSnapshot">No scene snapshot scheduled</div></div><span class="pane-label">Status</span></section>
+</div>
+<footer><div id="health"></div><div id="clamps"></div>
+<details class="drawer"><summary>Events / episodes</summary><div class="drawer-body">
 <p id="notesState"></p><details open><summary>Recent control events</summary><ol id="recentEvents"></ol></details><section id="library"><h2>Episodes</h2><table><thead><tr><th>Time / ID</th><th>Duration / Rows</th><th>Notes</th><th>Integrity / Void</th><th>Actions</th></tr></thead><tbody id="episodes"></tbody></table></section>
 <p id="stopHint"></p><p>Stop collection ends only simulation processes started by this project. Software stop does not cut motor power.</p>
+</div></details></footer>
 <script src="overlay-core.js"></script><script src="overlay-spec.js"></script><script src="overlay-layout-xbox.js"></script><script src="overlay-renderer-svg.js"></script><script src="gamepad-input-sources.js"></script><script src="overlay-app.js"></script>
 <script type="module">
 import {installCanonicalSource} from './canonical_adapter.mjs';
@@ -101,6 +109,7 @@ if(state.disk){$('disk').textContent=`Disk free: ${(state.disk.free_bytes/2**30)
 $('health').replaceChildren();for(const [channel,c] of Object.entries(state.input_health||{})){const el=document.createElement('div');el.className='channel'+(c.warning?' warn':'');el.textContent=`${channel}: ${c.hz.toFixed(1)} Hz`;const line=document.createElement('small');line.textContent=`Age ${c.age_s===null?'Never received':c.age_s.toFixed(3)+' s'} · Total ${c.count} · Decode errors ${c.decode_errors}`;el.append(line);$('health').append(el)}
 const flags=[];for(const [side,masks] of Object.entries(state.arm_clamps||{}))if(masks)for(const [kind,mask] of Object.entries(masks))mask.forEach((hit,i)=>{if(hit)flags.push(`${side} joint_${i+1} ${kind==='startup'?'Startup clamp':'Absolute limit'}`)});$('clamps').textContent=flags.length?`Arm clamps: ${flags.join(', ')}`:Object.values(state.arm_clamps||{}).some(v=>v)?'Arm clamps: none triggered':'Arm clamps: unavailable for this input';$('clamps').classList.toggle('warn',flags.length>0);
 const stream=state.stream;$('metrics').textContent=stream?`${stream.fps.toFixed(1)} fps · Apply → encode P50 ${stream.apply_to_encode_p50_ms?.toFixed(1)??'—'} ms / P95 ${stream.apply_to_encode_p95_ms?.toFixed(1)??'—'} ms (target: 60 fps / 50 ms)`:'Waiting for stream metrics';$('metrics').classList.toggle('warn',!!stream?.warning||(active&&!stream));
+for(const [target,source] of [['gridRecording','recording'],['gridDetails','recordDetails'],['gridStream','metrics'],['gridSnapshot','snapshotStatus']]){$(target).textContent=$(source).textContent;$(target).className=$(source).className;}
 
 if(state.overlay&&!video.stats.presented)adapter.applyFrame(state.overlay).catch(message);
 const id=state.session_id||'cli';if(active&&videoSession!==id){video.connect(id);auxiliary.setSession(id);videoSession=id}

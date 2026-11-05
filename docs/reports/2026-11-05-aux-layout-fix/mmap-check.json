@@ -1,0 +1,69 @@
+{
+  "generation": 1548,
+  "length": 6221334,
+  "meta": {
+    "frame_id": 773,
+    "width": 1920,
+    "height": 1080,
+    "fps": 20,
+    "views": [
+      "face",
+      "front",
+      "back",
+      "left",
+      "right",
+      "overview"
+    ],
+    "tiles": {
+      "face": {
+        "x": 0,
+        "y": 0,
+        "width": 640,
+        "height": 540
+      },
+      "front": {
+        "x": 640,
+        "y": 0,
+        "width": 640,
+        "height": 540
+      },
+      "back": {
+        "x": 1280,
+        "y": 0,
+        "width": 640,
+        "height": 540
+      },
+      "left": {
+        "x": 0,
+        "y": 540,
+        "width": 640,
+        "height": 540
+      },
+      "right": {
+        "x": 640,
+        "y": 540,
+        "width": 640,
+        "height": 540
+      },
+      "overview": {
+        "x": 1280,
+        "y": 540,
+        "width": 640,
+        "height": 540
+      }
+    },
+    "capture_ns": 619819441294910,
+    "render_ns": 50790849,
+    "applied_ns": 619818223433436,
+    "step": 3779,
+    "stream": "auxiliary"
+  },
+  "tile_nonblack_pixels": {
+    "face": 345508,
+    "front": 345126,
+    "back": 344400,
+    "left": 344568,
+    "right": 345044,
+    "overview": 345014
+  }
+}

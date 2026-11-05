@@ -17,7 +17,7 @@ def test_gamepad_relative_views_follow_full_scene_pose():
         for i in (0,1):assert np.allclose(new[i],moved[:3,:3]@old[i]+moved[:3,3])
         assert np.allclose(new[2],moved[:3,:3]@old[2])
     position,target,up=camera_vectors(moved,'overview')
-    assert np.allclose(target,moved[:3,3]) and np.allclose(position-target,[0,0,1.1])
+    assert np.allclose(target,moved[:3,3]+[-.10,0,0]) and np.allclose(position-target,[0,0,.48])
     assert np.allclose(up,[1,0,0])
 
 

@@ -83,6 +83,7 @@ python scripts/render_workcell.py configs/render/workcell_multiview_preview.yaml
 
 - [操作者画面](docs/usage/operator-view.md)：`run_workstation.py --operator-view configs/render/operator_view.yaml --operator-run <新目录>`，配合 `--backend sapien` 和输入源参数。
 - [采集辅助视角与场景快照](docs/reports/2026-11-05-teleop-feedback/README.md)：沿用 `operator_view` 的独立 SAPIEN 副本与 teleop mmap/NVENC 管线，以原生六格辅助流和独立窗格辅助定位；30 秒倒计时快照保存冻结状态、最近输入和七个相机的独立原生 PNG/内外参，episode 格式不变。适配 [SAPIEN 相机接口](https://sapien-sim.github.io/docs/api/sapien.sensor.html)与 [WebCodecs VideoFrame](https://www.w3.org/TR/webcodecs/)，证据限于计算节点仿真和浏览器验证，尚未部署到采集台。
+- [采集页面布局与取景修正](docs/reports/2026-11-05-aux-layout-fix/README.md)：camera_3 和六个辅助视角默认全开，浏览器保存各格开关，按视口选择等大 16:9 格网（主图占 2×2、辅助各占一格），剩余格显示信号和状态；点击窗格在视频区内放大。相机用 AE 握姿/按键姿态对照拉近；布局使用 [ResizeObserver](https://www.w3.org/TR/resize-observer/) 与 CSS 的 [contain 等比显示](https://www.w3.org/TR/css-images-3/#the-object-fit)，验证范围见报告。
 - [相机面板](docs/usage/collection.md#调整并重新标定-ego-相机)：在采集网站预览、对正网格、拍标定照片及录 RGB-D；PNG 与同帧内参 JSON 保存在站点数据目录。旧的独立拍照入口已并入网站。
 - [资产来源](references/robot_assets.md)记录当前模型依据；[模块边界](docs/architecture.md)说明采集与配置分工。
 

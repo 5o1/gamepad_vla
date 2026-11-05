@@ -13,11 +13,11 @@ ATLAS_WIDTH, ATLAS_HEIGHT = TILE_WIDTH * 3, TILE_HEIGHT * 2
 
 # Position, target and up are controller-local, in metres.
 CAMERA_OFFSETS = {
-    'face': ((0., .005, .38), (0., .005, 0.), (0., 1., 0.)),
-    'front': ((0., -.18, .32), (0., 0., .015), (0., 0., 1.)),
-    'back': ((0., .22, -.24), (0., .015, -.005), (0., 1., 0.)),
-    'left': ((-.34, .24, .20), (0., .01, 0.), (0., 0., 1.)),
-    'right': ((.34, .24, .20), (0., .01, 0.), (0., 0., 1.)),
+    'face': ((0., .005, .34), (0., .005, 0.), (0., 1., 0.)),
+    'front': ((0., -.15, .28), (0., 0., .015), (0., 0., 1.)),
+    'back': ((0., .205, -.23), (0., .015, -.005), (0., 1., 0.)),
+    'left': ((-.24, .19, .28), (0., .01, 0.), (0., 0., 1.)),
+    'right': ((.24, .19, .28), (0., .01, 0.), (0., 0., 1.)),
 }
 
 
@@ -31,9 +31,10 @@ def selected_views(values):
 def camera_vectors(transform, name):
     import numpy as np
     if name == 'overview':
-        # Keep the top-down overview, centred on the selected scene's controller.
-        origin = transform[:3, 3]
-        return origin + (0., 0., 1.1), origin, np.array((1., 0., 0.))
+        # World-vertical overview, shifted toward the arms to keep their approach
+        # area in frame without spending half the image on the far table.
+        target = transform[:3, 3] + (-.10, 0., 0.)
+        return target + (0., 0., .48), target, np.array((1., 0., 0.))
     position, target, up = CAMERA_OFFSETS[name]
     def world(point):
         return (transform @ np.r_[point, 1.])[:3]

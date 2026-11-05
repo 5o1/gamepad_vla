@@ -1,0 +1,1244 @@
+{
+  "browser": {
+    "browserName": "firefox",
+    "browserVersion": "158.0.1",
+    "moz:buildID": "20261020045838",
+    "moz:headless": true
+  },
+  "greeting": {
+    "applicationType": "gecko",
+    "marionetteProtocol": 3
+  },
+  "results": [
+    {
+      "viewport": [
+        1920,
+        1080
+      ],
+      "scroll": [
+        1920,
+        1080
+      ],
+      "workspace": {
+        "x": 0,
+        "y": 129,
+        "width": 1920,
+        "height": 917,
+        "right": 1920,
+        "bottom": 1046
+      },
+      "layout": "4x3",
+      "info": [
+        {
+          "name": "signalTile",
+          "rect": {
+            "x": 960,
+            "y": 669,
+            "width": 480,
+            "height": 270,
+            "right": 1440,
+            "bottom": 939
+          },
+          "text": "Actual gamepad signals"
+        },
+        {
+          "name": "statusTile",
+          "rect": {
+            "x": 1440,
+            "y": 669,
+            "width": 480,
+            "height": 270,
+            "right": 1920,
+            "bottom": 939
+          },
+          "text": "Idlesimulation-preview \u00b7 0.00 s \u00b7 0 rows59.5 fps \u00b7 Apply \u2192 encode P50 30.0 ms / P95 44.0 ms (target: 60 fps / 50 ms)No scene snapshot scheduledStatus"
+        }
+      ],
+      "objectFits": [
+        "contain",
+        "contain",
+        "contain",
+        "contain",
+        "contain",
+        "contain",
+        "contain"
+      ],
+      "panes": [
+        {
+          "name": "camera_3",
+          "rect": {
+            "x": 0,
+            "y": 129,
+            "width": 960,
+            "height": 540,
+            "right": 960,
+            "bottom": 669
+          },
+          "canvas": {
+            "x": 0,
+            "y": 129,
+            "width": 960,
+            "height": 540,
+            "right": 960,
+            "bottom": 669
+          },
+          "native": [
+            1280,
+            720
+          ]
+        },
+        {
+          "name": "face",
+          "rect": {
+            "x": 960,
+            "y": 129,
+            "width": 480,
+            "height": 270,
+            "right": 1440,
+            "bottom": 399
+          },
+          "canvas": {
+            "x": 960,
+            "y": 129,
+            "width": 480,
+            "height": 270,
+            "right": 1440,
+            "bottom": 399
+          },
+          "native": [
+            640,
+            540
+          ]
+        },
+        {
+          "name": "front",
+          "rect": {
+            "x": 1440,
+            "y": 129,
+            "width": 480,
+            "height": 270,
+            "right": 1920,
+            "bottom": 399
+          },
+          "canvas": {
+            "x": 1440,
+            "y": 129,
+            "width": 480,
+            "height": 270,
+            "right": 1920,
+            "bottom": 399
+          },
+          "native": [
+            640,
+            540
+          ]
+        },
+        {
+          "name": "back",
+          "rect": {
+            "x": 960,
+            "y": 399,
+            "width": 480,
+            "height": 270,
+            "right": 1440,
+            "bottom": 669
+          },
+          "canvas": {
+            "x": 960,
+            "y": 399,
+            "width": 480,
+            "height": 270,
+            "right": 1440,
+            "bottom": 669
+          },
+          "native": [
+            640,
+            540
+          ]
+        },
+        {
+          "name": "left",
+          "rect": {
+            "x": 1440,
+            "y": 399,
+            "width": 480,
+            "height": 270,
+            "right": 1920,
+            "bottom": 669
+          },
+          "canvas": {
+            "x": 1440,
+            "y": 399,
+            "width": 480,
+            "height": 270,
+            "right": 1920,
+            "bottom": 669
+          },
+          "native": [
+            640,
+            540
+          ]
+        },
+        {
+          "name": "right",
+          "rect": {
+            "x": 0,
+            "y": 669,
+            "width": 480,
+            "height": 270,
+            "right": 480,
+            "bottom": 939
+          },
+          "canvas": {
+            "x": 0,
+            "y": 669,
+            "width": 480,
+            "height": 270,
+            "right": 480,
+            "bottom": 939
+          },
+          "native": [
+            640,
+            540
+          ]
+        },
+        {
+          "name": "overview",
+          "rect": {
+            "x": 480,
+            "y": 669,
+            "width": 480,
+            "height": 270,
+            "right": 960,
+            "bottom": 939
+          },
+          "canvas": {
+            "x": 480,
+            "y": 669,
+            "width": 480,
+            "height": 270,
+            "right": 960,
+            "bottom": 939
+          },
+          "native": [
+            640,
+            540
+          ]
+        }
+      ],
+      "styles": [
+        {
+          "margin": "0px",
+          "padding": "0px",
+          "gap": "0px",
+          "border": "0px"
+        },
+        {
+          "margin": "0px",
+          "padding": "0px",
+          "gap": "0px",
+          "border": "0px"
+        },
+        {
+          "margin": "0px",
+          "padding": "0px",
+          "gap": "0px",
+          "border": "0px"
+        },
+        {
+          "margin": "0px",
+          "padding": "0px",
+          "gap": "0px",
+          "border": "0px"
+        },
+        {
+          "margin": "0px",
+          "padding": "0px",
+          "gap": "0px",
+          "border": "0px"
+        },
+        {
+          "margin": "0px",
+          "padding": "0px",
+          "gap": "0px",
+          "border": "0px"
+        },
+        {
+          "margin": "0px",
+          "padding": "0px",
+          "gap": "0px",
+          "border": "0px"
+        },
+        {
+          "margin": "0px",
+          "padding": "0px",
+          "gap": "0px",
+          "border": "0px"
+        },
+        {
+          "margin": "0px",
+          "padding": "0px",
+          "gap": "0px",
+          "border": "0px"
+        }
+      ],
+      "controls": [
+        {
+          "id": "safety",
+          "rect": {
+            "x": 6,
+            "y": 9,
+            "width": 114.31666564941406,
+            "height": 17,
+            "right": 120.31666564941406,
+            "bottom": 26
+          }
+        },
+        {
+          "id": "recording",
+          "rect": {
+            "x": 130.31666564941406,
+            "y": 6,
+            "width": 49.73333740234375,
+            "height": 23,
+            "right": 180.0500030517578,
+            "bottom": 29
+          }
+        },
+        {
+          "id": "startRecord",
+          "rect": {
+            "x": 190.0500030517578,
+            "y": 5,
+            "width": 82.21665954589844,
+            "height": 25,
+            "right": 272.26666259765625,
+            "bottom": 30
+          }
+        },
+        {
+          "id": "stopRecord",
+          "rect": {
+            "x": 282.26666259765625,
+            "y": 5,
+            "width": 66.06666564941406,
+            "height": 25,
+            "right": 348.3333282470703,
+            "bottom": 30
+          }
+        },
+        {
+          "id": "note",
+          "rect": {
+            "x": 358.33331298828125,
+            "y": 5,
+            "width": 160,
+            "height": 25,
+            "right": 518.3333129882812,
+            "bottom": 30
+          }
+        },
+        {
+          "id": "snapshotStart",
+          "rect": {
+            "x": 325.41668701171875,
+            "y": 46,
+            "width": 122.29998779296875,
+            "height": 25,
+            "right": 447.7166748046875,
+            "bottom": 71
+          }
+        },
+        {
+          "id": "snapshotStatus",
+          "rect": {
+            "x": 457.7166748046875,
+            "y": 50,
+            "width": 217.53334045410156,
+            "height": 17,
+            "right": 675.2500152587891,
+            "bottom": 67
+          }
+        },
+        {
+          "id": "viewToolbar",
+          "rect": {
+            "x": 6,
+            "y": 99,
+            "width": 1908,
+            "height": 26,
+            "right": 1914,
+            "bottom": 125
+          }
+        },
+        {
+          "id": "metrics",
+          "rect": {
+            "x": 131.88333129882812,
+            "y": 78,
+            "width": 464.01666259765625,
+            "height": 15,
+            "right": 595.8999938964844,
+            "bottom": 93
+          }
+        },
+        {
+          "id": "health",
+          "rect": {
+            "x": 6,
+            "y": 1049,
+            "width": 963.2666625976562,
+            "height": 28,
+            "right": 969.2666625976562,
+            "bottom": 1077
+          }
+        }
+      ],
+      "checked": 6,
+      "boundary_errors_px": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "viewport": [
+        1536,
+        864
+      ],
+      "scroll": [
+        1536,
+        864
+      ],
+      "workspace": {
+        "x": 0,
+        "y": 129,
+        "width": 1536,
+        "height": 701,
+        "right": 1536,
+        "bottom": 830
+      },
+      "layout": "4x3",
+      "info": [
+        {
+          "name": "signalTile",
+          "rect": {
+            "x": 768,
+            "y": 561,
+            "width": 384,
+            "height": 216,
+            "right": 1152,
+            "bottom": 777
+          },
+          "text": "Actual gamepad signals"
+        },
+        {
+          "name": "statusTile",
+          "rect": {
+            "x": 1152,
+            "y": 561,
+            "width": 384,
+            "height": 216,
+            "right": 1536,
+            "bottom": 777
+          },
+          "text": "Idlesimulation-preview \u00b7 0.00 s \u00b7 0 rows59.5 fps \u00b7 Apply \u2192 encode P50 30.0 ms / P95 44.0 ms (target: 60 fps / 50 ms)No scene snapshot scheduledStatus"
+        }
+      ],
+      "objectFits": [
+        "contain",
+        "contain",
+        "contain",
+        "contain",
+        "contain",
+        "contain",
+        "contain"
+      ],
+      "panes": [
+        {
+          "name": "camera_3",
+          "rect": {
+            "x": 0,
+            "y": 129,
+            "width": 768,
+            "height": 432,
+            "right": 768,
+            "bottom": 561
+          },
+          "canvas": {
+            "x": 0,
+            "y": 129,
+            "width": 768,
+            "height": 432,
+            "right": 768,
+            "bottom": 561
+          },
+          "native": [
+            1280,
+            720
+          ]
+        },
+        {
+          "name": "face",
+          "rect": {
+            "x": 768,
+            "y": 129,
+            "width": 384,
+            "height": 216,
+            "right": 1152,
+            "bottom": 345
+          },
+          "canvas": {
+            "x": 768,
+            "y": 129,
+            "width": 384,
+            "height": 216,
+            "right": 1152,
+            "bottom": 345
+          },
+          "native": [
+            640,
+            540
+          ]
+        },
+        {
+          "name": "front",
+          "rect": {
+            "x": 1152,
+            "y": 129,
+            "width": 384,
+            "height": 216,
+            "right": 1536,
+            "bottom": 345
+          },
+          "canvas": {
+            "x": 1152,
+            "y": 129,
+            "width": 384,
+            "height": 216,
+            "right": 1536,
+            "bottom": 345
+          },
+          "native": [
+            640,
+            540
+          ]
+        },
+        {
+          "name": "back",
+          "rect": {
+            "x": 768,
+            "y": 345,
+            "width": 384,
+            "height": 216,
+            "right": 1152,
+            "bottom": 561
+          },
+          "canvas": {
+            "x": 768,
+            "y": 345,
+            "width": 384,
+            "height": 216,
+            "right": 1152,
+            "bottom": 561
+          },
+          "native": [
+            640,
+            540
+          ]
+        },
+        {
+          "name": "left",
+          "rect": {
+            "x": 1152,
+            "y": 345,
+            "width": 384,
+            "height": 216,
+            "right": 1536,
+            "bottom": 561
+          },
+          "canvas": {
+            "x": 1152,
+            "y": 345,
+            "width": 384,
+            "height": 216,
+            "right": 1536,
+            "bottom": 561
+          },
+          "native": [
+            640,
+            540
+          ]
+        },
+        {
+          "name": "right",
+          "rect": {
+            "x": 0,
+            "y": 561,
+            "width": 384,
+            "height": 216,
+            "right": 384,
+            "bottom": 777
+          },
+          "canvas": {
+            "x": 0,
+            "y": 561,
+            "width": 384,
+            "height": 216,
+            "right": 384,
+            "bottom": 777
+          },
+          "native": [
+            640,
+            540
+          ]
+        },
+        {
+          "name": "overview",
+          "rect": {
+            "x": 384,
+            "y": 561,
+            "width": 384,
+            "height": 216,
+            "right": 768,
+            "bottom": 777
+          },
+          "canvas": {
+            "x": 384,
+            "y": 561,
+            "width": 384,
+            "height": 216,
+            "right": 768,
+            "bottom": 777
+          },
+          "native": [
+            640,
+            540
+          ]
+        }
+      ],
+      "styles": [
+        {
+          "margin": "0px",
+          "padding": "0px",
+          "gap": "0px",
+          "border": "0px"
+        },
+        {
+          "margin": "0px",
+          "padding": "0px",
+          "gap": "0px",
+          "border": "0px"
+        },
+        {
+          "margin": "0px",
+          "padding": "0px",
+          "gap": "0px",
+          "border": "0px"
+        },
+        {
+          "margin": "0px",
+          "padding": "0px",
+          "gap": "0px",
+          "border": "0px"
+        },
+        {
+          "margin": "0px",
+          "padding": "0px",
+          "gap": "0px",
+          "border": "0px"
+        },
+        {
+          "margin": "0px",
+          "padding": "0px",
+          "gap": "0px",
+          "border": "0px"
+        },
+        {
+          "margin": "0px",
+          "padding": "0px",
+          "gap": "0px",
+          "border": "0px"
+        },
+        {
+          "margin": "0px",
+          "padding": "0px",
+          "gap": "0px",
+          "border": "0px"
+        },
+        {
+          "margin": "0px",
+          "padding": "0px",
+          "gap": "0px",
+          "border": "0px"
+        }
+      ],
+      "controls": [
+        {
+          "id": "safety",
+          "rect": {
+            "x": 6,
+            "y": 9,
+            "width": 114.31666564941406,
+            "height": 17,
+            "right": 120.31666564941406,
+            "bottom": 26
+          }
+        },
+        {
+          "id": "recording",
+          "rect": {
+            "x": 130.31666564941406,
+            "y": 6,
+            "width": 49.73333740234375,
+            "height": 23,
+            "right": 180.0500030517578,
+            "bottom": 29
+          }
+        },
+        {
+          "id": "startRecord",
+          "rect": {
+            "x": 190.0500030517578,
+            "y": 5,
+            "width": 82.21665954589844,
+            "height": 25,
+            "right": 272.26666259765625,
+            "bottom": 30
+          }
+        },
+        {
+          "id": "stopRecord",
+          "rect": {
+            "x": 282.26666259765625,
+            "y": 5,
+            "width": 66.06666564941406,
+            "height": 25,
+            "right": 348.3333282470703,
+            "bottom": 30
+          }
+        },
+        {
+          "id": "note",
+          "rect": {
+            "x": 358.33331298828125,
+            "y": 5,
+            "width": 160,
+            "height": 25,
+            "right": 518.3333129882812,
+            "bottom": 30
+          }
+        },
+        {
+          "id": "snapshotStart",
+          "rect": {
+            "x": 325.41668701171875,
+            "y": 46,
+            "width": 122.29998779296875,
+            "height": 25,
+            "right": 447.7166748046875,
+            "bottom": 71
+          }
+        },
+        {
+          "id": "snapshotStatus",
+          "rect": {
+            "x": 457.7166748046875,
+            "y": 50,
+            "width": 217.53334045410156,
+            "height": 17,
+            "right": 675.2500152587891,
+            "bottom": 67
+          }
+        },
+        {
+          "id": "viewToolbar",
+          "rect": {
+            "x": 6,
+            "y": 99,
+            "width": 1524,
+            "height": 26,
+            "right": 1530,
+            "bottom": 125
+          }
+        },
+        {
+          "id": "metrics",
+          "rect": {
+            "x": 131.88333129882812,
+            "y": 78,
+            "width": 464.01666259765625,
+            "height": 15,
+            "right": 595.8999938964844,
+            "bottom": 93
+          }
+        },
+        {
+          "id": "health",
+          "rect": {
+            "x": 6,
+            "y": 833,
+            "width": 963.2666625976562,
+            "height": 28,
+            "right": 969.2666625976562,
+            "bottom": 861
+          }
+        }
+      ],
+      "checked": 6,
+      "boundary_errors_px": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "viewport": [
+        864,
+        1536
+      ],
+      "scroll": [
+        864,
+        1536
+      ],
+      "workspace": {
+        "x": 0,
+        "y": 129,
+        "width": 864,
+        "height": 1341,
+        "right": 864,
+        "bottom": 1470
+      },
+      "layout": "2x5",
+      "info": [],
+      "objectFits": [
+        "contain",
+        "contain",
+        "contain",
+        "contain",
+        "contain",
+        "contain",
+        "contain"
+      ],
+      "panes": [
+        {
+          "name": "camera_3",
+          "rect": {
+            "x": 0,
+            "y": 129,
+            "width": 864,
+            "height": 486,
+            "right": 864,
+            "bottom": 615
+          },
+          "canvas": {
+            "x": 0,
+            "y": 129,
+            "width": 864,
+            "height": 486,
+            "right": 864,
+            "bottom": 615
+          },
+          "native": [
+            1280,
+            720
+          ]
+        },
+        {
+          "name": "face",
+          "rect": {
+            "x": 0,
+            "y": 615,
+            "width": 432,
+            "height": 243,
+            "right": 432,
+            "bottom": 858
+          },
+          "canvas": {
+            "x": 0,
+            "y": 615,
+            "width": 432,
+            "height": 243,
+            "right": 432,
+            "bottom": 858
+          },
+          "native": [
+            640,
+            540
+          ]
+        },
+        {
+          "name": "front",
+          "rect": {
+            "x": 432,
+            "y": 615,
+            "width": 432,
+            "height": 243,
+            "right": 864,
+            "bottom": 858
+          },
+          "canvas": {
+            "x": 432,
+            "y": 615,
+            "width": 432,
+            "height": 243,
+            "right": 864,
+            "bottom": 858
+          },
+          "native": [
+            640,
+            540
+          ]
+        },
+        {
+          "name": "back",
+          "rect": {
+            "x": 0,
+            "y": 858,
+            "width": 432,
+            "height": 243,
+            "right": 432,
+            "bottom": 1101
+          },
+          "canvas": {
+            "x": 0,
+            "y": 858,
+            "width": 432,
+            "height": 243,
+            "right": 432,
+            "bottom": 1101
+          },
+          "native": [
+            640,
+            540
+          ]
+        },
+        {
+          "name": "left",
+          "rect": {
+            "x": 432,
+            "y": 858,
+            "width": 432,
+            "height": 243,
+            "right": 864,
+            "bottom": 1101
+          },
+          "canvas": {
+            "x": 432,
+            "y": 858,
+            "width": 432,
+            "height": 243,
+            "right": 864,
+            "bottom": 1101
+          },
+          "native": [
+            640,
+            540
+          ]
+        },
+        {
+          "name": "right",
+          "rect": {
+            "x": 0,
+            "y": 1101,
+            "width": 432,
+            "height": 243,
+            "right": 432,
+            "bottom": 1344
+          },
+          "canvas": {
+            "x": 0,
+            "y": 1101,
+            "width": 432,
+            "height": 243,
+            "right": 432,
+            "bottom": 1344
+          },
+          "native": [
+            640,
+            540
+          ]
+        },
+        {
+          "name": "overview",
+          "rect": {
+            "x": 432,
+            "y": 1101,
+            "width": 432,
+            "height": 243,
+            "right": 864,
+            "bottom": 1344
+          },
+          "canvas": {
+            "x": 432,
+            "y": 1101,
+            "width": 432,
+            "height": 243,
+            "right": 864,
+            "bottom": 1344
+          },
+          "native": [
+            640,
+            540
+          ]
+        }
+      ],
+      "styles": [
+        {
+          "margin": "0px",
+          "padding": "0px",
+          "gap": "0px",
+          "border": "0px"
+        },
+        {
+          "margin": "0px",
+          "padding": "0px",
+          "gap": "0px",
+          "border": "0px"
+        },
+        {
+          "margin": "0px",
+          "padding": "0px",
+          "gap": "0px",
+          "border": "0px"
+        },
+        {
+          "margin": "0px",
+          "padding": "0px",
+          "gap": "0px",
+          "border": "0px"
+        },
+        {
+          "margin": "0px",
+          "padding": "0px",
+          "gap": "0px",
+          "border": "0px"
+        },
+        {
+          "margin": "0px",
+          "padding": "0px",
+          "gap": "0px",
+          "border": "0px"
+        },
+        {
+          "margin": "0px",
+          "padding": "0px",
+          "gap": "0px",
+          "border": "0px"
+        },
+        {
+          "margin": "0px",
+          "padding": "0px",
+          "gap": "0px",
+          "border": "0px"
+        },
+        {
+          "margin": "0px",
+          "padding": "0px",
+          "gap": "0px",
+          "border": "0px"
+        }
+      ],
+      "controls": [
+        {
+          "id": "safety",
+          "rect": {
+            "x": 6,
+            "y": 9,
+            "width": 114.31666564941406,
+            "height": 17,
+            "right": 120.31666564941406,
+            "bottom": 26
+          }
+        },
+        {
+          "id": "recording",
+          "rect": {
+            "x": 130.31666564941406,
+            "y": 6,
+            "width": 49.73333740234375,
+            "height": 23,
+            "right": 180.0500030517578,
+            "bottom": 29
+          }
+        },
+        {
+          "id": "startRecord",
+          "rect": {
+            "x": 190.0500030517578,
+            "y": 5,
+            "width": 82.21665954589844,
+            "height": 25,
+            "right": 272.26666259765625,
+            "bottom": 30
+          }
+        },
+        {
+          "id": "stopRecord",
+          "rect": {
+            "x": 282.26666259765625,
+            "y": 5,
+            "width": 66.06666564941406,
+            "height": 25,
+            "right": 348.3333282470703,
+            "bottom": 30
+          }
+        },
+        {
+          "id": "note",
+          "rect": {
+            "x": 358.33331298828125,
+            "y": 5,
+            "width": 160,
+            "height": 25,
+            "right": 518.3333129882812,
+            "bottom": 30
+          }
+        },
+        {
+          "id": "snapshotStart",
+          "rect": {
+            "x": 325.41668701171875,
+            "y": 46,
+            "width": 122.29998779296875,
+            "height": 25,
+            "right": 447.7166748046875,
+            "bottom": 71
+          }
+        },
+        {
+          "id": "snapshotStatus",
+          "rect": {
+            "x": 457.7166748046875,
+            "y": 50,
+            "width": 217.53334045410156,
+            "height": 17,
+            "right": 675.2500152587891,
+            "bottom": 67
+          }
+        },
+        {
+          "id": "viewToolbar",
+          "rect": {
+            "x": 6,
+            "y": 99,
+            "width": 852,
+            "height": 26,
+            "right": 858,
+            "bottom": 125
+          }
+        },
+        {
+          "id": "metrics",
+          "rect": {
+            "x": 131.88333129882812,
+            "y": 78,
+            "width": 464.01666259765625,
+            "height": 15,
+            "right": 595.8999938964844,
+            "bottom": 93
+          }
+        },
+        {
+          "id": "health",
+          "rect": {
+            "x": 6,
+            "y": 1473,
+            "width": 852,
+            "height": 42,
+            "right": 858,
+            "bottom": 1515
+          }
+        }
+      ],
+      "checked": 6,
+      "boundary_errors_px": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "repacks": [
+    {
+      "visible_aux": 5,
+      "layout": "3x3",
+      "cell": [
+        415.4083251953125,
+        233.66665649414062
+      ]
+    },
+    {
+      "visible_aux": 4,
+      "layout": "3x3",
+      "cell": [
+        415.4083251953125,
+        233.66665649414062
+      ]
+    },
+    {
+      "visible_aux": 3,
+      "layout": "3x3",
+      "cell": [
+        415.4083251953125,
+        233.66665649414062
+      ]
+    },
+    {
+      "visible_aux": 2,
+      "layout": "3x2",
+      "cell": [
+        512.0,
+        288.0
+      ]
+    },
+    {
+      "visible_aux": 1,
+      "layout": "3x2",
+      "cell": [
+        512.0,
+        288.0
+      ]
+    },
+    {
+      "visible_aux": 0,
+      "layout": "2x2",
+      "cell": [
+        623.1083374023438,
+        350.5
+      ]
+    }
+  ],
+  "zoom_all": true,
+  "escape": true,
+  "storage_reload": true,
+  "all_off": true,
+  "layout_revision": "equal-grid-main-2x2",
+  "mode": "Headless Firefox on station; actual collection HTML/CSS/JS + offline API fixture + native AE pose renders; no H.264 decoding claim"
+}

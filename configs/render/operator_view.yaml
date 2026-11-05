@@ -11,7 +11,8 @@ auxiliary:
   width: 1920
   height: 1080
   fps: 20
-  # 3x2 native camera tiles, no gutters or resize. Optional: 2560x1440, 30 fps.
+  # 3x2 native source tiles. Browser defaults to all six, scales to fit the viewport.
+  # Camera poses: workstation/auxiliary_views.py; camera_3 stays calibrated.
 camera:
   position_gamepad: [-0.16, -0.15, 0.105]
   target_gamepad: [-0.0203, -0.0018, 0.0184]
