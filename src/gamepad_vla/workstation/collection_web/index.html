@@ -4,7 +4,9 @@
 <link rel="stylesheet" href="/overlay/collection.css">
 <main>
 <header id="controls">
-<div class="control-row"><div id="safety">Checking simulation mode…</div><div id="recording" role="status">Loading recording status…</div>
+<div class="control-row"><div id="safety">Checking simulation mode…</div>
+<button id="launch" type="submit" form="sessionForm">Start simulation</button><button id="endSession" type="button">Stop simulation</button><small id="sessionStatus">Loading session status…</small>
+<div id="recording" role="status">Loading recording status…</div>
 <button id="startRecord" data-action="start">Record (R)</button><button id="stopRecord" data-action="stop">Stop (S)</button>
 <input id="note" placeholder="Note (N)" aria-label="Note"><button id="addNote" data-action="note">Add note</button>
 <label><input type="checkbox" id="remoteToggle">Remote: <strong id="remoteState">Waiting</strong></label>
@@ -30,7 +32,6 @@
 <label>Backend<select id="backend"></select></label><label>Scene<select id="variant"></select></label><label>Input<select id="source"></select></label>
 <label id="replayLabel">Replay file<select id="replay"></select></label>
 <label>Duration (s; blank for unlimited)<input id="duration" type="number" min="0.1" step="any" style="width:130px"></label>
-<button id="launch" type="submit">Start simulation</button><button id="endSession" type="button">Stop collection and simulation</button><small id="sessionStatus">Loading session status…</small>
 </fieldset></form></div></details></div>
 <div id="recordDetails"></div>
 <div class="control-row" id="snapshotPanel">
