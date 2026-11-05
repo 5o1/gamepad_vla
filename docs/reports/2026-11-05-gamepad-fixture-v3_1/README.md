@@ -43,7 +43,7 @@ SAPIEN 实际加载 **14 个 cooked 静态网格**。34个已接受控件状态�
 中文操作见 [USER_EDITING.md](../../../hardware/gamepad_fixture/USER_EDITING.md)。用户从 Downloads 的 `edit_table_up/<part>.step` 编辑，保留 mm、装配原点与坐标，每次导出一个实体。审阅者可执行：
 
 ```bash
-.local/cad-env/bin/python hardware/gamepad_fixture/user_steps.py /mnt/c/Users/<you>/Downloads/slider_upper_jaw.step --part slider_upper_jaw
+.local/cad-env/bin/python hardware/gamepad_fixture/user_steps.py "$DOWNLOADS"/slider_upper_jaw.step --part slider_upper_jaw
 .local/cad-env/bin/python hardware/gamepad_fixture/pipeline.py
 ```
 

@@ -7,8 +7,9 @@
 编辑后可直接告诉审阅者：“我改好了 slider_upper_jaw，文件在 Downloads/…”。也可以在仓库根目录运行：
 
 ```bash
+# DOWNLOADS 是 WSL 中 Windows 下载目录的路径，例如 /mnt/c/Users/<用户名>/Downloads
 .local/cad-env/bin/python hardware/gamepad_fixture/user_steps.py \
-  /mnt/c/Users/<you>/Downloads/slider_upper_jaw.step --part slider_upper_jaw
+  "$DOWNLOADS"/slider_upper_jaw.step --part slider_upper_jaw
 .local/cad-env/bin/python hardware/gamepad_fixture/pipeline.py
 ```
 
